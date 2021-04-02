@@ -13,7 +13,7 @@ keywords = ["embedded", "graphics", "bitmap", "font", "no_std"]
 categories = ["embedded", "graphics", "no-std"]
 license = "Apache-2.0"
 readme = "crates-io.md"
-#repository = "https://github.com/msrd0/bitmap_font"
+#repository = "https://github.com/msrd0/bitmap-font"
 include = ["src/**/*", "LICENSE", "crates-io.md"]
 
 [dependencies]

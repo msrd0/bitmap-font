@@ -1,4 +1,4 @@
-# bitmap_font [![Rust 1.50+](https://img.shields.io/badge/rustc-1.50+-orange.svg)](https://blog.rust-lang.org/2021/02/11/Rust-1.50.0.html) [![License Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0) [![GitHub](https://img.shields.io/badge/Code-On%20Github-blue?logo=GitHub)](https://github.com/msrd0/bitmap_font)
+# bitmap-font [![Rust 1.50+](https://img.shields.io/badge/rustc-1.50+-orange.svg)](https://blog.rust-lang.org/2021/02/11/Rust-1.50.0.html) [![License Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0) [![GitHub](https://img.shields.io/badge/Code-On%20Github-blue?logo=GitHub)](https://github.com/msrd0/bitmap-font)
 
 {{readme}}
 
@@ -9,7 +9,7 @@ information only. Changing the MSRV can be done at any point in time and is not 
 
 ## License (Source Code)
 
-Copyright (C) 2021 Dominic Meiser and [contributors](https://github.com/msrd0/bitmap_font/graphs/contributors).
+Copyright (C) 2021 Dominic Meiser and [contributors](https://github.com/msrd0/bitmap-font/graphs/contributors).
 
 ```
 Licensed under the Apache License, Version 2.0 (the "License");

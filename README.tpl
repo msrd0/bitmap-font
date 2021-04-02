@@ -1,30 +1,30 @@
 <br/>
 <div>
-	<a href="https://crates.io/crates/bitmap_font">
-		<img alt="bitmap_font on crates.io" src="https://img.shields.io/crates/v/bitmap_font.svg"/>
+	<a href="https://crates.io/crates/bitmap-font">
+		<img alt="bitmap-font on crates.io" src="https://img.shields.io/crates/v/bitmap-font.svg"/>
 	</a>
-	<a href="https://docs.rs/bitmap_font">
-    	<img alt="bitmap_font on docs.rs" src="https://docs.rs/bitmap_font/badge.svg"/>
+	<a href="https://docs.rs/bitmap-font">
+    	<img alt="bitmap-font on docs.rs" src="https://docs.rs/bitmap-font/badge.svg"/>
 	</a>
-	<a href="https://github.com/msrd0/bitmap_font/actions/workflows/rust.yml">
-		<img alt="build status" src="https://github.com/msrd0/bitmap_font/actions/workflows/rust.yml/badge.svg"/>
+	<a href="https://github.com/msrd0/bitmap-font/actions/workflows/rust.yml">
+		<img alt="build status" src="https://github.com/msrd0/bitmap-font/actions/workflows/rust.yml/badge.svg"/>
 	</a>
-	<a href="https://msrd0.github.io/bitmap_font/tarpaulin-report.html">
-		<img alt="coverage report" src="https://msrd0.github.io/bitmap_font/coverage.svg"/>
+	<a href="https://msrd0.github.io/bitmap-font/tarpaulin-report.html">
+		<img alt="coverage report" src="https://msrd0.github.io/bitmap-font/coverage.svg"/>
 	</a>
-	<a href="https://msrd0.github.io/bitmap_font/doc/bitmap_font/index.html">
-		<img alt="bitmap_font master branch documentation" src="https://img.shields.io/badge/docs-master-blue.svg"/>
+	<a href="https://msrd0.github.io/bitmap-font/doc/bitmap-font/index.html">
+		<img alt="bitmap-font master branch documentation" src="https://img.shields.io/badge/docs-master-blue.svg"/>
 	</a>
     <a href="https://blog.rust-lang.org/2020/12/31/Rust-1.50.0.html">
         <img alt="Rust 1.50+" src="https://img.shields.io/badge/rustc-1.50+-orange.svg"/>
     </a>
-	<a href="https://deps.rs/repo/github/msrd0/bitmap_font">
-		<img alt="dependency report" src="https://deps.rs/repo/github/msrd0/bitmap_font/status.svg"/>
+	<a href="https://deps.rs/repo/github/msrd0/bitmap-font">
+		<img alt="dependency report" src="https://deps.rs/repo/github/msrd0/bitmap-font/status.svg"/>
 	</a>
 </div>
 <br/>
 
-# bitmap_font
+# bitmap-font
 
 {{readme}}
 
@@ -35,7 +35,7 @@ information only. Changing the MSRV can be done at any point in time and is not 
 
 ## License (Source Code)
 
-Copyright (C) 2021 Dominic Meiser and [contributors](https://github.com/msrd0/bitmap_font/graphs/contributors).
+Copyright (C) 2021 Dominic Meiser and [contributors](https://github.com/msrd0/bitmap-font/graphs/contributors).
 
 ```
 Licensed under the Apache License, Version 2.0 (the "License");

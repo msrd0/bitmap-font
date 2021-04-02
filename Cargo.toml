@@ -1,0 +1,15 @@
+# -*- eval: (cargo-minor-mode 1) -*-
+
+[workspace]
+members = [".", "./codegen"]
+
+[package]
+name = "bitmap-font"
+version = "0.0.0"
+publish = false
+authors = ["Dominic Meiser <git@msrd0.de>"]
+edition = "2018"
+license = "Apache-2.0"
+
+[dependencies]
+embedded-graphics = "0.6.2"

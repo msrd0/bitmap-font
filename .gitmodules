@@ -1,0 +1,3 @@
+[submodule "codegen/tamzen-font"]
+	path = codegen/tamzen-font
+	url = https://github.com/sunaku/tamzen-font

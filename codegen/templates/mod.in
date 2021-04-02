@@ -1,0 +1,65 @@
+// AUTO-GENERATED File
+
+//! Auto-Generated Fonts.
+
+#![allow(unused_attributes)]
+#![rustfmt::skip]
+
+use crate::BitmapFont;
+
+{% for font in fonts -%}
+/**
+ * Tamzen {{ font.width }}x{{ font.height }} Font.
+ * 
+ * <img src="data:image/bmp;base64,{{ font.bmp }}"/>
+ * 
+ * Bitmap Size: {{ font.bitmap_len }} Byte <br/>
+ * Font Source: <https://github.com/sunaku/tamzen-font/blob/master/bdf/Tamzen{{ font.width }}x{{ font.height }}r.bdf> <br/>
+ * Font License: <https://github.com/sunaku/tamzen-font/blob/master/LICENSE>
+ */
+#[allow(non_upper_case_globals)]
+pub const FONT_{{ font.width }}x{{ font.height }}: BitmapFont = BitmapFont {
+	bitmap: &[
+		{%- for byte in font.bitmap -%}
+			{%- match byte -%}
+				{%- when 0 -%}
+					{{ "0, "|format() }}
+				{%- else -%}
+					{{ "{:#02x}, "|format(byte) }}
+			{%- endmatch -%}
+		{%- endfor -%}
+	],
+	bitmap_width: {{ font.img_width }},
+	width: {{ font.width }},
+	height: {{ font.height }},
+	pixels: 1
+};
+
+/**
+ * Pixel-double version of [FONT_{{ font.width }}x{{ font.height }}].
+ * 
+ * <img src="data:image/bmp;base64,{{ font.bmp_double }}"/>
+ * 
+ * This font does not store its own bitmap and therefore does not increase the flash size significantly.
+ */
+#[allow(non_upper_case_globals)]
+pub const FONT_{{ 2*font.width }}x{{ 2*font.height }}: BitmapFont = FONT_{{ font.width }}x{{ font.height }}.pixel_double();
+
+{% endfor -%}
+
+#[cfg(test)]
+mod tests {
+	use super::*;
+	
+	{%- for font in fonts %}
+	
+	#[test]
+	fn font_size_{{ font.width }}x{{ font.height }}() {
+		assert_eq!(FONT_{{ font.width }}x{{ font.height }}.width(), {{ font.width }});
+		assert_eq!(FONT_{{ font.width }}x{{ font.height }}.height(), {{ font.height }});
+		
+		assert_eq!(FONT_{{ 2*font.width }}x{{ 2*font.height }}.width(), {{ 2*font.width }});
+		assert_eq!(FONT_{{ 2*font.width }}x{{ 2*font.height }}.height(), {{ 2*font.height }});
+	}
+	{%- endfor %}
+}

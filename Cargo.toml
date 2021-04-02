@@ -9,7 +9,13 @@ version = "0.0.0"
 publish = false
 authors = ["Dominic Meiser <git@msrd0.de>"]
 edition = "2018"
+description = "This crate provides bitmap fonts for the embedded-graphics crate without requiring generics"
+keywords = ["embedded", "graphics", "bitmap", "font", "no_std"]
+categories = ["embedded", "graphics", "no-std"]
 license = "Apache-2.0"
+readme = "crates-io.md"
+repository = "https://github.com/msrd0/bitmap_font"
+include = ["src/**/*", "LICENSE", "crates-io.md"]
 
 [dependencies]
 embedded-graphics = "0.6.2"

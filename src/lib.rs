@@ -233,7 +233,7 @@ impl Iterator for PixelIterator<'_> {
 				let y = self.pos.y + self.char_walk_y;
 				self.char_walk_x += 1;
 
-				if self.char_walk_x > self.font.width() as i32 {
+				if self.char_walk_x >= self.font.width() as i32 {
 					self.char_walk_x = 0;
 					self.char_walk_y += 1;
 

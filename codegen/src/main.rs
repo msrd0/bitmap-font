@@ -45,7 +45,9 @@ struct Font {
 	bitmap_len: String,
 	img_width: usize,
 	bmp: String,
-	bmp_double: String
+	bmp_double: String,
+	a_pat: Vec<String>,
+	a_pat_double: Vec<String>
 }
 
 fn main() -> anyhow::Result<()> {
@@ -125,6 +127,23 @@ fn main() -> anyhow::Result<()> {
 			}
 		}
 
+		let a_glyph = glyphs.get(&'a').unwrap();
+		let mut a_pat: Vec<String> = Vec::new();
+		let mut a_pat_double: Vec<String> = Vec::new();
+		for y in 0..height {
+			let mut line = String::new();
+			let mut line_double = String::new();
+			for x in 0..width {
+				let c = a_glyph.get(x, y).then(|| "#").unwrap_or(" ");
+				line += c;
+				line_double += c;
+				line_double += c;
+			}
+			a_pat.push(line);
+			a_pat_double.push(line_double.clone());
+			a_pat_double.push(line_double);
+		}
+
 		let mut bitmap: Vec<u8> = Vec::new();
 		for mut line in lines {
 			for _ in min_width..img_width {
@@ -154,7 +173,9 @@ fn main() -> anyhow::Result<()> {
 			bitmap_len,
 			img_width,
 			bmp: base64::encode(&bmp),
-			bmp_double: base64::encode(&bmp_double)
+			bmp_double: base64::encode(&bmp_double),
+			a_pat,
+			a_pat_double
 		};
 		mod_rs.fonts.push(font);
 	}

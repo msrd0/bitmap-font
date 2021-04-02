@@ -11,13 +11,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        toolchain: ["1.50", stable, beta]
+        toolchain: ["1.50", stable]
         nightly: [false]
-        include:
-          - toolchain: nightly
-            nightly: true
-          - toolchain: nightly
-            nightly: true
     runs-on: ubuntu-latest
     name: test-${{ matrix.toolchain }}
     continue-on-error: ${{ matrix.nightly }}

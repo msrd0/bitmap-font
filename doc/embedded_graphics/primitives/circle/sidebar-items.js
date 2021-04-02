@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Circle","Circle primitive"],["StyledCircleIterator","Pixel iterator for each pixel in the circle border"]]});

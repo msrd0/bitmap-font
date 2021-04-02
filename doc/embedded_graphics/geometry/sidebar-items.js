@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Point","2D point."],["Size","2D size."]],"trait":[["Dimensions","Adds the ability to get the dimensions/position of a graphics object"]]});

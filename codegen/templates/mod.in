@@ -2,7 +2,7 @@
 
 //! Auto-Generated Fonts.
 
-#![allow(unused_attributes)]
+#![allow(soft_unstable, unused_attributes)]
 #![rustfmt::skip]
 
 use crate::BitmapFont;

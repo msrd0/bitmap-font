@@ -3,6 +3,8 @@ use askama::Template;
 use bit_vec::BitVec;
 use num_format::{Locale, ToFormattedString};
 use std::{
+	cmp::Ordering,
+	collections::BTreeSet,
 	fs::{self, File},
 	io::Write
 };
@@ -35,9 +37,10 @@ fn to_bmp(bitmap: &[u8], width: i32, height: i32) -> anyhow::Result<Vec<u8>> {
 #[derive(Template)]
 #[template(path = "mod.in", escape = "none")]
 struct ModRs {
-	fonts: Vec<Font>
+	fonts: BTreeSet<Font>
 }
 
+#[derive(Eq)]
 struct Font {
 	width: u32,
 	height: u32,
@@ -50,8 +53,26 @@ struct Font {
 	a_pat_double: Vec<String>
 }
 
+impl PartialEq for Font {
+	fn eq(&self, other: &Self) -> bool {
+		self.width == other.width && self.height == other.height
+	}
+}
+
+impl PartialOrd for Font {
+	fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
+		Some(self.cmp(other))
+	}
+}
+
+impl Ord for Font {
+	fn cmp(&self, other: &Self) -> Ordering {
+		(self.width, self.height).cmp(&(other.width, other.height))
+	}
+}
+
 fn main() -> anyhow::Result<()> {
-	let mut mod_rs = ModRs { fonts: Vec::new() };
+	let mut mod_rs = ModRs { fonts: BTreeSet::new() };
 
 	let dir = "tamzen-font/bdf";
 	for file in fs::read_dir(dir)? {
@@ -177,7 +198,7 @@ fn main() -> anyhow::Result<()> {
 			a_pat,
 			a_pat_double
 		};
-		mod_rs.fonts.push(font);
+		mod_rs.fonts.insert(font);
 	}
 
 	let mut rs = File::create("../src/generated.rs")?;

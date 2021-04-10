@@ -3,6 +3,9 @@ max_width = 125
 newline_style = "Unix"
 unstable_features = true
 
+# skip generated files
+ignore = ["generated.rs"]
+
 # always use tabs.
 hard_tabs = true
 tab_spaces = 4

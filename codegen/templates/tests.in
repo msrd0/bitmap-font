@@ -1,0 +1,114 @@
+// @generated
+
+use bitmap_font::*;
+use embedded_graphics::{
+	drawable::Drawable,
+	fonts::Text,
+	geometry::{Dimensions, Point, Size},
+	mock_display::MockDisplay,
+	pixelcolor::BinaryColor
+};
+
+// ### Fonts
+
+{% for font in fonts -%}
+#[test]
+fn font_size_{{ font.width }}x{{ font.height }}() {
+	assert_eq!(FONT_{{ font.width }}x{{ font.height }}.width(), {{ font.width }});
+	assert_eq!(FONT_{{ font.width }}x{{ font.height }}.height(), {{ font.height }});
+}
+
+#[test]
+fn text_empty_size_{{ font.width }}x{{ font.height }}() {
+	let size = Text::new("", Point::zero())
+		.with_font(FONT_{{ font.width }}x{{ font.height }}, BinaryColor::On)
+		.size();
+	assert_eq!(size, Size::zero());
+}
+
+#[test]
+fn text_a_size_{{ font.width }}x{{ font.height }}() {
+	let size = Text::new("a", Point::zero())
+		.with_font(FONT_{{ font.width }}x{{ font.height }}, BinaryColor::On)
+		.size();
+	assert_eq!(size, Size::new({{ font.width }}, {{ font.height }}));
+}
+
+#[test]
+fn text_multiline_size_{{ font.width }}x{{ font.height }}() {
+	let size = Text::new("aa\naaa\na", Point::zero())
+		.with_font(FONT_{{ font.width }}x{{ font.height }}, BinaryColor::On)
+		.size();
+	assert_eq!(size, Size::new({{ 3*font.width }}, {{ 3*font.height }}));
+}
+
+#[test]
+fn text_a_draw_{{ font.width }}x{{ font.height }}() {
+	let mut display = MockDisplay::new();
+	Text::new("a", Point::zero())
+		.with_font(FONT_{{ font.width }}x{{ font.height }}, BinaryColor::On)
+		.draw(&mut display)
+		.unwrap();
+	assert_eq!(
+		display,
+		MockDisplay::from_pattern(&[
+			{%- for pat in font.a_pat %}
+			"{{ pat }}",
+			{%- endfor %}
+		])
+	);
+}
+
+{% endfor -%}
+
+// ### Pixel-Double Fonts
+
+{% for font in fonts -%}
+#[test]
+fn font_size_{{ 2*font.width }}x{{ 2*font.height }}() {
+	assert_eq!(FONT_{{ 2*font.width }}x{{ 2*font.height }}.width(), {{ 2*font.width }});
+	assert_eq!(FONT_{{ 2*font.width }}x{{ 2*font.height }}.height(), {{ 2*font.height }});
+}
+
+#[test]
+fn text_empty_size_{{ 2*font.width }}x{{ 2*font.height }}() {
+	let size = Text::new("", Point::zero())
+		.with_font(FONT_{{ 2*font.width }}x{{ 2*font.height }}, BinaryColor::On)
+		.size();
+	assert_eq!(size, Size::zero());
+}
+
+#[test]
+fn text_a_size_{{ 2*font.width }}x{{ 2*font.height }}() {
+	let size = Text::new("a", Point::zero())
+		.with_font(FONT_{{ 2*font.width }}x{{ 2*font.height }}, BinaryColor::On)
+		.size();
+	assert_eq!(size, Size::new({{ 2*font.width }}, {{ 2*font.height }}));
+}
+
+#[test]
+fn text_multiline_size_{{ 2*font.width }}x{{ 2*font.height }}() {
+	let size = Text::new("aa\naaa\na", Point::zero())
+		.with_font(FONT_{{ 2*font.width }}x{{ 2*font.height }}, BinaryColor::On)
+		.size();
+	assert_eq!(size, Size::new({{ 6*font.width }}, {{ 6*font.height }}));
+}
+
+#[test]
+fn text_a_draw_{{ 2*font.width }}x{{ 2*font.height }}() {
+	let mut display = MockDisplay::new();
+	Text::new("a", Point::zero())
+		.with_font(FONT_{{ 2*font.width }}x{{ 2*font.height }}, BinaryColor::On)
+		.draw(&mut display)
+		.unwrap();
+	assert_eq!(
+		display,
+		MockDisplay::from_pattern(&[
+			{%- for pat in font.a_pat_double %}
+			"{{ pat }}",
+			{%- endfor %}
+		])
+	);
+}
+
+{%- endfor %}

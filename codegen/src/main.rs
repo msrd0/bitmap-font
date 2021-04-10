@@ -35,9 +35,15 @@ fn to_bmp(bitmap: &[u8], width: i32, height: i32) -> anyhow::Result<Vec<u8>> {
 }
 
 #[derive(Template)]
-#[template(path = "mod.in", escape = "none")]
-struct ModRs {
-	fonts: BTreeSet<Font>
+#[template(path = "src.in", escape = "none")]
+struct RustSource<'a> {
+	fonts: &'a BTreeSet<Font>
+}
+
+#[derive(Template)]
+#[template(path = "tests.in", escape = "none")]
+struct RustTests<'a> {
+	fonts: &'a BTreeSet<Font>
 }
 
 #[derive(Eq)]
@@ -72,7 +78,7 @@ impl Ord for Font {
 }
 
 fn main() -> anyhow::Result<()> {
-	let mut mod_rs = ModRs { fonts: BTreeSet::new() };
+	let mut fonts = BTreeSet::new();
 
 	let dir = "tamzen-font/bdf";
 	for file in fs::read_dir(dir)? {
@@ -198,11 +204,14 @@ fn main() -> anyhow::Result<()> {
 			a_pat,
 			a_pat_double
 		};
-		mod_rs.fonts.insert(font);
+		fonts.insert(font);
 	}
 
 	let mut rs = File::create("../src/generated.rs")?;
-	writeln!(rs, "{}", mod_rs.render()?)?;
+	writeln!(rs, "{}", RustSource { fonts: &fonts }.render()?)?;
+
+	let mut rs = File::create("../tests/generated.rs")?;
+	writeln!(rs, "{}", RustTests { fonts: &fonts }.render()?)?;
 
 	Ok(())
 }

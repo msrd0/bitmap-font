@@ -125,6 +125,7 @@ jobs:
         run: |
           cargo tarpaulin -v \
           	--target-dir target/tarpaulin \
+            --exclude-files 'codegen/*' \
           	--exclude-files 'target/*' \
           	--ignore-panics --ignore-tests \
           	--out Html --out Json

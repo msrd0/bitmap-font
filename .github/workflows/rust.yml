@@ -7,6 +7,32 @@ on:
   pull_request:
 
 jobs:
+  codegen:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: recursive
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Get Rust Version
+        id: rust-version
+        run: echo "::set-output name=version::$(cargo -V | head -n1 | awk '{print $2}')"
+      - uses: actions/cache@v2
+        with:
+          path: |
+            ~/.cargo/git
+            ~/.cargo/registry
+            target
+          key: ${{ runner.os }}-rust-${{ steps.rust-version.outputs.version }}-codegen
+      - name: Run codegen
+        run: |
+          cd codegen
+          cargo run
+        env:
+          RUST_BACKTRACE: 1
+      - name: Compare generated code
+        run: git diff --exit-code src/generated.rs
+  
   test:
     strategy:
       fail-fast: false

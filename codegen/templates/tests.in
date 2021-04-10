@@ -59,6 +59,26 @@ fn text_m_draw_{{ font.width }}x{{ font.height }}() {
 	);
 }
 
+#[test]
+fn text_fallback_{{ font.width }}x{{ font.height }}() {
+	let mut display = MockDisplay::new();
+	Text::new("ä?\n ß", Point::zero())
+		.with_font(FONT_{{ font.width }}x{{ font.height }}, BinaryColor::On)
+		.draw(&mut display)
+		.unwrap();
+	assert_eq!(
+		display,
+		MockDisplay::from_pattern(&[
+			{%- for y in 0..font.height %}
+			"{{ font.glyphs.get('?').unwrap().mock_line(y) }}{{ font.glyphs.get('?').unwrap().mock_line(y) }}",
+			{%- endfor %}
+			{%- for y in 0..font.height %}
+			"{{ font.glyphs.get(' ').unwrap().mock_line(y) }}{{ font.glyphs.get('?').unwrap().mock_line(y) }}",
+			{%- endfor %}
+		])
+	);
+}
+
 {% endfor -%}
 
 // ### Pixel-Double Fonts
@@ -110,5 +130,27 @@ fn text_m_draw_{{ 2*font.width }}x{{ 2*font.height }}() {
 		])
 	);
 }
+{%- if 4*font.height < 64 %}
 
-{%- endfor %}
+#[test]
+fn text_fallback_{{ 2*font.width }}x{{ 2*font.height }}() {
+	let mut display = MockDisplay::new();
+	Text::new("ä?\n ß", Point::zero())
+		.with_font(FONT_{{ 2*font.width }}x{{ 2*font.height }}, BinaryColor::On)
+		.draw(&mut display)
+		.unwrap();
+	assert_eq!(
+		display,
+		MockDisplay::from_pattern(&[
+			{%- for y in 0..2*font.height %}
+			"{{ font.glyphs.get('?').unwrap().mock_line_double(y) }}{{ font.glyphs.get('?').unwrap().mock_line_double(y) }}",
+			{%- endfor %}
+			{%- for y in 0..2*font.height %}
+			"{{ font.glyphs.get(' ').unwrap().mock_line_double(y) }}{{ font.glyphs.get('?').unwrap().mock_line_double(y) }}",
+			{%- endfor %}
+		])
+	);
+}
+{%- endif %}
+
+{% endfor -%}

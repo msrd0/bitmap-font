@@ -43,17 +43,17 @@ fn text_multiline_size_{{ font.width }}x{{ font.height }}() {
 }
 
 #[test]
-fn text_a_draw_{{ font.width }}x{{ font.height }}() {
+fn text_m_draw_{{ font.width }}x{{ font.height }}() {
 	let mut display = MockDisplay::new();
-	Text::new("a", Point::zero())
+	Text::new("mM", Point::zero())
 		.with_font(FONT_{{ font.width }}x{{ font.height }}, BinaryColor::On)
 		.draw(&mut display)
 		.unwrap();
 	assert_eq!(
 		display,
 		MockDisplay::from_pattern(&[
-			{%- for pat in font.a_pat %}
-			"{{ pat }}",
+			{%- for y in 0..font.height %}
+			"{{ font.glyphs.get('m').unwrap().mock_line(y) }}{{ font.glyphs.get('M').unwrap().mock_line(y) }}",
 			{%- endfor %}
 		])
 	);
@@ -95,17 +95,17 @@ fn text_multiline_size_{{ 2*font.width }}x{{ 2*font.height }}() {
 }
 
 #[test]
-fn text_a_draw_{{ 2*font.width }}x{{ 2*font.height }}() {
+fn text_m_draw_{{ 2*font.width }}x{{ 2*font.height }}() {
 	let mut display = MockDisplay::new();
-	Text::new("a", Point::zero())
+	Text::new("mM", Point::zero())
 		.with_font(FONT_{{ 2*font.width }}x{{ 2*font.height }}, BinaryColor::On)
 		.draw(&mut display)
 		.unwrap();
 	assert_eq!(
 		display,
 		MockDisplay::from_pattern(&[
-			{%- for pat in font.a_pat_double %}
-			"{{ pat }}",
+			{%- for y in 0..2*font.height %}
+			"{{ font.glyphs.get('m').unwrap().mock_line_double(y) }}{{ font.glyphs.get('M').unwrap().mock_line_double(y) }}",
 			{%- endfor %}
 		])
 	);

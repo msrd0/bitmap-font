@@ -42,24 +42,24 @@ fn text_multiline_size_5x9() {
 }
 
 #[test]
-fn text_a_draw_5x9() {
+fn text_m_draw_5x9() {
 	let mut display = MockDisplay::new();
-	Text::new("a", Point::zero())
+	Text::new("mM", Point::zero())
 		.with_font(FONT_5x9, BinaryColor::On)
 		.draw(&mut display)
 		.unwrap();
 	assert_eq!(
 		display,
 		MockDisplay::from_pattern(&[
-			"     ",
-			"     ",
-			"     ",
-			" ### ",
-			"#  # ",
-			"#  # ",
-			" ### ",
-			"     ",
-			"     ",
+			"          ",
+			"          ",
+			"     #  # ",
+			"# ## #### ",
+			"#### #  # ",
+			"#  # #  # ",
+			"#  # #  # ",
+			"          ",
+			"          ",
 		])
 	);
 }
@@ -95,27 +95,27 @@ fn text_multiline_size_6x12() {
 }
 
 #[test]
-fn text_a_draw_6x12() {
+fn text_m_draw_6x12() {
 	let mut display = MockDisplay::new();
-	Text::new("a", Point::zero())
+	Text::new("mM", Point::zero())
 		.with_font(FONT_6x12, BinaryColor::On)
 		.draw(&mut display)
 		.unwrap();
 	assert_eq!(
 		display,
 		MockDisplay::from_pattern(&[
-			"      ",
-			"      ",
-			"      ",
-			"      ",
-			" ###  ",
-			"    # ",
-			" #### ",
-			"#   # ",
-			" #### ",
-			"      ",
-			"      ",
-			"      ",
+			"            ",
+			"            ",
+			"      #   # ",
+			"      ## ## ",
+			"## ## # # # ",
+			"# # # # # # ",
+			"# # # #   # ",
+			"# # # #   # ",
+			"# # # #   # ",
+			"            ",
+			"            ",
+			"            ",
 		])
 	);
 }
@@ -151,28 +151,28 @@ fn text_multiline_size_7x13() {
 }
 
 #[test]
-fn text_a_draw_7x13() {
+fn text_m_draw_7x13() {
 	let mut display = MockDisplay::new();
-	Text::new("a", Point::zero())
+	Text::new("mM", Point::zero())
 		.with_font(FONT_7x13, BinaryColor::On)
 		.draw(&mut display)
 		.unwrap();
 	assert_eq!(
 		display,
 		MockDisplay::from_pattern(&[
-			"       ",
-			"       ",
-			"       ",
-			"       ",
-			"       ",
-			"  ###  ",
-			"     # ",
-			"  #### ",
-			" #   # ",
-			"  #### ",
-			"       ",
-			"       ",
-			"       ",
+			"              ",
+			"              ",
+			"              ",
+			"        #   # ",
+			"        ## ## ",
+			" ## ##  # # # ",
+			" # # #  # # # ",
+			" # # #  #   # ",
+			" # # #  #   # ",
+			" # # #  #   # ",
+			"              ",
+			"              ",
+			"              ",
 		])
 	);
 }
@@ -208,29 +208,29 @@ fn text_multiline_size_7x14() {
 }
 
 #[test]
-fn text_a_draw_7x14() {
+fn text_m_draw_7x14() {
 	let mut display = MockDisplay::new();
-	Text::new("a", Point::zero())
+	Text::new("mM", Point::zero())
 		.with_font(FONT_7x14, BinaryColor::On)
 		.draw(&mut display)
 		.unwrap();
 	assert_eq!(
 		display,
 		MockDisplay::from_pattern(&[
-			"       ",
-			"       ",
-			"       ",
-			"       ",
-			"       ",
-			"  ###  ",
-			"     # ",
-			"  #### ",
-			" #   # ",
-			" #   # ",
-			"  #### ",
-			"       ",
-			"       ",
-			"       ",
+			"              ",
+			"              ",
+			"              ",
+			"        #   # ",
+			"        ## ## ",
+			" ####   # # # ",
+			" # # #  # # # ",
+			" # # #  #   # ",
+			" # # #  #   # ",
+			" # # #  #   # ",
+			" # # #  #   # ",
+			"              ",
+			"              ",
+			"              ",
 		])
 	);
 }
@@ -266,30 +266,30 @@ fn text_multiline_size_8x15() {
 }
 
 #[test]
-fn text_a_draw_8x15() {
+fn text_m_draw_8x15() {
 	let mut display = MockDisplay::new();
-	Text::new("a", Point::zero())
+	Text::new("mM", Point::zero())
 		.with_font(FONT_8x15, BinaryColor::On)
 		.draw(&mut display)
 		.unwrap();
 	assert_eq!(
 		display,
 		MockDisplay::from_pattern(&[
-			"        ",
-			"        ",
-			"        ",
-			"        ",
-			"        ",
-			"        ",
-			"  ####  ",
-			"      # ",
-			"  ##### ",
-			" #    # ",
-			" #    # ",
-			"  ##### ",
-			"        ",
-			"        ",
-			"        ",
+			"                ",
+			"                ",
+			"                ",
+			"                ",
+			"         #     #",
+			"         ##   ##",
+			" ### ##  # # # #",
+			" #  #  # #  #  #",
+			" #  #  # #  #  #",
+			" #  #  # #     #",
+			" #  #  # #     #",
+			" #  #  # #     #",
+			"                ",
+			"                ",
+			"                ",
 		])
 	);
 }
@@ -325,31 +325,31 @@ fn text_multiline_size_8x16() {
 }
 
 #[test]
-fn text_a_draw_8x16() {
+fn text_m_draw_8x16() {
 	let mut display = MockDisplay::new();
-	Text::new("a", Point::zero())
+	Text::new("mM", Point::zero())
 		.with_font(FONT_8x16, BinaryColor::On)
 		.draw(&mut display)
 		.unwrap();
 	assert_eq!(
 		display,
 		MockDisplay::from_pattern(&[
-			"        ",
-			"        ",
-			"        ",
-			"        ",
-			"        ",
-			"        ",
-			"  ####  ",
-			"      # ",
-			"      # ",
-			"  ##### ",
-			" #    # ",
-			" #   ## ",
-			"  ### # ",
-			"        ",
-			"        ",
-			"        ",
+			"                ",
+			"                ",
+			"                ",
+			"         #     #",
+			"         ##   ##",
+			"         # # # #",
+			" ### ##  #  #  #",
+			" #  #  # #  #  #",
+			" #  #  # #     #",
+			" #  #  # #     #",
+			" #  #  # #     #",
+			" #  #  # #     #",
+			" #  #  #        ",
+			"                ",
+			"                ",
+			"                ",
 		])
 	);
 }
@@ -385,35 +385,35 @@ fn text_multiline_size_10x20() {
 }
 
 #[test]
-fn text_a_draw_10x20() {
+fn text_m_draw_10x20() {
 	let mut display = MockDisplay::new();
-	Text::new("a", Point::zero())
+	Text::new("mM", Point::zero())
 		.with_font(FONT_10x20, BinaryColor::On)
 		.draw(&mut display)
 		.unwrap();
 	assert_eq!(
 		display,
 		MockDisplay::from_pattern(&[
-			"          ",
-			"          ",
-			"          ",
-			"          ",
-			"          ",
-			"          ",
-			"  #####   ",
-			"       #  ",
-			"       #  ",
-			"  ######  ",
-			" #     #  ",
-			" #     #  ",
-			" #    ##  ",
-			"  #### #  ",
-			"          ",
-			"          ",
-			"          ",
-			"          ",
-			"          ",
-			"          ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"           #     #  ",
+			"           ##   ##  ",
+			"# ##  ##   # # # #  ",
+			"##  ##  #  #  #  #  ",
+			"#   #   #  #  #  #  ",
+			"#   #   #  #     #  ",
+			"#   #   #  #     #  ",
+			"#   #   #  #     #  ",
+			"#   #   #  #     #  ",
+			"#   #   #  #     #  ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"                    ",
 		])
 	);
 }
@@ -451,33 +451,33 @@ fn text_multiline_size_10x18() {
 }
 
 #[test]
-fn text_a_draw_10x18() {
+fn text_m_draw_10x18() {
 	let mut display = MockDisplay::new();
-	Text::new("a", Point::zero())
+	Text::new("mM", Point::zero())
 		.with_font(FONT_10x18, BinaryColor::On)
 		.draw(&mut display)
 		.unwrap();
 	assert_eq!(
 		display,
 		MockDisplay::from_pattern(&[
-			"          ",
-			"          ",
-			"          ",
-			"          ",
-			"          ",
-			"          ",
-			"  ######  ",
-			"  ######  ",
-			"##    ##  ",
-			"##    ##  ",
-			"##    ##  ",
-			"##    ##  ",
-			"  ######  ",
-			"  ######  ",
-			"          ",
-			"          ",
-			"          ",
-			"          ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"          ##    ##  ",
+			"          ##    ##  ",
+			"##  ####  ########  ",
+			"##  ####  ########  ",
+			"########  ##    ##  ",
+			"########  ##    ##  ",
+			"##    ##  ##    ##  ",
+			"##    ##  ##    ##  ",
+			"##    ##  ##    ##  ",
+			"##    ##  ##    ##  ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"                    ",
 		])
 	);
 }#[test]
@@ -511,39 +511,39 @@ fn text_multiline_size_12x24() {
 }
 
 #[test]
-fn text_a_draw_12x24() {
+fn text_m_draw_12x24() {
 	let mut display = MockDisplay::new();
-	Text::new("a", Point::zero())
+	Text::new("mM", Point::zero())
 		.with_font(FONT_12x24, BinaryColor::On)
 		.draw(&mut display)
 		.unwrap();
 	assert_eq!(
 		display,
 		MockDisplay::from_pattern(&[
-			"            ",
-			"            ",
-			"            ",
-			"            ",
-			"            ",
-			"            ",
-			"            ",
-			"            ",
-			"  ######    ",
-			"  ######    ",
-			"        ##  ",
-			"        ##  ",
-			"  ########  ",
-			"  ########  ",
-			"##      ##  ",
-			"##      ##  ",
-			"  ########  ",
-			"  ########  ",
-			"            ",
-			"            ",
-			"            ",
-			"            ",
-			"            ",
-			"            ",
+			"                        ",
+			"                        ",
+			"                        ",
+			"                        ",
+			"            ##      ##  ",
+			"            ##      ##  ",
+			"            ####  ####  ",
+			"            ####  ####  ",
+			"####  ####  ##  ##  ##  ",
+			"####  ####  ##  ##  ##  ",
+			"##  ##  ##  ##  ##  ##  ",
+			"##  ##  ##  ##  ##  ##  ",
+			"##  ##  ##  ##      ##  ",
+			"##  ##  ##  ##      ##  ",
+			"##  ##  ##  ##      ##  ",
+			"##  ##  ##  ##      ##  ",
+			"##  ##  ##  ##      ##  ",
+			"##  ##  ##  ##      ##  ",
+			"                        ",
+			"                        ",
+			"                        ",
+			"                        ",
+			"                        ",
+			"                        ",
 		])
 	);
 }#[test]
@@ -577,41 +577,41 @@ fn text_multiline_size_14x26() {
 }
 
 #[test]
-fn text_a_draw_14x26() {
+fn text_m_draw_14x26() {
 	let mut display = MockDisplay::new();
-	Text::new("a", Point::zero())
+	Text::new("mM", Point::zero())
 		.with_font(FONT_14x26, BinaryColor::On)
 		.draw(&mut display)
 		.unwrap();
 	assert_eq!(
 		display,
 		MockDisplay::from_pattern(&[
-			"              ",
-			"              ",
-			"              ",
-			"              ",
-			"              ",
-			"              ",
-			"              ",
-			"              ",
-			"              ",
-			"              ",
-			"    ######    ",
-			"    ######    ",
-			"          ##  ",
-			"          ##  ",
-			"    ########  ",
-			"    ########  ",
-			"  ##      ##  ",
-			"  ##      ##  ",
-			"    ########  ",
-			"    ########  ",
-			"              ",
-			"              ",
-			"              ",
-			"              ",
-			"              ",
-			"              ",
+			"                            ",
+			"                            ",
+			"                            ",
+			"                            ",
+			"                            ",
+			"                            ",
+			"                ##      ##  ",
+			"                ##      ##  ",
+			"                ####  ####  ",
+			"                ####  ####  ",
+			"  ####  ####    ##  ##  ##  ",
+			"  ####  ####    ##  ##  ##  ",
+			"  ##  ##  ##    ##  ##  ##  ",
+			"  ##  ##  ##    ##  ##  ##  ",
+			"  ##  ##  ##    ##      ##  ",
+			"  ##  ##  ##    ##      ##  ",
+			"  ##  ##  ##    ##      ##  ",
+			"  ##  ##  ##    ##      ##  ",
+			"  ##  ##  ##    ##      ##  ",
+			"  ##  ##  ##    ##      ##  ",
+			"                            ",
+			"                            ",
+			"                            ",
+			"                            ",
+			"                            ",
+			"                            ",
 		])
 	);
 }#[test]
@@ -645,43 +645,43 @@ fn text_multiline_size_14x28() {
 }
 
 #[test]
-fn text_a_draw_14x28() {
+fn text_m_draw_14x28() {
 	let mut display = MockDisplay::new();
-	Text::new("a", Point::zero())
+	Text::new("mM", Point::zero())
 		.with_font(FONT_14x28, BinaryColor::On)
 		.draw(&mut display)
 		.unwrap();
 	assert_eq!(
 		display,
 		MockDisplay::from_pattern(&[
-			"              ",
-			"              ",
-			"              ",
-			"              ",
-			"              ",
-			"              ",
-			"              ",
-			"              ",
-			"              ",
-			"              ",
-			"    ######    ",
-			"    ######    ",
-			"          ##  ",
-			"          ##  ",
-			"    ########  ",
-			"    ########  ",
-			"  ##      ##  ",
-			"  ##      ##  ",
-			"  ##      ##  ",
-			"  ##      ##  ",
-			"    ########  ",
-			"    ########  ",
-			"              ",
-			"              ",
-			"              ",
-			"              ",
-			"              ",
-			"              ",
+			"                            ",
+			"                            ",
+			"                            ",
+			"                            ",
+			"                            ",
+			"                            ",
+			"                ##      ##  ",
+			"                ##      ##  ",
+			"                ####  ####  ",
+			"                ####  ####  ",
+			"  ########      ##  ##  ##  ",
+			"  ########      ##  ##  ##  ",
+			"  ##  ##  ##    ##  ##  ##  ",
+			"  ##  ##  ##    ##  ##  ##  ",
+			"  ##  ##  ##    ##      ##  ",
+			"  ##  ##  ##    ##      ##  ",
+			"  ##  ##  ##    ##      ##  ",
+			"  ##  ##  ##    ##      ##  ",
+			"  ##  ##  ##    ##      ##  ",
+			"  ##  ##  ##    ##      ##  ",
+			"  ##  ##  ##    ##      ##  ",
+			"  ##  ##  ##    ##      ##  ",
+			"                            ",
+			"                            ",
+			"                            ",
+			"                            ",
+			"                            ",
+			"                            ",
 		])
 	);
 }#[test]
@@ -715,45 +715,45 @@ fn text_multiline_size_16x30() {
 }
 
 #[test]
-fn text_a_draw_16x30() {
+fn text_m_draw_16x30() {
 	let mut display = MockDisplay::new();
-	Text::new("a", Point::zero())
+	Text::new("mM", Point::zero())
 		.with_font(FONT_16x30, BinaryColor::On)
 		.draw(&mut display)
 		.unwrap();
 	assert_eq!(
 		display,
 		MockDisplay::from_pattern(&[
-			"                ",
-			"                ",
-			"                ",
-			"                ",
-			"                ",
-			"                ",
-			"                ",
-			"                ",
-			"                ",
-			"                ",
-			"                ",
-			"                ",
-			"    ########    ",
-			"    ########    ",
-			"            ##  ",
-			"            ##  ",
-			"    ##########  ",
-			"    ##########  ",
-			"  ##        ##  ",
-			"  ##        ##  ",
-			"  ##        ##  ",
-			"  ##        ##  ",
-			"    ##########  ",
-			"    ##########  ",
-			"                ",
-			"                ",
-			"                ",
-			"                ",
-			"                ",
-			"                ",
+			"                                ",
+			"                                ",
+			"                                ",
+			"                                ",
+			"                                ",
+			"                                ",
+			"                                ",
+			"                                ",
+			"                  ##          ##",
+			"                  ##          ##",
+			"                  ####      ####",
+			"                  ####      ####",
+			"  ######  ####    ##  ##  ##  ##",
+			"  ######  ####    ##  ##  ##  ##",
+			"  ##    ##    ##  ##    ##    ##",
+			"  ##    ##    ##  ##    ##    ##",
+			"  ##    ##    ##  ##    ##    ##",
+			"  ##    ##    ##  ##    ##    ##",
+			"  ##    ##    ##  ##          ##",
+			"  ##    ##    ##  ##          ##",
+			"  ##    ##    ##  ##          ##",
+			"  ##    ##    ##  ##          ##",
+			"  ##    ##    ##  ##          ##",
+			"  ##    ##    ##  ##          ##",
+			"                                ",
+			"                                ",
+			"                                ",
+			"                                ",
+			"                                ",
+			"                                ",
 		])
 	);
 }#[test]
@@ -787,47 +787,47 @@ fn text_multiline_size_16x32() {
 }
 
 #[test]
-fn text_a_draw_16x32() {
+fn text_m_draw_16x32() {
 	let mut display = MockDisplay::new();
-	Text::new("a", Point::zero())
+	Text::new("mM", Point::zero())
 		.with_font(FONT_16x32, BinaryColor::On)
 		.draw(&mut display)
 		.unwrap();
 	assert_eq!(
 		display,
 		MockDisplay::from_pattern(&[
-			"                ",
-			"                ",
-			"                ",
-			"                ",
-			"                ",
-			"                ",
-			"                ",
-			"                ",
-			"                ",
-			"                ",
-			"                ",
-			"                ",
-			"    ########    ",
-			"    ########    ",
-			"            ##  ",
-			"            ##  ",
-			"            ##  ",
-			"            ##  ",
-			"    ##########  ",
-			"    ##########  ",
-			"  ##        ##  ",
-			"  ##        ##  ",
-			"  ##      ####  ",
-			"  ##      ####  ",
-			"    ######  ##  ",
-			"    ######  ##  ",
-			"                ",
-			"                ",
-			"                ",
-			"                ",
-			"                ",
-			"                ",
+			"                                ",
+			"                                ",
+			"                                ",
+			"                                ",
+			"                                ",
+			"                                ",
+			"                  ##          ##",
+			"                  ##          ##",
+			"                  ####      ####",
+			"                  ####      ####",
+			"                  ##  ##  ##  ##",
+			"                  ##  ##  ##  ##",
+			"  ######  ####    ##    ##    ##",
+			"  ######  ####    ##    ##    ##",
+			"  ##    ##    ##  ##    ##    ##",
+			"  ##    ##    ##  ##    ##    ##",
+			"  ##    ##    ##  ##          ##",
+			"  ##    ##    ##  ##          ##",
+			"  ##    ##    ##  ##          ##",
+			"  ##    ##    ##  ##          ##",
+			"  ##    ##    ##  ##          ##",
+			"  ##    ##    ##  ##          ##",
+			"  ##    ##    ##  ##          ##",
+			"  ##    ##    ##  ##          ##",
+			"  ##    ##    ##                ",
+			"  ##    ##    ##                ",
+			"                                ",
+			"                                ",
+			"                                ",
+			"                                ",
+			"                                ",
+			"                                ",
 		])
 	);
 }#[test]
@@ -861,55 +861,55 @@ fn text_multiline_size_20x40() {
 }
 
 #[test]
-fn text_a_draw_20x40() {
+fn text_m_draw_20x40() {
 	let mut display = MockDisplay::new();
-	Text::new("a", Point::zero())
+	Text::new("mM", Point::zero())
 		.with_font(FONT_20x40, BinaryColor::On)
 		.draw(&mut display)
 		.unwrap();
 	assert_eq!(
 		display,
 		MockDisplay::from_pattern(&[
-			"                    ",
-			"                    ",
-			"                    ",
-			"                    ",
-			"                    ",
-			"                    ",
-			"                    ",
-			"                    ",
-			"                    ",
-			"                    ",
-			"                    ",
-			"                    ",
-			"    ##########      ",
-			"    ##########      ",
-			"              ##    ",
-			"              ##    ",
-			"              ##    ",
-			"              ##    ",
-			"    ############    ",
-			"    ############    ",
-			"  ##          ##    ",
-			"  ##          ##    ",
-			"  ##          ##    ",
-			"  ##          ##    ",
-			"  ##        ####    ",
-			"  ##        ####    ",
-			"    ########  ##    ",
-			"    ########  ##    ",
-			"                    ",
-			"                    ",
-			"                    ",
-			"                    ",
-			"                    ",
-			"                    ",
-			"                    ",
-			"                    ",
-			"                    ",
-			"                    ",
-			"                    ",
-			"                    ",
+			"                                        ",
+			"                                        ",
+			"                                        ",
+			"                                        ",
+			"                                        ",
+			"                                        ",
+			"                                        ",
+			"                                        ",
+			"                      ##          ##    ",
+			"                      ##          ##    ",
+			"                      ####      ####    ",
+			"                      ####      ####    ",
+			"##  ####    ####      ##  ##  ##  ##    ",
+			"##  ####    ####      ##  ##  ##  ##    ",
+			"####    ####    ##    ##    ##    ##    ",
+			"####    ####    ##    ##    ##    ##    ",
+			"##      ##      ##    ##    ##    ##    ",
+			"##      ##      ##    ##    ##    ##    ",
+			"##      ##      ##    ##          ##    ",
+			"##      ##      ##    ##          ##    ",
+			"##      ##      ##    ##          ##    ",
+			"##      ##      ##    ##          ##    ",
+			"##      ##      ##    ##          ##    ",
+			"##      ##      ##    ##          ##    ",
+			"##      ##      ##    ##          ##    ",
+			"##      ##      ##    ##          ##    ",
+			"##      ##      ##    ##          ##    ",
+			"##      ##      ##    ##          ##    ",
+			"                                        ",
+			"                                        ",
+			"                                        ",
+			"                                        ",
+			"                                        ",
+			"                                        ",
+			"                                        ",
+			"                                        ",
+			"                                        ",
+			"                                        ",
+			"                                        ",
+			"                                        ",
 		])
 	);
 }

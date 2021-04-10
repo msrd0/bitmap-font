@@ -1,6 +1,8 @@
 use anyhow::{anyhow, bail};
 use askama::Template;
+use bdf::{Bitmap, Glyph};
 use bit_vec::BitVec;
+use linked_hash_map::LinkedHashMap;
 use num_format::{Locale, ToFormattedString};
 use std::{
 	cmp::Ordering,
@@ -46,17 +48,15 @@ struct RustTests<'a> {
 	fonts: &'a BTreeSet<Font>
 }
 
-#[derive(Eq)]
 struct Font {
 	width: u32,
 	height: u32,
+	glyphs: LinkedHashMap<char, GlyphData>,
 	bitmap: Vec<u8>,
 	bitmap_len: String,
 	img_width: usize,
 	bmp: String,
-	bmp_double: String,
-	a_pat: Vec<String>,
-	a_pat_double: Vec<String>
+	bmp_double: String
 }
 
 impl PartialEq for Font {
@@ -64,6 +64,8 @@ impl PartialEq for Font {
 		self.width == other.width && self.height == other.height
 	}
 }
+
+impl Eq for Font {}
 
 impl PartialOrd for Font {
 	fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
@@ -74,6 +76,75 @@ impl PartialOrd for Font {
 impl Ord for Font {
 	fn cmp(&self, other: &Self) -> Ordering {
 		(self.width, self.height).cmp(&(other.width, other.height))
+	}
+}
+
+struct GlyphData {
+	bitmap: Bitmap,
+	width: u32,
+	height: u32
+}
+
+impl GlyphData {
+	fn new(glyph: &Glyph, width: u32, height: u32) -> anyhow::Result<Self> {
+		if glyph.width() != width as u32 || glyph.height() != height as u32 {
+			let msg = format!(
+				"Font is not a monospace font (width={}, height={}, glyph={}x{})",
+				width,
+				height,
+				glyph.width(),
+				glyph.height()
+			);
+			if glyph.width() >= width as u32 && glyph.height() >= height as u32 {
+				println!("[WARN] {} - clipping", msg);
+			} else {
+				bail!("{}", msg);
+			}
+		}
+
+		Ok(Self {
+			bitmap: glyph.map().clone(),
+			width,
+			height
+		})
+	}
+
+	fn push_to_bitmap(&self, lines: &mut Vec<BitVec>) {
+		for y in 0..self.height {
+			for x in 0..self.width {
+				lines[y as usize].push(self.bitmap.get(x, y));
+			}
+		}
+	}
+
+	fn push_to_bitmap_double(&self, lines_double: &mut Vec<BitVec>) {
+		for y in 0..self.height {
+			for x in 0..self.width {
+				for _ in 0..2 {
+					lines_double[y as usize].push(self.bitmap.get(x, y));
+				}
+			}
+		}
+	}
+
+	// y is a reference because askama is stupid
+	fn mock_line(&self, y: &u32) -> String {
+		let mut line = String::new();
+		for x in 0..self.width {
+			line.push(self.bitmap.get(x, *y).then(|| '#').unwrap_or(' '));
+		}
+		line
+	}
+
+	fn mock_line_double(&self, y: &u32) -> String {
+		let y = y / 2;
+		let mut line = String::new();
+		for x in 0..self.width {
+			for _ in 0..2 {
+				line.push(self.bitmap.get(x, y).then(|| '#').unwrap_or(' '));
+			}
+		}
+		line
 	}
 }
 
@@ -126,49 +197,16 @@ fn main() -> anyhow::Result<()> {
 		let file = File::open(file.path())?;
 		let font = bdf::read(file)?;
 		let glyphs = font.glyphs();
-		for char in CHARS.chars() {
-			let glyph = glyphs.get(&char).ok_or_else(|| anyhow!("char not in font"))?;
-			if glyph.width() != width as u32 || glyph.height() != height as u32 {
-				let msg = format!(
-					"Font is not a monospace font (width={}, height={}, char={}, glyph={}x{})",
-					width,
-					height,
-					char,
-					glyph.width(),
-					glyph.height()
-				);
-				if glyph.width() >= width as u32 && glyph.height() >= height as u32 {
-					println!("[WARN] {} - clipping", msg);
-				} else {
-					bail!("{}", msg);
-				}
-			}
-
-			for y in 0..height {
-				for x in 0..width {
-					lines[y as usize].push(glyph.get(x, y));
-					for _ in 0..2 {
-						lines_double[y as usize].push(glyph.get(x, y));
-					}
-				}
-			}
-		}
-
-		let a_glyph = glyphs.get(&'a').unwrap();
-		let mut a_pat: Vec<String> = Vec::new();
-		let mut a_pat_double: Vec<String> = Vec::new();
-		for y in 0..height {
-			let mut line = String::new();
-			let mut line_double = String::new();
-			for x in 0..width {
-				let c = a_glyph.get(x, y).then(|| "#").unwrap_or(" ");
-				line += c;
-				line_double += c;
-				line_double += c;
-			}
-			a_pat.push(line);
-			a_pat_double.push(line_double.clone());
-			a_pat_double.push(line_double);
+		let glyphs: LinkedHashMap<char, GlyphData> = CHARS
+			.chars()
+			.map(|char| {
+				let glyph = glyphs.get(&char).ok_or_else(|| anyhow!("char not in font")).unwrap();
+				(char, GlyphData::new(glyph.clone(), width, height).unwrap())
+			})
+			.collect();
+		for (_, g) in &glyphs {
+			g.push_to_bitmap(&mut lines);
+			g.push_to_bitmap_double(&mut lines_double);
 		}
 
 		let mut bitmap: Vec<u8> = Vec::new();
@@ -196,13 +234,12 @@ fn main() -> anyhow::Result<()> {
 		let font = Font {
 			width,
 			height,
+			glyphs,
 			bitmap,
 			bitmap_len,
 			img_width,
 			bmp: base64::encode(&bmp),
-			bmp_double: base64::encode(&bmp_double),
-			a_pat,
-			a_pat_double
+			bmp_double: base64::encode(&bmp_double)
 		};
 		fonts.insert(font);
 	}

@@ -13,5 +13,5 @@ anyhow = "1.0"
 askama = "0.10"
 base64 = "0.13"
 bdf = { git = "https://github.com/msrd0/rust-bdf" }
-bit-vec = "0.3"
+bit-vec = "0.6"
 num-format = "0.4"

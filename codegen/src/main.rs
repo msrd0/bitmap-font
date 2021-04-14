@@ -17,9 +17,12 @@ const CHAR_RANGES: &[(char, char)] = &[
 	// printable latin-1 chars
 	('¡', '¦'),
 	('°', '°'),
-	('¿', 'ÿ')
+	('¿', 'ÿ'),
+	// powerline
+	('', '')
 ];
-const ROWS: usize = 4;
+const MIN_ROWS: u32 = 4;
+const MAX_ROWS: u32 = 15;
 
 fn to_bmp(bitmap: &[u8], width: i32, height: i32) -> anyhow::Result<Vec<u8>> {
 	let mut bmp: Vec<u8> = Vec::new();
@@ -218,12 +221,22 @@ impl BitmapBuilder {
 	}
 }
 
+trait CeilingDiv {
+	fn ceiling_div(self, rhs: Self) -> Self;
+}
+
+impl CeilingDiv for u32 {
+	fn ceiling_div(self, rhs: Self) -> Self {
+		self / rhs + (self % rhs > 0).then(|| 1).unwrap_or(0)
+	}
+}
+
 fn init_lines(height: u32, img_width: usize, img_width_double: usize) -> (Vec<BitVec>, Vec<BitVec>) {
 	let mut lines: Vec<BitVec> = Vec::new();
 	let mut lines_double: Vec<BitVec> = Vec::new();
 	for _ in 0..height {
-		lines.push(BitVec::with_capacity(8 * img_width));
-		lines_double.push(BitVec::with_capacity(8 * img_width_double));
+		lines.push(BitVec::with_capacity(8 * img_width as usize));
+		lines_double.push(BitVec::with_capacity(8 * img_width_double as usize));
 	}
 	(lines, lines_double)
 }
@@ -236,7 +249,6 @@ fn main() -> anyhow::Result<()> {
 		.iter()
 		.map(|(start, end)| *end as usize - *start as usize + 1)
 		.sum();
-	let per_line = char_count / ROWS + 1; // TODO this calculation is ugly
 
 	let mut char_ranges = Vec::new();
 	let mut skip = 0;
@@ -259,7 +271,7 @@ fn main() -> anyhow::Result<()> {
 		let path = file.path().display().to_string();
 		println!("Inspecting file {}", path);
 		let path = match path
-			.strip_prefix("tamzen-font/bdf/Tamzen")
+			.strip_prefix("tamzen-font/bdf/TamzenForPowerline")
 			.and_then(|path| path.strip_suffix("r.bdf"))
 		{
 			Some(path) => path,
@@ -275,7 +287,24 @@ fn main() -> anyhow::Result<()> {
 			_ => continue
 		};
 
-		let min_width = per_line * width as usize;
+		//let per_line = char_count / ROWS + 1; // TODO this calculation is ugly
+		let mut rows = 1;
+		let mut per_line = char_count as u32;
+		let mut wasted = u32::MAX;
+		for r in MIN_ROWS..=MAX_ROWS {
+			let pl = (char_count as u32).ceiling_div(r);
+			let min_width = pl * width;
+			let img_width = min_width.ceiling_div(32) * 32;
+			let w = (img_width - min_width) * r;
+			if w < wasted {
+				wasted = w;
+				rows = r;
+				per_line = img_width / width;
+			}
+		}
+		println!("rows = {}, per_line = {}, wasted = {}", rows, per_line, wasted);
+
+		let min_width = (per_line * width) as usize;
 		println!("min_width = {}", min_width);
 		let img_width = if min_width % 32 == 0 {
 			min_width
@@ -288,7 +317,7 @@ fn main() -> anyhow::Result<()> {
 			(min_width / 16 + 1) * 32
 		};
 
-		let img_height = height as i32 * ROWS as i32;
+		let img_height = height as i32 * rows as i32;
 
 		println!(" -> Found font {}x{}", width, height);
 		let mut bitmap_builder = BitmapBuilder::default();

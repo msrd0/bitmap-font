@@ -1,82 +1,85 @@
 // @generated
 
-use bitmap_font::*;
-use embedded_graphics::{
-	drawable::Drawable,
-	fonts::Text,
-	geometry::{Dimensions, Point, Size},
-	mock_display::MockDisplay,
-	pixelcolor::BinaryColor
-};
+{%- for font in fonts %}
 
-{% for font in fonts -%}
-#[test]
-fn font_size_{{ font.width }}x{{ font.height }}() {
-	assert_eq!(FONT_{{ font.width }}x{{ font.height }}.width(), {{ font.width }});
-	assert_eq!(FONT_{{ font.width }}x{{ font.height }}.height(), {{ font.height }});
+mod font_{{ font.width }}x{{ font.height }} {
+	use bitmap_font::*;
+	use embedded_graphics::{
+		drawable::Drawable,
+		fonts::Text,
+		geometry::{Dimensions, Point, Size},
+		mock_display::MockDisplay,
+		pixelcolor::BinaryColor
+	};
+
+	#[test]
+	fn font_size() {
+		assert_eq!(FONT_{{ font.width }}x{{ font.height }}.width(), {{ font.width }});
+		assert_eq!(FONT_{{ font.width }}x{{ font.height }}.height(), {{ font.height }});
+	}
+
+	#[test]
+	fn text_empty_size() {
+		let size = Text::new("", Point::zero())
+			.with_font(FONT_{{ font.width }}x{{ font.height }}, BinaryColor::On)
+			.size();
+		assert_eq!(size, Size::zero());
+	}
+
+	#[test]
+	fn text_a_size() {
+		let size = Text::new("a", Point::zero())
+			.with_font(FONT_{{ font.width }}x{{ font.height }}, BinaryColor::On)
+			.size();
+		assert_eq!(size, Size::new({{ font.width }}, {{ font.height }}));
+	}
+
+	#[test]
+	fn text_multiline_size() {
+		let size = Text::new("aa\naaa\na", Point::zero())
+			.with_font(FONT_{{ font.width }}x{{ font.height }}, BinaryColor::On)
+			.size();
+		assert_eq!(size, Size::new({{ 3*font.width }}, {{ 3*font.height }}));
+	}
+
+	#[test]
+	fn text_m_draw() {
+		let mut display = MockDisplay::new();
+		Text::new("mM", Point::zero())
+			.with_font(FONT_{{ font.width }}x{{ font.height }}, BinaryColor::On)
+			.draw(&mut display)
+			.unwrap();
+		assert_eq!(
+			display,
+			MockDisplay::from_pattern(&[
+				{%- for y in 0..font.height %}
+				"{{ font.glyph('m').mock_line(y) }}{{ font.glyph('M').mock_line(y) }}",
+				{%- endfor %}
+			])
+		);
+	}
+	{%- if 2*font.height < 64 %}
+
+	#[test]
+	fn text_fallback() {
+		let mut display = MockDisplay::new();
+		Text::new("§?\n µ", Point::zero())
+			.with_font(FONT_{{ font.width }}x{{ font.height }}, BinaryColor::On)
+			.draw(&mut display)
+			.unwrap();
+		assert_eq!(
+			display,
+			MockDisplay::from_pattern(&[
+				{%- for y in 0..font.height %}
+				"{{ font.glyph('?').mock_line(y) }}{{ font.glyph('?').mock_line(y) }}",
+				{%- endfor %}
+				{%- for y in 0..font.height %}
+				"{{ font.glyph(' ').mock_line(y) }}{{ font.glyph('?').mock_line(y) }}",
+				{%- endfor %}
+			])
+		);
+	}
+	{%- endif %}
 }
 
-#[test]
-fn text_empty_size_{{ font.width }}x{{ font.height }}() {
-	let size = Text::new("", Point::zero())
-		.with_font(FONT_{{ font.width }}x{{ font.height }}, BinaryColor::On)
-		.size();
-	assert_eq!(size, Size::zero());
-}
-
-#[test]
-fn text_a_size_{{ font.width }}x{{ font.height }}() {
-	let size = Text::new("a", Point::zero())
-		.with_font(FONT_{{ font.width }}x{{ font.height }}, BinaryColor::On)
-		.size();
-	assert_eq!(size, Size::new({{ font.width }}, {{ font.height }}));
-}
-
-#[test]
-fn text_multiline_size_{{ font.width }}x{{ font.height }}() {
-	let size = Text::new("aa\naaa\na", Point::zero())
-		.with_font(FONT_{{ font.width }}x{{ font.height }}, BinaryColor::On)
-		.size();
-	assert_eq!(size, Size::new({{ 3*font.width }}, {{ 3*font.height }}));
-}
-
-#[test]
-fn text_m_draw_{{ font.width }}x{{ font.height }}() {
-	let mut display = MockDisplay::new();
-	Text::new("mM", Point::zero())
-		.with_font(FONT_{{ font.width }}x{{ font.height }}, BinaryColor::On)
-		.draw(&mut display)
-		.unwrap();
-	assert_eq!(
-		display,
-		MockDisplay::from_pattern(&[
-			{%- for y in 0..font.height %}
-			"{{ font.glyph('m').mock_line(y) }}{{ font.glyph('M').mock_line(y) }}",
-			{%- endfor %}
-		])
-	);
-}
-{%- if 2*font.height < 64 %}
-
-#[test]
-fn text_fallback_{{ font.width }}x{{ font.height }}() {
-	let mut display = MockDisplay::new();
-	Text::new("ä?\n ß", Point::zero())
-		.with_font(FONT_{{ font.width }}x{{ font.height }}, BinaryColor::On)
-		.draw(&mut display)
-		.unwrap();
-	assert_eq!(
-		display,
-		MockDisplay::from_pattern(&[
-			{%- for y in 0..font.height %}
-			"{{ font.glyph('?').mock_line(y) }}{{ font.glyph('?').mock_line(y) }}",
-			{%- endfor %}
-			{%- for y in 0..font.height %}
-			"{{ font.glyph(' ').mock_line(y) }}{{ font.glyph('?').mock_line(y) }}",
-			{%- endfor %}
-		])
-	);
-}
-{%- endif %}
-
-{% endfor -%}
+{%- endfor %}

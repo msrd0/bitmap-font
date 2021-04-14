@@ -7,11 +7,23 @@ use num_format::{Locale, ToFormattedString};
 use std::{
 	cmp::Ordering,
 	collections::BTreeSet,
+	convert::TryInto,
 	fs::{self, File},
 	io::Write
 };
 
-const CHARS: &str = r##" !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~"##;
+const CHAR_RANGES: &[(char, char)] = &[
+	// printable ascii chars
+	(' ', '~'),
+	// printable latin-1 chars
+	('¡', '¦'),
+	('°', '°'),
+	('¿', 'ÿ'),
+	// powerline
+	('', '')
+];
+const MIN_ROWS: u32 = 4;
+const MAX_ROWS: u32 = 15;
 
 fn to_bmp(bitmap: &[u8], width: i32, height: i32) -> anyhow::Result<Vec<u8>> {
 	let mut bmp: Vec<u8> = Vec::new();
@@ -39,13 +51,22 @@ fn to_bmp(bitmap: &[u8], width: i32, height: i32) -> anyhow::Result<Vec<u8>> {
 #[derive(Template)]
 #[template(path = "src.in", escape = "none")]
 struct RustSource<'a> {
+	char_ranges: &'a Vec<CharRange>,
 	fonts: &'a BTreeSet<Font>
 }
 
 #[derive(Template)]
 #[template(path = "tests.in", escape = "none")]
 struct RustTests<'a> {
+	char_ranges: &'a Vec<CharRange>,
 	fonts: &'a BTreeSet<VirtualFont>
+}
+
+struct CharRange {
+	start: char,
+	mid: char,
+	end: char,
+	skip: u32
 }
 
 struct Font {
@@ -87,7 +108,7 @@ struct VirtualFont {
 
 impl VirtualFont {
 	fn glyph(&self, c: &char) -> GlyphData {
-		let mut glyph = self.glyphs[c].clone();
+		let mut glyph = self.glyphs.get(c).expect(&format!("No glyph found for char '{}'", c)).clone();
 		glyph.pixels = self.pixels;
 		glyph
 	}
@@ -177,9 +198,72 @@ impl GlyphData {
 	}
 }
 
+#[derive(Default)]
+struct BitmapBuilder {
+	bitmap: Vec<u8>,
+	bitmap_double: Vec<u8>
+}
+
+impl BitmapBuilder {
+	fn add_lines(&mut self, img_width: usize, img_width_double: usize, lines: Vec<BitVec>, lines_double: Vec<BitVec>) {
+		for mut line in lines {
+			for _ in line.len()..img_width {
+				line.push(false);
+			}
+			self.bitmap.extend(line.to_bytes());
+		}
+
+		for mut line in lines_double {
+			for _ in line.len()..img_width_double {
+				line.push(false);
+			}
+			let bytes = line.to_bytes();
+			self.bitmap_double.extend_from_slice(&bytes);
+			self.bitmap_double.extend_from_slice(&bytes);
+		}
+	}
+}
+
+trait CeilingDiv {
+	fn ceiling_div(self, rhs: Self) -> Self;
+}
+
+impl CeilingDiv for u32 {
+	fn ceiling_div(self, rhs: Self) -> Self {
+		self / rhs + (self % rhs > 0).then(|| 1).unwrap_or(0)
+	}
+}
+
+fn init_lines(height: u32, img_width: usize, img_width_double: usize) -> (Vec<BitVec>, Vec<BitVec>) {
+	let mut lines: Vec<BitVec> = Vec::new();
+	let mut lines_double: Vec<BitVec> = Vec::new();
+	for _ in 0..height {
+		lines.push(BitVec::with_capacity(8 * img_width as usize));
+		lines_double.push(BitVec::with_capacity(8 * img_width_double as usize));
+	}
+	(lines, lines_double)
+}
+
 fn main() -> anyhow::Result<()> {
 	let mut fonts = BTreeSet::new();
 	let mut virtual_fonts = BTreeSet::new();
+
+	let char_count: usize = CHAR_RANGES
+		.iter()
+		.map(|(start, end)| *end as usize - *start as usize + 1)
+		.sum();
+
+	let mut char_ranges = Vec::new();
+	let mut skip = 0;
+	for (start, end) in CHAR_RANGES {
+		char_ranges.push(CharRange {
+			start: *start,
+			mid: ((*start as u32 + *end as u32).ceiling_div(2)).try_into().unwrap(),
+			end: *end,
+			skip
+		});
+		skip += *end as u32 - *start as u32 + 1;
+	}
 
 	let dir = "tamzen-font/bdf";
 	for file in fs::read_dir(dir)? {
@@ -187,7 +271,7 @@ fn main() -> anyhow::Result<()> {
 		let path = file.path().display().to_string();
 		println!("Inspecting file {}", path);
 		let path = match path
-			.strip_prefix("tamzen-font/bdf/Tamzen")
+			.strip_prefix("tamzen-font/bdf/TamzenForPowerline")
 			.and_then(|path| path.strip_suffix("r.bdf"))
 		{
 			Some(path) => path,
@@ -203,62 +287,74 @@ fn main() -> anyhow::Result<()> {
 			_ => continue
 		};
 
-		let min_width = CHARS.len() * width as usize;
+		let mut rows = 1;
+		let mut per_line = char_count as u32;
+		let mut wasted = u32::MAX;
+		for r in MIN_ROWS..=MAX_ROWS {
+			let pl = (char_count as u32).ceiling_div(r);
+			let min_width = pl * width;
+			let img_width = min_width.ceiling_div(32) * 32;
+			let w = (img_width - min_width) * r;
+			if w < wasted {
+				wasted = w;
+				rows = r;
+				per_line = img_width / width;
+			}
+		}
+		println!("rows = {}, per_line = {}, wasted = {}", rows, per_line, wasted);
+
+		let min_width = (per_line * width) as usize;
 		let img_width = if min_width % 32 == 0 {
 			min_width
 		} else {
 			(min_width / 32 + 1) * 32
 		};
-
-		let min_width_double = min_width * 2;
-		let img_width_double = if min_width_double % 32 == 0 {
-			min_width_double
+		let img_width_double = if (2 * min_width) % 32 == 0 {
+			2 * min_width
 		} else {
-			(min_width_double / 32 + 1) * 32
+			(min_width / 16 + 1) * 32
 		};
 
+		let img_height = height as i32 * rows as i32;
+
 		println!(" -> Found font {}x{}", width, height);
-		let mut lines: Vec<BitVec> = Vec::new();
-		let mut lines_double: Vec<BitVec> = Vec::new();
-		for _ in 0..height {
-			lines.push(BitVec::with_capacity(8 * img_width));
-			lines_double.push(BitVec::with_capacity(8 * img_width_double));
-		}
+		let mut bitmap_builder = BitmapBuilder::default();
+		let (mut lines, mut lines_double) = init_lines(height, img_width, img_width_double);
 		let file = File::open(file.path())?;
 		let font = bdf::read(file)?;
 		let glyphs = font.glyphs();
-		let glyphs: LinkedHashMap<char, GlyphData> = CHARS
-			.chars()
-			.map(|char| {
-				let glyph = glyphs.get(&char).ok_or_else(|| anyhow!("char not in font")).unwrap();
-				(char, GlyphData::new(glyph.clone(), width, height).unwrap())
+		let glyphs: LinkedHashMap<char, GlyphData> = CHAR_RANGES
+			.iter()
+			.flat_map(|(start, end)| {
+				(*start..=*end).map(|char| {
+					let glyph = glyphs.get(&char).ok_or_else(|| anyhow!("char not in font")).unwrap();
+					(char, GlyphData::new(glyph.clone(), width, height).unwrap())
+				})
 			})
 			.collect();
+
+		let mut idx = 0;
 		for (_, g) in &glyphs {
 			g.push_to_bitmap(&mut lines);
 			g.push_to_bitmap_double(&mut lines_double);
-		}
 
-		let mut bitmap: Vec<u8> = Vec::new();
-		for mut line in lines {
-			for _ in min_width..img_width {
-				line.push(false);
+			idx += 1;
+			if idx >= per_line {
+				idx = 0;
+				bitmap_builder.add_lines(img_width, img_width_double, lines, lines_double);
+
+				// TODO this syntax is ugly but everything else is unstable
+				let (lines0, lines0_double) = init_lines(height, img_width, img_width_double);
+				lines = lines0;
+				lines_double = lines0_double;
 			}
-			bitmap.extend(line.to_bytes());
 		}
 
-		let mut bitmap_double: Vec<u8> = Vec::new();
-		for mut line in lines_double {
-			for _ in min_width_double..img_width_double {
-				line.push(false);
-			}
-			let bytes = line.to_bytes();
-			bitmap_double.extend_from_slice(&bytes);
-			bitmap_double.extend_from_slice(&bytes);
-		}
+		bitmap_builder.add_lines(img_width, img_width_double, lines, lines_double);
+		let (bitmap, bitmap_double) = (bitmap_builder.bitmap, bitmap_builder.bitmap_double);
 
-		let bmp: Vec<u8> = to_bmp(&bitmap, img_width as _, height as _)?;
-		let bmp_double: Vec<u8> = to_bmp(&&bitmap_double, img_width_double as _, 2 * height as i32)?;
+		let bmp: Vec<u8> = to_bmp(&bitmap, img_width as _, img_height)?;
+		let bmp_double: Vec<u8> = to_bmp(&&bitmap_double, img_width_double as _, 2 * img_height)?;
 
 		let bitmap_len = bitmap.len().to_formatted_string(&Locale::en_IE); // european english
 		let font = Font {
@@ -290,10 +386,26 @@ fn main() -> anyhow::Result<()> {
 	}
 
 	let mut rs = File::create("../src/generated.rs")?;
-	writeln!(rs, "{}", RustSource { fonts: &fonts }.render()?)?;
+	writeln!(
+		rs,
+		"{}",
+		RustSource {
+			char_ranges: &char_ranges,
+			fonts: &fonts
+		}
+		.render()?
+	)?;
 
 	let mut rs = File::create("../tests/generated.rs")?;
-	writeln!(rs, "{}", RustTests { fonts: &virtual_fonts }.render()?)?;
+	writeln!(
+		rs,
+		"{}",
+		RustTests {
+			char_ranges: &char_ranges,
+			fonts: &virtual_fonts
+		}
+		.render()?
+	)?;
 
 	Ok(())
 }

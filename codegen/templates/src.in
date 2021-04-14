@@ -4,9 +4,20 @@
 
 use crate::BitmapFont;
 
+/// Return the char offset in the raw bitmap data.
+pub(super) fn char_offset(c: char) -> u32 {
+	match c {
+		{% for range in char_ranges -%}
+		'{{ range.start }}' ..= '{{ range.end }}' => (c as u32 - '{{ range.start }}' as u32){% if range.skip != 0 %} + {{ range.skip }}{% endif %},
+		{% endfor -%}
+		_ => '?' as u32 - ' ' as u32
+	}
+}
+
 // ### Fonts
 
-{% for font in fonts -%}
+{%- for font in fonts %}
+
 /**
  * Tamzen {{ font.width }}x{{ font.height }} Font.
  * 
@@ -34,11 +45,12 @@ pub const FONT_{{ font.width }}x{{ font.height }}: BitmapFont = BitmapFont {
 	pixels: 1
 };
 
-{% endfor -%}
+{%- endfor %}
 
 // ### Pixel-Double Fonts
 
-{% for font in fonts -%}
+{%- for font in fonts %}
+
 /**
  * Pixel-double version of [FONT_{{ font.width }}x{{ font.height }}].
  * 
@@ -49,4 +61,4 @@ pub const FONT_{{ font.width }}x{{ font.height }}: BitmapFont = BitmapFont {
 #[allow(non_upper_case_globals)]
 pub const FONT_{{ 2*font.width }}x{{ 2*font.height }}: BitmapFont = FONT_{{ font.width }}x{{ font.height }}.pixel_double();
 
-{% endfor -%}
+{%- endfor %}

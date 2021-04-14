@@ -42,10 +42,12 @@ mod font_{{ font.width }}x{{ font.height }} {
 		assert_eq!(size, Size::new({{ 3*font.width }}, {{ 3*font.height }}));
 	}
 
+	{%- for range in char_ranges %}
+	
 	#[test]
-	fn text_m_draw() {
+	fn text_char_range_{{ loop.index }}() {
 		let mut display = MockDisplay::new();
-		Text::new("mM", Point::zero())
+		Text::new("{{ range.start }}{{ range.end }}", Point::zero())
 			.with_font(FONT_{{ font.width }}x{{ font.height }}, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
@@ -53,11 +55,13 @@ mod font_{{ font.width }}x{{ font.height }} {
 			display,
 			MockDisplay::from_pattern(&[
 				{%- for y in 0..font.height %}
-				"{{ font.glyph('m').mock_line(y) }}{{ font.glyph('M').mock_line(y) }}",
+				"{{ font.glyph(range.start).mock_line(y) }}{{ font.glyph(range.end).mock_line(y) }}",
 				{%- endfor %}
 			])
 		);
 	}
+	{%- endfor %}
+	
 	{%- if 2*font.height < 64 %}
 
 	#[test]

@@ -88,9 +88,6 @@ impl BitmapFont {
 		let offset = char_offset(c);
 		let row = offset / char_per_row;
 
-		extern crate std;
-		std::println!("row = {}", row);
-
 		let char_x = (offset - (row * char_per_row)) * self.width;
 		let char_y = row * self.height;
 

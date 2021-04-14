@@ -57,6 +57,7 @@ struct RustSource<'a> {
 #[derive(Template)]
 #[template(path = "tests.in", escape = "none")]
 struct RustTests<'a> {
+	char_ranges: &'a Vec<CharRange>,
 	fonts: &'a BTreeSet<VirtualFont>
 }
 
@@ -254,7 +255,7 @@ fn main() -> anyhow::Result<()> {
 	let mut skip = 0;
 	let mut last_end = ' ';
 	for (start, end) in CHAR_RANGES {
-		skip += *start as u32 - last_end as u32;
+		//skip += *start as u32 - last_end as u32;
 		char_ranges.push(CharRange {
 			start: *start,
 			end: *end,
@@ -399,7 +400,15 @@ fn main() -> anyhow::Result<()> {
 	)?;
 
 	let mut rs = File::create("../tests/generated.rs")?;
-	writeln!(rs, "{}", RustTests { fonts: &virtual_fonts }.render()?)?;
+	writeln!(
+		rs,
+		"{}",
+		RustTests {
+			char_ranges: &char_ranges,
+			fonts: &virtual_fonts
+		}
+		.render()?
+	)?;
 
 	Ok(())
 }

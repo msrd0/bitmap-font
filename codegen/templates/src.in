@@ -45,11 +45,12 @@ pub const FONT_{{ font.width }}x{{ font.height }}: BitmapFont = BitmapFont {
 	pixels: 1
 };
 
-{% endfor -%}
+{%- endfor %}
 
 // ### Pixel-Double Fonts
 
-{% for font in fonts -%}
+{%- for font in fonts %}
+
 /**
  * Pixel-double version of [FONT_{{ font.width }}x{{ font.height }}].
  * 

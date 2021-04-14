@@ -7,6 +7,7 @@ use num_format::{Locale, ToFormattedString};
 use std::{
 	cmp::Ordering,
 	collections::BTreeSet,
+	convert::TryInto,
 	fs::{self, File},
 	io::Write
 };
@@ -63,6 +64,7 @@ struct RustTests<'a> {
 
 struct CharRange {
 	start: char,
+	mid: char,
 	end: char,
 	skip: u32
 }
@@ -106,7 +108,7 @@ struct VirtualFont {
 
 impl VirtualFont {
 	fn glyph(&self, c: &char) -> GlyphData {
-		let mut glyph = self.glyphs[c].clone();
+		let mut glyph = self.glyphs.get(c).expect(&format!("No glyph found for char '{}'", c)).clone();
 		glyph.pixels = self.pixels;
 		glyph
 	}
@@ -256,6 +258,7 @@ fn main() -> anyhow::Result<()> {
 	for (start, end) in CHAR_RANGES {
 		char_ranges.push(CharRange {
 			start: *start,
+			mid: ((*start as u32 + *end as u32).ceiling_div(2)).try_into().unwrap(),
 			end: *end,
 			skip
 		});
@@ -284,7 +287,6 @@ fn main() -> anyhow::Result<()> {
 			_ => continue
 		};
 
-		//let per_line = char_count / ROWS + 1; // TODO this calculation is ugly
 		let mut rows = 1;
 		let mut per_line = char_count as u32;
 		let mut wasted = u32::MAX;
@@ -302,7 +304,6 @@ fn main() -> anyhow::Result<()> {
 		println!("rows = {}, per_line = {}, wasted = {}", rows, per_line, wasted);
 
 		let min_width = (per_line * width) as usize;
-		println!("min_width = {}", min_width);
 		let img_width = if min_width % 32 == 0 {
 			min_width
 		} else {

@@ -47,7 +47,7 @@ mod font_{{ font.width }}x{{ font.height }} {
 	#[test]
 	fn text_char_range_{{ loop.index }}() {
 		let mut display = MockDisplay::new();
-		Text::new("{{ range.start }}{{ range.end }}", Point::zero())
+		Text::new("{{ range.start }}{{ range.mid }}{{ range.end }}", Point::zero())
 			.with_font(FONT_{{ font.width }}x{{ font.height }}, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
@@ -55,7 +55,7 @@ mod font_{{ font.width }}x{{ font.height }} {
 			display,
 			MockDisplay::from_pattern(&[
 				{%- for y in 0..font.height %}
-				"{{ font.glyph(range.start).mock_line(y) }}{{ font.glyph(range.end).mock_line(y) }}",
+				"{{ font.glyph(range.start).mock_line(y) }}{{ font.glyph(range.mid).mock_line(y) }}{{ font.glyph(range.end).mock_line(y) }}",
 				{%- endfor %}
 			])
 		);

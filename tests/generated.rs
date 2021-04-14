@@ -43,22 +43,22 @@ mod font_5x9 {
 	#[test]
 	fn text_char_range_1() {
 		let mut display = MockDisplay::new();
-		Text::new(" ~", Point::zero())
+		Text::new(" O~", Point::zero())
 			.with_font(FONT_5x9, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"          ",
-				"          ",
-				"     ## # ",
-				"     # ## ",
-				"          ",
-				"          ",
-				"          ",
-				"          ",
-				"          ",
+				"               ",
+				"               ",
+				"      ##  ## # ",
+				"     #  # # ## ",
+				"     #  #      ",
+				"     #  #      ",
+				"      ##       ",
+				"               ",
+				"               ",
 			])
 		);
 	}
@@ -66,22 +66,22 @@ mod font_5x9 {
 	#[test]
 	fn text_char_range_2() {
 		let mut display = MockDisplay::new();
-		Text::new("¡¦", Point::zero())
+		Text::new("¡¤¦", Point::zero())
 			.with_font(FONT_5x9, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"          ",
-				"       #  ",
-				"       #  ",
-				" #     #  ",
-				"          ",
-				" #     #  ",
-				" #     #  ",
-				" #     #  ",
-				" #        ",
+				"               ",
+				"     #  #   #  ",
+				"      ##    #  ",
+				" #   #  #   #  ",
+				"     #  #      ",
+				" #    ##    #  ",
+				" #   #  #   #  ",
+				" #          #  ",
+				" #             ",
 			])
 		);
 	}
@@ -89,22 +89,22 @@ mod font_5x9 {
 	#[test]
 	fn text_char_range_3() {
 		let mut display = MockDisplay::new();
-		Text::new("°°", Point::zero())
+		Text::new("°°°", Point::zero())
 			.with_font(FONT_5x9, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"          ",
-				"          ",
-				" ##   ##  ",
-				"#  # #  # ",
-				" ##   ##  ",
-				"          ",
-				"          ",
-				"          ",
-				"          ",
+				"               ",
+				"               ",
+				" ##   ##   ##  ",
+				"#  # #  # #  # ",
+				" ##   ##   ##  ",
+				"               ",
+				"               ",
+				"               ",
+				"               ",
 			])
 		);
 	}
@@ -112,22 +112,22 @@ mod font_5x9 {
 	#[test]
 	fn text_char_range_4() {
 		let mut display = MockDisplay::new();
-		Text::new("¿ÿ", Point::zero())
+		Text::new("¿ßÿ", Point::zero())
 			.with_font(FONT_5x9, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"          ",
-				"     # #  ",
-				"          ",
-				"  #  #  # ",
-				"     #  # ",
-				"  #  #  # ",
-				" #    ### ",
-				"#       # ",
-				" ###  ##  ",
+				"               ",
+				"          # #  ",
+				"      ###      ",
+				"  #  #  # #  # ",
+				"     # #  #  # ",
+				"  #  #  # #  # ",
+				" #   # #   ### ",
+				"#            # ",
+				" ###       ##  ",
 			])
 		);
 	}
@@ -135,22 +135,22 @@ mod font_5x9 {
 	#[test]
 	fn text_char_range_5() {
 		let mut display = MockDisplay::new();
-		Text::new("", Point::zero())
+		Text::new("", Point::zero())
 			.with_font(FONT_5x9, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"#        #",
-				"##      # ",
-				"###    #  ",
-				"####  #   ",
-				"######    ",
-				"####  #   ",
-				"###    #  ",
-				"##      # ",
-				"#        #",
+				"#        #    #",
+				"##      ##   # ",
+				"###    ###  #  ",
+				"####  #### #   ",
+				"###########    ",
+				"####  #### #   ",
+				"###    ###  #  ",
+				"##      ##   # ",
+				"#        #    #",
 			])
 		);
 	}
@@ -231,25 +231,25 @@ mod font_6x12 {
 	#[test]
 	fn text_char_range_1() {
 		let mut display = MockDisplay::new();
-		Text::new(" ~", Point::zero())
+		Text::new(" O~", Point::zero())
 			.with_font(FONT_6x12, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"            ",
-				"            ",
-				"       #  # ",
-				"      # # # ",
-				"      #  #  ",
-				"            ",
-				"            ",
-				"            ",
-				"            ",
-				"            ",
-				"            ",
-				"            ",
+				"                  ",
+				"                  ",
+				"       ###   #  # ",
+				"      #   # # # # ",
+				"      #   # #  #  ",
+				"      #   #       ",
+				"      #   #       ",
+				"      #   #       ",
+				"       ###        ",
+				"                  ",
+				"                  ",
+				"                  ",
 			])
 		);
 	}
@@ -257,25 +257,25 @@ mod font_6x12 {
 	#[test]
 	fn text_char_range_2() {
 		let mut display = MockDisplay::new();
-		Text::new("¡¦", Point::zero())
+		Text::new("¡¤¦", Point::zero())
 			.with_font(FONT_6x12, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"            ",
-				"        #   ",
-				"        #   ",
-				"  #     #   ",
-				"        #   ",
-				"            ",
-				"  #     #   ",
-				"  #     #   ",
-				"  #     #   ",
-				"  #     #   ",
-				"  #         ",
-				"            ",
+				"                  ",
+				"              #   ",
+				"              #   ",
+				"  #   #   #   #   ",
+				"       ###    #   ",
+				"       # #        ",
+				"  #    ###    #   ",
+				"  #   #   #   #   ",
+				"  #           #   ",
+				"  #           #   ",
+				"  #               ",
+				"                  ",
 			])
 		);
 	}
@@ -283,25 +283,25 @@ mod font_6x12 {
 	#[test]
 	fn text_char_range_3() {
 		let mut display = MockDisplay::new();
-		Text::new("°°", Point::zero())
+		Text::new("°°°", Point::zero())
 			.with_font(FONT_6x12, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"            ",
-				"            ",
-				" ##    ##   ",
-				"#  #  #  #  ",
-				"#  #  #  #  ",
-				" ##    ##   ",
-				"            ",
-				"            ",
-				"            ",
-				"            ",
-				"            ",
-				"            ",
+				"                  ",
+				"                  ",
+				" ##    ##    ##   ",
+				"#  #  #  #  #  #  ",
+				"#  #  #  #  #  #  ",
+				" ##    ##    ##   ",
+				"                  ",
+				"                  ",
+				"                  ",
+				"                  ",
+				"                  ",
+				"                  ",
 			])
 		);
 	}
@@ -309,25 +309,25 @@ mod font_6x12 {
 	#[test]
 	fn text_char_range_4() {
 		let mut display = MockDisplay::new();
-		Text::new("¿ÿ", Point::zero())
+		Text::new("¿ßÿ", Point::zero())
 			.with_font(FONT_6x12, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"            ",
-				"            ",
-				"       # #  ",
-				"  #         ",
-				"      #   # ",
-				"      #   # ",
-				"  #   #   # ",
-				" #    #   # ",
-				"#      #### ",
-				"#   #     # ",
-				" ###   ###  ",
-				"            ",
+				"                  ",
+				"                  ",
+				"       ###   # #  ",
+				"  #   #   #       ",
+				"      #  #  #   # ",
+				"      # ##  #   # ",
+				"  #   #   # #   # ",
+				" #    #   # #   # ",
+				"#     # ##   #### ",
+				"#   #           # ",
+				" ###         ###  ",
+				"                  ",
 			])
 		);
 	}
@@ -335,25 +335,25 @@ mod font_6x12 {
 	#[test]
 	fn text_char_range_5() {
 		let mut display = MockDisplay::new();
-		Text::new("", Point::zero())
+		Text::new("", Point::zero())
 			.with_font(FONT_6x12, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"#          #",
-				"##        # ",
-				"###      #  ",
-				"####    #   ",
-				"#####  #    ",
-				"#######     ",
-				"#######     ",
-				"#####  #    ",
-				"####    #   ",
-				"###      #  ",
-				"##        # ",
-				"#          #",
+				"#          #     #",
+				"##        ##    # ",
+				"###      ###   #  ",
+				"####    ####  #   ",
+				"#####  ##### #    ",
+				"#############     ",
+				"#############     ",
+				"#####  ##### #    ",
+				"####    ####  #   ",
+				"###      ###   #  ",
+				"##        ##    # ",
+				"#          #     #",
 			])
 		);
 	}
@@ -440,26 +440,26 @@ mod font_7x13 {
 	#[test]
 	fn text_char_range_1() {
 		let mut display = MockDisplay::new();
-		Text::new(" ~", Point::zero())
+		Text::new(" O~", Point::zero())
 			.with_font(FONT_7x13, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"              ",
-				"              ",
-				"              ",
-				"         #  # ",
-				"        # # # ",
-				"        #  #  ",
-				"              ",
-				"              ",
-				"              ",
-				"              ",
-				"              ",
-				"              ",
-				"              ",
+				"                     ",
+				"                     ",
+				"                     ",
+				"         ###    #  # ",
+				"        #   #  # # # ",
+				"        #   #  #  #  ",
+				"        #   #        ",
+				"        #   #        ",
+				"        #   #        ",
+				"         ###         ",
+				"                     ",
+				"                     ",
+				"                     ",
 			])
 		);
 	}
@@ -467,26 +467,26 @@ mod font_7x13 {
 	#[test]
 	fn text_char_range_2() {
 		let mut display = MockDisplay::new();
-		Text::new("¡¦", Point::zero())
+		Text::new("¡¤¦", Point::zero())
 			.with_font(FONT_7x13, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"              ",
-				"              ",
-				"          #   ",
-				"          #   ",
-				"   #      #   ",
-				"          #   ",
-				"              ",
-				"   #      #   ",
-				"   #      #   ",
-				"   #      #   ",
-				"   #      #   ",
-				"   #          ",
-				"              ",
+				"                     ",
+				"                     ",
+				"                 #   ",
+				"                 #   ",
+				"   #    #   #    #   ",
+				"         ###     #   ",
+				"         # #         ",
+				"   #     ###     #   ",
+				"   #    #   #    #   ",
+				"   #             #   ",
+				"   #             #   ",
+				"   #                 ",
+				"                     ",
 			])
 		);
 	}
@@ -494,26 +494,26 @@ mod font_7x13 {
 	#[test]
 	fn text_char_range_3() {
 		let mut display = MockDisplay::new();
-		Text::new("°°", Point::zero())
+		Text::new("°°°", Point::zero())
 			.with_font(FONT_7x13, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"              ",
-				"              ",
-				"              ",
-				"  ##     ##   ",
-				" #  #   #  #  ",
-				" #  #   #  #  ",
-				"  ##     ##   ",
-				"              ",
-				"              ",
-				"              ",
-				"              ",
-				"              ",
-				"              ",
+				"                     ",
+				"                     ",
+				"                     ",
+				"  ##     ##     ##   ",
+				" #  #   #  #   #  #  ",
+				" #  #   #  #   #  #  ",
+				"  ##     ##     ##   ",
+				"                     ",
+				"                     ",
+				"                     ",
+				"                     ",
+				"                     ",
+				"                     ",
 			])
 		);
 	}
@@ -521,26 +521,26 @@ mod font_7x13 {
 	#[test]
 	fn text_char_range_4() {
 		let mut display = MockDisplay::new();
-		Text::new("¿ÿ", Point::zero())
+		Text::new("¿ßÿ", Point::zero())
 			.with_font(FONT_7x13, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"              ",
-				"              ",
-				"              ",
-				"         # #  ",
-				"   #          ",
-				"        #   # ",
-				"        #   # ",
-				"   #    #   # ",
-				"  #     #   # ",
-				" #       #### ",
-				" #   #      # ",
-				"  ###    ###  ",
-				"              ",
+				"                     ",
+				"                     ",
+				"                     ",
+				"         ###    # #  ",
+				"   #    #   #        ",
+				"        #  #   #   # ",
+				"        # ##   #   # ",
+				"   #    #   #  #   # ",
+				"  #     #   #  #   # ",
+				" #      # ##    #### ",
+				" #   #             # ",
+				"  ###           ###  ",
+				"                     ",
 			])
 		);
 	}
@@ -548,26 +548,26 @@ mod font_7x13 {
 	#[test]
 	fn text_char_range_5() {
 		let mut display = MockDisplay::new();
-		Text::new("", Point::zero())
+		Text::new("", Point::zero())
 			.with_font(FONT_7x13, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"#            #",
-				"##          # ",
-				"###        #  ",
-				"####      #   ",
-				"#####    #    ",
-				"######  #     ",
-				"########      ",
-				"######  #     ",
-				"#####    #    ",
-				"####      #   ",
-				"###        #  ",
-				"##          # ",
-				"#            #",
+				"#            #      #",
+				"##          ##     # ",
+				"###        ###    #  ",
+				"####      ####   #   ",
+				"#####    #####  #    ",
+				"######  ###### #     ",
+				"###############      ",
+				"######  ###### #     ",
+				"#####    #####  #    ",
+				"####      ####   #   ",
+				"###        ###    #  ",
+				"##          ##     # ",
+				"#            #      #",
 			])
 		);
 	}
@@ -656,27 +656,27 @@ mod font_7x14 {
 	#[test]
 	fn text_char_range_1() {
 		let mut display = MockDisplay::new();
-		Text::new(" ~", Point::zero())
+		Text::new(" O~", Point::zero())
 			.with_font(FONT_7x14, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"              ",
-				"              ",
-				"              ",
-				"         #  # ",
-				"        # # # ",
-				"        #  #  ",
-				"              ",
-				"              ",
-				"              ",
-				"              ",
-				"              ",
-				"              ",
-				"              ",
-				"              ",
+				"                     ",
+				"                     ",
+				"                     ",
+				"         ###    #  # ",
+				"        #   #  # # # ",
+				"        #   #  #  #  ",
+				"        #   #        ",
+				"        #   #        ",
+				"        #   #        ",
+				"        #   #        ",
+				"         ###         ",
+				"                     ",
+				"                     ",
+				"                     ",
 			])
 		);
 	}
@@ -684,27 +684,27 @@ mod font_7x14 {
 	#[test]
 	fn text_char_range_2() {
 		let mut display = MockDisplay::new();
-		Text::new("¡¦", Point::zero())
+		Text::new("¡¤¦", Point::zero())
 			.with_font(FONT_7x14, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"              ",
-				"              ",
-				"              ",
-				"          #   ",
-				"   #      #   ",
-				"   #      #   ",
-				"          #   ",
-				"              ",
-				"   #      #   ",
-				"   #      #   ",
-				"   #      #   ",
-				"   #      #   ",
-				"   #          ",
-				"              ",
+				"                     ",
+				"                     ",
+				"                     ",
+				"                 #   ",
+				"   #    #   #    #   ",
+				"   #     ###     #   ",
+				"         # #     #   ",
+				"         ###         ",
+				"   #    #   #    #   ",
+				"   #             #   ",
+				"   #             #   ",
+				"   #             #   ",
+				"   #                 ",
+				"                     ",
 			])
 		);
 	}
@@ -712,27 +712,27 @@ mod font_7x14 {
 	#[test]
 	fn text_char_range_3() {
 		let mut display = MockDisplay::new();
-		Text::new("°°", Point::zero())
+		Text::new("°°°", Point::zero())
 			.with_font(FONT_7x14, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"              ",
-				"              ",
-				"              ",
-				"  ##     ##   ",
-				" #  #   #  #  ",
-				" #  #   #  #  ",
-				"  ##     ##   ",
-				"              ",
-				"              ",
-				"              ",
-				"              ",
-				"              ",
-				"              ",
-				"              ",
+				"                     ",
+				"                     ",
+				"                     ",
+				"  ##     ##     ##   ",
+				" #  #   #  #   #  #  ",
+				" #  #   #  #   #  #  ",
+				"  ##     ##     ##   ",
+				"                     ",
+				"                     ",
+				"                     ",
+				"                     ",
+				"                     ",
+				"                     ",
+				"                     ",
 			])
 		);
 	}
@@ -740,27 +740,27 @@ mod font_7x14 {
 	#[test]
 	fn text_char_range_4() {
 		let mut display = MockDisplay::new();
-		Text::new("¿ÿ", Point::zero())
+		Text::new("¿ßÿ", Point::zero())
 			.with_font(FONT_7x14, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"              ",
-				"              ",
-				"              ",
-				"         # #  ",
-				"   #          ",
-				"   #    #   # ",
-				"        #   # ",
-				"        #   # ",
-				"   #    #   # ",
-				"  #     #   # ",
-				" #       #### ",
-				" #   #      # ",
-				"  ###    ###  ",
-				"              ",
+				"                     ",
+				"                     ",
+				"                     ",
+				"         ###    # #  ",
+				"   #    #   #        ",
+				"   #    #  #   #   # ",
+				"        # ##   #   # ",
+				"        #   #  #   # ",
+				"   #    #   #  #   # ",
+				"  #     #   #  #   # ",
+				" #      # ##    #### ",
+				" #   #             # ",
+				"  ###           ###  ",
+				"                     ",
 			])
 		);
 	}
@@ -768,27 +768,27 @@ mod font_7x14 {
 	#[test]
 	fn text_char_range_5() {
 		let mut display = MockDisplay::new();
-		Text::new("", Point::zero())
+		Text::new("", Point::zero())
 			.with_font(FONT_7x14, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"#            #",
-				"##          # ",
-				"###        #  ",
-				"####      #   ",
-				"#####    #    ",
-				"######  #     ",
-				"########      ",
-				"########      ",
-				"######  #     ",
-				"#####    #    ",
-				"####      #   ",
-				"###        #  ",
-				"##          # ",
-				"#            #",
+				"#            #      #",
+				"##          ##     # ",
+				"###        ###    #  ",
+				"####      ####   #   ",
+				"#####    #####  #    ",
+				"######  ###### #     ",
+				"###############      ",
+				"###############      ",
+				"######  ###### #     ",
+				"#####    #####  #    ",
+				"####      ####   #   ",
+				"###        ###    #  ",
+				"##          ##     # ",
+				"#            #      #",
 			])
 		);
 	}
@@ -879,28 +879,28 @@ mod font_8x15 {
 	#[test]
 	fn text_char_range_1() {
 		let mut display = MockDisplay::new();
-		Text::new(" ~", Point::zero())
+		Text::new(" O~", Point::zero())
 			.with_font(FONT_8x15, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"                ",
-				"                ",
-				"                ",
-				"                ",
-				"          ##   #",
-				"         #  #  #",
-				"         #   ## ",
-				"                ",
-				"                ",
-				"                ",
-				"                ",
-				"                ",
-				"                ",
-				"                ",
-				"                ",
+				"                        ",
+				"                        ",
+				"                        ",
+				"                        ",
+				"          ####    ##   #",
+				"         #    #  #  #  #",
+				"         #    #  #   ## ",
+				"         #    #         ",
+				"         #    #         ",
+				"         #    #         ",
+				"         #    #         ",
+				"          ####          ",
+				"                        ",
+				"                        ",
+				"                        ",
 			])
 		);
 	}
@@ -908,28 +908,28 @@ mod font_8x15 {
 	#[test]
 	fn text_char_range_2() {
 		let mut display = MockDisplay::new();
-		Text::new("¡¦", Point::zero())
+		Text::new("¡¤¦", Point::zero())
 			.with_font(FONT_8x15, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"                ",
-				"                ",
-				"                ",
-				"                ",
-				"            #   ",
-				"            #   ",
-				"   #        #   ",
-				"   #        #   ",
-				"                ",
-				"                ",
-				"   #        #   ",
-				"   #        #   ",
-				"   #        #   ",
-				"   #        #   ",
-				"   #            ",
+				"                        ",
+				"                        ",
+				"                        ",
+				"                        ",
+				"                    #   ",
+				"         #    #     #   ",
+				"   #      ####      #   ",
+				"   #      #  #      #   ",
+				"          #  #          ",
+				"          ####          ",
+				"   #     #    #     #   ",
+				"   #                #   ",
+				"   #                #   ",
+				"   #                #   ",
+				"   #                    ",
 			])
 		);
 	}
@@ -937,28 +937,28 @@ mod font_8x15 {
 	#[test]
 	fn text_char_range_3() {
 		let mut display = MockDisplay::new();
-		Text::new("°°", Point::zero())
+		Text::new("°°°", Point::zero())
 			.with_font(FONT_8x15, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"                ",
-				"                ",
-				"                ",
-				"                ",
-				"  ###     ###   ",
-				" #   #   #   #  ",
-				" #   #   #   #  ",
-				" #   #   #   #  ",
-				"  ###     ###   ",
-				"                ",
-				"                ",
-				"                ",
-				"                ",
-				"                ",
-				"                ",
+				"                        ",
+				"                        ",
+				"                        ",
+				"                        ",
+				"  ###     ###     ###   ",
+				" #   #   #   #   #   #  ",
+				" #   #   #   #   #   #  ",
+				" #   #   #   #   #   #  ",
+				"  ###     ###     ###   ",
+				"                        ",
+				"                        ",
+				"                        ",
+				"                        ",
+				"                        ",
+				"                        ",
 			])
 		);
 	}
@@ -966,28 +966,28 @@ mod font_8x15 {
 	#[test]
 	fn text_char_range_4() {
 		let mut display = MockDisplay::new();
-		Text::new("¿ÿ", Point::zero())
+		Text::new("¿ßÿ", Point::zero())
 			.with_font(FONT_8x15, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"                ",
-				"                ",
-				"                ",
-				"          #  #  ",
-				"          #  #  ",
-				"                ",
-				"    #    #    # ",
-				"    #    #    # ",
-				"         #    # ",
-				"         #    # ",
-				"    #    #    # ",
-				"   #      ##### ",
-				"  #           # ",
-				"  #   #       # ",
-				"   ###    ####  ",
+				"                        ",
+				"                        ",
+				"                        ",
+				"                  #  #  ",
+				"          ####    #  #  ",
+				"         #    #         ",
+				"    #    #   #   #    # ",
+				"    #    #  ##   #    # ",
+				"         #    #  #    # ",
+				"         #    #  #    # ",
+				"    #    #    #  #    # ",
+				"   #     #  ##    ##### ",
+				"  #                   # ",
+				"  #   #               # ",
+				"   ###            ####  ",
 			])
 		);
 	}
@@ -995,28 +995,28 @@ mod font_8x15 {
 	#[test]
 	fn text_char_range_5() {
 		let mut display = MockDisplay::new();
-		Text::new("", Point::zero())
+		Text::new("", Point::zero())
 			.with_font(FONT_8x15, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"#              #",
-				"##            # ",
-				"###          #  ",
-				"####        #   ",
-				"#####      #    ",
-				"######    #     ",
-				"#######  #      ",
-				"#########       ",
-				"#######  #      ",
-				"######    #     ",
-				"#####      #    ",
-				"####        #   ",
-				"###          #  ",
-				"##            # ",
-				"#              #",
+				"#              #       #",
+				"##            ##      # ",
+				"###          ###     #  ",
+				"####        ####    #   ",
+				"#####      #####   #    ",
+				"######    ######  #     ",
+				"#######  ####### #      ",
+				"#################       ",
+				"#######  ####### #      ",
+				"######    ######  #     ",
+				"#####      #####   #    ",
+				"####        ####    #   ",
+				"###          ###     #  ",
+				"##            ##      # ",
+				"#              #       #",
 			])
 		);
 	}
@@ -1109,29 +1109,29 @@ mod font_8x16 {
 	#[test]
 	fn text_char_range_1() {
 		let mut display = MockDisplay::new();
-		Text::new(" ~", Point::zero())
+		Text::new(" O~", Point::zero())
 			.with_font(FONT_8x16, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"                ",
-				"                ",
-				"          ##   #",
-				"         #  #  #",
-				"         #   ## ",
-				"                ",
-				"                ",
-				"                ",
-				"                ",
-				"                ",
-				"                ",
-				"                ",
-				"                ",
-				"                ",
-				"                ",
-				"                ",
+				"                        ",
+				"                        ",
+				"                  ##   #",
+				"                 #  #  #",
+				"          ####   #   ## ",
+				"         #    #         ",
+				"         #    #         ",
+				"         #    #         ",
+				"         #    #         ",
+				"         #    #         ",
+				"         #    #         ",
+				"         #    #         ",
+				"          ####          ",
+				"                        ",
+				"                        ",
+				"                        ",
 			])
 		);
 	}
@@ -1139,29 +1139,29 @@ mod font_8x16 {
 	#[test]
 	fn text_char_range_2() {
 		let mut display = MockDisplay::new();
-		Text::new("¡¦", Point::zero())
+		Text::new("¡¤¦", Point::zero())
 			.with_font(FONT_8x16, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"                ",
-				"                ",
-				"                ",
-				"            #   ",
-				"            #   ",
-				"   #        #   ",
-				"   #        #   ",
-				"                ",
-				"                ",
-				"   #            ",
-				"   #        #   ",
-				"   #        #   ",
-				"   #        #   ",
-				"   #        #   ",
-				"   #            ",
-				"                ",
+				"                        ",
+				"                        ",
+				"                        ",
+				"                    #   ",
+				"         #    #     #   ",
+				"   #      ####      #   ",
+				"   #      #  #      #   ",
+				"          #  #          ",
+				"          #  #          ",
+				"   #      ####          ",
+				"   #     #    #     #   ",
+				"   #                #   ",
+				"   #                #   ",
+				"   #                #   ",
+				"   #                    ",
+				"                        ",
 			])
 		);
 	}
@@ -1169,29 +1169,29 @@ mod font_8x16 {
 	#[test]
 	fn text_char_range_3() {
 		let mut display = MockDisplay::new();
-		Text::new("°°", Point::zero())
+		Text::new("°°°", Point::zero())
 			.with_font(FONT_8x16, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"                ",
-				"                ",
-				"                ",
-				"  ###     ###   ",
-				" #   #   #   #  ",
-				" #   #   #   #  ",
-				" #   #   #   #  ",
-				"  ###     ###   ",
-				"                ",
-				"                ",
-				"                ",
-				"                ",
-				"                ",
-				"                ",
-				"                ",
-				"                ",
+				"                        ",
+				"                        ",
+				"                        ",
+				"  ###     ###     ###   ",
+				" #   #   #   #   #   #  ",
+				" #   #   #   #   #   #  ",
+				" #   #   #   #   #   #  ",
+				"  ###     ###     ###   ",
+				"                        ",
+				"                        ",
+				"                        ",
+				"                        ",
+				"                        ",
+				"                        ",
+				"                        ",
+				"                        ",
 			])
 		);
 	}
@@ -1199,29 +1199,29 @@ mod font_8x16 {
 	#[test]
 	fn text_char_range_4() {
 		let mut display = MockDisplay::new();
-		Text::new("¿ÿ", Point::zero())
+		Text::new("¿ßÿ", Point::zero())
 			.with_font(FONT_8x16, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"                ",
-				"                ",
-				"          #  #  ",
-				"          #  #  ",
-				"                ",
-				"    #    #    # ",
-				"    #    #    # ",
-				"         #    # ",
-				"         #    # ",
-				"    #    #    # ",
-				"   #     #    # ",
-				"  #       ##### ",
-				" #            # ",
-				" #    #       # ",
-				"  ####    ####  ",
-				"                ",
+				"                        ",
+				"                        ",
+				"                  #  #  ",
+				"          ####    #  #  ",
+				"         #    #         ",
+				"    #    #   #   #    # ",
+				"    #    #  ##   #    # ",
+				"         #    #  #    # ",
+				"         #    #  #    # ",
+				"    #    #    #  #    # ",
+				"   #     #   #   #    # ",
+				"  #      # ##     ##### ",
+				" #                    # ",
+				" #    #               # ",
+				"  ####            ####  ",
+				"                        ",
 			])
 		);
 	}
@@ -1229,29 +1229,29 @@ mod font_8x16 {
 	#[test]
 	fn text_char_range_5() {
 		let mut display = MockDisplay::new();
-		Text::new("", Point::zero())
+		Text::new("", Point::zero())
 			.with_font(FONT_8x16, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"                ",
-				"#              #",
-				"##            # ",
-				"###          #  ",
-				"####        #   ",
-				"#####      #    ",
-				"######    #     ",
-				"#######  #      ",
-				"#########       ",
-				"#########       ",
-				"#######  #      ",
-				"######    #     ",
-				"#####      #    ",
-				"####        #   ",
-				"###          #  ",
-				"##            # ",
+				"                        ",
+				"#              #       #",
+				"##            ##      # ",
+				"###          ###     #  ",
+				"####        ####    #   ",
+				"#####      #####   #    ",
+				"######    ######  #     ",
+				"#######  ####### #      ",
+				"#################       ",
+				"#################       ",
+				"#######  ####### #      ",
+				"######    ######  #     ",
+				"#####      #####   #    ",
+				"####        ####    #   ",
+				"###          ###     #  ",
+				"##            ##      # ",
 			])
 		);
 	}
@@ -1346,31 +1346,31 @@ mod font_10x18 {
 	#[test]
 	fn text_char_range_1() {
 		let mut display = MockDisplay::new();
-		Text::new(" ~", Point::zero())
+		Text::new(" O~", Point::zero())
 			.with_font(FONT_10x18, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"                    ",
-				"                    ",
-				"                    ",
-				"                    ",
-				"          ####  ##  ",
-				"          ####  ##  ",
-				"          ##  ####  ",
-				"          ##  ####  ",
-				"                    ",
-				"                    ",
-				"                    ",
-				"                    ",
-				"                    ",
-				"                    ",
-				"                    ",
-				"                    ",
-				"                    ",
-				"                    ",
+				"                              ",
+				"                              ",
+				"                              ",
+				"                              ",
+				"            ####    ####  ##  ",
+				"            ####    ####  ##  ",
+				"          ##    ##  ##  ####  ",
+				"          ##    ##  ##  ####  ",
+				"          ##    ##            ",
+				"          ##    ##            ",
+				"          ##    ##            ",
+				"          ##    ##            ",
+				"            ####              ",
+				"            ####              ",
+				"                              ",
+				"                              ",
+				"                              ",
+				"                              ",
 			])
 		);
 	}
@@ -1378,31 +1378,31 @@ mod font_10x18 {
 	#[test]
 	fn text_char_range_2() {
 		let mut display = MockDisplay::new();
-		Text::new("¡¦", Point::zero())
+		Text::new("¡¤¦", Point::zero())
 			.with_font(FONT_10x18, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"                    ",
-				"                    ",
-				"              ##    ",
-				"              ##    ",
-				"              ##    ",
-				"              ##    ",
-				"  ##          ##    ",
-				"  ##          ##    ",
-				"                    ",
-				"                    ",
-				"  ##          ##    ",
-				"  ##          ##    ",
-				"  ##          ##    ",
-				"  ##          ##    ",
-				"  ##          ##    ",
-				"  ##          ##    ",
-				"  ##                ",
-				"  ##                ",
+				"                              ",
+				"                              ",
+				"          ##    ##      ##    ",
+				"          ##    ##      ##    ",
+				"            ####        ##    ",
+				"            ####        ##    ",
+				"  ##      ##    ##      ##    ",
+				"  ##      ##    ##      ##    ",
+				"          ##    ##            ",
+				"          ##    ##            ",
+				"  ##        ####        ##    ",
+				"  ##        ####        ##    ",
+				"  ##      ##    ##      ##    ",
+				"  ##      ##    ##      ##    ",
+				"  ##                    ##    ",
+				"  ##                    ##    ",
+				"  ##                          ",
+				"  ##                          ",
 			])
 		);
 	}
@@ -1410,31 +1410,31 @@ mod font_10x18 {
 	#[test]
 	fn text_char_range_3() {
 		let mut display = MockDisplay::new();
-		Text::new("°°", Point::zero())
+		Text::new("°°°", Point::zero())
 			.with_font(FONT_10x18, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"                    ",
-				"                    ",
-				"                    ",
-				"                    ",
-				"  ####      ####    ",
-				"  ####      ####    ",
-				"##    ##  ##    ##  ",
-				"##    ##  ##    ##  ",
-				"  ####      ####    ",
-				"  ####      ####    ",
-				"                    ",
-				"                    ",
-				"                    ",
-				"                    ",
-				"                    ",
-				"                    ",
-				"                    ",
-				"                    ",
+				"                              ",
+				"                              ",
+				"                              ",
+				"                              ",
+				"  ####      ####      ####    ",
+				"  ####      ####      ####    ",
+				"##    ##  ##    ##  ##    ##  ",
+				"##    ##  ##    ##  ##    ##  ",
+				"  ####      ####      ####    ",
+				"  ####      ####      ####    ",
+				"                              ",
+				"                              ",
+				"                              ",
+				"                              ",
+				"                              ",
+				"                              ",
+				"                              ",
+				"                              ",
 			])
 		);
 	}
@@ -1442,31 +1442,31 @@ mod font_10x18 {
 	#[test]
 	fn text_char_range_4() {
 		let mut display = MockDisplay::new();
-		Text::new("¿ÿ", Point::zero())
+		Text::new("¿ßÿ", Point::zero())
 			.with_font(FONT_10x18, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"                    ",
-				"                    ",
-				"          ##  ##    ",
-				"          ##  ##    ",
-				"                    ",
-				"                    ",
-				"    ##    ##    ##  ",
-				"    ##    ##    ##  ",
-				"          ##    ##  ",
-				"          ##    ##  ",
-				"    ##    ##    ##  ",
-				"    ##    ##    ##  ",
-				"  ##        ######  ",
-				"  ##        ######  ",
-				"##              ##  ",
-				"##              ##  ",
-				"  ######    ####    ",
-				"  ######    ####    ",
+				"                              ",
+				"                              ",
+				"                    ##  ##    ",
+				"                    ##  ##    ",
+				"            ######            ",
+				"            ######            ",
+				"    ##    ##    ##  ##    ##  ",
+				"    ##    ##    ##  ##    ##  ",
+				"          ##  ##    ##    ##  ",
+				"          ##  ##    ##    ##  ",
+				"    ##    ##    ##  ##    ##  ",
+				"    ##    ##    ##  ##    ##  ",
+				"  ##      ##  ##      ######  ",
+				"  ##      ##  ##      ######  ",
+				"##                        ##  ",
+				"##                        ##  ",
+				"  ######              ####    ",
+				"  ######              ####    ",
 			])
 		);
 	}
@@ -1474,31 +1474,31 @@ mod font_10x18 {
 	#[test]
 	fn text_char_range_5() {
 		let mut display = MockDisplay::new();
-		Text::new("", Point::zero())
+		Text::new("", Point::zero())
 			.with_font(FONT_10x18, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"##                ##",
-				"##                ##",
-				"####            ##  ",
-				"####            ##  ",
-				"######        ##    ",
-				"######        ##    ",
-				"########    ##      ",
-				"########    ##      ",
-				"############        ",
-				"############        ",
-				"########    ##      ",
-				"########    ##      ",
-				"######        ##    ",
-				"######        ##    ",
-				"####            ##  ",
-				"####            ##  ",
-				"##                ##",
-				"##                ##",
+				"##                ##        ##",
+				"##                ##        ##",
+				"####            ####      ##  ",
+				"####            ####      ##  ",
+				"######        ######    ##    ",
+				"######        ######    ##    ",
+				"########    ########  ##      ",
+				"########    ########  ##      ",
+				"######################        ",
+				"######################        ",
+				"########    ########  ##      ",
+				"########    ########  ##      ",
+				"######        ######    ##    ",
+				"######        ######    ##    ",
+				"####            ####      ##  ",
+				"####            ####      ##  ",
+				"##                ##        ##",
+				"##                ##        ##",
 			])
 		);
 	}
@@ -1597,33 +1597,33 @@ mod font_10x20 {
 	#[test]
 	fn text_char_range_1() {
 		let mut display = MockDisplay::new();
-		Text::new(" ~", Point::zero())
+		Text::new(" O~", Point::zero())
 			.with_font(FONT_10x20, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"                    ",
-				"                    ",
-				"                    ",
-				"            ##    # ",
-				"           #  #   # ",
-				"           #   #  # ",
-				"           #    ##  ",
-				"                    ",
-				"                    ",
-				"                    ",
-				"                    ",
-				"                    ",
-				"                    ",
-				"                    ",
-				"                    ",
-				"                    ",
-				"                    ",
-				"                    ",
-				"                    ",
-				"                    ",
+				"                              ",
+				"                              ",
+				"                              ",
+				"                      ##    # ",
+				"             ####    #  #   # ",
+				"            #    #   #   #  # ",
+				"           #      #  #    ##  ",
+				"           #      #           ",
+				"           #      #           ",
+				"           #      #           ",
+				"           #      #           ",
+				"           #      #           ",
+				"            #    #            ",
+				"             ####             ",
+				"                              ",
+				"                              ",
+				"                              ",
+				"                              ",
+				"                              ",
+				"                              ",
 			])
 		);
 	}
@@ -1631,33 +1631,33 @@ mod font_10x20 {
 	#[test]
 	fn text_char_range_2() {
 		let mut display = MockDisplay::new();
-		Text::new("¡¦", Point::zero())
+		Text::new("¡¤¦", Point::zero())
 			.with_font(FONT_10x20, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"                    ",
-				"                    ",
-				"                    ",
-				"              #     ",
-				"              #     ",
-				"              #     ",
-				"    #         #     ",
-				"    #         #     ",
-				"                    ",
-				"                    ",
-				"                    ",
-				"    #         #     ",
-				"    #         #     ",
-				"    #         #     ",
-				"    #         #     ",
-				"    #         #     ",
-				"    #               ",
-				"                    ",
-				"                    ",
-				"                    ",
+				"                              ",
+				"                              ",
+				"                              ",
+				"                        #     ",
+				"           #       #    #     ",
+				"            # ### #     #     ",
+				"    #        #   #      #     ",
+				"    #       #     #     #     ",
+				"            #     #           ",
+				"            #     #           ",
+				"             #   #            ",
+				"    #       # ### #     #     ",
+				"    #      #       #    #     ",
+				"    #                   #     ",
+				"    #                   #     ",
+				"    #                   #     ",
+				"    #                         ",
+				"                              ",
+				"                              ",
+				"                              ",
 			])
 		);
 	}
@@ -1665,33 +1665,33 @@ mod font_10x20 {
 	#[test]
 	fn text_char_range_3() {
 		let mut display = MockDisplay::new();
-		Text::new("°°", Point::zero())
+		Text::new("°°°", Point::zero())
 			.with_font(FONT_10x20, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"                    ",
-				"                    ",
-				"                    ",
-				"                    ",
-				"   ###       ###    ",
-				"  #   #     #   #   ",
-				"  #   #     #   #   ",
-				"  #   #     #   #   ",
-				"   ###       ###    ",
-				"                    ",
-				"                    ",
-				"                    ",
-				"                    ",
-				"                    ",
-				"                    ",
-				"                    ",
-				"                    ",
-				"                    ",
-				"                    ",
-				"                    ",
+				"                              ",
+				"                              ",
+				"                              ",
+				"                              ",
+				"   ###       ###       ###    ",
+				"  #   #     #   #     #   #   ",
+				"  #   #     #   #     #   #   ",
+				"  #   #     #   #     #   #   ",
+				"   ###       ###       ###    ",
+				"                              ",
+				"                              ",
+				"                              ",
+				"                              ",
+				"                              ",
+				"                              ",
+				"                              ",
+				"                              ",
+				"                              ",
+				"                              ",
+				"                              ",
 			])
 		);
 	}
@@ -1699,33 +1699,33 @@ mod font_10x20 {
 	#[test]
 	fn text_char_range_4() {
 		let mut display = MockDisplay::new();
-		Text::new("¿ÿ", Point::zero())
+		Text::new("¿ßÿ", Point::zero())
 			.with_font(FONT_10x20, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"                    ",
-				"                    ",
-				"            #   #   ",
-				"            #   #   ",
-				"                    ",
-				"                    ",
-				"    #      #     #  ",
-				"    #      #     #  ",
-				"           #     #  ",
-				"           #     #  ",
-				"           #     #  ",
-				"    #      #     #  ",
-				"   #       #     #  ",
-				"  #         ######  ",
-				" #               #  ",
-				" #     #         #  ",
-				"  #####          #  ",
-				"            #####   ",
-				"                    ",
-				"                    ",
+				"                              ",
+				"                              ",
+				"                      #   #   ",
+				"                      #   #   ",
+				"             ####             ",
+				"            #    #            ",
+				"    #      #     #   #     #  ",
+				"    #      #    #    #     #  ",
+				"           #   ##    #     #  ",
+				"           #     #   #     #  ",
+				"           #     #   #     #  ",
+				"    #      #     #   #     #  ",
+				"   #       #    #    #     #  ",
+				"  #        #  ##      ######  ",
+				" #                         #  ",
+				" #     #                   #  ",
+				"  #####                    #  ",
+				"                      #####   ",
+				"                              ",
+				"                              ",
 			])
 		);
 	}
@@ -1733,33 +1733,33 @@ mod font_10x20 {
 	#[test]
 	fn text_char_range_5() {
 		let mut display = MockDisplay::new();
-		Text::new("", Point::zero())
+		Text::new("", Point::zero())
 			.with_font(FONT_10x20, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"#                  #",
-				"##                # ",
-				"###              #  ",
-				"####            #   ",
-				"#####          #    ",
-				"######        #     ",
-				"#######      #      ",
-				"########    #       ",
-				"#########  #        ",
-				"###########         ",
-				"###########         ",
-				"#########  #        ",
-				"########    #       ",
-				"#######      #      ",
-				"######        #     ",
-				"#####          #    ",
-				"####            #   ",
-				"###              #  ",
-				"##                # ",
-				"#                  #",
+				"#                  #         #",
+				"##                ##        # ",
+				"###              ###       #  ",
+				"####            ####      #   ",
+				"#####          #####     #    ",
+				"######        ######    #     ",
+				"#######      #######   #      ",
+				"########    ########  #       ",
+				"#########  ######### #        ",
+				"#####################         ",
+				"#####################         ",
+				"#########  ######### #        ",
+				"########    ########  #       ",
+				"#######      #######   #      ",
+				"######        ######    #     ",
+				"#####          #####     #    ",
+				"####            ####      #   ",
+				"###              ###       #  ",
+				"##                ##        # ",
+				"#                  #         #",
 			])
 		);
 	}
@@ -1862,37 +1862,37 @@ mod font_12x24 {
 	#[test]
 	fn text_char_range_1() {
 		let mut display = MockDisplay::new();
-		Text::new(" ~", Point::zero())
+		Text::new(" O~", Point::zero())
 			.with_font(FONT_12x24, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"                        ",
-				"                        ",
-				"                        ",
-				"                        ",
-				"              ##    ##  ",
-				"              ##    ##  ",
-				"            ##  ##  ##  ",
-				"            ##  ##  ##  ",
-				"            ##    ##    ",
-				"            ##    ##    ",
-				"                        ",
-				"                        ",
-				"                        ",
-				"                        ",
-				"                        ",
-				"                        ",
-				"                        ",
-				"                        ",
-				"                        ",
-				"                        ",
-				"                        ",
-				"                        ",
-				"                        ",
-				"                        ",
+				"                                    ",
+				"                                    ",
+				"                                    ",
+				"                                    ",
+				"              ######      ##    ##  ",
+				"              ######      ##    ##  ",
+				"            ##      ##  ##  ##  ##  ",
+				"            ##      ##  ##  ##  ##  ",
+				"            ##      ##  ##    ##    ",
+				"            ##      ##  ##    ##    ",
+				"            ##      ##              ",
+				"            ##      ##              ",
+				"            ##      ##              ",
+				"            ##      ##              ",
+				"            ##      ##              ",
+				"            ##      ##              ",
+				"              ######                ",
+				"              ######                ",
+				"                                    ",
+				"                                    ",
+				"                                    ",
+				"                                    ",
+				"                                    ",
+				"                                    ",
 			])
 		);
 	}
@@ -1900,37 +1900,37 @@ mod font_12x24 {
 	#[test]
 	fn text_char_range_2() {
 		let mut display = MockDisplay::new();
-		Text::new("¡¦", Point::zero())
+		Text::new("¡¤¦", Point::zero())
 			.with_font(FONT_12x24, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"                        ",
-				"                        ",
-				"                ##      ",
-				"                ##      ",
-				"                ##      ",
-				"                ##      ",
-				"    ##          ##      ",
-				"    ##          ##      ",
-				"                ##      ",
-				"                ##      ",
-				"                        ",
-				"                        ",
-				"    ##          ##      ",
-				"    ##          ##      ",
-				"    ##          ##      ",
-				"    ##          ##      ",
-				"    ##          ##      ",
-				"    ##          ##      ",
-				"    ##          ##      ",
-				"    ##          ##      ",
-				"    ##                  ",
-				"    ##                  ",
-				"                        ",
-				"                        ",
+				"                                    ",
+				"                                    ",
+				"                            ##      ",
+				"                            ##      ",
+				"                            ##      ",
+				"                            ##      ",
+				"    ##      ##      ##      ##      ",
+				"    ##      ##      ##      ##      ",
+				"              ######        ##      ",
+				"              ######        ##      ",
+				"              ##  ##                ",
+				"              ##  ##                ",
+				"    ##        ######        ##      ",
+				"    ##        ######        ##      ",
+				"    ##      ##      ##      ##      ",
+				"    ##      ##      ##      ##      ",
+				"    ##                      ##      ",
+				"    ##                      ##      ",
+				"    ##                      ##      ",
+				"    ##                      ##      ",
+				"    ##                              ",
+				"    ##                              ",
+				"                                    ",
+				"                                    ",
 			])
 		);
 	}
@@ -1938,37 +1938,37 @@ mod font_12x24 {
 	#[test]
 	fn text_char_range_3() {
 		let mut display = MockDisplay::new();
-		Text::new("°°", Point::zero())
+		Text::new("°°°", Point::zero())
 			.with_font(FONT_12x24, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"                        ",
-				"                        ",
-				"                        ",
-				"                        ",
-				"  ####        ####      ",
-				"  ####        ####      ",
-				"##    ##    ##    ##    ",
-				"##    ##    ##    ##    ",
-				"##    ##    ##    ##    ",
-				"##    ##    ##    ##    ",
-				"  ####        ####      ",
-				"  ####        ####      ",
-				"                        ",
-				"                        ",
-				"                        ",
-				"                        ",
-				"                        ",
-				"                        ",
-				"                        ",
-				"                        ",
-				"                        ",
-				"                        ",
-				"                        ",
-				"                        ",
+				"                                    ",
+				"                                    ",
+				"                                    ",
+				"                                    ",
+				"  ####        ####        ####      ",
+				"  ####        ####        ####      ",
+				"##    ##    ##    ##    ##    ##    ",
+				"##    ##    ##    ##    ##    ##    ",
+				"##    ##    ##    ##    ##    ##    ",
+				"##    ##    ##    ##    ##    ##    ",
+				"  ####        ####        ####      ",
+				"  ####        ####        ####      ",
+				"                                    ",
+				"                                    ",
+				"                                    ",
+				"                                    ",
+				"                                    ",
+				"                                    ",
+				"                                    ",
+				"                                    ",
+				"                                    ",
+				"                                    ",
+				"                                    ",
+				"                                    ",
 			])
 		);
 	}
@@ -1976,37 +1976,37 @@ mod font_12x24 {
 	#[test]
 	fn text_char_range_4() {
 		let mut display = MockDisplay::new();
-		Text::new("¿ÿ", Point::zero())
+		Text::new("¿ßÿ", Point::zero())
 			.with_font(FONT_12x24, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"                        ",
-				"                        ",
-				"                        ",
-				"                        ",
-				"              ##  ##    ",
-				"              ##  ##    ",
-				"    ##                  ",
-				"    ##                  ",
-				"            ##      ##  ",
-				"            ##      ##  ",
-				"            ##      ##  ",
-				"            ##      ##  ",
-				"    ##      ##      ##  ",
-				"    ##      ##      ##  ",
-				"  ##        ##      ##  ",
-				"  ##        ##      ##  ",
-				"##            ########  ",
-				"##            ########  ",
-				"##      ##          ##  ",
-				"##      ##          ##  ",
-				"  ######      ######    ",
-				"  ######      ######    ",
-				"                        ",
-				"                        ",
+				"                                    ",
+				"                                    ",
+				"                                    ",
+				"                                    ",
+				"              ######      ##  ##    ",
+				"              ######      ##  ##    ",
+				"    ##      ##      ##              ",
+				"    ##      ##      ##              ",
+				"            ##    ##    ##      ##  ",
+				"            ##    ##    ##      ##  ",
+				"            ##  ####    ##      ##  ",
+				"            ##  ####    ##      ##  ",
+				"    ##      ##      ##  ##      ##  ",
+				"    ##      ##      ##  ##      ##  ",
+				"  ##        ##      ##  ##      ##  ",
+				"  ##        ##      ##  ##      ##  ",
+				"##          ##  ####      ########  ",
+				"##          ##  ####      ########  ",
+				"##      ##                      ##  ",
+				"##      ##                      ##  ",
+				"  ######                  ######    ",
+				"  ######                  ######    ",
+				"                                    ",
+				"                                    ",
 			])
 		);
 	}
@@ -2014,37 +2014,37 @@ mod font_12x24 {
 	#[test]
 	fn text_char_range_5() {
 		let mut display = MockDisplay::new();
-		Text::new("", Point::zero())
+		Text::new("", Point::zero())
 			.with_font(FONT_12x24, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"##                    ##",
-				"##                    ##",
-				"####                ##  ",
-				"####                ##  ",
-				"######            ##    ",
-				"######            ##    ",
-				"########        ##      ",
-				"########        ##      ",
-				"##########    ##        ",
-				"##########    ##        ",
-				"##############          ",
-				"##############          ",
-				"##############          ",
-				"##############          ",
-				"##########    ##        ",
-				"##########    ##        ",
-				"########        ##      ",
-				"########        ##      ",
-				"######            ##    ",
-				"######            ##    ",
-				"####                ##  ",
-				"####                ##  ",
-				"##                    ##",
-				"##                    ##",
+				"##                    ##          ##",
+				"##                    ##          ##",
+				"####                ####        ##  ",
+				"####                ####        ##  ",
+				"######            ######      ##    ",
+				"######            ######      ##    ",
+				"########        ########    ##      ",
+				"########        ########    ##      ",
+				"##########    ##########  ##        ",
+				"##########    ##########  ##        ",
+				"##########################          ",
+				"##########################          ",
+				"##########################          ",
+				"##########################          ",
+				"##########    ##########  ##        ",
+				"##########    ##########  ##        ",
+				"########        ########    ##      ",
+				"########        ########    ##      ",
+				"######            ######      ##    ",
+				"######            ######      ##    ",
+				"####                ####        ##  ",
+				"####                ####        ##  ",
+				"##                    ##          ##",
+				"##                    ##          ##",
 			])
 		);
 	}
@@ -2155,39 +2155,39 @@ mod font_14x26 {
 	#[test]
 	fn text_char_range_1() {
 		let mut display = MockDisplay::new();
-		Text::new(" ~", Point::zero())
+		Text::new(" O~", Point::zero())
 			.with_font(FONT_14x26, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                  ##    ##  ",
-				"                  ##    ##  ",
-				"                ##  ##  ##  ",
-				"                ##  ##  ##  ",
-				"                ##    ##    ",
-				"                ##    ##    ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
+				"                                          ",
+				"                                          ",
+				"                                          ",
+				"                                          ",
+				"                                          ",
+				"                                          ",
+				"                  ######        ##    ##  ",
+				"                  ######        ##    ##  ",
+				"                ##      ##    ##  ##  ##  ",
+				"                ##      ##    ##  ##  ##  ",
+				"                ##      ##    ##    ##    ",
+				"                ##      ##    ##    ##    ",
+				"                ##      ##                ",
+				"                ##      ##                ",
+				"                ##      ##                ",
+				"                ##      ##                ",
+				"                ##      ##                ",
+				"                ##      ##                ",
+				"                  ######                  ",
+				"                  ######                  ",
+				"                                          ",
+				"                                          ",
+				"                                          ",
+				"                                          ",
+				"                                          ",
+				"                                          ",
 			])
 		);
 	}
@@ -2195,39 +2195,39 @@ mod font_14x26 {
 	#[test]
 	fn text_char_range_2() {
 		let mut display = MockDisplay::new();
-		Text::new("¡¦", Point::zero())
+		Text::new("¡¤¦", Point::zero())
 			.with_font(FONT_14x26, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                    ##      ",
-				"                    ##      ",
-				"                    ##      ",
-				"                    ##      ",
-				"      ##            ##      ",
-				"      ##            ##      ",
-				"                    ##      ",
-				"                    ##      ",
-				"                            ",
-				"                            ",
-				"      ##            ##      ",
-				"      ##            ##      ",
-				"      ##            ##      ",
-				"      ##            ##      ",
-				"      ##            ##      ",
-				"      ##            ##      ",
-				"      ##            ##      ",
-				"      ##            ##      ",
-				"      ##                    ",
-				"      ##                    ",
-				"                            ",
-				"                            ",
+				"                                          ",
+				"                                          ",
+				"                                          ",
+				"                                          ",
+				"                                  ##      ",
+				"                                  ##      ",
+				"                                  ##      ",
+				"                                  ##      ",
+				"      ##        ##      ##        ##      ",
+				"      ##        ##      ##        ##      ",
+				"                  ######          ##      ",
+				"                  ######          ##      ",
+				"                  ##  ##                  ",
+				"                  ##  ##                  ",
+				"      ##          ######          ##      ",
+				"      ##          ######          ##      ",
+				"      ##        ##      ##        ##      ",
+				"      ##        ##      ##        ##      ",
+				"      ##                          ##      ",
+				"      ##                          ##      ",
+				"      ##                          ##      ",
+				"      ##                          ##      ",
+				"      ##                                  ",
+				"      ##                                  ",
+				"                                          ",
+				"                                          ",
 			])
 		);
 	}
@@ -2235,39 +2235,39 @@ mod font_14x26 {
 	#[test]
 	fn text_char_range_3() {
 		let mut display = MockDisplay::new();
-		Text::new("°°", Point::zero())
+		Text::new("°°°", Point::zero())
 			.with_font(FONT_14x26, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"    ####          ####      ",
-				"    ####          ####      ",
-				"  ##    ##      ##    ##    ",
-				"  ##    ##      ##    ##    ",
-				"  ##    ##      ##    ##    ",
-				"  ##    ##      ##    ##    ",
-				"    ####          ####      ",
-				"    ####          ####      ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
+				"                                          ",
+				"                                          ",
+				"                                          ",
+				"                                          ",
+				"                                          ",
+				"                                          ",
+				"    ####          ####          ####      ",
+				"    ####          ####          ####      ",
+				"  ##    ##      ##    ##      ##    ##    ",
+				"  ##    ##      ##    ##      ##    ##    ",
+				"  ##    ##      ##    ##      ##    ##    ",
+				"  ##    ##      ##    ##      ##    ##    ",
+				"    ####          ####          ####      ",
+				"    ####          ####          ####      ",
+				"                                          ",
+				"                                          ",
+				"                                          ",
+				"                                          ",
+				"                                          ",
+				"                                          ",
+				"                                          ",
+				"                                          ",
+				"                                          ",
+				"                                          ",
+				"                                          ",
+				"                                          ",
 			])
 		);
 	}
@@ -2275,39 +2275,39 @@ mod font_14x26 {
 	#[test]
 	fn text_char_range_4() {
 		let mut display = MockDisplay::new();
-		Text::new("¿ÿ", Point::zero())
+		Text::new("¿ßÿ", Point::zero())
 			.with_font(FONT_14x26, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                  ##  ##    ",
-				"                  ##  ##    ",
-				"      ##                    ",
-				"      ##                    ",
-				"                ##      ##  ",
-				"                ##      ##  ",
-				"                ##      ##  ",
-				"                ##      ##  ",
-				"      ##        ##      ##  ",
-				"      ##        ##      ##  ",
-				"    ##          ##      ##  ",
-				"    ##          ##      ##  ",
-				"  ##              ########  ",
-				"  ##              ########  ",
-				"  ##      ##            ##  ",
-				"  ##      ##            ##  ",
-				"    ######        ######    ",
-				"    ######        ######    ",
-				"                            ",
-				"                            ",
+				"                                          ",
+				"                                          ",
+				"                                          ",
+				"                                          ",
+				"                                          ",
+				"                                          ",
+				"                  ######        ##  ##    ",
+				"                  ######        ##  ##    ",
+				"      ##        ##      ##                ",
+				"      ##        ##      ##                ",
+				"                ##    ##      ##      ##  ",
+				"                ##    ##      ##      ##  ",
+				"                ##  ####      ##      ##  ",
+				"                ##  ####      ##      ##  ",
+				"      ##        ##      ##    ##      ##  ",
+				"      ##        ##      ##    ##      ##  ",
+				"    ##          ##      ##    ##      ##  ",
+				"    ##          ##      ##    ##      ##  ",
+				"  ##            ##  ####        ########  ",
+				"  ##            ##  ####        ########  ",
+				"  ##      ##                          ##  ",
+				"  ##      ##                          ##  ",
+				"    ######                      ######    ",
+				"    ######                      ######    ",
+				"                                          ",
+				"                                          ",
 			])
 		);
 	}
@@ -2315,39 +2315,39 @@ mod font_14x26 {
 	#[test]
 	fn text_char_range_5() {
 		let mut display = MockDisplay::new();
-		Text::new("", Point::zero())
+		Text::new("", Point::zero())
 			.with_font(FONT_14x26, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"##                        ##",
-				"##                        ##",
-				"####                    ##  ",
-				"####                    ##  ",
-				"######                ##    ",
-				"######                ##    ",
-				"########            ##      ",
-				"########            ##      ",
-				"##########        ##        ",
-				"##########        ##        ",
-				"############    ##          ",
-				"############    ##          ",
-				"################            ",
-				"################            ",
-				"############    ##          ",
-				"############    ##          ",
-				"##########        ##        ",
-				"##########        ##        ",
-				"########            ##      ",
-				"########            ##      ",
-				"######                ##    ",
-				"######                ##    ",
-				"####                    ##  ",
-				"####                    ##  ",
-				"##                        ##",
-				"##                        ##",
+				"##                        ##            ##",
+				"##                        ##            ##",
+				"####                    ####          ##  ",
+				"####                    ####          ##  ",
+				"######                ######        ##    ",
+				"######                ######        ##    ",
+				"########            ########      ##      ",
+				"########            ########      ##      ",
+				"##########        ##########    ##        ",
+				"##########        ##########    ##        ",
+				"############    ############  ##          ",
+				"############    ############  ##          ",
+				"##############################            ",
+				"##############################            ",
+				"############    ############  ##          ",
+				"############    ############  ##          ",
+				"##########        ##########    ##        ",
+				"##########        ##########    ##        ",
+				"########            ########      ##      ",
+				"########            ########      ##      ",
+				"######                ######        ##    ",
+				"######                ######        ##    ",
+				"####                    ####          ##  ",
+				"####                    ####          ##  ",
+				"##                        ##            ##",
+				"##                        ##            ##",
 			])
 		);
 	}
@@ -2462,41 +2462,41 @@ mod font_14x28 {
 	#[test]
 	fn text_char_range_1() {
 		let mut display = MockDisplay::new();
-		Text::new(" ~", Point::zero())
+		Text::new(" O~", Point::zero())
 			.with_font(FONT_14x28, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                  ##    ##  ",
-				"                  ##    ##  ",
-				"                ##  ##  ##  ",
-				"                ##  ##  ##  ",
-				"                ##    ##    ",
-				"                ##    ##    ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
+				"                                          ",
+				"                                          ",
+				"                                          ",
+				"                                          ",
+				"                                          ",
+				"                                          ",
+				"                  ######        ##    ##  ",
+				"                  ######        ##    ##  ",
+				"                ##      ##    ##  ##  ##  ",
+				"                ##      ##    ##  ##  ##  ",
+				"                ##      ##    ##    ##    ",
+				"                ##      ##    ##    ##    ",
+				"                ##      ##                ",
+				"                ##      ##                ",
+				"                ##      ##                ",
+				"                ##      ##                ",
+				"                ##      ##                ",
+				"                ##      ##                ",
+				"                ##      ##                ",
+				"                ##      ##                ",
+				"                  ######                  ",
+				"                  ######                  ",
+				"                                          ",
+				"                                          ",
+				"                                          ",
+				"                                          ",
+				"                                          ",
+				"                                          ",
 			])
 		);
 	}
@@ -2504,41 +2504,41 @@ mod font_14x28 {
 	#[test]
 	fn text_char_range_2() {
 		let mut display = MockDisplay::new();
-		Text::new("¡¦", Point::zero())
+		Text::new("¡¤¦", Point::zero())
 			.with_font(FONT_14x28, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                    ##      ",
-				"                    ##      ",
-				"      ##            ##      ",
-				"      ##            ##      ",
-				"      ##            ##      ",
-				"      ##            ##      ",
-				"                    ##      ",
-				"                    ##      ",
-				"                            ",
-				"                            ",
-				"      ##            ##      ",
-				"      ##            ##      ",
-				"      ##            ##      ",
-				"      ##            ##      ",
-				"      ##            ##      ",
-				"      ##            ##      ",
-				"      ##            ##      ",
-				"      ##            ##      ",
-				"      ##                    ",
-				"      ##                    ",
-				"                            ",
-				"                            ",
+				"                                          ",
+				"                                          ",
+				"                                          ",
+				"                                          ",
+				"                                          ",
+				"                                          ",
+				"                                  ##      ",
+				"                                  ##      ",
+				"      ##        ##      ##        ##      ",
+				"      ##        ##      ##        ##      ",
+				"      ##          ######          ##      ",
+				"      ##          ######          ##      ",
+				"                  ##  ##          ##      ",
+				"                  ##  ##          ##      ",
+				"                  ######                  ",
+				"                  ######                  ",
+				"      ##        ##      ##        ##      ",
+				"      ##        ##      ##        ##      ",
+				"      ##                          ##      ",
+				"      ##                          ##      ",
+				"      ##                          ##      ",
+				"      ##                          ##      ",
+				"      ##                          ##      ",
+				"      ##                          ##      ",
+				"      ##                                  ",
+				"      ##                                  ",
+				"                                          ",
+				"                                          ",
 			])
 		);
 	}
@@ -2546,41 +2546,41 @@ mod font_14x28 {
 	#[test]
 	fn text_char_range_3() {
 		let mut display = MockDisplay::new();
-		Text::new("°°", Point::zero())
+		Text::new("°°°", Point::zero())
 			.with_font(FONT_14x28, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"    ####          ####      ",
-				"    ####          ####      ",
-				"  ##    ##      ##    ##    ",
-				"  ##    ##      ##    ##    ",
-				"  ##    ##      ##    ##    ",
-				"  ##    ##      ##    ##    ",
-				"    ####          ####      ",
-				"    ####          ####      ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
+				"                                          ",
+				"                                          ",
+				"                                          ",
+				"                                          ",
+				"                                          ",
+				"                                          ",
+				"    ####          ####          ####      ",
+				"    ####          ####          ####      ",
+				"  ##    ##      ##    ##      ##    ##    ",
+				"  ##    ##      ##    ##      ##    ##    ",
+				"  ##    ##      ##    ##      ##    ##    ",
+				"  ##    ##      ##    ##      ##    ##    ",
+				"    ####          ####          ####      ",
+				"    ####          ####          ####      ",
+				"                                          ",
+				"                                          ",
+				"                                          ",
+				"                                          ",
+				"                                          ",
+				"                                          ",
+				"                                          ",
+				"                                          ",
+				"                                          ",
+				"                                          ",
+				"                                          ",
+				"                                          ",
+				"                                          ",
+				"                                          ",
 			])
 		);
 	}
@@ -2588,41 +2588,41 @@ mod font_14x28 {
 	#[test]
 	fn text_char_range_4() {
 		let mut display = MockDisplay::new();
-		Text::new("¿ÿ", Point::zero())
+		Text::new("¿ßÿ", Point::zero())
 			.with_font(FONT_14x28, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                            ",
-				"                  ##  ##    ",
-				"                  ##  ##    ",
-				"      ##                    ",
-				"      ##                    ",
-				"      ##        ##      ##  ",
-				"      ##        ##      ##  ",
-				"                ##      ##  ",
-				"                ##      ##  ",
-				"                ##      ##  ",
-				"                ##      ##  ",
-				"      ##        ##      ##  ",
-				"      ##        ##      ##  ",
-				"    ##          ##      ##  ",
-				"    ##          ##      ##  ",
-				"  ##              ########  ",
-				"  ##              ########  ",
-				"  ##      ##            ##  ",
-				"  ##      ##            ##  ",
-				"    ######        ######    ",
-				"    ######        ######    ",
-				"                            ",
-				"                            ",
+				"                                          ",
+				"                                          ",
+				"                                          ",
+				"                                          ",
+				"                                          ",
+				"                                          ",
+				"                  ######        ##  ##    ",
+				"                  ######        ##  ##    ",
+				"      ##        ##      ##                ",
+				"      ##        ##      ##                ",
+				"      ##        ##    ##      ##      ##  ",
+				"      ##        ##    ##      ##      ##  ",
+				"                ##  ####      ##      ##  ",
+				"                ##  ####      ##      ##  ",
+				"                ##      ##    ##      ##  ",
+				"                ##      ##    ##      ##  ",
+				"      ##        ##      ##    ##      ##  ",
+				"      ##        ##      ##    ##      ##  ",
+				"    ##          ##      ##    ##      ##  ",
+				"    ##          ##      ##    ##      ##  ",
+				"  ##            ##  ####        ########  ",
+				"  ##            ##  ####        ########  ",
+				"  ##      ##                          ##  ",
+				"  ##      ##                          ##  ",
+				"    ######                      ######    ",
+				"    ######                      ######    ",
+				"                                          ",
+				"                                          ",
 			])
 		);
 	}
@@ -2630,41 +2630,41 @@ mod font_14x28 {
 	#[test]
 	fn text_char_range_5() {
 		let mut display = MockDisplay::new();
-		Text::new("", Point::zero())
+		Text::new("", Point::zero())
 			.with_font(FONT_14x28, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"##                        ##",
-				"##                        ##",
-				"####                    ##  ",
-				"####                    ##  ",
-				"######                ##    ",
-				"######                ##    ",
-				"########            ##      ",
-				"########            ##      ",
-				"##########        ##        ",
-				"##########        ##        ",
-				"############    ##          ",
-				"############    ##          ",
-				"################            ",
-				"################            ",
-				"################            ",
-				"################            ",
-				"############    ##          ",
-				"############    ##          ",
-				"##########        ##        ",
-				"##########        ##        ",
-				"########            ##      ",
-				"########            ##      ",
-				"######                ##    ",
-				"######                ##    ",
-				"####                    ##  ",
-				"####                    ##  ",
-				"##                        ##",
-				"##                        ##",
+				"##                        ##            ##",
+				"##                        ##            ##",
+				"####                    ####          ##  ",
+				"####                    ####          ##  ",
+				"######                ######        ##    ",
+				"######                ######        ##    ",
+				"########            ########      ##      ",
+				"########            ########      ##      ",
+				"##########        ##########    ##        ",
+				"##########        ##########    ##        ",
+				"############    ############  ##          ",
+				"############    ############  ##          ",
+				"##############################            ",
+				"##############################            ",
+				"##############################            ",
+				"##############################            ",
+				"############    ############  ##          ",
+				"############    ############  ##          ",
+				"##########        ##########    ##        ",
+				"##########        ##########    ##        ",
+				"########            ########      ##      ",
+				"########            ########      ##      ",
+				"######                ######        ##    ",
+				"######                ######        ##    ",
+				"####                    ####          ##  ",
+				"####                    ####          ##  ",
+				"##                        ##            ##",
+				"##                        ##            ##",
 			])
 		);
 	}
@@ -2783,43 +2783,43 @@ mod font_16x30 {
 	#[test]
 	fn text_char_range_1() {
 		let mut display = MockDisplay::new();
-		Text::new(" ~", Point::zero())
+		Text::new(" O~", Point::zero())
 			.with_font(FONT_16x30, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                    ####      ##",
-				"                    ####      ##",
-				"                  ##    ##    ##",
-				"                  ##    ##    ##",
-				"                  ##      ####  ",
-				"                  ##      ####  ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"                    ########        ####      ##",
+				"                    ########        ####      ##",
+				"                  ##        ##    ##    ##    ##",
+				"                  ##        ##    ##    ##    ##",
+				"                  ##        ##    ##      ####  ",
+				"                  ##        ##    ##      ####  ",
+				"                  ##        ##                  ",
+				"                  ##        ##                  ",
+				"                  ##        ##                  ",
+				"                  ##        ##                  ",
+				"                  ##        ##                  ",
+				"                  ##        ##                  ",
+				"                  ##        ##                  ",
+				"                  ##        ##                  ",
+				"                    ########                    ",
+				"                    ########                    ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
 			])
 		);
 	}
@@ -2827,43 +2827,43 @@ mod font_16x30 {
 	#[test]
 	fn text_char_range_2() {
 		let mut display = MockDisplay::new();
-		Text::new("¡¦", Point::zero())
+		Text::new("¡¤¦", Point::zero())
 			.with_font(FONT_16x30, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                        ##      ",
-				"                        ##      ",
-				"                        ##      ",
-				"                        ##      ",
-				"      ##                ##      ",
-				"      ##                ##      ",
-				"      ##                ##      ",
-				"      ##                ##      ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"      ##                ##      ",
-				"      ##                ##      ",
-				"      ##                ##      ",
-				"      ##                ##      ",
-				"      ##                ##      ",
-				"      ##                ##      ",
-				"      ##                ##      ",
-				"      ##                ##      ",
-				"      ##                        ",
-				"      ##                        ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"                                        ##      ",
+				"                                        ##      ",
+				"                  ##        ##          ##      ",
+				"                  ##        ##          ##      ",
+				"      ##            ########            ##      ",
+				"      ##            ########            ##      ",
+				"      ##            ##    ##            ##      ",
+				"      ##            ##    ##            ##      ",
+				"                    ##    ##                    ",
+				"                    ##    ##                    ",
+				"                    ########                    ",
+				"                    ########                    ",
+				"      ##          ##        ##          ##      ",
+				"      ##          ##        ##          ##      ",
+				"      ##                                ##      ",
+				"      ##                                ##      ",
+				"      ##                                ##      ",
+				"      ##                                ##      ",
+				"      ##                                ##      ",
+				"      ##                                ##      ",
+				"      ##                                        ",
+				"      ##                                        ",
 			])
 		);
 	}
@@ -2871,43 +2871,43 @@ mod font_16x30 {
 	#[test]
 	fn text_char_range_3() {
 		let mut display = MockDisplay::new();
-		Text::new("°°", Point::zero())
+		Text::new("°°°", Point::zero())
 			.with_font(FONT_16x30, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"    ######          ######      ",
-				"    ######          ######      ",
-				"  ##      ##      ##      ##    ",
-				"  ##      ##      ##      ##    ",
-				"  ##      ##      ##      ##    ",
-				"  ##      ##      ##      ##    ",
-				"  ##      ##      ##      ##    ",
-				"  ##      ##      ##      ##    ",
-				"    ######          ######      ",
-				"    ######          ######      ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"    ######          ######          ######      ",
+				"    ######          ######          ######      ",
+				"  ##      ##      ##      ##      ##      ##    ",
+				"  ##      ##      ##      ##      ##      ##    ",
+				"  ##      ##      ##      ##      ##      ##    ",
+				"  ##      ##      ##      ##      ##      ##    ",
+				"  ##      ##      ##      ##      ##      ##    ",
+				"  ##      ##      ##      ##      ##      ##    ",
+				"    ######          ######          ######      ",
+				"    ######          ######          ######      ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
 			])
 		);
 	}
@@ -2915,43 +2915,43 @@ mod font_16x30 {
 	#[test]
 	fn text_char_range_4() {
 		let mut display = MockDisplay::new();
-		Text::new("¿ÿ", Point::zero())
+		Text::new("¿ßÿ", Point::zero())
 			.with_font(FONT_16x30, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                    ##    ##    ",
-				"                    ##    ##    ",
-				"                    ##    ##    ",
-				"                    ##    ##    ",
-				"                                ",
-				"                                ",
-				"        ##        ##        ##  ",
-				"        ##        ##        ##  ",
-				"        ##        ##        ##  ",
-				"        ##        ##        ##  ",
-				"                  ##        ##  ",
-				"                  ##        ##  ",
-				"                  ##        ##  ",
-				"                  ##        ##  ",
-				"        ##        ##        ##  ",
-				"        ##        ##        ##  ",
-				"      ##            ##########  ",
-				"      ##            ##########  ",
-				"    ##                      ##  ",
-				"    ##                      ##  ",
-				"    ##      ##              ##  ",
-				"    ##      ##              ##  ",
-				"      ######        ########    ",
-				"      ######        ########    ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"                                    ##    ##    ",
+				"                                    ##    ##    ",
+				"                    ########        ##    ##    ",
+				"                    ########        ##    ##    ",
+				"                  ##        ##                  ",
+				"                  ##        ##                  ",
+				"        ##        ##      ##      ##        ##  ",
+				"        ##        ##      ##      ##        ##  ",
+				"        ##        ##    ####      ##        ##  ",
+				"        ##        ##    ####      ##        ##  ",
+				"                  ##        ##    ##        ##  ",
+				"                  ##        ##    ##        ##  ",
+				"                  ##        ##    ##        ##  ",
+				"                  ##        ##    ##        ##  ",
+				"        ##        ##        ##    ##        ##  ",
+				"        ##        ##        ##    ##        ##  ",
+				"      ##          ##    ####        ##########  ",
+				"      ##          ##    ####        ##########  ",
+				"    ##                                      ##  ",
+				"    ##                                      ##  ",
+				"    ##      ##                              ##  ",
+				"    ##      ##                              ##  ",
+				"      ######                        ########    ",
+				"      ######                        ########    ",
 			])
 		);
 	}
@@ -2959,43 +2959,43 @@ mod font_16x30 {
 	#[test]
 	fn text_char_range_5() {
 		let mut display = MockDisplay::new();
-		Text::new("", Point::zero())
+		Text::new("", Point::zero())
 			.with_font(FONT_16x30, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"##                            ##",
-				"##                            ##",
-				"####                        ##  ",
-				"####                        ##  ",
-				"######                    ##    ",
-				"######                    ##    ",
-				"########                ##      ",
-				"########                ##      ",
-				"##########            ##        ",
-				"##########            ##        ",
-				"############        ##          ",
-				"############        ##          ",
-				"##############    ##            ",
-				"##############    ##            ",
-				"##################              ",
-				"##################              ",
-				"##############    ##            ",
-				"##############    ##            ",
-				"############        ##          ",
-				"############        ##          ",
-				"##########            ##        ",
-				"##########            ##        ",
-				"########                ##      ",
-				"########                ##      ",
-				"######                    ##    ",
-				"######                    ##    ",
-				"####                        ##  ",
-				"####                        ##  ",
-				"##                            ##",
-				"##                            ##",
+				"##                            ##              ##",
+				"##                            ##              ##",
+				"####                        ####            ##  ",
+				"####                        ####            ##  ",
+				"######                    ######          ##    ",
+				"######                    ######          ##    ",
+				"########                ########        ##      ",
+				"########                ########        ##      ",
+				"##########            ##########      ##        ",
+				"##########            ##########      ##        ",
+				"############        ############    ##          ",
+				"############        ############    ##          ",
+				"##############    ##############  ##            ",
+				"##############    ##############  ##            ",
+				"##################################              ",
+				"##################################              ",
+				"##############    ##############  ##            ",
+				"##############    ##############  ##            ",
+				"############        ############    ##          ",
+				"############        ############    ##          ",
+				"##########            ##########      ##        ",
+				"##########            ##########      ##        ",
+				"########                ########        ##      ",
+				"########                ########        ##      ",
+				"######                    ######          ##    ",
+				"######                    ######          ##    ",
+				"####                        ####            ##  ",
+				"####                        ####            ##  ",
+				"##                            ##              ##",
+				"##                            ##              ##",
 			])
 		);
 	}
@@ -3118,45 +3118,45 @@ mod font_16x32 {
 	#[test]
 	fn text_char_range_1() {
 		let mut display = MockDisplay::new();
-		Text::new(" ~", Point::zero())
+		Text::new(" O~", Point::zero())
 			.with_font(FONT_16x32, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                    ####      ##",
-				"                    ####      ##",
-				"                  ##    ##    ##",
-				"                  ##    ##    ##",
-				"                  ##      ####  ",
-				"                  ##      ####  ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"                                    ####      ##",
+				"                                    ####      ##",
+				"                                  ##    ##    ##",
+				"                                  ##    ##    ##",
+				"                    ########      ##      ####  ",
+				"                    ########      ##      ####  ",
+				"                  ##        ##                  ",
+				"                  ##        ##                  ",
+				"                  ##        ##                  ",
+				"                  ##        ##                  ",
+				"                  ##        ##                  ",
+				"                  ##        ##                  ",
+				"                  ##        ##                  ",
+				"                  ##        ##                  ",
+				"                  ##        ##                  ",
+				"                  ##        ##                  ",
+				"                  ##        ##                  ",
+				"                  ##        ##                  ",
+				"                  ##        ##                  ",
+				"                  ##        ##                  ",
+				"                    ########                    ",
+				"                    ########                    ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
 			])
 		);
 	}
@@ -3164,45 +3164,45 @@ mod font_16x32 {
 	#[test]
 	fn text_char_range_2() {
 		let mut display = MockDisplay::new();
-		Text::new("¡¦", Point::zero())
+		Text::new("¡¤¦", Point::zero())
 			.with_font(FONT_16x32, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                        ##      ",
-				"                        ##      ",
-				"                        ##      ",
-				"                        ##      ",
-				"      ##                ##      ",
-				"      ##                ##      ",
-				"      ##                ##      ",
-				"      ##                ##      ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"      ##                        ",
-				"      ##                        ",
-				"      ##                ##      ",
-				"      ##                ##      ",
-				"      ##                ##      ",
-				"      ##                ##      ",
-				"      ##                ##      ",
-				"      ##                ##      ",
-				"      ##                ##      ",
-				"      ##                ##      ",
-				"      ##                        ",
-				"      ##                        ",
-				"                                ",
-				"                                ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"                                        ##      ",
+				"                                        ##      ",
+				"                  ##        ##          ##      ",
+				"                  ##        ##          ##      ",
+				"      ##            ########            ##      ",
+				"      ##            ########            ##      ",
+				"      ##            ##    ##            ##      ",
+				"      ##            ##    ##            ##      ",
+				"                    ##    ##                    ",
+				"                    ##    ##                    ",
+				"                    ##    ##                    ",
+				"                    ##    ##                    ",
+				"      ##            ########                    ",
+				"      ##            ########                    ",
+				"      ##          ##        ##          ##      ",
+				"      ##          ##        ##          ##      ",
+				"      ##                                ##      ",
+				"      ##                                ##      ",
+				"      ##                                ##      ",
+				"      ##                                ##      ",
+				"      ##                                ##      ",
+				"      ##                                ##      ",
+				"      ##                                        ",
+				"      ##                                        ",
+				"                                                ",
+				"                                                ",
 			])
 		);
 	}
@@ -3210,45 +3210,45 @@ mod font_16x32 {
 	#[test]
 	fn text_char_range_3() {
 		let mut display = MockDisplay::new();
-		Text::new("°°", Point::zero())
+		Text::new("°°°", Point::zero())
 			.with_font(FONT_16x32, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"    ######          ######      ",
-				"    ######          ######      ",
-				"  ##      ##      ##      ##    ",
-				"  ##      ##      ##      ##    ",
-				"  ##      ##      ##      ##    ",
-				"  ##      ##      ##      ##    ",
-				"  ##      ##      ##      ##    ",
-				"  ##      ##      ##      ##    ",
-				"    ######          ######      ",
-				"    ######          ######      ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"    ######          ######          ######      ",
+				"    ######          ######          ######      ",
+				"  ##      ##      ##      ##      ##      ##    ",
+				"  ##      ##      ##      ##      ##      ##    ",
+				"  ##      ##      ##      ##      ##      ##    ",
+				"  ##      ##      ##      ##      ##      ##    ",
+				"  ##      ##      ##      ##      ##      ##    ",
+				"  ##      ##      ##      ##      ##      ##    ",
+				"    ######          ######          ######      ",
+				"    ######          ######          ######      ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
 			])
 		);
 	}
@@ -3256,45 +3256,45 @@ mod font_16x32 {
 	#[test]
 	fn text_char_range_4() {
 		let mut display = MockDisplay::new();
-		Text::new("¿ÿ", Point::zero())
+		Text::new("¿ßÿ", Point::zero())
 			.with_font(FONT_16x32, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"                                ",
-				"                                ",
-				"                                ",
-				"                                ",
-				"                    ##    ##    ",
-				"                    ##    ##    ",
-				"                    ##    ##    ",
-				"                    ##    ##    ",
-				"                                ",
-				"                                ",
-				"        ##        ##        ##  ",
-				"        ##        ##        ##  ",
-				"        ##        ##        ##  ",
-				"        ##        ##        ##  ",
-				"                  ##        ##  ",
-				"                  ##        ##  ",
-				"                  ##        ##  ",
-				"                  ##        ##  ",
-				"        ##        ##        ##  ",
-				"        ##        ##        ##  ",
-				"      ##          ##        ##  ",
-				"      ##          ##        ##  ",
-				"    ##              ##########  ",
-				"    ##              ##########  ",
-				"  ##                        ##  ",
-				"  ##                        ##  ",
-				"  ##        ##              ##  ",
-				"  ##        ##              ##  ",
-				"    ########        ########    ",
-				"    ########        ########    ",
-				"                                ",
-				"                                ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"                                                ",
+				"                                    ##    ##    ",
+				"                                    ##    ##    ",
+				"                    ########        ##    ##    ",
+				"                    ########        ##    ##    ",
+				"                  ##        ##                  ",
+				"                  ##        ##                  ",
+				"        ##        ##      ##      ##        ##  ",
+				"        ##        ##      ##      ##        ##  ",
+				"        ##        ##    ####      ##        ##  ",
+				"        ##        ##    ####      ##        ##  ",
+				"                  ##        ##    ##        ##  ",
+				"                  ##        ##    ##        ##  ",
+				"                  ##        ##    ##        ##  ",
+				"                  ##        ##    ##        ##  ",
+				"        ##        ##        ##    ##        ##  ",
+				"        ##        ##        ##    ##        ##  ",
+				"      ##          ##      ##      ##        ##  ",
+				"      ##          ##      ##      ##        ##  ",
+				"    ##            ##  ####          ##########  ",
+				"    ##            ##  ####          ##########  ",
+				"  ##                                        ##  ",
+				"  ##                                        ##  ",
+				"  ##        ##                              ##  ",
+				"  ##        ##                              ##  ",
+				"    ########                        ########    ",
+				"    ########                        ########    ",
+				"                                                ",
+				"                                                ",
 			])
 		);
 	}
@@ -3302,45 +3302,45 @@ mod font_16x32 {
 	#[test]
 	fn text_char_range_5() {
 		let mut display = MockDisplay::new();
-		Text::new("", Point::zero())
+		Text::new("", Point::zero())
 			.with_font(FONT_16x32, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"                                ",
-				"                                ",
-				"##                            ##",
-				"##                            ##",
-				"####                        ##  ",
-				"####                        ##  ",
-				"######                    ##    ",
-				"######                    ##    ",
-				"########                ##      ",
-				"########                ##      ",
-				"##########            ##        ",
-				"##########            ##        ",
-				"############        ##          ",
-				"############        ##          ",
-				"##############    ##            ",
-				"##############    ##            ",
-				"##################              ",
-				"##################              ",
-				"##################              ",
-				"##################              ",
-				"##############    ##            ",
-				"##############    ##            ",
-				"############        ##          ",
-				"############        ##          ",
-				"##########            ##        ",
-				"##########            ##        ",
-				"########                ##      ",
-				"########                ##      ",
-				"######                    ##    ",
-				"######                    ##    ",
-				"####                        ##  ",
-				"####                        ##  ",
+				"                                                ",
+				"                                                ",
+				"##                            ##              ##",
+				"##                            ##              ##",
+				"####                        ####            ##  ",
+				"####                        ####            ##  ",
+				"######                    ######          ##    ",
+				"######                    ######          ##    ",
+				"########                ########        ##      ",
+				"########                ########        ##      ",
+				"##########            ##########      ##        ",
+				"##########            ##########      ##        ",
+				"############        ############    ##          ",
+				"############        ############    ##          ",
+				"##############    ##############  ##            ",
+				"##############    ##############  ##            ",
+				"##################################              ",
+				"##################################              ",
+				"##################################              ",
+				"##################################              ",
+				"##############    ##############  ##            ",
+				"##############    ##############  ##            ",
+				"############        ############    ##          ",
+				"############        ############    ##          ",
+				"##########            ##########      ##        ",
+				"##########            ##########      ##        ",
+				"########                ########        ##      ",
+				"########                ########        ##      ",
+				"######                    ######          ##    ",
+				"######                    ######          ##    ",
+				"####                        ####            ##  ",
+				"####                        ####            ##  ",
 			])
 		);
 	}
@@ -3389,53 +3389,53 @@ mod font_20x40 {
 	#[test]
 	fn text_char_range_1() {
 		let mut display = MockDisplay::new();
-		Text::new(" ~", Point::zero())
+		Text::new(" O~", Point::zero())
 			.with_font(FONT_20x40, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                        ####        ##  ",
-				"                        ####        ##  ",
-				"                      ##    ##      ##  ",
-				"                      ##    ##      ##  ",
-				"                      ##      ##    ##  ",
-				"                      ##      ##    ##  ",
-				"                      ##        ####    ",
-				"                      ##        ####    ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
+				"                                                            ",
+				"                                                            ",
+				"                                                            ",
+				"                                                            ",
+				"                                                            ",
+				"                                                            ",
+				"                                            ####        ##  ",
+				"                                            ####        ##  ",
+				"                          ########        ##    ##      ##  ",
+				"                          ########        ##    ##      ##  ",
+				"                        ##        ##      ##      ##    ##  ",
+				"                        ##        ##      ##      ##    ##  ",
+				"                      ##            ##    ##        ####    ",
+				"                      ##            ##    ##        ####    ",
+				"                      ##            ##                      ",
+				"                      ##            ##                      ",
+				"                      ##            ##                      ",
+				"                      ##            ##                      ",
+				"                      ##            ##                      ",
+				"                      ##            ##                      ",
+				"                      ##            ##                      ",
+				"                      ##            ##                      ",
+				"                      ##            ##                      ",
+				"                      ##            ##                      ",
+				"                        ##        ##                        ",
+				"                        ##        ##                        ",
+				"                          ########                          ",
+				"                          ########                          ",
+				"                                                            ",
+				"                                                            ",
+				"                                                            ",
+				"                                                            ",
+				"                                                            ",
+				"                                                            ",
+				"                                                            ",
+				"                                                            ",
+				"                                                            ",
+				"                                                            ",
+				"                                                            ",
+				"                                                            ",
 			])
 		);
 	}
@@ -3443,53 +3443,53 @@ mod font_20x40 {
 	#[test]
 	fn text_char_range_2() {
 		let mut display = MockDisplay::new();
-		Text::new("¡¦", Point::zero())
+		Text::new("¡¤¦", Point::zero())
 			.with_font(FONT_20x40, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                            ##          ",
-				"                            ##          ",
-				"                            ##          ",
-				"                            ##          ",
-				"                            ##          ",
-				"                            ##          ",
-				"        ##                  ##          ",
-				"        ##                  ##          ",
-				"        ##                  ##          ",
-				"        ##                  ##          ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"        ##                  ##          ",
-				"        ##                  ##          ",
-				"        ##                  ##          ",
-				"        ##                  ##          ",
-				"        ##                  ##          ",
-				"        ##                  ##          ",
-				"        ##                  ##          ",
-				"        ##                  ##          ",
-				"        ##                  ##          ",
-				"        ##                  ##          ",
-				"        ##                              ",
-				"        ##                              ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
+				"                                                            ",
+				"                                                            ",
+				"                                                            ",
+				"                                                            ",
+				"                                                            ",
+				"                                                            ",
+				"                                                ##          ",
+				"                                                ##          ",
+				"                      ##              ##        ##          ",
+				"                      ##              ##        ##          ",
+				"                        ##  ######  ##          ##          ",
+				"                        ##  ######  ##          ##          ",
+				"        ##                ##      ##            ##          ",
+				"        ##                ##      ##            ##          ",
+				"        ##              ##          ##          ##          ",
+				"        ##              ##          ##          ##          ",
+				"                        ##          ##                      ",
+				"                        ##          ##                      ",
+				"                        ##          ##                      ",
+				"                        ##          ##                      ",
+				"                          ##      ##                        ",
+				"                          ##      ##                        ",
+				"        ##              ##  ######  ##          ##          ",
+				"        ##              ##  ######  ##          ##          ",
+				"        ##            ##              ##        ##          ",
+				"        ##            ##              ##        ##          ",
+				"        ##                                      ##          ",
+				"        ##                                      ##          ",
+				"        ##                                      ##          ",
+				"        ##                                      ##          ",
+				"        ##                                      ##          ",
+				"        ##                                      ##          ",
+				"        ##                                                  ",
+				"        ##                                                  ",
+				"                                                            ",
+				"                                                            ",
+				"                                                            ",
+				"                                                            ",
+				"                                                            ",
+				"                                                            ",
 			])
 		);
 	}
@@ -3497,53 +3497,53 @@ mod font_20x40 {
 	#[test]
 	fn text_char_range_3() {
 		let mut display = MockDisplay::new();
-		Text::new("°°", Point::zero())
+		Text::new("°°°", Point::zero())
 			.with_font(FONT_20x40, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"      ######              ######        ",
-				"      ######              ######        ",
-				"    ##      ##          ##      ##      ",
-				"    ##      ##          ##      ##      ",
-				"    ##      ##          ##      ##      ",
-				"    ##      ##          ##      ##      ",
-				"    ##      ##          ##      ##      ",
-				"    ##      ##          ##      ##      ",
-				"      ######              ######        ",
-				"      ######              ######        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
+				"                                                            ",
+				"                                                            ",
+				"                                                            ",
+				"                                                            ",
+				"                                                            ",
+				"                                                            ",
+				"                                                            ",
+				"                                                            ",
+				"      ######              ######              ######        ",
+				"      ######              ######              ######        ",
+				"    ##      ##          ##      ##          ##      ##      ",
+				"    ##      ##          ##      ##          ##      ##      ",
+				"    ##      ##          ##      ##          ##      ##      ",
+				"    ##      ##          ##      ##          ##      ##      ",
+				"    ##      ##          ##      ##          ##      ##      ",
+				"    ##      ##          ##      ##          ##      ##      ",
+				"      ######              ######              ######        ",
+				"      ######              ######              ######        ",
+				"                                                            ",
+				"                                                            ",
+				"                                                            ",
+				"                                                            ",
+				"                                                            ",
+				"                                                            ",
+				"                                                            ",
+				"                                                            ",
+				"                                                            ",
+				"                                                            ",
+				"                                                            ",
+				"                                                            ",
+				"                                                            ",
+				"                                                            ",
+				"                                                            ",
+				"                                                            ",
+				"                                                            ",
+				"                                                            ",
+				"                                                            ",
+				"                                                            ",
+				"                                                            ",
+				"                                                            ",
 			])
 		);
 	}
@@ -3551,53 +3551,53 @@ mod font_20x40 {
 	#[test]
 	fn text_char_range_4() {
 		let mut display = MockDisplay::new();
-		Text::new("¿ÿ", Point::zero())
+		Text::new("¿ßÿ", Point::zero())
 			.with_font(FONT_20x40, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                        ##      ##      ",
-				"                        ##      ##      ",
-				"                        ##      ##      ",
-				"                        ##      ##      ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"        ##            ##          ##    ",
-				"        ##            ##          ##    ",
-				"        ##            ##          ##    ",
-				"        ##            ##          ##    ",
-				"                      ##          ##    ",
-				"                      ##          ##    ",
-				"                      ##          ##    ",
-				"                      ##          ##    ",
-				"                      ##          ##    ",
-				"                      ##          ##    ",
-				"        ##            ##          ##    ",
-				"        ##            ##          ##    ",
-				"      ##              ##          ##    ",
-				"      ##              ##          ##    ",
-				"    ##                  ############    ",
-				"    ##                  ############    ",
-				"  ##                              ##    ",
-				"  ##                              ##    ",
-				"  ##          ##                  ##    ",
-				"  ##          ##                  ##    ",
-				"    ##########                    ##    ",
-				"    ##########                    ##    ",
-				"                        ##########      ",
-				"                        ##########      ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
-				"                                        ",
+				"                                                            ",
+				"                                                            ",
+				"                                                            ",
+				"                                                            ",
+				"                                            ##      ##      ",
+				"                                            ##      ##      ",
+				"                                            ##      ##      ",
+				"                                            ##      ##      ",
+				"                          ########                          ",
+				"                          ########                          ",
+				"                        ##        ##                        ",
+				"                        ##        ##                        ",
+				"        ##            ##          ##      ##          ##    ",
+				"        ##            ##          ##      ##          ##    ",
+				"        ##            ##        ##        ##          ##    ",
+				"        ##            ##        ##        ##          ##    ",
+				"                      ##      ####        ##          ##    ",
+				"                      ##      ####        ##          ##    ",
+				"                      ##          ##      ##          ##    ",
+				"                      ##          ##      ##          ##    ",
+				"                      ##          ##      ##          ##    ",
+				"                      ##          ##      ##          ##    ",
+				"        ##            ##          ##      ##          ##    ",
+				"        ##            ##          ##      ##          ##    ",
+				"      ##              ##        ##        ##          ##    ",
+				"      ##              ##        ##        ##          ##    ",
+				"    ##                ##    ####            ############    ",
+				"    ##                ##    ####            ############    ",
+				"  ##                                                  ##    ",
+				"  ##                                                  ##    ",
+				"  ##          ##                                      ##    ",
+				"  ##          ##                                      ##    ",
+				"    ##########                                        ##    ",
+				"    ##########                                        ##    ",
+				"                                            ##########      ",
+				"                                            ##########      ",
+				"                                                            ",
+				"                                                            ",
+				"                                                            ",
+				"                                                            ",
 			])
 		);
 	}
@@ -3605,53 +3605,53 @@ mod font_20x40 {
 	#[test]
 	fn text_char_range_5() {
 		let mut display = MockDisplay::new();
-		Text::new("", Point::zero())
+		Text::new("", Point::zero())
 			.with_font(FONT_20x40, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
 			display,
 			MockDisplay::from_pattern(&[
-				"##                                    ##",
-				"##                                    ##",
-				"####                                ##  ",
-				"####                                ##  ",
-				"######                            ##    ",
-				"######                            ##    ",
-				"########                        ##      ",
-				"########                        ##      ",
-				"##########                    ##        ",
-				"##########                    ##        ",
-				"############                ##          ",
-				"############                ##          ",
-				"##############            ##            ",
-				"##############            ##            ",
-				"################        ##              ",
-				"################        ##              ",
-				"##################    ##                ",
-				"##################    ##                ",
-				"######################                  ",
-				"######################                  ",
-				"######################                  ",
-				"######################                  ",
-				"##################    ##                ",
-				"##################    ##                ",
-				"################        ##              ",
-				"################        ##              ",
-				"##############            ##            ",
-				"##############            ##            ",
-				"############                ##          ",
-				"############                ##          ",
-				"##########                    ##        ",
-				"##########                    ##        ",
-				"########                        ##      ",
-				"########                        ##      ",
-				"######                            ##    ",
-				"######                            ##    ",
-				"####                                ##  ",
-				"####                                ##  ",
-				"##                                    ##",
-				"##                                    ##",
+				"##                                    ##                  ##",
+				"##                                    ##                  ##",
+				"####                                ####                ##  ",
+				"####                                ####                ##  ",
+				"######                            ######              ##    ",
+				"######                            ######              ##    ",
+				"########                        ########            ##      ",
+				"########                        ########            ##      ",
+				"##########                    ##########          ##        ",
+				"##########                    ##########          ##        ",
+				"############                ############        ##          ",
+				"############                ############        ##          ",
+				"##############            ##############      ##            ",
+				"##############            ##############      ##            ",
+				"################        ################    ##              ",
+				"################        ################    ##              ",
+				"##################    ##################  ##                ",
+				"##################    ##################  ##                ",
+				"##########################################                  ",
+				"##########################################                  ",
+				"##########################################                  ",
+				"##########################################                  ",
+				"##################    ##################  ##                ",
+				"##################    ##################  ##                ",
+				"################        ################    ##              ",
+				"################        ################    ##              ",
+				"##############            ##############      ##            ",
+				"##############            ##############      ##            ",
+				"############                ############        ##          ",
+				"############                ############        ##          ",
+				"##########                    ##########          ##        ",
+				"##########                    ##########          ##        ",
+				"########                        ########            ##      ",
+				"########                        ########            ##      ",
+				"######                            ######              ##    ",
+				"######                            ######              ##    ",
+				"####                                ####                ##  ",
+				"####                                ####                ##  ",
+				"##                                    ##                  ##",
+				"##                                    ##                  ##",
 			])
 		);
 	}

@@ -8,7 +8,7 @@ use crate::BitmapFont;
 pub(super) fn char_offset(c: char) -> u32 {
 	match c {
 		{% for range in char_ranges -%}
-		'{{ range.start }}' ..= '{{ range.end }}' => (c as u32 - '{{ range.start }}' as u32) + {{ range.skip }},
+		'{{ range.start }}' ..= '{{ range.end }}' => (c as u32 - '{{ range.start }}' as u32){% if range.skip != 0 %} + {{ range.skip }}{% endif %},
 		{% endfor -%}
 		_ => '?' as u32 - ' ' as u32
 	}

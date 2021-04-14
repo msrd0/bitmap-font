@@ -7,7 +7,7 @@ use crate::BitmapFont;
 /// Return the char offset in the raw bitmap data.
 pub(super) fn char_offset(c: char) -> u32 {
 	match c {
-		' ' ..= '~' => (c as u32 - ' ' as u32) + 0,
+		' ' ..= '~' => (c as u32 - ' ' as u32),
 		'¡' ..= '¦' => (c as u32 - '¡' as u32) + 94,
 		'°' ..= '°' => (c as u32 - '°' as u32) + 99,
 		'¿' ..= 'ÿ' => (c as u32 - '¿' as u32) + 99,

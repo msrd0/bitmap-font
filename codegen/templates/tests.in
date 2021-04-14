@@ -9,8 +9,6 @@ use embedded_graphics::{
 	pixelcolor::BinaryColor
 };
 
-// ### Fonts
-
 {% for font in fonts -%}
 #[test]
 fn font_size_{{ font.width }}x{{ font.height }}() {
@@ -53,11 +51,12 @@ fn text_m_draw_{{ font.width }}x{{ font.height }}() {
 		display,
 		MockDisplay::from_pattern(&[
 			{%- for y in 0..font.height %}
-			"{{ font.glyphs.get('m').unwrap().mock_line(y) }}{{ font.glyphs.get('M').unwrap().mock_line(y) }}",
+			"{{ font.glyph('m').mock_line(y) }}{{ font.glyph('M').mock_line(y) }}",
 			{%- endfor %}
 		])
 	);
 }
+{%- if 2*font.height < 64 %}
 
 #[test]
 fn text_fallback_{{ font.width }}x{{ font.height }}() {
@@ -70,83 +69,10 @@ fn text_fallback_{{ font.width }}x{{ font.height }}() {
 		display,
 		MockDisplay::from_pattern(&[
 			{%- for y in 0..font.height %}
-			"{{ font.glyphs.get('?').unwrap().mock_line(y) }}{{ font.glyphs.get('?').unwrap().mock_line(y) }}",
+			"{{ font.glyph('?').mock_line(y) }}{{ font.glyph('?').mock_line(y) }}",
 			{%- endfor %}
 			{%- for y in 0..font.height %}
-			"{{ font.glyphs.get(' ').unwrap().mock_line(y) }}{{ font.glyphs.get('?').unwrap().mock_line(y) }}",
-			{%- endfor %}
-		])
-	);
-}
-
-{% endfor -%}
-
-// ### Pixel-Double Fonts
-
-{% for font in fonts -%}
-#[test]
-fn font_size_{{ 2*font.width }}x{{ 2*font.height }}() {
-	assert_eq!(FONT_{{ 2*font.width }}x{{ 2*font.height }}.width(), {{ 2*font.width }});
-	assert_eq!(FONT_{{ 2*font.width }}x{{ 2*font.height }}.height(), {{ 2*font.height }});
-}
-
-#[test]
-fn text_empty_size_{{ 2*font.width }}x{{ 2*font.height }}() {
-	let size = Text::new("", Point::zero())
-		.with_font(FONT_{{ 2*font.width }}x{{ 2*font.height }}, BinaryColor::On)
-		.size();
-	assert_eq!(size, Size::zero());
-}
-
-#[test]
-fn text_a_size_{{ 2*font.width }}x{{ 2*font.height }}() {
-	let size = Text::new("a", Point::zero())
-		.with_font(FONT_{{ 2*font.width }}x{{ 2*font.height }}, BinaryColor::On)
-		.size();
-	assert_eq!(size, Size::new({{ 2*font.width }}, {{ 2*font.height }}));
-}
-
-#[test]
-fn text_multiline_size_{{ 2*font.width }}x{{ 2*font.height }}() {
-	let size = Text::new("aa\naaa\na", Point::zero())
-		.with_font(FONT_{{ 2*font.width }}x{{ 2*font.height }}, BinaryColor::On)
-		.size();
-	assert_eq!(size, Size::new({{ 6*font.width }}, {{ 6*font.height }}));
-}
-
-#[test]
-fn text_m_draw_{{ 2*font.width }}x{{ 2*font.height }}() {
-	let mut display = MockDisplay::new();
-	Text::new("mM", Point::zero())
-		.with_font(FONT_{{ 2*font.width }}x{{ 2*font.height }}, BinaryColor::On)
-		.draw(&mut display)
-		.unwrap();
-	assert_eq!(
-		display,
-		MockDisplay::from_pattern(&[
-			{%- for y in 0..2*font.height %}
-			"{{ font.glyphs.get('m').unwrap().mock_line_double(y) }}{{ font.glyphs.get('M').unwrap().mock_line_double(y) }}",
-			{%- endfor %}
-		])
-	);
-}
-{%- if 4*font.height < 64 %}
-
-#[test]
-fn text_fallback_{{ 2*font.width }}x{{ 2*font.height }}() {
-	let mut display = MockDisplay::new();
-	Text::new("ä?\n ß", Point::zero())
-		.with_font(FONT_{{ 2*font.width }}x{{ 2*font.height }}, BinaryColor::On)
-		.draw(&mut display)
-		.unwrap();
-	assert_eq!(
-		display,
-		MockDisplay::from_pattern(&[
-			{%- for y in 0..2*font.height %}
-			"{{ font.glyphs.get('?').unwrap().mock_line_double(y) }}{{ font.glyphs.get('?').unwrap().mock_line_double(y) }}",
-			{%- endfor %}
-			{%- for y in 0..2*font.height %}
-			"{{ font.glyphs.get(' ').unwrap().mock_line_double(y) }}{{ font.glyphs.get('?').unwrap().mock_line_double(y) }}",
+			"{{ font.glyph(' ').mock_line(y) }}{{ font.glyph('?').mock_line(y) }}",
 			{%- endfor %}
 		])
 	);

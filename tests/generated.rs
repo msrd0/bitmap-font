@@ -9,8 +9,6 @@ use embedded_graphics::{
 	pixelcolor::BinaryColor
 };
 
-// ### Fonts
-
 #[test]
 fn font_size_5x9() {
 	assert_eq!(FONT_5x9.width(), 5);
@@ -597,6 +595,118 @@ fn text_fallback_8x16() {
 }
 
 #[test]
+fn font_size_10x18() {
+	assert_eq!(FONT_10x18.width(), 10);
+	assert_eq!(FONT_10x18.height(), 18);
+}
+
+#[test]
+fn text_empty_size_10x18() {
+	let size = Text::new("", Point::zero())
+		.with_font(FONT_10x18, BinaryColor::On)
+		.size();
+	assert_eq!(size, Size::zero());
+}
+
+#[test]
+fn text_a_size_10x18() {
+	let size = Text::new("a", Point::zero())
+		.with_font(FONT_10x18, BinaryColor::On)
+		.size();
+	assert_eq!(size, Size::new(10, 18));
+}
+
+#[test]
+fn text_multiline_size_10x18() {
+	let size = Text::new("aa\naaa\na", Point::zero())
+		.with_font(FONT_10x18, BinaryColor::On)
+		.size();
+	assert_eq!(size, Size::new(30, 54));
+}
+
+#[test]
+fn text_m_draw_10x18() {
+	let mut display = MockDisplay::new();
+	Text::new("mM", Point::zero())
+		.with_font(FONT_10x18, BinaryColor::On)
+		.draw(&mut display)
+		.unwrap();
+	assert_eq!(
+		display,
+		MockDisplay::from_pattern(&[
+			"                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"          ##    ##  ",
+			"          ##    ##  ",
+			"##  ####  ########  ",
+			"##  ####  ########  ",
+			"########  ##    ##  ",
+			"########  ##    ##  ",
+			"##    ##  ##    ##  ",
+			"##    ##  ##    ##  ",
+			"##    ##  ##    ##  ",
+			"##    ##  ##    ##  ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+		])
+	);
+}
+
+#[test]
+fn text_fallback_10x18() {
+	let mut display = MockDisplay::new();
+	Text::new("ä?\n ß", Point::zero())
+		.with_font(FONT_10x18, BinaryColor::On)
+		.draw(&mut display)
+		.unwrap();
+	assert_eq!(
+		display,
+		MockDisplay::from_pattern(&[
+			"                    ",
+			"                    ",
+			"######    ######    ",
+			"######    ######    ",
+			"      ##        ##  ",
+			"      ##        ##  ",
+			"    ##        ##    ",
+			"    ##        ##    ",
+			"  ##        ##      ",
+			"  ##        ##      ",
+			"                    ",
+			"                    ",
+			"  ##        ##      ",
+			"  ##        ##      ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"          ######    ",
+			"          ######    ",
+			"                ##  ",
+			"                ##  ",
+			"              ##    ",
+			"              ##    ",
+			"            ##      ",
+			"            ##      ",
+			"                    ",
+			"                    ",
+			"            ##      ",
+			"            ##      ",
+			"                    ",
+			"                    ",
+			"                    ",
+			"                    ",
+		])
+	);
+}
+
+#[test]
 fn font_size_10x20() {
 	assert_eq!(FONT_10x20.width(), 10);
 	assert_eq!(FONT_10x20.height(), 20);
@@ -706,120 +816,6 @@ fn text_fallback_10x20() {
 			"              #     ",
 			"                    ",
 			"                    ",
-			"                    ",
-			"                    ",
-			"                    ",
-			"                    ",
-		])
-	);
-}
-
-// ### Pixel-Double Fonts
-
-#[test]
-fn font_size_10x18() {
-	assert_eq!(FONT_10x18.width(), 10);
-	assert_eq!(FONT_10x18.height(), 18);
-}
-
-#[test]
-fn text_empty_size_10x18() {
-	let size = Text::new("", Point::zero())
-		.with_font(FONT_10x18, BinaryColor::On)
-		.size();
-	assert_eq!(size, Size::zero());
-}
-
-#[test]
-fn text_a_size_10x18() {
-	let size = Text::new("a", Point::zero())
-		.with_font(FONT_10x18, BinaryColor::On)
-		.size();
-	assert_eq!(size, Size::new(10, 18));
-}
-
-#[test]
-fn text_multiline_size_10x18() {
-	let size = Text::new("aa\naaa\na", Point::zero())
-		.with_font(FONT_10x18, BinaryColor::On)
-		.size();
-	assert_eq!(size, Size::new(30, 54));
-}
-
-#[test]
-fn text_m_draw_10x18() {
-	let mut display = MockDisplay::new();
-	Text::new("mM", Point::zero())
-		.with_font(FONT_10x18, BinaryColor::On)
-		.draw(&mut display)
-		.unwrap();
-	assert_eq!(
-		display,
-		MockDisplay::from_pattern(&[
-			"                    ",
-			"                    ",
-			"                    ",
-			"                    ",
-			"          ##    ##  ",
-			"          ##    ##  ",
-			"##  ####  ########  ",
-			"##  ####  ########  ",
-			"########  ##    ##  ",
-			"########  ##    ##  ",
-			"##    ##  ##    ##  ",
-			"##    ##  ##    ##  ",
-			"##    ##  ##    ##  ",
-			"##    ##  ##    ##  ",
-			"                    ",
-			"                    ",
-			"                    ",
-			"                    ",
-		])
-	);
-}
-
-#[test]
-fn text_fallback_10x18() {
-	let mut display = MockDisplay::new();
-	Text::new("ä?\n ß", Point::zero())
-		.with_font(FONT_10x18, BinaryColor::On)
-		.draw(&mut display)
-		.unwrap();
-	assert_eq!(
-		display,
-		MockDisplay::from_pattern(&[
-			"                    ",
-			"                    ",
-			"######    ######    ",
-			"######    ######    ",
-			"      ##        ##  ",
-			"      ##        ##  ",
-			"    ##        ##    ",
-			"    ##        ##    ",
-			"  ##        ##      ",
-			"  ##        ##      ",
-			"                    ",
-			"                    ",
-			"  ##        ##      ",
-			"  ##        ##      ",
-			"                    ",
-			"                    ",
-			"                    ",
-			"                    ",
-			"                    ",
-			"                    ",
-			"          ######    ",
-			"          ######    ",
-			"                ##  ",
-			"                ##  ",
-			"              ##    ",
-			"              ##    ",
-			"            ##      ",
-			"            ##      ",
-			"                    ",
-			"                    ",
-			"            ##      ",
-			"            ##      ",
 			"                    ",
 			"                    ",
 			"                    ",

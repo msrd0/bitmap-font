@@ -45,13 +45,12 @@ struct RustSource<'a> {
 #[derive(Template)]
 #[template(path = "tests.in", escape = "none")]
 struct RustTests<'a> {
-	fonts: &'a BTreeSet<Font>
+	fonts: &'a BTreeSet<VirtualFont>
 }
 
 struct Font {
 	width: u32,
 	height: u32,
-	glyphs: LinkedHashMap<char, GlyphData>,
 	bitmap: Vec<u8>,
 	bitmap_len: String,
 	img_width: usize,
@@ -79,10 +78,47 @@ impl Ord for Font {
 	}
 }
 
+struct VirtualFont {
+	width: u32,
+	height: u32,
+	glyphs: LinkedHashMap<char, GlyphData>,
+	pixels: u32
+}
+
+impl VirtualFont {
+	fn glyph(&self, c: &char) -> GlyphData {
+		let mut glyph = self.glyphs[c].clone();
+		glyph.pixels = self.pixels;
+		glyph
+	}
+}
+
+impl PartialEq for VirtualFont {
+	fn eq(&self, other: &Self) -> bool {
+		self.width == other.width && self.height == other.height
+	}
+}
+
+impl Eq for VirtualFont {}
+
+impl PartialOrd for VirtualFont {
+	fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
+		Some(self.cmp(other))
+	}
+}
+
+impl Ord for VirtualFont {
+	fn cmp(&self, other: &Self) -> Ordering {
+		(self.width, self.height).cmp(&(other.width, other.height))
+	}
+}
+
+#[derive(Clone)]
 struct GlyphData {
 	bitmap: Bitmap,
 	width: u32,
-	height: u32
+	height: u32,
+	pixels: u32
 }
 
 impl GlyphData {
@@ -105,7 +141,8 @@ impl GlyphData {
 		Ok(Self {
 			bitmap: glyph.map().clone(),
 			width,
-			height
+			height,
+			pixels: 1
 		})
 	}
 
@@ -129,18 +166,10 @@ impl GlyphData {
 
 	// y is a reference because askama is stupid
 	fn mock_line(&self, y: &u32) -> String {
+		let y = y / self.pixels;
 		let mut line = String::new();
 		for x in 0..self.width {
-			line.push(self.bitmap.get(x, *y).then(|| '#').unwrap_or(' '));
-		}
-		line
-	}
-
-	fn mock_line_double(&self, y: &u32) -> String {
-		let y = y / 2;
-		let mut line = String::new();
-		for x in 0..self.width {
-			for _ in 0..2 {
+			for _ in 0..self.pixels {
 				line.push(self.bitmap.get(x, y).then(|| '#').unwrap_or(' '));
 			}
 		}
@@ -150,6 +179,7 @@ impl GlyphData {
 
 fn main() -> anyhow::Result<()> {
 	let mut fonts = BTreeSet::new();
+	let mut virtual_fonts = BTreeSet::new();
 
 	let dir = "tamzen-font/bdf";
 	for file in fs::read_dir(dir)? {
@@ -234,7 +264,6 @@ fn main() -> anyhow::Result<()> {
 		let font = Font {
 			width,
 			height,
-			glyphs,
 			bitmap,
 			bitmap_len,
 			img_width,
@@ -242,13 +271,29 @@ fn main() -> anyhow::Result<()> {
 			bmp_double: base64::encode(&bmp_double)
 		};
 		fonts.insert(font);
+
+		let font = VirtualFont {
+			width,
+			height,
+			glyphs: glyphs.clone(),
+			pixels: 1
+		};
+		virtual_fonts.insert(font);
+
+		let font = VirtualFont {
+			width: 2 * width,
+			height: 2 * height,
+			glyphs,
+			pixels: 2
+		};
+		virtual_fonts.insert(font);
 	}
 
 	let mut rs = File::create("../src/generated.rs")?;
 	writeln!(rs, "{}", RustSource { fonts: &fonts }.render()?)?;
 
 	let mut rs = File::create("../tests/generated.rs")?;
-	writeln!(rs, "{}", RustTests { fonts: &fonts }.render()?)?;
+	writeln!(rs, "{}", RustTests { fonts: &virtual_fonts }.render()?)?;
 
 	Ok(())
 }

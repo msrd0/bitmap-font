@@ -12,7 +12,7 @@
 	<a href="https://msrd0.github.io/bitmap-font/tarpaulin-report.html">
 		<img alt="coverage report" src="https://msrd0.github.io/bitmap-font/coverage.svg"/>
 	</a>
-	<a href="https://msrd0.github.io/bitmap-font/doc/bitmap-font/index.html">
+	<a href="https://msrd0.github.io/bitmap-font/doc/bitmap_font/index.html">
 		<img alt="bitmap-font master branch documentation" src="https://img.shields.io/badge/docs-master-blue.svg"/>
 	</a>
     <a href="https://blog.rust-lang.org/2020/12/31/Rust-1.50.0.html">

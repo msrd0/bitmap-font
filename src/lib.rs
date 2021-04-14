@@ -75,14 +75,6 @@ impl BitmapFont {
 		self.height * self.pixels
 	}
 
-	/// Return the char offset in the raw bitmap data.
-	fn char_offset(c: char) -> u32 {
-		match c {
-			' '..='~' => c as u32 - ' ' as u32,
-			_ => '?' as u32 - ' ' as u32
-		}
-	}
-
 	/// Returns `true` if the pixel `(x, y)` is turned on in the character `c`.
 	// inspired by https://docs.rs/embedded-graphics/0.6.2/src/embedded_graphics/fonts/mod.rs.html#246
 	pub fn pixel(self, c: char, x: u32, y: u32) -> bool {
@@ -90,7 +82,7 @@ impl BitmapFont {
 		let y = y / self.pixels;
 
 		let char_per_row = self.bitmap_width / self.width;
-		let offset = Self::char_offset(c);
+		let offset = char_offset(c);
 		let row = offset / char_per_row;
 
 		let char_x = (offset - (row * char_per_row)) * self.width;

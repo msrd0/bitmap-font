@@ -253,17 +253,13 @@ fn main() -> anyhow::Result<()> {
 
 	let mut char_ranges = Vec::new();
 	let mut skip = 0;
-	let mut last_end = ' ';
 	for (start, end) in CHAR_RANGES {
-		//skip += *start as u32 - last_end as u32;
 		char_ranges.push(CharRange {
 			start: *start,
 			end: *end,
 			skip
 		});
-
-		skip += *end as u32 - *start as u32;
-		last_end = *end;
+		skip += *end as u32 - *start as u32 + 1;
 	}
 
 	let dir = "tamzen-font/bdf";

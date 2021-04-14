@@ -8,10 +8,10 @@ use crate::BitmapFont;
 pub(super) fn char_offset(c: char) -> u32 {
 	match c {
 		' ' ..= '~' => (c as u32 - ' ' as u32),
-		'¡' ..= '¦' => (c as u32 - '¡' as u32) + 94,
-		'°' ..= '°' => (c as u32 - '°' as u32) + 99,
-		'¿' ..= 'ÿ' => (c as u32 - '¿' as u32) + 99,
-		'' ..= '' => (c as u32 - '' as u32) + 163,
+		'¡' ..= '¦' => (c as u32 - '¡' as u32) + 95,
+		'°' ..= '°' => (c as u32 - '°' as u32) + 101,
+		'¿' ..= 'ÿ' => (c as u32 - '¿' as u32) + 102,
+		'' ..= '' => (c as u32 - '' as u32) + 167,
 		_ => '?' as u32 - ' ' as u32
 	}
 }

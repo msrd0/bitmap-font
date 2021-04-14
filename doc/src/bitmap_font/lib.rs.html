@@ -279,11 +279,6 @@
 <span id="276">276</span>
 <span id="277">277</span>
 <span id="278">278</span>
-<span id="279">279</span>
-<span id="280">280</span>
-<span id="281">281</span>
-<span id="282">282</span>
-<span id="283">283</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="attribute">#![<span class="ident">no_std</span>]</span>
 <span class="attribute">#![<span class="ident">warn</span>(<span class="ident">rust_2018_idioms</span>, <span class="ident">unreachable_pub</span>)]</span>
@@ -362,22 +357,17 @@ text.with_font(font, BinaryColor::On).draw(&amp;mut display)?;
 		<span class="self">self</span>.<span class="ident">height</span> <span class="op">*</span> <span class="self">self</span>.<span class="ident">pixels</span>
 	}
 
-	<span class="doccomment">/// Return the char offset in the raw bitmap data.</span>
-	<span class="kw">fn</span> <span class="ident">char_offset</span>(<span class="ident">c</span>: <span class="ident">char</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">u32</span> {
-		<span class="kw">match</span> <span class="ident">c</span> {
-			<span class="string">&#39; &#39;</span>..<span class="op">=</span><span class="string">&#39;~&#39;</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">c</span> <span class="kw">as</span> <span class="ident">u32</span> <span class="op">-</span> <span class="string">&#39; &#39;</span> <span class="kw">as</span> <span class="ident">u32</span>,
-			<span class="kw">_</span> <span class="op">=</span><span class="op">&gt;</span> <span class="string">&#39;?&#39;</span> <span class="kw">as</span> <span class="ident">u32</span> <span class="op">-</span> <span class="string">&#39; &#39;</span> <span class="kw">as</span> <span class="ident">u32</span>
-		}
-	}
-
 	<span class="doccomment">/// Returns `true` if the pixel `(x, y)` is turned on in the character `c`.</span>
 	<span class="comment">// inspired by https://docs.rs/embedded-graphics/0.6.2/src/embedded_graphics/fonts/mod.rs.html#246</span>
 	<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">pixel</span>(<span class="self">self</span>, <span class="ident">c</span>: <span class="ident">char</span>, <span class="ident">x</span>: <span class="ident">u32</span>, <span class="ident">y</span>: <span class="ident">u32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
 		<span class="kw">let</span> <span class="ident">x</span> <span class="op">=</span> <span class="ident">x</span> <span class="op">/</span> <span class="self">self</span>.<span class="ident">pixels</span>;
 		<span class="kw">let</span> <span class="ident">y</span> <span class="op">=</span> <span class="ident">y</span> <span class="op">/</span> <span class="self">self</span>.<span class="ident">pixels</span>;
 
+		<span class="macro">assert</span><span class="macro">!</span>(<span class="ident">x</span> <span class="op">&lt;</span> <span class="self">self</span>.<span class="ident">width</span>);
+		<span class="macro">assert</span><span class="macro">!</span>(<span class="ident">y</span> <span class="op">&lt;</span> <span class="self">self</span>.<span class="ident">height</span>);
+
 		<span class="kw">let</span> <span class="ident">char_per_row</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">bitmap_width</span> <span class="op">/</span> <span class="self">self</span>.<span class="ident">width</span>;
-		<span class="kw">let</span> <span class="ident">offset</span> <span class="op">=</span> <span class="self">Self</span>::<span class="ident">char_offset</span>(<span class="ident">c</span>);
+		<span class="kw">let</span> <span class="ident">offset</span> <span class="op">=</span> <span class="ident">char_offset</span>(<span class="ident">c</span>);
 		<span class="kw">let</span> <span class="ident">row</span> <span class="op">=</span> <span class="ident">offset</span> <span class="op">/</span> <span class="ident">char_per_row</span>;
 
 		<span class="kw">let</span> <span class="ident">char_x</span> <span class="op">=</span> (<span class="ident">offset</span> <span class="op">-</span> (<span class="ident">row</span> <span class="op">*</span> <span class="ident">char_per_row</span>)) <span class="op">*</span> <span class="self">self</span>.<span class="ident">width</span>;

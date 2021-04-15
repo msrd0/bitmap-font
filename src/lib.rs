@@ -54,6 +54,10 @@ pub struct BitmapFont {
 	/// The width of the raw bitmap data.
 	bitmap_width: u32,
 
+	/// The function to calculate a character offset. Must return a fallback character if the
+	/// requested character is not in the font.
+	char_offset: &'static dyn Fn(char) -> u32,
+
 	/// The width of each character in the raw bitmap data.
 	width: u32,
 
@@ -85,7 +89,7 @@ impl BitmapFont {
 		assert!(y < self.height);
 
 		let char_per_row = self.bitmap_width / self.width;
-		let offset = char_offset(c);
+		let offset = (self.char_offset)(c);
 		let row = offset / char_per_row;
 
 		let char_x = (offset - (row * char_per_row)) * self.width;

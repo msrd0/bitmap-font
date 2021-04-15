@@ -1,0 +1,8 @@
+#!/bin/busybox ash
+set -euo pipefail
+
+# check code style
+cargo +nightly fmt --all -- --check -l || ( echo -e "\e[1mYou need to run 'cargo +nightly fmt --all' first\e[0m" && false )
+
+# make sure the readme is up to date
+./readme.sh --check || (echo -e "\e[1mYou need to run './readme.sh' first\e[0m" && false )

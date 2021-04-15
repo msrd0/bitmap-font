@@ -43,6 +43,18 @@ let text = Text::new("Hello World!", Point::zero());
 text.with_font(font, BinaryColor::On).draw(&mut display)?;
 ```
 
+## Development
+
+Basically, all you need is Rust. However, we utilize a nightly version of rustfmt for code style, so it is recommended
+you use rustup to install Rust so you can install a stable and nightly version alongside each other. The stable version
+can be the one shipped with your linux distribution if recent enough, or downloaded using rustup as well.
+
+To locally check that you meed the code style, you can use the provided git pre-commit hook, like this:
+
+```bash
+git config core.hooksPath .githooks
+```
+
 ## MSRV Policy
 
 This crate is guaranteed to always build with the latest stable rust version. MSRV is documented; however, for your

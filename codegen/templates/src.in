@@ -5,7 +5,7 @@
 use crate::BitmapFont;
 
 /// Return the char offset in the raw bitmap data.
-pub(super) fn char_offset(c: char) -> u32 {
+fn char_offset(c: char) -> u32 {
 	match c {
 		{% for range in char_ranges -%}
 		'{{ range.start }}' ..= '{{ range.end }}' => (c as u32 - '{{ range.start }}' as u32){% if range.skip != 0 %} + {{ range.skip }}{% endif %},
@@ -40,6 +40,7 @@ pub const FONT_{{ font.width }}x{{ font.height }}: BitmapFont = BitmapFont {
 		{%- endfor -%}
 	],
 	bitmap_width: {{ font.img_width }},
+	char_offset: &char_offset,
 	width: {{ font.width }},
 	height: {{ font.height }},
 	pixels: 1

@@ -279,6 +279,10 @@
 <span id="276">276</span>
 <span id="277">277</span>
 <span id="278">278</span>
+<span id="279">279</span>
+<span id="280">280</span>
+<span id="281">281</span>
+<span id="282">282</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="attribute">#![<span class="ident">no_std</span>]</span>
 <span class="attribute">#![<span class="ident">warn</span>(<span class="ident">rust_2018_idioms</span>, <span class="ident">unreachable_pub</span>)]</span>
@@ -336,6 +340,10 @@ text.with_font(font, BinaryColor::On).draw(&amp;mut display)?;
 	<span class="doccomment">/// The width of the raw bitmap data.</span>
 	<span class="ident">bitmap_width</span>: <span class="ident">u32</span>,
 
+	<span class="doccomment">/// The function to calculate a character offset. Must return a fallback character if the</span>
+	<span class="doccomment">/// requested character is not in the font.</span>
+	<span class="ident">char_offset</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="kw">dyn</span> <span class="ident">Fn</span>(<span class="ident">char</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">u32</span>,
+
 	<span class="doccomment">/// The width of each character in the raw bitmap data.</span>
 	<span class="ident">width</span>: <span class="ident">u32</span>,
 
@@ -367,7 +375,7 @@ text.with_font(font, BinaryColor::On).draw(&amp;mut display)?;
 		<span class="macro">assert</span><span class="macro">!</span>(<span class="ident">y</span> <span class="op">&lt;</span> <span class="self">self</span>.<span class="ident">height</span>);
 
 		<span class="kw">let</span> <span class="ident">char_per_row</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">bitmap_width</span> <span class="op">/</span> <span class="self">self</span>.<span class="ident">width</span>;
-		<span class="kw">let</span> <span class="ident">offset</span> <span class="op">=</span> <span class="ident">char_offset</span>(<span class="ident">c</span>);
+		<span class="kw">let</span> <span class="ident">offset</span> <span class="op">=</span> (<span class="self">self</span>.<span class="ident">char_offset</span>)(<span class="ident">c</span>);
 		<span class="kw">let</span> <span class="ident">row</span> <span class="op">=</span> <span class="ident">offset</span> <span class="op">/</span> <span class="ident">char_per_row</span>;
 
 		<span class="kw">let</span> <span class="ident">char_x</span> <span class="op">=</span> (<span class="ident">offset</span> <span class="op">-</span> (<span class="ident">row</span> <span class="op">*</span> <span class="ident">char_per_row</span>)) <span class="op">*</span> <span class="self">self</span>.<span class="ident">width</span>;

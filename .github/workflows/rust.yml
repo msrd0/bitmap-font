@@ -175,7 +175,6 @@ jobs:
           test ! -d ./doc || rm -r ./doc
           tar xfJ rustdoc.tar.xz --strip-components=1
           rm rustdoc.tar.xz
-          date >./doc/.timestamp
           
           coverage=$(jq '.files | { covered: map(.covered) | add, coverable: map(.coverable) | add } | .covered / .coverable * 10000 | round | . / 100' tarpaulin-report.json)
           color=$([[ $coverage < 80 ]] && printf yellow || printf brightgreen)

@@ -4,7 +4,7 @@
 		<img alt="bitmap-font on crates.io" src="https://img.shields.io/crates/v/bitmap-font.svg"/>
 	</a>
 	<a href="https://docs.rs/bitmap-font">
-    	<img alt="bitmap-font on docs.rs" src="https://docs.rs/bitmap-font/badge.svg"/>
+		<img alt="bitmap-font on docs.rs" src="https://docs.rs/bitmap-font/badge.svg"/>
 	</a>
 	<a href="https://github.com/msrd0/bitmap-font/actions/workflows/rust.yml">
 		<img alt="build status" src="https://github.com/msrd0/bitmap-font/actions/workflows/rust.yml/badge.svg"/>
@@ -15,9 +15,9 @@
 	<a href="https://msrd0.github.io/bitmap-font/doc/bitmap_font/index.html">
 		<img alt="bitmap-font master branch documentation" src="https://img.shields.io/badge/docs-master-blue.svg"/>
 	</a>
-    <a href="https://blog.rust-lang.org/2020/12/31/Rust-1.50.0.html">
-        <img alt="Rust 1.50+" src="https://img.shields.io/badge/rustc-1.50+-orange.svg"/>
-    </a>
+	<a href="https://blog.rust-lang.org/2020/12/31/Rust-1.50.0.html">
+		<img alt="Rust 1.50+" src="https://img.shields.io/badge/rustc-1.50+-orange.svg"/>
+	</a>
 	<a href="https://deps.rs/repo/github/msrd0/bitmap-font">
 		<img alt="dependency report" src="https://deps.rs/repo/github/msrd0/bitmap-font/status.svg"/>
 	</a>

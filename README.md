@@ -49,7 +49,7 @@ Basically, all you need is Rust. However, we utilize a nightly version of rustfm
 you use rustup to install Rust so you can install a stable and nightly version alongside each other. The stable version
 can be the one shipped with your linux distribution if recent enough, or downloaded using rustup as well.
 
-To locally check that you meed the code style, you can use the provided git pre-commit hook, like this:
+To locally check that you meet the code style, you can use the provided git pre-commit hook, like this:
 
 ```bash
 git config core.hooksPath .githooks

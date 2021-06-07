@@ -17,4 +17,4 @@ repository = "https://github.com/msrd0/bitmap-font"
 include = ["src/**/*", "LICENSE", "crates-io.md"]
 
 [dependencies]
-embedded-graphics = "0.6.2"
+embedded-graphics = "0.7.0"

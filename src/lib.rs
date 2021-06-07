@@ -3,9 +3,14 @@
 #![forbid(unsafe_code)]
 
 /*!
-This crate provides bitmap fonts for the `embedded-graphics` crate without requiring generics. All
+**bitmap-font 0.1 works with embedded-graphics 0.6!** Version 0.7 includes a lot of changes to
+the font/text rendering system, including the introduction of the [`MonoFont`] type that is similar
+to the [`BitmapFont`] type from this crate. However, it seems to be impossible to use pixel-double
+versions of the fonts included in eg 0.7, so it does not offer all functionality of this crate.
+
+This crate provides bitmap fonts for the [`embedded-graphics`] crate without requiring generics. All
 fonts provided are concrete, constant instances of [`BitmapFont`]. This means you can use these
-bitmap fonts without any generics, unlike those fonts shipped with `embedded-graphics` where each
+bitmap fonts without any generics, unlike those fonts shipped with [`embedded-graphics`] where each
 font is implemented via its own struct. Also, this allows pixel-double fonts to share their bitmap
 data with the non-doubled font, reducing the flash size required.
 
@@ -31,6 +36,9 @@ text.with_font(font, BinaryColor::On).draw(&mut display)?;
 # Ok(())
 # }
 ```
+
+ [`embedded-graphics`]: embedded_graphics
+ [`MonoFont`]: https://docs.rs/embedded-graphics/0.7.0/embedded_graphics/mono_font/struct.MonoFont.html
 */
 
 use embedded_graphics::{

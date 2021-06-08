@@ -31,8 +31,14 @@ const CHAR_RANGES: &[(char, char)] = &[
 const MIN_ROWS: u32 = 4;
 const MAX_ROWS: u32 = 15;
 
+mod filters {
+	pub fn chunks<'a>(src: &'a [u8], size: &usize) -> askama::Result<Vec<&'a [u8]>> {
+		Ok(src.chunks(*size).collect())
+	}
+}
+
 #[derive(Template)]
-#[template(path = "src.in", escape = "none")]
+#[template(path = "src.in", escape = "none", print = "code")]
 struct RustSource<'a> {
 	char_ranges: &'a Vec<CharRange>,
 	fonts: &'a BTreeSet<Font>

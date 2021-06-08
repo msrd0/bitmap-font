@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["rectangle","The rectangle primitive."]],"trait":[["PointsIter","Create an iterator over all points in the primitive."]]});

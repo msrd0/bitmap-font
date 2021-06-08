@@ -276,76 +276,33 @@
 <span id="273">273</span>
 <span id="274">274</span>
 <span id="275">275</span>
-<span id="276">276</span>
-<span id="277">277</span>
-<span id="278">278</span>
-<span id="279">279</span>
-<span id="280">280</span>
-<span id="281">281</span>
-<span id="282">282</span>
-<span id="283">283</span>
-<span id="284">284</span>
-<span id="285">285</span>
-<span id="286">286</span>
-<span id="287">287</span>
-<span id="288">288</span>
-<span id="289">289</span>
-<span id="290">290</span>
-<span id="291">291</span>
-<span id="292">292</span>
-<span id="293">293</span>
-<span id="294">294</span>
 </pre><div class="example-wrap"><pre class="rust ">
-<span class="attribute">#![<span class="ident">no_std</span>]</span>
+<span class="attribute">#![<span class="ident">cfg_attr</span>(<span class="ident">not</span>(<span class="ident">test</span>), <span class="ident">no_std</span>)]</span>
 <span class="attribute">#![<span class="ident">warn</span>(<span class="ident">rust_2018_idioms</span>, <span class="ident">unreachable_pub</span>)]</span>
 <span class="attribute">#![<span class="ident">forbid</span>(<span class="ident">unsafe_code</span>)]</span>
 
-<span class="doccomment">/*!
-**bitmap-font 0.1 works with embedded-graphics 0.6!** Version 0.7 includes a lot of changes to
-the font/text rendering system, including the introduction of the [`MonoFont`] type that is similar
-to the [`BitmapFont`] type from this crate. However, it seems to be impossible to use pixel-double
-versions of the fonts included in eg 0.7, so it does not offer all functionality of this crate.
-
-This crate provides bitmap fonts for the [`embedded-graphics`] crate without requiring generics. All
-fonts provided are concrete, constant instances of [`BitmapFont`]. This means you can use these
-bitmap fonts without any generics, unlike those fonts shipped with [`embedded-graphics`] where each
-font is implemented via its own struct. Also, this allows pixel-double fonts to share their bitmap
-data with the non-doubled font, reducing the flash size required.
-
-# Usage Example
-
-```rust
-use bitmap_font::{BitmapFont, WithFont, FONT_7x13};
-use embedded_graphics::{fonts::Text, prelude::*};
-# use embedded_graphics::{drawable::Pixel, geometry::Size, pixelcolor::BinaryColor};
-# use core::convert::Infallible;
-# struct Display;
-# impl DrawTarget&lt;BinaryColor&gt; for Display {
-#   type Error = Infallible;
-#   fn draw_pixel(&amp;mut self, pixel: Pixel&lt;BinaryColor&gt;) -&gt; Result&lt;(), Infallible&gt; { Ok(()) }
-#   fn size(&amp;self) -&gt; Size { unimplemented!() }
-# }
-# fn main() -&gt; Result&lt;(), Infallible&gt; {
-# let mut display = Display;
-
-let font: BitmapFont = FONT_7x13;
-let text = Text::new(&quot;Hello World!&quot;, Point::zero());
-text.with_font(font, BinaryColor::On).draw(&amp;mut display)?;
-# Ok(())
-# }
-```
-
- [`embedded-graphics`]: embedded_graphics
- [`MonoFont`]: https://docs.rs/embedded-graphics/0.7.0/embedded_graphics/mono_font/struct.MonoFont.html
-*/</span>
+<span class="doccomment">//! **This version is for embedded-graphics 0.7. The latest release works with embedded-graphics 0.6.**</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! This crate provides bitmap fonts for the [`embedded-graphics`] crate. Those don&#39;t only look</span>
+<span class="doccomment">//! better than the [built-in fonts](embedded_graphics::mono_font) by using the good-looking</span>
+<span class="doccomment">//! [Tamzen font](https://github.com/sunaku/tamzen-font) over a font that renders `.` like a `+`,</span>
+<span class="doccomment">//! but also allow scaling fonts by pixel-doubling them, giving you two font sizes for the flash</span>
+<span class="doccomment">//! size requirements of the smaller one.</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//!  [`embedded-graphics`]: embedded_graphics</span>
 
 <span class="kw">use</span> <span class="ident">embedded_graphics</span>::{
-	<span class="ident">drawable</span>::{<span class="ident">Drawable</span>, <span class="ident">Pixel</span>},
-	<span class="ident">fonts</span>::<span class="ident">Text</span>,
-	<span class="ident">geometry</span>::{<span class="ident">Dimensions</span>, <span class="ident">Point</span>, <span class="ident">Size</span>},
+	<span class="ident">draw_target</span>::<span class="ident">DrawTarget</span>,
+	<span class="ident">geometry</span>::{<span class="ident">Dimensions</span>, <span class="ident">OriginDimensions</span>, <span class="ident">Point</span>, <span class="ident">Size</span>},
+	<span class="ident">image</span>::{<span class="ident">ImageDrawable</span>, <span class="ident">ImageRaw</span>},
+	<span class="ident">mono_font</span>::<span class="ident">mapping</span>::<span class="ident">GlyphMapping</span>,
 	<span class="ident">pixelcolor</span>::<span class="ident">BinaryColor</span>,
-	<span class="ident">transform</span>::<span class="ident">Transform</span>,
-	<span class="ident">DrawTarget</span>
+	<span class="ident">primitives</span>::<span class="ident">Rectangle</span>,
+	<span class="ident">text</span>::{
+		<span class="ident">renderer</span>::{<span class="ident">TextMetrics</span>, <span class="ident">TextRenderer</span>},
+		<span class="ident">Baseline</span>
+	},
+	<span class="ident">Pixel</span>
 };
 
 <span class="kw">mod</span> <span class="ident">generated</span>;
@@ -353,63 +310,55 @@ text.with_font(font, BinaryColor::On).draw(&amp;mut display)?;
 
 <span class="doccomment">/// Stores the font bitmap and some additional info for each font.</span>
 <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Clone</span>, <span class="ident">Copy</span>)]</span>
-<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">BitmapFont</span> {
+<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">BitmapFont</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
 	<span class="doccomment">/// The raw bitmap data for the font.</span>
-	<span class="ident">bitmap</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> [<span class="ident">u8</span>],
+	<span class="ident">bitmap</span>: <span class="ident">ImageRaw</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">BinaryColor</span><span class="op">&gt;</span>,
 
-	<span class="doccomment">/// The width of the raw bitmap data.</span>
-	<span class="ident">bitmap_width</span>: <span class="ident">u32</span>,
+	<span class="doccomment">/// The char to glyph mapping.</span>
+	<span class="ident">glyph_mapping</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="kw">dyn</span> <span class="ident">GlyphMapping</span>,
 
-	<span class="doccomment">/// The function to calculate a character offset. Must return a fallback character if the</span>
-	<span class="doccomment">/// requested character is not in the font.</span>
-	<span class="ident">char_offset</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="kw">dyn</span> <span class="ident">Fn</span>(<span class="ident">char</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">u32</span>,
+	<span class="doccomment">/// The size of each character in the raw bitmap data.</span>
+	<span class="ident">size</span>: <span class="ident">Size</span>,
 
-	<span class="doccomment">/// The width of each character in the raw bitmap data.</span>
-	<span class="ident">width</span>: <span class="ident">u32</span>,
-
-	<span class="doccomment">/// The height of each character in the raw bitmap data.</span>
-	<span class="ident">height</span>: <span class="ident">u32</span>,
-
-	<span class="doccomment">/// The amount of pixels to draw per each font pixel. Set to `2` for pixel-double font.</span>
-	<span class="ident">pixels</span>: <span class="ident">u32</span>
+	<span class="doccomment">/// The amount of pixels to draw per each font pixel. Must not be `0`. Set to `2` for</span>
+	<span class="doccomment">/// pixel-double font.</span>
+	<span class="ident">pixels</span>: <span class="ident">u8</span>
 }
 
-<span class="kw">impl</span> <span class="ident">BitmapFont</span> {
+<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="ident">BitmapFont</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
 	<span class="doccomment">/// Return the width of each character.</span>
 	<span class="kw">pub</span> <span class="kw">const</span> <span class="kw">fn</span> <span class="ident">width</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">u32</span> {
-		<span class="self">self</span>.<span class="ident">width</span> <span class="op">*</span> <span class="self">self</span>.<span class="ident">pixels</span>
+		<span class="self">self</span>.<span class="ident">size</span>.<span class="ident">width</span> <span class="op">*</span> <span class="self">self</span>.<span class="ident">pixels</span> <span class="kw">as</span> <span class="ident">u32</span>
 	}
 
 	<span class="doccomment">/// Return the height of each character.</span>
 	<span class="kw">pub</span> <span class="kw">const</span> <span class="kw">fn</span> <span class="ident">height</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">u32</span> {
-		<span class="self">self</span>.<span class="ident">height</span> <span class="op">*</span> <span class="self">self</span>.<span class="ident">pixels</span>
+		<span class="self">self</span>.<span class="ident">size</span>.<span class="ident">height</span> <span class="op">*</span> <span class="self">self</span>.<span class="ident">pixels</span> <span class="kw">as</span> <span class="ident">u32</span>
 	}
 
-	<span class="doccomment">/// Returns `true` if the pixel `(x, y)` is turned on in the character `c`.</span>
-	<span class="doccomment">///</span>
-	<span class="doccomment">/// # Panics</span>
-	<span class="doccomment">///</span>
-	<span class="doccomment">/// This method panics if the `(x, y)` coordinates are outside the glyph.</span>
-	<span class="comment">// inspired by https://docs.rs/embedded-graphics/0.6.2/src/embedded_graphics/fonts/mod.rs.html#246</span>
-	<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">pixel</span>(<span class="self">self</span>, <span class="ident">c</span>: <span class="ident">char</span>, <span class="ident">x</span>: <span class="ident">u32</span>, <span class="ident">y</span>: <span class="ident">u32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
-		<span class="kw">let</span> <span class="ident">x</span> <span class="op">=</span> <span class="ident">x</span> <span class="op">/</span> <span class="self">self</span>.<span class="ident">pixels</span>;
-		<span class="kw">let</span> <span class="ident">y</span> <span class="op">=</span> <span class="ident">y</span> <span class="op">/</span> <span class="self">self</span>.<span class="ident">pixels</span>;
+	<span class="doccomment">/// Draw a glyph to the `target` with `color` at position `pos`.</span>
+	<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">draw_glyph</span><span class="op">&lt;</span><span class="ident">D</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">idx</span>: <span class="ident">u32</span>, <span class="ident">target</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">D</span>, <span class="ident">color</span>: <span class="ident">BinaryColor</span>, <span class="ident">pos</span>: <span class="ident">Point</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">D</span>::<span class="ident">Error</span><span class="op">&gt;</span>
+	<span class="kw">where</span>
+		<span class="ident">D</span>: <span class="ident">DrawTarget</span><span class="op">&lt;</span><span class="ident">Color</span> <span class="op">=</span> <span class="ident">BinaryColor</span><span class="op">&gt;</span>
+	{
+		<span class="kw">let</span> <span class="ident">char_per_row</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">bitmap</span>.<span class="ident">size</span>().<span class="ident">width</span> <span class="op">/</span> <span class="self">self</span>.<span class="ident">size</span>.<span class="ident">width</span>;
+		<span class="kw">let</span> <span class="ident">row</span> <span class="op">=</span> <span class="ident">idx</span> <span class="op">/</span> <span class="ident">char_per_row</span>;
 
-		<span class="macro">assert</span><span class="macro">!</span>(<span class="ident">x</span> <span class="op">&lt;</span> <span class="self">self</span>.<span class="ident">width</span>);
-		<span class="macro">assert</span><span class="macro">!</span>(<span class="ident">y</span> <span class="op">&lt;</span> <span class="self">self</span>.<span class="ident">height</span>);
+		<span class="comment">// index in the raw bitmap</span>
+		<span class="kw">let</span> <span class="ident">char_x</span> <span class="op">=</span> (<span class="ident">idx</span> <span class="op">-</span> (<span class="ident">row</span> <span class="op">*</span> <span class="ident">char_per_row</span>)) <span class="op">*</span> <span class="self">self</span>.<span class="ident">size</span>.<span class="ident">width</span>;
+		<span class="kw">let</span> <span class="ident">char_y</span> <span class="op">=</span> <span class="ident">row</span> <span class="op">*</span> <span class="self">self</span>.<span class="ident">size</span>.<span class="ident">height</span>;
+		<span class="kw">let</span> <span class="ident">area</span> <span class="op">=</span> <span class="ident">Rectangle</span>::<span class="ident">new</span>(<span class="ident">Point</span>::<span class="ident">new</span>(<span class="ident">char_x</span> <span class="kw">as</span> <span class="kw">_</span>, <span class="ident">char_y</span> <span class="kw">as</span> <span class="kw">_</span>), <span class="self">self</span>.<span class="ident">size</span>);
 
-		<span class="kw">let</span> <span class="ident">char_per_row</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">bitmap_width</span> <span class="op">/</span> <span class="self">self</span>.<span class="ident">width</span>;
-		<span class="kw">let</span> <span class="ident">offset</span> <span class="op">=</span> (<span class="self">self</span>.<span class="ident">char_offset</span>)(<span class="ident">c</span>);
-		<span class="kw">let</span> <span class="ident">row</span> <span class="op">=</span> <span class="ident">offset</span> <span class="op">/</span> <span class="ident">char_per_row</span>;
+		<span class="comment">// draw the glyph, suitably pixel-doubled</span>
+		<span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">pixel_doubling_target</span> <span class="op">=</span> <span class="ident">PixelDoublingDrawTarget</span> {
+			<span class="ident">target</span>,
+			<span class="ident">color</span>,
+			<span class="ident">offset</span>: <span class="ident">pos</span>,
+			<span class="ident">pixels</span>: <span class="self">self</span>.<span class="ident">pixels</span>
+		};
+		<span class="self">self</span>.<span class="ident">bitmap</span>.<span class="ident">draw_sub_image</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">pixel_doubling_target</span>, <span class="kw-2">&amp;</span><span class="ident">area</span>)<span class="question-mark">?</span>;
 
-		<span class="kw">let</span> <span class="ident">char_x</span> <span class="op">=</span> (<span class="ident">offset</span> <span class="op">-</span> (<span class="ident">row</span> <span class="op">*</span> <span class="ident">char_per_row</span>)) <span class="op">*</span> <span class="self">self</span>.<span class="ident">width</span>;
-		<span class="kw">let</span> <span class="ident">char_y</span> <span class="op">=</span> <span class="ident">row</span> <span class="op">*</span> <span class="self">self</span>.<span class="ident">height</span>;
-
-		<span class="kw">let</span> <span class="ident">bitmap_bit_index</span> <span class="op">=</span> <span class="ident">char_x</span> <span class="op">+</span> <span class="ident">x</span> <span class="op">+</span> ((<span class="ident">char_y</span> <span class="op">+</span> <span class="ident">y</span>) <span class="op">*</span> <span class="self">self</span>.<span class="ident">bitmap_width</span>);
-		<span class="kw">let</span> <span class="ident">bitmap_byte</span> <span class="op">=</span> <span class="ident">bitmap_bit_index</span> <span class="op">/</span> <span class="number">8</span>;
-		<span class="kw">let</span> <span class="ident">bitmap_bit</span> <span class="op">=</span> <span class="number">7</span> <span class="op">-</span> (<span class="ident">bitmap_bit_index</span> <span class="op">%</span> <span class="number">8</span>);
-
-		<span class="self">self</span>.<span class="ident">bitmap</span>[<span class="ident">bitmap_byte</span> <span class="kw">as</span> <span class="ident">usize</span>] <span class="op">&amp;</span> (<span class="number">1</span> <span class="op">&lt;</span><span class="op">&lt;</span> <span class="ident">bitmap_bit</span>) <span class="op">!</span><span class="op">=</span> <span class="number">0</span>
+		<span class="prelude-val">Ok</span>(())
 	}
 
 	<span class="doccomment">/// Returns a pixel-double version of this font.</span>
@@ -419,175 +368,188 @@ text.with_font(font, BinaryColor::On).draw(&amp;mut display)?;
 	}
 }
 
-<span class="kw">mod</span> <span class="ident">private</span> {
-	<span class="kw">use</span> <span class="kw">super</span>::<span class="ident">BitmapFont</span>;
-	<span class="kw">use</span> <span class="ident">embedded_graphics</span>::<span class="ident">pixelcolor</span>::<span class="ident">BinaryColor</span>;
+<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="ident">TextRenderer</span> <span class="kw">for</span> <span class="ident">BitmapFont</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
+	<span class="kw">type</span> <span class="ident">Color</span> <span class="op">=</span> <span class="ident">BinaryColor</span>;
 
-	<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Styled</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
-		<span class="kw">pub</span>(<span class="kw">super</span>) <span class="ident">primitive</span>: <span class="ident">T</span>,
-		<span class="kw">pub</span>(<span class="kw">super</span>) <span class="ident">font</span>: <span class="ident">BitmapFont</span>,
-		<span class="kw">pub</span>(<span class="kw">super</span>) <span class="ident">color</span>: <span class="ident">BinaryColor</span>
-	}
-
-	<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Sealed</span>;
-}
-<span class="kw">use</span> <span class="ident">private</span>::<span class="kw-2">*</span>;
-
-<span class="doccomment">/// Style a [Text] with a font and color.</span>
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">WithFont</span>: <span class="ident">Sized</span> {
-	<span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
-	<span class="kw">const</span> <span class="ident">SEALED</span>: <span class="ident">Sealed</span>;
-
-	<span class="doccomment">/// Style this text with a font and color.</span>
-	<span class="kw">fn</span> <span class="ident">with_font</span>(<span class="self">self</span>, <span class="ident">font</span>: <span class="ident">BitmapFont</span>, <span class="ident">color</span>: <span class="ident">BinaryColor</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Styled</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span>;
-}
-
-<span class="kw">impl</span> <span class="ident">WithFont</span> <span class="kw">for</span> <span class="ident">Text</span><span class="op">&lt;</span><span class="lifetime">&#39;_</span><span class="op">&gt;</span> {
-	<span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
-	<span class="kw">const</span> <span class="ident">SEALED</span>: <span class="ident">Sealed</span> <span class="op">=</span> <span class="ident">Sealed</span>;
-
-	<span class="kw">fn</span> <span class="ident">with_font</span>(<span class="self">self</span>, <span class="ident">font</span>: <span class="ident">BitmapFont</span>, <span class="ident">color</span>: <span class="ident">BinaryColor</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Styled</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span> {
-		<span class="ident">Styled</span> {
-			<span class="ident">primitive</span>: <span class="self">self</span>,
-			<span class="ident">font</span>,
-			<span class="ident">color</span>
+	<span class="kw">fn</span> <span class="ident">draw_string</span><span class="op">&lt;</span><span class="ident">D</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">text</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="kw-2">mut</span> <span class="ident">pos</span>: <span class="ident">Point</span>, <span class="kw">_</span>: <span class="ident">Baseline</span>, <span class="ident">target</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">D</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">Point</span>, <span class="ident">D</span>::<span class="ident">Error</span><span class="op">&gt;</span>
+	<span class="kw">where</span>
+		<span class="ident">D</span>: <span class="ident">DrawTarget</span><span class="op">&lt;</span><span class="ident">Color</span> <span class="op">=</span> <span class="self">Self</span>::<span class="ident">Color</span><span class="op">&gt;</span>
+	{
+		<span class="kw">for</span> <span class="ident">c</span> <span class="kw">in</span> <span class="ident">text</span>.<span class="ident">chars</span>() {
+			<span class="kw">let</span> <span class="ident">glyph_idx</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">glyph_mapping</span>.<span class="ident">index</span>(<span class="ident">c</span>) <span class="kw">as</span> <span class="ident">u32</span>;
+			<span class="self">self</span>.<span class="ident">draw_glyph</span>(<span class="ident">glyph_idx</span>, <span class="ident">target</span>, <span class="ident">BinaryColor</span>::<span class="ident">On</span>, <span class="ident">pos</span>)<span class="question-mark">?</span>;
+			<span class="ident">pos</span> <span class="op">+</span><span class="op">=</span> <span class="ident">Size</span>::<span class="ident">new</span>(<span class="self">self</span>.<span class="ident">width</span>(), <span class="number">0</span>);
 		}
+		<span class="prelude-val">Ok</span>(<span class="ident">pos</span>)
 	}
-}
 
-<span class="kw">impl</span> <span class="ident">Transform</span> <span class="kw">for</span> <span class="ident">Styled</span><span class="op">&lt;</span><span class="ident">Text</span><span class="op">&lt;</span><span class="lifetime">&#39;_</span><span class="op">&gt;</span><span class="op">&gt;</span> {
-	<span class="kw">fn</span> <span class="ident">translate</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">by</span>: <span class="ident">Point</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
-		<span class="self">Self</span> {
-			<span class="ident">primitive</span>: <span class="self">self</span>.<span class="ident">primitive</span>.<span class="ident">translate</span>(<span class="ident">by</span>),
-			<span class="ident">font</span>: <span class="self">self</span>.<span class="ident">font</span>,
-			<span class="ident">color</span>: <span class="self">self</span>.<span class="ident">color</span>
+	<span class="kw">fn</span> <span class="ident">draw_whitespace</span><span class="op">&lt;</span><span class="ident">D</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">width</span>: <span class="ident">u32</span>, <span class="ident">pos</span>: <span class="ident">Point</span>, <span class="kw">_</span>: <span class="ident">Baseline</span>, <span class="kw">_</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">D</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">Point</span>, <span class="ident">D</span>::<span class="ident">Error</span><span class="op">&gt;</span>
+	<span class="kw">where</span>
+		<span class="ident">D</span>: <span class="ident">DrawTarget</span><span class="op">&lt;</span><span class="ident">Color</span> <span class="op">=</span> <span class="self">Self</span>::<span class="ident">Color</span><span class="op">&gt;</span>
+	{
+		<span class="comment">// we don&#39;t draw background nor text decorations</span>
+		<span class="prelude-val">Ok</span>(<span class="ident">pos</span> <span class="op">+</span> <span class="ident">Size</span>::<span class="ident">new</span>(<span class="ident">width</span> <span class="op">*</span> <span class="self">self</span>.<span class="ident">width</span>(), <span class="number">0</span>))
+	}
+
+	<span class="kw">fn</span> <span class="ident">measure_string</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">text</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="ident">pos</span>: <span class="ident">Point</span>, <span class="kw">_</span>: <span class="ident">Baseline</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">TextMetrics</span> {
+		<span class="kw">let</span> <span class="ident">size</span> <span class="op">=</span> <span class="ident">Size</span>::<span class="ident">new</span>(<span class="self">self</span>.<span class="ident">width</span>() <span class="op">*</span> <span class="ident">text</span>.<span class="ident">len</span>() <span class="kw">as</span> <span class="ident">u32</span>, <span class="self">self</span>.<span class="ident">height</span>());
+		<span class="ident">TextMetrics</span> {
+			<span class="ident">bounding_box</span>: <span class="ident">Rectangle</span>::<span class="ident">new</span>(<span class="ident">pos</span>, <span class="ident">size</span>),
+			<span class="ident">next_position</span>: <span class="ident">pos</span> <span class="op">+</span> <span class="ident">Size</span>::<span class="ident">new</span>(<span class="ident">size</span>.<span class="ident">width</span>, <span class="number">0</span>)
 		}
 	}
 
-	<span class="kw">fn</span> <span class="ident">translate_mut</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">by</span>: <span class="ident">Point</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
-		<span class="self">self</span>.<span class="ident">primitive</span>.<span class="ident">translate_mut</span>(<span class="ident">by</span>);
-		<span class="self">self</span>
+	<span class="kw">fn</span> <span class="ident">line_height</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">u32</span> {
+		<span class="self">self</span>.<span class="ident">height</span>()
 	}
 }
 
-<span class="kw">impl</span> <span class="ident">Dimensions</span> <span class="kw">for</span> <span class="ident">Styled</span><span class="op">&lt;</span><span class="ident">Text</span><span class="op">&lt;</span><span class="lifetime">&#39;_</span><span class="op">&gt;</span><span class="op">&gt;</span> {
-	<span class="kw">fn</span> <span class="ident">top_left</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Point</span> {
-		<span class="self">self</span>.<span class="ident">primitive</span>.<span class="ident">position</span>
-	}
-
-	<span class="kw">fn</span> <span class="ident">bottom_right</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Point</span> {
-		<span class="self">self</span>.<span class="ident">top_left</span>() <span class="op">+</span> <span class="self">self</span>.<span class="ident">size</span>()
-	}
-
-	<span class="comment">// inspired by https://docs.rs/embedded-graphics/0.6.2/src/embedded_graphics/fonts/text.rs.html#118</span>
-	<span class="kw">fn</span> <span class="ident">size</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Size</span> {
-		<span class="kw">if</span> <span class="self">self</span>.<span class="ident">primitive</span>.<span class="ident">text</span>.<span class="ident">is_empty</span>() {
-			<span class="kw">return</span> <span class="ident">Size</span>::<span class="ident">zero</span>();
-		}
-
-		<span class="kw">let</span> <span class="ident">width</span> <span class="op">=</span> <span class="self">self</span>
-			.<span class="ident">primitive</span>
-			.<span class="ident">text</span>
-			.<span class="ident">lines</span>()
-			.<span class="ident">map</span>(<span class="op">|</span><span class="ident">l</span><span class="op">|</span> <span class="ident">l</span>.<span class="ident">len</span>() <span class="kw">as</span> <span class="ident">u32</span> <span class="op">*</span> <span class="self">self</span>.<span class="ident">font</span>.<span class="ident">width</span>())
-			.<span class="ident">max</span>()
-			.<span class="ident">unwrap_or</span>(<span class="number">0</span>);
-		<span class="kw">let</span> <span class="ident">height</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">primitive</span>.<span class="ident">text</span>.<span class="ident">lines</span>().<span class="ident">count</span>() <span class="kw">as</span> <span class="ident">u32</span> <span class="op">*</span> <span class="self">self</span>.<span class="ident">font</span>.<span class="ident">height</span>();
-		<span class="ident">Size</span>::<span class="ident">new</span>(<span class="ident">width</span>, <span class="ident">height</span>)
-	}
-}
-
-<span class="kw">struct</span> <span class="ident">PixelIterator</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
-	<span class="ident">text</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">str</span>,
-	<span class="ident">idx</span>: <span class="ident">usize</span>,
-	<span class="ident">font</span>: <span class="ident">BitmapFont</span>,
+<span class="doccomment">/// A pixel-doubling draw target. This works by intercepting all drawing operations, and doubling</span>
+<span class="doccomment">/// all pixels from the point of the origin. **This means you need to carefully select your</span>
+<span class="doccomment">/// origin!** All drawing operations, after being pixel-doubled (i.e. multiplied by the amount</span>
+<span class="doccomment">/// of pixels specified), will be offseted to map your custom origin to the `target`&#39;s origin.</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// Also, this target draws `color` for all pixels that are on, and nothing for all pixels</span>
+<span class="doccomment">/// that are off.</span>
+<span class="kw">struct</span> <span class="ident">PixelDoublingDrawTarget</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">D</span>: <span class="ident">DrawTarget</span><span class="op">&lt;</span><span class="ident">Color</span> <span class="op">=</span> <span class="ident">BinaryColor</span><span class="op">&gt;</span><span class="op">&gt;</span> {
+	<span class="ident">target</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="kw-2">mut</span> <span class="ident">D</span>,
 	<span class="ident">color</span>: <span class="ident">BinaryColor</span>,
-
-	<span class="ident">top_left</span>: <span class="ident">Point</span>,
-	<span class="ident">pos</span>: <span class="ident">Point</span>,
-
-	<span class="ident">char_width</span>: <span class="ident">u32</span>,
-	<span class="ident">char_walk_x</span>: <span class="ident">i32</span>,
-	<span class="ident">char_walk_y</span>: <span class="ident">i32</span>,
-	<span class="ident">current_char</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">char</span><span class="op">&gt;</span>
+	<span class="ident">offset</span>: <span class="ident">Point</span>,
+	<span class="ident">pixels</span>: <span class="ident">u8</span>
 }
 
-<span class="kw">impl</span> <span class="ident">Iterator</span> <span class="kw">for</span> <span class="ident">PixelIterator</span><span class="op">&lt;</span><span class="lifetime">&#39;_</span><span class="op">&gt;</span> {
+<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">D</span><span class="op">&gt;</span> <span class="ident">Dimensions</span> <span class="kw">for</span> <span class="ident">PixelDoublingDrawTarget</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">D</span><span class="op">&gt;</span>
+<span class="kw">where</span>
+	<span class="ident">D</span>: <span class="ident">DrawTarget</span><span class="op">&lt;</span><span class="ident">Color</span> <span class="op">=</span> <span class="ident">BinaryColor</span><span class="op">&gt;</span>
+{
+	<span class="kw">fn</span> <span class="ident">bounding_box</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Rectangle</span> {
+		<span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">bb</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">target</span>.<span class="ident">bounding_box</span>();
+		<span class="ident">bb</span>.<span class="ident">top_left</span> <span class="op">-</span><span class="op">=</span> <span class="self">self</span>.<span class="ident">offset</span>;
+		<span class="ident">bb</span>.<span class="ident">top_left</span> <span class="op">/</span><span class="op">=</span> <span class="self">self</span>.<span class="ident">pixels</span> <span class="kw">as</span> <span class="kw">_</span>;
+		<span class="ident">bb</span>.<span class="ident">size</span> <span class="op">/</span><span class="op">=</span> <span class="self">self</span>.<span class="ident">pixels</span> <span class="kw">as</span> <span class="kw">_</span>;
+		<span class="kw">return</span> <span class="ident">bb</span>;
+	}
+}
+
+<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">D</span><span class="op">&gt;</span> <span class="ident">DrawTarget</span> <span class="kw">for</span> <span class="ident">PixelDoublingDrawTarget</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">D</span><span class="op">&gt;</span>
+<span class="kw">where</span>
+	<span class="ident">D</span>: <span class="ident">DrawTarget</span><span class="op">&lt;</span><span class="ident">Color</span> <span class="op">=</span> <span class="ident">BinaryColor</span><span class="op">&gt;</span>
+{
+	<span class="kw">type</span> <span class="ident">Color</span> <span class="op">=</span> <span class="ident">BinaryColor</span>;
+	<span class="kw">type</span> <span class="ident">Error</span> <span class="op">=</span> <span class="ident">D</span>::<span class="ident">Error</span>;
+
+	<span class="kw">fn</span> <span class="ident">draw_iter</span><span class="op">&lt;</span><span class="ident">I</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">pixel_iter</span>: <span class="ident">I</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="self">Self</span>::<span class="ident">Error</span><span class="op">&gt;</span>
+	<span class="kw">where</span>
+		<span class="ident">I</span>: <span class="ident">IntoIterator</span><span class="op">&lt;</span><span class="ident">Item</span> <span class="op">=</span> <span class="ident">Pixel</span><span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span><span class="op">&gt;</span>
+	{
+		<span class="kw">let</span> <span class="ident">color</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">color</span>;
+		<span class="kw">let</span> <span class="ident">offset</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">offset</span>;
+		<span class="kw">let</span> <span class="ident">pixels</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">pixels</span>;
+		<span class="self">self</span>.<span class="ident">target</span>.<span class="ident">draw_iter</span>(
+			<span class="ident">pixel_iter</span>
+				.<span class="ident">into_iter</span>()
+				.<span class="ident">filter</span>(<span class="op">|</span><span class="ident">pixel</span><span class="op">|</span> <span class="ident">pixel</span>.<span class="number">1</span> <span class="op">=</span><span class="op">=</span> <span class="ident">BinaryColor</span>::<span class="ident">On</span>)
+				.<span class="ident">flat_map</span>(<span class="op">|</span><span class="ident">pixel</span><span class="op">|</span> <span class="ident">PixelDoublingIterator</span>::<span class="ident">new</span>(<span class="ident">pixel</span>, <span class="ident">pixels</span>).<span class="ident">map</span>(<span class="op">|</span><span class="ident">pixel</span><span class="op">|</span> <span class="ident">Pixel</span>(<span class="ident">pixel</span>.<span class="number">0</span> <span class="op">+</span> <span class="ident">offset</span>, <span class="ident">color</span>)))
+		)
+	}
+}
+
+<span class="kw">struct</span> <span class="ident">PixelDoublingIterator</span> {
+	<span class="ident">color</span>: <span class="ident">BinaryColor</span>,
+	<span class="ident">pos</span>: <span class="ident">Point</span>,
+	<span class="comment">// pixels traveled in x direction</span>
+	<span class="ident">x</span>: <span class="ident">u8</span>,
+	<span class="comment">// remaining after this one</span>
+	<span class="ident">remaining_x</span>: <span class="ident">u8</span>,
+	<span class="comment">// remaining including this one</span>
+	<span class="ident">remaining_y</span>: <span class="ident">u8</span>
+}
+
+<span class="kw">impl</span> <span class="ident">PixelDoublingIterator</span> {
+	<span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">pixel</span>: <span class="ident">Pixel</span><span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span>, <span class="ident">pixels</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+		<span class="self">Self</span> {
+			<span class="ident">color</span>: <span class="ident">pixel</span>.<span class="number">1</span>,
+			<span class="ident">pos</span>: <span class="ident">pixel</span>.<span class="number">0</span> <span class="op">*</span> <span class="ident">pixels</span> <span class="kw">as</span> <span class="kw">_</span>,
+			<span class="ident">x</span>: <span class="number">0</span>,
+			<span class="ident">remaining_x</span>: <span class="ident">pixels</span> <span class="op">-</span> <span class="number">1</span>,
+			<span class="ident">remaining_y</span>: <span class="ident">pixels</span>
+		}
+	}
+}
+
+<span class="kw">impl</span> <span class="ident">Iterator</span> <span class="kw">for</span> <span class="ident">PixelDoublingIterator</span> {
 	<span class="kw">type</span> <span class="ident">Item</span> <span class="op">=</span> <span class="ident">Pixel</span><span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span>;
 
-	<span class="comment">// inspired by https://docs.rs/embedded-graphics/0.6.2/src/embedded_graphics/fonts/text.rs.html#170</span>
-	<span class="kw">fn</span> <span class="ident">next</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="ident">Item</span><span class="op">&gt;</span> {
-		<span class="kw">loop</span> {
-			<span class="kw">if</span> <span class="self">self</span>.<span class="ident">current_char</span> <span class="op">=</span><span class="op">=</span> <span class="prelude-val">Some</span>(<span class="string">&#39;\n&#39;</span>) {
-				<span class="self">self</span>.<span class="ident">pos</span>.<span class="ident">x</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">top_left</span>.<span class="ident">x</span>;
-				<span class="self">self</span>.<span class="ident">pos</span>.<span class="ident">y</span> <span class="op">+</span><span class="op">=</span> <span class="self">self</span>.<span class="ident">font</span>.<span class="ident">height</span>() <span class="kw">as</span> <span class="ident">i32</span>;
-				<span class="self">self</span>.<span class="ident">idx</span> <span class="op">+</span><span class="op">=</span> <span class="number">1</span>;
-				<span class="self">self</span>.<span class="ident">current_char</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">text</span>.<span class="ident">chars</span>().<span class="ident">nth</span>(<span class="self">self</span>.<span class="ident">idx</span>);
-			} <span class="kw">else</span> <span class="kw">if</span> <span class="self">self</span>.<span class="ident">char_walk_x</span> <span class="op">&lt;</span> <span class="number">0</span> {
-				<span class="self">self</span>.<span class="ident">char_walk_y</span> <span class="op">+</span><span class="op">=</span> <span class="number">1</span>;
-				<span class="kw">if</span> <span class="self">self</span>.<span class="ident">char_walk_y</span> <span class="op">&gt;</span><span class="op">=</span> <span class="self">self</span>.<span class="ident">font</span>.<span class="ident">height</span>() <span class="kw">as</span> <span class="ident">i32</span> {
-					<span class="self">self</span>.<span class="ident">char_walk_y</span> <span class="op">=</span> <span class="number">0</span>;
-					<span class="self">self</span>.<span class="ident">char_walk_x</span> <span class="op">+</span><span class="op">=</span> <span class="number">1</span>;
-				}
-			} <span class="kw">else</span> <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">current_char</span>) <span class="op">=</span> <span class="self">self</span>.<span class="ident">current_char</span> {
-				<span class="kw">if</span> <span class="self">self</span>.<span class="ident">char_width</span> <span class="op">=</span><span class="op">=</span> <span class="number">0</span> {
-					<span class="self">self</span>.<span class="ident">char_width</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">font</span>.<span class="ident">width</span>();
-				}
-
-				<span class="kw">let</span> <span class="ident">color</span> <span class="op">=</span> <span class="self">self</span>
-					.<span class="ident">font</span>
-					.<span class="ident">pixel</span>(<span class="ident">current_char</span>, <span class="self">self</span>.<span class="ident">char_walk_x</span> <span class="kw">as</span> <span class="kw">_</span>, <span class="self">self</span>.<span class="ident">char_walk_y</span> <span class="kw">as</span> <span class="kw">_</span>)
-					.<span class="ident">then</span>(<span class="op">|</span><span class="op">|</span> <span class="self">self</span>.<span class="ident">color</span>);
-				<span class="kw">let</span> <span class="ident">x</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">pos</span>.<span class="ident">x</span> <span class="op">+</span> <span class="self">self</span>.<span class="ident">char_walk_x</span>;
-				<span class="kw">let</span> <span class="ident">y</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">pos</span>.<span class="ident">y</span> <span class="op">+</span> <span class="self">self</span>.<span class="ident">char_walk_y</span>;
-				<span class="self">self</span>.<span class="ident">char_walk_x</span> <span class="op">+</span><span class="op">=</span> <span class="number">1</span>;
-
-				<span class="kw">if</span> <span class="self">self</span>.<span class="ident">char_walk_x</span> <span class="op">&gt;</span><span class="op">=</span> <span class="self">self</span>.<span class="ident">font</span>.<span class="ident">width</span>() <span class="kw">as</span> <span class="ident">i32</span> {
-					<span class="self">self</span>.<span class="ident">char_walk_x</span> <span class="op">=</span> <span class="number">0</span>;
-					<span class="self">self</span>.<span class="ident">char_walk_y</span> <span class="op">+</span><span class="op">=</span> <span class="number">1</span>;
-
-					<span class="kw">if</span> <span class="self">self</span>.<span class="ident">char_walk_y</span> <span class="op">&gt;</span><span class="op">=</span> <span class="self">self</span>.<span class="ident">font</span>.<span class="ident">height</span>() <span class="kw">as</span> <span class="ident">i32</span> {
-						<span class="self">self</span>.<span class="ident">pos</span>.<span class="ident">x</span> <span class="op">+</span><span class="op">=</span> <span class="self">self</span>.<span class="ident">char_width</span> <span class="kw">as</span> <span class="ident">i32</span>;
-						<span class="self">self</span>.<span class="ident">char_width</span> <span class="op">=</span> <span class="number">0</span>;
-						<span class="self">self</span>.<span class="ident">char_walk_y</span> <span class="op">=</span> <span class="number">0</span>;
-						<span class="self">self</span>.<span class="ident">idx</span> <span class="op">+</span><span class="op">=</span> <span class="number">1</span>;
-						<span class="self">self</span>.<span class="ident">current_char</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">text</span>.<span class="ident">chars</span>().<span class="ident">nth</span>(<span class="self">self</span>.<span class="ident">idx</span>);
-					}
-				}
-
-				<span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">color</span>) <span class="op">=</span> <span class="ident">color</span> {
-					<span class="kw">break</span> <span class="prelude-val">Some</span>(<span class="ident">Pixel</span>(<span class="ident">Point</span>::<span class="ident">new</span>(<span class="ident">x</span>, <span class="ident">y</span>), <span class="ident">color</span>));
-				}
-			} <span class="kw">else</span> {
-				<span class="kw">break</span> <span class="prelude-val">None</span>;
-			}
+	<span class="kw">fn</span> <span class="ident">next</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Pixel</span><span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span><span class="op">&gt;</span> {
+		<span class="kw">if</span> <span class="self">self</span>.<span class="ident">remaining_y</span> <span class="op">=</span><span class="op">=</span> <span class="number">0</span> {
+			<span class="kw">return</span> <span class="prelude-val">None</span>;
 		}
+
+		<span class="kw">let</span> <span class="ident">pixel</span> <span class="op">=</span> <span class="ident">Pixel</span>(<span class="self">self</span>.<span class="ident">pos</span>, <span class="self">self</span>.<span class="ident">color</span>);
+		<span class="kw">if</span> <span class="self">self</span>.<span class="ident">remaining_x</span> <span class="op">&gt;</span> <span class="number">0</span> {
+			<span class="self">self</span>.<span class="ident">remaining_x</span> <span class="op">-</span><span class="op">=</span> <span class="number">1</span>;
+			<span class="self">self</span>.<span class="ident">x</span> <span class="op">+</span><span class="op">=</span> <span class="number">1</span>;
+			<span class="self">self</span>.<span class="ident">pos</span>.<span class="ident">x</span> <span class="op">+</span><span class="op">=</span> <span class="number">1</span>;
+		} <span class="kw">else</span> {
+			<span class="self">self</span>.<span class="ident">pos</span>.<span class="ident">x</span> <span class="op">-</span><span class="op">=</span> <span class="self">self</span>.<span class="ident">x</span> <span class="kw">as</span> <span class="ident">i32</span>;
+			<span class="self">self</span>.<span class="ident">remaining_x</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">x</span>;
+			<span class="self">self</span>.<span class="ident">x</span> <span class="op">=</span> <span class="number">0</span>;
+
+			<span class="self">self</span>.<span class="ident">remaining_y</span> <span class="op">-</span><span class="op">=</span> <span class="number">1</span>;
+			<span class="self">self</span>.<span class="ident">pos</span>.<span class="ident">y</span> <span class="op">+</span><span class="op">=</span> <span class="number">1</span>;
+		}
+		<span class="prelude-val">Some</span>(<span class="ident">pixel</span>)
 	}
 }
 
-<span class="kw">impl</span> <span class="ident">Drawable</span><span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="kw-2">&amp;</span><span class="ident">Styled</span><span class="op">&lt;</span><span class="ident">Text</span><span class="op">&lt;</span><span class="lifetime">&#39;_</span><span class="op">&gt;</span><span class="op">&gt;</span> {
-	<span class="kw">fn</span> <span class="ident">draw</span><span class="op">&lt;</span><span class="ident">D</span>: <span class="ident">DrawTarget</span><span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="self">self</span>, <span class="ident">display</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">D</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">D</span>::<span class="ident">Error</span><span class="op">&gt;</span> {
-		<span class="kw">let</span> <span class="ident">iter</span> <span class="op">=</span> <span class="ident">PixelIterator</span> {
-			<span class="ident">text</span>: <span class="self">self</span>.<span class="ident">primitive</span>.<span class="ident">text</span>,
-			<span class="ident">idx</span>: <span class="number">0</span>,
-			<span class="ident">font</span>: <span class="self">self</span>.<span class="ident">font</span>,
-			<span class="ident">color</span>: <span class="self">self</span>.<span class="ident">color</span>,
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
+<span class="kw">mod</span> <span class="ident">tests</span> {
+	<span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
 
-			<span class="ident">top_left</span>: <span class="self">self</span>.<span class="ident">primitive</span>.<span class="ident">position</span>,
-			<span class="ident">pos</span>: <span class="self">self</span>.<span class="ident">primitive</span>.<span class="ident">position</span>,
-
-			<span class="ident">char_width</span>: <span class="number">0</span>,
-			<span class="ident">char_walk_x</span>: <span class="number">0</span>,
-			<span class="ident">char_walk_y</span>: <span class="number">0</span>,
-			<span class="ident">current_char</span>: <span class="self">self</span>.<span class="ident">primitive</span>.<span class="ident">text</span>.<span class="ident">chars</span>().<span class="ident">next</span>()
-		};
-		<span class="ident">display</span>.<span class="ident">draw_iter</span>(<span class="ident">iter</span>)
+	<span class="kw">fn</span> <span class="ident">px</span>(<span class="ident">x</span>: <span class="ident">i32</span>, <span class="ident">y</span>: <span class="ident">i32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Pixel</span><span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span> {
+		<span class="ident">Pixel</span>(<span class="ident">Point</span>::<span class="ident">new</span>(<span class="ident">x</span>, <span class="ident">y</span>), <span class="ident">BinaryColor</span>::<span class="ident">On</span>)
 	}
-}
 
-<span class="kw">impl</span> <span class="ident">Drawable</span><span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Styled</span><span class="op">&lt;</span><span class="ident">Text</span><span class="op">&lt;</span><span class="lifetime">&#39;_</span><span class="op">&gt;</span><span class="op">&gt;</span> {
-	<span class="kw">fn</span> <span class="ident">draw</span><span class="op">&lt;</span><span class="ident">D</span>: <span class="ident">DrawTarget</span><span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="self">self</span>, <span class="ident">display</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">D</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">D</span>::<span class="ident">Error</span><span class="op">&gt;</span> {
-		<span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="self">Self</span> <span class="kw">as</span> <span class="ident">Drawable</span><span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span><span class="op">&gt;</span>::<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">display</span>)
+	<span class="attribute">#[<span class="ident">test</span>]</span>
+	<span class="kw">fn</span> <span class="ident">pixel_doubling_iterator</span>() {
+		<span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">PixelDoublingIterator</span>::<span class="ident">new</span>(<span class="ident">px</span>(<span class="number">0</span>, <span class="number">0</span>), <span class="number">1</span>).<span class="ident">collect</span>::<span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;</span><span class="op">&gt;</span>(), <span class="macro">vec</span><span class="macro">!</span>[<span class="ident">px</span>(<span class="number">0</span>, <span class="number">0</span>)]);
+		<span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">PixelDoublingIterator</span>::<span class="ident">new</span>(<span class="ident">px</span>(<span class="number">1</span>, <span class="number">2</span>), <span class="number">1</span>).<span class="ident">collect</span>::<span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;</span><span class="op">&gt;</span>(), <span class="macro">vec</span><span class="macro">!</span>[<span class="ident">px</span>(<span class="number">1</span>, <span class="number">2</span>)]);
+
+		<span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">PixelDoublingIterator</span>::<span class="ident">new</span>(<span class="ident">px</span>(<span class="number">0</span>, <span class="number">0</span>), <span class="number">2</span>).<span class="ident">collect</span>::<span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;</span><span class="op">&gt;</span>(), <span class="macro">vec</span><span class="macro">!</span>[
+			<span class="ident">px</span>(<span class="number">0</span>, <span class="number">0</span>),
+			<span class="ident">px</span>(<span class="number">1</span>, <span class="number">0</span>),
+			<span class="ident">px</span>(<span class="number">0</span>, <span class="number">1</span>),
+			<span class="ident">px</span>(<span class="number">1</span>, <span class="number">1</span>)
+		]);
+		<span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">PixelDoublingIterator</span>::<span class="ident">new</span>(<span class="ident">px</span>(<span class="number">1</span>, <span class="number">2</span>), <span class="number">2</span>).<span class="ident">collect</span>::<span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;</span><span class="op">&gt;</span>(), <span class="macro">vec</span><span class="macro">!</span>[
+			<span class="ident">px</span>(<span class="number">2</span>, <span class="number">4</span>),
+			<span class="ident">px</span>(<span class="number">3</span>, <span class="number">4</span>),
+			<span class="ident">px</span>(<span class="number">2</span>, <span class="number">5</span>),
+			<span class="ident">px</span>(<span class="number">3</span>, <span class="number">5</span>)
+		]);
+
+		<span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">PixelDoublingIterator</span>::<span class="ident">new</span>(<span class="ident">px</span>(<span class="number">0</span>, <span class="number">0</span>), <span class="number">3</span>).<span class="ident">collect</span>::<span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;</span><span class="op">&gt;</span>(), <span class="macro">vec</span><span class="macro">!</span>[
+			<span class="ident">px</span>(<span class="number">0</span>, <span class="number">0</span>),
+			<span class="ident">px</span>(<span class="number">1</span>, <span class="number">0</span>),
+			<span class="ident">px</span>(<span class="number">2</span>, <span class="number">0</span>),
+			<span class="ident">px</span>(<span class="number">0</span>, <span class="number">1</span>),
+			<span class="ident">px</span>(<span class="number">1</span>, <span class="number">1</span>),
+			<span class="ident">px</span>(<span class="number">2</span>, <span class="number">1</span>),
+			<span class="ident">px</span>(<span class="number">0</span>, <span class="number">2</span>),
+			<span class="ident">px</span>(<span class="number">1</span>, <span class="number">2</span>),
+			<span class="ident">px</span>(<span class="number">2</span>, <span class="number">2</span>)
+		]);
+		<span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">PixelDoublingIterator</span>::<span class="ident">new</span>(<span class="ident">px</span>(<span class="number">1</span>, <span class="number">2</span>), <span class="number">3</span>).<span class="ident">collect</span>::<span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;</span><span class="op">&gt;</span>(), <span class="macro">vec</span><span class="macro">!</span>[
+			<span class="ident">px</span>(<span class="number">3</span>, <span class="number">6</span>),
+			<span class="ident">px</span>(<span class="number">4</span>, <span class="number">6</span>),
+			<span class="ident">px</span>(<span class="number">5</span>, <span class="number">6</span>),
+			<span class="ident">px</span>(<span class="number">3</span>, <span class="number">7</span>),
+			<span class="ident">px</span>(<span class="number">4</span>, <span class="number">7</span>),
+			<span class="ident">px</span>(<span class="number">5</span>, <span class="number">7</span>),
+			<span class="ident">px</span>(<span class="number">3</span>, <span class="number">8</span>),
+			<span class="ident">px</span>(<span class="number">4</span>, <span class="number">8</span>),
+			<span class="ident">px</span>(<span class="number">5</span>, <span class="number">8</span>)
+		]);
 	}
 }
 </pre></div>

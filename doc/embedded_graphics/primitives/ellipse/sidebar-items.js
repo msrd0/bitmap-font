@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Ellipse","Ellipse primitive"],["Points","Iterator over all points inside the ellipse"],["StyledPixelsIterator","Pixel iterator for each pixel in the ellipse border"]]});

@@ -1,0 +1,146 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Extension trait for `DrawTarget`s."><meta name="keywords" content="rust, rustlang, rust-lang, DrawTargetExt"><title>embedded_graphics::draw_target::DrawTargetExt - Rust</title><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled ><script id="default-settings"></script><script src="../../storage.js"></script><script src="../../crates.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="alternate icon" type="image/png" href="../../favicon-16x16.png">
+<link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../down-arrow.svg");}</style></head><body class="rustdoc trait"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../embedded_graphics/index.html'><div class='logo-container'><img src='https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true' alt='logo'></div></a><p class="location">Trait DrawTargetExt</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#required-methods">Required Methods</a><div class="sidebar-links"><a href="#tymethod.clipped">clipped</a><a href="#tymethod.color_converted">color_converted</a><a href="#tymethod.cropped">cropped</a><a href="#tymethod.translated">translated</a></div><a class="sidebar-title" href="#implementors">Implementors</a></div><p class="location"><a href="../index.html">embedded_graphics</a>::<wbr><a href="index.html">draw_target</a></p><div id="sidebar-vars" data-name="DrawTargetExt" data-ty="trait" data-relpath=""></div><script defer src="sidebar-items.js"></script></div></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><script src="../../theme.js"></script><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" class="help-button">?</button>
+                <a id="settings-menu" href="../../settings.html"><img src="../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><h1 class="fqn"><span class="in-band">Trait <a href="../index.html">embedded_graphics</a>::<wbr><a href="index.html">draw_target</a>::<wbr><a class="trait" href="">DrawTargetExt</a></span><span class="out-of-band"><span id="render-detail"><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class="inner">&#x2212;</span>]</a></span><a class="srclink" href="../../src/embedded_graphics/draw_target/mod.rs.html#18-213" title="goto source code">[src]</a></span></h1><div class="docblock type-decl hidden-by-usual-hider"><pre class="rust trait">pub trait DrawTargetExt: <a class="trait" href="../../embedded_graphics/draw_target/trait.DrawTarget.html" title="trait embedded_graphics::draw_target::DrawTarget">DrawTarget</a> + <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html" title="trait core::marker::Sized">Sized</a> {
+    fn <a href="#tymethod.translated" class="fnname">translated</a>(&amp;mut self, offset: <a class="struct" href="../../embedded_graphics/geometry/struct.Point.html" title="struct embedded_graphics::geometry::Point">Point</a>) -&gt; <a class="struct" href="../../embedded_graphics/draw_target/struct.Translated.html" title="struct embedded_graphics::draw_target::Translated">Translated</a>&lt;'_, Self&gt;;
+<div class="item-spacer"></div>    fn <a href="#tymethod.cropped" class="fnname">cropped</a>(&amp;mut self, area: &amp;<a class="struct" href="../../embedded_graphics/primitives/rectangle/struct.Rectangle.html" title="struct embedded_graphics::primitives::rectangle::Rectangle">Rectangle</a>) -&gt; <a class="struct" href="../../embedded_graphics/draw_target/struct.Cropped.html" title="struct embedded_graphics::draw_target::Cropped">Cropped</a>&lt;'_, Self&gt;;
+<div class="item-spacer"></div>    fn <a href="#tymethod.clipped" class="fnname">clipped</a>(&amp;mut self, area: &amp;<a class="struct" href="../../embedded_graphics/primitives/rectangle/struct.Rectangle.html" title="struct embedded_graphics::primitives::rectangle::Rectangle">Rectangle</a>) -&gt; <a class="struct" href="../../embedded_graphics/draw_target/struct.Clipped.html" title="struct embedded_graphics::draw_target::Clipped">Clipped</a>&lt;'_, Self&gt;;
+<div class="item-spacer"></div>    fn <a href="#tymethod.color_converted" class="fnname">color_converted</a>&lt;C&gt;(&amp;mut self) -&gt; <a class="struct" href="../../embedded_graphics/draw_target/struct.ColorConverted.html" title="struct embedded_graphics::draw_target::ColorConverted">ColorConverted</a>&lt;'_, Self, C&gt;<br>&nbsp;&nbsp;&nbsp; <span class="where">where<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;C: <a class="trait" href="../../embedded_graphics/pixelcolor/trait.PixelColor.html" title="trait embedded_graphics::pixelcolor::PixelColor">PixelColor</a> + <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html" title="trait core::convert::Into">Into</a>&lt;Self::<a class="type" href="../../embedded_graphics/draw_target/trait.DrawTarget.html#associatedtype.Color" title="type embedded_graphics::draw_target::DrawTarget::Color">Color</a>&gt;</span>;
+}</pre></div><div class="docblock"><p>Extension trait for <code>DrawTarget</code>s.</p>
+</div><h2 id="required-methods" class="small-section-header">Required methods<a href="#required-methods" class="anchor"></a></h2><div class="methods"><h3 id="tymethod.translated" class="method"><code>fn <a href="#tymethod.translated" class="fnname">translated</a>(&amp;mut self, offset: <a class="struct" href="../../embedded_graphics/geometry/struct.Point.html" title="struct embedded_graphics::geometry::Point">Point</a>) -&gt; <a class="struct" href="../../embedded_graphics/draw_target/struct.Translated.html" title="struct embedded_graphics::draw_target::Translated">Translated</a>&lt;'_, Self&gt;</code><a class="srclink" href="../../src/embedded_graphics/draw_target/mod.rs.html#51" title="goto source code">[src]</a></h3><div class="docblock"><p>Creates a translated draw target based on this draw target.</p>
+<p>All drawing operations are translated by <code>offset</code> pixels, before being passed to the parent
+draw target.</p>
+<h1 id="examples" class="section-header"><a href="#examples">Examples</a></h1>
+<div class="example-wrap"><pre class="rust rust-example-rendered">
+<span class="kw">use</span> <span class="ident">embedded_graphics</span>::{
+    <span class="ident">mock_display</span>::<span class="ident">MockDisplay</span>,
+    <span class="ident">mono_font</span>::{<span class="ident">ascii</span>::<span class="ident">FONT_6X9</span>, <span class="ident">MonoTextStyle</span>},
+    <span class="ident">pixelcolor</span>::<span class="ident">BinaryColor</span>,
+    <span class="ident">prelude</span>::<span class="kw-2">*</span>,
+    <span class="ident">text</span>::<span class="ident">Text</span>,
+};
+
+<span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="ident">new</span>();
+<span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">translated_display</span> <span class="op">=</span> <span class="ident">display</span>.<span class="ident">translated</span>(<span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">5</span>, <span class="number">10</span>));
+
+<span class="kw">let</span> <span class="ident">style</span> <span class="op">=</span> <span class="ident">MonoTextStyle</span>::<span class="ident">new</span>(<span class="kw-2">&amp;</span><span class="ident">FONT_6X9</span>, <span class="ident">BinaryColor</span>::<span class="ident">On</span>);
+
+<span class="comment">// Draws text at position (5, 10) in the display coordinate system</span>
+<span class="ident">Text</span>::<span class="ident">new</span>(<span class="string">&quot;Text&quot;</span>, <span class="ident">Point</span>::<span class="ident">zero</span>(), <span class="ident">style</span>).<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">translated_display</span>)<span class="question-mark">?</span>;</pre></div>
+</div><h3 id="tymethod.cropped" class="method"><code>fn <a href="#tymethod.cropped" class="fnname">cropped</a>(&amp;mut self, area: &amp;<a class="struct" href="../../embedded_graphics/primitives/rectangle/struct.Rectangle.html" title="struct embedded_graphics::primitives::rectangle::Rectangle">Rectangle</a>) -&gt; <a class="struct" href="../../embedded_graphics/draw_target/struct.Cropped.html" title="struct embedded_graphics::draw_target::Cropped">Cropped</a>&lt;'_, Self&gt;</code><a class="srclink" href="../../src/embedded_graphics/draw_target/mod.rs.html#107" title="goto source code">[src]</a></h3><div class="docblock"><p>Creates a cropped draw target based on this draw target.</p>
+<p>A cropped draw target is a draw target for a rectangular subregion of the parent draw target.
+Its coordinate system is shifted so that the origin coincides with <code>area.top_left</code> in the
+parent draw target’s coordinate system.</p>
+<p>The bounding box of the returned target will always be contained inside the bounding box
+of the parent target. If any of the requested <code>area</code> lies outside the parent target’s bounding
+box the intersection of the parent target’s bounding box and <code>area</code> will be used.</p>
+<p>Drawing operations outside the bounding box will not be clipped.</p>
+<h1 id="examples-1" class="section-header"><a href="#examples-1">Examples</a></h1>
+<div class="example-wrap"><pre class="rust rust-example-rendered">
+<span class="kw">use</span> <span class="ident">embedded_graphics</span>::{
+    <span class="ident">mock_display</span>::<span class="ident">MockDisplay</span>,
+    <span class="ident">mono_font</span>::{<span class="ident">ascii</span>::<span class="ident">FONT_6X9</span>, <span class="ident">MonoTextStyle</span>},
+    <span class="ident">pixelcolor</span>::<span class="ident">Rgb565</span>,
+    <span class="ident">prelude</span>::<span class="kw-2">*</span>,
+    <span class="ident">primitives</span>::<span class="ident">Rectangle</span>,
+    <span class="ident">text</span>::{<span class="ident">Text</span>, <span class="ident">Alignment</span>, <span class="ident">Baseline</span>, <span class="ident">TextStyleBuilder</span>},
+};
+
+<span class="doccomment">/// Fills a draw target with a blue background and prints centered yellow text.</span>
+<span class="kw">fn</span> <span class="ident">draw_text</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>(<span class="ident">target</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">T</span>, <span class="ident">text</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">T</span>::<span class="ident">Error</span><span class="op">&gt;</span>
+<span class="kw">where</span>
+    <span class="ident">T</span>: <span class="ident">DrawTarget</span><span class="op">&lt;</span><span class="ident">Color</span> <span class="op">=</span> <span class="ident">Rgb565</span><span class="op">&gt;</span>,
+{
+    <span class="ident">target</span>.<span class="ident">clear</span>(<span class="ident">Rgb565</span>::<span class="ident">BLUE</span>)<span class="question-mark">?</span>;
+
+    <span class="kw">let</span> <span class="ident">text_position</span> <span class="op">=</span> <span class="ident">target</span>.<span class="ident">bounding_box</span>().<span class="ident">center</span>();
+
+    <span class="kw">let</span> <span class="ident">character_style</span> <span class="op">=</span> <span class="ident">MonoTextStyle</span>::<span class="ident">new</span>(<span class="kw-2">&amp;</span><span class="ident">FONT_6X9</span>, <span class="ident">Rgb565</span>::<span class="ident">YELLOW</span>);
+    <span class="kw">let</span> <span class="ident">text_style</span> <span class="op">=</span> <span class="ident">TextStyleBuilder</span>::<span class="ident">new</span>()
+        .<span class="ident">alignment</span>(<span class="ident">Alignment</span>::<span class="ident">Center</span>)
+        .<span class="ident">baseline</span>(<span class="ident">Baseline</span>::<span class="ident">Middle</span>)
+        .<span class="ident">build</span>();
+
+    <span class="ident">Text</span>::<span class="ident">with_text_style</span>(<span class="ident">text</span>, <span class="ident">text_position</span>, <span class="ident">character_style</span>, <span class="ident">text_style</span>).<span class="ident">draw</span>(<span class="ident">target</span>)<span class="question-mark">?</span>;
+
+    <span class="prelude-val">Ok</span>(())
+}
+
+<span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="ident">new</span>();
+<span class="ident">display</span>.<span class="ident">set_allow_overdraw</span>(<span class="bool-val">true</span>);
+
+<span class="kw">let</span> <span class="ident">area</span> <span class="op">=</span> <span class="ident">Rectangle</span>::<span class="ident">new</span>(<span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">5</span>, <span class="number">10</span>), <span class="ident">Size</span>::<span class="ident">new</span>(<span class="number">40</span>, <span class="number">15</span>));
+<span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">cropped_display</span> <span class="op">=</span> <span class="ident">display</span>.<span class="ident">cropped</span>(<span class="kw-2">&amp;</span><span class="ident">area</span>);
+
+<span class="ident">draw_text</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">cropped_display</span>, <span class="string">&quot;Text&quot;</span>)<span class="question-mark">?</span>;</pre></div>
+</div><h3 id="tymethod.clipped" class="method"><code>fn <a href="#tymethod.clipped" class="fnname">clipped</a>(&amp;mut self, area: &amp;<a class="struct" href="../../embedded_graphics/primitives/rectangle/struct.Rectangle.html" title="struct embedded_graphics::primitives::rectangle::Rectangle">Rectangle</a>) -&gt; <a class="struct" href="../../embedded_graphics/draw_target/struct.Clipped.html" title="struct embedded_graphics::draw_target::Clipped">Clipped</a>&lt;'_, Self&gt;</code><a class="srclink" href="../../src/embedded_graphics/draw_target/mod.rs.html#150" title="goto source code">[src]</a></h3><div class="docblock"><p>Creates a clipped draw target based on this draw target.</p>
+<p>A clipped draw target is a draw target for a rectangular subregion of the parent draw target.
+The coordinate system of the created draw target is equal to the parent target’s coordinate
+system. All drawing operations outside the bounding box will be clipped.</p>
+<p>The bounding box of the returned target will always be contained inside the bounding box
+of the parent target. If any of the requested <code>area</code> lies outside the parent target’s bounding
+box the intersection of the parent target’s bounding box and <code>area</code> will be used.</p>
+<h1 id="examples-2" class="section-header"><a href="#examples-2">Examples</a></h1>
+<div class="example-wrap"><pre class="rust rust-example-rendered">
+<span class="kw">use</span> <span class="ident">embedded_graphics</span>::{
+    <span class="ident">mock_display</span>::<span class="ident">MockDisplay</span>,
+    <span class="ident">mono_font</span>::{<span class="ident">ascii</span>::<span class="ident">FONT_10X20</span>, <span class="ident">MonoTextStyle</span>},
+    <span class="ident">pixelcolor</span>::<span class="ident">BinaryColor</span>,
+    <span class="ident">prelude</span>::<span class="kw-2">*</span>,
+    <span class="ident">primitives</span>::<span class="ident">Rectangle</span>,
+    <span class="ident">text</span>::<span class="ident">Text</span>,
+};
+
+<span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="ident">new</span>();
+
+<span class="kw">let</span> <span class="ident">area</span> <span class="op">=</span> <span class="ident">Rectangle</span>::<span class="ident">new</span>(<span class="ident">Point</span>::<span class="ident">zero</span>(), <span class="ident">Size</span>::<span class="ident">new</span>(<span class="number">4</span> <span class="op">*</span> <span class="number">10</span>, <span class="number">20</span>));
+<span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">clipped_display</span> <span class="op">=</span> <span class="ident">display</span>.<span class="ident">clipped</span>(<span class="kw-2">&amp;</span><span class="ident">area</span>);
+
+<span class="kw">let</span> <span class="ident">style</span> <span class="op">=</span> <span class="ident">MonoTextStyle</span>::<span class="ident">new</span>(<span class="kw-2">&amp;</span><span class="ident">FONT_10X20</span>, <span class="ident">BinaryColor</span>::<span class="ident">On</span>);
+
+<span class="comment">// Only the first 4 characters will be drawn, because the others are outside</span>
+<span class="comment">// the clipping area</span>
+<span class="ident">Text</span>::<span class="ident">new</span>(<span class="string">&quot;Clipped&quot;</span>, <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">0</span>, <span class="number">15</span>), <span class="ident">style</span>).<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">clipped_display</span>)<span class="question-mark">?</span>;</pre></div>
+</div><h3 id="tymethod.color_converted" class="method"><code>fn <a href="#tymethod.color_converted" class="fnname">color_converted</a>&lt;C&gt;(&amp;mut self) -&gt; <a class="struct" href="../../embedded_graphics/draw_target/struct.ColorConverted.html" title="struct embedded_graphics::draw_target::ColorConverted">ColorConverted</a>&lt;'_, Self, C&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;C: <a class="trait" href="../../embedded_graphics/pixelcolor/trait.PixelColor.html" title="trait embedded_graphics::pixelcolor::PixelColor">PixelColor</a> + <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html" title="trait core::convert::Into">Into</a>&lt;Self::<a class="type" href="../../embedded_graphics/draw_target/trait.DrawTarget.html#associatedtype.Color" title="type embedded_graphics::draw_target::DrawTarget::Color">Color</a>&gt;,&nbsp;</span></code><a class="srclink" href="../../src/embedded_graphics/draw_target/mod.rs.html#210-212" title="goto source code">[src]</a></h3><div class="docblock"><p>Creates a color conversion draw target.</p>
+<p>A color conversion draw target is used to draw drawables with a different color type to a
+draw target. The drawable color type must implement <code>Into&lt;C&gt;</code>, where <code>C</code> is the draw
+target color type.</p>
+<h1 id="performance" class="section-header"><a href="#performance">Performance</a></h1>
+<p>Color conversion can be expensive on embedded hardware and should be avoided if possible.
+Using the same color type for drawables and the draw target makes sure that no unnecessary
+color conversion is used. But in some cases color conversion will be required, for example,
+to draw images with a color format only known at runtime.</p>
+<h1 id="examples-3" class="section-header"><a href="#examples-3">Examples</a></h1>
+<p>This example draws a <code>BinaryColor</code> image to an <code>Rgb888</code> display.</p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered">
+<span class="kw">use</span> <span class="ident">embedded_graphics</span>::{
+    <span class="ident">image</span>::{<span class="ident">Image</span>, <span class="ident">ImageRaw</span>},
+    <span class="ident">mock_display</span>::<span class="ident">MockDisplay</span>,
+    <span class="ident">pixelcolor</span>::{<span class="ident">BinaryColor</span>, <span class="ident">Rgb888</span>},
+    <span class="ident">prelude</span>::<span class="kw-2">*</span>,
+};
+
+<span class="doccomment">/// The image data.</span>
+<span class="kw">const</span> <span class="ident">DATA</span>: <span class="kw-2">&amp;</span>[<span class="ident">u8</span>] <span class="op">=</span> <span class="kw-2">&amp;</span>[
+    <span class="number">0b11110000</span>, <span class="comment">//</span>
+    <span class="number">0b10010000</span>, <span class="comment">//</span>
+    <span class="number">0b10010000</span>, <span class="comment">//</span>
+    <span class="number">0b11110000</span>, <span class="comment">//</span>
+];
+
+<span class="comment">// Create a `BinaryColor` image from the image data.</span>
+<span class="kw">let</span> <span class="ident">raw_image</span> <span class="op">=</span> <span class="ident">ImageRaw</span>::<span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="ident">DATA</span>, <span class="number">4</span>);
+<span class="kw">let</span> <span class="ident">image</span> <span class="op">=</span> <span class="ident">Image</span>::<span class="ident">new</span>(<span class="kw-2">&amp;</span><span class="ident">raw_image</span>, <span class="ident">Point</span>::<span class="ident">zero</span>());
+
+<span class="comment">// Create a `Rgb888` display.</span>
+<span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="op">&lt;</span><span class="ident">Rgb888</span><span class="op">&gt;</span>::<span class="ident">new</span>();
+
+<span class="comment">// The image can&#39;t directly be drawn to the draw target because they use different</span>
+<span class="comment">// color type. This will fail to compile:</span>
+<span class="comment">// image.draw(&amp;mut display)?;</span>
+
+<span class="comment">// To fix this `color_converted` is added to enable color conversion.</span>
+<span class="ident">image</span>.<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>.<span class="ident">color_converted</span>())<span class="question-mark">?</span>;</pre></div>
+</div></div><span class="loading-content">Loading content...</span><h2 id="implementors" class="small-section-header">Implementors<a href="#implementors" class="anchor"></a></h2><div class="item-list" id="implementors-list"><h3 id="impl-DrawTargetExt" class="impl"><code class="in-band">impl&lt;T&gt; <a class="trait" href="../../embedded_graphics/draw_target/trait.DrawTargetExt.html" title="trait embedded_graphics::draw_target::DrawTargetExt">DrawTargetExt</a> for T <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="../../embedded_graphics/draw_target/trait.DrawTarget.html" title="trait embedded_graphics::draw_target::DrawTarget">DrawTarget</a>,&nbsp;</span></code><a href="#impl-DrawTargetExt" class="anchor"></a><a class="srclink" href="../../src/embedded_graphics/draw_target/mod.rs.html#215-237" title="goto source code">[src]</a></h3><div class="impl-items"><h4 id="method.translated" class="method hidden"><code>fn <a href="#method.translated" class="fnname">translated</a>(&amp;mut self, offset: <a class="struct" href="../../embedded_graphics/geometry/struct.Point.html" title="struct embedded_graphics::geometry::Point">Point</a>) -&gt; <a class="struct" href="../../embedded_graphics/draw_target/struct.Translated.html" title="struct embedded_graphics::draw_target::Translated">Translated</a>&lt;'_, Self&gt;</code><a class="srclink" href="../../src/embedded_graphics/draw_target/mod.rs.html#219-221" title="goto source code">[src]</a></h4><h4 id="method.cropped" class="method hidden"><code>fn <a href="#method.cropped" class="fnname">cropped</a>(&amp;mut self, area: &amp;<a class="struct" href="../../embedded_graphics/primitives/rectangle/struct.Rectangle.html" title="struct embedded_graphics::primitives::rectangle::Rectangle">Rectangle</a>) -&gt; <a class="struct" href="../../embedded_graphics/draw_target/struct.Cropped.html" title="struct embedded_graphics::draw_target::Cropped">Cropped</a>&lt;'_, Self&gt;</code><a class="srclink" href="../../src/embedded_graphics/draw_target/mod.rs.html#223-225" title="goto source code">[src]</a></h4><h4 id="method.clipped" class="method hidden"><code>fn <a href="#method.clipped" class="fnname">clipped</a>(&amp;mut self, area: &amp;<a class="struct" href="../../embedded_graphics/primitives/rectangle/struct.Rectangle.html" title="struct embedded_graphics::primitives::rectangle::Rectangle">Rectangle</a>) -&gt; <a class="struct" href="../../embedded_graphics/draw_target/struct.Clipped.html" title="struct embedded_graphics::draw_target::Clipped">Clipped</a>&lt;'_, Self&gt;</code><a class="srclink" href="../../src/embedded_graphics/draw_target/mod.rs.html#227-229" title="goto source code">[src]</a></h4><h4 id="method.color_converted" class="method hidden"><code>fn <a href="#method.color_converted" class="fnname">color_converted</a>&lt;C&gt;(&amp;mut self) -&gt; <a class="struct" href="../../embedded_graphics/draw_target/struct.ColorConverted.html" title="struct embedded_graphics::draw_target::ColorConverted">ColorConverted</a>&lt;'_, Self, C&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;C: <a class="trait" href="../../embedded_graphics/pixelcolor/trait.PixelColor.html" title="trait embedded_graphics::pixelcolor::PixelColor">PixelColor</a> + <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html" title="trait core::convert::Into">Into</a>&lt;Self::<a class="type" href="../../embedded_graphics/draw_target/trait.DrawTarget.html#associatedtype.Color" title="type embedded_graphics::draw_target::DrawTarget::Color">Color</a>&gt;,&nbsp;</span></code><a class="srclink" href="../../src/embedded_graphics/draw_target/mod.rs.html#231-236" title="goto source code">[src]</a></h4></div></div><span class="loading-content">Loading content...</span><script type="text/javascript" src="../../implementors/embedded_graphics/draw_target/trait.DrawTargetExt.js" async></script></section><section id="search" class="content hidden"></section><section class="footer"></section><div id="rustdoc-vars" data-root-path="../../" data-current-crate="embedded_graphics" data-search-js="../../search-index.js"></div>
+    <script src="../../main.js"></script></body></html>

@@ -1,8 +1,13 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="This crate aims to make drawing 2D graphics primitives super easy. It currently supports the following built in items:"><meta name="keywords" content="rust, rustlang, rust-lang, embedded_graphics"><title>embedded_graphics - Rust</title><link rel="stylesheet" type="text/css" href="../normalize.css"><link rel="stylesheet" type="text/css" href="../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../ayu.css" disabled ><script id="default-settings"></script><script src="../storage.js"></script><script src="../crates.js"></script><noscript><link rel="stylesheet" href="../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Embedded-graphics is a 2D graphics library that is focused on memory constrained embedded devices."><meta name="keywords" content="rust, rustlang, rust-lang, embedded_graphics"><title>embedded_graphics - Rust</title><link rel="stylesheet" type="text/css" href="../normalize.css"><link rel="stylesheet" type="text/css" href="../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../ayu.css" disabled ><script id="default-settings"></script><script src="../storage.js"></script><script src="../crates.js"></script><noscript><link rel="stylesheet" href="../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <link rel="alternate icon" type="image/png" href="../favicon-16x16.png">
-<link rel="alternate icon" type="image/png" href="../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../down-arrow.svg");}</style></head><body class="rustdoc mod"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../embedded_graphics/index.html'><div class='logo-container'><img src='https://raw.githubusercontent.com/jamwaffles/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true' alt='logo'></div></a><p class="location">Crate embedded_graphics</p><div class="block version"><p>Version 0.6.2</p></div><div class="sidebar-elems"><a id="all-types" href="all.html"><p>See all embedded_graphics's items</p></a><div class="block items"><ul><li><a href="#modules">Modules</a></li><li><a href="#macros">Macros</a></li><li><a href="#traits">Traits</a></li></ul></div><p class="location"></p><div id="sidebar-vars" data-name="embedded_graphics" data-ty="mod" data-relpath="../"></div></div></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><script src="../theme.js"></script><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" class="help-button">?</button>
-                <a id="settings-menu" href="../settings.html"><img src="../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><h1 class="fqn"><span class="in-band">Crate <a class="mod" href="">embedded_graphics</a></span><span class="out-of-band"><span id="render-detail"><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class="inner">&#x2212;</span>]</a></span><a class="srclink" href="../src/embedded_graphics/lib.rs.html#1-420" title="goto source code">[src]</a></span></h1><div class="docblock"><p>This crate aims to make drawing 2D graphics primitives super easy. It currently supports the
-following built in items:</p>
+<link rel="alternate icon" type="image/png" href="../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../down-arrow.svg");}</style></head><body class="rustdoc mod"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../embedded_graphics/index.html'><div class='logo-container'><img src='https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true' alt='logo'></div></a><p class="location">Crate embedded_graphics</p><div class="block version"><p>Version 0.7.0</p></div><div class="sidebar-elems"><a id="all-types" href="all.html"><p>See all embedded_graphics's items</p></a><div class="block items"><ul><li><a href="#modules">Modules</a></li><li><a href="#structs">Structs</a></li><li><a href="#traits">Traits</a></li></ul></div><p class="location"></p><div id="sidebar-vars" data-name="embedded_graphics" data-ty="mod" data-relpath="../"></div></div></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><script src="../theme.js"></script><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" class="help-button">?</button>
+                <a id="settings-menu" href="../settings.html"><img src="../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><h1 class="fqn"><span class="in-band">Crate <a class="mod" href="">embedded_graphics</a></span><span class="out-of-band"><span id="render-detail"><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class="inner">&#x2212;</span>]</a></span><a class="srclink" href="../src/embedded_graphics/lib.rs.html#1-246" title="goto source code">[src]</a></span></h1><div class="docblock"><p>Embedded-graphics is a 2D graphics library that is focused on memory constrained embedded devices.</p>
+<p>A core goal of embedded-graphics is to draw graphics without using any buffers; the crate is
+<code>no_std</code> compatible and works without a dynamic memory allocator, and without pre-allocating
+large chunks of memory. To achieve this, it takes an <code>Iterator</code> based approach, where pixel
+colors and positions are calculated on the fly, with the minimum of saved state. This allows the
+consuming application to use far less RAM at little to no performance penalty.</p>
+<p>It contains built in items that make it easy to draw 2D graphics primitives:</p>
 <ul>
 <li><a href="./image/struct.ImageRaw.html">Raw data images</a></li>
 <li><a href="./primitives/index.html">Primitives</a>
@@ -10,35 +15,44 @@ following built in items:</p>
 <li><a href="./primitives/line/struct.Line.html">Lines</a></li>
 <li><a href="./primitives/rectangle/struct.Rectangle.html">Rectangles (and squares)</a></li>
 <li><a href="./primitives/circle/struct.Circle.html">Circles</a></li>
+<li><a href="./primitives/ellipse/struct.Ellipse.html">Ellipses</a></li>
+<li><a href="./primitives/arc/struct.Arc.html">Arcs</a></li>
+<li><a href="./primitives/sector/struct.Sector.html">Sectors</a></li>
 <li><a href="./primitives/triangle/struct.Triangle.html">Triangles</a></li>
+<li><a href="./primitives/polyline/struct.Polyline.html">Polylines</a></li>
+<li><a href="./primitives/rounded_rectangle/struct.RoundedRectangle.html">Rounded rectangles</a></li>
 </ul>
 </li>
-<li><a href="./fonts/index.html#types">Text with multiple fonts</a></li>
+<li><a href="./text/index.html">Text</a></li>
+<li><a href="./mono_font/index.html">Monospaced fonts</a></li>
 </ul>
-<p>Additional functionality provided by external crates:</p>
+<h1 id="additional-functions-provided-by-external-crates" class="section-header"><a href="#additional-functions-provided-by-external-crates">Additional functions provided by external crates</a></h1>
+<p>Embedded-graphics is designed to be extended by the application or other crates. Examples of
+this are adding support for different image formats or implementing custom fonts.</p>
 <ul>
 <li><a href="https://crates.io/crates/tinybmp">BMP images - <code>tinybmp</code></a></li>
 <li><a href="https://crates.io/crates/tinytga">TGA images - <code>tinytga</code></a></li>
 <li><a href="https://crates.io/crates/profont">ProFont monospace font - <code>profont</code></a></li>
 <li><a href="https://crates.io/crates/embedded_picofont">Picofont Pico8 font - <code>embedded-picofont</code></a></li>
 <li><a href="https://crates.io/crates/ibm437">IBM437 font - <code>ibm437</code></a></li>
+<li><a href="https://crates.io/crates/embedded-layout">Simple layout/alignment functions - <code>embedded-layout</code></a></li>
+<li><a href="https://crates.io/crates/embedded-text">TextBox with text alignment options - <code>embedded-text</code></a></li>
+<li><a href="https://crates.io/crates/embedded-plots">Heapless plotting library for small embedded targets - <code>embedded-plots</code></a></li>
 </ul>
-<p>If you know of a crate that is not in this list, please <a href="https://github.com/jamwaffles/embedded-graphics/issues/new">open an
-issue</a>.</p>
 <p>Note that some of these crates may not support the latest version of embedded-graphics.</p>
-<p>You can also add your own objects by implementing <a href="./drawable/trait.Drawable.html"><code>Drawable</code></a> on them. Additionally, all
-iterators over pixels (<code>Iterator&lt;Item = Pixel&lt;C&gt;&gt;</code>) have a default <a href="./drawable/trait.Drawable.html"><code>Drawable</code></a> implementation
-already created.</p>
-<p>A core goal of embedded-graphics is to draw graphics without using any buffers; the crate is
-<code>no_std</code> compatible and works without a dynamic memory allocator, and without pre-allocating
-large chunks of memory. To achieve this, it takes an <code>Iterator</code> based approach, where pixel
-values and positions are calculated on the fly, with the minimum of saved state. This allows the
-consuming application to use far less RAM at little to no performance penalty.</p>
-<h1 id="supported-displays" class="section-header"><a href="#supported-displays">Supported displays</a></h1>
-<p>These are just some of the displays the community has added embedded_graphics support to. This
+<p>If you know of a crate that is not in this list, please <a href="https://github.com/embedded-graphics/embedded-graphics/issues/new">open an
+issue</a> to add it.</p>
+<h1 id="display-drivers" class="section-header"><a href="#display-drivers">Display drivers</a></h1>
+<p>To support many different kinds of display, embedded-graphics doesn’t include any drivers
+directly but provides the <a href="https://docs.rs/embedded-graphics-core/latest/embedded_graphics_core/draw_target/trait.DrawTarget.html"><code>DrawTarget</code></a> API in <a href="https://docs.rs/embedded-graphics-core/"><code>embedded-graphics-core</code></a> that can be
+implemented by external crates. In addition to the drivers for real displays, the
+<a href="https://docs.rs/embedded-graphics-simulator/">simulator</a> can be used to test code during
+development.</p>
+<p><img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/4c680418cc4c37b8f7ed92d8b26edfde880d4c96/assets/banner-photo.jpg" alt="Photographs showing embedded-graphics running on physical display hardware." /></p>
+<p>These are just some of the displays the community has added embedded-graphics support to. This
 list is taken from the <a href="https://crates.io/crates/embedded-graphics/reverse_dependencies">dependent crates
 list</a> on crates.io so might be
-missing some unpublished entries. Please <a href="https://github.com/jamwaffles/embedded-graphics/issues/new">open an
+missing some unpublished entries. Please <a href="https://github.com/embedded-graphics/embedded-graphics/issues/new">open an
 issue</a> if there’s a display driver
 that should be added to this list.</p>
 <p>Note that some drivers may not support the latest version of embedded-graphics.</p>
@@ -48,286 +62,146 @@ that should be added to this list.</p>
 <li><a href="https://crates.io/crates/hub75">hub75</a>: A rust driver for hub75 rgb matrix displays</li>
 <li><a href="https://crates.io/crates/ili9341">ili9341</a>: A platform agnostic driver to interface with the ILI9341 (and ILI9340C) TFT LCD display</li>
 <li><a href="https://crates.io/crates/ls010b7dh01">ls010b7dh01</a>: A platform agnostic driver for the LS010B7DH01 memory LCD display</li>
+<li><a href="https://crates.io/crates/push2_display">push2_display</a>: Ableton Push2 embedded-graphics display driver</li>
 <li><a href="https://crates.io/crates/sh1106">sh1106</a>: I2C driver for the SH1106 OLED display</li>
 <li><a href="https://crates.io/crates/ssd1306">ssd1306</a>: I2C and SPI (4 wire) driver for the SSD1306 OLED display</li>
+<li><a href="https://crates.io/crates/ssd1309">ssd1309</a>: I2C/SPI driver for the SSD1309 OLED display written in 100% Rust.</li>
 <li><a href="https://crates.io/crates/ssd1322">ssd1322</a>: Pure Rust driver for the SSD1322 OLED display chip</li>
 <li><a href="https://crates.io/crates/ssd1331">ssd1331</a>: SPI (4 wire) driver for the SSD1331 OLED display</li>
 <li><a href="https://crates.io/crates/ssd1351">ssd1351</a>: SSD1351 driver</li>
 <li><a href="https://crates.io/crates/ssd1675">ssd1675</a>: Rust driver for the Solomon Systech SSD1675 e-Paper display (EPD) controller</li>
 <li><a href="https://crates.io/crates/st7735-lcd">st7735-lcd</a>: Rust library for displays using the ST7735 driver</li>
+<li><a href="https://crates.io/crates/st7789">st7789</a>: A Rust driver library for ST7789 displays</li>
 <li><a href="https://crates.io/crates/st7920">st7920</a>: ST7920 LCD driver in Rust</li>
 </ul>
 <h1 id="simulator" class="section-header"><a href="#simulator">Simulator</a></h1>
-<p>Embedded graphics comes with a <a href="https://github.com/jamwaffles/embedded-graphics/tree/c4f74c12dae9f0a0193fa48192f905a002bf8c9d/simulator">simulator</a>!</p>
-<p><img src="https://raw.githubusercontent.com/jamwaffles/embedded-graphics/master/assets/simulator-demo.png" alt="It can display all sorts of embedded-graphics test code." /></p>
-<p>Take a look at the <a href="https://github.com/jamwaffles/embedded-graphics/tree/c4f74c12dae9f0a0193fa48192f905a002bf8c9d/simulator/examples">simulator examples</a> to see what
-embedded_graphics can do, and how it might look on a display. You can run the examples like
+<p>Embedded graphics comes with a <a href="https://github.com/embedded-graphics/simulator">simulator</a>! The simulator can be used to test and debug
+embedded graphics code, or produce examples and interactive demos to show off embedded graphics
+features.</p>
+<p><img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/4c680418cc4c37b8f7ed92d8b26edfde880d4c96/assets/simulator-demo.png" alt="A screenshot of embedded-graphics running in its simulator." /></p>
+<p>Take a look at the <a href="https://github.com/embedded-graphics/examples">examples repository</a> to see what
+embedded-graphics can do, and how it might look on a display. You can run the examples like
 this:</p>
-<pre><code class="language-bash">git clone https://github.com/jamwaffles/embedded-graphics.git
-cd embedded-graphics
+<pre><code class="language-bash">git clone https://github.com/embedded-graphics/examples.git
+cd examples
 
-cargo run -p embedded-graphics-simulator --example hello
+cargo run --example hello-world
 </code></pre>
 <h1 id="crate-features" class="section-header"><a href="#crate-features">Crate features</a></h1>
-<p>Add these to your <code>Cargo.toml</code> to turn on extra bits of functionality.</p>
+<p>Additional features can be enabled by adding the following features to your <code>Cargo.toml</code>.</p>
 <ul>
-<li><code>nalgebra_support</code> - use the <a href="https://crates.io/crates/nalgebra">Nalgebra</a> crate with <code>no_std</code>
-support to enable conversions from <code>nalgebra::Vector2</code> to <a href="./geometry/struct.Point.html"><code>Point</code></a> and <a href="./geometry/struct.Size.html"><code>Size</code></a>.</li>
+<li>
+<p><code>nalgebra_support</code> - use the <a href="https://crates.io/crates/nalgebra">Nalgebra</a> crate with <code>no_std</code>
+support to enable conversions from <code>nalgebra::Vector2</code> to <a href="./geometry/struct.Point.html"><code>Point</code></a> and <a href="./geometry/struct.Size.html"><code>Size</code></a>.</p>
+</li>
+<li>
+<p><code>fixed_point</code> - use fixed point arithmetic instead of floating point for all trigonometric
+calculation.</p>
+</li>
 </ul>
-<h1 id="implementing-embedded_graphics-in-a-driver" class="section-header"><a href="#implementing-embedded_graphics-in-a-driver">Implementing <code>embedded_graphics</code> in a driver</a></h1>
-<p>To add support for embedded_graphics to a display driver, <a href="./draw_target/trait.DrawTarget.html"><code>DrawTarget</code></a> should be implemented.
-This allows all embedded_graphics objects to be rendered by the display. See the <a href="./draw_target/trait.DrawTarget.html"><code>DrawTarget</code></a>
-documentation for implementation details.</p>
-<h1 id="examples" class="section-header"><a href="#examples">Examples</a></h1><h2 id="draw-a-circle-and-some-text" class="section-header"><a href="#draw-a-circle-and-some-text">Draw a circle and some text</a></h2>
-<p>This example uses the <a href="./primitives/circle/struct.Circle.html"><code>Circle</code></a> primitive and the <a href="./fonts/struct.Font6x8.html"><code>Font6x8</code></a> font to draw a filled circle and  some text over it on the screen.</p>
+<h1 id="migrating-from-older-versions" class="section-header"><a href="#migrating-from-older-versions">Migrating from older versions</a></h1>
+<ul>
+<li><a href="https://github.com/embedded-graphics/embedded-graphics/blob/master/MIGRATING-0.5-0.6.md">Migration guide from 0.5 to 0.6</a>.</li>
+<li><a href="https://github.com/embedded-graphics/embedded-graphics/blob/master/MIGRATING-0.5-0.6.md">Migration guide from 0.6 to 0.7</a>.</li>
+</ul>
+<h1 id="implementing-embedded_graphics-support-for-a-display-driver" class="section-header"><a href="#implementing-embedded_graphics-support-for-a-display-driver">Implementing <code>embedded_graphics</code> support for a display driver</a></h1>
+<p>To add support for embedded-graphics to a display driver, <a href="https://docs.rs/embedded-graphics-core/latest/embedded_graphics_core/draw_target/trait.DrawTarget.html"><code>DrawTarget</code></a> from
+<a href="https://docs.rs/embedded-graphics-core/"><code>embedded-graphics-core</code></a> must be implemented. This allows all embedded-graphics items to be
+rendered by the display. See the <a href="https://docs.rs/embedded-graphics-core/latest/embedded_graphics_core/draw_target/trait.DrawTarget.html"><code>DrawTarget</code></a> documentation for implementation details.</p>
+<h1 id="examples" class="section-header"><a href="#examples">Examples</a></h1><h2 id="drawing-examples" class="section-header"><a href="#drawing-examples">Drawing examples</a></h2>
+<p><a href="./examples/index.html"><img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/4c680418cc4c37b8f7ed92d8b26edfde880d4c96/doc/assets/all_drawing_ops.png" alt="A grid of screenshots showing primitives, text and other items that can be drawn using embedded-graphics." /></a></p>
+<p>Example usage of drawing primitives, text and images with embedded-graphics can be found <a href="./examples/index.html">here</a>.</p>
+<h2 id="shapes-and-text" class="section-header"><a href="#shapes-and-text">Shapes and text</a></h2>
+<p>The following example draws some shapes and text to a <a href="./mock_display/struct.MockDisplay.html"><code>MockDisplay</code></a> in place of target
+hardware. The <a href="https://docs.rs/embedded-graphics-simulator/">simulator</a> can also be used for
+debugging, development or if hardware is not available.</p>
 
 <div class="example-wrap"><pre class="rust rust-example-rendered">
 <span class="kw">use</span> <span class="ident">embedded_graphics</span>::{
-    <span class="ident">fonts</span>::{<span class="ident">Font6x8</span>, <span class="ident">Text</span>},
-    <span class="ident">mock_display</span>::<span class="ident">MockDisplay</span>,
-    <span class="ident">pixelcolor</span>::<span class="ident">Rgb565</span>,
+    <span class="ident">mono_font</span>::{<span class="ident">ascii</span>::<span class="ident">FONT_6X10</span>, <span class="ident">MonoTextStyle</span>},
+    <span class="ident">pixelcolor</span>::<span class="ident">BinaryColor</span>,
     <span class="ident">prelude</span>::<span class="kw-2">*</span>,
-    <span class="ident">primitives</span>::<span class="ident">Circle</span>,
-    <span class="ident">style</span>::{<span class="ident">PrimitiveStyle</span>, <span class="ident">TextStyle</span>},
-};
-
-<span class="comment">// Create a draw target using the builtin MockDisplay. In real applications this would be</span>
-<span class="comment">// replaced by a draw target that is provided by a display driver crate.</span>
-<span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="ident">default</span>();
-
-<span class="kw">let</span> <span class="ident">c</span> <span class="op">=</span> <span class="ident">Circle</span>::<span class="ident">new</span>(<span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">20</span>, <span class="number">20</span>), <span class="number">8</span>).<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle</span>::<span class="ident">with_fill</span>(<span class="ident">Rgb565</span>::<span class="ident">RED</span>));
-<span class="kw">let</span> <span class="ident">t</span> <span class="op">=</span> <span class="ident">Text</span>::<span class="ident">new</span>(<span class="string">&quot;Hello Rust!&quot;</span>, <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">20</span>, <span class="number">16</span>))
-    .<span class="ident">into_styled</span>(<span class="ident">TextStyle</span>::<span class="ident">new</span>(<span class="ident">Font6x8</span>, <span class="ident">Rgb565</span>::<span class="ident">GREEN</span>));
-
-<span class="ident">c</span>.<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)<span class="question-mark">?</span>;
-<span class="ident">t</span>.<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)<span class="question-mark">?</span>;</pre></div>
-<h2 id="draw-a-circle-and-some-text-1" class="section-header"><a href="#draw-a-circle-and-some-text-1">Draw a circle and some text</a></h2>
-<p>To make life even easier, some handy <a href="#macros">macros</a> are provided for drawing styled
-primitives and text. Converting the example above, we get this:</p>
-
-<div class="example-wrap"><pre class="rust rust-example-rendered">
-<span class="kw">use</span> <span class="ident">embedded_graphics</span>::{
-    <span class="ident">egcircle</span>, <span class="ident">egtext</span>, <span class="ident">fonts</span>::<span class="ident">Font6x8</span>, <span class="ident">mock_display</span>::<span class="ident">MockDisplay</span>, <span class="ident">pixelcolor</span>::<span class="ident">Rgb565</span>,
-    <span class="ident">prelude</span>::<span class="kw-2">*</span>, <span class="ident">primitive_style</span>, <span class="ident">text_style</span>,
-};
-
-<span class="comment">// Create a draw target using the builtin MockDisplay. In real applications this would be</span>
-<span class="comment">// replaced by a draw target that is provided by a display driver crate.</span>
-<span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="ident">default</span>();
-
-<span class="kw">let</span> <span class="ident">c</span> <span class="op">=</span> <span class="macro">egcircle</span><span class="macro">!</span>(
-    <span class="ident">center</span> <span class="op">=</span> (<span class="number">20</span>, <span class="number">20</span>),
-    <span class="ident">radius</span> <span class="op">=</span> <span class="number">8</span>,
-    <span class="ident">style</span> <span class="op">=</span> <span class="macro">primitive_style</span><span class="macro">!</span>(<span class="ident">fill_color</span> <span class="op">=</span> <span class="ident">Rgb565</span>::<span class="ident">RED</span>)
-);
-<span class="kw">let</span> <span class="ident">t</span> <span class="op">=</span> <span class="macro">egtext</span><span class="macro">!</span>(
-    <span class="ident">text</span> <span class="op">=</span> <span class="string">&quot;Hello Rust!&quot;</span>,
-    <span class="ident">top_left</span> <span class="op">=</span> (<span class="number">20</span>, <span class="number">16</span>),
-    <span class="ident">style</span> <span class="op">=</span> <span class="macro">text_style</span><span class="macro">!</span>(<span class="ident">font</span> <span class="op">=</span> <span class="ident">Font6x8</span>, <span class="ident">text_color</span> <span class="op">=</span> <span class="ident">Rgb565</span>::<span class="ident">GREEN</span>)
-);
-
-<span class="ident">c</span>.<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)<span class="question-mark">?</span>;
-<span class="ident">t</span>.<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)<span class="question-mark">?</span>;</pre></div>
-<h2 id="chaining" class="section-header"><a href="#chaining">Chaining</a></h2>
-<p>Items can be chained to build more complex graphics objects.</p>
-
-<div class="example-wrap"><pre class="rust rust-example-rendered">
-<span class="kw">use</span> <span class="ident">embedded_graphics</span>::{
-    <span class="ident">egcircle</span>, <span class="ident">egrectangle</span>, <span class="ident">egtext</span>, <span class="ident">fonts</span>::<span class="ident">Font6x8</span>, <span class="ident">mock_display</span>::<span class="ident">MockDisplay</span>,
-    <span class="ident">pixelcolor</span>::<span class="ident">Rgb565</span>, <span class="ident">prelude</span>::<span class="kw-2">*</span>, <span class="ident">primitive_style</span>, <span class="ident">text_style</span>,
-};
-
-<span class="comment">// Create a draw target using the builtin MockDisplay. In real applications this would be</span>
-<span class="comment">// replaced by a draw target that is provided by a display driver crate.</span>
-<span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span>: <span class="ident">MockDisplay</span><span class="op">&lt;</span><span class="ident">Rgb565</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="ident">default</span>();
-
-<span class="kw">fn</span> <span class="ident">build_thing</span>(<span class="ident">text</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">str</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw">impl</span> <span class="ident">Iterator</span><span class="op">&lt;</span><span class="ident">Item</span> <span class="op">=</span> <span class="ident">Pixel</span><span class="op">&lt;</span><span class="ident">Rgb565</span><span class="op">&gt;</span><span class="op">&gt;</span> {
-    <span class="macro">egrectangle</span><span class="macro">!</span>(<span class="ident">top_left</span> <span class="op">=</span> (<span class="number">0</span>, <span class="number">0</span>), <span class="ident">bottom_right</span> <span class="op">=</span> (<span class="number">40</span>, <span class="number">40</span>))
-        .<span class="ident">into_iter</span>()
-        .<span class="ident">chain</span>(<span class="kw-2">&amp;</span><span class="macro">egcircle</span><span class="macro">!</span>(
-            <span class="ident">center</span> <span class="op">=</span> (<span class="number">20</span>, <span class="number">20</span>),
-            <span class="ident">radius</span> <span class="op">=</span> <span class="number">8</span>,
-            <span class="ident">style</span> <span class="op">=</span> <span class="macro">primitive_style</span><span class="macro">!</span>(<span class="ident">fill_color</span> <span class="op">=</span> <span class="ident">Rgb565</span>::<span class="ident">RED</span>)
-        ))
-        .<span class="ident">chain</span>(<span class="kw-2">&amp;</span><span class="macro">egtext</span><span class="macro">!</span>(
-            <span class="ident">text</span> <span class="op">=</span> <span class="ident">text</span>,
-            <span class="ident">top_left</span> <span class="op">=</span> (<span class="number">20</span>, <span class="number">16</span>),
-            <span class="ident">style</span> <span class="op">=</span> <span class="macro">text_style</span><span class="macro">!</span>(<span class="ident">font</span> <span class="op">=</span> <span class="ident">Font6x8</span>, <span class="ident">text_color</span> <span class="op">=</span> <span class="ident">Rgb565</span>::<span class="ident">GREEN</span>)
-        ))
-}
-
-<span class="ident">build_thing</span>(<span class="string">&quot;Hello Rust!&quot;</span>).<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)<span class="question-mark">?</span>;</pre></div>
-<h2 id="draw-a-single-pixel" class="section-header"><a href="#draw-a-single-pixel">Draw a single pixel</a></h2>
-<p>This example draws a single green pixel.</p>
-<p>For cases where many pixels are drawn it is preferable to implement
-a custom iterator instead of calling <code>Pixel::draw</code> for each pixel, because
-some display drivers implement accelerated drawing of iterators.</p>
-<div style="display: flex">
-<img style="width: 128px; height: 128px; margin-right: 8px;" alt="Draw a single pixel example screenshot" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAIAAABMXPacAAABNElEQVR4nO3RsQkAMQwEwf/+i7YduQEHi2AGlOvY/yMlQEyAmAAxAWICxASICRATICZATICYADEBYgLEBIgJEBMgJkBMgJgAMQFiAsQEiAkQEyAmQEyAmAAxAWICxASICRATICZATICYADEBYgLEBIgJEBMgJkBMgJgAMQFiAsQEiAkQEyAmQEyAmAAxAWICxASICRATICZATICYADEBYgLEBIgJEJsfYJ0bvGPs45cAvBAgJkBMgJgAMQFiAsQEiAkQEyAmQEyAmAAxAWICxASICRATICZATICYADEBYgLEBIgJEBMgJkBMgJgAMQFiAsQEiAkQEyAmQEyAmAAxAWICxASICRATICZATICYADEBYgLEBIgJEBMgJkBMgJgAMQFiAsQEiAkQEyAmQEyAmAAxAWIbyaYCgYRUdd0AAAAASUVORK5CYII=" />
-<div style="flex-grow: 1;">
-
-<div class="example-wrap"><pre class="rust rust-example-rendered">
-<span class="kw">use</span> <span class="ident">embedded_graphics</span>::{
-    <span class="ident">pixelcolor</span>::<span class="ident">Rgb888</span>,
-    <span class="ident">prelude</span>::<span class="kw-2">*</span>,
-};
-
-<span class="ident">Pixel</span>(<span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">32</span>, <span class="number">32</span>), <span class="ident">Rgb888</span>::<span class="ident">GREEN</span>).<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)<span class="question-mark">?</span>;</pre></div>
-</div>
-</div>
-<h2 id="draw-a-line" class="section-header"><a href="#draw-a-line">Draw a line</a></h2>
-<p>This example draws a red line with 8px stroke.</p>
-<div style="display: flex">
-<img style="width: 128px; height: 128px; margin-right: 8px;" alt="Draw a line example screenshot" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAIAAABMXPacAAABxklEQVR4nO3RQW7bQBAAweT/j04C+OhQkM2d7ZVcBfC6nJn+/YuUADEBYgLEBIgJEBMgJkBMgJgAMQFiAsQEiAkQEyAmQEyAmAAxAWICxASICRATICZATICYADEBYgLEBIgJEBMgJkBMgJgAMQFiAsQEiAkQEyAmQGxTgD//vm0/eymbbiLAlU03+QhwZdMQR9q0uwBXNu3+OMBnm8Y6wKZNBbgyvulXT//Y+LjbjW8kwGPjG60N8Nn4AsPG5xfgsfH5pwNcGV9skfE5BXhscM7q9FcGV71hcCoBnjE41WkBrgye4AmDfxfgGVv/LslnO/8lwH/s/Nelnxxm4s0vE+A4PyfJ/RdGCHCo08LcP9/9F7YS4Dhtkvvnu/9CTIBDTYdZdbhV7xxHgOOsTbLqcKveeQECHOp7YVYdbtU7L0yA4zxOsvZka197EwIc6iPM2pOtfe3NCfCGBIgJEBMgJkBMgJgAMQFiAsQEiAkQEyAmQEyAmAAxAWICxASICRATICZATICYADEBYgLEBIgJEBMgJkBMgJgAMQFiAsQEiAkQEyAmQEyAmAAxAWICxASICRATICZATICYADEBYgLEBIgJEBMg9hfefCSBHuP7aAAAAABJRU5ErkJggg==" />
-<div style="flex-grow: 1;">
-
-<div class="example-wrap"><pre class="rust rust-example-rendered">
-<span class="kw">use</span> <span class="ident">embedded_graphics</span>::{
-    <span class="ident">pixelcolor</span>::<span class="ident">Rgb888</span>,
-    <span class="ident">prelude</span>::<span class="kw-2">*</span>,
-    <span class="ident">primitives</span>::<span class="ident">Line</span>,
-    <span class="ident">style</span>::<span class="ident">PrimitiveStyle</span>,
-};
-
-<span class="ident">Line</span>::<span class="ident">new</span>(<span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">16</span>, <span class="number">24</span>), <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">51</span>, <span class="number">34</span>))
-    .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle</span>::<span class="ident">with_stroke</span>(<span class="ident">Rgb888</span>::<span class="ident">RED</span>, <span class="number">8</span>))
-    .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)<span class="question-mark">?</span>;</pre></div>
-</div>
-</div>
-<h2 id="draw-a-rectangle" class="section-header"><a href="#draw-a-rectangle">Draw a rectangle</a></h2>
-<p>This example draws a rectangle with a 2px thick red stroke and cyan fill color.</p>
-<div style="display: flex">
-<img style="width: 128px; height: 128px; margin-right: 8px;" alt="Draw a rectangle example screenshot" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAIAAABMXPacAAAB2klEQVR4nO3RMWokURAE0Z37H3pWRoISCjUylIQE8aChv5NGxeufUAaAGQBmAJgBYAaAGQBmAJgBYAaAGQBmAJgBYAaAGQBmAJgBYAaAGQBmAJgBYAaAGQBmAJgBYAaAGQBmAJgBYAaAGQBmAJgBYAaAGQBmAJgBYAaAGQBmAJgBYAaAGQBmAJgBYAaAGQBmANg8wPvj+/t2Z9othwGe7ZbDAM92y2GAZ7vl6ACvd79+u/fr8ziffz9ttxx9cgNcu+Xokxvg2i1Hn9wA1245+uQGuHbL0Sc3wLVbjj65Aa7dcvTJDXDtlqNPboBrtxx9cgNcu+Xokxvg2i1Hn9wA1245+uQGuHbL0Sc3wLVbjj65Aa7dcvTJDXDtlqNPboBrtxx9cgNcu+Xokxvg2i1Hn9wA1245+uQGuHbL0Sc3wLVbjj65Aa7dcvTJDXDtlqNPboBrtxx9cgNcu+X4Syf/2u5Mu+UwwLPdchjg2W45DPBst6xvMQDMADADwAwAMwDMADADwAwAMwDMADADwAwAMwDMADADwAwAMwDMADADwAwAMwDMADADwAwAMwDMADADwAwAMwDMADADwAwAMwDMADADwAwAMwDMADADwAwAMwDMADADwAwAMwDsPzy9cIE/9mieAAAAAElFTkSuQmCC" />
-<div style="flex-grow: 1;">
-
-<div class="example-wrap"><pre class="rust rust-example-rendered">
-<span class="kw">use</span> <span class="ident">embedded_graphics</span>::{
-    <span class="ident">pixelcolor</span>::<span class="ident">Rgb888</span>,
-    <span class="ident">prelude</span>::<span class="kw-2">*</span>,
-    <span class="ident">primitives</span>::<span class="ident">Rectangle</span>,
-    <span class="ident">style</span>::<span class="ident">PrimitiveStyleBuilder</span>,
-};
-
-<span class="ident">Rectangle</span>::<span class="ident">new</span>(<span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">16</span>, <span class="number">24</span>), <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">48</span>, <span class="number">40</span>))
-    .<span class="ident">into_styled</span>(
-        <span class="ident">PrimitiveStyleBuilder</span>::<span class="ident">new</span>()
-            .<span class="ident">stroke_width</span>(<span class="number">2</span>)
-            .<span class="ident">stroke_color</span>(<span class="ident">Rgb888</span>::<span class="ident">RED</span>)
-            .<span class="ident">fill_color</span>(<span class="ident">Rgb888</span>::<span class="ident">CYAN</span>)
-            .<span class="ident">build</span>(),
-    )
-    .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)<span class="question-mark">?</span>;</pre></div>
-</div>
-</div>
-<h2 id="draw-a-circle" class="section-header"><a href="#draw-a-circle">Draw a circle</a></h2>
-<p>This example draws a circle with no stroke and a solid blue fill.</p>
-<div style="display: flex">
-<img style="width: 128px; height: 128px; margin-right: 8px;" alt="Draw a circle example screenshot" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAIAAABMXPacAAACe0lEQVR4nO3RS1LEMAxFUdj/ovlkwisMJJZkPSfcU9VDyR3d1xdYEcCMAGYEMCOAGQHMCGBGADMCmBHAjABmBDAjgBkBzAhgRgAzApgRwIwAZgQwI4AZAcwIYEYAsxsFePv4zdv9A3f/f4IArWLnvmKvT97r3wgCGKw7+m/8n+//B4IABv1H/43nFJ5XBQFs9jm96j5I93uCAJ+63zvseXrVd5a+lwQBvvS9dNj/9KrjOB1vCAJ81/HG4V6nV2tPtHa7IMDP1m4/3Pf0atWhVu0VBPjLqr2HZ5xe1Z+rfqMgwLn6jYIA5+o3CgKcq994eN7pVeXRKncJAlxVuUsQ4KrKXYIAV1XuOjz79KrmdDVbBAHm1GwRBJhTs0UQYE7NFkGAOTVbBAHm1Gw5/J/Tq+wBs/OCABHZeUGAiOy8IEBEdl4QICI7LwgQkZ0XBIjIzgsCRGTnBQEisvOCABHZeUGAiOy8IEBEdl4QICI7LwgQkZ0XBIjIzgsCRGTnBQEisvOCABHZ+cH/yVBzupotggBzarYIAsyp2SIIMKdmiyDAnJotggBzarYMnp2h8miVuwQBrqrcJQhwVeUuQYCrKncNnpeh/lz1GwUBztVvFAQ4V79REOBc/cbBMzKsOtSqvYIAf1m1d3DfDGtPtHa7IMDP1m4f3CtDx3E63hAE+K7jjcH+GfrO0veSIMCXvpcGe2boPkj3e4IAn7rfG+yTwXMKz6uCABvpj+H/fP8/EATYyLoYe33yXv9GEGA7sSS7f+Du/08QAAsQwIwAZgQwI4AZAcwIYEYAMwKYEcCMAGYEMCOAGQHMCGBGADMCmBHAjABmBDAjgBkBzN4BABtSgS+nmkgAAAAASUVORK5CYII=" />
-<div style="flex-grow: 1;">
-
-<div class="example-wrap"><pre class="rust rust-example-rendered">
-<span class="kw">use</span> <span class="ident">embedded_graphics</span>::{
-    <span class="ident">pixelcolor</span>::<span class="ident">Rgb888</span>,
-    <span class="ident">prelude</span>::<span class="kw-2">*</span>,
-    <span class="ident">primitives</span>::<span class="ident">Circle</span>,
-    <span class="ident">style</span>::<span class="ident">PrimitiveStyle</span>,
-};
-
-<span class="ident">Circle</span>::<span class="ident">new</span>(<span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">32</span>, <span class="number">32</span>), <span class="number">20</span>)
-    .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle</span>::<span class="ident">with_fill</span>(<span class="ident">Rgb888</span>::<span class="ident">BLUE</span>))
-    .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)<span class="question-mark">?</span>;</pre></div>
-</div>
-</div>
-<h2 id="draw-a-triangle" class="section-header"><a href="#draw-a-triangle">Draw a triangle</a></h2>
-<p>This example draws a triangle with a solid 1px magenta stroke and no fill.</p>
-<div style="display: flex">
-<img style="width: 128px; height: 128px; margin-right: 8px;" alt="Draw a triangle example screenshot" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAIAAABMXPacAAAC0klEQVR4nO3R0YpbMQyE4fb9H7p1CQwHygn22ppfhvn2ZgmJNdL8/hWoFABLAbAUAEsBsBQASwGwFABLAbAUAEsBsBQASwGwFABLAbAUAEsBsBQASwGwFABLAbAUAEsBsBQASwGwFABLAbAUAEsBsBQASwGwFAC7voA/4+/fGrcucmtuSQGwFABLAZjn6Z//3+W+xPI8+vP/u9yXWJ5Hf/5/l/sSy/Poz//vcl/i4e3cb593dlNWeTv02+ed3ZRV3g799nlnN2WVt0O/fd7ZTVmHmRPPfKePO1LKzHFnvtPHHSll5rgz3+njjpQyc9yZ7/RxR8ph9ayr36d0zyerB139PqV7Plk96Or3Kd3zyepBV79P6Z5v2Dnlzm89+iaTnSPu/NajbzLZOeLObz36JpOdI+781qNvsuHU+U69U6FjJjl1uFPvVOiYSU4d7tQ7FTpmklOHO/VOhY6ZhoqTVby5r1caqThWxZv7eqWRimNVvLmvVxqpOFbFm/t6pRmqz1T9/qouOaT6QNXvr+qSQ6oPVP3+qi45pPpA1e+v6pJjcJ7GOes7PoE4j+Kc9R2fQJxHcc76jk8gzqM4Z33HJxioc1Bzn8jZQh2CmvtEzhbqENTcJ3K2UIeg5j6Rs4cOJ2AzMFOFXf6DzcBMFXb5DzYDM1XY5T/YDMzUgV37f1Qe9zyhFn5D5XHPE2rhN1Qe9zyhFn5D5XHPG6hVZ/iz+SaJf8l5/my+SeJfcp4/m2+S+Jec58/mmzT41/sZZ07HDHEutsOZ0zFDnIvtcOZ0zBDnYjucOR0zBudKp3gy174unmXO8mSufV08y5zlyVz7uniWOcuTufb14bPG7epqqHpXUsB3Ve/GpBQASwGwFABLAbAUAEsBsBQASwGwFABLAbAUAEsBsBQASwGwFABLAbAUAEsBsBQASwGwFABLAbAUAEsBsBQASwGwFABLAbAUAPsLOXL8gVjK1mAAAAAASUVORK5CYII=" />
-<div style="flex-grow: 1;">
-
-<div class="example-wrap"><pre class="rust rust-example-rendered">
-<span class="kw">use</span> <span class="ident">embedded_graphics</span>::{
-    <span class="ident">pixelcolor</span>::<span class="ident">Rgb888</span>,
-    <span class="ident">prelude</span>::<span class="kw-2">*</span>,
-    <span class="ident">primitives</span>::<span class="ident">Triangle</span>,
-    <span class="ident">style</span>::<span class="ident">PrimitiveStyle</span>,
-};
-
-<span class="ident">Triangle</span>::<span class="ident">new</span>(<span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">32</span>, <span class="number">16</span>), <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">16</span>, <span class="number">48</span>), <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">48</span>, <span class="number">48</span>))
-    .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle</span>::<span class="ident">with_stroke</span>(<span class="ident">Rgb888</span>::<span class="ident">MAGENTA</span>, <span class="number">1</span>))
-    .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)<span class="question-mark">?</span>;</pre></div>
-</div>
-</div>
-<h2 id="draw-some-text" class="section-header"><a href="#draw-some-text">Draw some text</a></h2>
-<p>This example draws the text “Hello,\nRust!” with the <a href="./fonts/struct.Font6x8.html"><code>Font6x8</code></a> font in green.</p>
-<div style="display: flex">
-<img style="width: 128px; height: 128px; margin-right: 8px;" alt="Draw some text example screenshot" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAIAAABMXPacAAADBklEQVR4nO3R247bUAxD0fb/P7ptwBeqGhky5sIcYy+ggEEz0yj8/QtRDBDGAGEMEMYAYQwQxgBhDBDGAGEMEMYAYQwQxgBhDBDGAGEMEMYAYQwQxgBhDBDGAGEMEMYAYQwQxgBhDBDGAGEMEMYAYQwQxgBhDBDGAGEMEMYAYQwQxgBhDBDGAGEMEMYAYQwQxgBhDBDGAGEMEMYAYQwQxgBhDBDGAGEMEMYAYQwQxgBhDBBWB/jz79//2cuUX9OnZPrspvNo9Wj9HDV7mfJr+pRMn910Hq0erZ+jZi9TvrH57KbzUPXo6YeY8o3NZzedh6pHTz9Ez5U4f+vUnN7KdUdv3dQ8UD1Fp9bspedKnL91ak5v5bqjt25qHqie0k916qqjZ3c3d1Pnbn6geoQOm6irjp7d3dxNnbv5geoR02Ge63mijlO/527q3M0PVI+YDvNczxN1nPo9d1Pnbn6gesR0mOf+vLHpT519rkQ8f3v1y+qMmr147s8bm/7U2edKxPO3V7+szqjZS8+VOH8rP9kRNae3b6l+2emAnitx/lZ+siNqTm/f0lFf9sKBP70c+JU/9JABdEZXW19J/+Pm7++bR6kH6ciutr6S/sfN3983j1IPmo6c8s/b/+V98yj1oOnIKf+8/V/eN49SD5qO9NyfXc+VdOr0t8on6l93DlQPmo703J9dz5V06vS3yifqX3cOVA/SkZ231PFEPPfna9/RPEo9SEd23lLHE/Hcn699R/Mo9SA/0p/dPlfi/K2o0/Nu3zxKPciP9Ge3z5U4fyvq9LzbN49SD+pH7hPxvFPTO5vk0eqh/fh9Ip53anpnkzxaPXQ6vudKRLkSf+70tvP+dWd6e6x60HRkz5WIciX+3Olt5/3rzvT2WI876DQMEMYAYQwQxgBhDBDGAGEMEMYAYQwQxgBhDBDGAGEMEMYAYQwQxgBhDBDGAGEMEMYAYQwQxgBhDBDGAGEMEMYAYQwQxgBhDBDGAGEMEMYAYQwQxgBhDBDGAGEMEMYAYQwQxgBhDBD2FyjfqoEr2rxJAAAAAElFTkSuQmCC" />
-<div style="flex-grow: 1;">
-
-<div class="example-wrap"><pre class="rust rust-example-rendered">
-<span class="kw">use</span> <span class="ident">embedded_graphics</span>::{
-    <span class="ident">fonts</span>::{
-        <span class="ident">Font6x8</span>,
-        <span class="ident">Text</span>,
+    <span class="ident">primitives</span>::{
+        <span class="ident">Circle</span>, <span class="ident">PrimitiveStyle</span>, <span class="ident">PrimitiveStyleBuilder</span>, <span class="ident">Rectangle</span>, <span class="ident">StrokeAlignment</span>, <span class="ident">Triangle</span>,
     },
-    <span class="ident">pixelcolor</span>::<span class="ident">Rgb888</span>,
-    <span class="ident">prelude</span>::<span class="kw-2">*</span>,
-    <span class="ident">style</span>::<span class="ident">TextStyle</span>,
+    <span class="ident">text</span>::{<span class="ident">Alignment</span>, <span class="ident">Text</span>},
+    <span class="ident">mock_display</span>::<span class="ident">MockDisplay</span>,
 };
 
-<span class="ident">Text</span>::<span class="ident">new</span>(<span class="string">&quot;Hello,\nRust!&quot;</span>, <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">2</span>, <span class="number">28</span>))
-    .<span class="ident">into_styled</span>(<span class="ident">TextStyle</span>::<span class="ident">new</span>(<span class="ident">Font6x8</span>, <span class="ident">Rgb888</span>::<span class="ident">GREEN</span>))
-    .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)<span class="question-mark">?</span>;</pre></div>
-</div>
-</div>
-<h2 id="display-a-tga-image" class="section-header"><a href="#display-a-tga-image">Display a TGA image</a></h2>
-<p>This example uses <a href="https://crates.io/crates/tinytga">tinytga</a> to draw an image to the display.</p>
-<div style="display: flex">
-<img style="width: 128px; height: 128px; margin-right: 8px;" alt="Display a TGA image example screenshot" src="data:image/png;base64,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" />
-<div style="flex-grow: 1;">
+<span class="kw">fn</span> <span class="ident">main</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">std</span>::<span class="ident">convert</span>::<span class="ident">Infallible</span><span class="op">&gt;</span> {
+    <span class="comment">// Create a new mock display</span>
+    <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span>: <span class="ident">MockDisplay</span><span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="ident">new</span>();
 
-<div class="example-wrap"><pre class="rust rust-example-rendered">
-<span class="kw">use</span> <span class="ident">embedded_graphics</span>::{
-    <span class="ident">image</span>::<span class="ident">Image</span>,
-    <span class="ident">pixelcolor</span>::<span class="ident">Rgb888</span>,
-    <span class="ident">prelude</span>::<span class="kw-2">*</span>,
-};
-<span class="kw">use</span> <span class="ident">tinytga</span>::<span class="ident">Tga</span>;
+    <span class="comment">// Create styles used by the drawing operations.</span>
+    <span class="kw">let</span> <span class="ident">thin_stroke</span> <span class="op">=</span> <span class="ident">PrimitiveStyle</span>::<span class="ident">with_stroke</span>(<span class="ident">BinaryColor</span>::<span class="ident">On</span>, <span class="number">1</span>);
+    <span class="kw">let</span> <span class="ident">thick_stroke</span> <span class="op">=</span> <span class="ident">PrimitiveStyle</span>::<span class="ident">with_stroke</span>(<span class="ident">BinaryColor</span>::<span class="ident">On</span>, <span class="number">3</span>);
+    <span class="kw">let</span> <span class="ident">border_stroke</span> <span class="op">=</span> <span class="ident">PrimitiveStyleBuilder</span>::<span class="ident">new</span>()
+        .<span class="ident">stroke_color</span>(<span class="ident">BinaryColor</span>::<span class="ident">On</span>)
+        .<span class="ident">stroke_width</span>(<span class="number">3</span>)
+        .<span class="ident">stroke_alignment</span>(<span class="ident">StrokeAlignment</span>::<span class="ident">Inside</span>)
+        .<span class="ident">build</span>();
+    <span class="kw">let</span> <span class="ident">fill</span> <span class="op">=</span> <span class="ident">PrimitiveStyle</span>::<span class="ident">with_fill</span>(<span class="ident">BinaryColor</span>::<span class="ident">On</span>);
+    <span class="kw">let</span> <span class="ident">character_style</span> <span class="op">=</span> <span class="ident">MonoTextStyle</span>::<span class="ident">new</span>(<span class="kw-2">&amp;</span><span class="ident">FONT_6X10</span>, <span class="ident">BinaryColor</span>::<span class="ident">On</span>);
 
-<span class="kw">let</span> <span class="ident">tga</span> <span class="op">=</span> <span class="ident">Tga</span>::<span class="ident">from_slice</span>(<span class="macro">include_bytes</span><span class="macro">!</span>(<span class="macro">concat</span><span class="macro">!</span>(
-    <span class="macro">env</span><span class="macro">!</span>(<span class="string">&quot;CARGO_MANIFEST_DIR&quot;</span>),
-    <span class="string">&quot;/../simulator/examples/assets/rust-pride.tga&quot;</span>
-)))
-.<span class="ident">unwrap</span>();
+    <span class="kw">let</span> <span class="ident">yoffset</span> <span class="op">=</span> <span class="number">10</span>;
 
-<span class="kw">let</span> <span class="ident">image</span>: <span class="ident">Image</span><span class="op">&lt;</span><span class="ident">Tga</span>, <span class="ident">Rgb888</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Image</span>::<span class="ident">new</span>(<span class="kw-2">&amp;</span><span class="ident">tga</span>, <span class="ident">Point</span>::<span class="ident">zero</span>());
+    <span class="comment">// Draw a 3px wide outline around the display.</span>
+    <span class="ident">display</span>
+        .<span class="ident">bounding_box</span>()
+        .<span class="ident">into_styled</span>(<span class="ident">border_stroke</span>)
+        .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)<span class="question-mark">?</span>;
 
-<span class="ident">image</span>.<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)<span class="question-mark">?</span>;</pre></div>
-</div>
-</div>
+    <span class="comment">// Draw a triangle.</span>
+    <span class="ident">Triangle</span>::<span class="ident">new</span>(
+        <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">16</span>, <span class="number">16</span> <span class="op">+</span> <span class="ident">yoffset</span>),
+        <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">16</span> <span class="op">+</span> <span class="number">16</span>, <span class="number">16</span> <span class="op">+</span> <span class="ident">yoffset</span>),
+        <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">16</span> <span class="op">+</span> <span class="number">8</span>, <span class="ident">yoffset</span>),
+    )
+    .<span class="ident">into_styled</span>(<span class="ident">thin_stroke</span>)
+    .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)<span class="question-mark">?</span>;
+
+    <span class="comment">// Draw a filled square</span>
+    <span class="ident">Rectangle</span>::<span class="ident">new</span>(<span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">52</span>, <span class="ident">yoffset</span>), <span class="ident">Size</span>::<span class="ident">new</span>(<span class="number">16</span>, <span class="number">16</span>))
+        .<span class="ident">into_styled</span>(<span class="ident">fill</span>)
+        .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)<span class="question-mark">?</span>;
+
+    <span class="comment">// Draw a circle with a 3px wide stroke.</span>
+    <span class="ident">Circle</span>::<span class="ident">new</span>(<span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">88</span>, <span class="ident">yoffset</span>), <span class="number">17</span>)
+        .<span class="ident">into_styled</span>(<span class="ident">thick_stroke</span>)
+        .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)<span class="question-mark">?</span>;
+
+    <span class="comment">// Draw centered text.</span>
+    <span class="kw">let</span> <span class="ident">text</span> <span class="op">=</span> <span class="string">&quot;embedded-graphics&quot;</span>;
+    <span class="ident">Text</span>::<span class="ident">with_alignment</span>(
+        <span class="ident">text</span>,
+        <span class="ident">display</span>.<span class="ident">bounding_box</span>().<span class="ident">center</span>() <span class="op">+</span> <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">0</span>, <span class="number">15</span>),
+        <span class="ident">character_style</span>,
+        <span class="ident">Alignment</span>::<span class="ident">Center</span>,
+    )
+    .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)<span class="question-mark">?</span>;
+
+    <span class="prelude-val">Ok</span>(())
+}</pre></div>
+<p>This example is also included in the <a href="https://github.com/embedded-graphics/examples">examples</a> repository and
+can be run using <code>cargo run --example hello-world</code>. It produces this output:</p>
+<p><img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/4c680418cc4c37b8f7ed92d8b26edfde880d4c96/assets/hello-world-simulator.png" alt="Embedded Graphics Simulator example screenshot" /></p>
+<p>Additional examples can be found in the <a href="https://github.com/embedded-graphics/examples">examples</a> repository.</p>
 </div><h2 id="modules" class="section-header"><a href="#modules">Modules</a></h2>
-<table><tr class="module-item"><td><a class="mod" href="drawable/index.html" title="embedded_graphics::drawable mod">drawable</a></td><td class="docblock-short"><p><code>Drawable</code> trait and helpers</p>
-</td></tr><tr class="module-item"><td><a class="mod" href="fonts/index.html" title="embedded_graphics::fonts mod">fonts</a></td><td class="docblock-short"><p>Monospaced bitmap fonts.</p>
+<table><tr class="module-item"><td><a class="mod" href="draw_target/index.html" title="embedded_graphics::draw_target mod">draw_target</a></td><td class="docblock-short"><p>A target for embedded-graphics drawing operations.</p>
+</td></tr><tr class="module-item"><td><a class="mod" href="examples/index.html" title="embedded_graphics::examples mod">examples</a></td><td class="docblock-short"><p>Drawing examples</p>
 </td></tr><tr class="module-item"><td><a class="mod" href="geometry/index.html" title="embedded_graphics::geometry mod">geometry</a></td><td class="docblock-short"><p>Geometry module.</p>
 </td></tr><tr class="module-item"><td><a class="mod" href="image/index.html" title="embedded_graphics::image mod">image</a></td><td class="docblock-short"><p>Image support for embedded-graphics</p>
+</td></tr><tr class="module-item"><td><a class="mod" href="iterator/index.html" title="embedded_graphics::iterator mod">iterator</a></td><td class="docblock-short"><p>Iterators.</p>
 </td></tr><tr class="module-item"><td><a class="mod" href="mock_display/index.html" title="embedded_graphics::mock_display mod">mock_display</a></td><td class="docblock-short"><p>Mock display for use in tests.</p>
+</td></tr><tr class="module-item"><td><a class="mod" href="mono_font/index.html" title="embedded_graphics::mono_font mod">mono_font</a></td><td class="docblock-short"><p>Monospaced bitmap fonts.</p>
 </td></tr><tr class="module-item"><td><a class="mod" href="pixelcolor/index.html" title="embedded_graphics::pixelcolor mod">pixelcolor</a></td><td class="docblock-short"><p>Pixel color types.</p>
 </td></tr><tr class="module-item"><td><a class="mod" href="prelude/index.html" title="embedded_graphics::prelude mod">prelude</a></td><td class="docblock-short"><p>Prelude</p>
 </td></tr><tr class="module-item"><td><a class="mod" href="primitives/index.html" title="embedded_graphics::primitives mod">primitives</a></td><td class="docblock-short"><p>Graphics primitives</p>
-</td></tr><tr class="module-item"><td><a class="mod" href="style/index.html" title="embedded_graphics::style mod">style</a></td><td class="docblock-short"><p>Styling struct to customize the look of objects.</p>
+</td></tr><tr class="module-item"><td><a class="mod" href="text/index.html" title="embedded_graphics::text mod">text</a></td><td class="docblock-short"><p>Text drawing.</p>
 </td></tr><tr class="module-item"><td><a class="mod" href="transform/index.html" title="embedded_graphics::transform mod">transform</a></td><td class="docblock-short"><p>Transformations for graphics objects</p>
-</td></tr></table><h2 id="macros" class="section-header"><a href="#macros">Macros</a></h2>
-<table><tr class="module-item"><td><a class="macro" href="macro.egcircle.html" title="embedded_graphics::egcircle macro">egcircle</a></td><td class="docblock-short"><p>Create a <a href="./primitives/circle/struct.Circle.html"><code>Circle</code></a> with optional styling using a
-convenient macro.</p>
-</td></tr><tr class="module-item"><td><a class="macro" href="macro.egline.html" title="embedded_graphics::egline macro">egline</a></td><td class="docblock-short"><p>Create a <a href="./primitives/line/struct.Line.html"><code>Line</code></a> with optional styling using a
-convenient macro.</p>
-</td></tr><tr class="module-item"><td><a class="macro" href="macro.egrectangle.html" title="embedded_graphics::egrectangle macro">egrectangle</a></td><td class="docblock-short"><p>Create a <a href="./primitives/rectangle/struct.Rectangle.html"><code>Rectangle</code></a> with optional styling using a
-convenient macro.</p>
-</td></tr><tr class="module-item"><td><a class="macro" href="macro.egtext.html" title="embedded_graphics::egtext macro">egtext</a></td><td class="docblock-short"><p>Creates a styled text.</p>
-</td></tr><tr class="module-item"><td><a class="macro" href="macro.egtriangle.html" title="embedded_graphics::egtriangle macro">egtriangle</a></td><td class="docblock-short"><p>Create a <a href="./primitives/triangle/struct.Triangle.html"><code>Triangle</code></a> with optional styling using a
-convenient macro.</p>
-</td></tr><tr class="module-item"><td><a class="macro" href="macro.primitive_style.html" title="embedded_graphics::primitive_style macro">primitive_style</a></td><td class="docblock-short"><p>Create a <a href="./style/struct.PrimitiveStyle.html"><code>PrimitiveStyle</code></a></p>
-</td></tr><tr class="module-item"><td><a class="macro" href="macro.text_style.html" title="embedded_graphics::text_style macro">text_style</a></td><td class="docblock-short"><p>Create a <a href="./style/struct.TextStyle.html"><code>TextStyle</code></a></p>
+</td></tr></table><h2 id="structs" class="section-header"><a href="#structs">Structs</a></h2>
+<table><tr class="module-item"><td><a class="struct" href="struct.Pixel.html" title="embedded_graphics::Pixel struct">Pixel</a></td><td class="docblock-short"><p>A single pixel.</p>
 </td></tr></table><h2 id="traits" class="section-header"><a href="#traits">Traits</a></h2>
-<table><tr class="module-item"><td><a class="trait" href="trait.DrawTarget.html" title="embedded_graphics::DrawTarget trait">DrawTarget</a></td><td class="docblock-short"><p>Defines a display that can be used to render <a href="../drawable/trait.Drawable.html"><code>Drawable</code></a> objects.</p>
+<table><tr class="module-item"><td><a class="trait" href="trait.Drawable.html" title="embedded_graphics::Drawable trait">Drawable</a></td><td class="docblock-short"><p>Marks an object as “drawable”. Must be implemented for all graphics objects</p>
 </td></tr></table></section><section id="search" class="content hidden"></section><section class="footer"></section><div id="rustdoc-vars" data-root-path="../" data-current-crate="embedded_graphics" data-search-js="../search-index.js"></div>
     <script src="../main.js"></script></body></html>

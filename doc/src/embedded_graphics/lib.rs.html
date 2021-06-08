@@ -1,6 +1,6 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.6.2/src/lib.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>lib.rs - source</title><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled ><script id="default-settings"></script><script src="../../storage.js"></script><script src="../../crates.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.0/src/lib.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>lib.rs - source</title><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled ><script id="default-settings"></script><script src="../../storage.js"></script><script src="../../crates.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="alternate icon" type="image/png" href="../../favicon-16x16.png">
-<link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../embedded_graphics/index.html'><div class='logo-container'><img src='https://raw.githubusercontent.com/jamwaffles/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><script src="../../theme.js"></script><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" class="help-button">?</button>
+<link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../embedded_graphics/index.html'><div class='logo-container'><img src='https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><script src="../../theme.js"></script><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" class="help-button">?</button>
                 <a id="settings-menu" href="../../settings.html"><img src="../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
@@ -247,222 +247,65 @@
 <span id="244">244</span>
 <span id="245">245</span>
 <span id="246">246</span>
-<span id="247">247</span>
-<span id="248">248</span>
-<span id="249">249</span>
-<span id="250">250</span>
-<span id="251">251</span>
-<span id="252">252</span>
-<span id="253">253</span>
-<span id="254">254</span>
-<span id="255">255</span>
-<span id="256">256</span>
-<span id="257">257</span>
-<span id="258">258</span>
-<span id="259">259</span>
-<span id="260">260</span>
-<span id="261">261</span>
-<span id="262">262</span>
-<span id="263">263</span>
-<span id="264">264</span>
-<span id="265">265</span>
-<span id="266">266</span>
-<span id="267">267</span>
-<span id="268">268</span>
-<span id="269">269</span>
-<span id="270">270</span>
-<span id="271">271</span>
-<span id="272">272</span>
-<span id="273">273</span>
-<span id="274">274</span>
-<span id="275">275</span>
-<span id="276">276</span>
-<span id="277">277</span>
-<span id="278">278</span>
-<span id="279">279</span>
-<span id="280">280</span>
-<span id="281">281</span>
-<span id="282">282</span>
-<span id="283">283</span>
-<span id="284">284</span>
-<span id="285">285</span>
-<span id="286">286</span>
-<span id="287">287</span>
-<span id="288">288</span>
-<span id="289">289</span>
-<span id="290">290</span>
-<span id="291">291</span>
-<span id="292">292</span>
-<span id="293">293</span>
-<span id="294">294</span>
-<span id="295">295</span>
-<span id="296">296</span>
-<span id="297">297</span>
-<span id="298">298</span>
-<span id="299">299</span>
-<span id="300">300</span>
-<span id="301">301</span>
-<span id="302">302</span>
-<span id="303">303</span>
-<span id="304">304</span>
-<span id="305">305</span>
-<span id="306">306</span>
-<span id="307">307</span>
-<span id="308">308</span>
-<span id="309">309</span>
-<span id="310">310</span>
-<span id="311">311</span>
-<span id="312">312</span>
-<span id="313">313</span>
-<span id="314">314</span>
-<span id="315">315</span>
-<span id="316">316</span>
-<span id="317">317</span>
-<span id="318">318</span>
-<span id="319">319</span>
-<span id="320">320</span>
-<span id="321">321</span>
-<span id="322">322</span>
-<span id="323">323</span>
-<span id="324">324</span>
-<span id="325">325</span>
-<span id="326">326</span>
-<span id="327">327</span>
-<span id="328">328</span>
-<span id="329">329</span>
-<span id="330">330</span>
-<span id="331">331</span>
-<span id="332">332</span>
-<span id="333">333</span>
-<span id="334">334</span>
-<span id="335">335</span>
-<span id="336">336</span>
-<span id="337">337</span>
-<span id="338">338</span>
-<span id="339">339</span>
-<span id="340">340</span>
-<span id="341">341</span>
-<span id="342">342</span>
-<span id="343">343</span>
-<span id="344">344</span>
-<span id="345">345</span>
-<span id="346">346</span>
-<span id="347">347</span>
-<span id="348">348</span>
-<span id="349">349</span>
-<span id="350">350</span>
-<span id="351">351</span>
-<span id="352">352</span>
-<span id="353">353</span>
-<span id="354">354</span>
-<span id="355">355</span>
-<span id="356">356</span>
-<span id="357">357</span>
-<span id="358">358</span>
-<span id="359">359</span>
-<span id="360">360</span>
-<span id="361">361</span>
-<span id="362">362</span>
-<span id="363">363</span>
-<span id="364">364</span>
-<span id="365">365</span>
-<span id="366">366</span>
-<span id="367">367</span>
-<span id="368">368</span>
-<span id="369">369</span>
-<span id="370">370</span>
-<span id="371">371</span>
-<span id="372">372</span>
-<span id="373">373</span>
-<span id="374">374</span>
-<span id="375">375</span>
-<span id="376">376</span>
-<span id="377">377</span>
-<span id="378">378</span>
-<span id="379">379</span>
-<span id="380">380</span>
-<span id="381">381</span>
-<span id="382">382</span>
-<span id="383">383</span>
-<span id="384">384</span>
-<span id="385">385</span>
-<span id="386">386</span>
-<span id="387">387</span>
-<span id="388">388</span>
-<span id="389">389</span>
-<span id="390">390</span>
-<span id="391">391</span>
-<span id="392">392</span>
-<span id="393">393</span>
-<span id="394">394</span>
-<span id="395">395</span>
-<span id="396">396</span>
-<span id="397">397</span>
-<span id="398">398</span>
-<span id="399">399</span>
-<span id="400">400</span>
-<span id="401">401</span>
-<span id="402">402</span>
-<span id="403">403</span>
-<span id="404">404</span>
-<span id="405">405</span>
-<span id="406">406</span>
-<span id="407">407</span>
-<span id="408">408</span>
-<span id="409">409</span>
-<span id="410">410</span>
-<span id="411">411</span>
-<span id="412">412</span>
-<span id="413">413</span>
-<span id="414">414</span>
-<span id="415">415</span>
-<span id="416">416</span>
-<span id="417">417</span>
-<span id="418">418</span>
-<span id="419">419</span>
-<span id="420">420</span>
 </pre><div class="example-wrap"><pre class="rust ">
-<span class="doccomment">//! This crate aims to make drawing 2D graphics primitives super easy. It currently supports the</span>
-<span class="doccomment">//! following built in items:</span>
+<span class="doccomment">//! Embedded-graphics is a 2D graphics library that is focused on memory constrained embedded devices.</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! A core goal of embedded-graphics is to draw graphics without using any buffers; the crate is</span>
+<span class="doccomment">//! `no_std` compatible and works without a dynamic memory allocator, and without pre-allocating</span>
+<span class="doccomment">//! large chunks of memory. To achieve this, it takes an `Iterator` based approach, where pixel</span>
+<span class="doccomment">//! colors and positions are calculated on the fly, with the minimum of saved state. This allows the</span>
+<span class="doccomment">//! consuming application to use far less RAM at little to no performance penalty.</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! It contains built in items that make it easy to draw 2D graphics primitives:</span>
 <span class="doccomment">//!</span>
 <span class="doccomment">//! * [Raw data images](./image/struct.ImageRaw.html)</span>
 <span class="doccomment">//! * [Primitives](./primitives/index.html)</span>
 <span class="doccomment">//!     * [Lines](./primitives/line/struct.Line.html)</span>
 <span class="doccomment">//!     * [Rectangles (and squares)](./primitives/rectangle/struct.Rectangle.html)</span>
 <span class="doccomment">//!     * [Circles](./primitives/circle/struct.Circle.html)</span>
+<span class="doccomment">//!     * [Ellipses](./primitives/ellipse/struct.Ellipse.html)</span>
+<span class="doccomment">//!     * [Arcs](./primitives/arc/struct.Arc.html)</span>
+<span class="doccomment">//!     * [Sectors](./primitives/sector/struct.Sector.html)</span>
 <span class="doccomment">//!     * [Triangles](./primitives/triangle/struct.Triangle.html)</span>
-<span class="doccomment">//! * [Text with multiple fonts](./fonts/index.html#types)</span>
+<span class="doccomment">//!     * [Polylines](./primitives/polyline/struct.Polyline.html)</span>
+<span class="doccomment">//!     * [Rounded rectangles](./primitives/rounded_rectangle/struct.RoundedRectangle.html)</span>
+<span class="doccomment">//! * [Text](./text/index.html)</span>
+<span class="doccomment">//! * [Monospaced fonts](./mono_font/index.html)</span>
 <span class="doccomment">//!</span>
-<span class="doccomment">//! Additional functionality provided by external crates:</span>
+<span class="doccomment">//! # Additional functions provided by external crates</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! Embedded-graphics is designed to be extended by the application or other crates. Examples of</span>
+<span class="doccomment">//! this are adding support for different image formats or implementing custom fonts.</span>
 <span class="doccomment">//!</span>
 <span class="doccomment">//! * [BMP images - `tinybmp`](https://crates.io/crates/tinybmp)</span>
 <span class="doccomment">//! * [TGA images - `tinytga`](https://crates.io/crates/tinytga)</span>
 <span class="doccomment">//! * [ProFont monospace font - `profont`](https://crates.io/crates/profont)</span>
 <span class="doccomment">//! * [Picofont Pico8 font - `embedded-picofont`](https://crates.io/crates/embedded_picofont)</span>
 <span class="doccomment">//! * [IBM437 font - `ibm437`](https://crates.io/crates/ibm437)</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! If you know of a crate that is not in this list, please [open an</span>
-<span class="doccomment">//! issue](https://github.com/jamwaffles/embedded-graphics/issues/new).</span>
+<span class="doccomment">//! * [Simple layout/alignment functions - `embedded-layout`](https://crates.io/crates/embedded-layout)</span>
+<span class="doccomment">//! * [TextBox with text alignment options - `embedded-text`](https://crates.io/crates/embedded-text)</span>
+<span class="doccomment">//! * [Heapless plotting library for small embedded targets - `embedded-plots`](https://crates.io/crates/embedded-plots)</span>
 <span class="doccomment">//!</span>
 <span class="doccomment">//! Note that some of these crates may not support the latest version of embedded-graphics.</span>
 <span class="doccomment">//!</span>
-<span class="doccomment">//! You can also add your own objects by implementing [`Drawable`] on them. Additionally, all</span>
-<span class="doccomment">//! iterators over pixels (`Iterator&lt;Item = Pixel&lt;C&gt;&gt;`) have a default [`Drawable`] implementation</span>
-<span class="doccomment">//! already created.</span>
+<span class="doccomment">//! If you know of a crate that is not in this list, please [open an</span>
+<span class="doccomment">//! issue](https://github.com/embedded-graphics/embedded-graphics/issues/new) to add it.</span>
 <span class="doccomment">//!</span>
-<span class="doccomment">//! A core goal of embedded-graphics is to draw graphics without using any buffers; the crate is</span>
-<span class="doccomment">//! `no_std` compatible and works without a dynamic memory allocator, and without pre-allocating</span>
-<span class="doccomment">//! large chunks of memory. To achieve this, it takes an `Iterator` based approach, where pixel</span>
-<span class="doccomment">//! values and positions are calculated on the fly, with the minimum of saved state. This allows the</span>
-<span class="doccomment">//! consuming application to use far less RAM at little to no performance penalty.</span>
+<span class="doccomment">//! # Display drivers</span>
 <span class="doccomment">//!</span>
-<span class="doccomment">//! # Supported displays</span>
+<span class="doccomment">//! To support many different kinds of display, embedded-graphics doesn&#39;t include any drivers</span>
+<span class="doccomment">//! directly but provides the [`DrawTarget`] API in [`embedded-graphics-core`] that can be</span>
+<span class="doccomment">//! implemented by external crates. In addition to the drivers for real displays, the</span>
+<span class="doccomment">//! [simulator](https://docs.rs/embedded-graphics-simulator/) can be used to test code during</span>
+<span class="doccomment">//! development.</span>
 <span class="doccomment">//!</span>
-<span class="doccomment">//! These are just some of the displays the community has added embedded_graphics support to. This</span>
+<span class="doccomment">//! ![Photographs showing embedded-graphics running on physical display hardware.](https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/4c680418cc4c37b8f7ed92d8b26edfde880d4c96/assets/banner-photo.jpg)</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! These are just some of the displays the community has added embedded-graphics support to. This</span>
 <span class="doccomment">//! list is taken from the [dependent crates</span>
 <span class="doccomment">//! list](https://crates.io/crates/embedded-graphics/reverse_dependencies) on crates.io so might be</span>
 <span class="doccomment">//! missing some unpublished entries. Please [open an</span>
-<span class="doccomment">//! issue](https://github.com/jamwaffles/embedded-graphics/issues/new) if there&#39;s a display driver</span>
+<span class="doccomment">//! issue](https://github.com/embedded-graphics/embedded-graphics/issues/new) if there&#39;s a display driver</span>
 <span class="doccomment">//! that should be added to this list.</span>
 <span class="doccomment">//!</span>
 <span class="doccomment">//! Note that some drivers may not support the latest version of embedded-graphics.</span>
@@ -472,348 +315,160 @@
 <span class="doccomment">//! * [hub75](https://crates.io/crates/hub75): A rust driver for hub75 rgb matrix displays</span>
 <span class="doccomment">//! * [ili9341](https://crates.io/crates/ili9341): A platform agnostic driver to interface with the ILI9341 (and ILI9340C) TFT LCD display</span>
 <span class="doccomment">//! * [ls010b7dh01](https://crates.io/crates/ls010b7dh01): A platform agnostic driver for the LS010B7DH01 memory LCD display</span>
+<span class="doccomment">//! * [push2_display](https://crates.io/crates/push2_display): Ableton Push2 embedded-graphics display driver</span>
 <span class="doccomment">//! * [sh1106](https://crates.io/crates/sh1106): I2C driver for the SH1106 OLED display</span>
 <span class="doccomment">//! * [ssd1306](https://crates.io/crates/ssd1306): I2C and SPI (4 wire) driver for the SSD1306 OLED display</span>
+<span class="doccomment">//! * [ssd1309](https://crates.io/crates/ssd1309): I2C/SPI driver for the SSD1309 OLED display written in 100% Rust.</span>
 <span class="doccomment">//! * [ssd1322](https://crates.io/crates/ssd1322): Pure Rust driver for the SSD1322 OLED display chip</span>
 <span class="doccomment">//! * [ssd1331](https://crates.io/crates/ssd1331): SPI (4 wire) driver for the SSD1331 OLED display</span>
 <span class="doccomment">//! * [ssd1351](https://crates.io/crates/ssd1351): SSD1351 driver</span>
 <span class="doccomment">//! * [ssd1675](https://crates.io/crates/ssd1675): Rust driver for the Solomon Systech SSD1675 e-Paper display (EPD) controller</span>
 <span class="doccomment">//! * [st7735-lcd](https://crates.io/crates/st7735-lcd): Rust library for displays using the ST7735 driver</span>
+<span class="doccomment">//! * [st7789](https://crates.io/crates/st7789): A Rust driver library for ST7789 displays</span>
 <span class="doccomment">//! * [st7920](https://crates.io/crates/st7920): ST7920 LCD driver in Rust</span>
 <span class="doccomment">//!</span>
 <span class="doccomment">//! # Simulator</span>
 <span class="doccomment">//!</span>
-<span class="doccomment">//! Embedded graphics comes with a [simulator]!</span>
+<span class="doccomment">//! Embedded graphics comes with a [simulator]! The simulator can be used to test and debug</span>
+<span class="doccomment">//! embedded graphics code, or produce examples and interactive demos to show off embedded graphics</span>
+<span class="doccomment">//! features.</span>
 <span class="doccomment">//!</span>
-<span class="doccomment">//! ![It can display all sorts of embedded-graphics test code.](https://raw.githubusercontent.com/jamwaffles/embedded-graphics/master/assets/simulator-demo.png)</span>
+<span class="doccomment">//! ![A screenshot of embedded-graphics running in its simulator.](https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/4c680418cc4c37b8f7ed92d8b26edfde880d4c96/assets/simulator-demo.png)</span>
 <span class="doccomment">//!</span>
-<span class="doccomment">//! Take a look at the [simulator examples] to see what</span>
-<span class="doccomment">//! embedded_graphics can do, and how it might look on a display. You can run the examples like</span>
+<span class="doccomment">//! Take a look at the [examples repository](https://github.com/embedded-graphics/examples) to see what</span>
+<span class="doccomment">//! embedded-graphics can do, and how it might look on a display. You can run the examples like</span>
 <span class="doccomment">//! this:</span>
 <span class="doccomment">//!</span>
 <span class="doccomment">//! ```bash</span>
-<span class="doccomment">//! git clone https://github.com/jamwaffles/embedded-graphics.git</span>
-<span class="doccomment">//! cd embedded-graphics</span>
+<span class="doccomment">//! git clone https://github.com/embedded-graphics/examples.git</span>
+<span class="doccomment">//! cd examples</span>
 <span class="doccomment">//!</span>
-<span class="doccomment">//! cargo run -p embedded-graphics-simulator --example hello</span>
+<span class="doccomment">//! cargo run --example hello-world</span>
 <span class="doccomment">//! ```</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! [simulator]: https://github.com/jamwaffles/embedded-graphics/tree/c4f74c12dae9f0a0193fa48192f905a002bf8c9d/simulator</span>
-<span class="doccomment">//! [simulator examples]: https://github.com/jamwaffles/embedded-graphics/tree/c4f74c12dae9f0a0193fa48192f905a002bf8c9d/simulator/examples</span>
 <span class="doccomment">//!</span>
 <span class="doccomment">//! # Crate features</span>
 <span class="doccomment">//!</span>
-<span class="doccomment">//! Add these to your `Cargo.toml` to turn on extra bits of functionality.</span>
+<span class="doccomment">//! Additional features can be enabled by adding the following features to your `Cargo.toml`.</span>
 <span class="doccomment">//!</span>
 <span class="doccomment">//! * `nalgebra_support` - use the [Nalgebra](https://crates.io/crates/nalgebra) crate with `no_std`</span>
 <span class="doccomment">//! support to enable conversions from `nalgebra::Vector2` to [`Point`] and [`Size`].</span>
 <span class="doccomment">//!</span>
-<span class="doccomment">//! # Implementing `embedded_graphics` in a driver</span>
+<span class="doccomment">//! * `fixed_point` - use fixed point arithmetic instead of floating point for all trigonometric</span>
+<span class="doccomment">//! calculation.</span>
 <span class="doccomment">//!</span>
-<span class="doccomment">//! To add support for embedded_graphics to a display driver, [`DrawTarget`] should be implemented.</span>
-<span class="doccomment">//! This allows all embedded_graphics objects to be rendered by the display. See the [`DrawTarget`]</span>
-<span class="doccomment">//! documentation for implementation details.</span>
+<span class="doccomment">//! # Migrating from older versions</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! * [Migration guide from 0.5 to 0.6](https://github.com/embedded-graphics/embedded-graphics/blob/master/MIGRATING-0.5-0.6.md).</span>
+<span class="doccomment">//! * [Migration guide from 0.6 to 0.7](https://github.com/embedded-graphics/embedded-graphics/blob/master/MIGRATING-0.5-0.6.md).</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! # Implementing `embedded_graphics` support for a display driver</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! To add support for embedded-graphics to a display driver, [`DrawTarget`] from</span>
+<span class="doccomment">//! [`embedded-graphics-core`] must be implemented. This allows all embedded-graphics items to be</span>
+<span class="doccomment">//! rendered by the display. See the [`DrawTarget`] documentation for implementation details.</span>
 <span class="doccomment">//!</span>
 <span class="doccomment">//! # Examples</span>
 <span class="doccomment">//!</span>
-<span class="doccomment">//! ## Draw a circle and some text</span>
+<span class="doccomment">//! ## Drawing examples</span>
 <span class="doccomment">//!</span>
-<span class="doccomment">//! This example uses the [`Circle`] primitive and the [`Font6x8`] font to draw a filled circle and  some text over it on the screen.</span>
+<span class="doccomment">//! [![A grid of screenshots showing primitives, text and other items that can be drawn using embedded-graphics.](https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/4c680418cc4c37b8f7ed92d8b26edfde880d4c96/doc/assets/all_drawing_ops.png)](./examples/index.html)</span>
 <span class="doccomment">//!</span>
-<span class="doccomment">//! ```rust</span>
+<span class="doccomment">//! Example usage of drawing primitives, text and images with embedded-graphics can be found [here](./examples/index.html).</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! ## Shapes and text</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! The following example draws some shapes and text to a [`MockDisplay`] in place of target</span>
+<span class="doccomment">//! hardware. The [simulator](https://docs.rs/embedded-graphics-simulator/) can also be used for</span>
+<span class="doccomment">//! debugging, development or if hardware is not available.</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! ```rust,no_run</span>
 <span class="doccomment">//! use embedded_graphics::{</span>
-<span class="doccomment">//!     fonts::{Font6x8, Text},</span>
+<span class="doccomment">//!     mono_font::{ascii::FONT_6X10, MonoTextStyle},</span>
+<span class="doccomment">//!     pixelcolor::BinaryColor,</span>
+<span class="doccomment">//!     prelude::*,</span>
+<span class="doccomment">//!     primitives::{</span>
+<span class="doccomment">//!         Circle, PrimitiveStyle, PrimitiveStyleBuilder, Rectangle, StrokeAlignment, Triangle,</span>
+<span class="doccomment">//!     },</span>
+<span class="doccomment">//!     text::{Alignment, Text},</span>
 <span class="doccomment">//!     mock_display::MockDisplay,</span>
-<span class="doccomment">//!     pixelcolor::Rgb565,</span>
-<span class="doccomment">//!     prelude::*,</span>
-<span class="doccomment">//!     primitives::Circle,</span>
-<span class="doccomment">//!     style::{PrimitiveStyle, TextStyle},</span>
 <span class="doccomment">//! };</span>
 <span class="doccomment">//!</span>
-<span class="doccomment">//! // Create a draw target using the builtin MockDisplay. In real applications this would be</span>
-<span class="doccomment">//! // replaced by a draw target that is provided by a display driver crate.</span>
-<span class="doccomment">//! let mut display = MockDisplay::default();</span>
+<span class="doccomment">//! fn main() -&gt; Result&lt;(), std::convert::Infallible&gt; {</span>
+<span class="doccomment">//!     // Create a new mock display</span>
+<span class="doccomment">//!     let mut display: MockDisplay&lt;BinaryColor&gt; = MockDisplay::new();</span>
+<span class="doccomment">//! #   display.set_allow_overdraw(true);</span>
 <span class="doccomment">//!</span>
-<span class="doccomment">//! let c = Circle::new(Point::new(20, 20), 8).into_styled(PrimitiveStyle::with_fill(Rgb565::RED));</span>
-<span class="doccomment">//! let t = Text::new(&quot;Hello Rust!&quot;, Point::new(20, 16))</span>
-<span class="doccomment">//!     .into_styled(TextStyle::new(Font6x8, Rgb565::GREEN));</span>
+<span class="doccomment">//!     // Create styles used by the drawing operations.</span>
+<span class="doccomment">//!     let thin_stroke = PrimitiveStyle::with_stroke(BinaryColor::On, 1);</span>
+<span class="doccomment">//!     let thick_stroke = PrimitiveStyle::with_stroke(BinaryColor::On, 3);</span>
+<span class="doccomment">//!     let border_stroke = PrimitiveStyleBuilder::new()</span>
+<span class="doccomment">//!         .stroke_color(BinaryColor::On)</span>
+<span class="doccomment">//!         .stroke_width(3)</span>
+<span class="doccomment">//!         .stroke_alignment(StrokeAlignment::Inside)</span>
+<span class="doccomment">//!         .build();</span>
+<span class="doccomment">//!     let fill = PrimitiveStyle::with_fill(BinaryColor::On);</span>
+<span class="doccomment">//!     let character_style = MonoTextStyle::new(&amp;FONT_6X10, BinaryColor::On);</span>
 <span class="doccomment">//!</span>
-<span class="doccomment">//! c.draw(&amp;mut display)?;</span>
-<span class="doccomment">//! t.draw(&amp;mut display)?;</span>
-<span class="doccomment">//! # Ok::&lt;(), core::convert::Infallible&gt;(())</span>
-<span class="doccomment">//! ```</span>
+<span class="doccomment">//!     let yoffset = 10;</span>
 <span class="doccomment">//!</span>
-<span class="doccomment">//! ## Draw a circle and some text</span>
+<span class="doccomment">//!     // Draw a 3px wide outline around the display.</span>
+<span class="doccomment">//!     display</span>
+<span class="doccomment">//!         .bounding_box()</span>
+<span class="doccomment">//!         .into_styled(border_stroke)</span>
+<span class="doccomment">//!         .draw(&amp;mut display)?;</span>
 <span class="doccomment">//!</span>
-<span class="doccomment">//! To make life even easier, some handy [macros](#macros) are provided for drawing styled</span>
-<span class="doccomment">//! primitives and text. Converting the example above, we get this:</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ```rust</span>
-<span class="doccomment">//! use embedded_graphics::{</span>
-<span class="doccomment">//!     egcircle, egtext, fonts::Font6x8, mock_display::MockDisplay, pixelcolor::Rgb565,</span>
-<span class="doccomment">//!     prelude::*, primitive_style, text_style,</span>
-<span class="doccomment">//! };</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! // Create a draw target using the builtin MockDisplay. In real applications this would be</span>
-<span class="doccomment">//! // replaced by a draw target that is provided by a display driver crate.</span>
-<span class="doccomment">//! let mut display = MockDisplay::default();</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! let c = egcircle!(</span>
-<span class="doccomment">//!     center = (20, 20),</span>
-<span class="doccomment">//!     radius = 8,</span>
-<span class="doccomment">//!     style = primitive_style!(fill_color = Rgb565::RED)</span>
-<span class="doccomment">//! );</span>
-<span class="doccomment">//! let t = egtext!(</span>
-<span class="doccomment">//!     text = &quot;Hello Rust!&quot;,</span>
-<span class="doccomment">//!     top_left = (20, 16),</span>
-<span class="doccomment">//!     style = text_style!(font = Font6x8, text_color = Rgb565::GREEN)</span>
-<span class="doccomment">//! );</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! c.draw(&amp;mut display)?;</span>
-<span class="doccomment">//! t.draw(&amp;mut display)?;</span>
-<span class="doccomment">//! # Ok::&lt;(), core::convert::Infallible&gt;(())</span>
-<span class="doccomment">//! ```</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ## Chaining</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! Items can be chained to build more complex graphics objects.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ```rust</span>
-<span class="doccomment">//! use embedded_graphics::{</span>
-<span class="doccomment">//!     egcircle, egrectangle, egtext, fonts::Font6x8, mock_display::MockDisplay,</span>
-<span class="doccomment">//!     pixelcolor::Rgb565, prelude::*, primitive_style, text_style,</span>
-<span class="doccomment">//! };</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! // Create a draw target using the builtin MockDisplay. In real applications this would be</span>
-<span class="doccomment">//! // replaced by a draw target that is provided by a display driver crate.</span>
-<span class="doccomment">//! let mut display: MockDisplay&lt;Rgb565&gt; = MockDisplay::default();</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! fn build_thing(text: &amp;&#39;static str) -&gt; impl Iterator&lt;Item = Pixel&lt;Rgb565&gt;&gt; {</span>
-<span class="doccomment">//!     egrectangle!(top_left = (0, 0), bottom_right = (40, 40))</span>
-<span class="doccomment">//!         .into_iter()</span>
-<span class="doccomment">//!         .chain(&amp;egcircle!(</span>
-<span class="doccomment">//!             center = (20, 20),</span>
-<span class="doccomment">//!             radius = 8,</span>
-<span class="doccomment">//!             style = primitive_style!(fill_color = Rgb565::RED)</span>
-<span class="doccomment">//!         ))</span>
-<span class="doccomment">//!         .chain(&amp;egtext!(</span>
-<span class="doccomment">//!             text = text,</span>
-<span class="doccomment">//!             top_left = (20, 16),</span>
-<span class="doccomment">//!             style = text_style!(font = Font6x8, text_color = Rgb565::GREEN)</span>
-<span class="doccomment">//!         ))</span>
-<span class="doccomment">//! }</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! # let mut display = MockDisplay::default();</span>
-<span class="doccomment">//! build_thing(&quot;Hello Rust!&quot;).draw(&amp;mut display)?;</span>
-<span class="doccomment">//! # Ok::&lt;(), core::convert::Infallible&gt;(())</span>
-<span class="doccomment">//! ```</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ## Draw a single pixel</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! This example draws a single green pixel.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! For cases where many pixels are drawn it is preferable to implement</span>
-<span class="doccomment">//! a custom iterator instead of calling `Pixel::draw` for each pixel, because</span>
-<span class="doccomment">//! some display drivers implement accelerated drawing of iterators.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! &lt;div style=&quot;display: flex&quot;&gt;</span>
-<span class="doccomment">//! &lt;img style=&quot;width: 128px; height: 128px; margin-right: 8px;&quot; alt=&quot;Draw a single pixel example screenshot&quot; src=&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAIAAABMXPacAAABNElEQVR4nO3RsQkAMQwEwf/+i7YduQEHi2AGlOvY/yMlQEyAmAAxAWICxASICRATICZATICYADEBYgLEBIgJEBMgJkBMgJgAMQFiAsQEiAkQEyAmQEyAmAAxAWICxASICRATICZATICYADEBYgLEBIgJEBMgJkBMgJgAMQFiAsQEiAkQEyAmQEyAmAAxAWICxASICRATICZATICYADEBYgLEBIgJEJsfYJ0bvGPs45cAvBAgJkBMgJgAMQFiAsQEiAkQEyAmQEyAmAAxAWICxASICRATICZATICYADEBYgLEBIgJEBMgJkBMgJgAMQFiAsQEiAkQEyAmQEyAmAAxAWICxASICRATICZATICYADEBYgLEBIgJEBMgJkBMgJgAMQFiAsQEiAkQEyAmQEyAmAAxAWIbyaYCgYRUdd0AAAAASUVORK5CYII=&quot; /&gt;</span>
-<span class="doccomment">//! &lt;div style=&quot;flex-grow: 1;&quot;&gt;</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ```rust</span>
-<span class="doccomment">//! # let mut display = embedded_graphics::mock_display::MockDisplay::default();</span>
-<span class="doccomment">//! use embedded_graphics::{</span>
-<span class="doccomment">//!     pixelcolor::Rgb888,</span>
-<span class="doccomment">//!     prelude::*,</span>
-<span class="doccomment">//! };</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! Pixel(Point::new(32, 32), Rgb888::GREEN).draw(&amp;mut display)?;</span>
-<span class="doccomment">//! # Ok::&lt;(), core::convert::Infallible&gt;(())</span>
-<span class="doccomment">//! ```</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! &lt;/div&gt;</span>
-<span class="doccomment">//! &lt;/div&gt;</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ## Draw a line</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! This example draws a red line with 8px stroke.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! &lt;div style=&quot;display: flex&quot;&gt;</span>
-<span class="doccomment">//! &lt;img style=&quot;width: 128px; height: 128px; margin-right: 8px;&quot; alt=&quot;Draw a line example screenshot&quot; src=&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAIAAABMXPacAAABxklEQVR4nO3RQW7bQBAAweT/j04C+OhQkM2d7ZVcBfC6nJn+/YuUADEBYgLEBIgJEBMgJkBMgJgAMQFiAsQEiAkQEyAmQEyAmAAxAWICxASICRATICZATICYADEBYgLEBIgJEBMgJkBMgJgAMQFiAsQEiAkQEyAmQGxTgD//vm0/eymbbiLAlU03+QhwZdMQR9q0uwBXNu3+OMBnm8Y6wKZNBbgyvulXT//Y+LjbjW8kwGPjG60N8Nn4AsPG5xfgsfH5pwNcGV9skfE5BXhscM7q9FcGV71hcCoBnjE41WkBrgye4AmDfxfgGVv/LslnO/8lwH/s/Nelnxxm4s0vE+A4PyfJ/RdGCHCo08LcP9/9F7YS4Dhtkvvnu/9CTIBDTYdZdbhV7xxHgOOsTbLqcKveeQECHOp7YVYdbtU7L0yA4zxOsvZka197EwIc6iPM2pOtfe3NCfCGBIgJEBMgJkBMgJgAMQFiAsQEiAkQEyAmQEyAmAAxAWICxASICRATICZATICYADEBYgLEBIgJEBMgJkBMgJgAMQFiAsQEiAkQEyAmQEyAmAAxAWICxASICRATICZATICYADEBYgLEBIgJEBMg9hfefCSBHuP7aAAAAABJRU5ErkJggg==&quot; /&gt;</span>
-<span class="doccomment">//! &lt;div style=&quot;flex-grow: 1;&quot;&gt;</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ```rust</span>
-<span class="doccomment">//! # let mut display = embedded_graphics::mock_display::MockDisplay::default();</span>
-<span class="doccomment">//! use embedded_graphics::{</span>
-<span class="doccomment">//!     pixelcolor::Rgb888,</span>
-<span class="doccomment">//!     prelude::*,</span>
-<span class="doccomment">//!     primitives::Line,</span>
-<span class="doccomment">//!     style::PrimitiveStyle,</span>
-<span class="doccomment">//! };</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! Line::new(Point::new(16, 24), Point::new(51, 34))</span>
-<span class="doccomment">//!     .into_styled(PrimitiveStyle::with_stroke(Rgb888::RED, 8))</span>
+<span class="doccomment">//!     // Draw a triangle.</span>
+<span class="doccomment">//!     Triangle::new(</span>
+<span class="doccomment">//!         Point::new(16, 16 + yoffset),</span>
+<span class="doccomment">//!         Point::new(16 + 16, 16 + yoffset),</span>
+<span class="doccomment">//!         Point::new(16 + 8, yoffset),</span>
+<span class="doccomment">//!     )</span>
+<span class="doccomment">//!     .into_styled(thin_stroke)</span>
 <span class="doccomment">//!     .draw(&amp;mut display)?;</span>
-<span class="doccomment">//! # Ok::&lt;(), core::convert::Infallible&gt;(())</span>
-<span class="doccomment">//! ```</span>
 <span class="doccomment">//!</span>
-<span class="doccomment">//! &lt;/div&gt;</span>
-<span class="doccomment">//! &lt;/div&gt;</span>
+<span class="doccomment">//!     // Draw a filled square</span>
+<span class="doccomment">//!     Rectangle::new(Point::new(52, yoffset), Size::new(16, 16))</span>
+<span class="doccomment">//!         .into_styled(fill)</span>
+<span class="doccomment">//!         .draw(&amp;mut display)?;</span>
 <span class="doccomment">//!</span>
-<span class="doccomment">//! ## Draw a rectangle</span>
+<span class="doccomment">//!     // Draw a circle with a 3px wide stroke.</span>
+<span class="doccomment">//!     Circle::new(Point::new(88, yoffset), 17)</span>
+<span class="doccomment">//!         .into_styled(thick_stroke)</span>
+<span class="doccomment">//!         .draw(&amp;mut display)?;</span>
 <span class="doccomment">//!</span>
-<span class="doccomment">//! This example draws a rectangle with a 2px thick red stroke and cyan fill color.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! &lt;div style=&quot;display: flex&quot;&gt;</span>
-<span class="doccomment">//! &lt;img style=&quot;width: 128px; height: 128px; margin-right: 8px;&quot; alt=&quot;Draw a rectangle example screenshot&quot; src=&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAIAAABMXPacAAAB2klEQVR4nO3RMWokURAE0Z37H3pWRoISCjUylIQE8aChv5NGxeufUAaAGQBmAJgBYAaAGQBmAJgBYAaAGQBmAJgBYAaAGQBmAJgBYAaAGQBmAJgBYAaAGQBmAJgBYAaAGQBmAJgBYAaAGQBmAJgBYAaAGQBmAJgBYAaAGQBmAJgBYAaAGQBmAJgBYAaAGQBmANg8wPvj+/t2Z9othwGe7ZbDAM92y2GAZ7vl6ACvd79+u/fr8ziffz9ttxx9cgNcu+Xokxvg2i1Hn9wA1245+uQGuHbL0Sc3wLVbjj65Aa7dcvTJDXDtlqNPboBrtxx9cgNcu+Xokxvg2i1Hn9wA1245+uQGuHbL0Sc3wLVbjj65Aa7dcvTJDXDtlqNPboBrtxx9cgNcu+Xokxvg2i1Hn9wA1245+uQGuHbL0Sc3wLVbjj65Aa7dcvTJDXDtlqNPboBrtxx9cgNcu+X4Syf/2u5Mu+UwwLPdchjg2W45DPBst6xvMQDMADADwAwAMwDMADADwAwAMwDMADADwAwAMwDMADADwAwAMwDMADADwAwAMwDMADADwAwAMwDMADADwAwAMwDMADADwAwAMwDMADADwAwAMwDMADADwAwAMwDMADADwAwAMwDsPzy9cIE/9mieAAAAAElFTkSuQmCC&quot; /&gt;</span>
-<span class="doccomment">//! &lt;div style=&quot;flex-grow: 1;&quot;&gt;</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ```rust</span>
-<span class="doccomment">//! # let mut display = embedded_graphics::mock_display::MockDisplay::default();</span>
-<span class="doccomment">//! use embedded_graphics::{</span>
-<span class="doccomment">//!     pixelcolor::Rgb888,</span>
-<span class="doccomment">//!     prelude::*,</span>
-<span class="doccomment">//!     primitives::Rectangle,</span>
-<span class="doccomment">//!     style::PrimitiveStyleBuilder,</span>
-<span class="doccomment">//! };</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! Rectangle::new(Point::new(16, 24), Point::new(48, 40))</span>
-<span class="doccomment">//!     .into_styled(</span>
-<span class="doccomment">//!         PrimitiveStyleBuilder::new()</span>
-<span class="doccomment">//!             .stroke_width(2)</span>
-<span class="doccomment">//!             .stroke_color(Rgb888::RED)</span>
-<span class="doccomment">//!             .fill_color(Rgb888::CYAN)</span>
-<span class="doccomment">//!             .build(),</span>
+<span class="doccomment">//!     // Draw centered text.</span>
+<span class="doccomment">//!     let text = &quot;embedded-graphics&quot;;</span>
+<span class="doccomment">//!     Text::with_alignment(</span>
+<span class="doccomment">//!         text,</span>
+<span class="doccomment">//!         display.bounding_box().center() + Point::new(0, 15),</span>
+<span class="doccomment">//!         character_style,</span>
+<span class="doccomment">//!         Alignment::Center,</span>
 <span class="doccomment">//!     )</span>
 <span class="doccomment">//!     .draw(&amp;mut display)?;</span>
-<span class="doccomment">//! # Ok::&lt;(), core::convert::Infallible&gt;(())</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//!     Ok(())</span>
+<span class="doccomment">//! }</span>
 <span class="doccomment">//! ```</span>
 <span class="doccomment">//!</span>
-<span class="doccomment">//! &lt;/div&gt;</span>
-<span class="doccomment">//! &lt;/div&gt;</span>
+<span class="doccomment">//! This example is also included in the [examples](https://github.com/embedded-graphics/examples) repository and</span>
+<span class="doccomment">//! can be run using `cargo run --example hello-world`. It produces this output:</span>
 <span class="doccomment">//!</span>
-<span class="doccomment">//! ## Draw a circle</span>
+<span class="doccomment">//! ![Embedded Graphics Simulator example screenshot](https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/4c680418cc4c37b8f7ed92d8b26edfde880d4c96/assets/hello-world-simulator.png)</span>
 <span class="doccomment">//!</span>
-<span class="doccomment">//! This example draws a circle with no stroke and a solid blue fill.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! &lt;div style=&quot;display: flex&quot;&gt;</span>
-<span class="doccomment">//! &lt;img style=&quot;width: 128px; height: 128px; margin-right: 8px;&quot; alt=&quot;Draw a circle example screenshot&quot; src=&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAIAAABMXPacAAACe0lEQVR4nO3RS1LEMAxFUdj/ovlkwisMJJZkPSfcU9VDyR3d1xdYEcCMAGYEMCOAGQHMCGBGADMCmBHAjABmBDAjgBkBzAhgRgAzApgRwIwAZgQwI4AZAcwIYEYAsxsFePv4zdv9A3f/f4IArWLnvmKvT97r3wgCGKw7+m/8n+//B4IABv1H/43nFJ5XBQFs9jm96j5I93uCAJ+63zvseXrVd5a+lwQBvvS9dNj/9KrjOB1vCAJ81/HG4V6nV2tPtHa7IMDP1m4/3Pf0atWhVu0VBPjLqr2HZ5xe1Z+rfqMgwLn6jYIA5+o3CgKcq994eN7pVeXRKncJAlxVuUsQ4KrKXYIAV1XuOjz79KrmdDVbBAHm1GwRBJhTs0UQYE7NFkGAOTVbBAHm1Gw5/J/Tq+wBs/OCABHZeUGAiOy8IEBEdl4QICI7LwgQkZ0XBIjIzgsCRGTnBQEisvOCABHZeUGAiOy8IEBEdl4QICI7LwgQkZ0XBIjIzgsCRGTnBQEisvOCABHZ+cH/yVBzupotggBzarYIAsyp2SIIMKdmiyDAnJotggBzarYMnp2h8miVuwQBrqrcJQhwVeUuQYCrKncNnpeh/lz1GwUBztVvFAQ4V79REOBc/cbBMzKsOtSqvYIAf1m1d3DfDGtPtHa7IMDP1m4f3CtDx3E63hAE+K7jjcH+GfrO0veSIMCXvpcGe2boPkj3e4IAn7rfG+yTwXMKz6uCABvpj+H/fP8/EATYyLoYe33yXv9GEGA7sSS7f+Du/08QAAsQwIwAZgQwI4AZAcwIYEYAMwKYEcCMAGYEMCOAGQHMCGBGADMCmBHAjABmBDAjgBkBzN4BABtSgS+nmkgAAAAASUVORK5CYII=&quot; /&gt;</span>
-<span class="doccomment">//! &lt;div style=&quot;flex-grow: 1;&quot;&gt;</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ```rust</span>
-<span class="doccomment">//! # let mut display = embedded_graphics::mock_display::MockDisplay::default();</span>
-<span class="doccomment">//! use embedded_graphics::{</span>
-<span class="doccomment">//!     pixelcolor::Rgb888,</span>
-<span class="doccomment">//!     prelude::*,</span>
-<span class="doccomment">//!     primitives::Circle,</span>
-<span class="doccomment">//!     style::PrimitiveStyle,</span>
-<span class="doccomment">//! };</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! Circle::new(Point::new(32, 32), 20)</span>
-<span class="doccomment">//!     .into_styled(PrimitiveStyle::with_fill(Rgb888::BLUE))</span>
-<span class="doccomment">//!     .draw(&amp;mut display)?;</span>
-<span class="doccomment">//! # Ok::&lt;(), core::convert::Infallible&gt;(())</span>
-<span class="doccomment">//! ```</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! &lt;/div&gt;</span>
-<span class="doccomment">//! &lt;/div&gt;</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ## Draw a triangle</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! This example draws a triangle with a solid 1px magenta stroke and no fill.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! &lt;div style=&quot;display: flex&quot;&gt;</span>
-<span class="doccomment">//! &lt;img style=&quot;width: 128px; height: 128px; margin-right: 8px;&quot; alt=&quot;Draw a triangle example screenshot&quot; src=&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAIAAABMXPacAAAC0klEQVR4nO3R0YpbMQyE4fb9H7p1CQwHygn22ppfhvn2ZgmJNdL8/hWoFABLAbAUAEsBsBQASwGwFABLAbAUAEsBsBQASwGwFABLAbAUAEsBsBQASwGwFABLAbAUAEsBsBQASwGwFABLAbAUAEsBsBQASwGwFAC7voA/4+/fGrcucmtuSQGwFABLAZjn6Z//3+W+xPI8+vP/u9yXWJ5Hf/5/l/sSy/Poz//vcl/i4e3cb593dlNWeTv02+ed3ZRV3g799nlnN2WVt0O/fd7ZTVmHmRPPfKePO1LKzHFnvtPHHSll5rgz3+njjpQyc9yZ7/RxR8ph9ayr36d0zyerB139PqV7Plk96Or3Kd3zyepBV79P6Z5v2Dnlzm89+iaTnSPu/NajbzLZOeLObz36JpOdI+781qNvsuHU+U69U6FjJjl1uFPvVOiYSU4d7tQ7FTpmklOHO/VOhY6ZhoqTVby5r1caqThWxZv7eqWRimNVvLmvVxqpOFbFm/t6pRmqz1T9/qouOaT6QNXvr+qSQ6oPVP3+qi45pPpA1e+v6pJjcJ7GOes7PoE4j+Kc9R2fQJxHcc76jk8gzqM4Z33HJxioc1Bzn8jZQh2CmvtEzhbqENTcJ3K2UIeg5j6Rs4cOJ2AzMFOFXf6DzcBMFXb5DzYDM1XY5T/YDMzUgV37f1Qe9zyhFn5D5XHPE2rhN1Qe9zyhFn5D5XHPG6hVZ/iz+SaJf8l5/my+SeJfcp4/m2+S+Jec58/mmzT41/sZZ07HDHEutsOZ0zFDnIvtcOZ0zBDnYjucOR0zBudKp3gy174unmXO8mSufV08y5zlyVz7uniWOcuTufb14bPG7epqqHpXUsB3Ve/GpBQASwGwFABLAbAUAEsBsBQASwGwFABLAbAUAEsBsBQASwGwFABLAbAUAEsBsBQASwGwFABLAbAUAEsBsBQASwGwFABLAbAUAPsLOXL8gVjK1mAAAAAASUVORK5CYII=&quot; /&gt;</span>
-<span class="doccomment">//! &lt;div style=&quot;flex-grow: 1;&quot;&gt;</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ```rust</span>
-<span class="doccomment">//! # let mut display = embedded_graphics::mock_display::MockDisplay::default();</span>
-<span class="doccomment">//! use embedded_graphics::{</span>
-<span class="doccomment">//!     pixelcolor::Rgb888,</span>
-<span class="doccomment">//!     prelude::*,</span>
-<span class="doccomment">//!     primitives::Triangle,</span>
-<span class="doccomment">//!     style::PrimitiveStyle,</span>
-<span class="doccomment">//! };</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! Triangle::new(Point::new(32, 16), Point::new(16, 48), Point::new(48, 48))</span>
-<span class="doccomment">//!     .into_styled(PrimitiveStyle::with_stroke(Rgb888::MAGENTA, 1))</span>
-<span class="doccomment">//!     .draw(&amp;mut display)?;</span>
-<span class="doccomment">//! # Ok::&lt;(), core::convert::Infallible&gt;(())</span>
-<span class="doccomment">//! ```</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! &lt;/div&gt;</span>
-<span class="doccomment">//! &lt;/div&gt;</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ## Draw some text</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! This example draws the text &quot;Hello,\nRust!&quot; with the [`Font6x8`] font in green.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! &lt;div style=&quot;display: flex&quot;&gt;</span>
-<span class="doccomment">//! &lt;img style=&quot;width: 128px; height: 128px; margin-right: 8px;&quot; alt=&quot;Draw some text example screenshot&quot; src=&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAIAAABMXPacAAADBklEQVR4nO3R247bUAxD0fb/P7ptwBeqGhky5sIcYy+ggEEz0yj8/QtRDBDGAGEMEMYAYQwQxgBhDBDGAGEMEMYAYQwQxgBhDBDGAGEMEMYAYQwQxgBhDBDGAGEMEMYAYQwQxgBhDBDGAGEMEMYAYQwQxgBhDBDGAGEMEMYAYQwQxgBhDBDGAGEMEMYAYQwQxgBhDBDGAGEMEMYAYQwQxgBhDBDGAGEMEMYAYQwQxgBhDBBWB/jz79//2cuUX9OnZPrspvNo9Wj9HDV7mfJr+pRMn910Hq0erZ+jZi9TvrH57KbzUPXo6YeY8o3NZzedh6pHTz9Ez5U4f+vUnN7KdUdv3dQ8UD1Fp9bspedKnL91ak5v5bqjt25qHqie0k916qqjZ3c3d1Pnbn6geoQOm6irjp7d3dxNnbv5geoR02Ge63mijlO/527q3M0PVI+YDvNczxN1nPo9d1Pnbn6gesR0mOf+vLHpT519rkQ8f3v1y+qMmr147s8bm/7U2edKxPO3V7+szqjZS8+VOH8rP9kRNae3b6l+2emAnitx/lZ+siNqTm/f0lFf9sKBP70c+JU/9JABdEZXW19J/+Pm7++bR6kH6ciutr6S/sfN3983j1IPmo6c8s/b/+V98yj1oOnIKf+8/V/eN49SD5qO9NyfXc+VdOr0t8on6l93DlQPmo703J9dz5V06vS3yifqX3cOVA/SkZ231PFEPPfna9/RPEo9SEd23lLHE/Hcn699R/Mo9SA/0p/dPlfi/K2o0/Nu3zxKPciP9Ge3z5U4fyvq9LzbN49SD+pH7hPxvFPTO5vk0eqh/fh9Ip53anpnkzxaPXQ6vudKRLkSf+70tvP+dWd6e6x60HRkz5WIciX+3Olt5/3rzvT2WI876DQMEMYAYQwQxgBhDBDGAGEMEMYAYQwQxgBhDBDGAGEMEMYAYQwQxgBhDBDGAGEMEMYAYQwQxgBhDBDGAGEMEMYAYQwQxgBhDBDGAGEMEMYAYQwQxgBhDBDGAGEMEMYAYQwQxgBhDBD2FyjfqoEr2rxJAAAAAElFTkSuQmCC&quot; /&gt;</span>
-<span class="doccomment">//! &lt;div style=&quot;flex-grow: 1;&quot;&gt;</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ```rust</span>
-<span class="doccomment">//! # let mut display = embedded_graphics::mock_display::MockDisplay::default();</span>
-<span class="doccomment">//! use embedded_graphics::{</span>
-<span class="doccomment">//!     fonts::{</span>
-<span class="doccomment">//!         Font6x8,</span>
-<span class="doccomment">//!         Text,</span>
-<span class="doccomment">//!     },</span>
-<span class="doccomment">//!     pixelcolor::Rgb888,</span>
-<span class="doccomment">//!     prelude::*,</span>
-<span class="doccomment">//!     style::TextStyle,</span>
-<span class="doccomment">//! };</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! Text::new(&quot;Hello,\nRust!&quot;, Point::new(2, 28))</span>
-<span class="doccomment">//!     .into_styled(TextStyle::new(Font6x8, Rgb888::GREEN))</span>
-<span class="doccomment">//!     .draw(&amp;mut display)?;</span>
-<span class="doccomment">//! # Ok::&lt;(), core::convert::Infallible&gt;(())</span>
-<span class="doccomment">//! ```</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! &lt;/div&gt;</span>
-<span class="doccomment">//! &lt;/div&gt;</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ## Display a TGA image</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! This example uses [tinytga](https://crates.io/crates/tinytga) to draw an image to the display.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! &lt;div style=&quot;display: flex&quot;&gt;</span>
-<span class="doccomment">//! &lt;img style=&quot;width: 128px; height: 128px; margin-right: 8px;&quot; alt=&quot;Display a TGA image example screenshot&quot; src=&quot;data:image/png;base64,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&quot; /&gt;</span>
-<span class="doccomment">//! &lt;div style=&quot;flex-grow: 1;&quot;&gt;</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ```rust</span>
-<span class="doccomment">//! # let mut display = embedded_graphics::mock_display::MockDisplay::default();</span>
-<span class="doccomment">//! use embedded_graphics::{</span>
-<span class="doccomment">//!     image::Image,</span>
-<span class="doccomment">//!     pixelcolor::Rgb888,</span>
-<span class="doccomment">//!     prelude::*,</span>
-<span class="doccomment">//! };</span>
-<span class="doccomment">//! use tinytga::Tga;</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! let tga = Tga::from_slice(include_bytes!(concat!(</span>
-<span class="doccomment">//!     env!(&quot;CARGO_MANIFEST_DIR&quot;),</span>
-<span class="doccomment">//!     &quot;/../simulator/examples/assets/rust-pride.tga&quot;</span>
-<span class="doccomment">//! )))</span>
-<span class="doccomment">//! .unwrap();</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! let image: Image&lt;Tga, Rgb888&gt; = Image::new(&amp;tga, Point::zero());</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! image.draw(&amp;mut display)?;</span>
-<span class="doccomment">//! # Ok::&lt;(), core::convert::Infallible&gt;(())</span>
-<span class="doccomment">//! ```</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! &lt;/div&gt;</span>
-<span class="doccomment">//! &lt;/div&gt;</span>
+<span class="doccomment">//! Additional examples can be found in the [examples](https://github.com/embedded-graphics/examples) repository.</span>
 <span class="doccomment">//!</span>
 <span class="doccomment">//! [`Circle`]: ./primitives/circle/struct.Circle.html</span>
+<span class="doccomment">//! [`MockDisplay`]: ./mock_display/struct.MockDisplay.html</span>
 <span class="doccomment">//! [`Point`]: ./geometry/struct.Point.html</span>
 <span class="doccomment">//! [`Size`]: ./geometry/struct.Size.html</span>
-<span class="doccomment">//! [`Font6x8`]: ./fonts/struct.Font6x8.html</span>
-<span class="doccomment">//! [`DrawTarget`]: ./draw_target/trait.DrawTarget.html</span>
+<span class="doccomment">//! [`DrawTarget`]: https://docs.rs/embedded-graphics-core/latest/embedded_graphics_core/draw_target/trait.DrawTarget.html</span>
+<span class="doccomment">//! [`embedded-graphics-core`]: https://docs.rs/embedded-graphics-core/</span>
 <span class="doccomment">//! [`Drawable`]: ./drawable/trait.Drawable.html</span>
+<span class="doccomment">//! [simulator]: https://github.com/embedded-graphics/simulator</span>
+<span class="doccomment">//! [simulator examples]: https://github.com/embedded-graphics/simulator/tree/master/examples</span>
 
 <span class="attribute">#![<span class="ident">doc</span>(
-    <span class="ident">html_logo_url</span> <span class="op">=</span> <span class="string">&quot;https://raw.githubusercontent.com/jamwaffles/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true&quot;</span>
+    <span class="ident">html_logo_url</span> <span class="op">=</span> <span class="string">&quot;https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true&quot;</span>
 )]</span>
 <span class="attribute">#![<span class="ident">no_std</span>]</span>
 <span class="attribute">#![<span class="ident">deny</span>(<span class="ident">missing_docs</span>)]</span>
@@ -826,22 +481,19 @@
 <span class="attribute">#![<span class="ident">deny</span>(<span class="ident">unused_import_braces</span>)]</span>
 <span class="attribute">#![<span class="ident">deny</span>(<span class="ident">unused_qualifications</span>)]</span>
 
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nalgebra_support&quot;</span>)]</span>
-<span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">nalgebra</span>;
-
-<span class="kw">mod</span> <span class="ident">draw_target</span>;
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">drawable</span>;
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">fonts</span>;
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">draw_target</span>;
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">examples</span>;
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">geometry</span>;
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">image</span>;
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">iterator</span>;
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">mock_display</span>;
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">pixelcolor</span>;
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">mono_font</span>;
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">prelude</span>;
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">primitives</span>;
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">style</span>;
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">text</span>;
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">transform</span>;
 
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">draw_target</span>::<span class="ident">DrawTarget</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">embedded_graphics_core</span>::{<span class="ident">pixelcolor</span>, <span class="ident">Drawable</span>, <span class="ident">Pixel</span>};
 </pre></div>
 </section><section id="search" class="content hidden"></section><section class="footer"></section><div id="rustdoc-vars" data-root-path="../../" data-current-crate="embedded_graphics" data-search-js="../../search-index.js"></div>
     <script src="../../main.js"></script><script src="../../source-script.js"></script><script src="../../source-files.js"></script></body></html>

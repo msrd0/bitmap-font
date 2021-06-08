@@ -1,0 +1,519 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-core-0.3.2/src/pixelcolor/web_colors.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>web_colors.rs - source</title><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled ><script id="default-settings"></script><script src="../../../storage.js"></script><script src="../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
+<link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png">
+<link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../embedded_graphics_core/index.html'><div class='logo-container'><img src='https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/b225511f390c0ed9bc065eb67d05125845312148/assets/logo_core.svg?sanitize=true' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><script src="../../../theme.js"></script><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" class="help-button">?</button>
+                <a id="settings-menu" href="../../../settings.html"><img src="../../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">  1</span>
+<span id="2">  2</span>
+<span id="3">  3</span>
+<span id="4">  4</span>
+<span id="5">  5</span>
+<span id="6">  6</span>
+<span id="7">  7</span>
+<span id="8">  8</span>
+<span id="9">  9</span>
+<span id="10"> 10</span>
+<span id="11"> 11</span>
+<span id="12"> 12</span>
+<span id="13"> 13</span>
+<span id="14"> 14</span>
+<span id="15"> 15</span>
+<span id="16"> 16</span>
+<span id="17"> 17</span>
+<span id="18"> 18</span>
+<span id="19"> 19</span>
+<span id="20"> 20</span>
+<span id="21"> 21</span>
+<span id="22"> 22</span>
+<span id="23"> 23</span>
+<span id="24"> 24</span>
+<span id="25"> 25</span>
+<span id="26"> 26</span>
+<span id="27"> 27</span>
+<span id="28"> 28</span>
+<span id="29"> 29</span>
+<span id="30"> 30</span>
+<span id="31"> 31</span>
+<span id="32"> 32</span>
+<span id="33"> 33</span>
+<span id="34"> 34</span>
+<span id="35"> 35</span>
+<span id="36"> 36</span>
+<span id="37"> 37</span>
+<span id="38"> 38</span>
+<span id="39"> 39</span>
+<span id="40"> 40</span>
+<span id="41"> 41</span>
+<span id="42"> 42</span>
+<span id="43"> 43</span>
+<span id="44"> 44</span>
+<span id="45"> 45</span>
+<span id="46"> 46</span>
+<span id="47"> 47</span>
+<span id="48"> 48</span>
+<span id="49"> 49</span>
+<span id="50"> 50</span>
+<span id="51"> 51</span>
+<span id="52"> 52</span>
+<span id="53"> 53</span>
+<span id="54"> 54</span>
+<span id="55"> 55</span>
+<span id="56"> 56</span>
+<span id="57"> 57</span>
+<span id="58"> 58</span>
+<span id="59"> 59</span>
+<span id="60"> 60</span>
+<span id="61"> 61</span>
+<span id="62"> 62</span>
+<span id="63"> 63</span>
+<span id="64"> 64</span>
+<span id="65"> 65</span>
+<span id="66"> 66</span>
+<span id="67"> 67</span>
+<span id="68"> 68</span>
+<span id="69"> 69</span>
+<span id="70"> 70</span>
+<span id="71"> 71</span>
+<span id="72"> 72</span>
+<span id="73"> 73</span>
+<span id="74"> 74</span>
+<span id="75"> 75</span>
+<span id="76"> 76</span>
+<span id="77"> 77</span>
+<span id="78"> 78</span>
+<span id="79"> 79</span>
+<span id="80"> 80</span>
+<span id="81"> 81</span>
+<span id="82"> 82</span>
+<span id="83"> 83</span>
+<span id="84"> 84</span>
+<span id="85"> 85</span>
+<span id="86"> 86</span>
+<span id="87"> 87</span>
+<span id="88"> 88</span>
+<span id="89"> 89</span>
+<span id="90"> 90</span>
+<span id="91"> 91</span>
+<span id="92"> 92</span>
+<span id="93"> 93</span>
+<span id="94"> 94</span>
+<span id="95"> 95</span>
+<span id="96"> 96</span>
+<span id="97"> 97</span>
+<span id="98"> 98</span>
+<span id="99"> 99</span>
+<span id="100">100</span>
+<span id="101">101</span>
+<span id="102">102</span>
+<span id="103">103</span>
+<span id="104">104</span>
+<span id="105">105</span>
+<span id="106">106</span>
+<span id="107">107</span>
+<span id="108">108</span>
+<span id="109">109</span>
+<span id="110">110</span>
+<span id="111">111</span>
+<span id="112">112</span>
+<span id="113">113</span>
+<span id="114">114</span>
+<span id="115">115</span>
+<span id="116">116</span>
+<span id="117">117</span>
+<span id="118">118</span>
+<span id="119">119</span>
+<span id="120">120</span>
+<span id="121">121</span>
+<span id="122">122</span>
+<span id="123">123</span>
+<span id="124">124</span>
+<span id="125">125</span>
+<span id="126">126</span>
+<span id="127">127</span>
+<span id="128">128</span>
+<span id="129">129</span>
+<span id="130">130</span>
+<span id="131">131</span>
+<span id="132">132</span>
+<span id="133">133</span>
+<span id="134">134</span>
+<span id="135">135</span>
+<span id="136">136</span>
+<span id="137">137</span>
+<span id="138">138</span>
+<span id="139">139</span>
+<span id="140">140</span>
+<span id="141">141</span>
+<span id="142">142</span>
+<span id="143">143</span>
+<span id="144">144</span>
+<span id="145">145</span>
+<span id="146">146</span>
+<span id="147">147</span>
+<span id="148">148</span>
+<span id="149">149</span>
+<span id="150">150</span>
+<span id="151">151</span>
+<span id="152">152</span>
+<span id="153">153</span>
+<span id="154">154</span>
+<span id="155">155</span>
+<span id="156">156</span>
+<span id="157">157</span>
+<span id="158">158</span>
+<span id="159">159</span>
+<span id="160">160</span>
+<span id="161">161</span>
+<span id="162">162</span>
+<span id="163">163</span>
+<span id="164">164</span>
+<span id="165">165</span>
+<span id="166">166</span>
+<span id="167">167</span>
+<span id="168">168</span>
+<span id="169">169</span>
+<span id="170">170</span>
+<span id="171">171</span>
+<span id="172">172</span>
+<span id="173">173</span>
+<span id="174">174</span>
+<span id="175">175</span>
+<span id="176">176</span>
+<span id="177">177</span>
+<span id="178">178</span>
+<span id="179">179</span>
+<span id="180">180</span>
+<span id="181">181</span>
+<span id="182">182</span>
+<span id="183">183</span>
+<span id="184">184</span>
+<span id="185">185</span>
+<span id="186">186</span>
+<span id="187">187</span>
+<span id="188">188</span>
+<span id="189">189</span>
+<span id="190">190</span>
+<span id="191">191</span>
+<span id="192">192</span>
+<span id="193">193</span>
+<span id="194">194</span>
+<span id="195">195</span>
+<span id="196">196</span>
+<span id="197">197</span>
+<span id="198">198</span>
+<span id="199">199</span>
+<span id="200">200</span>
+<span id="201">201</span>
+<span id="202">202</span>
+<span id="203">203</span>
+<span id="204">204</span>
+<span id="205">205</span>
+<span id="206">206</span>
+<span id="207">207</span>
+<span id="208">208</span>
+<span id="209">209</span>
+<span id="210">210</span>
+<span id="211">211</span>
+<span id="212">212</span>
+<span id="213">213</span>
+<span id="214">214</span>
+<span id="215">215</span>
+<span id="216">216</span>
+<span id="217">217</span>
+<span id="218">218</span>
+<span id="219">219</span>
+<span id="220">220</span>
+<span id="221">221</span>
+<span id="222">222</span>
+<span id="223">223</span>
+<span id="224">224</span>
+<span id="225">225</span>
+<span id="226">226</span>
+<span id="227">227</span>
+<span id="228">228</span>
+<span id="229">229</span>
+<span id="230">230</span>
+<span id="231">231</span>
+<span id="232">232</span>
+<span id="233">233</span>
+<span id="234">234</span>
+<span id="235">235</span>
+<span id="236">236</span>
+<span id="237">237</span>
+<span id="238">238</span>
+<span id="239">239</span>
+<span id="240">240</span>
+<span id="241">241</span>
+<span id="242">242</span>
+<span id="243">243</span>
+<span id="244">244</span>
+<span id="245">245</span>
+<span id="246">246</span>
+<span id="247">247</span>
+<span id="248">248</span>
+<span id="249">249</span>
+<span id="250">250</span>
+<span id="251">251</span>
+<span id="252">252</span>
+<span id="253">253</span>
+<span id="254">254</span>
+<span id="255">255</span>
+<span id="256">256</span>
+</pre><div class="example-wrap"><pre class="rust ">
+<span class="doccomment">//! Named colors as defined in the CSS specification.</span>
+
+<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">pixelcolor</span>::{<span class="ident">Bgr555</span>, <span class="ident">Bgr565</span>, <span class="ident">Bgr888</span>, <span class="ident">PixelColor</span>, <span class="ident">Rgb555</span>, <span class="ident">Rgb565</span>, <span class="ident">Rgb888</span>, <span class="ident">RgbColor</span>};
+
+<span class="macro">macro_rules</span><span class="macro">!</span> <span class="ident">color_doc</span> {
+    (@<span class="ident">internal</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">text</span>:<span class="ident">expr</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">rest</span>:<span class="ident">tt</span>)<span class="kw-2">*</span>) <span class="op">=</span><span class="op">&gt;</span> {
+        <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">text</span>]</span>
+        $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">rest</span>)<span class="op">*</span>
+    };
+
+    (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>:<span class="ident">expr</span>, (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">r</span>: <span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">g</span>: <span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">b</span>:<span class="ident">expr</span>), $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">rest</span>:<span class="ident">tt</span>)<span class="kw-2">*</span>) <span class="op">=</span><span class="op">&gt;</span> {
+        <span class="macro">color_doc</span><span class="macro">!</span>(@<span class="ident">internal</span> <span class="macro">concat</span><span class="macro">!</span>(
+            <span class="string">&quot;&lt;span style=\&quot;&quot;</span>,
+                <span class="string">&quot;background:rgb(&quot;</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">r</span>, <span class="string">&quot;,&quot;</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">g</span>, <span class="string">&quot;,&quot;</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">b</span>, <span class="string">&quot;);&quot;</span>,
+                <span class="string">&quot;border-radius:3px;&quot;</span>,
+                <span class="string">&quot;display:inline-block;&quot;</span>,
+                <span class="string">&quot;width:0.9em;&quot;</span>,
+                <span class="string">&quot;height:0.9em&quot;</span>,
+            <span class="string">&quot;\&quot;&gt;&lt;/span&gt; &quot;</span>,
+            <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>
+        ), $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">rest</span>)<span class="kw-2">*</span>);
+    };
+}
+
+<span class="macro">macro_rules</span><span class="macro">!</span> <span class="ident">web_colors_trait</span> {
+    ([$((<span class="macro-nonterminal">$</span><span class="macro-nonterminal">ident</span>:<span class="ident">ident</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>:<span class="ident">expr</span>, (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">r</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">g</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">b</span>:<span class="ident">expr</span>)),)<span class="kw-2">*</span>]) <span class="op">=</span><span class="op">&gt;</span> {
+        <span class="doccomment">/// Named colors as defined in the CSS specification.</span>
+        <span class="doccomment">///</span>
+        <span class="doccomment">/// This list includes the [basic color keywords] as well as all colors in the</span>
+        <span class="doccomment">/// [extended color keywords] list.</span>
+        <span class="doccomment">///</span>
+        <span class="doccomment">/// Note that the `grEy` variants of some colors as defined in the spec are absent from this list.</span>
+        <span class="doccomment">/// The `grAy` variants of these colors should be used instead.</span>
+        <span class="doccomment">///</span>
+        <span class="doccomment">/// [basic color keywords]: https://drafts.csswg.org/css-color-3/#html4</span>
+        <span class="doccomment">/// [extended color keywords]: https://drafts.csswg.org/css-color-3/#svg-color</span>
+        <span class="attribute">#[<span class="ident">rustfmt</span>::<span class="ident">skip</span>]</span>
+        <span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">WebColors</span>: <span class="ident">PixelColor</span> <span class="op">+</span> <span class="ident">RgbColor</span> {
+            $( <span class="macro">color_doc</span><span class="macro">!</span> {
+                <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>, (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">r</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">g</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">b</span>),
+                <span class="kw">const</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">ident</span>: <span class="self">Self</span>;
+            } )<span class="op">*</span>
+        }
+    };
+}
+
+<span class="macro">macro_rules</span><span class="macro">!</span> <span class="ident">impl_web_colors</span> {
+    (<span class="macro-nonterminal">$</span><span class="kw">type</span>:<span class="macro-nonterminal">ty</span>, [$((<span class="macro-nonterminal">$</span><span class="macro-nonterminal">ident</span>:<span class="ident">ident</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>:<span class="ident">expr</span>, (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">r</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">g</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">b</span>:<span class="ident">expr</span>)),)<span class="kw-2">*</span>]) <span class="op">=</span><span class="op">&gt;</span> {
+        <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;Named web colors.&quot;</span>]</span>
+        <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">unused</span>)]</span>
+        <span class="kw">impl</span> <span class="ident">WebColors</span> <span class="kw">for</span> <span class="macro-nonterminal">$</span><span class="kw">type</span> {
+            $( <span class="macro">color_doc</span><span class="macro">!</span> {
+                <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>, (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">r</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">g</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">b</span>),
+                <span class="kw">const</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">ident</span>: <span class="self">Self</span> <span class="op">=</span> <span class="self">Self</span>::<span class="ident">with_rgb888</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">r</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">g</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">b</span>);
+            } )<span class="op">*</span>
+        }
+    };
+}
+
+<span class="macro">macro_rules</span><span class="macro">!</span> <span class="ident">web_colors</span> {
+    (($(<span class="macro-nonterminal">$</span><span class="kw">type</span>:<span class="macro-nonterminal">ty</span>),<span class="kw-2">*</span>), <span class="macro-nonterminal">$</span><span class="macro-nonterminal">colors</span>:<span class="ident">tt</span>) <span class="op">=</span><span class="op">&gt;</span> {
+        <span class="macro">web_colors_trait</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">colors</span>);
+        $( <span class="macro">impl_web_colors</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="kw">type</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">colors</span>); )<span class="op">*</span>
+    };
+}
+
+<span class="attribute">#[<span class="ident">rustfmt</span>::<span class="ident">skip</span>]</span>
+<span class="macro">web_colors</span><span class="macro">!</span>(
+    (<span class="ident">Rgb555</span>, <span class="ident">Rgb565</span>, <span class="ident">Rgb888</span>, <span class="ident">Bgr555</span>, <span class="ident">Bgr565</span>, <span class="ident">Bgr888</span>),
+    [
+        (<span class="ident">CSS_ALICE_BLUE</span>, <span class="string">&quot;Alice Blue&quot;</span>, (<span class="number">240</span>, <span class="number">248</span>, <span class="number">255</span>)),
+        (<span class="ident">CSS_ANTIQUE_WHITE</span>, <span class="string">&quot;Antique White&quot;</span>, (<span class="number">250</span>, <span class="number">235</span>, <span class="number">215</span>)),
+        (<span class="ident">CSS_AQUA</span>, <span class="string">&quot;Aqua&quot;</span>, (<span class="number">0</span>, <span class="number">255</span>, <span class="number">255</span>)),
+        (<span class="ident">CSS_AQUAMARINE</span>, <span class="string">&quot;Aquamarine&quot;</span>, (<span class="number">127</span>, <span class="number">255</span>, <span class="number">212</span>)),
+        (<span class="ident">CSS_AZURE</span>, <span class="string">&quot;Azure&quot;</span>, (<span class="number">240</span>, <span class="number">255</span>, <span class="number">255</span>)),
+        (<span class="ident">CSS_BEIGE</span>, <span class="string">&quot;Beige&quot;</span>, (<span class="number">245</span>, <span class="number">245</span>, <span class="number">220</span>)),
+        (<span class="ident">CSS_BISQUE</span>, <span class="string">&quot;Bisque&quot;</span>, (<span class="number">255</span>, <span class="number">228</span>, <span class="number">196</span>)),
+        (<span class="ident">CSS_BLACK</span>, <span class="string">&quot;Black&quot;</span>, (<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>)),
+        (<span class="ident">CSS_BLANCHED_ALMOND</span>, <span class="string">&quot;Blanched Almond&quot;</span>, (<span class="number">255</span>, <span class="number">235</span>, <span class="number">205</span>)),
+        (<span class="ident">CSS_BLUE</span>, <span class="string">&quot;Blue&quot;</span>, (<span class="number">0</span>, <span class="number">0</span>, <span class="number">255</span>)),
+        (<span class="ident">CSS_BLUE_VIOLET</span>, <span class="string">&quot;Blue Violet&quot;</span>, (<span class="number">138</span>, <span class="number">43</span>, <span class="number">226</span>)),
+        (<span class="ident">CSS_BROWN</span>, <span class="string">&quot;Brown&quot;</span>, (<span class="number">165</span>, <span class="number">42</span>, <span class="number">42</span>)),
+        (<span class="ident">CSS_BURLY_WOOD</span>, <span class="string">&quot;Burly Wood&quot;</span>, (<span class="number">222</span>, <span class="number">184</span>, <span class="number">135</span>)),
+        (<span class="ident">CSS_CADET_BLUE</span>, <span class="string">&quot;Cadet Blue&quot;</span>, (<span class="number">95</span>, <span class="number">158</span>, <span class="number">160</span>)),
+        (<span class="ident">CSS_CHARTREUSE</span>, <span class="string">&quot;Chartreuse&quot;</span>, (<span class="number">127</span>, <span class="number">255</span>, <span class="number">0</span>)),
+        (<span class="ident">CSS_CHOCOLATE</span>, <span class="string">&quot;Chocolate&quot;</span>, (<span class="number">210</span>, <span class="number">105</span>, <span class="number">30</span>)),
+        (<span class="ident">CSS_CORAL</span>, <span class="string">&quot;Coral&quot;</span>, (<span class="number">255</span>, <span class="number">127</span>, <span class="number">80</span>)),
+        (<span class="ident">CSS_CORNFLOWER_BLUE</span>, <span class="string">&quot;Cornflower Blue&quot;</span>, (<span class="number">100</span>, <span class="number">149</span>, <span class="number">237</span>)),
+        (<span class="ident">CSS_CORNSILK</span>, <span class="string">&quot;Cornsilk&quot;</span>, (<span class="number">255</span>, <span class="number">248</span>, <span class="number">220</span>)),
+        (<span class="ident">CSS_CRIMSON</span>, <span class="string">&quot;Crimson&quot;</span>, (<span class="number">220</span>, <span class="number">20</span>, <span class="number">60</span>)),
+        (<span class="ident">CSS_CYAN</span>, <span class="string">&quot;Cyan&quot;</span>, (<span class="number">0</span>, <span class="number">255</span>, <span class="number">255</span>)),
+        (<span class="ident">CSS_DARK_BLUE</span>, <span class="string">&quot;Dark Blue&quot;</span>, (<span class="number">0</span>, <span class="number">0</span>, <span class="number">139</span>)),
+        (<span class="ident">CSS_DARK_CYAN</span>, <span class="string">&quot;Dark Cyan&quot;</span>, (<span class="number">0</span>, <span class="number">139</span>, <span class="number">139</span>)),
+        (<span class="ident">CSS_DARK_GOLDENROD</span>, <span class="string">&quot;Dark Goldenrod&quot;</span>, (<span class="number">184</span>, <span class="number">134</span>, <span class="number">11</span>)),
+        (<span class="ident">CSS_DARK_GRAY</span>, <span class="string">&quot;Dark Gray&quot;</span>, (<span class="number">169</span>, <span class="number">169</span>, <span class="number">169</span>)),
+        (<span class="ident">CSS_DARK_GREEN</span>, <span class="string">&quot;Dark Green&quot;</span>, (<span class="number">0</span>, <span class="number">100</span>, <span class="number">0</span>)),
+        (<span class="ident">CSS_DARK_KHAKI</span>, <span class="string">&quot;Dark Khaki&quot;</span>, (<span class="number">189</span>, <span class="number">183</span>, <span class="number">107</span>)),
+        (<span class="ident">CSS_DARK_MAGENTA</span>, <span class="string">&quot;Dark Magenta&quot;</span>, (<span class="number">139</span>, <span class="number">0</span>, <span class="number">139</span>)),
+        (<span class="ident">CSS_DARK_OLIVE_GREEN</span>, <span class="string">&quot;Dark Olive Green&quot;</span>, (<span class="number">85</span>, <span class="number">107</span>, <span class="number">47</span>)),
+        (<span class="ident">CSS_DARK_ORANGE</span>, <span class="string">&quot;Dark Orange&quot;</span>, (<span class="number">255</span>, <span class="number">140</span>, <span class="number">0</span>)),
+        (<span class="ident">CSS_DARK_ORCHID</span>, <span class="string">&quot;Dark Orchid&quot;</span>, (<span class="number">153</span>, <span class="number">50</span>, <span class="number">204</span>)),
+        (<span class="ident">CSS_DARK_RED</span>, <span class="string">&quot;Dark Red&quot;</span>, (<span class="number">139</span>, <span class="number">0</span>, <span class="number">0</span>)),
+        (<span class="ident">CSS_DARK_SALMON</span>, <span class="string">&quot;Dark Salmon&quot;</span>, (<span class="number">233</span>, <span class="number">150</span>, <span class="number">122</span>)),
+        (<span class="ident">CSS_DARK_SEA_GREEN</span>, <span class="string">&quot;Dark Sea Green&quot;</span>, (<span class="number">143</span>, <span class="number">188</span>, <span class="number">143</span>)),
+        (<span class="ident">CSS_DARK_SLATE_BLUE</span>, <span class="string">&quot;Dark Slate Blue&quot;</span>, (<span class="number">72</span>, <span class="number">61</span>, <span class="number">139</span>)),
+        (<span class="ident">CSS_DARK_SLATE_GRAY</span>, <span class="string">&quot;Dark Slate Gray&quot;</span>, (<span class="number">47</span>, <span class="number">79</span>, <span class="number">79</span>)),
+        (<span class="ident">CSS_DARK_TURQUOISE</span>, <span class="string">&quot;Dark Turquoise&quot;</span>, (<span class="number">0</span>, <span class="number">206</span>, <span class="number">209</span>)),
+        (<span class="ident">CSS_DARK_VIOLET</span>, <span class="string">&quot;Dark Violet&quot;</span>, (<span class="number">148</span>, <span class="number">0</span>, <span class="number">211</span>)),
+        (<span class="ident">CSS_DEEP_PINK</span>, <span class="string">&quot;Deep Pink&quot;</span>, (<span class="number">255</span>, <span class="number">20</span>, <span class="number">147</span>)),
+        (<span class="ident">CSS_DEEP_SKY_BLUE</span>, <span class="string">&quot;Deep Sky Blue&quot;</span>, (<span class="number">0</span>, <span class="number">191</span>, <span class="number">255</span>)),
+        (<span class="ident">CSS_DIM_GRAY</span>, <span class="string">&quot;Dim Gray&quot;</span>, (<span class="number">105</span>, <span class="number">105</span>, <span class="number">105</span>)),
+        (<span class="ident">CSS_DODGER_BLUE</span>, <span class="string">&quot;Dodger Blue&quot;</span>, (<span class="number">30</span>, <span class="number">144</span>, <span class="number">255</span>)),
+        (<span class="ident">CSS_FIRE_BRICK</span>, <span class="string">&quot;Fire Brick&quot;</span>, (<span class="number">178</span>, <span class="number">34</span>, <span class="number">34</span>)),
+        (<span class="ident">CSS_FLORAL_WHITE</span>, <span class="string">&quot;Floral White&quot;</span>, (<span class="number">255</span>, <span class="number">250</span>, <span class="number">240</span>)),
+        (<span class="ident">CSS_FOREST_GREEN</span>, <span class="string">&quot;Forest Green&quot;</span>, (<span class="number">34</span>, <span class="number">139</span>, <span class="number">34</span>)),
+        (<span class="ident">CSS_FUCHSIA</span>, <span class="string">&quot;Fuchsia&quot;</span>, (<span class="number">255</span>, <span class="number">0</span>, <span class="number">255</span>)),
+        (<span class="ident">CSS_GAINSBORO</span>, <span class="string">&quot;Gainsboro&quot;</span>, (<span class="number">220</span>, <span class="number">220</span>, <span class="number">220</span>)),
+        (<span class="ident">CSS_GHOST_WHITE</span>, <span class="string">&quot;Ghost White&quot;</span>, (<span class="number">248</span>, <span class="number">248</span>, <span class="number">255</span>)),
+        (<span class="ident">CSS_GOLD</span>, <span class="string">&quot;Gold&quot;</span>, (<span class="number">255</span>, <span class="number">215</span>, <span class="number">0</span>)),
+        (<span class="ident">CSS_GOLDENROD</span>, <span class="string">&quot;Goldenrod&quot;</span>, (<span class="number">218</span>, <span class="number">165</span>, <span class="number">32</span>)),
+        (<span class="ident">CSS_GRAY</span>, <span class="string">&quot;Gray&quot;</span>, (<span class="number">128</span>, <span class="number">128</span>, <span class="number">128</span>)),
+        (<span class="ident">CSS_GREEN</span>, <span class="string">&quot;Green&quot;</span>, (<span class="number">0</span>, <span class="number">128</span>, <span class="number">0</span>)),
+        (<span class="ident">CSS_GREEN_YELLOW</span>, <span class="string">&quot;Green Yellow&quot;</span>, (<span class="number">173</span>, <span class="number">255</span>, <span class="number">47</span>)),
+        (<span class="ident">CSS_HONEYDEW</span>, <span class="string">&quot;Honeydew&quot;</span>, (<span class="number">240</span>, <span class="number">255</span>, <span class="number">240</span>)),
+        (<span class="ident">CSS_HOT_PINK</span>, <span class="string">&quot;Hot Pink&quot;</span>, (<span class="number">255</span>, <span class="number">105</span>, <span class="number">180</span>)),
+        (<span class="ident">CSS_INDIAN_RED</span>, <span class="string">&quot;Indian Red&quot;</span>, (<span class="number">205</span>, <span class="number">92</span>, <span class="number">92</span>)),
+        (<span class="ident">CSS_INDIGO</span>, <span class="string">&quot;Indigo&quot;</span>, (<span class="number">75</span>, <span class="number">0</span>, <span class="number">130</span>)),
+        (<span class="ident">CSS_IVORY</span>, <span class="string">&quot;Ivory&quot;</span>, (<span class="number">255</span>, <span class="number">255</span>, <span class="number">240</span>)),
+        (<span class="ident">CSS_KHAKI</span>, <span class="string">&quot;Khaki&quot;</span>, (<span class="number">240</span>, <span class="number">230</span>, <span class="number">140</span>)),
+        (<span class="ident">CSS_LAVENDER</span>, <span class="string">&quot;Lavender&quot;</span>, (<span class="number">230</span>, <span class="number">230</span>, <span class="number">250</span>)),
+        (<span class="ident">CSS_LAVENDER_BLUSH</span>, <span class="string">&quot;Lavender Blush&quot;</span>, (<span class="number">255</span>, <span class="number">240</span>, <span class="number">245</span>)),
+        (<span class="ident">CSS_LAWN_GREEN</span>, <span class="string">&quot;Lawn Green&quot;</span>, (<span class="number">124</span>, <span class="number">252</span>, <span class="number">0</span>)),
+        (<span class="ident">CSS_LEMON_CHIFFON</span>, <span class="string">&quot;Lemon Chiffon&quot;</span>, (<span class="number">255</span>, <span class="number">250</span>, <span class="number">205</span>)),
+        (<span class="ident">CSS_LIGHT_BLUE</span>, <span class="string">&quot;Light Blue&quot;</span>, (<span class="number">173</span>, <span class="number">216</span>, <span class="number">230</span>)),
+        (<span class="ident">CSS_LIGHT_CORAL</span>, <span class="string">&quot;Light Coral&quot;</span>, (<span class="number">240</span>, <span class="number">128</span>, <span class="number">128</span>)),
+        (<span class="ident">CSS_LIGHT_CYAN</span>, <span class="string">&quot;Light Cyan&quot;</span>, (<span class="number">224</span>, <span class="number">255</span>, <span class="number">255</span>)),
+        (<span class="ident">CSS_LIGHT_GOLDENROD_YELLOW</span>, <span class="string">&quot;Light Goldenrod Yellow&quot;</span>, (<span class="number">250</span>, <span class="number">250</span>, <span class="number">210</span>)),
+        (<span class="ident">CSS_LIGHT_GRAY</span>, <span class="string">&quot;Light Gray&quot;</span>, (<span class="number">211</span>, <span class="number">211</span>, <span class="number">211</span>)),
+        (<span class="ident">CSS_LIGHT_GREEN</span>, <span class="string">&quot;Light Green&quot;</span>, (<span class="number">144</span>, <span class="number">238</span>, <span class="number">144</span>)),
+        (<span class="ident">CSS_LIGHT_PINK</span>, <span class="string">&quot;Light Pink&quot;</span>, (<span class="number">255</span>, <span class="number">182</span>, <span class="number">193</span>)),
+        (<span class="ident">CSS_LIGHT_SALMON</span>, <span class="string">&quot;Light Salmon&quot;</span>, (<span class="number">255</span>, <span class="number">160</span>, <span class="number">122</span>)),
+        (<span class="ident">CSS_LIGHT_SEA_GREEN</span>, <span class="string">&quot;Light Sea Green&quot;</span>, (<span class="number">32</span>, <span class="number">178</span>, <span class="number">170</span>)),
+        (<span class="ident">CSS_LIGHT_SKY_BLUE</span>, <span class="string">&quot;Light Sky Blue&quot;</span>, (<span class="number">135</span>, <span class="number">206</span>, <span class="number">250</span>)),
+        (<span class="ident">CSS_LIGHT_SLATE_GRAY</span>, <span class="string">&quot;Light Slate Gray&quot;</span>, (<span class="number">119</span>, <span class="number">136</span>, <span class="number">153</span>)),
+        (<span class="ident">CSS_LIGHT_STEEL_BLUE</span>, <span class="string">&quot;Light Steel Blue&quot;</span>, (<span class="number">176</span>, <span class="number">196</span>, <span class="number">222</span>)),
+        (<span class="ident">CSS_LIGHT_YELLOW</span>, <span class="string">&quot;Light Yellow&quot;</span>, (<span class="number">255</span>, <span class="number">255</span>, <span class="number">224</span>)),
+        (<span class="ident">CSS_LIME</span>, <span class="string">&quot;Lime&quot;</span>, (<span class="number">0</span>, <span class="number">255</span>, <span class="number">0</span>)),
+        (<span class="ident">CSS_LIME_GREEN</span>, <span class="string">&quot;Lime Green&quot;</span>, (<span class="number">50</span>, <span class="number">205</span>, <span class="number">50</span>)),
+        (<span class="ident">CSS_LINEN</span>, <span class="string">&quot;Linen&quot;</span>, (<span class="number">250</span>, <span class="number">240</span>, <span class="number">230</span>)),
+        (<span class="ident">CSS_MAGENTA</span>, <span class="string">&quot;Magenta&quot;</span>, (<span class="number">255</span>, <span class="number">0</span>, <span class="number">255</span>)),
+        (<span class="ident">CSS_MAROON</span>, <span class="string">&quot;Maroon&quot;</span>, (<span class="number">128</span>, <span class="number">0</span>, <span class="number">0</span>)),
+        (<span class="ident">CSS_MEDIUM_AQUAMARINE</span>, <span class="string">&quot;Medium Aquamarine&quot;</span>, (<span class="number">102</span>, <span class="number">205</span>, <span class="number">170</span>)),
+        (<span class="ident">CSS_MEDIUM_BLUE</span>, <span class="string">&quot;Medium Blue&quot;</span>, (<span class="number">0</span>, <span class="number">0</span>, <span class="number">205</span>)),
+        (<span class="ident">CSS_MEDIUM_ORCHID</span>, <span class="string">&quot;Medium Orchid&quot;</span>, (<span class="number">186</span>, <span class="number">85</span>, <span class="number">211</span>)),
+        (<span class="ident">CSS_MEDIUM_PURPLE</span>, <span class="string">&quot;Medium Purple&quot;</span>, (<span class="number">147</span>, <span class="number">112</span>, <span class="number">219</span>)),
+        (<span class="ident">CSS_MEDIUM_SEA_GREEN</span>, <span class="string">&quot;Medium Sea Green&quot;</span>, (<span class="number">60</span>, <span class="number">179</span>, <span class="number">113</span>)),
+        (<span class="ident">CSS_MEDIUM_SLATE_BLUE</span>, <span class="string">&quot;Medium Slate Blue&quot;</span>, (<span class="number">123</span>, <span class="number">104</span>, <span class="number">238</span>)),
+        (<span class="ident">CSS_MEDIUM_SPRING_GREEN</span>, <span class="string">&quot;Medium Spring Green&quot;</span>, (<span class="number">0</span>, <span class="number">250</span>, <span class="number">154</span>)),
+        (<span class="ident">CSS_MEDIUM_TURQUOISE</span>, <span class="string">&quot;Medium Turquoise&quot;</span>, (<span class="number">72</span>, <span class="number">209</span>, <span class="number">204</span>)),
+        (<span class="ident">CSS_MEDIUM_VIOLET_RED</span>, <span class="string">&quot;Medium Violet Red&quot;</span>, (<span class="number">199</span>, <span class="number">21</span>, <span class="number">133</span>)),
+        (<span class="ident">CSS_MIDNIGHT_BLUE</span>, <span class="string">&quot;Midnight Blue&quot;</span>, (<span class="number">25</span>, <span class="number">25</span>, <span class="number">112</span>)),
+        (<span class="ident">CSS_MINT_CREAM</span>, <span class="string">&quot;Mint Cream&quot;</span>, (<span class="number">245</span>, <span class="number">255</span>, <span class="number">250</span>)),
+        (<span class="ident">CSS_MISTY_ROSE</span>, <span class="string">&quot;Misty Rose&quot;</span>, (<span class="number">255</span>, <span class="number">228</span>, <span class="number">225</span>)),
+        (<span class="ident">CSS_MOCCASIN</span>, <span class="string">&quot;Moccasin&quot;</span>, (<span class="number">255</span>, <span class="number">228</span>, <span class="number">181</span>)),
+        (<span class="ident">CSS_NAVAJO_WHITE</span>, <span class="string">&quot;Navajo White&quot;</span>, (<span class="number">255</span>, <span class="number">222</span>, <span class="number">173</span>)),
+        (<span class="ident">CSS_NAVY</span>, <span class="string">&quot;Navy&quot;</span>, (<span class="number">0</span>, <span class="number">0</span>, <span class="number">128</span>)),
+        (<span class="ident">CSS_OLD_LACE</span>, <span class="string">&quot;Old Lace&quot;</span>, (<span class="number">253</span>, <span class="number">245</span>, <span class="number">230</span>)),
+        (<span class="ident">CSS_OLIVE</span>, <span class="string">&quot;Olive&quot;</span>, (<span class="number">128</span>, <span class="number">128</span>, <span class="number">0</span>)),
+        (<span class="ident">CSS_OLIVE_DRAB</span>, <span class="string">&quot;Olive Drab&quot;</span>, (<span class="number">107</span>, <span class="number">142</span>, <span class="number">35</span>)),
+        (<span class="ident">CSS_ORANGE</span>, <span class="string">&quot;Orange&quot;</span>, (<span class="number">255</span>, <span class="number">165</span>, <span class="number">0</span>)),
+        (<span class="ident">CSS_ORANGE_RED</span>, <span class="string">&quot;Orange Red&quot;</span>, (<span class="number">255</span>, <span class="number">69</span>, <span class="number">0</span>)),
+        (<span class="ident">CSS_ORCHID</span>, <span class="string">&quot;Orchid&quot;</span>, (<span class="number">218</span>, <span class="number">112</span>, <span class="number">214</span>)),
+        (<span class="ident">CSS_PALE_GOLDENROD</span>, <span class="string">&quot;Pale Goldenrod&quot;</span>, (<span class="number">238</span>, <span class="number">232</span>, <span class="number">170</span>)),
+        (<span class="ident">CSS_PALE_GREEN</span>, <span class="string">&quot;Pale Green&quot;</span>, (<span class="number">152</span>, <span class="number">251</span>, <span class="number">152</span>)),
+        (<span class="ident">CSS_PALE_TURQUOISE</span>, <span class="string">&quot;Pale Turquoise&quot;</span>, (<span class="number">175</span>, <span class="number">238</span>, <span class="number">238</span>)),
+        (<span class="ident">CSS_PALE_VIOLET_RED</span>, <span class="string">&quot;Pale Violet Red&quot;</span>, (<span class="number">219</span>, <span class="number">112</span>, <span class="number">147</span>)),
+        (<span class="ident">CSS_PAPAYA_WHIP</span>, <span class="string">&quot;Papaya Whip&quot;</span>, (<span class="number">255</span>, <span class="number">239</span>, <span class="number">213</span>)),
+        (<span class="ident">CSS_PEACH_PUFF</span>, <span class="string">&quot;Peach Puff&quot;</span>, (<span class="number">255</span>, <span class="number">218</span>, <span class="number">185</span>)),
+        (<span class="ident">CSS_PERU</span>, <span class="string">&quot;Peru&quot;</span>, (<span class="number">205</span>, <span class="number">133</span>, <span class="number">63</span>)),
+        (<span class="ident">CSS_PINK</span>, <span class="string">&quot;Pink&quot;</span>, (<span class="number">255</span>, <span class="number">192</span>, <span class="number">203</span>)),
+        (<span class="ident">CSS_PLUM</span>, <span class="string">&quot;Plum&quot;</span>, (<span class="number">221</span>, <span class="number">160</span>, <span class="number">221</span>)),
+        (<span class="ident">CSS_POWDER_BLUE</span>, <span class="string">&quot;Powder Blue&quot;</span>, (<span class="number">176</span>, <span class="number">224</span>, <span class="number">230</span>)),
+        (<span class="ident">CSS_PURPLE</span>, <span class="string">&quot;Purple&quot;</span>, (<span class="number">128</span>, <span class="number">0</span>, <span class="number">128</span>)),
+        (<span class="ident">CSS_REBECCAPURPLE</span>, <span class="string">&quot;Rebeccapurple&quot;</span>, (<span class="number">102</span>, <span class="number">51</span>, <span class="number">153</span>)),
+        (<span class="ident">CSS_RED</span>, <span class="string">&quot;Red&quot;</span>, (<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>)),
+        (<span class="ident">CSS_ROSY_BROWN</span>, <span class="string">&quot;Rosy Brown&quot;</span>, (<span class="number">188</span>, <span class="number">143</span>, <span class="number">143</span>)),
+        (<span class="ident">CSS_ROYAL_BLUE</span>, <span class="string">&quot;Royal Blue&quot;</span>, (<span class="number">65</span>, <span class="number">105</span>, <span class="number">225</span>)),
+        (<span class="ident">CSS_SADDLE_BROWN</span>, <span class="string">&quot;Saddle Brown&quot;</span>, (<span class="number">139</span>, <span class="number">69</span>, <span class="number">19</span>)),
+        (<span class="ident">CSS_SALMON</span>, <span class="string">&quot;Salmon&quot;</span>, (<span class="number">250</span>, <span class="number">128</span>, <span class="number">114</span>)),
+        (<span class="ident">CSS_SANDY_BROWN</span>, <span class="string">&quot;Sandy Brown&quot;</span>, (<span class="number">244</span>, <span class="number">164</span>, <span class="number">96</span>)),
+        (<span class="ident">CSS_SEA_GREEN</span>, <span class="string">&quot;Sea Green&quot;</span>, (<span class="number">46</span>, <span class="number">139</span>, <span class="number">87</span>)),
+        (<span class="ident">CSS_SEASHELL</span>, <span class="string">&quot;Seashell&quot;</span>, (<span class="number">255</span>, <span class="number">245</span>, <span class="number">238</span>)),
+        (<span class="ident">CSS_SIENNA</span>, <span class="string">&quot;Sienna&quot;</span>, (<span class="number">160</span>, <span class="number">82</span>, <span class="number">45</span>)),
+        (<span class="ident">CSS_SILVER</span>, <span class="string">&quot;Silver&quot;</span>, (<span class="number">192</span>, <span class="number">192</span>, <span class="number">192</span>)),
+        (<span class="ident">CSS_SKY_BLUE</span>, <span class="string">&quot;Sky Blue&quot;</span>, (<span class="number">135</span>, <span class="number">206</span>, <span class="number">235</span>)),
+        (<span class="ident">CSS_SLATE_BLUE</span>, <span class="string">&quot;Slate Blue&quot;</span>, (<span class="number">106</span>, <span class="number">90</span>, <span class="number">205</span>)),
+        (<span class="ident">CSS_SLATE_GRAY</span>, <span class="string">&quot;Slate Gray&quot;</span>, (<span class="number">112</span>, <span class="number">128</span>, <span class="number">144</span>)),
+        (<span class="ident">CSS_SNOW</span>, <span class="string">&quot;Snow&quot;</span>, (<span class="number">255</span>, <span class="number">250</span>, <span class="number">250</span>)),
+        (<span class="ident">CSS_SPRING_GREEN</span>, <span class="string">&quot;Spring Green&quot;</span>, (<span class="number">0</span>, <span class="number">255</span>, <span class="number">127</span>)),
+        (<span class="ident">CSS_STEEL_BLUE</span>, <span class="string">&quot;Steel Blue&quot;</span>, (<span class="number">70</span>, <span class="number">130</span>, <span class="number">180</span>)),
+        (<span class="ident">CSS_TAN</span>, <span class="string">&quot;Tan&quot;</span>, (<span class="number">210</span>, <span class="number">180</span>, <span class="number">140</span>)),
+        (<span class="ident">CSS_TEAL</span>, <span class="string">&quot;Teal&quot;</span>, (<span class="number">0</span>, <span class="number">128</span>, <span class="number">128</span>)),
+        (<span class="ident">CSS_THISTLE</span>, <span class="string">&quot;Thistle&quot;</span>, (<span class="number">216</span>, <span class="number">191</span>, <span class="number">216</span>)),
+        (<span class="ident">CSS_TOMATO</span>, <span class="string">&quot;Tomato&quot;</span>, (<span class="number">255</span>, <span class="number">99</span>, <span class="number">71</span>)),
+        (<span class="ident">CSS_TURQUOISE</span>, <span class="string">&quot;Turquoise&quot;</span>, (<span class="number">64</span>, <span class="number">224</span>, <span class="number">208</span>)),
+        (<span class="ident">CSS_VIOLET</span>, <span class="string">&quot;Violet&quot;</span>, (<span class="number">238</span>, <span class="number">130</span>, <span class="number">238</span>)),
+        (<span class="ident">CSS_WHEAT</span>, <span class="string">&quot;Wheat&quot;</span>, (<span class="number">245</span>, <span class="number">222</span>, <span class="number">179</span>)),
+        (<span class="ident">CSS_WHITE</span>, <span class="string">&quot;White&quot;</span>, (<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>)),
+        (<span class="ident">CSS_WHITE_SMOKE</span>, <span class="string">&quot;White Smoke&quot;</span>, (<span class="number">245</span>, <span class="number">245</span>, <span class="number">245</span>)),
+        (<span class="ident">CSS_YELLOW</span>, <span class="string">&quot;Yellow&quot;</span>, (<span class="number">255</span>, <span class="number">255</span>, <span class="number">0</span>)),
+        (<span class="ident">CSS_YELLOW_GREEN</span>, <span class="string">&quot;Yellow Green&quot;</span>, (<span class="number">154</span>, <span class="number">205</span>, <span class="number">50</span>)),
+    ]
+);
+
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
+<span class="kw">mod</span> <span class="ident">tests</span> {
+    <span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
+    <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">pixelcolor</span>::<span class="ident">IntoStorage</span>;
+
+    <span class="attribute">#[<span class="ident">test</span>]</span>
+    <span class="kw">fn</span> <span class="ident">max_channels</span>() {
+        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">Rgb555</span>::<span class="ident">WHITE</span>, <span class="ident">Rgb555</span>::<span class="ident">CSS_WHITE</span>);
+        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">Bgr555</span>::<span class="ident">WHITE</span>, <span class="ident">Bgr555</span>::<span class="ident">CSS_WHITE</span>);
+        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">Rgb565</span>::<span class="ident">WHITE</span>, <span class="ident">Rgb565</span>::<span class="ident">CSS_WHITE</span>);
+        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">Bgr565</span>::<span class="ident">WHITE</span>, <span class="ident">Bgr565</span>::<span class="ident">CSS_WHITE</span>);
+        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">Rgb888</span>::<span class="ident">WHITE</span>, <span class="ident">Rgb888</span>::<span class="ident">CSS_WHITE</span>);
+        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">Bgr888</span>::<span class="ident">WHITE</span>, <span class="ident">Bgr888</span>::<span class="ident">CSS_WHITE</span>);
+
+        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">Rgb555</span>::<span class="ident">RED</span>, <span class="ident">Rgb555</span>::<span class="ident">CSS_RED</span>);
+        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">Bgr555</span>::<span class="ident">RED</span>, <span class="ident">Bgr555</span>::<span class="ident">CSS_RED</span>);
+        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">Rgb565</span>::<span class="ident">RED</span>, <span class="ident">Rgb565</span>::<span class="ident">CSS_RED</span>);
+        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">Bgr565</span>::<span class="ident">RED</span>, <span class="ident">Bgr565</span>::<span class="ident">CSS_RED</span>);
+        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">Rgb888</span>::<span class="ident">RED</span>, <span class="ident">Rgb888</span>::<span class="ident">CSS_RED</span>);
+        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">Bgr888</span>::<span class="ident">RED</span>, <span class="ident">Bgr888</span>::<span class="ident">CSS_RED</span>);
+
+        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">Rgb555</span>::<span class="ident">GREEN</span>, <span class="ident">Rgb555</span>::<span class="ident">CSS_LIME</span>);
+        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">Bgr555</span>::<span class="ident">GREEN</span>, <span class="ident">Bgr555</span>::<span class="ident">CSS_LIME</span>);
+        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">Rgb565</span>::<span class="ident">GREEN</span>, <span class="ident">Rgb565</span>::<span class="ident">CSS_LIME</span>);
+        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">Bgr565</span>::<span class="ident">GREEN</span>, <span class="ident">Bgr565</span>::<span class="ident">CSS_LIME</span>);
+        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">Rgb888</span>::<span class="ident">GREEN</span>, <span class="ident">Rgb888</span>::<span class="ident">CSS_LIME</span>);
+        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">Bgr888</span>::<span class="ident">GREEN</span>, <span class="ident">Bgr888</span>::<span class="ident">CSS_LIME</span>);
+
+        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">Rgb555</span>::<span class="ident">BLUE</span>, <span class="ident">Rgb555</span>::<span class="ident">CSS_BLUE</span>);
+        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">Bgr555</span>::<span class="ident">BLUE</span>, <span class="ident">Bgr555</span>::<span class="ident">CSS_BLUE</span>);
+        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">Rgb565</span>::<span class="ident">BLUE</span>, <span class="ident">Rgb565</span>::<span class="ident">CSS_BLUE</span>);
+        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">Bgr565</span>::<span class="ident">BLUE</span>, <span class="ident">Bgr565</span>::<span class="ident">CSS_BLUE</span>);
+        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">Rgb888</span>::<span class="ident">BLUE</span>, <span class="ident">Rgb888</span>::<span class="ident">CSS_BLUE</span>);
+        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">Bgr888</span>::<span class="ident">BLUE</span>, <span class="ident">Bgr888</span>::<span class="ident">CSS_BLUE</span>);
+    }
+
+    <span class="attribute">#[<span class="ident">test</span>]</span>
+    <span class="kw">fn</span> <span class="ident">conversion</span>() {
+        <span class="comment">// 24bit: 7FFF00</span>
+        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">Rgb565</span>::<span class="ident">CSS_CHARTREUSE</span>.<span class="ident">into_storage</span>(), <span class="number">0x7fe0</span>);
+    }
+}
+</pre></div>
+</section><section id="search" class="content hidden"></section><section class="footer"></section><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="embedded_graphics_core" data-search-js="../../../search-index.js"></div>
+    <script src="../../../main.js"></script><script src="../../../source-script.js"></script><script src="../../../source-files.js"></script></body></html>

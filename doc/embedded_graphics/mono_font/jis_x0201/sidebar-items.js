@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["FONT_10X20","10x20 pixel monospace font."],["FONT_6X13","6x13 pixel monospace font."],["FONT_7X14","7x14 pixel monospace font."],["FONT_8X13","8x13 pixel monospace font."],["FONT_9X15","9x15 pixel monospace font."],["FONT_9X18","9x18 pixel monospace font."]]});

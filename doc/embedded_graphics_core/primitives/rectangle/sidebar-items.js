@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Points","Iterator over all points inside the rectangle."],["Rectangle","Rectangle primitive"]]});

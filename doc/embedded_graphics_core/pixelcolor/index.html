@@ -1,0 +1,107 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Pixel color types."><meta name="keywords" content="rust, rustlang, rust-lang, pixelcolor"><title>embedded_graphics_core::pixelcolor - Rust</title><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled ><script id="default-settings"></script><script src="../../storage.js"></script><script src="../../crates.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="alternate icon" type="image/png" href="../../favicon-16x16.png">
+<link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../down-arrow.svg");}</style></head><body class="rustdoc mod"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../embedded_graphics_core/index.html'><div class='logo-container'><img src='https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/b225511f390c0ed9bc065eb67d05125845312148/assets/logo_core.svg?sanitize=true' alt='logo'></div></a><p class="location">Module pixelcolor</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#modules">Modules</a></li><li><a href="#structs">Structs</a></li><li><a href="#enums">Enums</a></li><li><a href="#traits">Traits</a></li></ul></div><p class="location"><a href="../index.html">embedded_graphics_core</a></p><div id="sidebar-vars" data-name="pixelcolor" data-ty="mod" data-relpath="../"></div><script defer src="../sidebar-items.js"></script></div></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><script src="../../theme.js"></script><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" class="help-button">?</button>
+                <a id="settings-menu" href="../../settings.html"><img src="../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><h1 class="fqn"><span class="in-band">Module <a href="../index.html">embedded_graphics_core</a>::<wbr><a class="mod" href="">pixelcolor</a></span><span class="out-of-band"><span id="render-detail"><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class="inner">&#x2212;</span>]</a></span><a class="srclink" href="../../src/embedded_graphics_core/pixelcolor/mod.rs.html#1-158" title="goto source code">[src]</a></span></h1><div class="docblock"><p>Pixel color types.</p>
+<p>This module contains structs for commonly used pixel color formats and
+conversions between them. The <a href="raw/index.html"><code>raw</code> module</a> provides additional functions
+to convert colors to and from raw data for use with images and displays.</p>
+<h1 id="implementing-custom-color-types" class="section-header"><a href="#implementing-custom-color-types">Implementing custom color types</a></h1>
+<p>Custom color types can be added by implementing the <a href="trait.PixelColor.html"><code>PixelColor</code></a> trait.
+The following example shows how to implement a new color type for a
+3 color EPD display.</p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered">
+<span class="kw">use</span> <span class="ident">embedded_graphics</span>::{
+    <span class="ident">geometry</span>::<span class="ident">Size</span>, <span class="ident">prelude</span>::<span class="kw-2">*</span>, <span class="ident">primitives</span>::{<span class="ident">Rectangle</span>, <span class="ident">PrimitiveStyle</span>},
+};
+
+<span class="doccomment">/// Color with 3 states.</span>
+<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Copy</span>, <span class="ident">Clone</span>, <span class="ident">Eq</span>, <span class="ident">PartialEq</span>, <span class="ident">Ord</span>, <span class="ident">PartialOrd</span>, <span class="ident">Hash</span>, <span class="ident">Debug</span>)]</span>
+<span class="kw">pub</span> <span class="kw">enum</span> <span class="ident">EpdColor</span> {
+    <span class="ident">White</span>,
+    <span class="ident">Black</span>,
+    <span class="ident">Red</span>,
+}
+
+<span class="doccomment">/// The `Raw` can be is set to `()` because `EpdColor` doesn&#39;t need to be</span>
+<span class="doccomment">/// converted to raw data for the display and isn&#39;t stored in images.</span>
+<span class="kw">impl</span> <span class="ident">PixelColor</span> <span class="kw">for</span> <span class="ident">EpdColor</span> {
+    <span class="kw">type</span> <span class="ident">Raw</span> <span class="op">=</span> ();
+}
+
+<span class="doccomment">/// Mock EPD display.</span>
+<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">EpdDisplay</span> {}
+
+<span class="kw">impl</span> <span class="ident">DrawTarget</span> <span class="kw">for</span> <span class="ident">EpdDisplay</span> {
+    <span class="kw">type</span> <span class="ident">Color</span> <span class="op">=</span> <span class="ident">EpdColor</span>;
+    <span class="kw">type</span> <span class="ident">Error</span> <span class="op">=</span> <span class="ident">core</span>::<span class="ident">convert</span>::<span class="ident">Infallible</span>;
+
+    <span class="kw">fn</span> <span class="ident">draw_iter</span><span class="op">&lt;</span><span class="ident">I</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">pixels</span>: <span class="ident">I</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="self">Self</span>::<span class="ident">Error</span><span class="op">&gt;</span>
+    <span class="kw">where</span>
+        <span class="ident">I</span>: <span class="ident">IntoIterator</span><span class="op">&lt;</span><span class="ident">Item</span> <span class="op">=</span> <span class="ident">Pixel</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="ident">Color</span><span class="op">&gt;</span><span class="op">&gt;</span>,
+    {
+        <span class="kw">for</span> <span class="ident">Pixel</span>(<span class="ident">point</span>, <span class="ident">color</span>) <span class="kw">in</span> <span class="ident">pixels</span>.<span class="ident">into_iter</span>() {
+            <span class="kw">match</span> <span class="ident">color</span> {
+                <span class="ident">EpdColor</span>::<span class="ident">White</span> <span class="op">=</span><span class="op">&gt;</span> {} <span class="comment">// draw white pixel at `point`</span>
+                <span class="ident">EpdColor</span>::<span class="ident">Black</span> <span class="op">=</span><span class="op">&gt;</span> {} <span class="comment">// draw black pixel at `point`</span>
+                <span class="ident">EpdColor</span>::<span class="ident">Red</span> <span class="op">=</span><span class="op">&gt;</span> {}   <span class="comment">// draw red pixel at `point`</span>
+            }
+        }
+
+        <span class="prelude-val">Ok</span>(())
+    }
+}
+
+<span class="kw">impl</span> <span class="ident">OriginDimensions</span> <span class="kw">for</span> <span class="ident">EpdDisplay</span> {
+    <span class="kw">fn</span> <span class="ident">size</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Size</span> {
+        <span class="ident">Size</span>::<span class="ident">new</span>(<span class="number">300</span>, <span class="number">300</span>)
+    }
+}
+
+<span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">EpdDisplay</span> {};
+
+<span class="ident">Rectangle</span>::<span class="ident">new</span>(<span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">0</span>, <span class="number">0</span>), <span class="ident">Size</span>::<span class="ident">new</span>(<span class="number">100</span>, <span class="number">100</span>))
+    .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle</span>::<span class="ident">with_fill</span>(<span class="ident">EpdColor</span>::<span class="ident">White</span>))
+    .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)<span class="question-mark">?</span>;
+
+<span class="ident">Rectangle</span>::<span class="ident">new</span>(<span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">100</span>, <span class="number">0</span>), <span class="ident">Size</span>::<span class="ident">new</span>(<span class="number">100</span>, <span class="number">100</span>))
+    .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle</span>::<span class="ident">with_fill</span>(<span class="ident">EpdColor</span>::<span class="ident">Black</span>))
+    .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)<span class="question-mark">?</span>;
+
+<span class="ident">Rectangle</span>::<span class="ident">new</span>(<span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">200</span>, <span class="number">0</span>), <span class="ident">Size</span>::<span class="ident">new</span>(<span class="number">100</span>, <span class="number">100</span>))
+    .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle</span>::<span class="ident">with_fill</span>(<span class="ident">EpdColor</span>::<span class="ident">Red</span>))
+    .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)<span class="question-mark">?</span>;</pre></div>
+<p>The implementation of the <a href="../draw_target/trait.DrawTarget.html"><code>DrawTarget</code></a> trait uses a <code>match</code> statement to
+draw the specified color and doesn’t depend on the raw data conversions,
+see the <a href="raw/index.html"><code>raw</code> module</a> documentation for an example that uses this feature.</p>
+</div><h2 id="modules" class="section-header"><a href="#modules">Modules</a></h2>
+<table><tr class="module-item"><td><a class="mod" href="raw/index.html" title="embedded_graphics_core::pixelcolor::raw mod">raw</a></td><td class="docblock-short"><p>Raw color types.</p>
+</td></tr></table><h2 id="structs" class="section-header"><a href="#structs">Structs</a></h2>
+<table><tr class="module-item"><td><a class="struct" href="struct.Bgr555.html" title="embedded_graphics_core::pixelcolor::Bgr555 struct">Bgr555</a></td><td class="docblock-short"><p>Bgr555
+color.</p>
+</td></tr><tr class="module-item"><td><a class="struct" href="struct.Bgr565.html" title="embedded_graphics_core::pixelcolor::Bgr565 struct">Bgr565</a></td><td class="docblock-short"><p>Bgr565
+color.</p>
+</td></tr><tr class="module-item"><td><a class="struct" href="struct.Bgr888.html" title="embedded_graphics_core::pixelcolor::Bgr888 struct">Bgr888</a></td><td class="docblock-short"><p>Bgr888
+color.</p>
+</td></tr><tr class="module-item"><td><a class="struct" href="struct.Gray2.html" title="embedded_graphics_core::pixelcolor::Gray2 struct">Gray2</a></td><td class="docblock-short"><p>2 bit
+grayscale color.</p>
+</td></tr><tr class="module-item"><td><a class="struct" href="struct.Gray4.html" title="embedded_graphics_core::pixelcolor::Gray4 struct">Gray4</a></td><td class="docblock-short"><p>4 bit
+grayscale color.</p>
+</td></tr><tr class="module-item"><td><a class="struct" href="struct.Gray8.html" title="embedded_graphics_core::pixelcolor::Gray8 struct">Gray8</a></td><td class="docblock-short"><p>8 bit
+grayscale color.</p>
+</td></tr><tr class="module-item"><td><a class="struct" href="struct.Rgb555.html" title="embedded_graphics_core::pixelcolor::Rgb555 struct">Rgb555</a></td><td class="docblock-short"><p>Rgb555
+color.</p>
+</td></tr><tr class="module-item"><td><a class="struct" href="struct.Rgb565.html" title="embedded_graphics_core::pixelcolor::Rgb565 struct">Rgb565</a></td><td class="docblock-short"><p>Rgb565
+color.</p>
+</td></tr><tr class="module-item"><td><a class="struct" href="struct.Rgb888.html" title="embedded_graphics_core::pixelcolor::Rgb888 struct">Rgb888</a></td><td class="docblock-short"><p>Rgb888
+color.</p>
+</td></tr></table><h2 id="enums" class="section-header"><a href="#enums">Enums</a></h2>
+<table><tr class="module-item"><td><a class="enum" href="enum.BinaryColor.html" title="embedded_graphics_core::pixelcolor::BinaryColor enum">BinaryColor</a></td><td class="docblock-short"><p>Binary color.</p>
+</td></tr></table><h2 id="traits" class="section-header"><a href="#traits">Traits</a></h2>
+<table><tr class="module-item"><td><a class="trait" href="trait.GrayColor.html" title="embedded_graphics_core::pixelcolor::GrayColor trait">GrayColor</a></td><td class="docblock-short"><p>Grayscale color.</p>
+</td></tr><tr class="module-item"><td><a class="trait" href="trait.IntoStorage.html" title="embedded_graphics_core::pixelcolor::IntoStorage trait">IntoStorage</a></td><td class="docblock-short"><p>Convert a <a href="./trait.PixelColor.html"><code>PixelColor</code></a> into its underlying storage type</p>
+</td></tr><tr class="module-item"><td><a class="trait" href="trait.PixelColor.html" title="embedded_graphics_core::pixelcolor::PixelColor trait">PixelColor</a></td><td class="docblock-short"><p>Pixel color trait.</p>
+</td></tr><tr class="module-item"><td><a class="trait" href="trait.RgbColor.html" title="embedded_graphics_core::pixelcolor::RgbColor trait">RgbColor</a></td><td class="docblock-short"><p>RGB color.</p>
+</td></tr><tr class="module-item"><td><a class="trait" href="trait.WebColors.html" title="embedded_graphics_core::pixelcolor::WebColors trait">WebColors</a></td><td class="docblock-short"><p>Named colors as defined in the CSS specification.</p>
+</td></tr></table></section><section id="search" class="content hidden"></section><section class="footer"></section><div id="rustdoc-vars" data-root-path="../../" data-current-crate="embedded_graphics_core" data-search-js="../../search-index.js"></div>
+    <script src="../../main.js"></script></body></html>

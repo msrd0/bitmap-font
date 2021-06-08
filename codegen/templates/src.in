@@ -49,7 +49,7 @@ pub const FONT_{{ font.width }}x{{ font.height }}: BitmapFont = BitmapFont {
 {%- for font in fonts %}
 
 /**
- * Pixel-double version of [FONT_{{ font.width }}x{{ font.height }}].
+ * Pixel-double version of [`FONT_{{ font.width }}x{{ font.height }}`].
  * 
  * <img src="data:image/bmp;base64,{{ font.bmp_double }}"/>
  * 

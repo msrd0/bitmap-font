@@ -88,6 +88,10 @@ impl BitmapFont {
 	}
 
 	/// Returns `true` if the pixel `(x, y)` is turned on in the character `c`.
+	///
+	/// # Panics
+	///
+	/// This method panics if the `(x, y)` coordinates are outside the glyph.
 	// inspired by https://docs.rs/embedded-graphics/0.6.2/src/embedded_graphics/fonts/mod.rs.html#246
 	pub fn pixel(self, c: char, x: u32, y: u32) -> bool {
 		let x = x / self.pixels;

@@ -103,5 +103,5 @@ of this font.
  [__link0]: https://crates.io/crates/embedded-graphics/0.7.0
  [__link1]: https://docs.rs/embedded-graphics/0.7.0/embedded_graphics/?search=embedded_graphics::mono_font
  [__link2]: https://github.com/sunaku/tamzen-font
- [__link3]: https://docs.rs/bitmap-font/0.2.0-dev/bitmap_font/?search=bitmap_font::tamzen
+ [__link3]: https://docs.rs/bitmap-font/0.2.0/bitmap_font/?search=bitmap_font::tamzen
 

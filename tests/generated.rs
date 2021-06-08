@@ -19,8 +19,13 @@ macro_rules! test_font {
 				text::Text,
 				geometry::{Dimensions, Point, Size},
 				mock_display::MockDisplay,
+				pixelcolor::BinaryColor,
 				primitives::Rectangle
 			};
+			
+			fn font() -> TextStyle<'static> {
+				TextStyle::new(&$font, BinaryColor::On)
+			}
 			
 			#[test]
 			fn font_size() {
@@ -30,26 +35,26 @@ macro_rules! test_font {
 			
 			#[test]
 			fn text_empty_bb() {
-				let bb = Text::new("", Point::zero(), $font).bounding_box();
+				let bb = Text::new("", Point::zero(), font()).bounding_box();
 				assert_eq!(bb, Rectangle::new(Point::zero(), Size::zero()));
 			}
 			
 			#[test]
 			fn text_a_size() {
-				let bb = Text::new("a", Point::zero(), $font).bounding_box();
+				let bb = Text::new("a", Point::zero(), font()).bounding_box();
 				assert_eq!(bb, Rectangle::new(Point::zero(), Size::new($width, $height)));
 			}
 			
 			#[test]
 			fn text_multiline_size() {
-				let bb = Text::new("aa\naaa\na", Point::zero(), $font).bounding_box();
+				let bb = Text::new("aa\naaa\na", Point::zero(), font()).bounding_box();
 				assert_eq!(bb, Rectangle::new(Point::zero(), Size::new(3 * $width, 3 * $height)));
 			}
 			
 			#[test]
 			fn text_char_range_1() {
 				let mut display = MockDisplay::new();
-				Text::new(" O~", Point::zero(), $font)
+				Text::new(" O~", Point::zero(), font())
 					.draw(&mut display)
 					.unwrap();
 				assert_eq!(display, MockDisplay::from_pattern($char_range_1_pattern));
@@ -58,7 +63,7 @@ macro_rules! test_font {
 			#[test]
 			fn text_char_range_2() {
 				let mut display = MockDisplay::new();
-				Text::new("¡¤¦", Point::zero(), $font)
+				Text::new("¡¤¦", Point::zero(), font())
 					.draw(&mut display)
 					.unwrap();
 				assert_eq!(display, MockDisplay::from_pattern($char_range_2_pattern));
@@ -67,7 +72,7 @@ macro_rules! test_font {
 			#[test]
 			fn text_char_range_3() {
 				let mut display = MockDisplay::new();
-				Text::new("°°°", Point::zero(), $font)
+				Text::new("°°°", Point::zero(), font())
 					.draw(&mut display)
 					.unwrap();
 				assert_eq!(display, MockDisplay::from_pattern($char_range_3_pattern));
@@ -76,7 +81,7 @@ macro_rules! test_font {
 			#[test]
 			fn text_char_range_4() {
 				let mut display = MockDisplay::new();
-				Text::new("¿ßÿ", Point::zero(), $font)
+				Text::new("¿ßÿ", Point::zero(), font())
 					.draw(&mut display)
 					.unwrap();
 				assert_eq!(display, MockDisplay::from_pattern($char_range_4_pattern));
@@ -85,7 +90,7 @@ macro_rules! test_font {
 			#[test]
 			fn text_char_range_5() {
 				let mut display = MockDisplay::new();
-				Text::new("", Point::zero(), $font)
+				Text::new("", Point::zero(), font())
 					.draw(&mut display)
 					.unwrap();
 				assert_eq!(display, MockDisplay::from_pattern($char_range_5_pattern));
@@ -94,7 +99,7 @@ macro_rules! test_font {
 			#[test]
 			fn text_fallback() {
 				let mut display = MockDisplay::new();
-				Text::new("€?µ", Point::zero(), $font)
+				Text::new("€?µ", Point::zero(), font())
 					.draw(&mut display)
 					.unwrap();
 				assert_eq!(display,MockDisplay::from_pattern($fallback_pattern));

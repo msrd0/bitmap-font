@@ -89,7 +89,21 @@ impl<'a> BitmapFont<'a> {
 	}
 }
 
-impl<'a> TextRenderer for BitmapFont<'a> {
+/// The equivalent of [`MonoTextStyle`][embedded_graphics::mono_font::MonoTextStyle] for [`BitmapFont`].
+#[derive(Clone, Copy)]
+#[non_exhaustive]
+pub struct TextStyle<'a> {
+	pub font: &'a BitmapFont<'a>,
+	pub color: BinaryColor
+}
+
+impl<'a> TextStyle<'a> {
+	pub fn new(font: &'a BitmapFont<'a>, color: BinaryColor) -> Self {
+		Self { font, color }
+	}
+}
+
+impl<'a> TextRenderer for TextStyle<'a> {
 	type Color = BinaryColor;
 
 	fn draw_string<D>(&self, text: &str, mut pos: Point, _: Baseline, target: &mut D) -> Result<Point, D::Error>
@@ -97,9 +111,9 @@ impl<'a> TextRenderer for BitmapFont<'a> {
 		D: DrawTarget<Color = Self::Color>
 	{
 		for c in text.chars() {
-			let glyph_idx = self.glyph_mapping.index(c) as u32;
-			self.draw_glyph(glyph_idx, target, BinaryColor::On, pos)?;
-			pos += Size::new(self.width(), 0);
+			let glyph_idx = self.font.glyph_mapping.index(c) as u32;
+			self.font.draw_glyph(glyph_idx, target, BinaryColor::On, pos)?;
+			pos += Size::new(self.font.width(), 0);
 		}
 		Ok(pos)
 	}
@@ -109,11 +123,11 @@ impl<'a> TextRenderer for BitmapFont<'a> {
 		D: DrawTarget<Color = Self::Color>
 	{
 		// we don't draw background nor text decorations
-		Ok(pos + Size::new(width * self.width(), 0))
+		Ok(pos + Size::new(width * self.font.width(), 0))
 	}
 
 	fn measure_string(&self, text: &str, pos: Point, _: Baseline) -> TextMetrics {
-		let size = Size::new(self.width() * text.len() as u32, self.height());
+		let size = Size::new(self.font.width() * text.len() as u32, self.font.height());
 		TextMetrics {
 			bounding_box: Rectangle::new(pos, size),
 			next_position: pos + Size::new(size.width, 0)
@@ -121,7 +135,7 @@ impl<'a> TextRenderer for BitmapFont<'a> {
 	}
 
 	fn line_height(&self) -> u32 {
-		self.height()
+		self.font.height()
 	}
 }
 

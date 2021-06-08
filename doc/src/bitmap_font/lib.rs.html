@@ -290,18 +290,71 @@
 <span id="287">287</span>
 <span id="288">288</span>
 <span id="289">289</span>
+<span id="290">290</span>
+<span id="291">291</span>
+<span id="292">292</span>
+<span id="293">293</span>
+<span id="294">294</span>
+<span id="295">295</span>
+<span id="296">296</span>
+<span id="297">297</span>
+<span id="298">298</span>
+<span id="299">299</span>
+<span id="300">300</span>
+<span id="301">301</span>
+<span id="302">302</span>
+<span id="303">303</span>
+<span id="304">304</span>
+<span id="305">305</span>
+<span id="306">306</span>
+<span id="307">307</span>
+<span id="308">308</span>
+<span id="309">309</span>
+<span id="310">310</span>
+<span id="311">311</span>
+<span id="312">312</span>
+<span id="313">313</span>
+<span id="314">314</span>
+<span id="315">315</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="attribute">#![<span class="ident">cfg_attr</span>(<span class="ident">not</span>(<span class="ident">test</span>), <span class="ident">no_std</span>)]</span>
 <span class="attribute">#![<span class="ident">warn</span>(<span class="ident">rust_2018_idioms</span>, <span class="ident">unreachable_pub</span>)]</span>
 <span class="attribute">#![<span class="ident">forbid</span>(<span class="ident">unsafe_code</span>)]</span>
 
-<span class="doccomment">//! **This version is for embedded-graphics 0.7. The latest release works with embedded-graphics 0.6.**</span>
-<span class="doccomment">//!</span>
 <span class="doccomment">//! This crate provides bitmap fonts for the [`embedded-graphics`] crate. Those don&#39;t only look</span>
 <span class="doccomment">//! better than the [built-in fonts](embedded_graphics::mono_font) by using the good-looking</span>
 <span class="doccomment">//! [Tamzen font](https://github.com/sunaku/tamzen-font) over a font that renders `.` like a `+`,</span>
 <span class="doccomment">//! but also allow scaling fonts by pixel-doubling them, giving you two font sizes for the flash</span>
 <span class="doccomment">//! size requirements of the smaller one.</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! See the [`tamzen`] module for a list of all included fonts.</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! # Usage</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! ```rust</span>
+<span class="doccomment">//! use bitmap_font::{tamzen::FONT_8x15, BitmapFont, TextStyle};</span>
+<span class="doccomment">//! use embedded_graphics::{pixelcolor::BinaryColor, prelude::*, text::Text};</span>
+<span class="doccomment">//! # use core::convert::Infallible;</span>
+<span class="doccomment">//! # struct Display;</span>
+<span class="doccomment">//! # impl OriginDimensions for Display {</span>
+<span class="doccomment">//! #   fn size(&amp;self) -&gt; Size { unimplemented!() }</span>
+<span class="doccomment">//! # }</span>
+<span class="doccomment">//! # impl DrawTarget for Display {</span>
+<span class="doccomment">//! #   type Color = BinaryColor;</span>
+<span class="doccomment">//! #   type Error = Infallible;</span>
+<span class="doccomment">//! #   fn draw_iter&lt;I&gt;(&amp;mut self, pixels: I) -&gt; Result&lt;(), Infallible&gt;</span>
+<span class="doccomment">//! #   where I: IntoIterator&lt;Item = Pixel&lt;BinaryColor&gt;&gt;</span>
+<span class="doccomment">//! #   { Ok(()) }</span>
+<span class="doccomment">//! # }</span>
+<span class="doccomment">//! # fn main() -&gt; Result&lt;(), Infallible&gt; {</span>
+<span class="doccomment">//! # let mut display = Display;</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! // Draw text &#39;Hello World!&#39; with the top left corner being the origin</span>
+<span class="doccomment">//! let text = Text::new(&quot;Hello World!&quot;, Point::zero(), TextStyle::new(&amp;FONT_8x15, BinaryColor::On));</span>
+<span class="doccomment">//! text.draw(&amp;mut display)?;</span>
+<span class="doccomment">//! # Ok(())</span>
+<span class="doccomment">//! # }</span>
+<span class="doccomment">//! ```</span>
 <span class="doccomment">//!</span>
 <span class="doccomment">//!  [`embedded-graphics`]: embedded_graphics</span>
 
@@ -319,8 +372,7 @@
 	<span class="ident">Pixel</span>
 };
 
-<span class="kw">mod</span> <span class="ident">generated</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">generated</span>::<span class="kw-2">*</span>;
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">tamzen</span>;
 
 <span class="doccomment">/// Stores the font bitmap and some additional info for each font.</span>
 <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Clone</span>, <span class="ident">Copy</span>)]</span>

@@ -291,6 +291,10 @@
 <span id="288">288</span>
 <span id="289">289</span>
 <span id="290">290</span>
+<span id="291">291</span>
+<span id="292">292</span>
+<span id="293">293</span>
+<span id="294">294</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="attribute">#![<span class="ident">no_std</span>]</span>
 <span class="attribute">#![<span class="ident">warn</span>(<span class="ident">rust_2018_idioms</span>, <span class="ident">unreachable_pub</span>)]</span>
@@ -382,6 +386,10 @@ text.with_font(font, BinaryColor::On).draw(&amp;mut display)?;
 	}
 
 	<span class="doccomment">/// Returns `true` if the pixel `(x, y)` is turned on in the character `c`.</span>
+	<span class="doccomment">///</span>
+	<span class="doccomment">/// # Panics</span>
+	<span class="doccomment">///</span>
+	<span class="doccomment">/// This method panics if the `(x, y)` coordinates are outside the glyph.</span>
 	<span class="comment">// inspired by https://docs.rs/embedded-graphics/0.6.2/src/embedded_graphics/fonts/mod.rs.html#246</span>
 	<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">pixel</span>(<span class="self">self</span>, <span class="ident">c</span>: <span class="ident">char</span>, <span class="ident">x</span>: <span class="ident">u32</span>, <span class="ident">y</span>: <span class="ident">u32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
 		<span class="kw">let</span> <span class="ident">x</span> <span class="op">=</span> <span class="ident">x</span> <span class="op">/</span> <span class="self">self</span>.<span class="ident">pixels</span>;

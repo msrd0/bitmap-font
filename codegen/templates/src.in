@@ -18,17 +18,16 @@ fn char_offset(c: char) -> u32 {
 
 {%- for font in fonts %}
 
-/**
- * Tamzen {{ font.width }}x{{ font.height }} Font.
- * 
- * <img src="data:image/bmp;base64,{{ font.bmp }}"/>
- * 
- * Bitmap Size: {{ font.bitmap_len }} Byte <br/>
- * Font Source: <https://github.com/sunaku/tamzen-font/blob/master/bdf/Tamzen{{ font.width }}x{{ font.height }}r.bdf> <br/>
- * Font License: <https://github.com/sunaku/tamzen-font/blob/master/LICENSE>
- */
+/// Tamzen {{ font.width }}x{{ font.height }} Font.
+///
+/// <img src="data:image/bmp;base64,{{ font.bmp }}"/>
+///
+/// Bitmap Size: {{ font.bitmap_len_str }} Byte <br/>
+/// Font Source: <https://github.com/sunaku/tamzen-font/blob/master/bdf/Tamzen{{ font.width }}x{{ font.height }}r.bdf> <br/>
+/// Font License: <https://github.com/sunaku/tamzen-font/blob/master/LICENSE>
 #[allow(non_upper_case_globals)]
 pub const FONT_{{ font.width }}x{{ font.height }}: BitmapFont = BitmapFont {
+	// {{ font.img_width }} x {{ font.img_height }}
 	bitmap: &[
 		{%- for chunk in font.bitmap | chunks(16) %}
 		{% for byte in chunk %}0x{{ "{:02x}"|format(byte) }}{% if !loop.last %}{{ ", " }}{% endif %}{% endfor %}
@@ -42,19 +41,23 @@ pub const FONT_{{ font.width }}x{{ font.height }}: BitmapFont = BitmapFont {
 	pixels: 1
 };
 
+#[cfg(test)]
+#[test]
+fn test_font_{{ font.width }}x{{ font.height }}_bitmap_size() {
+	assert_eq!({{ font.bitmap_len }}, FONT_{{ font.width }}x{{ font.height }}.bitmap.len());
+}
+
 {%- endfor %}
 
 // ### Pixel-Double Fonts
 
 {%- for font in fonts %}
 
-/**
- * Pixel-double version of [`FONT_{{ font.width }}x{{ font.height }}`].
- * 
- * <img src="data:image/bmp;base64,{{ font.bmp_double }}"/>
- * 
- * This font does not store its own bitmap and therefore does not increase the flash size significantly.
- */
+/// Pixel-double version of [`FONT_{{ font.width }}x{{ font.height }}`].
+///
+/// <img src="data:image/bmp;base64,{{ font.bmp_double }}"/>
+///
+/// This font does not store its own bitmap and therefore does not increase the flash size significantly.
 #[allow(non_upper_case_globals)]
 pub const FONT_{{ 2*font.width }}x{{ 2*font.height }}: BitmapFont = FONT_{{ font.width }}x{{ font.height }}.pixel_double();
 

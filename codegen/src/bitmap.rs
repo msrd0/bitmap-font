@@ -1,3 +1,4 @@
+use crate::util::CeilingDiv;
 use bit_vec::BitVec;
 
 pub struct Bitmap {
@@ -12,21 +13,13 @@ pub struct Bitmap {
 }
 
 impl Bitmap {
-	pub fn new(min_width: usize, height: usize) -> Self {
+	pub fn new(min_width: usize) -> Self {
 		Self {
-			width: if min_width % 32 == 0 {
-				min_width
-			} else {
-				(min_width / 32 + 1) * 32
-			},
-			width_double: if (2 * min_width) % 32 == 0 {
-				2 * min_width
-			} else {
-				(min_width / 16 + 1) * 32
-			},
+			width: min_width.ceiling_div(32) * 32,
+			width_double: min_width.ceiling_div(16) * 32,
 
-			height,
-			height_double: 2 * height,
+			height: 0,
+			height_double: 0,
 
 			raw: Vec::new(),
 			raw_double: Vec::new()
@@ -35,6 +28,10 @@ impl Bitmap {
 
 	pub fn width(&self) -> usize {
 		self.width
+	}
+
+	pub fn height(&self) -> usize {
+		self.height
 	}
 
 	pub fn into_raw(self) -> Vec<u8> {
@@ -52,6 +49,7 @@ impl Bitmap {
 	}
 
 	pub fn add_lines(&mut self, lines: Vec<BitVec>, lines_double: Vec<BitVec>) {
+		self.height += lines.len();
 		for mut line in lines {
 			for _ in line.len()..self.width {
 				line.push(false);
@@ -59,6 +57,7 @@ impl Bitmap {
 			self.raw.extend(line.to_bytes());
 		}
 
+		self.height_double += 2 * lines_double.len();
 		for mut line in lines_double {
 			for _ in line.len()..self.width_double {
 				line.push(false);

@@ -29,7 +29,7 @@ const CHAR_RANGES: &[(char, char)] = &[
 	('', '')
 ];
 const MIN_ROWS: u32 = 4;
-const MAX_ROWS: u32 = 15;
+const MAX_ROWS: u32 = 20;
 
 mod filters {
 	pub fn chunks<'a>(src: &'a [u8], size: &usize) -> askama::Result<Vec<&'a [u8]>> {
@@ -62,8 +62,10 @@ struct Font {
 	width: u32,
 	height: u32,
 	bitmap: Vec<u8>,
-	bitmap_len: String,
+	bitmap_len: usize,
+	bitmap_len_str: String,
 	img_width: usize,
+	img_height: usize,
 	bmp: String,
 	bmp_double: String
 }
@@ -229,25 +231,31 @@ fn main() -> anyhow::Result<()> {
 			(Some(width), Some(height)) => (width, height),
 			_ => continue
 		};
+		println!(" -> Found font {}x{}", width, height);
 
 		let mut rows = 1;
 		let mut per_line = char_count as u32;
-		let mut wasted = u32::MAX;
+		let mut min_raw_size = u32::MAX;
 		for r in MIN_ROWS..=MAX_ROWS {
+			// characters that can be displayed per line
 			let pl = (char_count as u32).ceiling_div(r);
+			// the minimum width of the image
 			let min_width = pl * width;
+			// the width the image will have
 			let img_width = min_width.ceiling_div(32) * 32;
-			let w = (img_width - min_width) * r;
-			if w < wasted {
-				wasted = w;
+			// the height the image will have
+			let img_height = r * height;
+			// the space the raw image data will take up
+			let s = (img_width * img_height).ceiling_div(8);
+
+			if s < min_raw_size || (s == min_raw_size && r > rows) {
+				min_raw_size = s;
 				rows = r;
 				per_line = img_width / width;
 			}
 		}
-		println!("rows = {}, per_line = {}, wasted = {}", rows, per_line, wasted);
 
-		println!(" -> Found font {}x{}", width, height);
-		let mut bitmap = Bitmap::new((per_line * width) as _, (rows * height) as _);
+		let mut bitmap = Bitmap::new((per_line * width) as _);
 		let (mut lines, mut lines_double) = bitmap.init_lines(height);
 		let file = File::open(file.path())?;
 		let font = bdf::read(file)?;
@@ -278,20 +286,26 @@ fn main() -> anyhow::Result<()> {
 				lines_double = lines0_double;
 			}
 		}
+		if idx > 0 {
+			bitmap.add_lines(lines, lines_double);
+		}
 
-		bitmap.add_lines(lines, lines_double);
 		let bmp = bitmap.bmp();
 		let bmp_double = bitmap.bmp_double();
 		let raw_width = bitmap.width();
+		let raw_height = bitmap.height();
 		let raw = bitmap.into_raw();
 
-		let bitmap_len = raw.len().to_formatted_string(&Locale::en_IE); // european english
+		let bitmap_len = raw.len();
+		let bitmap_len_str = bitmap_len.to_formatted_string(&Locale::en_IE); // european english
 		let font = Font {
 			width,
 			height,
 			bitmap: raw,
 			bitmap_len,
+			bitmap_len_str,
 			img_width: raw_width,
+			img_height: raw_height,
 			bmp: base64::encode(&bmp),
 			bmp_double: base64::encode(&bmp_double)
 		};

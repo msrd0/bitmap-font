@@ -148,7 +148,7 @@ where
 		bb.top_left -= self.offset;
 		bb.top_left /= self.pixels as _;
 		bb.size /= self.pixels as _;
-		return bb;
+		bb
 	}
 }
 

@@ -13,16 +13,18 @@ mod font_{{ font.width }}x{{ font.height }}{% if font.bold %}_bold{% endif %} {
 		transform::Transform
 	};
 	
+	const FONT: BitmapFont = FONT_{{ font.width }}x{{ font.height }}{% if font.bold %}_BOLD{% endif %};
+	
 	#[test]
 	fn font_size() {
-		assert_eq!(FONT_{{ font.width }}x{{ font.height }}.width(), {{ font.width }});
-		assert_eq!(FONT_{{ font.width }}x{{ font.height }}.height(), {{ font.height }});
+		assert_eq!(FONT.width(), {{ font.width }});
+		assert_eq!(FONT.height(), {{ font.height }});
 	}
 	
 	#[test]
 	fn text_empty_size() {
 		let size = Text::new("", Point::zero())
-			.with_font(FONT_{{ font.width }}x{{ font.height }}, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::zero());
 	}
@@ -30,7 +32,7 @@ mod font_{{ font.width }}x{{ font.height }}{% if font.bold %}_bold{% endif %} {
 	#[test]
 	fn text_a_size() {
 		let size = Text::new("a", Point::zero())
-			.with_font(FONT_{{ font.width }}x{{ font.height }}, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::new({{ font.width }}, {{ font.height }}));
 	}
@@ -38,7 +40,7 @@ mod font_{{ font.width }}x{{ font.height }}{% if font.bold %}_bold{% endif %} {
 	#[test]
 	fn text_multiline_size() {
 		let size = Text::new("aa\naaa\na", Point::zero())
-			.with_font(FONT_{{ font.width }}x{{ font.height }}, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::new({{ 3*font.width }}, {{ 3*font.height }}));
 	}
@@ -46,7 +48,7 @@ mod font_{{ font.width }}x{{ font.height }}{% if font.bold %}_bold{% endif %} {
 	#[test]
 	fn text_translate() {
 		let mut text = Text::new("M", Point::zero())
-			.with_font(FONT_{{ font.width }}x{{ font.height }}, BinaryColor::On);
+			.with_font(FONT, BinaryColor::On);
 		text.translate_mut(Point::new(2, 2));
 		assert_eq!(text.top_left(), Point::new(2, 2));
 		assert_eq!(text.bottom_right(), Point::new({{ 2+font.width }}, {{ 2+font.height }}));
@@ -70,7 +72,7 @@ mod font_{{ font.width }}x{{ font.height }}{% if font.bold %}_bold{% endif %} {
 	fn text_char_range_{{ loop.index }}() {
 		let mut display = MockDisplay::new();
 		Text::new("{{ range.start }}{{ range.mid }}{{ range.end }}", Point::zero())
-			.with_font(FONT_{{ font.width }}x{{ font.height }}, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -90,7 +92,7 @@ mod font_{{ font.width }}x{{ font.height }}{% if font.bold %}_bold{% endif %} {
 	fn text_fallback() {
 		let mut display = MockDisplay::new();
 		Text::new("§?\n µ", Point::zero())
-			.with_font(FONT_{{ font.width }}x{{ font.height }}, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(

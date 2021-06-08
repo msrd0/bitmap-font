@@ -11,16 +11,18 @@ mod font_5x9 {
 		transform::Transform
 	};
 	
+	const FONT: BitmapFont = FONT_5x9;
+	
 	#[test]
 	fn font_size() {
-		assert_eq!(FONT_5x9.width(), 5);
-		assert_eq!(FONT_5x9.height(), 9);
+		assert_eq!(FONT.width(), 5);
+		assert_eq!(FONT.height(), 9);
 	}
 	
 	#[test]
 	fn text_empty_size() {
 		let size = Text::new("", Point::zero())
-			.with_font(FONT_5x9, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::zero());
 	}
@@ -28,7 +30,7 @@ mod font_5x9 {
 	#[test]
 	fn text_a_size() {
 		let size = Text::new("a", Point::zero())
-			.with_font(FONT_5x9, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::new(5, 9));
 	}
@@ -36,7 +38,7 @@ mod font_5x9 {
 	#[test]
 	fn text_multiline_size() {
 		let size = Text::new("aa\naaa\na", Point::zero())
-			.with_font(FONT_5x9, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::new(15, 27));
 	}
@@ -44,7 +46,7 @@ mod font_5x9 {
 	#[test]
 	fn text_translate() {
 		let mut text = Text::new("M", Point::zero())
-			.with_font(FONT_5x9, BinaryColor::On);
+			.with_font(FONT, BinaryColor::On);
 		text.translate_mut(Point::new(2, 2));
 		assert_eq!(text.top_left(), Point::new(2, 2));
 		assert_eq!(text.bottom_right(), Point::new(7, 11));
@@ -72,7 +74,7 @@ mod font_5x9 {
 	fn text_char_range_1() {
 		let mut display = MockDisplay::new();
 		Text::new(" O~", Point::zero())
-			.with_font(FONT_5x9, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -95,7 +97,7 @@ mod font_5x9 {
 	fn text_char_range_2() {
 		let mut display = MockDisplay::new();
 		Text::new("¡¤¦", Point::zero())
-			.with_font(FONT_5x9, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -118,7 +120,7 @@ mod font_5x9 {
 	fn text_char_range_3() {
 		let mut display = MockDisplay::new();
 		Text::new("°°°", Point::zero())
-			.with_font(FONT_5x9, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -141,7 +143,7 @@ mod font_5x9 {
 	fn text_char_range_4() {
 		let mut display = MockDisplay::new();
 		Text::new("¿ßÿ", Point::zero())
-			.with_font(FONT_5x9, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -164,7 +166,7 @@ mod font_5x9 {
 	fn text_char_range_5() {
 		let mut display = MockDisplay::new();
 		Text::new("", Point::zero())
-			.with_font(FONT_5x9, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -187,7 +189,7 @@ mod font_5x9 {
 	fn text_fallback() {
 		let mut display = MockDisplay::new();
 		Text::new("§?\n µ", Point::zero())
-			.with_font(FONT_5x9, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -227,16 +229,18 @@ mod font_5x9_bold {
 		transform::Transform
 	};
 	
+	const FONT: BitmapFont = FONT_5x9_BOLD;
+	
 	#[test]
 	fn font_size() {
-		assert_eq!(FONT_5x9.width(), 5);
-		assert_eq!(FONT_5x9.height(), 9);
+		assert_eq!(FONT.width(), 5);
+		assert_eq!(FONT.height(), 9);
 	}
 	
 	#[test]
 	fn text_empty_size() {
 		let size = Text::new("", Point::zero())
-			.with_font(FONT_5x9, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::zero());
 	}
@@ -244,7 +248,7 @@ mod font_5x9_bold {
 	#[test]
 	fn text_a_size() {
 		let size = Text::new("a", Point::zero())
-			.with_font(FONT_5x9, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::new(5, 9));
 	}
@@ -252,7 +256,7 @@ mod font_5x9_bold {
 	#[test]
 	fn text_multiline_size() {
 		let size = Text::new("aa\naaa\na", Point::zero())
-			.with_font(FONT_5x9, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::new(15, 27));
 	}
@@ -260,7 +264,7 @@ mod font_5x9_bold {
 	#[test]
 	fn text_translate() {
 		let mut text = Text::new("M", Point::zero())
-			.with_font(FONT_5x9, BinaryColor::On);
+			.with_font(FONT, BinaryColor::On);
 		text.translate_mut(Point::new(2, 2));
 		assert_eq!(text.top_left(), Point::new(2, 2));
 		assert_eq!(text.bottom_right(), Point::new(7, 11));
@@ -288,7 +292,7 @@ mod font_5x9_bold {
 	fn text_char_range_1() {
 		let mut display = MockDisplay::new();
 		Text::new(" O~", Point::zero())
-			.with_font(FONT_5x9, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -311,7 +315,7 @@ mod font_5x9_bold {
 	fn text_char_range_2() {
 		let mut display = MockDisplay::new();
 		Text::new("¡¤¦", Point::zero())
-			.with_font(FONT_5x9, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -334,7 +338,7 @@ mod font_5x9_bold {
 	fn text_char_range_3() {
 		let mut display = MockDisplay::new();
 		Text::new("°°°", Point::zero())
-			.with_font(FONT_5x9, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -357,7 +361,7 @@ mod font_5x9_bold {
 	fn text_char_range_4() {
 		let mut display = MockDisplay::new();
 		Text::new("¿ßÿ", Point::zero())
-			.with_font(FONT_5x9, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -380,7 +384,7 @@ mod font_5x9_bold {
 	fn text_char_range_5() {
 		let mut display = MockDisplay::new();
 		Text::new("", Point::zero())
-			.with_font(FONT_5x9, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -403,7 +407,7 @@ mod font_5x9_bold {
 	fn text_fallback() {
 		let mut display = MockDisplay::new();
 		Text::new("§?\n µ", Point::zero())
-			.with_font(FONT_5x9, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -443,16 +447,18 @@ mod font_6x12 {
 		transform::Transform
 	};
 	
+	const FONT: BitmapFont = FONT_6x12;
+	
 	#[test]
 	fn font_size() {
-		assert_eq!(FONT_6x12.width(), 6);
-		assert_eq!(FONT_6x12.height(), 12);
+		assert_eq!(FONT.width(), 6);
+		assert_eq!(FONT.height(), 12);
 	}
 	
 	#[test]
 	fn text_empty_size() {
 		let size = Text::new("", Point::zero())
-			.with_font(FONT_6x12, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::zero());
 	}
@@ -460,7 +466,7 @@ mod font_6x12 {
 	#[test]
 	fn text_a_size() {
 		let size = Text::new("a", Point::zero())
-			.with_font(FONT_6x12, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::new(6, 12));
 	}
@@ -468,7 +474,7 @@ mod font_6x12 {
 	#[test]
 	fn text_multiline_size() {
 		let size = Text::new("aa\naaa\na", Point::zero())
-			.with_font(FONT_6x12, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::new(18, 36));
 	}
@@ -476,7 +482,7 @@ mod font_6x12 {
 	#[test]
 	fn text_translate() {
 		let mut text = Text::new("M", Point::zero())
-			.with_font(FONT_6x12, BinaryColor::On);
+			.with_font(FONT, BinaryColor::On);
 		text.translate_mut(Point::new(2, 2));
 		assert_eq!(text.top_left(), Point::new(2, 2));
 		assert_eq!(text.bottom_right(), Point::new(8, 14));
@@ -507,7 +513,7 @@ mod font_6x12 {
 	fn text_char_range_1() {
 		let mut display = MockDisplay::new();
 		Text::new(" O~", Point::zero())
-			.with_font(FONT_6x12, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -533,7 +539,7 @@ mod font_6x12 {
 	fn text_char_range_2() {
 		let mut display = MockDisplay::new();
 		Text::new("¡¤¦", Point::zero())
-			.with_font(FONT_6x12, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -559,7 +565,7 @@ mod font_6x12 {
 	fn text_char_range_3() {
 		let mut display = MockDisplay::new();
 		Text::new("°°°", Point::zero())
-			.with_font(FONT_6x12, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -585,7 +591,7 @@ mod font_6x12 {
 	fn text_char_range_4() {
 		let mut display = MockDisplay::new();
 		Text::new("¿ßÿ", Point::zero())
-			.with_font(FONT_6x12, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -611,7 +617,7 @@ mod font_6x12 {
 	fn text_char_range_5() {
 		let mut display = MockDisplay::new();
 		Text::new("", Point::zero())
-			.with_font(FONT_6x12, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -637,7 +643,7 @@ mod font_6x12 {
 	fn text_fallback() {
 		let mut display = MockDisplay::new();
 		Text::new("§?\n µ", Point::zero())
-			.with_font(FONT_6x12, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -683,16 +689,18 @@ mod font_6x12_bold {
 		transform::Transform
 	};
 	
+	const FONT: BitmapFont = FONT_6x12_BOLD;
+	
 	#[test]
 	fn font_size() {
-		assert_eq!(FONT_6x12.width(), 6);
-		assert_eq!(FONT_6x12.height(), 12);
+		assert_eq!(FONT.width(), 6);
+		assert_eq!(FONT.height(), 12);
 	}
 	
 	#[test]
 	fn text_empty_size() {
 		let size = Text::new("", Point::zero())
-			.with_font(FONT_6x12, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::zero());
 	}
@@ -700,7 +708,7 @@ mod font_6x12_bold {
 	#[test]
 	fn text_a_size() {
 		let size = Text::new("a", Point::zero())
-			.with_font(FONT_6x12, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::new(6, 12));
 	}
@@ -708,7 +716,7 @@ mod font_6x12_bold {
 	#[test]
 	fn text_multiline_size() {
 		let size = Text::new("aa\naaa\na", Point::zero())
-			.with_font(FONT_6x12, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::new(18, 36));
 	}
@@ -716,7 +724,7 @@ mod font_6x12_bold {
 	#[test]
 	fn text_translate() {
 		let mut text = Text::new("M", Point::zero())
-			.with_font(FONT_6x12, BinaryColor::On);
+			.with_font(FONT, BinaryColor::On);
 		text.translate_mut(Point::new(2, 2));
 		assert_eq!(text.top_left(), Point::new(2, 2));
 		assert_eq!(text.bottom_right(), Point::new(8, 14));
@@ -747,7 +755,7 @@ mod font_6x12_bold {
 	fn text_char_range_1() {
 		let mut display = MockDisplay::new();
 		Text::new(" O~", Point::zero())
-			.with_font(FONT_6x12, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -773,7 +781,7 @@ mod font_6x12_bold {
 	fn text_char_range_2() {
 		let mut display = MockDisplay::new();
 		Text::new("¡¤¦", Point::zero())
-			.with_font(FONT_6x12, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -799,7 +807,7 @@ mod font_6x12_bold {
 	fn text_char_range_3() {
 		let mut display = MockDisplay::new();
 		Text::new("°°°", Point::zero())
-			.with_font(FONT_6x12, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -825,7 +833,7 @@ mod font_6x12_bold {
 	fn text_char_range_4() {
 		let mut display = MockDisplay::new();
 		Text::new("¿ßÿ", Point::zero())
-			.with_font(FONT_6x12, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -851,7 +859,7 @@ mod font_6x12_bold {
 	fn text_char_range_5() {
 		let mut display = MockDisplay::new();
 		Text::new("", Point::zero())
-			.with_font(FONT_6x12, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -877,7 +885,7 @@ mod font_6x12_bold {
 	fn text_fallback() {
 		let mut display = MockDisplay::new();
 		Text::new("§?\n µ", Point::zero())
-			.with_font(FONT_6x12, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -923,16 +931,18 @@ mod font_7x13 {
 		transform::Transform
 	};
 	
+	const FONT: BitmapFont = FONT_7x13;
+	
 	#[test]
 	fn font_size() {
-		assert_eq!(FONT_7x13.width(), 7);
-		assert_eq!(FONT_7x13.height(), 13);
+		assert_eq!(FONT.width(), 7);
+		assert_eq!(FONT.height(), 13);
 	}
 	
 	#[test]
 	fn text_empty_size() {
 		let size = Text::new("", Point::zero())
-			.with_font(FONT_7x13, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::zero());
 	}
@@ -940,7 +950,7 @@ mod font_7x13 {
 	#[test]
 	fn text_a_size() {
 		let size = Text::new("a", Point::zero())
-			.with_font(FONT_7x13, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::new(7, 13));
 	}
@@ -948,7 +958,7 @@ mod font_7x13 {
 	#[test]
 	fn text_multiline_size() {
 		let size = Text::new("aa\naaa\na", Point::zero())
-			.with_font(FONT_7x13, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::new(21, 39));
 	}
@@ -956,7 +966,7 @@ mod font_7x13 {
 	#[test]
 	fn text_translate() {
 		let mut text = Text::new("M", Point::zero())
-			.with_font(FONT_7x13, BinaryColor::On);
+			.with_font(FONT, BinaryColor::On);
 		text.translate_mut(Point::new(2, 2));
 		assert_eq!(text.top_left(), Point::new(2, 2));
 		assert_eq!(text.bottom_right(), Point::new(9, 15));
@@ -988,7 +998,7 @@ mod font_7x13 {
 	fn text_char_range_1() {
 		let mut display = MockDisplay::new();
 		Text::new(" O~", Point::zero())
-			.with_font(FONT_7x13, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -1015,7 +1025,7 @@ mod font_7x13 {
 	fn text_char_range_2() {
 		let mut display = MockDisplay::new();
 		Text::new("¡¤¦", Point::zero())
-			.with_font(FONT_7x13, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -1042,7 +1052,7 @@ mod font_7x13 {
 	fn text_char_range_3() {
 		let mut display = MockDisplay::new();
 		Text::new("°°°", Point::zero())
-			.with_font(FONT_7x13, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -1069,7 +1079,7 @@ mod font_7x13 {
 	fn text_char_range_4() {
 		let mut display = MockDisplay::new();
 		Text::new("¿ßÿ", Point::zero())
-			.with_font(FONT_7x13, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -1096,7 +1106,7 @@ mod font_7x13 {
 	fn text_char_range_5() {
 		let mut display = MockDisplay::new();
 		Text::new("", Point::zero())
-			.with_font(FONT_7x13, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -1123,7 +1133,7 @@ mod font_7x13 {
 	fn text_fallback() {
 		let mut display = MockDisplay::new();
 		Text::new("§?\n µ", Point::zero())
-			.with_font(FONT_7x13, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -1171,16 +1181,18 @@ mod font_7x13_bold {
 		transform::Transform
 	};
 	
+	const FONT: BitmapFont = FONT_7x13_BOLD;
+	
 	#[test]
 	fn font_size() {
-		assert_eq!(FONT_7x13.width(), 7);
-		assert_eq!(FONT_7x13.height(), 13);
+		assert_eq!(FONT.width(), 7);
+		assert_eq!(FONT.height(), 13);
 	}
 	
 	#[test]
 	fn text_empty_size() {
 		let size = Text::new("", Point::zero())
-			.with_font(FONT_7x13, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::zero());
 	}
@@ -1188,7 +1200,7 @@ mod font_7x13_bold {
 	#[test]
 	fn text_a_size() {
 		let size = Text::new("a", Point::zero())
-			.with_font(FONT_7x13, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::new(7, 13));
 	}
@@ -1196,7 +1208,7 @@ mod font_7x13_bold {
 	#[test]
 	fn text_multiline_size() {
 		let size = Text::new("aa\naaa\na", Point::zero())
-			.with_font(FONT_7x13, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::new(21, 39));
 	}
@@ -1204,7 +1216,7 @@ mod font_7x13_bold {
 	#[test]
 	fn text_translate() {
 		let mut text = Text::new("M", Point::zero())
-			.with_font(FONT_7x13, BinaryColor::On);
+			.with_font(FONT, BinaryColor::On);
 		text.translate_mut(Point::new(2, 2));
 		assert_eq!(text.top_left(), Point::new(2, 2));
 		assert_eq!(text.bottom_right(), Point::new(9, 15));
@@ -1236,7 +1248,7 @@ mod font_7x13_bold {
 	fn text_char_range_1() {
 		let mut display = MockDisplay::new();
 		Text::new(" O~", Point::zero())
-			.with_font(FONT_7x13, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -1263,7 +1275,7 @@ mod font_7x13_bold {
 	fn text_char_range_2() {
 		let mut display = MockDisplay::new();
 		Text::new("¡¤¦", Point::zero())
-			.with_font(FONT_7x13, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -1290,7 +1302,7 @@ mod font_7x13_bold {
 	fn text_char_range_3() {
 		let mut display = MockDisplay::new();
 		Text::new("°°°", Point::zero())
-			.with_font(FONT_7x13, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -1317,7 +1329,7 @@ mod font_7x13_bold {
 	fn text_char_range_4() {
 		let mut display = MockDisplay::new();
 		Text::new("¿ßÿ", Point::zero())
-			.with_font(FONT_7x13, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -1344,7 +1356,7 @@ mod font_7x13_bold {
 	fn text_char_range_5() {
 		let mut display = MockDisplay::new();
 		Text::new("", Point::zero())
-			.with_font(FONT_7x13, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -1371,7 +1383,7 @@ mod font_7x13_bold {
 	fn text_fallback() {
 		let mut display = MockDisplay::new();
 		Text::new("§?\n µ", Point::zero())
-			.with_font(FONT_7x13, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -1419,16 +1431,18 @@ mod font_7x14 {
 		transform::Transform
 	};
 	
+	const FONT: BitmapFont = FONT_7x14;
+	
 	#[test]
 	fn font_size() {
-		assert_eq!(FONT_7x14.width(), 7);
-		assert_eq!(FONT_7x14.height(), 14);
+		assert_eq!(FONT.width(), 7);
+		assert_eq!(FONT.height(), 14);
 	}
 	
 	#[test]
 	fn text_empty_size() {
 		let size = Text::new("", Point::zero())
-			.with_font(FONT_7x14, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::zero());
 	}
@@ -1436,7 +1450,7 @@ mod font_7x14 {
 	#[test]
 	fn text_a_size() {
 		let size = Text::new("a", Point::zero())
-			.with_font(FONT_7x14, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::new(7, 14));
 	}
@@ -1444,7 +1458,7 @@ mod font_7x14 {
 	#[test]
 	fn text_multiline_size() {
 		let size = Text::new("aa\naaa\na", Point::zero())
-			.with_font(FONT_7x14, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::new(21, 42));
 	}
@@ -1452,7 +1466,7 @@ mod font_7x14 {
 	#[test]
 	fn text_translate() {
 		let mut text = Text::new("M", Point::zero())
-			.with_font(FONT_7x14, BinaryColor::On);
+			.with_font(FONT, BinaryColor::On);
 		text.translate_mut(Point::new(2, 2));
 		assert_eq!(text.top_left(), Point::new(2, 2));
 		assert_eq!(text.bottom_right(), Point::new(9, 16));
@@ -1485,7 +1499,7 @@ mod font_7x14 {
 	fn text_char_range_1() {
 		let mut display = MockDisplay::new();
 		Text::new(" O~", Point::zero())
-			.with_font(FONT_7x14, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -1513,7 +1527,7 @@ mod font_7x14 {
 	fn text_char_range_2() {
 		let mut display = MockDisplay::new();
 		Text::new("¡¤¦", Point::zero())
-			.with_font(FONT_7x14, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -1541,7 +1555,7 @@ mod font_7x14 {
 	fn text_char_range_3() {
 		let mut display = MockDisplay::new();
 		Text::new("°°°", Point::zero())
-			.with_font(FONT_7x14, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -1569,7 +1583,7 @@ mod font_7x14 {
 	fn text_char_range_4() {
 		let mut display = MockDisplay::new();
 		Text::new("¿ßÿ", Point::zero())
-			.with_font(FONT_7x14, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -1597,7 +1611,7 @@ mod font_7x14 {
 	fn text_char_range_5() {
 		let mut display = MockDisplay::new();
 		Text::new("", Point::zero())
-			.with_font(FONT_7x14, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -1625,7 +1639,7 @@ mod font_7x14 {
 	fn text_fallback() {
 		let mut display = MockDisplay::new();
 		Text::new("§?\n µ", Point::zero())
-			.with_font(FONT_7x14, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -1675,16 +1689,18 @@ mod font_7x14_bold {
 		transform::Transform
 	};
 	
+	const FONT: BitmapFont = FONT_7x14_BOLD;
+	
 	#[test]
 	fn font_size() {
-		assert_eq!(FONT_7x14.width(), 7);
-		assert_eq!(FONT_7x14.height(), 14);
+		assert_eq!(FONT.width(), 7);
+		assert_eq!(FONT.height(), 14);
 	}
 	
 	#[test]
 	fn text_empty_size() {
 		let size = Text::new("", Point::zero())
-			.with_font(FONT_7x14, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::zero());
 	}
@@ -1692,7 +1708,7 @@ mod font_7x14_bold {
 	#[test]
 	fn text_a_size() {
 		let size = Text::new("a", Point::zero())
-			.with_font(FONT_7x14, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::new(7, 14));
 	}
@@ -1700,7 +1716,7 @@ mod font_7x14_bold {
 	#[test]
 	fn text_multiline_size() {
 		let size = Text::new("aa\naaa\na", Point::zero())
-			.with_font(FONT_7x14, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::new(21, 42));
 	}
@@ -1708,7 +1724,7 @@ mod font_7x14_bold {
 	#[test]
 	fn text_translate() {
 		let mut text = Text::new("M", Point::zero())
-			.with_font(FONT_7x14, BinaryColor::On);
+			.with_font(FONT, BinaryColor::On);
 		text.translate_mut(Point::new(2, 2));
 		assert_eq!(text.top_left(), Point::new(2, 2));
 		assert_eq!(text.bottom_right(), Point::new(9, 16));
@@ -1741,7 +1757,7 @@ mod font_7x14_bold {
 	fn text_char_range_1() {
 		let mut display = MockDisplay::new();
 		Text::new(" O~", Point::zero())
-			.with_font(FONT_7x14, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -1769,7 +1785,7 @@ mod font_7x14_bold {
 	fn text_char_range_2() {
 		let mut display = MockDisplay::new();
 		Text::new("¡¤¦", Point::zero())
-			.with_font(FONT_7x14, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -1797,7 +1813,7 @@ mod font_7x14_bold {
 	fn text_char_range_3() {
 		let mut display = MockDisplay::new();
 		Text::new("°°°", Point::zero())
-			.with_font(FONT_7x14, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -1825,7 +1841,7 @@ mod font_7x14_bold {
 	fn text_char_range_4() {
 		let mut display = MockDisplay::new();
 		Text::new("¿ßÿ", Point::zero())
-			.with_font(FONT_7x14, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -1853,7 +1869,7 @@ mod font_7x14_bold {
 	fn text_char_range_5() {
 		let mut display = MockDisplay::new();
 		Text::new("", Point::zero())
-			.with_font(FONT_7x14, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -1881,7 +1897,7 @@ mod font_7x14_bold {
 	fn text_fallback() {
 		let mut display = MockDisplay::new();
 		Text::new("§?\n µ", Point::zero())
-			.with_font(FONT_7x14, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -1931,16 +1947,18 @@ mod font_8x15 {
 		transform::Transform
 	};
 	
+	const FONT: BitmapFont = FONT_8x15;
+	
 	#[test]
 	fn font_size() {
-		assert_eq!(FONT_8x15.width(), 8);
-		assert_eq!(FONT_8x15.height(), 15);
+		assert_eq!(FONT.width(), 8);
+		assert_eq!(FONT.height(), 15);
 	}
 	
 	#[test]
 	fn text_empty_size() {
 		let size = Text::new("", Point::zero())
-			.with_font(FONT_8x15, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::zero());
 	}
@@ -1948,7 +1966,7 @@ mod font_8x15 {
 	#[test]
 	fn text_a_size() {
 		let size = Text::new("a", Point::zero())
-			.with_font(FONT_8x15, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::new(8, 15));
 	}
@@ -1956,7 +1974,7 @@ mod font_8x15 {
 	#[test]
 	fn text_multiline_size() {
 		let size = Text::new("aa\naaa\na", Point::zero())
-			.with_font(FONT_8x15, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::new(24, 45));
 	}
@@ -1964,7 +1982,7 @@ mod font_8x15 {
 	#[test]
 	fn text_translate() {
 		let mut text = Text::new("M", Point::zero())
-			.with_font(FONT_8x15, BinaryColor::On);
+			.with_font(FONT, BinaryColor::On);
 		text.translate_mut(Point::new(2, 2));
 		assert_eq!(text.top_left(), Point::new(2, 2));
 		assert_eq!(text.bottom_right(), Point::new(10, 17));
@@ -1998,7 +2016,7 @@ mod font_8x15 {
 	fn text_char_range_1() {
 		let mut display = MockDisplay::new();
 		Text::new(" O~", Point::zero())
-			.with_font(FONT_8x15, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -2027,7 +2045,7 @@ mod font_8x15 {
 	fn text_char_range_2() {
 		let mut display = MockDisplay::new();
 		Text::new("¡¤¦", Point::zero())
-			.with_font(FONT_8x15, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -2056,7 +2074,7 @@ mod font_8x15 {
 	fn text_char_range_3() {
 		let mut display = MockDisplay::new();
 		Text::new("°°°", Point::zero())
-			.with_font(FONT_8x15, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -2085,7 +2103,7 @@ mod font_8x15 {
 	fn text_char_range_4() {
 		let mut display = MockDisplay::new();
 		Text::new("¿ßÿ", Point::zero())
-			.with_font(FONT_8x15, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -2114,7 +2132,7 @@ mod font_8x15 {
 	fn text_char_range_5() {
 		let mut display = MockDisplay::new();
 		Text::new("", Point::zero())
-			.with_font(FONT_8x15, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -2143,7 +2161,7 @@ mod font_8x15 {
 	fn text_fallback() {
 		let mut display = MockDisplay::new();
 		Text::new("§?\n µ", Point::zero())
-			.with_font(FONT_8x15, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -2195,16 +2213,18 @@ mod font_8x15_bold {
 		transform::Transform
 	};
 	
+	const FONT: BitmapFont = FONT_8x15_BOLD;
+	
 	#[test]
 	fn font_size() {
-		assert_eq!(FONT_8x15.width(), 8);
-		assert_eq!(FONT_8x15.height(), 15);
+		assert_eq!(FONT.width(), 8);
+		assert_eq!(FONT.height(), 15);
 	}
 	
 	#[test]
 	fn text_empty_size() {
 		let size = Text::new("", Point::zero())
-			.with_font(FONT_8x15, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::zero());
 	}
@@ -2212,7 +2232,7 @@ mod font_8x15_bold {
 	#[test]
 	fn text_a_size() {
 		let size = Text::new("a", Point::zero())
-			.with_font(FONT_8x15, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::new(8, 15));
 	}
@@ -2220,7 +2240,7 @@ mod font_8x15_bold {
 	#[test]
 	fn text_multiline_size() {
 		let size = Text::new("aa\naaa\na", Point::zero())
-			.with_font(FONT_8x15, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::new(24, 45));
 	}
@@ -2228,7 +2248,7 @@ mod font_8x15_bold {
 	#[test]
 	fn text_translate() {
 		let mut text = Text::new("M", Point::zero())
-			.with_font(FONT_8x15, BinaryColor::On);
+			.with_font(FONT, BinaryColor::On);
 		text.translate_mut(Point::new(2, 2));
 		assert_eq!(text.top_left(), Point::new(2, 2));
 		assert_eq!(text.bottom_right(), Point::new(10, 17));
@@ -2262,7 +2282,7 @@ mod font_8x15_bold {
 	fn text_char_range_1() {
 		let mut display = MockDisplay::new();
 		Text::new(" O~", Point::zero())
-			.with_font(FONT_8x15, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -2291,7 +2311,7 @@ mod font_8x15_bold {
 	fn text_char_range_2() {
 		let mut display = MockDisplay::new();
 		Text::new("¡¤¦", Point::zero())
-			.with_font(FONT_8x15, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -2320,7 +2340,7 @@ mod font_8x15_bold {
 	fn text_char_range_3() {
 		let mut display = MockDisplay::new();
 		Text::new("°°°", Point::zero())
-			.with_font(FONT_8x15, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -2349,7 +2369,7 @@ mod font_8x15_bold {
 	fn text_char_range_4() {
 		let mut display = MockDisplay::new();
 		Text::new("¿ßÿ", Point::zero())
-			.with_font(FONT_8x15, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -2378,7 +2398,7 @@ mod font_8x15_bold {
 	fn text_char_range_5() {
 		let mut display = MockDisplay::new();
 		Text::new("", Point::zero())
-			.with_font(FONT_8x15, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -2407,7 +2427,7 @@ mod font_8x15_bold {
 	fn text_fallback() {
 		let mut display = MockDisplay::new();
 		Text::new("§?\n µ", Point::zero())
-			.with_font(FONT_8x15, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -2459,16 +2479,18 @@ mod font_8x16 {
 		transform::Transform
 	};
 	
+	const FONT: BitmapFont = FONT_8x16;
+	
 	#[test]
 	fn font_size() {
-		assert_eq!(FONT_8x16.width(), 8);
-		assert_eq!(FONT_8x16.height(), 16);
+		assert_eq!(FONT.width(), 8);
+		assert_eq!(FONT.height(), 16);
 	}
 	
 	#[test]
 	fn text_empty_size() {
 		let size = Text::new("", Point::zero())
-			.with_font(FONT_8x16, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::zero());
 	}
@@ -2476,7 +2498,7 @@ mod font_8x16 {
 	#[test]
 	fn text_a_size() {
 		let size = Text::new("a", Point::zero())
-			.with_font(FONT_8x16, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::new(8, 16));
 	}
@@ -2484,7 +2506,7 @@ mod font_8x16 {
 	#[test]
 	fn text_multiline_size() {
 		let size = Text::new("aa\naaa\na", Point::zero())
-			.with_font(FONT_8x16, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::new(24, 48));
 	}
@@ -2492,7 +2514,7 @@ mod font_8x16 {
 	#[test]
 	fn text_translate() {
 		let mut text = Text::new("M", Point::zero())
-			.with_font(FONT_8x16, BinaryColor::On);
+			.with_font(FONT, BinaryColor::On);
 		text.translate_mut(Point::new(2, 2));
 		assert_eq!(text.top_left(), Point::new(2, 2));
 		assert_eq!(text.bottom_right(), Point::new(10, 18));
@@ -2527,7 +2549,7 @@ mod font_8x16 {
 	fn text_char_range_1() {
 		let mut display = MockDisplay::new();
 		Text::new(" O~", Point::zero())
-			.with_font(FONT_8x16, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -2557,7 +2579,7 @@ mod font_8x16 {
 	fn text_char_range_2() {
 		let mut display = MockDisplay::new();
 		Text::new("¡¤¦", Point::zero())
-			.with_font(FONT_8x16, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -2587,7 +2609,7 @@ mod font_8x16 {
 	fn text_char_range_3() {
 		let mut display = MockDisplay::new();
 		Text::new("°°°", Point::zero())
-			.with_font(FONT_8x16, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -2617,7 +2639,7 @@ mod font_8x16 {
 	fn text_char_range_4() {
 		let mut display = MockDisplay::new();
 		Text::new("¿ßÿ", Point::zero())
-			.with_font(FONT_8x16, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -2647,7 +2669,7 @@ mod font_8x16 {
 	fn text_char_range_5() {
 		let mut display = MockDisplay::new();
 		Text::new("", Point::zero())
-			.with_font(FONT_8x16, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -2677,7 +2699,7 @@ mod font_8x16 {
 	fn text_fallback() {
 		let mut display = MockDisplay::new();
 		Text::new("§?\n µ", Point::zero())
-			.with_font(FONT_8x16, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -2731,16 +2753,18 @@ mod font_8x16_bold {
 		transform::Transform
 	};
 	
+	const FONT: BitmapFont = FONT_8x16_BOLD;
+	
 	#[test]
 	fn font_size() {
-		assert_eq!(FONT_8x16.width(), 8);
-		assert_eq!(FONT_8x16.height(), 16);
+		assert_eq!(FONT.width(), 8);
+		assert_eq!(FONT.height(), 16);
 	}
 	
 	#[test]
 	fn text_empty_size() {
 		let size = Text::new("", Point::zero())
-			.with_font(FONT_8x16, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::zero());
 	}
@@ -2748,7 +2772,7 @@ mod font_8x16_bold {
 	#[test]
 	fn text_a_size() {
 		let size = Text::new("a", Point::zero())
-			.with_font(FONT_8x16, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::new(8, 16));
 	}
@@ -2756,7 +2780,7 @@ mod font_8x16_bold {
 	#[test]
 	fn text_multiline_size() {
 		let size = Text::new("aa\naaa\na", Point::zero())
-			.with_font(FONT_8x16, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::new(24, 48));
 	}
@@ -2764,7 +2788,7 @@ mod font_8x16_bold {
 	#[test]
 	fn text_translate() {
 		let mut text = Text::new("M", Point::zero())
-			.with_font(FONT_8x16, BinaryColor::On);
+			.with_font(FONT, BinaryColor::On);
 		text.translate_mut(Point::new(2, 2));
 		assert_eq!(text.top_left(), Point::new(2, 2));
 		assert_eq!(text.bottom_right(), Point::new(10, 18));
@@ -2799,7 +2823,7 @@ mod font_8x16_bold {
 	fn text_char_range_1() {
 		let mut display = MockDisplay::new();
 		Text::new(" O~", Point::zero())
-			.with_font(FONT_8x16, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -2829,7 +2853,7 @@ mod font_8x16_bold {
 	fn text_char_range_2() {
 		let mut display = MockDisplay::new();
 		Text::new("¡¤¦", Point::zero())
-			.with_font(FONT_8x16, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -2859,7 +2883,7 @@ mod font_8x16_bold {
 	fn text_char_range_3() {
 		let mut display = MockDisplay::new();
 		Text::new("°°°", Point::zero())
-			.with_font(FONT_8x16, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -2889,7 +2913,7 @@ mod font_8x16_bold {
 	fn text_char_range_4() {
 		let mut display = MockDisplay::new();
 		Text::new("¿ßÿ", Point::zero())
-			.with_font(FONT_8x16, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -2919,7 +2943,7 @@ mod font_8x16_bold {
 	fn text_char_range_5() {
 		let mut display = MockDisplay::new();
 		Text::new("", Point::zero())
-			.with_font(FONT_8x16, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -2949,7 +2973,7 @@ mod font_8x16_bold {
 	fn text_fallback() {
 		let mut display = MockDisplay::new();
 		Text::new("§?\n µ", Point::zero())
-			.with_font(FONT_8x16, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -3003,16 +3027,18 @@ mod font_10x18 {
 		transform::Transform
 	};
 	
+	const FONT: BitmapFont = FONT_10x18;
+	
 	#[test]
 	fn font_size() {
-		assert_eq!(FONT_10x18.width(), 10);
-		assert_eq!(FONT_10x18.height(), 18);
+		assert_eq!(FONT.width(), 10);
+		assert_eq!(FONT.height(), 18);
 	}
 	
 	#[test]
 	fn text_empty_size() {
 		let size = Text::new("", Point::zero())
-			.with_font(FONT_10x18, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::zero());
 	}
@@ -3020,7 +3046,7 @@ mod font_10x18 {
 	#[test]
 	fn text_a_size() {
 		let size = Text::new("a", Point::zero())
-			.with_font(FONT_10x18, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::new(10, 18));
 	}
@@ -3028,7 +3054,7 @@ mod font_10x18 {
 	#[test]
 	fn text_multiline_size() {
 		let size = Text::new("aa\naaa\na", Point::zero())
-			.with_font(FONT_10x18, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::new(30, 54));
 	}
@@ -3036,7 +3062,7 @@ mod font_10x18 {
 	#[test]
 	fn text_translate() {
 		let mut text = Text::new("M", Point::zero())
-			.with_font(FONT_10x18, BinaryColor::On);
+			.with_font(FONT, BinaryColor::On);
 		text.translate_mut(Point::new(2, 2));
 		assert_eq!(text.top_left(), Point::new(2, 2));
 		assert_eq!(text.bottom_right(), Point::new(12, 20));
@@ -3073,7 +3099,7 @@ mod font_10x18 {
 	fn text_char_range_1() {
 		let mut display = MockDisplay::new();
 		Text::new(" O~", Point::zero())
-			.with_font(FONT_10x18, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -3105,7 +3131,7 @@ mod font_10x18 {
 	fn text_char_range_2() {
 		let mut display = MockDisplay::new();
 		Text::new("¡¤¦", Point::zero())
-			.with_font(FONT_10x18, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -3137,7 +3163,7 @@ mod font_10x18 {
 	fn text_char_range_3() {
 		let mut display = MockDisplay::new();
 		Text::new("°°°", Point::zero())
-			.with_font(FONT_10x18, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -3169,7 +3195,7 @@ mod font_10x18 {
 	fn text_char_range_4() {
 		let mut display = MockDisplay::new();
 		Text::new("¿ßÿ", Point::zero())
-			.with_font(FONT_10x18, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -3201,7 +3227,7 @@ mod font_10x18 {
 	fn text_char_range_5() {
 		let mut display = MockDisplay::new();
 		Text::new("", Point::zero())
-			.with_font(FONT_10x18, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -3233,7 +3259,7 @@ mod font_10x18 {
 	fn text_fallback() {
 		let mut display = MockDisplay::new();
 		Text::new("§?\n µ", Point::zero())
-			.with_font(FONT_10x18, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -3291,16 +3317,18 @@ mod font_10x18_bold {
 		transform::Transform
 	};
 	
+	const FONT: BitmapFont = FONT_10x18_BOLD;
+	
 	#[test]
 	fn font_size() {
-		assert_eq!(FONT_10x18.width(), 10);
-		assert_eq!(FONT_10x18.height(), 18);
+		assert_eq!(FONT.width(), 10);
+		assert_eq!(FONT.height(), 18);
 	}
 	
 	#[test]
 	fn text_empty_size() {
 		let size = Text::new("", Point::zero())
-			.with_font(FONT_10x18, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::zero());
 	}
@@ -3308,7 +3336,7 @@ mod font_10x18_bold {
 	#[test]
 	fn text_a_size() {
 		let size = Text::new("a", Point::zero())
-			.with_font(FONT_10x18, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::new(10, 18));
 	}
@@ -3316,7 +3344,7 @@ mod font_10x18_bold {
 	#[test]
 	fn text_multiline_size() {
 		let size = Text::new("aa\naaa\na", Point::zero())
-			.with_font(FONT_10x18, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::new(30, 54));
 	}
@@ -3324,7 +3352,7 @@ mod font_10x18_bold {
 	#[test]
 	fn text_translate() {
 		let mut text = Text::new("M", Point::zero())
-			.with_font(FONT_10x18, BinaryColor::On);
+			.with_font(FONT, BinaryColor::On);
 		text.translate_mut(Point::new(2, 2));
 		assert_eq!(text.top_left(), Point::new(2, 2));
 		assert_eq!(text.bottom_right(), Point::new(12, 20));
@@ -3361,7 +3389,7 @@ mod font_10x18_bold {
 	fn text_char_range_1() {
 		let mut display = MockDisplay::new();
 		Text::new(" O~", Point::zero())
-			.with_font(FONT_10x18, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -3393,7 +3421,7 @@ mod font_10x18_bold {
 	fn text_char_range_2() {
 		let mut display = MockDisplay::new();
 		Text::new("¡¤¦", Point::zero())
-			.with_font(FONT_10x18, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -3425,7 +3453,7 @@ mod font_10x18_bold {
 	fn text_char_range_3() {
 		let mut display = MockDisplay::new();
 		Text::new("°°°", Point::zero())
-			.with_font(FONT_10x18, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -3457,7 +3485,7 @@ mod font_10x18_bold {
 	fn text_char_range_4() {
 		let mut display = MockDisplay::new();
 		Text::new("¿ßÿ", Point::zero())
-			.with_font(FONT_10x18, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -3489,7 +3517,7 @@ mod font_10x18_bold {
 	fn text_char_range_5() {
 		let mut display = MockDisplay::new();
 		Text::new("", Point::zero())
-			.with_font(FONT_10x18, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -3521,7 +3549,7 @@ mod font_10x18_bold {
 	fn text_fallback() {
 		let mut display = MockDisplay::new();
 		Text::new("§?\n µ", Point::zero())
-			.with_font(FONT_10x18, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -3579,16 +3607,18 @@ mod font_10x20 {
 		transform::Transform
 	};
 	
+	const FONT: BitmapFont = FONT_10x20;
+	
 	#[test]
 	fn font_size() {
-		assert_eq!(FONT_10x20.width(), 10);
-		assert_eq!(FONT_10x20.height(), 20);
+		assert_eq!(FONT.width(), 10);
+		assert_eq!(FONT.height(), 20);
 	}
 	
 	#[test]
 	fn text_empty_size() {
 		let size = Text::new("", Point::zero())
-			.with_font(FONT_10x20, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::zero());
 	}
@@ -3596,7 +3626,7 @@ mod font_10x20 {
 	#[test]
 	fn text_a_size() {
 		let size = Text::new("a", Point::zero())
-			.with_font(FONT_10x20, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::new(10, 20));
 	}
@@ -3604,7 +3634,7 @@ mod font_10x20 {
 	#[test]
 	fn text_multiline_size() {
 		let size = Text::new("aa\naaa\na", Point::zero())
-			.with_font(FONT_10x20, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::new(30, 60));
 	}
@@ -3612,7 +3642,7 @@ mod font_10x20 {
 	#[test]
 	fn text_translate() {
 		let mut text = Text::new("M", Point::zero())
-			.with_font(FONT_10x20, BinaryColor::On);
+			.with_font(FONT, BinaryColor::On);
 		text.translate_mut(Point::new(2, 2));
 		assert_eq!(text.top_left(), Point::new(2, 2));
 		assert_eq!(text.bottom_right(), Point::new(12, 22));
@@ -3651,7 +3681,7 @@ mod font_10x20 {
 	fn text_char_range_1() {
 		let mut display = MockDisplay::new();
 		Text::new(" O~", Point::zero())
-			.with_font(FONT_10x20, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -3685,7 +3715,7 @@ mod font_10x20 {
 	fn text_char_range_2() {
 		let mut display = MockDisplay::new();
 		Text::new("¡¤¦", Point::zero())
-			.with_font(FONT_10x20, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -3719,7 +3749,7 @@ mod font_10x20 {
 	fn text_char_range_3() {
 		let mut display = MockDisplay::new();
 		Text::new("°°°", Point::zero())
-			.with_font(FONT_10x20, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -3753,7 +3783,7 @@ mod font_10x20 {
 	fn text_char_range_4() {
 		let mut display = MockDisplay::new();
 		Text::new("¿ßÿ", Point::zero())
-			.with_font(FONT_10x20, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -3787,7 +3817,7 @@ mod font_10x20 {
 	fn text_char_range_5() {
 		let mut display = MockDisplay::new();
 		Text::new("", Point::zero())
-			.with_font(FONT_10x20, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -3821,7 +3851,7 @@ mod font_10x20 {
 	fn text_fallback() {
 		let mut display = MockDisplay::new();
 		Text::new("§?\n µ", Point::zero())
-			.with_font(FONT_10x20, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -3883,16 +3913,18 @@ mod font_10x20_bold {
 		transform::Transform
 	};
 	
+	const FONT: BitmapFont = FONT_10x20_BOLD;
+	
 	#[test]
 	fn font_size() {
-		assert_eq!(FONT_10x20.width(), 10);
-		assert_eq!(FONT_10x20.height(), 20);
+		assert_eq!(FONT.width(), 10);
+		assert_eq!(FONT.height(), 20);
 	}
 	
 	#[test]
 	fn text_empty_size() {
 		let size = Text::new("", Point::zero())
-			.with_font(FONT_10x20, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::zero());
 	}
@@ -3900,7 +3932,7 @@ mod font_10x20_bold {
 	#[test]
 	fn text_a_size() {
 		let size = Text::new("a", Point::zero())
-			.with_font(FONT_10x20, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::new(10, 20));
 	}
@@ -3908,7 +3940,7 @@ mod font_10x20_bold {
 	#[test]
 	fn text_multiline_size() {
 		let size = Text::new("aa\naaa\na", Point::zero())
-			.with_font(FONT_10x20, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::new(30, 60));
 	}
@@ -3916,7 +3948,7 @@ mod font_10x20_bold {
 	#[test]
 	fn text_translate() {
 		let mut text = Text::new("M", Point::zero())
-			.with_font(FONT_10x20, BinaryColor::On);
+			.with_font(FONT, BinaryColor::On);
 		text.translate_mut(Point::new(2, 2));
 		assert_eq!(text.top_left(), Point::new(2, 2));
 		assert_eq!(text.bottom_right(), Point::new(12, 22));
@@ -3955,7 +3987,7 @@ mod font_10x20_bold {
 	fn text_char_range_1() {
 		let mut display = MockDisplay::new();
 		Text::new(" O~", Point::zero())
-			.with_font(FONT_10x20, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -3989,7 +4021,7 @@ mod font_10x20_bold {
 	fn text_char_range_2() {
 		let mut display = MockDisplay::new();
 		Text::new("¡¤¦", Point::zero())
-			.with_font(FONT_10x20, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -4023,7 +4055,7 @@ mod font_10x20_bold {
 	fn text_char_range_3() {
 		let mut display = MockDisplay::new();
 		Text::new("°°°", Point::zero())
-			.with_font(FONT_10x20, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -4057,7 +4089,7 @@ mod font_10x20_bold {
 	fn text_char_range_4() {
 		let mut display = MockDisplay::new();
 		Text::new("¿ßÿ", Point::zero())
-			.with_font(FONT_10x20, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -4091,7 +4123,7 @@ mod font_10x20_bold {
 	fn text_char_range_5() {
 		let mut display = MockDisplay::new();
 		Text::new("", Point::zero())
-			.with_font(FONT_10x20, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -4125,7 +4157,7 @@ mod font_10x20_bold {
 	fn text_fallback() {
 		let mut display = MockDisplay::new();
 		Text::new("§?\n µ", Point::zero())
-			.with_font(FONT_10x20, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -4187,16 +4219,18 @@ mod font_12x24 {
 		transform::Transform
 	};
 	
+	const FONT: BitmapFont = FONT_12x24;
+	
 	#[test]
 	fn font_size() {
-		assert_eq!(FONT_12x24.width(), 12);
-		assert_eq!(FONT_12x24.height(), 24);
+		assert_eq!(FONT.width(), 12);
+		assert_eq!(FONT.height(), 24);
 	}
 	
 	#[test]
 	fn text_empty_size() {
 		let size = Text::new("", Point::zero())
-			.with_font(FONT_12x24, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::zero());
 	}
@@ -4204,7 +4238,7 @@ mod font_12x24 {
 	#[test]
 	fn text_a_size() {
 		let size = Text::new("a", Point::zero())
-			.with_font(FONT_12x24, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::new(12, 24));
 	}
@@ -4212,7 +4246,7 @@ mod font_12x24 {
 	#[test]
 	fn text_multiline_size() {
 		let size = Text::new("aa\naaa\na", Point::zero())
-			.with_font(FONT_12x24, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::new(36, 72));
 	}
@@ -4220,7 +4254,7 @@ mod font_12x24 {
 	#[test]
 	fn text_translate() {
 		let mut text = Text::new("M", Point::zero())
-			.with_font(FONT_12x24, BinaryColor::On);
+			.with_font(FONT, BinaryColor::On);
 		text.translate_mut(Point::new(2, 2));
 		assert_eq!(text.top_left(), Point::new(2, 2));
 		assert_eq!(text.bottom_right(), Point::new(14, 26));
@@ -4263,7 +4297,7 @@ mod font_12x24 {
 	fn text_char_range_1() {
 		let mut display = MockDisplay::new();
 		Text::new(" O~", Point::zero())
-			.with_font(FONT_12x24, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -4301,7 +4335,7 @@ mod font_12x24 {
 	fn text_char_range_2() {
 		let mut display = MockDisplay::new();
 		Text::new("¡¤¦", Point::zero())
-			.with_font(FONT_12x24, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -4339,7 +4373,7 @@ mod font_12x24 {
 	fn text_char_range_3() {
 		let mut display = MockDisplay::new();
 		Text::new("°°°", Point::zero())
-			.with_font(FONT_12x24, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -4377,7 +4411,7 @@ mod font_12x24 {
 	fn text_char_range_4() {
 		let mut display = MockDisplay::new();
 		Text::new("¿ßÿ", Point::zero())
-			.with_font(FONT_12x24, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -4415,7 +4449,7 @@ mod font_12x24 {
 	fn text_char_range_5() {
 		let mut display = MockDisplay::new();
 		Text::new("", Point::zero())
-			.with_font(FONT_12x24, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -4453,7 +4487,7 @@ mod font_12x24 {
 	fn text_fallback() {
 		let mut display = MockDisplay::new();
 		Text::new("§?\n µ", Point::zero())
-			.with_font(FONT_12x24, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -4523,16 +4557,18 @@ mod font_12x24_bold {
 		transform::Transform
 	};
 	
+	const FONT: BitmapFont = FONT_12x24_BOLD;
+	
 	#[test]
 	fn font_size() {
-		assert_eq!(FONT_12x24.width(), 12);
-		assert_eq!(FONT_12x24.height(), 24);
+		assert_eq!(FONT.width(), 12);
+		assert_eq!(FONT.height(), 24);
 	}
 	
 	#[test]
 	fn text_empty_size() {
 		let size = Text::new("", Point::zero())
-			.with_font(FONT_12x24, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::zero());
 	}
@@ -4540,7 +4576,7 @@ mod font_12x24_bold {
 	#[test]
 	fn text_a_size() {
 		let size = Text::new("a", Point::zero())
-			.with_font(FONT_12x24, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::new(12, 24));
 	}
@@ -4548,7 +4584,7 @@ mod font_12x24_bold {
 	#[test]
 	fn text_multiline_size() {
 		let size = Text::new("aa\naaa\na", Point::zero())
-			.with_font(FONT_12x24, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::new(36, 72));
 	}
@@ -4556,7 +4592,7 @@ mod font_12x24_bold {
 	#[test]
 	fn text_translate() {
 		let mut text = Text::new("M", Point::zero())
-			.with_font(FONT_12x24, BinaryColor::On);
+			.with_font(FONT, BinaryColor::On);
 		text.translate_mut(Point::new(2, 2));
 		assert_eq!(text.top_left(), Point::new(2, 2));
 		assert_eq!(text.bottom_right(), Point::new(14, 26));
@@ -4599,7 +4635,7 @@ mod font_12x24_bold {
 	fn text_char_range_1() {
 		let mut display = MockDisplay::new();
 		Text::new(" O~", Point::zero())
-			.with_font(FONT_12x24, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -4637,7 +4673,7 @@ mod font_12x24_bold {
 	fn text_char_range_2() {
 		let mut display = MockDisplay::new();
 		Text::new("¡¤¦", Point::zero())
-			.with_font(FONT_12x24, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -4675,7 +4711,7 @@ mod font_12x24_bold {
 	fn text_char_range_3() {
 		let mut display = MockDisplay::new();
 		Text::new("°°°", Point::zero())
-			.with_font(FONT_12x24, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -4713,7 +4749,7 @@ mod font_12x24_bold {
 	fn text_char_range_4() {
 		let mut display = MockDisplay::new();
 		Text::new("¿ßÿ", Point::zero())
-			.with_font(FONT_12x24, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -4751,7 +4787,7 @@ mod font_12x24_bold {
 	fn text_char_range_5() {
 		let mut display = MockDisplay::new();
 		Text::new("", Point::zero())
-			.with_font(FONT_12x24, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -4789,7 +4825,7 @@ mod font_12x24_bold {
 	fn text_fallback() {
 		let mut display = MockDisplay::new();
 		Text::new("§?\n µ", Point::zero())
-			.with_font(FONT_12x24, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -4859,16 +4895,18 @@ mod font_14x26 {
 		transform::Transform
 	};
 	
+	const FONT: BitmapFont = FONT_14x26;
+	
 	#[test]
 	fn font_size() {
-		assert_eq!(FONT_14x26.width(), 14);
-		assert_eq!(FONT_14x26.height(), 26);
+		assert_eq!(FONT.width(), 14);
+		assert_eq!(FONT.height(), 26);
 	}
 	
 	#[test]
 	fn text_empty_size() {
 		let size = Text::new("", Point::zero())
-			.with_font(FONT_14x26, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::zero());
 	}
@@ -4876,7 +4914,7 @@ mod font_14x26 {
 	#[test]
 	fn text_a_size() {
 		let size = Text::new("a", Point::zero())
-			.with_font(FONT_14x26, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::new(14, 26));
 	}
@@ -4884,7 +4922,7 @@ mod font_14x26 {
 	#[test]
 	fn text_multiline_size() {
 		let size = Text::new("aa\naaa\na", Point::zero())
-			.with_font(FONT_14x26, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::new(42, 78));
 	}
@@ -4892,7 +4930,7 @@ mod font_14x26 {
 	#[test]
 	fn text_translate() {
 		let mut text = Text::new("M", Point::zero())
-			.with_font(FONT_14x26, BinaryColor::On);
+			.with_font(FONT, BinaryColor::On);
 		text.translate_mut(Point::new(2, 2));
 		assert_eq!(text.top_left(), Point::new(2, 2));
 		assert_eq!(text.bottom_right(), Point::new(16, 28));
@@ -4937,7 +4975,7 @@ mod font_14x26 {
 	fn text_char_range_1() {
 		let mut display = MockDisplay::new();
 		Text::new(" O~", Point::zero())
-			.with_font(FONT_14x26, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -4977,7 +5015,7 @@ mod font_14x26 {
 	fn text_char_range_2() {
 		let mut display = MockDisplay::new();
 		Text::new("¡¤¦", Point::zero())
-			.with_font(FONT_14x26, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -5017,7 +5055,7 @@ mod font_14x26 {
 	fn text_char_range_3() {
 		let mut display = MockDisplay::new();
 		Text::new("°°°", Point::zero())
-			.with_font(FONT_14x26, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -5057,7 +5095,7 @@ mod font_14x26 {
 	fn text_char_range_4() {
 		let mut display = MockDisplay::new();
 		Text::new("¿ßÿ", Point::zero())
-			.with_font(FONT_14x26, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -5097,7 +5135,7 @@ mod font_14x26 {
 	fn text_char_range_5() {
 		let mut display = MockDisplay::new();
 		Text::new("", Point::zero())
-			.with_font(FONT_14x26, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -5137,7 +5175,7 @@ mod font_14x26 {
 	fn text_fallback() {
 		let mut display = MockDisplay::new();
 		Text::new("§?\n µ", Point::zero())
-			.with_font(FONT_14x26, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -5211,16 +5249,18 @@ mod font_14x26_bold {
 		transform::Transform
 	};
 	
+	const FONT: BitmapFont = FONT_14x26_BOLD;
+	
 	#[test]
 	fn font_size() {
-		assert_eq!(FONT_14x26.width(), 14);
-		assert_eq!(FONT_14x26.height(), 26);
+		assert_eq!(FONT.width(), 14);
+		assert_eq!(FONT.height(), 26);
 	}
 	
 	#[test]
 	fn text_empty_size() {
 		let size = Text::new("", Point::zero())
-			.with_font(FONT_14x26, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::zero());
 	}
@@ -5228,7 +5268,7 @@ mod font_14x26_bold {
 	#[test]
 	fn text_a_size() {
 		let size = Text::new("a", Point::zero())
-			.with_font(FONT_14x26, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::new(14, 26));
 	}
@@ -5236,7 +5276,7 @@ mod font_14x26_bold {
 	#[test]
 	fn text_multiline_size() {
 		let size = Text::new("aa\naaa\na", Point::zero())
-			.with_font(FONT_14x26, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::new(42, 78));
 	}
@@ -5244,7 +5284,7 @@ mod font_14x26_bold {
 	#[test]
 	fn text_translate() {
 		let mut text = Text::new("M", Point::zero())
-			.with_font(FONT_14x26, BinaryColor::On);
+			.with_font(FONT, BinaryColor::On);
 		text.translate_mut(Point::new(2, 2));
 		assert_eq!(text.top_left(), Point::new(2, 2));
 		assert_eq!(text.bottom_right(), Point::new(16, 28));
@@ -5289,7 +5329,7 @@ mod font_14x26_bold {
 	fn text_char_range_1() {
 		let mut display = MockDisplay::new();
 		Text::new(" O~", Point::zero())
-			.with_font(FONT_14x26, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -5329,7 +5369,7 @@ mod font_14x26_bold {
 	fn text_char_range_2() {
 		let mut display = MockDisplay::new();
 		Text::new("¡¤¦", Point::zero())
-			.with_font(FONT_14x26, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -5369,7 +5409,7 @@ mod font_14x26_bold {
 	fn text_char_range_3() {
 		let mut display = MockDisplay::new();
 		Text::new("°°°", Point::zero())
-			.with_font(FONT_14x26, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -5409,7 +5449,7 @@ mod font_14x26_bold {
 	fn text_char_range_4() {
 		let mut display = MockDisplay::new();
 		Text::new("¿ßÿ", Point::zero())
-			.with_font(FONT_14x26, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -5449,7 +5489,7 @@ mod font_14x26_bold {
 	fn text_char_range_5() {
 		let mut display = MockDisplay::new();
 		Text::new("", Point::zero())
-			.with_font(FONT_14x26, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -5489,7 +5529,7 @@ mod font_14x26_bold {
 	fn text_fallback() {
 		let mut display = MockDisplay::new();
 		Text::new("§?\n µ", Point::zero())
-			.with_font(FONT_14x26, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -5563,16 +5603,18 @@ mod font_14x28 {
 		transform::Transform
 	};
 	
+	const FONT: BitmapFont = FONT_14x28;
+	
 	#[test]
 	fn font_size() {
-		assert_eq!(FONT_14x28.width(), 14);
-		assert_eq!(FONT_14x28.height(), 28);
+		assert_eq!(FONT.width(), 14);
+		assert_eq!(FONT.height(), 28);
 	}
 	
 	#[test]
 	fn text_empty_size() {
 		let size = Text::new("", Point::zero())
-			.with_font(FONT_14x28, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::zero());
 	}
@@ -5580,7 +5622,7 @@ mod font_14x28 {
 	#[test]
 	fn text_a_size() {
 		let size = Text::new("a", Point::zero())
-			.with_font(FONT_14x28, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::new(14, 28));
 	}
@@ -5588,7 +5630,7 @@ mod font_14x28 {
 	#[test]
 	fn text_multiline_size() {
 		let size = Text::new("aa\naaa\na", Point::zero())
-			.with_font(FONT_14x28, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::new(42, 84));
 	}
@@ -5596,7 +5638,7 @@ mod font_14x28 {
 	#[test]
 	fn text_translate() {
 		let mut text = Text::new("M", Point::zero())
-			.with_font(FONT_14x28, BinaryColor::On);
+			.with_font(FONT, BinaryColor::On);
 		text.translate_mut(Point::new(2, 2));
 		assert_eq!(text.top_left(), Point::new(2, 2));
 		assert_eq!(text.bottom_right(), Point::new(16, 30));
@@ -5643,7 +5685,7 @@ mod font_14x28 {
 	fn text_char_range_1() {
 		let mut display = MockDisplay::new();
 		Text::new(" O~", Point::zero())
-			.with_font(FONT_14x28, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -5685,7 +5727,7 @@ mod font_14x28 {
 	fn text_char_range_2() {
 		let mut display = MockDisplay::new();
 		Text::new("¡¤¦", Point::zero())
-			.with_font(FONT_14x28, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -5727,7 +5769,7 @@ mod font_14x28 {
 	fn text_char_range_3() {
 		let mut display = MockDisplay::new();
 		Text::new("°°°", Point::zero())
-			.with_font(FONT_14x28, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -5769,7 +5811,7 @@ mod font_14x28 {
 	fn text_char_range_4() {
 		let mut display = MockDisplay::new();
 		Text::new("¿ßÿ", Point::zero())
-			.with_font(FONT_14x28, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -5811,7 +5853,7 @@ mod font_14x28 {
 	fn text_char_range_5() {
 		let mut display = MockDisplay::new();
 		Text::new("", Point::zero())
-			.with_font(FONT_14x28, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -5853,7 +5895,7 @@ mod font_14x28 {
 	fn text_fallback() {
 		let mut display = MockDisplay::new();
 		Text::new("§?\n µ", Point::zero())
-			.with_font(FONT_14x28, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -5931,16 +5973,18 @@ mod font_14x28_bold {
 		transform::Transform
 	};
 	
+	const FONT: BitmapFont = FONT_14x28_BOLD;
+	
 	#[test]
 	fn font_size() {
-		assert_eq!(FONT_14x28.width(), 14);
-		assert_eq!(FONT_14x28.height(), 28);
+		assert_eq!(FONT.width(), 14);
+		assert_eq!(FONT.height(), 28);
 	}
 	
 	#[test]
 	fn text_empty_size() {
 		let size = Text::new("", Point::zero())
-			.with_font(FONT_14x28, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::zero());
 	}
@@ -5948,7 +5992,7 @@ mod font_14x28_bold {
 	#[test]
 	fn text_a_size() {
 		let size = Text::new("a", Point::zero())
-			.with_font(FONT_14x28, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::new(14, 28));
 	}
@@ -5956,7 +6000,7 @@ mod font_14x28_bold {
 	#[test]
 	fn text_multiline_size() {
 		let size = Text::new("aa\naaa\na", Point::zero())
-			.with_font(FONT_14x28, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::new(42, 84));
 	}
@@ -5964,7 +6008,7 @@ mod font_14x28_bold {
 	#[test]
 	fn text_translate() {
 		let mut text = Text::new("M", Point::zero())
-			.with_font(FONT_14x28, BinaryColor::On);
+			.with_font(FONT, BinaryColor::On);
 		text.translate_mut(Point::new(2, 2));
 		assert_eq!(text.top_left(), Point::new(2, 2));
 		assert_eq!(text.bottom_right(), Point::new(16, 30));
@@ -6011,7 +6055,7 @@ mod font_14x28_bold {
 	fn text_char_range_1() {
 		let mut display = MockDisplay::new();
 		Text::new(" O~", Point::zero())
-			.with_font(FONT_14x28, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -6053,7 +6097,7 @@ mod font_14x28_bold {
 	fn text_char_range_2() {
 		let mut display = MockDisplay::new();
 		Text::new("¡¤¦", Point::zero())
-			.with_font(FONT_14x28, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -6095,7 +6139,7 @@ mod font_14x28_bold {
 	fn text_char_range_3() {
 		let mut display = MockDisplay::new();
 		Text::new("°°°", Point::zero())
-			.with_font(FONT_14x28, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -6137,7 +6181,7 @@ mod font_14x28_bold {
 	fn text_char_range_4() {
 		let mut display = MockDisplay::new();
 		Text::new("¿ßÿ", Point::zero())
-			.with_font(FONT_14x28, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -6179,7 +6223,7 @@ mod font_14x28_bold {
 	fn text_char_range_5() {
 		let mut display = MockDisplay::new();
 		Text::new("", Point::zero())
-			.with_font(FONT_14x28, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -6221,7 +6265,7 @@ mod font_14x28_bold {
 	fn text_fallback() {
 		let mut display = MockDisplay::new();
 		Text::new("§?\n µ", Point::zero())
-			.with_font(FONT_14x28, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -6299,16 +6343,18 @@ mod font_16x30 {
 		transform::Transform
 	};
 	
+	const FONT: BitmapFont = FONT_16x30;
+	
 	#[test]
 	fn font_size() {
-		assert_eq!(FONT_16x30.width(), 16);
-		assert_eq!(FONT_16x30.height(), 30);
+		assert_eq!(FONT.width(), 16);
+		assert_eq!(FONT.height(), 30);
 	}
 	
 	#[test]
 	fn text_empty_size() {
 		let size = Text::new("", Point::zero())
-			.with_font(FONT_16x30, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::zero());
 	}
@@ -6316,7 +6362,7 @@ mod font_16x30 {
 	#[test]
 	fn text_a_size() {
 		let size = Text::new("a", Point::zero())
-			.with_font(FONT_16x30, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::new(16, 30));
 	}
@@ -6324,7 +6370,7 @@ mod font_16x30 {
 	#[test]
 	fn text_multiline_size() {
 		let size = Text::new("aa\naaa\na", Point::zero())
-			.with_font(FONT_16x30, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::new(48, 90));
 	}
@@ -6332,7 +6378,7 @@ mod font_16x30 {
 	#[test]
 	fn text_translate() {
 		let mut text = Text::new("M", Point::zero())
-			.with_font(FONT_16x30, BinaryColor::On);
+			.with_font(FONT, BinaryColor::On);
 		text.translate_mut(Point::new(2, 2));
 		assert_eq!(text.top_left(), Point::new(2, 2));
 		assert_eq!(text.bottom_right(), Point::new(18, 32));
@@ -6381,7 +6427,7 @@ mod font_16x30 {
 	fn text_char_range_1() {
 		let mut display = MockDisplay::new();
 		Text::new(" O~", Point::zero())
-			.with_font(FONT_16x30, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -6425,7 +6471,7 @@ mod font_16x30 {
 	fn text_char_range_2() {
 		let mut display = MockDisplay::new();
 		Text::new("¡¤¦", Point::zero())
-			.with_font(FONT_16x30, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -6469,7 +6515,7 @@ mod font_16x30 {
 	fn text_char_range_3() {
 		let mut display = MockDisplay::new();
 		Text::new("°°°", Point::zero())
-			.with_font(FONT_16x30, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -6513,7 +6559,7 @@ mod font_16x30 {
 	fn text_char_range_4() {
 		let mut display = MockDisplay::new();
 		Text::new("¿ßÿ", Point::zero())
-			.with_font(FONT_16x30, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -6557,7 +6603,7 @@ mod font_16x30 {
 	fn text_char_range_5() {
 		let mut display = MockDisplay::new();
 		Text::new("", Point::zero())
-			.with_font(FONT_16x30, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -6601,7 +6647,7 @@ mod font_16x30 {
 	fn text_fallback() {
 		let mut display = MockDisplay::new();
 		Text::new("§?\n µ", Point::zero())
-			.with_font(FONT_16x30, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -6683,16 +6729,18 @@ mod font_16x30_bold {
 		transform::Transform
 	};
 	
+	const FONT: BitmapFont = FONT_16x30_BOLD;
+	
 	#[test]
 	fn font_size() {
-		assert_eq!(FONT_16x30.width(), 16);
-		assert_eq!(FONT_16x30.height(), 30);
+		assert_eq!(FONT.width(), 16);
+		assert_eq!(FONT.height(), 30);
 	}
 	
 	#[test]
 	fn text_empty_size() {
 		let size = Text::new("", Point::zero())
-			.with_font(FONT_16x30, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::zero());
 	}
@@ -6700,7 +6748,7 @@ mod font_16x30_bold {
 	#[test]
 	fn text_a_size() {
 		let size = Text::new("a", Point::zero())
-			.with_font(FONT_16x30, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::new(16, 30));
 	}
@@ -6708,7 +6756,7 @@ mod font_16x30_bold {
 	#[test]
 	fn text_multiline_size() {
 		let size = Text::new("aa\naaa\na", Point::zero())
-			.with_font(FONT_16x30, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::new(48, 90));
 	}
@@ -6716,7 +6764,7 @@ mod font_16x30_bold {
 	#[test]
 	fn text_translate() {
 		let mut text = Text::new("M", Point::zero())
-			.with_font(FONT_16x30, BinaryColor::On);
+			.with_font(FONT, BinaryColor::On);
 		text.translate_mut(Point::new(2, 2));
 		assert_eq!(text.top_left(), Point::new(2, 2));
 		assert_eq!(text.bottom_right(), Point::new(18, 32));
@@ -6765,7 +6813,7 @@ mod font_16x30_bold {
 	fn text_char_range_1() {
 		let mut display = MockDisplay::new();
 		Text::new(" O~", Point::zero())
-			.with_font(FONT_16x30, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -6809,7 +6857,7 @@ mod font_16x30_bold {
 	fn text_char_range_2() {
 		let mut display = MockDisplay::new();
 		Text::new("¡¤¦", Point::zero())
-			.with_font(FONT_16x30, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -6853,7 +6901,7 @@ mod font_16x30_bold {
 	fn text_char_range_3() {
 		let mut display = MockDisplay::new();
 		Text::new("°°°", Point::zero())
-			.with_font(FONT_16x30, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -6897,7 +6945,7 @@ mod font_16x30_bold {
 	fn text_char_range_4() {
 		let mut display = MockDisplay::new();
 		Text::new("¿ßÿ", Point::zero())
-			.with_font(FONT_16x30, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -6941,7 +6989,7 @@ mod font_16x30_bold {
 	fn text_char_range_5() {
 		let mut display = MockDisplay::new();
 		Text::new("", Point::zero())
-			.with_font(FONT_16x30, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -6985,7 +7033,7 @@ mod font_16x30_bold {
 	fn text_fallback() {
 		let mut display = MockDisplay::new();
 		Text::new("§?\n µ", Point::zero())
-			.with_font(FONT_16x30, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -7067,16 +7115,18 @@ mod font_16x32 {
 		transform::Transform
 	};
 	
+	const FONT: BitmapFont = FONT_16x32;
+	
 	#[test]
 	fn font_size() {
-		assert_eq!(FONT_16x32.width(), 16);
-		assert_eq!(FONT_16x32.height(), 32);
+		assert_eq!(FONT.width(), 16);
+		assert_eq!(FONT.height(), 32);
 	}
 	
 	#[test]
 	fn text_empty_size() {
 		let size = Text::new("", Point::zero())
-			.with_font(FONT_16x32, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::zero());
 	}
@@ -7084,7 +7134,7 @@ mod font_16x32 {
 	#[test]
 	fn text_a_size() {
 		let size = Text::new("a", Point::zero())
-			.with_font(FONT_16x32, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::new(16, 32));
 	}
@@ -7092,7 +7142,7 @@ mod font_16x32 {
 	#[test]
 	fn text_multiline_size() {
 		let size = Text::new("aa\naaa\na", Point::zero())
-			.with_font(FONT_16x32, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::new(48, 96));
 	}
@@ -7100,7 +7150,7 @@ mod font_16x32 {
 	#[test]
 	fn text_translate() {
 		let mut text = Text::new("M", Point::zero())
-			.with_font(FONT_16x32, BinaryColor::On);
+			.with_font(FONT, BinaryColor::On);
 		text.translate_mut(Point::new(2, 2));
 		assert_eq!(text.top_left(), Point::new(2, 2));
 		assert_eq!(text.bottom_right(), Point::new(18, 34));
@@ -7151,7 +7201,7 @@ mod font_16x32 {
 	fn text_char_range_1() {
 		let mut display = MockDisplay::new();
 		Text::new(" O~", Point::zero())
-			.with_font(FONT_16x32, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -7197,7 +7247,7 @@ mod font_16x32 {
 	fn text_char_range_2() {
 		let mut display = MockDisplay::new();
 		Text::new("¡¤¦", Point::zero())
-			.with_font(FONT_16x32, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -7243,7 +7293,7 @@ mod font_16x32 {
 	fn text_char_range_3() {
 		let mut display = MockDisplay::new();
 		Text::new("°°°", Point::zero())
-			.with_font(FONT_16x32, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -7289,7 +7339,7 @@ mod font_16x32 {
 	fn text_char_range_4() {
 		let mut display = MockDisplay::new();
 		Text::new("¿ßÿ", Point::zero())
-			.with_font(FONT_16x32, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -7335,7 +7385,7 @@ mod font_16x32 {
 	fn text_char_range_5() {
 		let mut display = MockDisplay::new();
 		Text::new("", Point::zero())
-			.with_font(FONT_16x32, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -7389,16 +7439,18 @@ mod font_16x32_bold {
 		transform::Transform
 	};
 	
+	const FONT: BitmapFont = FONT_16x32_BOLD;
+	
 	#[test]
 	fn font_size() {
-		assert_eq!(FONT_16x32.width(), 16);
-		assert_eq!(FONT_16x32.height(), 32);
+		assert_eq!(FONT.width(), 16);
+		assert_eq!(FONT.height(), 32);
 	}
 	
 	#[test]
 	fn text_empty_size() {
 		let size = Text::new("", Point::zero())
-			.with_font(FONT_16x32, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::zero());
 	}
@@ -7406,7 +7458,7 @@ mod font_16x32_bold {
 	#[test]
 	fn text_a_size() {
 		let size = Text::new("a", Point::zero())
-			.with_font(FONT_16x32, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::new(16, 32));
 	}
@@ -7414,7 +7466,7 @@ mod font_16x32_bold {
 	#[test]
 	fn text_multiline_size() {
 		let size = Text::new("aa\naaa\na", Point::zero())
-			.with_font(FONT_16x32, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::new(48, 96));
 	}
@@ -7422,7 +7474,7 @@ mod font_16x32_bold {
 	#[test]
 	fn text_translate() {
 		let mut text = Text::new("M", Point::zero())
-			.with_font(FONT_16x32, BinaryColor::On);
+			.with_font(FONT, BinaryColor::On);
 		text.translate_mut(Point::new(2, 2));
 		assert_eq!(text.top_left(), Point::new(2, 2));
 		assert_eq!(text.bottom_right(), Point::new(18, 34));
@@ -7473,7 +7525,7 @@ mod font_16x32_bold {
 	fn text_char_range_1() {
 		let mut display = MockDisplay::new();
 		Text::new(" O~", Point::zero())
-			.with_font(FONT_16x32, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -7519,7 +7571,7 @@ mod font_16x32_bold {
 	fn text_char_range_2() {
 		let mut display = MockDisplay::new();
 		Text::new("¡¤¦", Point::zero())
-			.with_font(FONT_16x32, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -7565,7 +7617,7 @@ mod font_16x32_bold {
 	fn text_char_range_3() {
 		let mut display = MockDisplay::new();
 		Text::new("°°°", Point::zero())
-			.with_font(FONT_16x32, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -7611,7 +7663,7 @@ mod font_16x32_bold {
 	fn text_char_range_4() {
 		let mut display = MockDisplay::new();
 		Text::new("¿ßÿ", Point::zero())
-			.with_font(FONT_16x32, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -7657,7 +7709,7 @@ mod font_16x32_bold {
 	fn text_char_range_5() {
 		let mut display = MockDisplay::new();
 		Text::new("", Point::zero())
-			.with_font(FONT_16x32, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -7711,16 +7763,18 @@ mod font_20x40 {
 		transform::Transform
 	};
 	
+	const FONT: BitmapFont = FONT_20x40;
+	
 	#[test]
 	fn font_size() {
-		assert_eq!(FONT_20x40.width(), 20);
-		assert_eq!(FONT_20x40.height(), 40);
+		assert_eq!(FONT.width(), 20);
+		assert_eq!(FONT.height(), 40);
 	}
 	
 	#[test]
 	fn text_empty_size() {
 		let size = Text::new("", Point::zero())
-			.with_font(FONT_20x40, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::zero());
 	}
@@ -7728,7 +7782,7 @@ mod font_20x40 {
 	#[test]
 	fn text_a_size() {
 		let size = Text::new("a", Point::zero())
-			.with_font(FONT_20x40, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::new(20, 40));
 	}
@@ -7736,7 +7790,7 @@ mod font_20x40 {
 	#[test]
 	fn text_multiline_size() {
 		let size = Text::new("aa\naaa\na", Point::zero())
-			.with_font(FONT_20x40, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::new(60, 120));
 	}
@@ -7744,7 +7798,7 @@ mod font_20x40 {
 	#[test]
 	fn text_translate() {
 		let mut text = Text::new("M", Point::zero())
-			.with_font(FONT_20x40, BinaryColor::On);
+			.with_font(FONT, BinaryColor::On);
 		text.translate_mut(Point::new(2, 2));
 		assert_eq!(text.top_left(), Point::new(2, 2));
 		assert_eq!(text.bottom_right(), Point::new(22, 42));
@@ -7803,7 +7857,7 @@ mod font_20x40 {
 	fn text_char_range_1() {
 		let mut display = MockDisplay::new();
 		Text::new(" O~", Point::zero())
-			.with_font(FONT_20x40, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -7857,7 +7911,7 @@ mod font_20x40 {
 	fn text_char_range_2() {
 		let mut display = MockDisplay::new();
 		Text::new("¡¤¦", Point::zero())
-			.with_font(FONT_20x40, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -7911,7 +7965,7 @@ mod font_20x40 {
 	fn text_char_range_3() {
 		let mut display = MockDisplay::new();
 		Text::new("°°°", Point::zero())
-			.with_font(FONT_20x40, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -7965,7 +8019,7 @@ mod font_20x40 {
 	fn text_char_range_4() {
 		let mut display = MockDisplay::new();
 		Text::new("¿ßÿ", Point::zero())
-			.with_font(FONT_20x40, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -8019,7 +8073,7 @@ mod font_20x40 {
 	fn text_char_range_5() {
 		let mut display = MockDisplay::new();
 		Text::new("", Point::zero())
-			.with_font(FONT_20x40, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -8081,16 +8135,18 @@ mod font_20x40_bold {
 		transform::Transform
 	};
 	
+	const FONT: BitmapFont = FONT_20x40_BOLD;
+	
 	#[test]
 	fn font_size() {
-		assert_eq!(FONT_20x40.width(), 20);
-		assert_eq!(FONT_20x40.height(), 40);
+		assert_eq!(FONT.width(), 20);
+		assert_eq!(FONT.height(), 40);
 	}
 	
 	#[test]
 	fn text_empty_size() {
 		let size = Text::new("", Point::zero())
-			.with_font(FONT_20x40, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::zero());
 	}
@@ -8098,7 +8154,7 @@ mod font_20x40_bold {
 	#[test]
 	fn text_a_size() {
 		let size = Text::new("a", Point::zero())
-			.with_font(FONT_20x40, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::new(20, 40));
 	}
@@ -8106,7 +8162,7 @@ mod font_20x40_bold {
 	#[test]
 	fn text_multiline_size() {
 		let size = Text::new("aa\naaa\na", Point::zero())
-			.with_font(FONT_20x40, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.size();
 		assert_eq!(size, Size::new(60, 120));
 	}
@@ -8114,7 +8170,7 @@ mod font_20x40_bold {
 	#[test]
 	fn text_translate() {
 		let mut text = Text::new("M", Point::zero())
-			.with_font(FONT_20x40, BinaryColor::On);
+			.with_font(FONT, BinaryColor::On);
 		text.translate_mut(Point::new(2, 2));
 		assert_eq!(text.top_left(), Point::new(2, 2));
 		assert_eq!(text.bottom_right(), Point::new(22, 42));
@@ -8173,7 +8229,7 @@ mod font_20x40_bold {
 	fn text_char_range_1() {
 		let mut display = MockDisplay::new();
 		Text::new(" O~", Point::zero())
-			.with_font(FONT_20x40, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -8227,7 +8283,7 @@ mod font_20x40_bold {
 	fn text_char_range_2() {
 		let mut display = MockDisplay::new();
 		Text::new("¡¤¦", Point::zero())
-			.with_font(FONT_20x40, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -8281,7 +8337,7 @@ mod font_20x40_bold {
 	fn text_char_range_3() {
 		let mut display = MockDisplay::new();
 		Text::new("°°°", Point::zero())
-			.with_font(FONT_20x40, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -8335,7 +8391,7 @@ mod font_20x40_bold {
 	fn text_char_range_4() {
 		let mut display = MockDisplay::new();
 		Text::new("¿ßÿ", Point::zero())
-			.with_font(FONT_20x40, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(
@@ -8389,7 +8445,7 @@ mod font_20x40_bold {
 	fn text_char_range_5() {
 		let mut display = MockDisplay::new();
 		Text::new("", Point::zero())
-			.with_font(FONT_20x40, BinaryColor::On)
+			.with_font(FONT, BinaryColor::On)
 			.draw(&mut display)
 			.unwrap();
 		assert_eq!(

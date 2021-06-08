@@ -189,6 +189,18 @@ impl GlyphData {
 		}
 		line
 	}
+
+	// y is a reference because askama is stupid
+	fn mock_line_inverted(&self, y: &u32) -> String {
+		let y = y / self.pixels;
+		let mut line = String::new();
+		for x in 0..self.width {
+			for _ in 0..self.pixels {
+				line.push(self.bitmap.get(x, y).then(|| '.').unwrap_or('#'));
+			}
+		}
+		line
+	}
 }
 
 fn main() -> anyhow::Result<()> {

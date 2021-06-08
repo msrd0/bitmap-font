@@ -112,7 +112,7 @@ impl<'a> TextRenderer for TextStyle<'a> {
 	{
 		for c in text.chars() {
 			let glyph_idx = self.font.glyph_mapping.index(c) as u32;
-			self.font.draw_glyph(glyph_idx, target, BinaryColor::On, pos)?;
+			self.font.draw_glyph(glyph_idx, target, self.color, pos)?;
 			pos += Size::new(self.font.width(), 0);
 		}
 		Ok(pos)

@@ -5,6 +5,7 @@ macro_rules! test_font {
 		font: $font:ident,
 		width: $width:literal,
 		height: $height:literal,
+		a_pattern: $a_pattern:expr,
 		{%- for range in char_ranges %}
 		char_range_{{ loop.index }}_pattern: $char_range_{{ loop.index }}_pattern:expr,
 		{%- endfor %}
@@ -18,7 +19,7 @@ macro_rules! test_font {
 				geometry::{Dimensions, Point, Size},
 				mock_display::MockDisplay,
 				pixelcolor::BinaryColor,
-				primitives::Rectangle
+				primitives::{Primitive, PrimitiveStyle, Rectangle}
 			};
 			
 			fn font() -> TextStyle<'static> {
@@ -47,6 +48,23 @@ macro_rules! test_font {
 			fn text_multiline_size() {
 				let bb = Text::new("aa\naaa\na", Point::zero(), font()).bounding_box();
 				assert_eq!(bb, Rectangle::new(Point::zero(), Size::new(3 * $width, 3 * $height)));
+			}
+			
+			#[test]
+			fn text_a() {
+				let mut display = MockDisplay::new();
+				display.set_allow_overdraw(true);
+				Text::new("a", Point::zero(), TextStyle::new(&$font, BinaryColor::On))
+					.draw(&mut display)
+					.unwrap();
+				Rectangle::new(Point::new($width, 0), Size::new($width+2, $height))
+					.into_styled(PrimitiveStyle::with_fill(BinaryColor::On))
+					.draw(&mut display)
+					.unwrap();
+				Text::new("a", Point::new($width+1, 0), TextStyle::new(&$font, BinaryColor::Off))
+					.draw(&mut display)
+					.unwrap();
+				assert_eq!(display, MockDisplay::from_pattern($a_pattern));
 			}
 			
 			{%- for range in char_ranges %}
@@ -80,16 +98,24 @@ test_font! {
 		font: FONT_{{ font.width }}x{{ font.height }}{% if font.bold %}_BOLD{% endif %},
 		width: {{ font.width }},
 		height: {{ font.height }},
+		a_pattern: &[
+			{%- for y in 0..font.height %}
+			"{{ font.glyph('a').mock_line(y) }}#{{ font.glyph('a').mock_line_inverted(y) }}#"
+				{%- if !loop.last %},{% endif %}
+			{%- endfor %}
+		],
 		{%- for range in char_ranges %}
 		char_range_{{ loop.index }}_pattern: &[
 			{%- for y in 0..font.height %}
-			"{{ font.glyph(range.start).mock_line(y) }}{{ font.glyph(range.mid).mock_line(y) }}{{ font.glyph(range.end).mock_line(y) }}",
+			"{{ font.glyph(range.start).mock_line(y) }}{{ font.glyph(range.mid).mock_line(y) }}{{ font.glyph(range.end).mock_line(y) }}"
+				{%- if !loop.last %},{% endif %}
 			{%- endfor %}
 		],
 		{%- endfor %}
 		fallback_pattern: &[
 			{%- for y in 0..font.height %}
-			"{{ font.glyph('?').mock_line(y) }}{{ font.glyph('?').mock_line(y) }}{{ font.glyph('?').mock_line(y) }}",
+			"{{ font.glyph('?').mock_line(y) }}{{ font.glyph('?').mock_line(y) }}{{ font.glyph('?').mock_line(y) }}"
+				{%- if !loop.last %},{% endif %}
 			{%- endfor %}
 		]
 	}

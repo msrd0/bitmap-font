@@ -405,7 +405,7 @@
 	{
 		<span class="kw">for</span> <span class="ident">c</span> <span class="kw">in</span> <span class="ident">text</span>.<span class="ident">chars</span>() {
 			<span class="kw">let</span> <span class="ident">glyph_idx</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">font</span>.<span class="ident">glyph_mapping</span>.<span class="ident">index</span>(<span class="ident">c</span>) <span class="kw">as</span> <span class="ident">u32</span>;
-			<span class="self">self</span>.<span class="ident">font</span>.<span class="ident">draw_glyph</span>(<span class="ident">glyph_idx</span>, <span class="ident">target</span>, <span class="ident">BinaryColor</span>::<span class="ident">On</span>, <span class="ident">pos</span>)<span class="question-mark">?</span>;
+			<span class="self">self</span>.<span class="ident">font</span>.<span class="ident">draw_glyph</span>(<span class="ident">glyph_idx</span>, <span class="ident">target</span>, <span class="self">self</span>.<span class="ident">color</span>, <span class="ident">pos</span>)<span class="question-mark">?</span>;
 			<span class="ident">pos</span> <span class="op">+</span><span class="op">=</span> <span class="ident">Size</span>::<span class="ident">new</span>(<span class="self">self</span>.<span class="ident">font</span>.<span class="ident">width</span>(), <span class="number">0</span>);
 		}
 		<span class="prelude-val">Ok</span>(<span class="ident">pos</span>)

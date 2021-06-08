@@ -1,6 +1,6 @@
 use anyhow::{anyhow, bail};
 use askama::Template;
-use bdf::{Bitmap, Glyph};
+use bdf::Glyph;
 use bit_vec::BitVec;
 use linked_hash_map::LinkedHashMap;
 use num_format::{Locale, ToFormattedString};
@@ -11,6 +11,12 @@ use std::{
 	fs::{self, File},
 	io::Write
 };
+
+mod bitmap;
+use bitmap::Bitmap;
+
+mod util;
+use util::CeilingDiv;
 
 const CHAR_RANGES: &[(char, char)] = &[
 	// printable ascii chars
@@ -24,29 +30,6 @@ const CHAR_RANGES: &[(char, char)] = &[
 ];
 const MIN_ROWS: u32 = 4;
 const MAX_ROWS: u32 = 15;
-
-fn to_bmp(bitmap: &[u8], width: i32, height: i32) -> anyhow::Result<Vec<u8>> {
-	let mut bmp: Vec<u8> = Vec::new();
-
-	// file header
-	bmp.write_all(&[0x42, 0x4D])?;
-	bmp.write_all(&(14 + 40 + 8 + bitmap.len() as u32).to_le_bytes())?;
-	bmp.write_all(&[0, 0, 0, 0])?;
-	bmp.write_all(&(14 + 40 + 8 as u32).to_le_bytes())?;
-	// info header
-	bmp.write_all(&(40 as u32).to_le_bytes())?;
-	bmp.write_all(&width.to_le_bytes())?;
-	bmp.write_all(&(-height).to_le_bytes())?;
-	bmp.write_all(&(1 as u16).to_le_bytes())?;
-	bmp.write_all(&(1 as u16).to_le_bytes())?;
-	bmp.write_all(&[0, 0, 0, 0, 0, 0, 0, 0, 0x01, 0, 0, 0, 0x01, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])?;
-	// color table
-	bmp.write_all(&[0, 0, 0, 0, 0xFF, 0xFF, 0xFF, 0])?;
-	// pixel data
-	bmp.write_all(&bitmap)?;
-
-	Ok(bmp)
-}
 
 #[derive(Template)]
 #[template(path = "src.in", escape = "none")]
@@ -136,7 +119,7 @@ impl Ord for VirtualFont {
 
 #[derive(Clone)]
 struct GlyphData {
-	bitmap: Bitmap,
+	bitmap: bdf::Bitmap,
 	width: u32,
 	height: u32,
 	pixels: u32
@@ -198,52 +181,6 @@ impl GlyphData {
 	}
 }
 
-#[derive(Default)]
-struct BitmapBuilder {
-	bitmap: Vec<u8>,
-	bitmap_double: Vec<u8>
-}
-
-impl BitmapBuilder {
-	fn add_lines(&mut self, img_width: usize, img_width_double: usize, lines: Vec<BitVec>, lines_double: Vec<BitVec>) {
-		for mut line in lines {
-			for _ in line.len()..img_width {
-				line.push(false);
-			}
-			self.bitmap.extend(line.to_bytes());
-		}
-
-		for mut line in lines_double {
-			for _ in line.len()..img_width_double {
-				line.push(false);
-			}
-			let bytes = line.to_bytes();
-			self.bitmap_double.extend_from_slice(&bytes);
-			self.bitmap_double.extend_from_slice(&bytes);
-		}
-	}
-}
-
-trait CeilingDiv {
-	fn ceiling_div(self, rhs: Self) -> Self;
-}
-
-impl CeilingDiv for u32 {
-	fn ceiling_div(self, rhs: Self) -> Self {
-		self / rhs + (self % rhs > 0).then(|| 1).unwrap_or(0)
-	}
-}
-
-fn init_lines(height: u32, img_width: usize, img_width_double: usize) -> (Vec<BitVec>, Vec<BitVec>) {
-	let mut lines: Vec<BitVec> = Vec::new();
-	let mut lines_double: Vec<BitVec> = Vec::new();
-	for _ in 0..height {
-		lines.push(BitVec::with_capacity(8 * img_width as usize));
-		lines_double.push(BitVec::with_capacity(8 * img_width_double as usize));
-	}
-	(lines, lines_double)
-}
-
 fn main() -> anyhow::Result<()> {
 	let mut fonts = BTreeSet::new();
 	let mut virtual_fonts = BTreeSet::new();
@@ -303,23 +240,9 @@ fn main() -> anyhow::Result<()> {
 		}
 		println!("rows = {}, per_line = {}, wasted = {}", rows, per_line, wasted);
 
-		let min_width = (per_line * width) as usize;
-		let img_width = if min_width % 32 == 0 {
-			min_width
-		} else {
-			(min_width / 32 + 1) * 32
-		};
-		let img_width_double = if (2 * min_width) % 32 == 0 {
-			2 * min_width
-		} else {
-			(min_width / 16 + 1) * 32
-		};
-
-		let img_height = height as i32 * rows as i32;
-
 		println!(" -> Found font {}x{}", width, height);
-		let mut bitmap_builder = BitmapBuilder::default();
-		let (mut lines, mut lines_double) = init_lines(height, img_width, img_width_double);
+		let mut bitmap = Bitmap::new((per_line * width) as _, (rows * height) as _);
+		let (mut lines, mut lines_double) = bitmap.init_lines(height);
 		let file = File::open(file.path())?;
 		let font = bdf::read(file)?;
 		let glyphs = font.glyphs();
@@ -341,28 +264,28 @@ fn main() -> anyhow::Result<()> {
 			idx += 1;
 			if idx >= per_line {
 				idx = 0;
-				bitmap_builder.add_lines(img_width, img_width_double, lines, lines_double);
+				bitmap.add_lines(lines, lines_double);
 
 				// TODO this syntax is ugly but everything else is unstable
-				let (lines0, lines0_double) = init_lines(height, img_width, img_width_double);
+				let (lines0, lines0_double) = bitmap.init_lines(height);
 				lines = lines0;
 				lines_double = lines0_double;
 			}
 		}
 
-		bitmap_builder.add_lines(img_width, img_width_double, lines, lines_double);
-		let (bitmap, bitmap_double) = (bitmap_builder.bitmap, bitmap_builder.bitmap_double);
+		bitmap.add_lines(lines, lines_double);
+		let bmp = bitmap.bmp();
+		let bmp_double = bitmap.bmp_double();
+		let raw_width = bitmap.width();
+		let raw = bitmap.into_raw();
 
-		let bmp: Vec<u8> = to_bmp(&bitmap, img_width as _, img_height)?;
-		let bmp_double: Vec<u8> = to_bmp(&&bitmap_double, img_width_double as _, 2 * img_height)?;
-
-		let bitmap_len = bitmap.len().to_formatted_string(&Locale::en_IE); // european english
+		let bitmap_len = raw.len().to_formatted_string(&Locale::en_IE); // european english
 		let font = Font {
 			width,
 			height,
-			bitmap,
+			bitmap: raw,
 			bitmap_len,
-			img_width,
+			img_width: raw_width,
 			bmp: base64::encode(&bmp),
 			bmp_double: base64::encode(&bmp_double)
 		};

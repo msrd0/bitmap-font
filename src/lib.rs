@@ -2,15 +2,16 @@
 #![warn(rust_2018_idioms, unreachable_pub)]
 #![forbid(unsafe_code)]
 
-/// **This version is for embedded-graphics 0.7. The latest release works with embedded-graphics 0.6.**
-///
-/// This crate provides bitmap fonts for the [`embedded-graphics`] crate. Those don't only look
-/// better than the [built-in fonts](embedded_graphics::mono_font) by using the good-looking
-/// [Tamzen font](https://github.com/sunaku/tamzen-font) over a font that renders `.` like a `+`,
-/// but also allow scaling fonts by pixel-doubling them, giving you two font sizes for the flash
-/// size requirements of the smaller one.
-///
-///  [`embedded-graphics`]: embedded_graphics
+//! **This version is for embedded-graphics 0.7. The latest release works with embedded-graphics 0.6.**
+//!
+//! This crate provides bitmap fonts for the [`embedded-graphics`] crate. Those don't only look
+//! better than the [built-in fonts](embedded_graphics::mono_font) by using the good-looking
+//! [Tamzen font](https://github.com/sunaku/tamzen-font) over a font that renders `.` like a `+`,
+//! but also allow scaling fonts by pixel-doubling them, giving you two font sizes for the flash
+//! size requirements of the smaller one.
+//!
+//!  [`embedded-graphics`]: embedded_graphics
+
 use embedded_graphics::{
 	draw_target::DrawTarget,
 	geometry::{OriginDimensions, Point, Size},

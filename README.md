@@ -26,6 +26,10 @@
 
 # bitmap-font
 
+**This version is for embedded-graphics 0.7. The latest release works with embedded-graphics 0.6.**
+
+This crate provides bitmap fonts for the [`embedded-graphics`][__link0] crate. Those don’t only look better than the [built-in fonts][__link1] by using the good-looking [Tamzen font][__link2] over a font that renders `.` like a `+`, but also allow scaling fonts by pixel-doubling them, giving you two font sizes for the flash size requirements of the smaller one.
+
 
 
 ## Development
@@ -83,4 +87,7 @@ of this font.
 ```
 
  [contributors]: https://github.com/msrd0/bitmap-font/graphs/contributors
+ [__link0]: https://crates.io/crates/embedded-graphics/0.7.0
+ [__link1]: https://docs.rs/embedded-graphics/0.7.0/embedded_graphics/?search=embedded_graphics::mono_font
+ [__link2]: https://github.com/sunaku/tamzen-font
 

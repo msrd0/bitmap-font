@@ -1,22 +1,5 @@
 # bitmap-font [![Rust 1.50+](https://img.shields.io/badge/rustc-1.50+-orange.svg)](https://blog.rust-lang.org/2021/02/11/Rust-1.50.0.html) [![License Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0) [![GitHub](https://img.shields.io/badge/Code-On%20Github-blue?logo=GitHub)](https://github.com/msrd0/bitmap-font)
 
-**bitmap-font 0.1 works with embedded-graphics 0.6!** Version 0.7 includes a lot of changes to the font/text rendering system, including the introduction of the [`MonoFont`][__link0] type that is similar to the [`BitmapFont`][__link1] type from this crate. However, it seems to be impossible to use pixel-double versions of the fonts included in eg 0.7, so it does not offer all functionality of this crate.
-
-This crate provides bitmap fonts for the [`embedded-graphics`][__link2] crate without requiring generics. All fonts provided are concrete, constant instances of [`BitmapFont`][__link3]. This means you can use these bitmap fonts without any generics, unlike those fonts shipped with [`embedded-graphics`][__link4] where each font is implemented via its own struct. Also, this allows pixel-double fonts to share their bitmap data with the non-doubled font, reducing the flash size required.
-
-
-## Usage Example
-
-
-```rust
-use bitmap_font::{BitmapFont, WithFont, FONT_7x13};
-use embedded_graphics::{fonts::Text, prelude::*};
-
-let font: BitmapFont = FONT_7x13;
-let text = Text::new("Hello World!", Point::zero());
-text.with_font(font, BinaryColor::On).draw(&mut display)?;
-```
-
 
 
 ## MSRV Policy
@@ -62,9 +45,4 @@ of this font.
 ```
 
  [contributors]: https://github.com/msrd0/bitmap-font/graphs/contributors
- [__link0]: https://docs.rs/embedded-graphics/0.7.0/embedded_graphics/mono_font/struct.MonoFont.html
- [__link1]: https://docs.rs/bitmap-font/0.1.1/bitmap_font/?search=bitmap_font::BitmapFont
- [__link2]: https://crates.io/crates/embedded-graphics/0.6.2
- [__link3]: https://docs.rs/bitmap-font/0.1.1/bitmap_font/?search=bitmap_font::BitmapFont
- [__link4]: https://crates.io/crates/embedded-graphics/0.6.2
 

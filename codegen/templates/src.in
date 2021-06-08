@@ -3,16 +3,24 @@
 //! Auto-Generated Fonts.
 
 use crate::BitmapFont;
+use embedded_graphics::{
+	geometry::Size,
+	image::ImageRaw,
+	mono_font::mapping::GlyphMapping
+};
 
-/// Return the char offset in the raw bitmap data.
-fn char_offset(c: char) -> u32 {
-	match c {
-		{% for range in char_ranges -%}
-		'{{ range.start }}' ..= '{{ range.end }}' => (c as u32 - '{{ range.start }}' as u32){% if range.skip != 0 %} + {{ range.skip }}{% endif %},
-		{% endfor -%}
-		_ => '?' as u32 - ' ' as u32
+struct Mapping;
+impl GlyphMapping for Mapping {
+	fn index(&self, c: char) -> usize {
+		match c {
+			{% for range in char_ranges -%}
+			'{{ range.start }}' ..= '{{ range.end }}' => (c as usize - '{{ range.start }}' as usize){% if range.skip != 0 %} + {{ range.skip }}{% endif %},
+			{% endfor -%}
+			_ => '?' as usize - ' ' as usize
+		}
 	}
 }
+const GLYPH_MAPPING: Mapping = Mapping;
 
 // ### Fonts
 
@@ -27,26 +35,21 @@ fn char_offset(c: char) -> u32 {
 	{%- if font.bold %}b{% else %}r{% endif %}.bdf> <br/>
 /// Font License: <https://github.com/sunaku/tamzen-font/blob/master/LICENSE>
 #[allow(non_upper_case_globals)]
-pub const FONT_{{ font.width }}x{{ font.height }}{% if font.bold %}_BOLD{% endif %}: BitmapFont = BitmapFont {
-	// {{ font.img_width }} x {{ font.img_height }}
-	bitmap: &[
-		{%- for chunk in font.bitmap | chunks(16) %}
-		{% for byte in chunk %}0x{{ "{:02x}"|format(byte) }}{% if !loop.last %}{{ ", " }}{% endif %}{% endfor %}
-		{%- if !loop.last %},{% endif %}
-		{%- endfor %}
-	],
-	bitmap_width: {{ font.img_width }},
-	char_offset: &char_offset,
-	width: {{ font.width }},
-	height: {{ font.height }},
+pub const FONT_{{ font.width }}x{{ font.height }}{% if font.bold %}_BOLD{% endif %}: BitmapFont<'static> = BitmapFont {
+	bitmap: ImageRaw::new_binary(
+		// {{ font.img_width }} x {{ font.img_height }} ({{ font.bitmap_len }})
+		&[
+			{%- for chunk in font.bitmap | chunks(16) %}
+			{% for byte in chunk %}0x{{ "{:02x}"|format(byte) }}{% if !loop.last %}{{ ", " }}{% endif %}{% endfor %}
+			{%- if !loop.last %},{% endif %}
+			{%- endfor %}
+		],
+		{{ font.img_width }}
+	),
+	glyph_mapping: &GLYPH_MAPPING,
+	size: Size::new({{ font.width }}, {{ font.height }}),
 	pixels: 1
 };
-
-#[cfg(test)]
-#[test]
-fn test_font_{{ font.width }}x{{ font.height }}{% if font.bold %}_bold{% endif %}_bitmap_size() {
-	assert_eq!({{ font.bitmap_len }}, FONT_{{ font.width }}x{{ font.height }}.bitmap.len());
-}
 
 {%- endfor %}
 
@@ -60,7 +63,7 @@ fn test_font_{{ font.width }}x{{ font.height }}{% if font.bold %}_bold{% endif %
 ///
 /// This font does not store its own bitmap and therefore does not increase the flash size significantly.
 #[allow(non_upper_case_globals)]
-pub const FONT_{{ 2*font.width }}x{{ 2*font.height }}{% if font.bold %}_BOLD{% endif %}: BitmapFont = {
+pub const FONT_{{ 2*font.width }}x{{ 2*font.height }}{% if font.bold %}_BOLD{% endif %}: BitmapFont<'static> = {
 	FONT_{{ font.width }}x{{ font.height }}{% if font.bold %}_BOLD{% endif %}.pixel_double()
 };
 

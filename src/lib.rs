@@ -1,53 +1,24 @@
-#![no_std]
+#![cfg_attr(not(test), no_std)]
 #![warn(rust_2018_idioms, unreachable_pub)]
 #![forbid(unsafe_code)]
 
-/*!
-**bitmap-font 0.1 works with embedded-graphics 0.6!** Version 0.7 includes a lot of changes to
-the font/text rendering system, including the introduction of the [`MonoFont`] type that is similar
-to the [`BitmapFont`] type from this crate. However, it seems to be impossible to use pixel-double
-versions of the fonts included in eg 0.7, so it does not offer all functionality of this crate.
-
-This crate provides bitmap fonts for the [`embedded-graphics`] crate without requiring generics. All
-fonts provided are concrete, constant instances of [`BitmapFont`]. This means you can use these
-bitmap fonts without any generics, unlike those fonts shipped with [`embedded-graphics`] where each
-font is implemented via its own struct. Also, this allows pixel-double fonts to share their bitmap
-data with the non-doubled font, reducing the flash size required.
-
-# Usage Example
-
-```rust
-use bitmap_font::{BitmapFont, WithFont, FONT_7x13};
-use embedded_graphics::{fonts::Text, prelude::*};
-# use embedded_graphics::{drawable::Pixel, geometry::Size, pixelcolor::BinaryColor};
-# use core::convert::Infallible;
-# struct Display;
-# impl DrawTarget<BinaryColor> for Display {
-#   type Error = Infallible;
-#   fn draw_pixel(&mut self, pixel: Pixel<BinaryColor>) -> Result<(), Infallible> { Ok(()) }
-#   fn size(&self) -> Size { unimplemented!() }
-# }
-# fn main() -> Result<(), Infallible> {
-# let mut display = Display;
-
-let font: BitmapFont = FONT_7x13;
-let text = Text::new("Hello World!", Point::zero());
-text.with_font(font, BinaryColor::On).draw(&mut display)?;
-# Ok(())
-# }
-```
-
- [`embedded-graphics`]: embedded_graphics
- [`MonoFont`]: https://docs.rs/embedded-graphics/0.7.0/embedded_graphics/mono_font/struct.MonoFont.html
-*/
-
+/// **This version is for embedded-graphics 0.7. The latest release works with embedded-graphics 0.6.**
+///
+/// This crate provides bitmap fonts for the [`embedded-graphics`] crate. Those don't only look
+/// better than the [built-in fonts](embedded_graphics::mono_font) by using the good-looking
+/// [Tamzen font](https://github.com/sunaku/tamzen-font) over a font that renders `.` like a `+`,
+/// but also allow scaling fonts by pixel-doubling them, giving you two font sizes for the flash
+/// size requirements of the smaller one.
+///
+///  [`embedded-graphics`]: embedded_graphics
 use embedded_graphics::{
-	drawable::{Drawable, Pixel},
-	fonts::Text,
-	geometry::{Dimensions, Point, Size},
+	draw_target::DrawTarget,
+	geometry::{OriginDimensions, Point, Size},
+	image::{ImageDrawable, ImageRaw},
+	mono_font::mapping::GlyphMapping,
 	pixelcolor::BinaryColor,
-	transform::Transform,
-	DrawTarget
+	primitives::Rectangle,
+	Pixel
 };
 
 mod generated;
@@ -55,63 +26,55 @@ pub use generated::*;
 
 /// Stores the font bitmap and some additional info for each font.
 #[derive(Clone, Copy)]
-pub struct BitmapFont {
+pub struct BitmapFont<'a> {
 	/// The raw bitmap data for the font.
-	bitmap: &'static [u8],
+	bitmap: ImageRaw<'a, BinaryColor>,
 
-	/// The width of the raw bitmap data.
-	bitmap_width: u32,
+	/// The char to glyph mapping.
+	glyph_mapping: &'a dyn GlyphMapping,
 
-	/// The function to calculate a character offset. Must return a fallback character if the
-	/// requested character is not in the font.
-	char_offset: &'static dyn Fn(char) -> u32,
+	/// The size of each character in the raw bitmap data.
+	size: Size,
 
-	/// The width of each character in the raw bitmap data.
-	width: u32,
-
-	/// The height of each character in the raw bitmap data.
-	height: u32,
-
-	/// The amount of pixels to draw per each font pixel. Set to `2` for pixel-double font.
-	pixels: u32
+	/// The amount of pixels to draw per each font pixel. Must not be `0`. Set to `2` for
+	/// pixel-double font.
+	pixels: u8
 }
 
-impl BitmapFont {
+impl<'a> BitmapFont<'a> {
 	/// Return the width of each character.
 	pub const fn width(self) -> u32 {
-		self.width * self.pixels
+		self.size.width * self.pixels as u32
 	}
 
 	/// Return the height of each character.
 	pub const fn height(self) -> u32 {
-		self.height * self.pixels
+		self.size.height * self.pixels as u32
 	}
 
-	/// Returns `true` if the pixel `(x, y)` is turned on in the character `c`.
-	///
-	/// # Panics
-	///
-	/// This method panics if the `(x, y)` coordinates are outside the glyph.
-	// inspired by https://docs.rs/embedded-graphics/0.6.2/src/embedded_graphics/fonts/mod.rs.html#246
-	pub fn pixel(self, c: char, x: u32, y: u32) -> bool {
-		let x = x / self.pixels;
-		let y = y / self.pixels;
+	/// Draw a glyph to the `target` with `color` at position `pos`.
+	pub fn draw<D>(self, idx: u32, target: &mut D, color: BinaryColor, pos: Point) -> Result<(), D::Error>
+	where
+		D: DrawTarget<Color = BinaryColor> + OriginDimensions
+	{
+		let char_per_row = self.bitmap.size().width / self.size.width;
+		let row = idx / char_per_row;
 
-		assert!(x < self.width);
-		assert!(y < self.height);
+		// index in the raw bitmap
+		let char_x = (idx - (row * char_per_row)) * self.size.width;
+		let char_y = row * self.size.height;
+		let area = Rectangle::new(Point::new(char_x as _, char_y as _), self.size);
 
-		let char_per_row = self.bitmap_width / self.width;
-		let offset = (self.char_offset)(c);
-		let row = offset / char_per_row;
+		// draw the glyph, suitably pixel-doubled
+		let mut pixel_doubling_target = PixelDoublingDrawTarget {
+			target,
+			color,
+			offset: pos,
+			pixels: self.pixels
+		};
+		self.bitmap.draw_sub_image(&mut pixel_doubling_target, &area)?;
 
-		let char_x = (offset - (row * char_per_row)) * self.width;
-		let char_y = row * self.height;
-
-		let bitmap_bit_index = char_x + x + ((char_y + y) * self.bitmap_width);
-		let bitmap_byte = bitmap_bit_index / 8;
-		let bitmap_bit = 7 - (bitmap_bit_index % 8);
-
-		self.bitmap[bitmap_byte as usize] & (1 << bitmap_bit) != 0
+		Ok(())
 	}
 
 	/// Returns a pixel-double version of this font.
@@ -121,174 +84,161 @@ impl BitmapFont {
 	}
 }
 
-mod private {
-	use super::BitmapFont;
-	use embedded_graphics::pixelcolor::BinaryColor;
-
-	pub struct Styled<T> {
-		pub(super) primitive: T,
-		pub(super) font: BitmapFont,
-		pub(super) color: BinaryColor
-	}
-
-	pub struct Sealed;
-}
-use private::*;
-
-/// Style a [Text] with a font and color.
-pub trait WithFont: Sized {
-	#[doc(hidden)]
-	const SEALED: Sealed;
-
-	/// Style this text with a font and color.
-	fn with_font(self, font: BitmapFont, color: BinaryColor) -> Styled<Self>;
+/// A pixel-doubling draw target. This works by intercepting all drawing operations, and doubling
+/// all pixels from the point of the origin. **This means you need to carefully select your
+/// origin!** All drawing operations, after being pixel-doubled (i.e. multiplied by the amount
+/// of pixels specified), will be offseted to map your custom origin to the `target`'s origin.
+///
+/// Also, this target draws `color` for all pixels that are on, and nothing for all pixels
+/// that are off.
+struct PixelDoublingDrawTarget<'a, D: DrawTarget<Color = BinaryColor> + OriginDimensions> {
+	target: &'a mut D,
+	color: BinaryColor,
+	offset: Point,
+	pixels: u8
 }
 
-impl WithFont for Text<'_> {
-	#[doc(hidden)]
-	const SEALED: Sealed = Sealed;
-
-	fn with_font(self, font: BitmapFont, color: BinaryColor) -> Styled<Self> {
-		Styled {
-			primitive: self,
-			font,
-			color
-		}
-	}
-}
-
-impl Transform for Styled<Text<'_>> {
-	fn translate(&self, by: Point) -> Self {
-		Self {
-			primitive: self.primitive.translate(by),
-			font: self.font,
-			color: self.color
-		}
-	}
-
-	fn translate_mut(&mut self, by: Point) -> &mut Self {
-		self.primitive.translate_mut(by);
-		self
-	}
-}
-
-impl Dimensions for Styled<Text<'_>> {
-	fn top_left(&self) -> Point {
-		self.primitive.position
-	}
-
-	fn bottom_right(&self) -> Point {
-		self.top_left() + self.size()
-	}
-
-	// inspired by https://docs.rs/embedded-graphics/0.6.2/src/embedded_graphics/fonts/text.rs.html#118
+impl<'a, D> OriginDimensions for PixelDoublingDrawTarget<'a, D>
+where
+	D: DrawTarget<Color = BinaryColor> + OriginDimensions
+{
 	fn size(&self) -> Size {
-		if self.primitive.text.is_empty() {
-			return Size::zero();
-		}
-
-		let width = self
-			.primitive
-			.text
-			.lines()
-			.map(|l| l.len() as u32 * self.font.width())
-			.max()
-			.unwrap_or(0);
-		let height = self.primitive.text.lines().count() as u32 * self.font.height();
+		let target_size = self.target.size();
+		let width = match self.offset.x % 2 {
+			0 => target_size.width / 2,
+			1 => target_size.width / 2 - 1,
+			_ => unreachable!()
+		};
+		let height = match self.offset.y % 2 {
+			0 => target_size.height / 2,
+			1 => target_size.height / 2 - 1,
+			_ => unreachable!()
+		};
 		Size::new(width, height)
 	}
 }
 
-struct PixelIterator<'a> {
-	text: &'a str,
-	idx: usize,
-	font: BitmapFont,
-	color: BinaryColor,
+impl<'a, D> DrawTarget for PixelDoublingDrawTarget<'a, D>
+where
+	D: DrawTarget<Color = BinaryColor> + OriginDimensions
+{
+	type Color = BinaryColor;
+	type Error = D::Error;
 
-	top_left: Point,
-	pos: Point,
-
-	char_width: u32,
-	char_walk_x: i32,
-	char_walk_y: i32,
-	current_char: Option<char>
+	fn draw_iter<I>(&mut self, pixel_iter: I) -> Result<(), Self::Error>
+	where
+		I: IntoIterator<Item = Pixel<BinaryColor>>
+	{
+		let color = self.color;
+		let offset = self.offset;
+		let pixels = self.pixels;
+		self.target.draw_iter(
+			pixel_iter
+				.into_iter()
+				.filter(|pixel| pixel.1 == BinaryColor::On)
+				.flat_map(|pixel| {
+					PixelDoublingIterator::new(Pixel(pixel.0 - offset, color), pixels)
+						.map(|pixel| Pixel(pixel.0 + offset, pixel.1))
+				})
+		)
+	}
 }
 
-impl Iterator for PixelIterator<'_> {
-	type Item = Pixel<BinaryColor>;
+struct PixelDoublingIterator {
+	color: BinaryColor,
+	pos: Point,
+	// pixels traveled in x direction
+	x: u8,
+	// remaining after this one
+	remaining_x: u8,
+	// remaining including this one
+	remaining_y: u8
+}
 
-	// inspired by https://docs.rs/embedded-graphics/0.6.2/src/embedded_graphics/fonts/text.rs.html#170
-	fn next(&mut self) -> Option<Self::Item> {
-		loop {
-			if self.current_char == Some('\n') {
-				self.pos.x = self.top_left.x;
-				self.pos.y += self.font.height() as i32;
-				self.idx += 1;
-				self.current_char = self.text.chars().nth(self.idx);
-			} else if self.char_walk_x < 0 {
-				self.char_walk_y += 1;
-				if self.char_walk_y >= self.font.height() as i32 {
-					self.char_walk_y = 0;
-					self.char_walk_x += 1;
-				}
-			} else if let Some(current_char) = self.current_char {
-				if self.char_width == 0 {
-					self.char_width = self.font.width();
-				}
-
-				let color = self
-					.font
-					.pixel(current_char, self.char_walk_x as _, self.char_walk_y as _)
-					.then(|| self.color);
-				let x = self.pos.x + self.char_walk_x;
-				let y = self.pos.y + self.char_walk_y;
-				self.char_walk_x += 1;
-
-				if self.char_walk_x >= self.font.width() as i32 {
-					self.char_walk_x = 0;
-					self.char_walk_y += 1;
-
-					if self.char_walk_y >= self.font.height() as i32 {
-						self.pos.x += self.char_width as i32;
-						self.char_width = 0;
-						self.char_walk_y = 0;
-						self.idx += 1;
-						self.current_char = self.text.chars().nth(self.idx);
-					}
-				}
-
-				if let Some(color) = color {
-					break Some(Pixel(Point::new(x, y), color));
-				}
-			} else {
-				break None;
-			}
+impl PixelDoublingIterator {
+	fn new(pixel: Pixel<BinaryColor>, pixels: u8) -> Self {
+		Self {
+			color: pixel.1,
+			pos: pixel.0 * pixels as _,
+			x: 0,
+			remaining_x: pixels - 1,
+			remaining_y: pixels
 		}
 	}
 }
 
-impl Drawable<BinaryColor> for &Styled<Text<'_>> {
-	fn draw<D: DrawTarget<BinaryColor>>(self, display: &mut D) -> Result<(), D::Error> {
-		let iter = PixelIterator {
-			text: self.primitive.text,
-			idx: 0,
-			font: self.font,
-			color: self.color,
+impl Iterator for PixelDoublingIterator {
+	type Item = Pixel<BinaryColor>;
 
-			top_left: self.primitive.position,
-			pos: self.primitive.position,
+	fn next(&mut self) -> Option<Pixel<BinaryColor>> {
+		if self.remaining_y == 0 {
+			return None;
+		}
 
-			char_width: 0,
-			char_walk_x: 0,
-			char_walk_y: 0,
-			current_char: self.primitive.text.chars().next()
-		};
-		display.draw_iter(iter)
+		let pixel = Pixel(self.pos, self.color);
+		if self.remaining_x > 0 {
+			self.remaining_x -= 1;
+			self.x += 1;
+			self.pos.x += 1;
+		} else {
+			self.pos.x -= self.x as i32;
+			self.remaining_x = self.x;
+			self.x = 0;
+
+			self.remaining_y -= 1;
+			self.pos.y += 1;
+		}
+		Some(pixel)
 	}
 }
 
-impl Drawable<BinaryColor> for Styled<Text<'_>> {
-	fn draw<D: DrawTarget<BinaryColor>>(self, display: &mut D) -> Result<(), D::Error> {
-		<&Self as Drawable<BinaryColor>>::draw(&self, display)
+#[cfg(test)]
+mod tests {
+	use super::*;
+
+	fn px(x: i32, y: i32) -> Pixel<BinaryColor> {
+		Pixel(Point::new(x, y), BinaryColor::On)
+	}
+
+	#[test]
+	fn pixel_doubling_iterator() {
+		assert_eq!(PixelDoublingIterator::new(px(0, 0), 1).collect::<Vec<_>>(), vec![px(0, 0)]);
+		assert_eq!(PixelDoublingIterator::new(px(1, 2), 1).collect::<Vec<_>>(), vec![px(1, 2)]);
+
+		assert_eq!(PixelDoublingIterator::new(px(0, 0), 2).collect::<Vec<_>>(), vec![
+			px(0, 0),
+			px(1, 0),
+			px(0, 1),
+			px(1, 1)
+		]);
+		assert_eq!(PixelDoublingIterator::new(px(1, 2), 2).collect::<Vec<_>>(), vec![
+			px(2, 4),
+			px(3, 4),
+			px(2, 5),
+			px(3, 5)
+		]);
+
+		assert_eq!(PixelDoublingIterator::new(px(0, 0), 3).collect::<Vec<_>>(), vec![
+			px(0, 0),
+			px(1, 0),
+			px(2, 0),
+			px(0, 1),
+			px(1, 1),
+			px(2, 1),
+			px(0, 2),
+			px(1, 2),
+			px(2, 2)
+		]);
+		assert_eq!(PixelDoublingIterator::new(px(1, 2), 3).collect::<Vec<_>>(), vec![
+			px(3, 6),
+			px(4, 6),
+			px(5, 6),
+			px(3, 7),
+			px(4, 7),
+			px(5, 7),
+			px(3, 8),
+			px(4, 8),
+			px(5, 8)
+		]);
 	}
 }

@@ -61,6 +61,7 @@ struct CharRange {
 struct Font {
 	width: u32,
 	height: u32,
+	bold: bool,
 	bitmap: Vec<u8>,
 	bitmap_len: usize,
 	bitmap_len_str: String,
@@ -72,7 +73,7 @@ struct Font {
 
 impl PartialEq for Font {
 	fn eq(&self, other: &Self) -> bool {
-		self.width == other.width && self.height == other.height
+		self.width == other.width && self.height == other.height && self.bold == other.bold
 	}
 }
 
@@ -86,13 +87,14 @@ impl PartialOrd for Font {
 
 impl Ord for Font {
 	fn cmp(&self, other: &Self) -> Ordering {
-		(self.width, self.height).cmp(&(other.width, other.height))
+		(self.width, self.height, self.bold).cmp(&(other.width, other.height, other.bold))
 	}
 }
 
 struct VirtualFont {
 	width: u32,
 	height: u32,
+	bold: bool,
 	glyphs: LinkedHashMap<char, GlyphData>,
 	pixels: u32
 }
@@ -107,7 +109,7 @@ impl VirtualFont {
 
 impl PartialEq for VirtualFont {
 	fn eq(&self, other: &Self) -> bool {
-		self.width == other.width && self.height == other.height
+		self.width == other.width && self.height == other.height && self.bold == other.bold
 	}
 }
 
@@ -121,7 +123,7 @@ impl PartialOrd for VirtualFont {
 
 impl Ord for VirtualFont {
 	fn cmp(&self, other: &Self) -> Ordering {
-		(self.width, self.height).cmp(&(other.width, other.height))
+		(self.width, self.height, self.bold).cmp(&(other.width, other.height, other.bold))
 	}
 }
 
@@ -217,11 +219,19 @@ fn main() -> anyhow::Result<()> {
 		println!("Inspecting file {}", path);
 		let path = match path
 			.strip_prefix("tamzen-font/bdf/TamzenForPowerline")
-			.and_then(|path| path.strip_suffix("r.bdf"))
+			.and_then(|path| path.strip_suffix(".bdf"))
 		{
 			Some(path) => path,
 			None => continue
 		};
+		let bold = if path.ends_with("b") {
+			true
+		} else if path.ends_with("r") {
+			false
+		} else {
+			continue;
+		};
+		let path = &path[..path.len() - 1];
 
 		let mut size = path.split('x');
 		let (width, height) = match (
@@ -231,7 +241,12 @@ fn main() -> anyhow::Result<()> {
 			(Some(width), Some(height)) => (width, height),
 			_ => continue
 		};
-		println!(" -> Found font {}x{}", width, height);
+		println!(
+			" -> Found font {}x{} ({})",
+			width,
+			height,
+			if bold { "bold" } else { "regular" }
+		);
 
 		let mut rows = 1;
 		let mut per_line = char_count as u32;
@@ -301,6 +316,7 @@ fn main() -> anyhow::Result<()> {
 		let font = Font {
 			width,
 			height,
+			bold,
 			bitmap: raw,
 			bitmap_len,
 			bitmap_len_str,
@@ -314,6 +330,7 @@ fn main() -> anyhow::Result<()> {
 		let font = VirtualFont {
 			width,
 			height,
+			bold,
 			glyphs: glyphs.clone(),
 			pixels: 1
 		};
@@ -322,6 +339,7 @@ fn main() -> anyhow::Result<()> {
 		let font = VirtualFont {
 			width: 2 * width,
 			height: 2 * height,
+			bold,
 			glyphs,
 			pixels: 2
 		};

@@ -2,7 +2,7 @@
 
 {%- for font in fonts %}
 
-mod font_{{ font.width }}x{{ font.height }} {
+mod font_{{ font.width }}x{{ font.height }}{% if font.bold %}_bold{% endif %} {
 	use bitmap_font::*;
 	use embedded_graphics::{
 		drawable::Drawable,

@@ -1,6 +1,19 @@
 // @generated
 
-//! Auto-Generated Fonts.
+//! [Tamzen font](https://github.com/sunaku/tamzen-font)-based bitmap fonts. The included glyphs
+//! are a subset of ISO 8859-1 plus the unicode powerline symbols. Additional symbols might be added
+//! in the future. If you are missing a glyph that is included in the Tamzen font, please open an
+//! issue.
+//!
+//! Each font comes with a pixel-double version that can be used with no significant additional flash
+//! size cost. You can also adjust the pixel multiplier yourself if you want even bigger fonts, or
+//! save even more flash space.
+//!
+//! | Font | Flash Size (in Byte) | Screenshot | Pixel-double Font | Pixel-double Screenshot |
+//! | ---- | --------------------:|:----------:| ----------------- |:-----------------------:|
+{%- for font in fonts %}
+//! | [`FONT_{{ font.width }}x{{ font.height }}{% if font.bold %}_BOLD{% endif %}`] | {{ font.bitmap_len_str }} | ![Screenshot](data:image/bmp;base64,{{ font.bmp }}) | [`FONT_{{ 2*font.width }}x{{ 2*font.height }}{% if font.bold %}_BOLD{% endif %}`] | ![Pixel-double Screenshot](data:image/bmp;base64,{{ font.bmp_double }}) |
+{%- endfor %}
 
 use crate::BitmapFont;
 use embedded_graphics::{
@@ -10,6 +23,7 @@ use embedded_graphics::{
 };
 
 struct Mapping;
+
 impl GlyphMapping for Mapping {
 	fn index(&self, c: char) -> usize {
 		match c {
@@ -20,15 +34,14 @@ impl GlyphMapping for Mapping {
 		}
 	}
 }
-const GLYPH_MAPPING: Mapping = Mapping;
 
-// ### Fonts
+const GLYPH_MAPPING: Mapping = Mapping;
 
 {%- for font in fonts %}
 
 /// Tamzen {{ font.width }}x{{ font.height }}{% if font.bold %} Bold{% endif %} Font.
 ///
-/// <img src="data:image/bmp;base64,{{ font.bmp }}"/>
+/// ![Screenshot](data:image/bmp;base64,{{ font.bmp }}")
 ///
 /// Bitmap Size: {{ font.bitmap_len_str }} Byte <br/>
 /// Font Source: <https://github.com/sunaku/tamzen-font/blob/master/bdf/Tamzen{{ font.width }}x{{ font.height }}
@@ -52,8 +65,6 @@ pub const FONT_{{ font.width }}x{{ font.height }}{% if font.bold %}_BOLD{% endif
 };
 
 {%- endfor %}
-
-// ### Pixel-Double Fonts
 
 {%- for font in fonts %}
 

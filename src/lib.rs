@@ -2,13 +2,40 @@
 #![warn(rust_2018_idioms, unreachable_pub)]
 #![forbid(unsafe_code)]
 
-//! **This version is for embedded-graphics 0.7. The latest release works with embedded-graphics 0.6.**
-//!
 //! This crate provides bitmap fonts for the [`embedded-graphics`] crate. Those don't only look
 //! better than the [built-in fonts](embedded_graphics::mono_font) by using the good-looking
 //! [Tamzen font](https://github.com/sunaku/tamzen-font) over a font that renders `.` like a `+`,
 //! but also allow scaling fonts by pixel-doubling them, giving you two font sizes for the flash
 //! size requirements of the smaller one.
+//!
+//! See the [`tamzen`] module for a list of all included fonts.
+//!
+//! # Usage
+//!
+//! ```rust
+//! use bitmap_font::{tamzen::FONT_8x15, BitmapFont, TextStyle};
+//! use embedded_graphics::{pixelcolor::BinaryColor, prelude::*, text::Text};
+//! # use core::convert::Infallible;
+//! # struct Display;
+//! # impl OriginDimensions for Display {
+//! #   fn size(&self) -> Size { unimplemented!() }
+//! # }
+//! # impl DrawTarget for Display {
+//! #   type Color = BinaryColor;
+//! #   type Error = Infallible;
+//! #   fn draw_iter<I>(&mut self, pixels: I) -> Result<(), Infallible>
+//! #   where I: IntoIterator<Item = Pixel<BinaryColor>>
+//! #   { Ok(()) }
+//! # }
+//! # fn main() -> Result<(), Infallible> {
+//! # let mut display = Display;
+//!
+//! // Draw text 'Hello World!' with the top left corner being the origin
+//! let text = Text::new("Hello World!", Point::zero(), TextStyle::new(&FONT_8x15, BinaryColor::On));
+//! text.draw(&mut display)?;
+//! # Ok(())
+//! # }
+//! ```
 //!
 //!  [`embedded-graphics`]: embedded_graphics
 
@@ -26,8 +53,7 @@ use embedded_graphics::{
 	Pixel
 };
 
-mod generated;
-pub use generated::*;
+pub mod tamzen;
 
 /// Stores the font bitmap and some additional info for each font.
 #[derive(Clone, Copy)]

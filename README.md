@@ -26,9 +26,22 @@
 
 # bitmap-font
 
-**This version is for embedded-graphics 0.7. The latest release works with embedded-graphics 0.6.**
-
 This crate provides bitmap fonts for the [`embedded-graphics`][__link0] crate. Those don’t only look better than the [built-in fonts][__link1] by using the good-looking [Tamzen font][__link2] over a font that renders `.` like a `+`, but also allow scaling fonts by pixel-doubling them, giving you two font sizes for the flash size requirements of the smaller one.
+
+See the [`tamzen`][__link3] module for a list of all included fonts.
+
+
+## Usage
+
+
+```rust
+use bitmap_font::{tamzen::FONT_8x15, BitmapFont, TextStyle};
+use embedded_graphics::{pixelcolor::BinaryColor, prelude::*, text::Text};
+
+// Draw text 'Hello World!' with the top left corner being the origin
+let text = Text::new("Hello World!", Point::zero(), TextStyle::new(&FONT_8x15, BinaryColor::On));
+text.draw(&mut display)?;
+```
 
 
 
@@ -90,4 +103,5 @@ of this font.
  [__link0]: https://crates.io/crates/embedded-graphics/0.7.0
  [__link1]: https://docs.rs/embedded-graphics/0.7.0/embedded_graphics/?search=embedded_graphics::mono_font
  [__link2]: https://github.com/sunaku/tamzen-font
+ [__link3]: https://docs.rs/bitmap-font/0.2.0-dev/bitmap_font/?search=bitmap_font::tamzen
 

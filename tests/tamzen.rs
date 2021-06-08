@@ -14,7 +14,10 @@ macro_rules! test_font {
 		fallback_pattern: $fallback_pattern:expr
 	}) => {
 		mod $mod {
-			use bitmap_font::*;
+			use bitmap_font::{
+				tamzen::$font,
+				TextStyle
+			};
 			use embedded_graphics::{
 				Drawable,
 				text::Text,

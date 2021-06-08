@@ -358,7 +358,7 @@ fn main() -> anyhow::Result<()> {
 		virtual_fonts.insert(font);
 	}
 
-	let mut rs = File::create("../src/generated.rs")?;
+	let mut rs = File::create("../src/tamzen.rs")?;
 	writeln!(
 		rs,
 		"{}",
@@ -369,7 +369,7 @@ fn main() -> anyhow::Result<()> {
 		.render()?
 	)?;
 
-	let mut rs = File::create("../tests/generated.rs")?;
+	let mut rs = File::create("../tests/tamzen.rs")?;
 	writeln!(
 		rs,
 		"{}",

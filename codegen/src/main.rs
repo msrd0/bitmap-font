@@ -280,7 +280,7 @@ fn main() -> anyhow::Result<()> {
 			.flat_map(|(start, end)| {
 				(*start..=*end).map(|char| {
 					let glyph = glyphs.get(&char).ok_or_else(|| anyhow!("char not in font")).unwrap();
-					(char, GlyphData::new(glyph.clone(), width, height).unwrap())
+					(char, GlyphData::new(glyph, width, height).unwrap())
 				})
 			})
 			.collect();

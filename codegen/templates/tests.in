@@ -1,113 +1,122 @@
 // @generated
 
+macro_rules! test_font {
+	($mod:ident: {
+		font: $font:ident,
+		width: $width:literal,
+		height: $height:literal,
+		m_pattern: $m_pattern:expr,
+		{%- for range in char_ranges %}
+		char_range_{{ loop.index }}_pattern: $char_range_{{ loop.index }}_pattern:expr,
+		{%- endfor %}
+		fallback_pattern: $fallback_pattern:expr
+	}) => {
+		mod $mod {
+			use bitmap_font::*;
+			use embedded_graphics::{
+				drawable::Drawable,
+				fonts::Text,
+				geometry::{Dimensions, Point, Size},
+				mock_display::MockDisplay,
+				pixelcolor::BinaryColor,
+				transform::Transform
+			};
+			
+			#[test]
+			fn font_size() {
+				assert_eq!($font.width(), $width);
+				assert_eq!($font.height(), $height);
+			}
+			
+			#[test]
+			fn text_empty_size() {
+				let size = Text::new("", Point::zero())
+					.with_font($font, BinaryColor::On)
+					.size();
+				assert_eq!(size, Size::zero());
+			}
+			
+			#[test]
+			fn text_a_size() {
+				let size = Text::new("a", Point::zero())
+					.with_font($font, BinaryColor::On)
+					.size();
+				assert_eq!(size, Size::new($width, $height));
+			}
+			
+			#[test]
+			fn text_multiline_size() {
+				let size = Text::new("aa\naaa\na", Point::zero())
+					.with_font($font, BinaryColor::On)
+					.size();
+				assert_eq!(size, Size::new(3 * $width, 3 * $height));
+			}
+			
+			#[test]
+			fn text_translate() {
+				let mut text = Text::new("M", Point::zero())
+					.with_font($font, BinaryColor::On);
+				text.translate_mut(Point::new(2, 2));
+				assert_eq!(text.top_left(), Point::new(2, 2));
+				assert_eq!(text.bottom_right(), Point::new(2 + $width, 2 + $height));
+				
+				let mut display = MockDisplay::new();
+				text.translate(Point::new(3, -1)).draw(&mut display).unwrap();
+				assert_eq!(display, MockDisplay::from_pattern($m_pattern));
+			}
+			
+			{%- for range in char_ranges %}
+			
+			#[test]
+			fn text_char_range_{{ loop.index }}() {
+				let mut display = MockDisplay::new();
+				Text::new("{{ range.start }}{{ range.mid }}{{ range.end }}", Point::zero())
+					.with_font($font, BinaryColor::On)
+					.draw(&mut display)
+					.unwrap();
+				assert_eq!(display, MockDisplay::from_pattern($char_range_{{ loop.index }}_pattern));
+			}
+			{%- endfor %}
+			
+			#[test]
+			fn text_fallback() {
+				let mut display = MockDisplay::new();
+				Text::new("€?µ", Point::zero())
+					.with_font($font, BinaryColor::On)
+					.draw(&mut display)
+					.unwrap();
+				assert_eq!(display,MockDisplay::from_pattern($fallback_pattern));
+			}
+		}
+	};
+}
+
 {%- for font in fonts %}
 
-mod font_{{ font.width }}x{{ font.height }}{% if font.bold %}_bold{% endif %} {
-	use bitmap_font::*;
-	use embedded_graphics::{
-		drawable::Drawable,
-		fonts::Text,
-		geometry::{Dimensions, Point, Size},
-		mock_display::MockDisplay,
-		pixelcolor::BinaryColor,
-		transform::Transform
-	};
-	
-	const FONT: BitmapFont = FONT_{{ font.width }}x{{ font.height }}{% if font.bold %}_BOLD{% endif %};
-	
-	#[test]
-	fn font_size() {
-		assert_eq!(FONT.width(), {{ font.width }});
-		assert_eq!(FONT.height(), {{ font.height }});
+test_font! {
+	font_{{ font.width }}x{{ font.height }}{% if font.bold %}_bold{% endif %}: {
+		font: FONT_{{ font.width }}x{{ font.height }}{% if font.bold %}_BOLD{% endif %},
+		width: {{ font.width }},
+		height: {{ font.height }},
+		m_pattern: &[
+		   "{% for x in 0..font.width+5 %} {% endfor %}",
+		   {%- for y in 0..font.height %}
+		   "     {{ font.glyph('M').mock_line(y) }}",
+		   {%- endfor %}
+		],
+		{%- for range in char_ranges %}
+		char_range_{{ loop.index }}_pattern: &[
+			{%- for y in 0..font.height %}
+			"{{ font.glyph(range.start).mock_line(y) }}{{ font.glyph(range.mid).mock_line(y) }}{{ font.glyph(range.end).mock_line(y) }}",
+			{%- endfor %}
+		],
+		{%- endfor %}
+		fallback_pattern: &[
+			{%- for y in 0..font.height %}
+			"{{ font.glyph('?').mock_line(y) }}{{ font.glyph('?').mock_line(y) }}{{ font.glyph('?').mock_line(y) }}",
+			{%- endfor %}
+		]
 	}
-	
-	#[test]
-	fn text_empty_size() {
-		let size = Text::new("", Point::zero())
-			.with_font(FONT, BinaryColor::On)
-			.size();
-		assert_eq!(size, Size::zero());
-	}
-	
-	#[test]
-	fn text_a_size() {
-		let size = Text::new("a", Point::zero())
-			.with_font(FONT, BinaryColor::On)
-			.size();
-		assert_eq!(size, Size::new({{ font.width }}, {{ font.height }}));
-	}
-	
-	#[test]
-	fn text_multiline_size() {
-		let size = Text::new("aa\naaa\na", Point::zero())
-			.with_font(FONT, BinaryColor::On)
-			.size();
-		assert_eq!(size, Size::new({{ 3*font.width }}, {{ 3*font.height }}));
-	}
-	
-	#[test]
-	fn text_translate() {
-		let mut text = Text::new("M", Point::zero())
-			.with_font(FONT, BinaryColor::On);
-		text.translate_mut(Point::new(2, 2));
-		assert_eq!(text.top_left(), Point::new(2, 2));
-		assert_eq!(text.bottom_right(), Point::new({{ 2+font.width }}, {{ 2+font.height }}));
-		
-		let mut display = MockDisplay::new();
-		text.translate(Point::new(3, -1)).draw(&mut display).unwrap();
-		assert_eq!(
-			display,
-			 MockDisplay::from_pattern(&[
-				"{% for x in 0..font.width+5 %} {% endfor %}",
-				{%- for y in 0..font.height %}
-				"     {{ font.glyph('M').mock_line(y) }}",
-				{%- endfor %}
-			 ])
-		);
-	}
-	
-	{%- for range in char_ranges %}
-	
-	#[test]
-	fn text_char_range_{{ loop.index }}() {
-		let mut display = MockDisplay::new();
-		Text::new("{{ range.start }}{{ range.mid }}{{ range.end }}", Point::zero())
-			.with_font(FONT, BinaryColor::On)
-			.draw(&mut display)
-			.unwrap();
-		assert_eq!(
-			display,
-			MockDisplay::from_pattern(&[
-				{%- for y in 0..font.height %}
-				"{{ font.glyph(range.start).mock_line(y) }}{{ font.glyph(range.mid).mock_line(y) }}{{ font.glyph(range.end).mock_line(y) }}",
-				{%- endfor %}
-			])
-		);
-	}
-	{%- endfor %}
-	
-	{%- if 2*font.height < 64 %}
-	
-	#[test]
-	fn text_fallback() {
-		let mut display = MockDisplay::new();
-		Text::new("§?\n µ", Point::zero())
-			.with_font(FONT, BinaryColor::On)
-			.draw(&mut display)
-			.unwrap();
-		assert_eq!(
-			display,
-			MockDisplay::from_pattern(&[
-				{%- for y in 0..font.height %}
-				"{{ font.glyph('?').mock_line(y) }}{{ font.glyph('?').mock_line(y) }}",
-				{%- endfor %}
-				{%- for y in 0..font.height %}
-				"{{ font.glyph(' ').mock_line(y) }}{{ font.glyph('?').mock_line(y) }}",
-				{%- endfor %}
-			])
-		);
-	}
-	{%- endif %}
 }
 
 {%- endfor %}

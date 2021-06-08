@@ -38,7 +38,7 @@ mod filters {
 }
 
 #[derive(Template)]
-#[template(path = "src.in", escape = "none", print = "code")]
+#[template(path = "src.in", escape = "none")]
 struct RustSource<'a> {
 	char_ranges: &'a Vec<CharRange>,
 	fonts: &'a BTreeSet<Font>

@@ -31,7 +31,7 @@ jobs:
         env:
           RUST_BACKTRACE: 1
       - name: Compare generated code
-        run: git diff --exit-code src/generated.rs
+        run: git diff --exit-code src/ tests/
   
   test:
     strategy:

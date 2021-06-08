@@ -5,7 +5,6 @@ macro_rules! test_font {
 		font: $font:ident,
 		width: $width:literal,
 		height: $height:literal,
-		m_pattern: $m_pattern:expr,
 		{%- for range in char_ranges %}
 		char_range_{{ loop.index }}_pattern: $char_range_{{ loop.index }}_pattern:expr,
 		{%- endfor %}
@@ -14,12 +13,11 @@ macro_rules! test_font {
 		mod $mod {
 			use bitmap_font::*;
 			use embedded_graphics::{
-				drawable::Drawable,
-				fonts::Text,
+				Drawable,
+				text::Text,
 				geometry::{Dimensions, Point, Size},
 				mock_display::MockDisplay,
-				pixelcolor::BinaryColor,
-				transform::Transform
+				primitives::Rectangle
 			};
 			
 			#[test]
@@ -29,40 +27,21 @@ macro_rules! test_font {
 			}
 			
 			#[test]
-			fn text_empty_size() {
-				let size = Text::new("", Point::zero())
-					.with_font($font, BinaryColor::On)
-					.size();
-				assert_eq!(size, Size::zero());
+			fn text_empty_bb() {
+				let bb = Text::new("", Point::zero(), $font).bounding_box();
+				assert_eq!(bb, Rectangle::new(Point::zero(), Size::zero()));
 			}
 			
 			#[test]
 			fn text_a_size() {
-				let size = Text::new("a", Point::zero())
-					.with_font($font, BinaryColor::On)
-					.size();
-				assert_eq!(size, Size::new($width, $height));
+				let bb = Text::new("a", Point::zero(), $font).bounding_box();
+				assert_eq!(bb, Rectangle::new(Point::zero(), Size::new($width, $height)));
 			}
 			
 			#[test]
 			fn text_multiline_size() {
-				let size = Text::new("aa\naaa\na", Point::zero())
-					.with_font($font, BinaryColor::On)
-					.size();
-				assert_eq!(size, Size::new(3 * $width, 3 * $height));
-			}
-			
-			#[test]
-			fn text_translate() {
-				let mut text = Text::new("M", Point::zero())
-					.with_font($font, BinaryColor::On);
-				text.translate_mut(Point::new(2, 2));
-				assert_eq!(text.top_left(), Point::new(2, 2));
-				assert_eq!(text.bottom_right(), Point::new(2 + $width, 2 + $height));
-				
-				let mut display = MockDisplay::new();
-				text.translate(Point::new(3, -1)).draw(&mut display).unwrap();
-				assert_eq!(display, MockDisplay::from_pattern($m_pattern));
+				let bb = Text::new("aa\naaa\na", Point::zero(), $font).bounding_box();
+				assert_eq!(bb, Rectangle::new(Point::zero(), Size::new(3 * $width, 3 * $height)));
 			}
 			
 			{%- for range in char_ranges %}
@@ -70,8 +49,7 @@ macro_rules! test_font {
 			#[test]
 			fn text_char_range_{{ loop.index }}() {
 				let mut display = MockDisplay::new();
-				Text::new("{{ range.start }}{{ range.mid }}{{ range.end }}", Point::zero())
-					.with_font($font, BinaryColor::On)
+				Text::new("{{ range.start }}{{ range.mid }}{{ range.end }}", Point::zero(), $font)
 					.draw(&mut display)
 					.unwrap();
 				assert_eq!(display, MockDisplay::from_pattern($char_range_{{ loop.index }}_pattern));
@@ -81,8 +59,7 @@ macro_rules! test_font {
 			#[test]
 			fn text_fallback() {
 				let mut display = MockDisplay::new();
-				Text::new("€?µ", Point::zero())
-					.with_font($font, BinaryColor::On)
+				Text::new("€?µ", Point::zero(), $font)
 					.draw(&mut display)
 					.unwrap();
 				assert_eq!(display,MockDisplay::from_pattern($fallback_pattern));
@@ -98,12 +75,6 @@ test_font! {
 		font: FONT_{{ font.width }}x{{ font.height }}{% if font.bold %}_BOLD{% endif %},
 		width: {{ font.width }},
 		height: {{ font.height }},
-		m_pattern: &[
-		   "{% for x in 0..font.width+5 %} {% endfor %}",
-		   {%- for y in 0..font.height %}
-		   "     {{ font.glyph('M').mock_line(y) }}",
-		   {%- endfor %}
-		],
 		{%- for range in char_ranges %}
 		char_range_{{ loop.index }}_pattern: &[
 			{%- for y in 0..font.height %}

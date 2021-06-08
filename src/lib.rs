@@ -14,11 +14,15 @@
 
 use embedded_graphics::{
 	draw_target::DrawTarget,
-	geometry::{OriginDimensions, Point, Size},
+	geometry::{Dimensions, OriginDimensions, Point, Size},
 	image::{ImageDrawable, ImageRaw},
 	mono_font::mapping::GlyphMapping,
 	pixelcolor::BinaryColor,
 	primitives::Rectangle,
+	text::{
+		renderer::{TextMetrics, TextRenderer},
+		Baseline
+	},
 	Pixel
 };
 
@@ -54,9 +58,9 @@ impl<'a> BitmapFont<'a> {
 	}
 
 	/// Draw a glyph to the `target` with `color` at position `pos`.
-	pub fn draw<D>(self, idx: u32, target: &mut D, color: BinaryColor, pos: Point) -> Result<(), D::Error>
+	pub fn draw_glyph<D>(&self, idx: u32, target: &mut D, color: BinaryColor, pos: Point) -> Result<(), D::Error>
 	where
-		D: DrawTarget<Color = BinaryColor> + OriginDimensions
+		D: DrawTarget<Color = BinaryColor>
 	{
 		let char_per_row = self.bitmap.size().width / self.size.width;
 		let row = idx / char_per_row;
@@ -85,6 +89,42 @@ impl<'a> BitmapFont<'a> {
 	}
 }
 
+impl<'a> TextRenderer for BitmapFont<'a> {
+	type Color = BinaryColor;
+
+	fn draw_string<D>(&self, text: &str, mut pos: Point, _: Baseline, target: &mut D) -> Result<Point, D::Error>
+	where
+		D: DrawTarget<Color = Self::Color>
+	{
+		for c in text.chars() {
+			let glyph_idx = self.glyph_mapping.index(c) as u32;
+			self.draw_glyph(glyph_idx, target, BinaryColor::On, pos)?;
+			pos += Size::new(self.width(), 0);
+		}
+		Ok(pos)
+	}
+
+	fn draw_whitespace<D>(&self, width: u32, pos: Point, _: Baseline, _: &mut D) -> Result<Point, D::Error>
+	where
+		D: DrawTarget<Color = Self::Color>
+	{
+		// we don't draw background nor text decorations
+		Ok(pos + Size::new(width * self.width(), 0))
+	}
+
+	fn measure_string(&self, text: &str, pos: Point, _: Baseline) -> TextMetrics {
+		let size = Size::new(self.width() * text.len() as u32, self.height());
+		TextMetrics {
+			bounding_box: Rectangle::new(pos, size),
+			next_position: pos + Size::new(size.width, 0)
+		}
+	}
+
+	fn line_height(&self) -> u32 {
+		self.height()
+	}
+}
+
 /// A pixel-doubling draw target. This works by intercepting all drawing operations, and doubling
 /// all pixels from the point of the origin. **This means you need to carefully select your
 /// origin!** All drawing operations, after being pixel-doubled (i.e. multiplied by the amount
@@ -92,36 +132,29 @@ impl<'a> BitmapFont<'a> {
 ///
 /// Also, this target draws `color` for all pixels that are on, and nothing for all pixels
 /// that are off.
-struct PixelDoublingDrawTarget<'a, D: DrawTarget<Color = BinaryColor> + OriginDimensions> {
+struct PixelDoublingDrawTarget<'a, D: DrawTarget<Color = BinaryColor>> {
 	target: &'a mut D,
 	color: BinaryColor,
 	offset: Point,
 	pixels: u8
 }
 
-impl<'a, D> OriginDimensions for PixelDoublingDrawTarget<'a, D>
+impl<'a, D> Dimensions for PixelDoublingDrawTarget<'a, D>
 where
-	D: DrawTarget<Color = BinaryColor> + OriginDimensions
+	D: DrawTarget<Color = BinaryColor>
 {
-	fn size(&self) -> Size {
-		let target_size = self.target.size();
-		let width = match self.offset.x % 2 {
-			0 => target_size.width / 2,
-			1 => target_size.width / 2 - 1,
-			_ => unreachable!()
-		};
-		let height = match self.offset.y % 2 {
-			0 => target_size.height / 2,
-			1 => target_size.height / 2 - 1,
-			_ => unreachable!()
-		};
-		Size::new(width, height)
+	fn bounding_box(&self) -> Rectangle {
+		let mut bb = self.target.bounding_box();
+		bb.top_left -= self.offset;
+		bb.top_left /= self.pixels as _;
+		bb.size /= self.pixels as _;
+		return bb;
 	}
 }
 
 impl<'a, D> DrawTarget for PixelDoublingDrawTarget<'a, D>
 where
-	D: DrawTarget<Color = BinaryColor> + OriginDimensions
+	D: DrawTarget<Color = BinaryColor>
 {
 	type Color = BinaryColor;
 	type Error = D::Error;
@@ -137,10 +170,7 @@ where
 			pixel_iter
 				.into_iter()
 				.filter(|pixel| pixel.1 == BinaryColor::On)
-				.flat_map(|pixel| {
-					PixelDoublingIterator::new(Pixel(pixel.0 - offset, color), pixels)
-						.map(|pixel| Pixel(pixel.0 + offset, pixel.1))
-				})
+				.flat_map(|pixel| PixelDoublingIterator::new(pixel, pixels).map(|pixel| Pixel(pixel.0 + offset, color)))
 		)
 	}
 }

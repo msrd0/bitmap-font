@@ -5,7 +5,6 @@ macro_rules! test_font {
 		font: $font:ident,
 		width: $width:literal,
 		height: $height:literal,
-		m_pattern: $m_pattern:expr,
 		char_range_1_pattern: $char_range_1_pattern:expr,
 		char_range_2_pattern: $char_range_2_pattern:expr,
 		char_range_3_pattern: $char_range_3_pattern:expr,
@@ -16,12 +15,11 @@ macro_rules! test_font {
 		mod $mod {
 			use bitmap_font::*;
 			use embedded_graphics::{
-				drawable::Drawable,
-				fonts::Text,
+				Drawable,
+				text::Text,
 				geometry::{Dimensions, Point, Size},
 				mock_display::MockDisplay,
-				pixelcolor::BinaryColor,
-				transform::Transform
+				primitives::Rectangle
 			};
 			
 			#[test]
@@ -31,47 +29,27 @@ macro_rules! test_font {
 			}
 			
 			#[test]
-			fn text_empty_size() {
-				let size = Text::new("", Point::zero())
-					.with_font($font, BinaryColor::On)
-					.size();
-				assert_eq!(size, Size::zero());
+			fn text_empty_bb() {
+				let bb = Text::new("", Point::zero(), $font).bounding_box();
+				assert_eq!(bb, Rectangle::new(Point::zero(), Size::zero()));
 			}
 			
 			#[test]
 			fn text_a_size() {
-				let size = Text::new("a", Point::zero())
-					.with_font($font, BinaryColor::On)
-					.size();
-				assert_eq!(size, Size::new($width, $height));
+				let bb = Text::new("a", Point::zero(), $font).bounding_box();
+				assert_eq!(bb, Rectangle::new(Point::zero(), Size::new($width, $height)));
 			}
 			
 			#[test]
 			fn text_multiline_size() {
-				let size = Text::new("aa\naaa\na", Point::zero())
-					.with_font($font, BinaryColor::On)
-					.size();
-				assert_eq!(size, Size::new(3 * $width, 3 * $height));
-			}
-			
-			#[test]
-			fn text_translate() {
-				let mut text = Text::new("M", Point::zero())
-					.with_font($font, BinaryColor::On);
-				text.translate_mut(Point::new(2, 2));
-				assert_eq!(text.top_left(), Point::new(2, 2));
-				assert_eq!(text.bottom_right(), Point::new(2 + $width, 2 + $height));
-				
-				let mut display = MockDisplay::new();
-				text.translate(Point::new(3, -1)).draw(&mut display).unwrap();
-				assert_eq!(display, MockDisplay::from_pattern($m_pattern));
+				let bb = Text::new("aa\naaa\na", Point::zero(), $font).bounding_box();
+				assert_eq!(bb, Rectangle::new(Point::zero(), Size::new(3 * $width, 3 * $height)));
 			}
 			
 			#[test]
 			fn text_char_range_1() {
 				let mut display = MockDisplay::new();
-				Text::new(" O~", Point::zero())
-					.with_font($font, BinaryColor::On)
+				Text::new(" O~", Point::zero(), $font)
 					.draw(&mut display)
 					.unwrap();
 				assert_eq!(display, MockDisplay::from_pattern($char_range_1_pattern));
@@ -80,8 +58,7 @@ macro_rules! test_font {
 			#[test]
 			fn text_char_range_2() {
 				let mut display = MockDisplay::new();
-				Text::new("¡¤¦", Point::zero())
-					.with_font($font, BinaryColor::On)
+				Text::new("¡¤¦", Point::zero(), $font)
 					.draw(&mut display)
 					.unwrap();
 				assert_eq!(display, MockDisplay::from_pattern($char_range_2_pattern));
@@ -90,8 +67,7 @@ macro_rules! test_font {
 			#[test]
 			fn text_char_range_3() {
 				let mut display = MockDisplay::new();
-				Text::new("°°°", Point::zero())
-					.with_font($font, BinaryColor::On)
+				Text::new("°°°", Point::zero(), $font)
 					.draw(&mut display)
 					.unwrap();
 				assert_eq!(display, MockDisplay::from_pattern($char_range_3_pattern));
@@ -100,8 +76,7 @@ macro_rules! test_font {
 			#[test]
 			fn text_char_range_4() {
 				let mut display = MockDisplay::new();
-				Text::new("¿ßÿ", Point::zero())
-					.with_font($font, BinaryColor::On)
+				Text::new("¿ßÿ", Point::zero(), $font)
 					.draw(&mut display)
 					.unwrap();
 				assert_eq!(display, MockDisplay::from_pattern($char_range_4_pattern));
@@ -110,8 +85,7 @@ macro_rules! test_font {
 			#[test]
 			fn text_char_range_5() {
 				let mut display = MockDisplay::new();
-				Text::new("", Point::zero())
-					.with_font($font, BinaryColor::On)
+				Text::new("", Point::zero(), $font)
 					.draw(&mut display)
 					.unwrap();
 				assert_eq!(display, MockDisplay::from_pattern($char_range_5_pattern));
@@ -120,8 +94,7 @@ macro_rules! test_font {
 			#[test]
 			fn text_fallback() {
 				let mut display = MockDisplay::new();
-				Text::new("€?µ", Point::zero())
-					.with_font($font, BinaryColor::On)
+				Text::new("€?µ", Point::zero(), $font)
 					.draw(&mut display)
 					.unwrap();
 				assert_eq!(display,MockDisplay::from_pattern($fallback_pattern));
@@ -135,18 +108,6 @@ test_font! {
 		font: FONT_5x9,
 		width: 5,
 		height: 9,
-		m_pattern: &[
-		   "          ",
-		   "          ",
-		   "          ",
-		   "     #  # ",
-		   "     #### ",
-		   "     #  # ",
-		   "     #  # ",
-		   "     #  # ",
-		   "          ",
-		   "          ",
-		],
 		char_range_1_pattern: &[
 			"               ",
 			"               ",
@@ -221,18 +182,6 @@ test_font! {
 		font: FONT_5x9_BOLD,
 		width: 5,
 		height: 9,
-		m_pattern: &[
-		   "          ",
-		   "          ",
-		   "          ",
-		   "     #  # ",
-		   "     #### ",
-		   "     #### ",
-		   "     #  # ",
-		   "     #  # ",
-		   "          ",
-		   "          ",
-		],
 		char_range_1_pattern: &[
 			"               ",
 			"           # # ",
@@ -307,21 +256,6 @@ test_font! {
 		font: FONT_6x12,
 		width: 6,
 		height: 12,
-		m_pattern: &[
-		   "           ",
-		   "           ",
-		   "           ",
-		   "     #   # ",
-		   "     ## ## ",
-		   "     # # # ",
-		   "     # # # ",
-		   "     #   # ",
-		   "     #   # ",
-		   "     #   # ",
-		   "           ",
-		   "           ",
-		   "           ",
-		],
 		char_range_1_pattern: &[
 			"                  ",
 			"                  ",
@@ -414,21 +348,6 @@ test_font! {
 		font: FONT_6x12_BOLD,
 		width: 6,
 		height: 12,
-		m_pattern: &[
-		   "           ",
-		   "           ",
-		   "           ",
-		   "     #   # ",
-		   "     ## ## ",
-		   "     ##### ",
-		   "     ##### ",
-		   "     # # # ",
-		   "     #   # ",
-		   "     #   # ",
-		   "           ",
-		   "           ",
-		   "           ",
-		],
 		char_range_1_pattern: &[
 			"                  ",
 			"                  ",
@@ -521,22 +440,6 @@ test_font! {
 		font: FONT_7x13,
 		width: 7,
 		height: 13,
-		m_pattern: &[
-		   "            ",
-		   "            ",
-		   "            ",
-		   "            ",
-		   "      #   # ",
-		   "      ## ## ",
-		   "      # # # ",
-		   "      # # # ",
-		   "      #   # ",
-		   "      #   # ",
-		   "      #   # ",
-		   "            ",
-		   "            ",
-		   "            ",
-		],
 		char_range_1_pattern: &[
 			"                     ",
 			"                     ",
@@ -635,22 +538,6 @@ test_font! {
 		font: FONT_7x13_BOLD,
 		width: 7,
 		height: 13,
-		m_pattern: &[
-		   "            ",
-		   "            ",
-		   "            ",
-		   "            ",
-		   "     ##  ## ",
-		   "     ###### ",
-		   "     ###### ",
-		   "     ##  ## ",
-		   "     ##  ## ",
-		   "     ##  ## ",
-		   "     ##  ## ",
-		   "            ",
-		   "            ",
-		   "            ",
-		],
 		char_range_1_pattern: &[
 			"                     ",
 			"                     ",
@@ -749,23 +636,6 @@ test_font! {
 		font: FONT_7x14,
 		width: 7,
 		height: 14,
-		m_pattern: &[
-		   "            ",
-		   "            ",
-		   "            ",
-		   "            ",
-		   "      #   # ",
-		   "      ## ## ",
-		   "      # # # ",
-		   "      # # # ",
-		   "      #   # ",
-		   "      #   # ",
-		   "      #   # ",
-		   "      #   # ",
-		   "            ",
-		   "            ",
-		   "            ",
-		],
 		char_range_1_pattern: &[
 			"                     ",
 			"                     ",
@@ -870,23 +740,6 @@ test_font! {
 		font: FONT_7x14_BOLD,
 		width: 7,
 		height: 14,
-		m_pattern: &[
-		   "            ",
-		   "            ",
-		   "            ",
-		   "            ",
-		   "     ##  ## ",
-		   "     ###### ",
-		   "     ###### ",
-		   "     ###### ",
-		   "     ##  ## ",
-		   "     ##  ## ",
-		   "     ##  ## ",
-		   "     ##  ## ",
-		   "            ",
-		   "            ",
-		   "            ",
-		],
 		char_range_1_pattern: &[
 			"                     ",
 			"                     ",
@@ -991,24 +844,6 @@ test_font! {
 		font: FONT_8x15,
 		width: 8,
 		height: 15,
-		m_pattern: &[
-		   "             ",
-		   "             ",
-		   "             ",
-		   "             ",
-		   "             ",
-		   "      #     #",
-		   "      ##   ##",
-		   "      # # # #",
-		   "      #  #  #",
-		   "      #  #  #",
-		   "      #     #",
-		   "      #     #",
-		   "      #     #",
-		   "             ",
-		   "             ",
-		   "             ",
-		],
 		char_range_1_pattern: &[
 			"                        ",
 			"                        ",
@@ -1119,24 +954,6 @@ test_font! {
 		font: FONT_8x15_BOLD,
 		width: 8,
 		height: 15,
-		m_pattern: &[
-		   "             ",
-		   "             ",
-		   "             ",
-		   "             ",
-		   "             ",
-		   "      ##   ##",
-		   "      ### ###",
-		   "      #######",
-		   "      ## # ##",
-		   "      ##   ##",
-		   "      ##   ##",
-		   "      ##   ##",
-		   "      ##   ##",
-		   "             ",
-		   "             ",
-		   "             ",
-		],
 		char_range_1_pattern: &[
 			"                        ",
 			"                        ",
@@ -1247,25 +1064,6 @@ test_font! {
 		font: FONT_8x16,
 		width: 8,
 		height: 16,
-		m_pattern: &[
-		   "             ",
-		   "             ",
-		   "             ",
-		   "             ",
-		   "      #     #",
-		   "      ##   ##",
-		   "      # # # #",
-		   "      #  #  #",
-		   "      #  #  #",
-		   "      #     #",
-		   "      #     #",
-		   "      #     #",
-		   "      #     #",
-		   "             ",
-		   "             ",
-		   "             ",
-		   "             ",
-		],
 		char_range_1_pattern: &[
 			"                        ",
 			"                        ",
@@ -1382,25 +1180,6 @@ test_font! {
 		font: FONT_8x16_BOLD,
 		width: 8,
 		height: 16,
-		m_pattern: &[
-		   "             ",
-		   "             ",
-		   "             ",
-		   "             ",
-		   "      ##   ##",
-		   "      ### ###",
-		   "      #######",
-		   "      ## # ##",
-		   "      ##   ##",
-		   "      ##   ##",
-		   "      ##   ##",
-		   "      ##   ##",
-		   "      ##   ##",
-		   "             ",
-		   "             ",
-		   "             ",
-		   "             ",
-		],
 		char_range_1_pattern: &[
 			"                        ",
 			"                        ",
@@ -1517,27 +1296,6 @@ test_font! {
 		font: FONT_10x18,
 		width: 10,
 		height: 18,
-		m_pattern: &[
-		   "               ",
-		   "               ",
-		   "               ",
-		   "               ",
-		   "               ",
-		   "     ##    ##  ",
-		   "     ##    ##  ",
-		   "     ########  ",
-		   "     ########  ",
-		   "     ##    ##  ",
-		   "     ##    ##  ",
-		   "     ##    ##  ",
-		   "     ##    ##  ",
-		   "     ##    ##  ",
-		   "     ##    ##  ",
-		   "               ",
-		   "               ",
-		   "               ",
-		   "               ",
-		],
 		char_range_1_pattern: &[
 			"                              ",
 			"                              ",
@@ -1666,27 +1424,6 @@ test_font! {
 		font: FONT_10x18_BOLD,
 		width: 10,
 		height: 18,
-		m_pattern: &[
-		   "               ",
-		   "               ",
-		   "               ",
-		   "               ",
-		   "               ",
-		   "     ##    ##  ",
-		   "     ##    ##  ",
-		   "     ########  ",
-		   "     ########  ",
-		   "     ########  ",
-		   "     ########  ",
-		   "     ##    ##  ",
-		   "     ##    ##  ",
-		   "     ##    ##  ",
-		   "     ##    ##  ",
-		   "               ",
-		   "               ",
-		   "               ",
-		   "               ",
-		],
 		char_range_1_pattern: &[
 			"                              ",
 			"                              ",
@@ -1815,29 +1552,6 @@ test_font! {
 		font: FONT_10x20,
 		width: 10,
 		height: 20,
-		m_pattern: &[
-		   "               ",
-		   "               ",
-		   "               ",
-		   "               ",
-		   "               ",
-		   "      #     #  ",
-		   "      ##   ##  ",
-		   "      # # # #  ",
-		   "      #  #  #  ",
-		   "      #  #  #  ",
-		   "      #     #  ",
-		   "      #     #  ",
-		   "      #     #  ",
-		   "      #     #  ",
-		   "      #     #  ",
-		   "               ",
-		   "               ",
-		   "               ",
-		   "               ",
-		   "               ",
-		   "               ",
-		],
 		char_range_1_pattern: &[
 			"                              ",
 			"                              ",
@@ -1978,29 +1692,6 @@ test_font! {
 		font: FONT_10x20_BOLD,
 		width: 10,
 		height: 20,
-		m_pattern: &[
-		   "               ",
-		   "               ",
-		   "               ",
-		   "               ",
-		   "               ",
-		   "      ##    ## ",
-		   "      ###  ### ",
-		   "      ######## ",
-		   "      ## ## ## ",
-		   "      ##    ## ",
-		   "      ##    ## ",
-		   "      ##    ## ",
-		   "      ##    ## ",
-		   "      ##    ## ",
-		   "      ##    ## ",
-		   "               ",
-		   "               ",
-		   "               ",
-		   "               ",
-		   "               ",
-		   "               ",
-		],
 		char_range_1_pattern: &[
 			"                              ",
 			"                              ",
@@ -2141,33 +1832,6 @@ test_font! {
 		font: FONT_12x24,
 		width: 12,
 		height: 24,
-		m_pattern: &[
-		   "                 ",
-		   "                 ",
-		   "                 ",
-		   "                 ",
-		   "                 ",
-		   "     ##      ##  ",
-		   "     ##      ##  ",
-		   "     ####  ####  ",
-		   "     ####  ####  ",
-		   "     ##  ##  ##  ",
-		   "     ##  ##  ##  ",
-		   "     ##  ##  ##  ",
-		   "     ##  ##  ##  ",
-		   "     ##      ##  ",
-		   "     ##      ##  ",
-		   "     ##      ##  ",
-		   "     ##      ##  ",
-		   "     ##      ##  ",
-		   "     ##      ##  ",
-		   "                 ",
-		   "                 ",
-		   "                 ",
-		   "                 ",
-		   "                 ",
-		   "                 ",
-		],
 		char_range_1_pattern: &[
 			"                                    ",
 			"                                    ",
@@ -2332,33 +1996,6 @@ test_font! {
 		font: FONT_12x24_BOLD,
 		width: 12,
 		height: 24,
-		m_pattern: &[
-		   "                 ",
-		   "                 ",
-		   "                 ",
-		   "                 ",
-		   "                 ",
-		   "     ##      ##  ",
-		   "     ##      ##  ",
-		   "     ####  ####  ",
-		   "     ####  ####  ",
-		   "     ##########  ",
-		   "     ##########  ",
-		   "     ##########  ",
-		   "     ##########  ",
-		   "     ##  ##  ##  ",
-		   "     ##  ##  ##  ",
-		   "     ##      ##  ",
-		   "     ##      ##  ",
-		   "     ##      ##  ",
-		   "     ##      ##  ",
-		   "                 ",
-		   "                 ",
-		   "                 ",
-		   "                 ",
-		   "                 ",
-		   "                 ",
-		],
 		char_range_1_pattern: &[
 			"                                    ",
 			"                                    ",
@@ -2523,35 +2160,6 @@ test_font! {
 		font: FONT_14x26,
 		width: 14,
 		height: 26,
-		m_pattern: &[
-		   "                   ",
-		   "                   ",
-		   "                   ",
-		   "                   ",
-		   "                   ",
-		   "                   ",
-		   "                   ",
-		   "       ##      ##  ",
-		   "       ##      ##  ",
-		   "       ####  ####  ",
-		   "       ####  ####  ",
-		   "       ##  ##  ##  ",
-		   "       ##  ##  ##  ",
-		   "       ##  ##  ##  ",
-		   "       ##  ##  ##  ",
-		   "       ##      ##  ",
-		   "       ##      ##  ",
-		   "       ##      ##  ",
-		   "       ##      ##  ",
-		   "       ##      ##  ",
-		   "       ##      ##  ",
-		   "                   ",
-		   "                   ",
-		   "                   ",
-		   "                   ",
-		   "                   ",
-		   "                   ",
-		],
 		char_range_1_pattern: &[
 			"                                          ",
 			"                                          ",
@@ -2728,35 +2336,6 @@ test_font! {
 		font: FONT_14x26_BOLD,
 		width: 14,
 		height: 26,
-		m_pattern: &[
-		   "                   ",
-		   "                   ",
-		   "                   ",
-		   "                   ",
-		   "                   ",
-		   "                   ",
-		   "                   ",
-		   "     ####    ####  ",
-		   "     ####    ####  ",
-		   "     ############  ",
-		   "     ############  ",
-		   "     ############  ",
-		   "     ############  ",
-		   "     ####    ####  ",
-		   "     ####    ####  ",
-		   "     ####    ####  ",
-		   "     ####    ####  ",
-		   "     ####    ####  ",
-		   "     ####    ####  ",
-		   "     ####    ####  ",
-		   "     ####    ####  ",
-		   "                   ",
-		   "                   ",
-		   "                   ",
-		   "                   ",
-		   "                   ",
-		   "                   ",
-		],
 		char_range_1_pattern: &[
 			"                                          ",
 			"                                          ",
@@ -2933,37 +2512,6 @@ test_font! {
 		font: FONT_14x28,
 		width: 14,
 		height: 28,
-		m_pattern: &[
-		   "                   ",
-		   "                   ",
-		   "                   ",
-		   "                   ",
-		   "                   ",
-		   "                   ",
-		   "                   ",
-		   "       ##      ##  ",
-		   "       ##      ##  ",
-		   "       ####  ####  ",
-		   "       ####  ####  ",
-		   "       ##  ##  ##  ",
-		   "       ##  ##  ##  ",
-		   "       ##  ##  ##  ",
-		   "       ##  ##  ##  ",
-		   "       ##      ##  ",
-		   "       ##      ##  ",
-		   "       ##      ##  ",
-		   "       ##      ##  ",
-		   "       ##      ##  ",
-		   "       ##      ##  ",
-		   "       ##      ##  ",
-		   "       ##      ##  ",
-		   "                   ",
-		   "                   ",
-		   "                   ",
-		   "                   ",
-		   "                   ",
-		   "                   ",
-		],
 		char_range_1_pattern: &[
 			"                                          ",
 			"                                          ",
@@ -3152,37 +2700,6 @@ test_font! {
 		font: FONT_14x28_BOLD,
 		width: 14,
 		height: 28,
-		m_pattern: &[
-		   "                   ",
-		   "                   ",
-		   "                   ",
-		   "                   ",
-		   "                   ",
-		   "                   ",
-		   "                   ",
-		   "     ####    ####  ",
-		   "     ####    ####  ",
-		   "     ############  ",
-		   "     ############  ",
-		   "     ############  ",
-		   "     ############  ",
-		   "     ############  ",
-		   "     ############  ",
-		   "     ####    ####  ",
-		   "     ####    ####  ",
-		   "     ####    ####  ",
-		   "     ####    ####  ",
-		   "     ####    ####  ",
-		   "     ####    ####  ",
-		   "     ####    ####  ",
-		   "     ####    ####  ",
-		   "                   ",
-		   "                   ",
-		   "                   ",
-		   "                   ",
-		   "                   ",
-		   "                   ",
-		],
 		char_range_1_pattern: &[
 			"                                          ",
 			"                                          ",
@@ -3371,39 +2888,6 @@ test_font! {
 		font: FONT_16x30,
 		width: 16,
 		height: 30,
-		m_pattern: &[
-		   "                     ",
-		   "                     ",
-		   "                     ",
-		   "                     ",
-		   "                     ",
-		   "                     ",
-		   "                     ",
-		   "                     ",
-		   "                     ",
-		   "       ##          ##",
-		   "       ##          ##",
-		   "       ####      ####",
-		   "       ####      ####",
-		   "       ##  ##  ##  ##",
-		   "       ##  ##  ##  ##",
-		   "       ##    ##    ##",
-		   "       ##    ##    ##",
-		   "       ##    ##    ##",
-		   "       ##    ##    ##",
-		   "       ##          ##",
-		   "       ##          ##",
-		   "       ##          ##",
-		   "       ##          ##",
-		   "       ##          ##",
-		   "       ##          ##",
-		   "                     ",
-		   "                     ",
-		   "                     ",
-		   "                     ",
-		   "                     ",
-		   "                     ",
-		],
 		char_range_1_pattern: &[
 			"                                                ",
 			"                                                ",
@@ -3604,39 +3088,6 @@ test_font! {
 		font: FONT_16x30_BOLD,
 		width: 16,
 		height: 30,
-		m_pattern: &[
-		   "                     ",
-		   "                     ",
-		   "                     ",
-		   "                     ",
-		   "                     ",
-		   "                     ",
-		   "                     ",
-		   "                     ",
-		   "                     ",
-		   "       ####      ####",
-		   "       ####      ####",
-		   "       ######  ######",
-		   "       ######  ######",
-		   "       ##############",
-		   "       ##############",
-		   "       ####  ##  ####",
-		   "       ####  ##  ####",
-		   "       ####      ####",
-		   "       ####      ####",
-		   "       ####      ####",
-		   "       ####      ####",
-		   "       ####      ####",
-		   "       ####      ####",
-		   "       ####      ####",
-		   "       ####      ####",
-		   "                     ",
-		   "                     ",
-		   "                     ",
-		   "                     ",
-		   "                     ",
-		   "                     ",
-		],
 		char_range_1_pattern: &[
 			"                                                ",
 			"                                                ",
@@ -3837,41 +3288,6 @@ test_font! {
 		font: FONT_16x32,
 		width: 16,
 		height: 32,
-		m_pattern: &[
-		   "                     ",
-		   "                     ",
-		   "                     ",
-		   "                     ",
-		   "                     ",
-		   "                     ",
-		   "                     ",
-		   "       ##          ##",
-		   "       ##          ##",
-		   "       ####      ####",
-		   "       ####      ####",
-		   "       ##  ##  ##  ##",
-		   "       ##  ##  ##  ##",
-		   "       ##    ##    ##",
-		   "       ##    ##    ##",
-		   "       ##    ##    ##",
-		   "       ##    ##    ##",
-		   "       ##          ##",
-		   "       ##          ##",
-		   "       ##          ##",
-		   "       ##          ##",
-		   "       ##          ##",
-		   "       ##          ##",
-		   "       ##          ##",
-		   "       ##          ##",
-		   "                     ",
-		   "                     ",
-		   "                     ",
-		   "                     ",
-		   "                     ",
-		   "                     ",
-		   "                     ",
-		   "                     ",
-		],
 		char_range_1_pattern: &[
 			"                                                ",
 			"                                                ",
@@ -4084,41 +3500,6 @@ test_font! {
 		font: FONT_16x32_BOLD,
 		width: 16,
 		height: 32,
-		m_pattern: &[
-		   "                     ",
-		   "                     ",
-		   "                     ",
-		   "                     ",
-		   "                     ",
-		   "                     ",
-		   "                     ",
-		   "       ####      ####",
-		   "       ####      ####",
-		   "       ######  ######",
-		   "       ######  ######",
-		   "       ##############",
-		   "       ##############",
-		   "       ####  ##  ####",
-		   "       ####  ##  ####",
-		   "       ####      ####",
-		   "       ####      ####",
-		   "       ####      ####",
-		   "       ####      ####",
-		   "       ####      ####",
-		   "       ####      ####",
-		   "       ####      ####",
-		   "       ####      ####",
-		   "       ####      ####",
-		   "       ####      ####",
-		   "                     ",
-		   "                     ",
-		   "                     ",
-		   "                     ",
-		   "                     ",
-		   "                     ",
-		   "                     ",
-		   "                     ",
-		],
 		char_range_1_pattern: &[
 			"                                                ",
 			"                                                ",
@@ -4331,49 +3712,6 @@ test_font! {
 		font: FONT_20x40,
 		width: 20,
 		height: 40,
-		m_pattern: &[
-		   "                         ",
-		   "                         ",
-		   "                         ",
-		   "                         ",
-		   "                         ",
-		   "                         ",
-		   "                         ",
-		   "                         ",
-		   "                         ",
-		   "       ##          ##    ",
-		   "       ##          ##    ",
-		   "       ####      ####    ",
-		   "       ####      ####    ",
-		   "       ##  ##  ##  ##    ",
-		   "       ##  ##  ##  ##    ",
-		   "       ##    ##    ##    ",
-		   "       ##    ##    ##    ",
-		   "       ##    ##    ##    ",
-		   "       ##    ##    ##    ",
-		   "       ##          ##    ",
-		   "       ##          ##    ",
-		   "       ##          ##    ",
-		   "       ##          ##    ",
-		   "       ##          ##    ",
-		   "       ##          ##    ",
-		   "       ##          ##    ",
-		   "       ##          ##    ",
-		   "       ##          ##    ",
-		   "       ##          ##    ",
-		   "                         ",
-		   "                         ",
-		   "                         ",
-		   "                         ",
-		   "                         ",
-		   "                         ",
-		   "                         ",
-		   "                         ",
-		   "                         ",
-		   "                         ",
-		   "                         ",
-		   "                         ",
-		],
 		char_range_1_pattern: &[
 			"                                                            ",
 			"                                                            ",
@@ -4634,49 +3972,6 @@ test_font! {
 		font: FONT_20x40_BOLD,
 		width: 20,
 		height: 40,
-		m_pattern: &[
-		   "                         ",
-		   "                         ",
-		   "                         ",
-		   "                         ",
-		   "                         ",
-		   "                         ",
-		   "                         ",
-		   "                         ",
-		   "                         ",
-		   "       ####        ####  ",
-		   "       ####        ####  ",
-		   "       ######    ######  ",
-		   "       ######    ######  ",
-		   "       ################  ",
-		   "       ################  ",
-		   "       ####  ####  ####  ",
-		   "       ####  ####  ####  ",
-		   "       ####        ####  ",
-		   "       ####        ####  ",
-		   "       ####        ####  ",
-		   "       ####        ####  ",
-		   "       ####        ####  ",
-		   "       ####        ####  ",
-		   "       ####        ####  ",
-		   "       ####        ####  ",
-		   "       ####        ####  ",
-		   "       ####        ####  ",
-		   "       ####        ####  ",
-		   "       ####        ####  ",
-		   "                         ",
-		   "                         ",
-		   "                         ",
-		   "                         ",
-		   "                         ",
-		   "                         ",
-		   "                         ",
-		   "                         ",
-		   "                         ",
-		   "                         ",
-		   "                         ",
-		   "                         ",
-		],
 		char_range_1_pattern: &[
 			"                                                            ",
 			"                                                            ",

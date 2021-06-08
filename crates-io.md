@@ -63,8 +63,8 @@ of this font.
 
  [contributors]: https://github.com/msrd0/bitmap-font/graphs/contributors
  [__link0]: https://docs.rs/embedded-graphics/0.7.0/embedded_graphics/mono_font/struct.MonoFont.html
- [__link1]: https://docs.rs/bitmap-font/0.1.0/bitmap_font/?search=bitmap_font::BitmapFont
+ [__link1]: https://docs.rs/bitmap-font/0.1.1/bitmap_font/?search=bitmap_font::BitmapFont
  [__link2]: https://crates.io/crates/embedded-graphics/0.6.2
- [__link3]: https://docs.rs/bitmap-font/0.1.0/bitmap_font/?search=bitmap_font::BitmapFont
+ [__link3]: https://docs.rs/bitmap-font/0.1.1/bitmap_font/?search=bitmap_font::BitmapFont
  [__link4]: https://crates.io/crates/embedded-graphics/0.6.2
 

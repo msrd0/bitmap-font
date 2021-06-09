@@ -41,7 +41,7 @@ const GLYPH_MAPPING: Mapping = Mapping;
 
 /// Tamzen {{ font.width }}x{{ font.height }}{% if font.bold %} Bold{% endif %} Font.
 ///
-/// ![Screenshot](data:image/bmp;base64,{{ font.bmp }}")
+/// ![Screenshot](data:image/bmp;base64,{{ font.bmp }})
 ///
 /// Bitmap Size: {{ font.bitmap_len_str }} Byte <br/>
 /// Font Source: <https://github.com/sunaku/tamzen-font/blob/master/bdf/Tamzen{{ font.width }}x{{ font.height }}
@@ -70,7 +70,7 @@ pub const FONT_{{ font.width }}x{{ font.height }}{% if font.bold %}_BOLD{% endif
 
 /// Pixel-double version of [`FONT_{{ font.width }}x{{ font.height }}{% if font.bold %}_BOLD{% endif %}`].
 ///
-/// <img src="data:image/bmp;base64,{{ font.bmp_double }}"/>
+/// ![Screenshot](data:image/bmp;base64,{{ font.bmp_double }})
 ///
 /// This font does not store its own bitmap and therefore does not increase the flash size significantly.
 #[allow(non_upper_case_globals)]

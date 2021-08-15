@@ -13,7 +13,7 @@
 		<img alt="coverage report" src="https://msrd0.github.io/bitmap-font/coverage.svg"/>
 	</a>
 	<a href="https://msrd0.github.io/bitmap-font/doc/bitmap_font/index.html">
-		<img alt="bitmap-font master branch documentation" src="https://img.shields.io/badge/docs-master-blue.svg"/>
+		<img alt="bitmap-font main branch documentation" src="https://img.shields.io/badge/docs-main-blue.svg"/>
 	</a>
 	<a href="https://blog.rust-lang.org/2020/12/31/Rust-1.50.0.html">
 		<img alt="Rust 1.50+" src="https://img.shields.io/badge/rustc-1.50+-orange.svg"/>
@@ -100,8 +100,8 @@ of this font.
 ```
 
  [contributors]: https://github.com/msrd0/bitmap-font/graphs/contributors
- [__link0]: https://crates.io/crates/embedded-graphics/0.7.0
- [__link1]: https://docs.rs/embedded-graphics/0.7.0/embedded_graphics/?search=embedded_graphics::mono_font
+ [__link0]: https://crates.io/crates/embedded-graphics/0.7.1
+ [__link1]: https://docs.rs/embedded-graphics/0.7.1/embedded_graphics/?search=embedded_graphics::mono_font
  [__link2]: https://github.com/sunaku/tamzen-font
  [__link3]: https://docs.rs/bitmap-font/0.2.1/bitmap_font/?search=bitmap_font::tamzen
 

@@ -12,7 +12,7 @@ edition = "2018"
 anyhow = "1.0"
 askama = "0.10"
 base64 = "0.13"
-bdf = { git = "https://github.com/meh/rust-bdf", rev = "fe5f85a7c430d668f157c20c92d7d2aeb51da3cd" }
+bdf = { git = "https://github.com/meh/rust-bdf", rev = "2eceb6634bf4932cc877a69d574c86994c0cf883" }
 bit-vec = "0.6"
 linked-hash-map = "0.5.4"
 num-format = "0.4"

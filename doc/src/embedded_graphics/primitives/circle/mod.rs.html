@@ -1,7 +1,6 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.0/src/primitives/circle/mod.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>mod.rs - source</title><link rel="stylesheet" type="text/css" href="../../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../../ayu.css" disabled ><script id="default-settings"></script><script src="../../../../storage.js"></script><script src="../../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../../../favicon.svg">
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.1/src/primitives/circle/mod.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>mod.rs - source</title><link rel="stylesheet" type="text/css" href="../../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../../ayu.css" disabled ><script id="default-settings"></script><script src="../../../../storage.js"></script><script src="../../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../../../favicon.svg">
 <link rel="alternate icon" type="image/png" href="../../../../favicon-16x16.png">
-<link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../../embedded_graphics/index.html'><div class='logo-container'><img src='https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><script src="../../../../theme.js"></script><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" class="help-button">?</button>
-                <a id="settings-menu" href="../../../../settings.html"><img src="../../../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">  1</span>
+<link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../../embedded_graphics/index.html'><div class='logo-container'><img src='https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img src="../../../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../../../settings.html" title="settings"><img src="../../../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -260,22 +259,22 @@
 <span id="257">257</span>
 <span id="258">258</span>
 <span id="259">259</span>
-</pre><div class="example-wrap"><pre class="rust ">
+</pre><pre class="rust">
 <span class="doccomment">//! The circle primitive</span>
 
 <span class="kw">use</span> <span class="kw">crate</span>::{
     <span class="ident">geometry</span>::{<span class="ident">Dimensions</span>, <span class="ident">Point</span>, <span class="ident">PointExt</span>, <span class="ident">Size</span>},
     <span class="ident">primitives</span>::{
-        <span class="ident">common</span>::<span class="ident">DistanceIterator</span>, <span class="ident">ContainsPoint</span>, <span class="ident">OffsetOutline</span>, <span class="ident">PointsIter</span>, <span class="ident">Primitive</span>, <span class="ident">Rectangle</span>,
+        <span class="ident">common::DistanceIterator</span>, <span class="ident">ContainsPoint</span>, <span class="ident">OffsetOutline</span>, <span class="ident">PointsIter</span>, <span class="ident">Primitive</span>, <span class="ident">Rectangle</span>,
     },
-    <span class="ident">transform</span>::<span class="ident">Transform</span>,
+    <span class="ident">transform::Transform</span>,
 };
 
 <span class="kw">mod</span> <span class="ident">points</span>;
 <span class="kw">mod</span> <span class="ident">styled</span>;
 
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">points</span>::<span class="ident">Points</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">styled</span>::<span class="ident">StyledPixelsIterator</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">points::Points</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">styled::StyledPixelsIterator</span>;
 
 <span class="doccomment">/// Circle primitive</span>
 <span class="doccomment">///</span>
@@ -334,7 +333,7 @@
 
     <span class="doccomment">/// Create a new circle centered around a given point with a specific diameter</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">with_center</span>(<span class="ident">center</span>: <span class="ident">Point</span>, <span class="ident">diameter</span>: <span class="ident">u32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
-        <span class="kw">let</span> <span class="ident">top_left</span> <span class="op">=</span> <span class="ident">Rectangle</span>::<span class="ident">with_center</span>(<span class="ident">center</span>, <span class="ident">Size</span>::<span class="ident">new_equal</span>(<span class="ident">diameter</span>)).<span class="ident">top_left</span>;
+        <span class="kw">let</span> <span class="ident">top_left</span> <span class="op">=</span> <span class="ident">Rectangle::with_center</span>(<span class="ident">center</span>, <span class="ident">Size::new_equal</span>(<span class="ident">diameter</span>)).<span class="ident">top_left</span>;
 
         <span class="ident">Circle</span> { <span class="ident">top_left</span>, <span class="ident">diameter</span> }
     }
@@ -348,21 +347,21 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// This method is used to accurately calculate the outside edge of the circle.</span>
     <span class="doccomment">/// The result is not equivalent to `self.center() * 2` because of rounding.</span>
-    <span class="kw">pub</span>(<span class="kw">in</span> <span class="kw">crate</span>::<span class="ident">primitives</span>) <span class="kw">fn</span> <span class="ident">center_2x</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Point</span> {
+    <span class="kw">pub</span>(<span class="kw">in</span> <span class="kw">crate</span><span class="ident">::primitives</span>) <span class="kw">fn</span> <span class="ident">center_2x</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Point</span> {
         <span class="comment">// The radius scaled up by a factor of 2 is equal to the diameter</span>
         <span class="kw">let</span> <span class="ident">radius</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">diameter</span>.<span class="ident">saturating_sub</span>(<span class="number">1</span>);
 
-        <span class="self">self</span>.<span class="ident">top_left</span> <span class="op">*</span> <span class="number">2</span> <span class="op">+</span> <span class="ident">Size</span>::<span class="ident">new</span>(<span class="ident">radius</span>, <span class="ident">radius</span>)
+        <span class="self">self</span>.<span class="ident">top_left</span> <span class="op">*</span> <span class="number">2</span> <span class="op">+</span> <span class="ident">Size::new</span>(<span class="ident">radius</span>, <span class="ident">radius</span>)
     }
 
     <span class="doccomment">/// Returns the threshold for this circles diameter.</span>
-    <span class="kw">pub</span>(<span class="kw">in</span> <span class="kw">crate</span>::<span class="ident">primitives</span>) <span class="kw">fn</span> <span class="ident">threshold</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">u32</span> {
+    <span class="kw">pub</span>(<span class="kw">in</span> <span class="kw">crate</span><span class="ident">::primitives</span>) <span class="kw">fn</span> <span class="ident">threshold</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">u32</span> {
         <span class="ident">diameter_to_threshold</span>(<span class="self">self</span>.<span class="ident">diameter</span>)
     }
 
     <span class="doccomment">/// Returns the squared distance for every point in the bounding box.</span>
-    <span class="kw">pub</span>(<span class="kw">in</span> <span class="kw">crate</span>::<span class="ident">primitives</span>) <span class="kw">fn</span> <span class="ident">distances</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DistanceIterator</span> {
-        <span class="ident">DistanceIterator</span>::<span class="ident">new</span>(<span class="self">self</span>.<span class="ident">center_2x</span>(), <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">bounding_box</span>())
+    <span class="kw">pub</span>(<span class="kw">in</span> <span class="kw">crate</span><span class="ident">::primitives</span>) <span class="kw">fn</span> <span class="ident">distances</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DistanceIterator</span> {
+        <span class="ident">DistanceIterator::new</span>(<span class="self">self</span>.<span class="ident">center_2x</span>(), <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">bounding_box</span>())
     }
 }
 
@@ -374,7 +373,7 @@
             <span class="self">self</span>.<span class="ident">diameter</span>.<span class="ident">saturating_sub</span>(<span class="number">2</span> <span class="op">*</span> (<span class="op">-</span><span class="ident">offset</span>) <span class="kw">as</span> <span class="ident">u32</span>)
         };
 
-        <span class="self">Self</span>::<span class="ident">with_center</span>(<span class="self">self</span>.<span class="ident">center</span>(), <span class="ident">diameter</span>)
+        <span class="self">Self</span><span class="ident">::with_center</span>(<span class="self">self</span>.<span class="ident">center</span>(), <span class="ident">diameter</span>)
     }
 }
 
@@ -383,8 +382,8 @@
 <span class="kw">impl</span> <span class="ident">PointsIter</span> <span class="kw">for</span> <span class="ident">Circle</span> {
     <span class="kw">type</span> <span class="ident">Iter</span> <span class="op">=</span> <span class="ident">Points</span>;
 
-    <span class="kw">fn</span> <span class="ident">points</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span>::<span class="ident">Iter</span> {
-        <span class="ident">Points</span>::<span class="ident">new</span>(<span class="self">self</span>)
+    <span class="kw">fn</span> <span class="ident">points</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Iter</span> {
+        <span class="ident">Points::new</span>(<span class="self">self</span>)
     }
 }
 
@@ -399,7 +398,7 @@
 
 <span class="kw">impl</span> <span class="ident">Dimensions</span> <span class="kw">for</span> <span class="ident">Circle</span> {
     <span class="kw">fn</span> <span class="ident">bounding_box</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Rectangle</span> {
-        <span class="ident">Rectangle</span>::<span class="ident">new</span>(<span class="self">self</span>.<span class="ident">top_left</span>, <span class="ident">Size</span>::<span class="ident">new_equal</span>(<span class="self">self</span>.<span class="ident">diameter</span>))
+        <span class="ident">Rectangle::new</span>(<span class="self">self</span>.<span class="ident">top_left</span>, <span class="ident">Size::new_equal</span>(<span class="self">self</span>.<span class="ident">diameter</span>))
     }
 }
 
@@ -439,7 +438,7 @@
     }
 }
 
-<span class="kw">pub</span>(<span class="kw">in</span> <span class="kw">crate</span>::<span class="ident">primitives</span>) <span class="kw">fn</span> <span class="ident">diameter_to_threshold</span>(<span class="ident">diameter</span>: <span class="ident">u32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">u32</span> {
+<span class="kw">pub</span>(<span class="kw">in</span> <span class="kw">crate</span><span class="ident">::primitives</span>) <span class="kw">fn</span> <span class="ident">diameter_to_threshold</span>(<span class="ident">diameter</span>: <span class="ident">u32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">u32</span> {
     <span class="kw">if</span> <span class="ident">diameter</span> <span class="op">&lt;</span><span class="op">=</span> <span class="number">4</span> {
         <span class="ident">diameter</span>.<span class="ident">pow</span>(<span class="number">2</span>) <span class="op">-</span> <span class="ident">diameter</span> <span class="op">/</span> <span class="number">2</span>
     } <span class="kw">else</span> {
@@ -452,74 +451,73 @@
     <span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
     <span class="kw">use</span> <span class="kw">crate</span>::{
         <span class="ident">geometry</span>::{<span class="ident">Dimensions</span>, <span class="ident">Point</span>, <span class="ident">Size</span>},
-        <span class="ident">primitives</span>::<span class="ident">ContainsPoint</span>,
+        <span class="ident">primitives::ContainsPoint</span>,
     };
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">negative_dimensions</span>() {
-        <span class="kw">let</span> <span class="ident">circle</span> <span class="op">=</span> <span class="ident">Circle</span>::<span class="ident">new</span>(<span class="ident">Point</span>::<span class="ident">new</span>(<span class="op">-</span><span class="number">15</span>, <span class="op">-</span><span class="number">15</span>), <span class="number">20</span>);
+        <span class="kw">let</span> <span class="ident">circle</span> <span class="op">=</span> <span class="ident">Circle::new</span>(<span class="ident">Point::new</span>(<span class="op">-</span><span class="number">15</span>, <span class="op">-</span><span class="number">15</span>), <span class="number">20</span>);
 
-        <span class="macro">assert_eq</span><span class="macro">!</span>(
+        <span class="macro">assert_eq!</span>(
             <span class="ident">circle</span>.<span class="ident">bounding_box</span>(),
-            <span class="ident">Rectangle</span>::<span class="ident">new</span>(<span class="ident">Point</span>::<span class="ident">new</span>(<span class="op">-</span><span class="number">15</span>, <span class="op">-</span><span class="number">15</span>), <span class="ident">Size</span>::<span class="ident">new</span>(<span class="number">20</span>, <span class="number">20</span>))
+            <span class="ident">Rectangle::new</span>(<span class="ident">Point::new</span>(<span class="op">-</span><span class="number">15</span>, <span class="op">-</span><span class="number">15</span>), <span class="ident">Size::new</span>(<span class="number">20</span>, <span class="number">20</span>))
         );
     }
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">dimensions</span>() {
-        <span class="kw">let</span> <span class="ident">circle</span> <span class="op">=</span> <span class="ident">Circle</span>::<span class="ident">new</span>(<span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">5</span>, <span class="number">15</span>), <span class="number">10</span>);
+        <span class="kw">let</span> <span class="ident">circle</span> <span class="op">=</span> <span class="ident">Circle::new</span>(<span class="ident">Point::new</span>(<span class="number">5</span>, <span class="number">15</span>), <span class="number">10</span>);
 
-        <span class="macro">assert_eq</span><span class="macro">!</span>(
+        <span class="macro">assert_eq!</span>(
             <span class="ident">circle</span>.<span class="ident">bounding_box</span>(),
-            <span class="ident">Rectangle</span>::<span class="ident">new</span>(<span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">5</span>, <span class="number">15</span>), <span class="ident">Size</span>::<span class="ident">new</span>(<span class="number">10</span>, <span class="number">10</span>))
+            <span class="ident">Rectangle::new</span>(<span class="ident">Point::new</span>(<span class="number">5</span>, <span class="number">15</span>), <span class="ident">Size::new</span>(<span class="number">10</span>, <span class="number">10</span>))
         );
     }
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">center_is_correct</span>() {
         <span class="comment">// odd diameter</span>
-        <span class="kw">let</span> <span class="ident">circle</span> <span class="op">=</span> <span class="ident">Circle</span>::<span class="ident">new</span>(<span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">10</span>, <span class="number">10</span>), <span class="number">5</span>);
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">circle</span>.<span class="ident">center</span>(), <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">12</span>, <span class="number">12</span>));
+        <span class="kw">let</span> <span class="ident">circle</span> <span class="op">=</span> <span class="ident">Circle::new</span>(<span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">10</span>), <span class="number">5</span>);
+        <span class="macro">assert_eq!</span>(<span class="ident">circle</span>.<span class="ident">center</span>(), <span class="ident">Point::new</span>(<span class="number">12</span>, <span class="number">12</span>));
 
         <span class="comment">// even diameter</span>
-        <span class="kw">let</span> <span class="ident">circle</span> <span class="op">=</span> <span class="ident">Circle</span>::<span class="ident">new</span>(<span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">10</span>, <span class="number">10</span>), <span class="number">6</span>);
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">circle</span>.<span class="ident">center</span>(), <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">12</span>, <span class="number">12</span>));
+        <span class="kw">let</span> <span class="ident">circle</span> <span class="op">=</span> <span class="ident">Circle::new</span>(<span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">10</span>), <span class="number">6</span>);
+        <span class="macro">assert_eq!</span>(<span class="ident">circle</span>.<span class="ident">center</span>(), <span class="ident">Point::new</span>(<span class="number">12</span>, <span class="number">12</span>));
 
         <span class="comment">// odd diameter</span>
-        <span class="kw">let</span> <span class="ident">circle</span> <span class="op">=</span> <span class="ident">Circle</span>::<span class="ident">with_center</span>(<span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">10</span>, <span class="number">10</span>), <span class="number">5</span>);
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">circle</span>.<span class="ident">center</span>(), <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">10</span>, <span class="number">10</span>));
+        <span class="kw">let</span> <span class="ident">circle</span> <span class="op">=</span> <span class="ident">Circle::with_center</span>(<span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">10</span>), <span class="number">5</span>);
+        <span class="macro">assert_eq!</span>(<span class="ident">circle</span>.<span class="ident">center</span>(), <span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">10</span>));
 
         <span class="comment">// even diameter</span>
-        <span class="kw">let</span> <span class="ident">circle</span> <span class="op">=</span> <span class="ident">Circle</span>::<span class="ident">with_center</span>(<span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">10</span>, <span class="number">10</span>), <span class="number">6</span>);
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">circle</span>.<span class="ident">center</span>(), <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">10</span>, <span class="number">10</span>));
+        <span class="kw">let</span> <span class="ident">circle</span> <span class="op">=</span> <span class="ident">Circle::with_center</span>(<span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">10</span>), <span class="number">6</span>);
+        <span class="macro">assert_eq!</span>(<span class="ident">circle</span>.<span class="ident">center</span>(), <span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">10</span>));
     }
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">contains</span>() {
-        <span class="kw">let</span> <span class="ident">circle</span> <span class="op">=</span> <span class="ident">Circle</span>::<span class="ident">new</span>(<span class="ident">Point</span>::<span class="ident">zero</span>(), <span class="number">5</span>);
+        <span class="kw">let</span> <span class="ident">circle</span> <span class="op">=</span> <span class="ident">Circle::new</span>(<span class="ident">Point::zero</span>(), <span class="number">5</span>);
 
-        <span class="kw">let</span> <span class="ident">contained_points</span> <span class="op">=</span> <span class="ident">Rectangle</span>::<span class="ident">new</span>(<span class="ident">Point</span>::<span class="ident">new</span>(<span class="op">-</span><span class="number">10</span>, <span class="op">-</span><span class="number">10</span>), <span class="ident">Size</span>::<span class="ident">new</span>(<span class="number">20</span>, <span class="number">20</span>))
+        <span class="kw">let</span> <span class="ident">contained_points</span> <span class="op">=</span> <span class="ident">Rectangle::new</span>(<span class="ident">Point::new</span>(<span class="op">-</span><span class="number">10</span>, <span class="op">-</span><span class="number">10</span>), <span class="ident">Size::new</span>(<span class="number">20</span>, <span class="number">20</span>))
             .<span class="ident">points</span>()
             .<span class="ident">filter</span>(<span class="op">|</span><span class="ident">p</span><span class="op">|</span> <span class="ident">circle</span>.<span class="ident">contains</span>(<span class="kw-2">*</span><span class="ident">p</span>));
 
-        <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">contained_points</span>.<span class="ident">eq</span>(<span class="ident">circle</span>.<span class="ident">points</span>()));
+        <span class="macro">assert!</span>(<span class="ident">contained_points</span>.<span class="ident">eq</span>(<span class="ident">circle</span>.<span class="ident">points</span>()));
     }
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">offset</span>() {
-        <span class="kw">let</span> <span class="ident">center</span> <span class="op">=</span> <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">1</span>, <span class="number">2</span>);
-        <span class="kw">let</span> <span class="ident">circle</span> <span class="op">=</span> <span class="ident">Circle</span>::<span class="ident">with_center</span>(<span class="ident">center</span>, <span class="number">3</span>);
+        <span class="kw">let</span> <span class="ident">center</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="number">1</span>, <span class="number">2</span>);
+        <span class="kw">let</span> <span class="ident">circle</span> <span class="op">=</span> <span class="ident">Circle::with_center</span>(<span class="ident">center</span>, <span class="number">3</span>);
 
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">circle</span>.<span class="ident">offset</span>(<span class="number">0</span>), <span class="ident">circle</span>);
+        <span class="macro">assert_eq!</span>(<span class="ident">circle</span>.<span class="ident">offset</span>(<span class="number">0</span>), <span class="ident">circle</span>);
 
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">circle</span>.<span class="ident">offset</span>(<span class="number">1</span>), <span class="ident">Circle</span>::<span class="ident">with_center</span>(<span class="ident">center</span>, <span class="number">5</span>));
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">circle</span>.<span class="ident">offset</span>(<span class="number">2</span>), <span class="ident">Circle</span>::<span class="ident">with_center</span>(<span class="ident">center</span>, <span class="number">7</span>));
+        <span class="macro">assert_eq!</span>(<span class="ident">circle</span>.<span class="ident">offset</span>(<span class="number">1</span>), <span class="ident">Circle::with_center</span>(<span class="ident">center</span>, <span class="number">5</span>));
+        <span class="macro">assert_eq!</span>(<span class="ident">circle</span>.<span class="ident">offset</span>(<span class="number">2</span>), <span class="ident">Circle::with_center</span>(<span class="ident">center</span>, <span class="number">7</span>));
 
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">circle</span>.<span class="ident">offset</span>(<span class="op">-</span><span class="number">1</span>), <span class="ident">Circle</span>::<span class="ident">with_center</span>(<span class="ident">center</span>, <span class="number">1</span>));
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">circle</span>.<span class="ident">offset</span>(<span class="op">-</span><span class="number">2</span>), <span class="ident">Circle</span>::<span class="ident">with_center</span>(<span class="ident">center</span>, <span class="number">0</span>));
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">circle</span>.<span class="ident">offset</span>(<span class="op">-</span><span class="number">3</span>), <span class="ident">Circle</span>::<span class="ident">with_center</span>(<span class="ident">center</span>, <span class="number">0</span>));
+        <span class="macro">assert_eq!</span>(<span class="ident">circle</span>.<span class="ident">offset</span>(<span class="op">-</span><span class="number">1</span>), <span class="ident">Circle::with_center</span>(<span class="ident">center</span>, <span class="number">1</span>));
+        <span class="macro">assert_eq!</span>(<span class="ident">circle</span>.<span class="ident">offset</span>(<span class="op">-</span><span class="number">2</span>), <span class="ident">Circle::with_center</span>(<span class="ident">center</span>, <span class="number">0</span>));
+        <span class="macro">assert_eq!</span>(<span class="ident">circle</span>.<span class="ident">offset</span>(<span class="op">-</span><span class="number">3</span>), <span class="ident">Circle::with_center</span>(<span class="ident">center</span>, <span class="number">0</span>));
     }
 }
 </pre></div>
-</section><section id="search" class="content hidden"></section><section class="footer"></section><div id="rustdoc-vars" data-root-path="../../../../" data-current-crate="embedded_graphics" data-search-js="../../../../search-index.js"></div>
-    <script src="../../../../main.js"></script><script src="../../../../source-script.js"></script><script src="../../../../source-files.js"></script></body></html>
+</section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../../../" data-current-crate="embedded_graphics" data-search-index-js="../../../../search-index.js" data-search-js="../../../../search.js"></div><script src="../../../../main.js"></script><script src="../../../../source-script.js"></script><script src="../../../../source-files.js"></script></body></html>

@@ -1,7 +1,6 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-core-0.3.2/src/geometry/point.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>point.rs - source</title><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled ><script id="default-settings"></script><script src="../../../storage.js"></script><script src="../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
 <link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png">
-<link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../embedded_graphics_core/index.html'><div class='logo-container'><img src='https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/b225511f390c0ed9bc065eb67d05125845312148/assets/logo_core.svg?sanitize=true' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><script src="../../../theme.js"></script><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" class="help-button">?</button>
-                <a id="settings-menu" href="../../../settings.html"><img src="../../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">  1</span>
+<link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../embedded_graphics_core/index.html'><div class='logo-container'><img src='https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/b225511f390c0ed9bc065eb67d05125845312148/assets/logo_core.svg?sanitize=true' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img src="../../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../../settings.html" title="settings"><img src="../../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -761,14 +760,14 @@
 <span id="758">758</span>
 <span id="759">759</span>
 <span id="760">760</span>
-</pre><div class="example-wrap"><pre class="rust ">
+</pre><pre class="rust">
 <span class="kw">use</span> <span class="ident">core</span>::{
     <span class="ident">convert</span>::{<span class="ident">TryFrom</span>, <span class="ident">TryInto</span>},
     <span class="ident">fmt</span>,
     <span class="ident">ops</span>::{<span class="ident">Add</span>, <span class="ident">AddAssign</span>, <span class="ident">Div</span>, <span class="ident">DivAssign</span>, <span class="ident">Index</span>, <span class="ident">Mul</span>, <span class="ident">MulAssign</span>, <span class="ident">Neg</span>, <span class="ident">Sub</span>, <span class="ident">SubAssign</span>},
 };
 
-<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">geometry</span>::<span class="ident">Size</span>;
+<span class="kw">use</span> <span class="kw">crate</span><span class="ident">::geometry::Size</span>;
 
 <span class="doccomment">/// 2D point.</span>
 <span class="doccomment">///</span>
@@ -918,7 +917,7 @@
     <span class="doccomment">/// assert_eq!(point.abs(), Point::new(5, 10));</span>
     <span class="doccomment">/// ```</span>
     <span class="kw">pub</span> <span class="kw">const</span> <span class="kw">fn</span> <span class="ident">abs</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
-        <span class="ident">Point</span>::<span class="ident">new</span>(<span class="self">self</span>.<span class="ident">x</span>.<span class="ident">abs</span>(), <span class="self">self</span>.<span class="ident">y</span>.<span class="ident">abs</span>())
+        <span class="ident">Point::new</span>(<span class="self">self</span>.<span class="ident">x</span>.<span class="ident">abs</span>(), <span class="self">self</span>.<span class="ident">y</span>.<span class="ident">abs</span>())
     }
 
     <span class="doccomment">/// Returns the componentwise minimum of two `Point`s</span>
@@ -933,7 +932,7 @@
     <span class="doccomment">/// assert_eq!(min, Point::new(15, 30));</span>
     <span class="doccomment">/// ```</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">component_min</span>(<span class="self">self</span>, <span class="ident">other</span>: <span class="self">Self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
-        <span class="self">Self</span>::<span class="ident">new</span>(<span class="self">self</span>.<span class="ident">x</span>.<span class="ident">min</span>(<span class="ident">other</span>.<span class="ident">x</span>), <span class="self">self</span>.<span class="ident">y</span>.<span class="ident">min</span>(<span class="ident">other</span>.<span class="ident">y</span>))
+        <span class="self">Self</span><span class="ident">::new</span>(<span class="self">self</span>.<span class="ident">x</span>.<span class="ident">min</span>(<span class="ident">other</span>.<span class="ident">x</span>), <span class="self">self</span>.<span class="ident">y</span>.<span class="ident">min</span>(<span class="ident">other</span>.<span class="ident">y</span>))
     }
 
     <span class="doccomment">/// Returns the componentwise maximum of two `Point`s</span>
@@ -948,7 +947,7 @@
     <span class="doccomment">/// assert_eq!(min, Point::new(20, 50));</span>
     <span class="doccomment">/// ```</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">component_max</span>(<span class="self">self</span>, <span class="ident">other</span>: <span class="self">Self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
-        <span class="self">Self</span>::<span class="ident">new</span>(<span class="self">self</span>.<span class="ident">x</span>.<span class="ident">max</span>(<span class="ident">other</span>.<span class="ident">x</span>), <span class="self">self</span>.<span class="ident">y</span>.<span class="ident">max</span>(<span class="ident">other</span>.<span class="ident">y</span>))
+        <span class="self">Self</span><span class="ident">::new</span>(<span class="self">self</span>.<span class="ident">x</span>.<span class="ident">max</span>(<span class="ident">other</span>.<span class="ident">x</span>), <span class="self">self</span>.<span class="ident">y</span>.<span class="ident">max</span>(<span class="ident">other</span>.<span class="ident">y</span>))
     }
 
     <span class="doccomment">/// Returns the componentwise multiplication of two `Point`s.</span>
@@ -961,7 +960,7 @@
     <span class="doccomment">/// assert_eq!(result, Point::new(-40, 90));</span>
     <span class="doccomment">/// ```</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">component_mul</span>(<span class="self">self</span>, <span class="ident">other</span>: <span class="self">Self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
-        <span class="self">Self</span>::<span class="ident">new</span>(<span class="self">self</span>.<span class="ident">x</span> <span class="op">*</span> <span class="ident">other</span>.<span class="ident">x</span>, <span class="self">self</span>.<span class="ident">y</span> <span class="op">*</span> <span class="ident">other</span>.<span class="ident">y</span>)
+        <span class="self">Self</span><span class="ident">::new</span>(<span class="self">self</span>.<span class="ident">x</span> <span class="op">*</span> <span class="ident">other</span>.<span class="ident">x</span>, <span class="self">self</span>.<span class="ident">y</span> <span class="op">*</span> <span class="ident">other</span>.<span class="ident">y</span>)
     }
 
     <span class="doccomment">/// Returns the componentwise division of two `Points`s.</span>
@@ -978,7 +977,7 @@
     <span class="doccomment">/// assert_eq!(result, Point::new(2, -10));</span>
     <span class="doccomment">/// ```</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">component_div</span>(<span class="self">self</span>, <span class="ident">other</span>: <span class="self">Self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
-        <span class="self">Self</span>::<span class="ident">new</span>(<span class="self">self</span>.<span class="ident">x</span> <span class="op">/</span> <span class="ident">other</span>.<span class="ident">x</span>, <span class="self">self</span>.<span class="ident">y</span> <span class="op">/</span> <span class="ident">other</span>.<span class="ident">y</span>)
+        <span class="self">Self</span><span class="ident">::new</span>(<span class="self">self</span>.<span class="ident">x</span> <span class="op">/</span> <span class="ident">other</span>.<span class="ident">x</span>, <span class="self">self</span>.<span class="ident">y</span> <span class="op">/</span> <span class="ident">other</span>.<span class="ident">y</span>)
     }
 }
 
@@ -986,7 +985,7 @@
     <span class="kw">type</span> <span class="ident">Output</span> <span class="op">=</span> <span class="ident">Point</span>;
 
     <span class="kw">fn</span> <span class="ident">add</span>(<span class="self">self</span>, <span class="ident">other</span>: <span class="ident">Point</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Point</span> {
-        <span class="ident">Point</span>::<span class="ident">new</span>(<span class="self">self</span>.<span class="ident">x</span> <span class="op">+</span> <span class="ident">other</span>.<span class="ident">x</span>, <span class="self">self</span>.<span class="ident">y</span> <span class="op">+</span> <span class="ident">other</span>.<span class="ident">y</span>)
+        <span class="ident">Point::new</span>(<span class="self">self</span>.<span class="ident">x</span> <span class="op">+</span> <span class="ident">other</span>.<span class="ident">x</span>, <span class="self">self</span>.<span class="ident">y</span> <span class="op">+</span> <span class="ident">other</span>.<span class="ident">y</span>)
     }
 }
 
@@ -1003,10 +1002,10 @@
         <span class="kw">let</span> <span class="ident">width</span> <span class="op">=</span> <span class="ident">other</span>.<span class="ident">width</span> <span class="kw">as</span> <span class="ident">i32</span>;
         <span class="kw">let</span> <span class="ident">height</span> <span class="op">=</span> <span class="ident">other</span>.<span class="ident">height</span> <span class="kw">as</span> <span class="ident">i32</span>;
 
-        <span class="macro">debug_assert</span><span class="macro">!</span>(<span class="ident">width</span> <span class="op">&gt;</span><span class="op">=</span> <span class="number">0</span>, <span class="string">&quot;width is too large&quot;</span>);
-        <span class="macro">debug_assert</span><span class="macro">!</span>(<span class="ident">height</span> <span class="op">&gt;</span><span class="op">=</span> <span class="number">0</span>, <span class="string">&quot;height is too large&quot;</span>);
+        <span class="macro">debug_assert!</span>(<span class="ident">width</span> <span class="op">&gt;</span><span class="op">=</span> <span class="number">0</span>, <span class="string">&quot;width is too large&quot;</span>);
+        <span class="macro">debug_assert!</span>(<span class="ident">height</span> <span class="op">&gt;</span><span class="op">=</span> <span class="number">0</span>, <span class="string">&quot;height is too large&quot;</span>);
 
-        <span class="ident">Point</span>::<span class="ident">new</span>(<span class="self">self</span>.<span class="ident">x</span> <span class="op">+</span> <span class="ident">width</span>, <span class="self">self</span>.<span class="ident">y</span> <span class="op">+</span> <span class="ident">height</span>)
+        <span class="ident">Point::new</span>(<span class="self">self</span>.<span class="ident">x</span> <span class="op">+</span> <span class="ident">width</span>, <span class="self">self</span>.<span class="ident">y</span> <span class="op">+</span> <span class="ident">height</span>)
     }
 }
 
@@ -1028,8 +1027,8 @@
         <span class="kw">let</span> <span class="ident">width</span> <span class="op">=</span> <span class="ident">other</span>.<span class="ident">width</span> <span class="kw">as</span> <span class="ident">i32</span>;
         <span class="kw">let</span> <span class="ident">height</span> <span class="op">=</span> <span class="ident">other</span>.<span class="ident">height</span> <span class="kw">as</span> <span class="ident">i32</span>;
 
-        <span class="macro">debug_assert</span><span class="macro">!</span>(<span class="ident">width</span> <span class="op">&gt;</span><span class="op">=</span> <span class="number">0</span>, <span class="string">&quot;width is too large&quot;</span>);
-        <span class="macro">debug_assert</span><span class="macro">!</span>(<span class="ident">height</span> <span class="op">&gt;</span><span class="op">=</span> <span class="number">0</span>, <span class="string">&quot;height is too large&quot;</span>);
+        <span class="macro">debug_assert!</span>(<span class="ident">width</span> <span class="op">&gt;</span><span class="op">=</span> <span class="number">0</span>, <span class="string">&quot;width is too large&quot;</span>);
+        <span class="macro">debug_assert!</span>(<span class="ident">height</span> <span class="op">&gt;</span><span class="op">=</span> <span class="number">0</span>, <span class="string">&quot;height is too large&quot;</span>);
 
         <span class="self">self</span>.<span class="ident">x</span> <span class="op">+</span><span class="op">=</span> <span class="ident">width</span>;
         <span class="self">self</span>.<span class="ident">y</span> <span class="op">+</span><span class="op">=</span> <span class="ident">height</span>;
@@ -1040,7 +1039,7 @@
     <span class="kw">type</span> <span class="ident">Output</span> <span class="op">=</span> <span class="ident">Point</span>;
 
     <span class="kw">fn</span> <span class="ident">sub</span>(<span class="self">self</span>, <span class="ident">other</span>: <span class="ident">Point</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Point</span> {
-        <span class="ident">Point</span>::<span class="ident">new</span>(<span class="self">self</span>.<span class="ident">x</span> <span class="op">-</span> <span class="ident">other</span>.<span class="ident">x</span>, <span class="self">self</span>.<span class="ident">y</span> <span class="op">-</span> <span class="ident">other</span>.<span class="ident">y</span>)
+        <span class="ident">Point::new</span>(<span class="self">self</span>.<span class="ident">x</span> <span class="op">-</span> <span class="ident">other</span>.<span class="ident">x</span>, <span class="self">self</span>.<span class="ident">y</span> <span class="op">-</span> <span class="ident">other</span>.<span class="ident">y</span>)
     }
 }
 
@@ -1057,10 +1056,10 @@
         <span class="kw">let</span> <span class="ident">width</span> <span class="op">=</span> <span class="ident">other</span>.<span class="ident">width</span> <span class="kw">as</span> <span class="ident">i32</span>;
         <span class="kw">let</span> <span class="ident">height</span> <span class="op">=</span> <span class="ident">other</span>.<span class="ident">height</span> <span class="kw">as</span> <span class="ident">i32</span>;
 
-        <span class="macro">debug_assert</span><span class="macro">!</span>(<span class="ident">width</span> <span class="op">&gt;</span><span class="op">=</span> <span class="number">0</span>, <span class="string">&quot;width is too large&quot;</span>);
-        <span class="macro">debug_assert</span><span class="macro">!</span>(<span class="ident">height</span> <span class="op">&gt;</span><span class="op">=</span> <span class="number">0</span>, <span class="string">&quot;height is too large&quot;</span>);
+        <span class="macro">debug_assert!</span>(<span class="ident">width</span> <span class="op">&gt;</span><span class="op">=</span> <span class="number">0</span>, <span class="string">&quot;width is too large&quot;</span>);
+        <span class="macro">debug_assert!</span>(<span class="ident">height</span> <span class="op">&gt;</span><span class="op">=</span> <span class="number">0</span>, <span class="string">&quot;height is too large&quot;</span>);
 
-        <span class="ident">Point</span>::<span class="ident">new</span>(<span class="self">self</span>.<span class="ident">x</span> <span class="op">-</span> <span class="ident">width</span>, <span class="self">self</span>.<span class="ident">y</span> <span class="op">-</span> <span class="ident">height</span>)
+        <span class="ident">Point::new</span>(<span class="self">self</span>.<span class="ident">x</span> <span class="op">-</span> <span class="ident">width</span>, <span class="self">self</span>.<span class="ident">y</span> <span class="op">-</span> <span class="ident">height</span>)
     }
 }
 
@@ -1082,8 +1081,8 @@
         <span class="kw">let</span> <span class="ident">width</span> <span class="op">=</span> <span class="ident">other</span>.<span class="ident">width</span> <span class="kw">as</span> <span class="ident">i32</span>;
         <span class="kw">let</span> <span class="ident">height</span> <span class="op">=</span> <span class="ident">other</span>.<span class="ident">height</span> <span class="kw">as</span> <span class="ident">i32</span>;
 
-        <span class="macro">debug_assert</span><span class="macro">!</span>(<span class="ident">width</span> <span class="op">&gt;</span><span class="op">=</span> <span class="number">0</span>, <span class="string">&quot;width is too large&quot;</span>);
-        <span class="macro">debug_assert</span><span class="macro">!</span>(<span class="ident">height</span> <span class="op">&gt;</span><span class="op">=</span> <span class="number">0</span>, <span class="string">&quot;height is too large&quot;</span>);
+        <span class="macro">debug_assert!</span>(<span class="ident">width</span> <span class="op">&gt;</span><span class="op">=</span> <span class="number">0</span>, <span class="string">&quot;width is too large&quot;</span>);
+        <span class="macro">debug_assert!</span>(<span class="ident">height</span> <span class="op">&gt;</span><span class="op">=</span> <span class="number">0</span>, <span class="string">&quot;height is too large&quot;</span>);
 
         <span class="self">self</span>.<span class="ident">x</span> <span class="op">-</span><span class="op">=</span> <span class="ident">width</span>;
         <span class="self">self</span>.<span class="ident">y</span> <span class="op">-</span><span class="op">=</span> <span class="ident">height</span>;
@@ -1094,7 +1093,7 @@
     <span class="kw">type</span> <span class="ident">Output</span> <span class="op">=</span> <span class="ident">Point</span>;
 
     <span class="kw">fn</span> <span class="ident">mul</span>(<span class="self">self</span>, <span class="ident">rhs</span>: <span class="ident">i32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Point</span> {
-        <span class="ident">Point</span>::<span class="ident">new</span>(<span class="self">self</span>.<span class="ident">x</span> <span class="op">*</span> <span class="ident">rhs</span>, <span class="self">self</span>.<span class="ident">y</span> <span class="op">*</span> <span class="ident">rhs</span>)
+        <span class="ident">Point::new</span>(<span class="self">self</span>.<span class="ident">x</span> <span class="op">*</span> <span class="ident">rhs</span>, <span class="self">self</span>.<span class="ident">y</span> <span class="op">*</span> <span class="ident">rhs</span>)
     }
 }
 
@@ -1109,7 +1108,7 @@
     <span class="kw">type</span> <span class="ident">Output</span> <span class="op">=</span> <span class="ident">Point</span>;
 
     <span class="kw">fn</span> <span class="ident">div</span>(<span class="self">self</span>, <span class="ident">rhs</span>: <span class="ident">i32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Point</span> {
-        <span class="ident">Point</span>::<span class="ident">new</span>(<span class="self">self</span>.<span class="ident">x</span> <span class="op">/</span> <span class="ident">rhs</span>, <span class="self">self</span>.<span class="ident">y</span> <span class="op">/</span> <span class="ident">rhs</span>)
+        <span class="ident">Point::new</span>(<span class="self">self</span>.<span class="ident">x</span> <span class="op">/</span> <span class="ident">rhs</span>, <span class="self">self</span>.<span class="ident">y</span> <span class="op">/</span> <span class="ident">rhs</span>)
     }
 }
 
@@ -1127,7 +1126,7 @@
         <span class="kw">match</span> <span class="ident">idx</span> {
             <span class="number">0</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">x</span>,
             <span class="number">1</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">y</span>,
-            <span class="kw">_</span> <span class="op">=</span><span class="op">&gt;</span> <span class="macro">panic</span><span class="macro">!</span>(<span class="string">&quot;index out of bounds: the len is 2 but the index is {}&quot;</span>, <span class="ident">idx</span>),
+            <span class="kw">_</span> <span class="op">=</span><span class="op">&gt;</span> <span class="macro">panic!</span>(<span class="string">&quot;index out of bounds: the len is 2 but the index is {}&quot;</span>, <span class="ident">idx</span>),
         }
     }
 }
@@ -1135,26 +1134,26 @@
 <span class="kw">impl</span> <span class="ident">Neg</span> <span class="kw">for</span> <span class="ident">Point</span> {
     <span class="kw">type</span> <span class="ident">Output</span> <span class="op">=</span> <span class="ident">Point</span>;
 
-    <span class="kw">fn</span> <span class="ident">neg</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span>::<span class="ident">Output</span> {
-        <span class="ident">Point</span>::<span class="ident">new</span>(<span class="op">-</span><span class="self">self</span>.<span class="ident">x</span>, <span class="op">-</span><span class="self">self</span>.<span class="ident">y</span>)
+    <span class="kw">fn</span> <span class="ident">neg</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Output</span> {
+        <span class="ident">Point::new</span>(<span class="op">-</span><span class="self">self</span>.<span class="ident">x</span>, <span class="op">-</span><span class="self">self</span>.<span class="ident">y</span>)
     }
 }
 
 <span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span>(<span class="ident">i32</span>, <span class="ident">i32</span>)<span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Point</span> {
     <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">other</span>: (<span class="ident">i32</span>, <span class="ident">i32</span>)) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
-        <span class="ident">Point</span>::<span class="ident">new</span>(<span class="ident">other</span>.<span class="number">0</span>, <span class="ident">other</span>.<span class="number">1</span>)
+        <span class="ident">Point::new</span>(<span class="ident">other</span>.<span class="number">0</span>, <span class="ident">other</span>.<span class="number">1</span>)
     }
 }
 
 <span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span>[<span class="ident">i32</span>; <span class="number">2</span>]<span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Point</span> {
     <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">other</span>: [<span class="ident">i32</span>; <span class="number">2</span>]) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
-        <span class="ident">Point</span>::<span class="ident">new</span>(<span class="ident">other</span>[<span class="number">0</span>], <span class="ident">other</span>[<span class="number">1</span>])
+        <span class="ident">Point::new</span>(<span class="ident">other</span>[<span class="number">0</span>], <span class="ident">other</span>[<span class="number">1</span>])
     }
 }
 
 <span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span><span class="kw-2">&amp;</span>[<span class="ident">i32</span>; <span class="number">2</span>]<span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Point</span> {
     <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">other</span>: <span class="kw-2">&amp;</span>[<span class="ident">i32</span>; <span class="number">2</span>]) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
-        <span class="ident">Point</span>::<span class="ident">new</span>(<span class="ident">other</span>[<span class="number">0</span>], <span class="ident">other</span>[<span class="number">1</span>])
+        <span class="ident">Point::new</span>(<span class="ident">other</span>[<span class="number">0</span>], <span class="ident">other</span>[<span class="number">1</span>])
     }
 }
 
@@ -1177,62 +1176,62 @@
 }
 
 <span class="kw">impl</span> <span class="ident">TryFrom</span><span class="op">&lt;</span><span class="ident">Point</span><span class="op">&gt;</span> <span class="kw">for</span> (<span class="ident">u32</span>, <span class="ident">u32</span>) {
-    <span class="kw">type</span> <span class="ident">Error</span> <span class="op">=</span> <span class="ident">core</span>::<span class="ident">num</span>::<span class="ident">TryFromIntError</span>;
+    <span class="kw">type</span> <span class="ident">Error</span> <span class="op">=</span> <span class="ident">core::num::TryFromIntError</span>;
 
-    <span class="kw">fn</span> <span class="ident">try_from</span>(<span class="ident">point</span>: <span class="ident">Point</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="self">Self</span>, <span class="self">Self</span>::<span class="ident">Error</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">try_from</span>(<span class="ident">point</span>: <span class="ident">Point</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="self">Self</span>, <span class="self">Self</span><span class="ident">::Error</span><span class="op">&gt;</span> {
         <span class="prelude-val">Ok</span>((<span class="ident">point</span>.<span class="ident">x</span>.<span class="ident">try_into</span>()<span class="question-mark">?</span>, <span class="ident">point</span>.<span class="ident">y</span>.<span class="ident">try_into</span>()<span class="question-mark">?</span>))
     }
 }
 
 <span class="kw">impl</span> <span class="ident">TryFrom</span><span class="op">&lt;</span>(<span class="ident">u32</span>, <span class="ident">u32</span>)<span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Point</span> {
-    <span class="kw">type</span> <span class="ident">Error</span> <span class="op">=</span> <span class="ident">core</span>::<span class="ident">num</span>::<span class="ident">TryFromIntError</span>;
+    <span class="kw">type</span> <span class="ident">Error</span> <span class="op">=</span> <span class="ident">core::num::TryFromIntError</span>;
 
-    <span class="kw">fn</span> <span class="ident">try_from</span>(<span class="ident">point</span>: (<span class="ident">u32</span>, <span class="ident">u32</span>)) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="self">Self</span>, <span class="self">Self</span>::<span class="ident">Error</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">try_from</span>(<span class="ident">point</span>: (<span class="ident">u32</span>, <span class="ident">u32</span>)) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="self">Self</span>, <span class="self">Self</span><span class="ident">::Error</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">x</span> <span class="op">=</span> <span class="ident">point</span>.<span class="number">0</span>.<span class="ident">try_into</span>()<span class="question-mark">?</span>;
         <span class="kw">let</span> <span class="ident">y</span> <span class="op">=</span> <span class="ident">point</span>.<span class="number">1</span>.<span class="ident">try_into</span>()<span class="question-mark">?</span>;
 
-        <span class="prelude-val">Ok</span>(<span class="ident">Point</span>::<span class="ident">new</span>(<span class="ident">x</span>, <span class="ident">y</span>))
+        <span class="prelude-val">Ok</span>(<span class="ident">Point::new</span>(<span class="ident">x</span>, <span class="ident">y</span>))
     }
 }
 
 <span class="kw">impl</span> <span class="ident">TryFrom</span><span class="op">&lt;</span><span class="ident">Point</span><span class="op">&gt;</span> <span class="kw">for</span> [<span class="ident">u32</span>; <span class="number">2</span>] {
-    <span class="kw">type</span> <span class="ident">Error</span> <span class="op">=</span> <span class="ident">core</span>::<span class="ident">num</span>::<span class="ident">TryFromIntError</span>;
+    <span class="kw">type</span> <span class="ident">Error</span> <span class="op">=</span> <span class="ident">core::num::TryFromIntError</span>;
 
-    <span class="kw">fn</span> <span class="ident">try_from</span>(<span class="ident">point</span>: <span class="ident">Point</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="self">Self</span>, <span class="self">Self</span>::<span class="ident">Error</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">try_from</span>(<span class="ident">point</span>: <span class="ident">Point</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="self">Self</span>, <span class="self">Self</span><span class="ident">::Error</span><span class="op">&gt;</span> {
         <span class="prelude-val">Ok</span>([<span class="ident">point</span>.<span class="ident">x</span>.<span class="ident">try_into</span>()<span class="question-mark">?</span>, <span class="ident">point</span>.<span class="ident">y</span>.<span class="ident">try_into</span>()<span class="question-mark">?</span>])
     }
 }
 
 <span class="kw">impl</span> <span class="ident">TryFrom</span><span class="op">&lt;</span>[<span class="ident">u32</span>; <span class="number">2</span>]<span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Point</span> {
-    <span class="kw">type</span> <span class="ident">Error</span> <span class="op">=</span> <span class="ident">core</span>::<span class="ident">num</span>::<span class="ident">TryFromIntError</span>;
+    <span class="kw">type</span> <span class="ident">Error</span> <span class="op">=</span> <span class="ident">core::num::TryFromIntError</span>;
 
-    <span class="kw">fn</span> <span class="ident">try_from</span>(<span class="ident">point</span>: [<span class="ident">u32</span>; <span class="number">2</span>]) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="self">Self</span>, <span class="self">Self</span>::<span class="ident">Error</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">try_from</span>(<span class="ident">point</span>: [<span class="ident">u32</span>; <span class="number">2</span>]) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="self">Self</span>, <span class="self">Self</span><span class="ident">::Error</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">x</span> <span class="op">=</span> <span class="ident">point</span>[<span class="number">0</span>].<span class="ident">try_into</span>()<span class="question-mark">?</span>;
         <span class="kw">let</span> <span class="ident">y</span> <span class="op">=</span> <span class="ident">point</span>[<span class="number">1</span>].<span class="ident">try_into</span>()<span class="question-mark">?</span>;
 
-        <span class="prelude-val">Ok</span>(<span class="ident">Point</span>::<span class="ident">new</span>(<span class="ident">x</span>, <span class="ident">y</span>))
+        <span class="prelude-val">Ok</span>(<span class="ident">Point::new</span>(<span class="ident">x</span>, <span class="ident">y</span>))
     }
 }
 
 <span class="kw">impl</span> <span class="ident">TryFrom</span><span class="op">&lt;</span><span class="kw-2">&amp;</span>[<span class="ident">u32</span>; <span class="number">2</span>]<span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Point</span> {
-    <span class="kw">type</span> <span class="ident">Error</span> <span class="op">=</span> <span class="ident">core</span>::<span class="ident">num</span>::<span class="ident">TryFromIntError</span>;
+    <span class="kw">type</span> <span class="ident">Error</span> <span class="op">=</span> <span class="ident">core::num::TryFromIntError</span>;
 
-    <span class="kw">fn</span> <span class="ident">try_from</span>(<span class="ident">point</span>: <span class="kw-2">&amp;</span>[<span class="ident">u32</span>; <span class="number">2</span>]) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="self">Self</span>, <span class="self">Self</span>::<span class="ident">Error</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">try_from</span>(<span class="ident">point</span>: <span class="kw-2">&amp;</span>[<span class="ident">u32</span>; <span class="number">2</span>]) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="self">Self</span>, <span class="self">Self</span><span class="ident">::Error</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">x</span> <span class="op">=</span> <span class="ident">point</span>[<span class="number">0</span>].<span class="ident">try_into</span>()<span class="question-mark">?</span>;
         <span class="kw">let</span> <span class="ident">y</span> <span class="op">=</span> <span class="ident">point</span>[<span class="number">1</span>].<span class="ident">try_into</span>()<span class="question-mark">?</span>;
 
-        <span class="prelude-val">Ok</span>(<span class="ident">Point</span>::<span class="ident">new</span>(<span class="ident">x</span>, <span class="ident">y</span>))
+        <span class="prelude-val">Ok</span>(<span class="ident">Point::new</span>(<span class="ident">x</span>, <span class="ident">y</span>))
     }
 }
 
-<span class="kw">impl</span> <span class="ident">fmt</span>::<span class="ident">Display</span> <span class="kw">for</span> <span class="ident">Point</span> {
-    <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">fmt</span>::<span class="ident">Formatter</span><span class="op">&lt;</span><span class="lifetime">&#39;_</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">fmt</span>::<span class="prelude-ty">Result</span> {
-        <span class="macro">write</span><span class="macro">!</span>(<span class="ident">f</span>, <span class="string">&quot;{}, {}&quot;</span>, <span class="self">self</span>.<span class="ident">x</span>, <span class="self">self</span>.<span class="ident">y</span>)
+<span class="kw">impl</span> <span class="ident">fmt::Display</span> <span class="kw">for</span> <span class="ident">Point</span> {
+    <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">fmt::Formatter</span><span class="op">&lt;</span><span class="lifetime">&#39;_</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">fmt::Result</span> {
+        <span class="macro">write!</span>(<span class="ident">f</span>, <span class="string">&quot;{}, {}&quot;</span>, <span class="self">self</span>.<span class="ident">x</span>, <span class="self">self</span>.<span class="ident">y</span>)
     }
 }
 
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nalgebra_support&quot;</span>)]</span>
-<span class="kw">use</span> <span class="ident">nalgebra</span>::{<span class="ident">base</span>::<span class="ident">Scalar</span>, <span class="ident">Vector2</span>};
+<span class="kw">use</span> <span class="ident">nalgebra</span>::{<span class="ident">base::Scalar</span>, <span class="ident">Vector2</span>};
 
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nalgebra_support&quot;</span>)]</span>
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">N</span><span class="op">&gt;</span> <span class="ident">From</span><span class="op">&lt;</span><span class="ident">Vector2</span><span class="op">&lt;</span><span class="ident">N</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Point</span>
@@ -1240,7 +1239,7 @@
     <span class="ident">N</span>: <span class="ident">Into</span><span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span> <span class="op">+</span> <span class="ident">Scalar</span> <span class="op">+</span> <span class="ident">Copy</span>,
 {
     <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">other</span>: <span class="ident">Vector2</span><span class="op">&lt;</span><span class="ident">N</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
-        <span class="self">Self</span>::<span class="ident">new</span>(<span class="ident">other</span>[<span class="number">0</span>].<span class="ident">into</span>(), <span class="ident">other</span>[<span class="number">1</span>].<span class="ident">into</span>())
+        <span class="self">Self</span><span class="ident">::new</span>(<span class="ident">other</span>[<span class="number">0</span>].<span class="ident">into</span>(), <span class="ident">other</span>[<span class="number">1</span>].<span class="ident">into</span>())
     }
 }
 
@@ -1250,7 +1249,7 @@
     <span class="ident">N</span>: <span class="ident">Into</span><span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span> <span class="op">+</span> <span class="ident">Scalar</span> <span class="op">+</span> <span class="ident">Copy</span>,
 {
     <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">other</span>: <span class="kw-2">&amp;</span><span class="ident">Vector2</span><span class="op">&lt;</span><span class="ident">N</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
-        <span class="self">Self</span>::<span class="ident">new</span>(<span class="ident">other</span>[<span class="number">0</span>].<span class="ident">into</span>(), <span class="ident">other</span>[<span class="number">1</span>].<span class="ident">into</span>())
+        <span class="self">Self</span><span class="ident">::new</span>(<span class="ident">other</span>[<span class="number">0</span>].<span class="ident">into</span>(), <span class="ident">other</span>[<span class="number">1</span>].<span class="ident">into</span>())
     }
 }
 
@@ -1258,270 +1257,269 @@
 <span class="kw">mod</span> <span class="ident">tests</span> {
     <span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
 
-    <span class="kw">use</span> <span class="ident">core</span>::<span class="ident">fmt</span>::<span class="ident">Write</span>;
+    <span class="kw">use</span> <span class="ident">core::fmt::Write</span>;
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">convert_positive_to_u32_tuple</span>() {
-        <span class="kw">let</span> <span class="ident">p</span> <span class="op">=</span> <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">10</span>, <span class="number">20</span>);
+        <span class="kw">let</span> <span class="ident">p</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">20</span>);
 
         <span class="kw">let</span> <span class="ident">tuple</span>: (<span class="ident">u32</span>, <span class="ident">u32</span>) <span class="op">=</span> <span class="ident">p</span>.<span class="ident">try_into</span>().<span class="ident">unwrap</span>();
         <span class="kw">let</span> <span class="ident">array</span>: [<span class="ident">u32</span>; <span class="number">2</span>] <span class="op">=</span> <span class="ident">p</span>.<span class="ident">try_into</span>().<span class="ident">unwrap</span>();
 
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">tuple</span>, (<span class="number">10</span>, <span class="number">20</span>));
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">array</span>, [<span class="number">10</span>, <span class="number">20</span>]);
+        <span class="macro">assert_eq!</span>(<span class="ident">tuple</span>, (<span class="number">10</span>, <span class="number">20</span>));
+        <span class="macro">assert_eq!</span>(<span class="ident">array</span>, [<span class="number">10</span>, <span class="number">20</span>]);
     }
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">convert_i32_max_to_u32_tuple</span>() {
-        <span class="kw">let</span> <span class="ident">p</span> <span class="op">=</span> <span class="ident">Point</span>::<span class="ident">new</span>(<span class="ident">i32</span>::<span class="ident">max_value</span>(), <span class="ident">i32</span>::<span class="ident">max_value</span>());
+        <span class="kw">let</span> <span class="ident">p</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="ident">i32::max_value</span>(), <span class="ident">i32::max_value</span>());
 
         <span class="kw">let</span> <span class="ident">tuple</span>: (<span class="ident">u32</span>, <span class="ident">u32</span>) <span class="op">=</span> <span class="ident">p</span>.<span class="ident">try_into</span>().<span class="ident">unwrap</span>();
         <span class="kw">let</span> <span class="ident">array</span>: [<span class="ident">u32</span>; <span class="number">2</span>] <span class="op">=</span> <span class="ident">p</span>.<span class="ident">try_into</span>().<span class="ident">unwrap</span>();
 
         <span class="comment">// Literal value taken from https://doc.rust-lang.org/std/primitive.i32.html#method.max_value</span>
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">tuple</span>, (<span class="number">2147483647</span>, <span class="number">2147483647</span>));
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">array</span>, [<span class="number">2147483647</span>, <span class="number">2147483647</span>]);
+        <span class="macro">assert_eq!</span>(<span class="ident">tuple</span>, (<span class="number">2147483647</span>, <span class="number">2147483647</span>));
+        <span class="macro">assert_eq!</span>(<span class="ident">array</span>, [<span class="number">2147483647</span>, <span class="number">2147483647</span>]);
     }
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">convert_negative_to_u32_tuple</span>() {
-        <span class="kw">let</span> <span class="ident">p</span> <span class="op">=</span> <span class="ident">Point</span>::<span class="ident">new</span>(<span class="op">-</span><span class="number">50</span>, <span class="op">-</span><span class="number">10</span>);
+        <span class="kw">let</span> <span class="ident">p</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="op">-</span><span class="number">50</span>, <span class="op">-</span><span class="number">10</span>);
 
         <span class="kw">let</span> <span class="ident">tuple</span>: <span class="prelude-ty">Result</span><span class="op">&lt;</span>(<span class="ident">u32</span>, <span class="ident">u32</span>), <span class="kw">_</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">p</span>.<span class="ident">try_into</span>();
         <span class="kw">let</span> <span class="ident">array</span>: <span class="prelude-ty">Result</span><span class="op">&lt;</span>[<span class="ident">u32</span>; <span class="number">2</span>], <span class="kw">_</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">p</span>.<span class="ident">try_into</span>();
 
-        <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">tuple</span>.<span class="ident">is_err</span>());
-        <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">array</span>.<span class="ident">is_err</span>());
+        <span class="macro">assert!</span>(<span class="ident">tuple</span>.<span class="ident">is_err</span>());
+        <span class="macro">assert!</span>(<span class="ident">array</span>.<span class="ident">is_err</span>());
     }
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">convert_i32_min_to_u32_tuple</span>() {
-        <span class="kw">let</span> <span class="ident">p</span> <span class="op">=</span> <span class="ident">Point</span>::<span class="ident">new</span>(<span class="ident">i32</span>::<span class="ident">min_value</span>(), <span class="ident">i32</span>::<span class="ident">min_value</span>());
+        <span class="kw">let</span> <span class="ident">p</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="ident">i32::min_value</span>(), <span class="ident">i32::min_value</span>());
 
         <span class="kw">let</span> <span class="ident">tuple</span>: <span class="prelude-ty">Result</span><span class="op">&lt;</span>(<span class="ident">u32</span>, <span class="ident">u32</span>), <span class="kw">_</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">p</span>.<span class="ident">try_into</span>();
         <span class="kw">let</span> <span class="ident">array</span>: <span class="prelude-ty">Result</span><span class="op">&lt;</span>[<span class="ident">u32</span>; <span class="number">2</span>], <span class="kw">_</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">p</span>.<span class="ident">try_into</span>();
 
-        <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">tuple</span>.<span class="ident">is_err</span>());
-        <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">array</span>.<span class="ident">is_err</span>());
+        <span class="macro">assert!</span>(<span class="ident">tuple</span>.<span class="ident">is_err</span>());
+        <span class="macro">assert!</span>(<span class="ident">array</span>.<span class="ident">is_err</span>());
     }
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">points_can_be_added</span>() {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">left</span> <span class="op">=</span> <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">10</span>, <span class="number">20</span>);
-        <span class="kw">let</span> <span class="ident">right</span> <span class="op">=</span> <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">30</span>, <span class="number">40</span>);
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">left</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">20</span>);
+        <span class="kw">let</span> <span class="ident">right</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="number">30</span>, <span class="number">40</span>);
 
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">left</span> <span class="op">+</span> <span class="ident">right</span>, <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">40</span>, <span class="number">60</span>));
+        <span class="macro">assert_eq!</span>(<span class="ident">left</span> <span class="op">+</span> <span class="ident">right</span>, <span class="ident">Point::new</span>(<span class="number">40</span>, <span class="number">60</span>));
 
         <span class="ident">left</span> <span class="op">+</span><span class="op">=</span> <span class="ident">right</span>;
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">left</span>, <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">40</span>, <span class="number">60</span>));
+        <span class="macro">assert_eq!</span>(<span class="ident">left</span>, <span class="ident">Point::new</span>(<span class="number">40</span>, <span class="number">60</span>));
     }
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">point_and_size_can_be_added</span>() {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">left</span> <span class="op">=</span> <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">11</span>, <span class="number">21</span>);
-        <span class="kw">let</span> <span class="ident">right</span> <span class="op">=</span> <span class="ident">Size</span>::<span class="ident">new</span>(<span class="number">30</span>, <span class="number">40</span>);
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">left</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="number">11</span>, <span class="number">21</span>);
+        <span class="kw">let</span> <span class="ident">right</span> <span class="op">=</span> <span class="ident">Size::new</span>(<span class="number">30</span>, <span class="number">40</span>);
 
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">left</span> <span class="op">+</span> <span class="ident">right</span>, <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">41</span>, <span class="number">61</span>));
+        <span class="macro">assert_eq!</span>(<span class="ident">left</span> <span class="op">+</span> <span class="ident">right</span>, <span class="ident">Point::new</span>(<span class="number">41</span>, <span class="number">61</span>));
 
         <span class="ident">left</span> <span class="op">+</span><span class="op">=</span> <span class="ident">right</span>;
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">left</span>, <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">41</span>, <span class="number">61</span>));
+        <span class="macro">assert_eq!</span>(<span class="ident">left</span>, <span class="ident">Point::new</span>(<span class="number">41</span>, <span class="number">61</span>));
     }
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">points_can_be_subtracted</span>() {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">left</span> <span class="op">=</span> <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">30</span>, <span class="number">50</span>);
-        <span class="kw">let</span> <span class="ident">right</span> <span class="op">=</span> <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">10</span>, <span class="number">20</span>);
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">left</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="number">30</span>, <span class="number">50</span>);
+        <span class="kw">let</span> <span class="ident">right</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">20</span>);
 
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">left</span> <span class="op">-</span> <span class="ident">right</span>, <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">20</span>, <span class="number">30</span>));
+        <span class="macro">assert_eq!</span>(<span class="ident">left</span> <span class="op">-</span> <span class="ident">right</span>, <span class="ident">Point::new</span>(<span class="number">20</span>, <span class="number">30</span>));
 
         <span class="ident">left</span> <span class="op">-</span><span class="op">=</span> <span class="ident">right</span>;
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">left</span>, <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">20</span>, <span class="number">30</span>));
+        <span class="macro">assert_eq!</span>(<span class="ident">left</span>, <span class="ident">Point::new</span>(<span class="number">20</span>, <span class="number">30</span>));
     }
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">point_and_size_can_be_subtracted</span>() {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">left</span> <span class="op">=</span> <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">30</span>, <span class="number">40</span>);
-        <span class="kw">let</span> <span class="ident">right</span> <span class="op">=</span> <span class="ident">Size</span>::<span class="ident">new</span>(<span class="number">11</span>, <span class="number">22</span>);
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">left</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="number">30</span>, <span class="number">40</span>);
+        <span class="kw">let</span> <span class="ident">right</span> <span class="op">=</span> <span class="ident">Size::new</span>(<span class="number">11</span>, <span class="number">22</span>);
 
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">left</span> <span class="op">-</span> <span class="ident">right</span>, <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">19</span>, <span class="number">18</span>));
+        <span class="macro">assert_eq!</span>(<span class="ident">left</span> <span class="op">-</span> <span class="ident">right</span>, <span class="ident">Point::new</span>(<span class="number">19</span>, <span class="number">18</span>));
 
         <span class="ident">left</span> <span class="op">-</span><span class="op">=</span> <span class="ident">right</span>;
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">left</span>, <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">19</span>, <span class="number">18</span>));
+        <span class="macro">assert_eq!</span>(<span class="ident">left</span>, <span class="ident">Point::new</span>(<span class="number">19</span>, <span class="number">18</span>));
     }
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">points_can_be_negative_after_subtraction</span>() {
-        <span class="kw">let</span> <span class="ident">left</span> <span class="op">=</span> <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">10</span>, <span class="number">20</span>);
-        <span class="kw">let</span> <span class="ident">right</span> <span class="op">=</span> <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">30</span>, <span class="number">50</span>);
+        <span class="kw">let</span> <span class="ident">left</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">20</span>);
+        <span class="kw">let</span> <span class="ident">right</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="number">30</span>, <span class="number">50</span>);
 
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">left</span> <span class="op">-</span> <span class="ident">right</span>, <span class="ident">Point</span>::<span class="ident">new</span>(<span class="op">-</span><span class="number">20</span>, <span class="op">-</span><span class="number">30</span>));
+        <span class="macro">assert_eq!</span>(<span class="ident">left</span> <span class="op">-</span> <span class="ident">right</span>, <span class="ident">Point::new</span>(<span class="op">-</span><span class="number">20</span>, <span class="op">-</span><span class="number">30</span>));
 
-        <span class="kw">let</span> <span class="ident">left</span> <span class="op">=</span> <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">10</span>, <span class="number">20</span>);
-        <span class="kw">let</span> <span class="ident">right</span> <span class="op">=</span> <span class="ident">Size</span>::<span class="ident">new</span>(<span class="number">31</span>, <span class="number">42</span>);
+        <span class="kw">let</span> <span class="ident">left</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">20</span>);
+        <span class="kw">let</span> <span class="ident">right</span> <span class="op">=</span> <span class="ident">Size::new</span>(<span class="number">31</span>, <span class="number">42</span>);
 
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">left</span> <span class="op">-</span> <span class="ident">right</span>, <span class="ident">Point</span>::<span class="ident">new</span>(<span class="op">-</span><span class="number">21</span>, <span class="op">-</span><span class="number">22</span>));
+        <span class="macro">assert_eq!</span>(<span class="ident">left</span> <span class="op">-</span> <span class="ident">right</span>, <span class="ident">Point::new</span>(<span class="op">-</span><span class="number">21</span>, <span class="op">-</span><span class="number">22</span>));
     }
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">points_can_be_multiplied_by_scalar</span>() {
-        <span class="kw">let</span> <span class="ident">p</span> <span class="op">=</span> <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">1</span>, <span class="number">2</span>);
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">p</span> <span class="op">*</span> <span class="number">3</span>, <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">3</span>, <span class="number">6</span>));
+        <span class="kw">let</span> <span class="ident">p</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="number">1</span>, <span class="number">2</span>);
+        <span class="macro">assert_eq!</span>(<span class="ident">p</span> <span class="op">*</span> <span class="number">3</span>, <span class="ident">Point::new</span>(<span class="number">3</span>, <span class="number">6</span>));
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">p</span> <span class="op">=</span> <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">3</span>, <span class="number">4</span>);
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">p</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="number">3</span>, <span class="number">4</span>);
         <span class="ident">p</span> <span class="kw-2">*</span><span class="op">=</span> <span class="op">-</span><span class="number">5</span>;
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">p</span>, <span class="ident">Point</span>::<span class="ident">new</span>(<span class="op">-</span><span class="number">15</span>, <span class="op">-</span><span class="number">20</span>));
+        <span class="macro">assert_eq!</span>(<span class="ident">p</span>, <span class="ident">Point::new</span>(<span class="op">-</span><span class="number">15</span>, <span class="op">-</span><span class="number">20</span>));
     }
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">points_can_be_divided_by_scalar</span>() {
-        <span class="kw">let</span> <span class="ident">p</span> <span class="op">=</span> <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">10</span>, <span class="number">20</span>);
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">p</span> <span class="op">/</span> <span class="number">2</span>, <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">5</span>, <span class="number">10</span>));
+        <span class="kw">let</span> <span class="ident">p</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">20</span>);
+        <span class="macro">assert_eq!</span>(<span class="ident">p</span> <span class="op">/</span> <span class="number">2</span>, <span class="ident">Point::new</span>(<span class="number">5</span>, <span class="number">10</span>));
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">p</span> <span class="op">=</span> <span class="ident">Point</span>::<span class="ident">new</span>(<span class="op">-</span><span class="number">10</span>, <span class="number">10</span>);
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">p</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="op">-</span><span class="number">10</span>, <span class="number">10</span>);
         <span class="ident">p</span> <span class="op">/</span><span class="op">=</span> <span class="op">-</span><span class="number">5</span>;
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">p</span>, <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">2</span>, <span class="op">-</span><span class="number">2</span>));
+        <span class="macro">assert_eq!</span>(<span class="ident">p</span>, <span class="ident">Point::new</span>(<span class="number">2</span>, <span class="op">-</span><span class="number">2</span>));
     }
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="attribute">#[<span class="ident">should_panic</span>(<span class="ident">expected</span> <span class="op">=</span> <span class="string">&quot;width is too large&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">debug_assertions</span>)]</span>
     <span class="kw">fn</span> <span class="ident">too_large_width_can_not_be_added</span>() {
-        <span class="kw">let</span> <span class="ident">p</span> <span class="op">=</span> <span class="ident">Point</span>::<span class="ident">zero</span>();
-        <span class="kw">let</span> <span class="kw">_</span> <span class="op">=</span> <span class="ident">p</span> <span class="op">+</span> <span class="ident">Size</span>::<span class="ident">new</span>(<span class="ident">u32</span>::<span class="ident">max_value</span>(), <span class="number">0</span>);
+        <span class="kw">let</span> <span class="ident">p</span> <span class="op">=</span> <span class="ident">Point::zero</span>();
+        <span class="kw">let</span> <span class="kw">_</span> <span class="op">=</span> <span class="ident">p</span> <span class="op">+</span> <span class="ident">Size::new</span>(<span class="ident">u32::max_value</span>(), <span class="number">0</span>);
     }
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="attribute">#[<span class="ident">should_panic</span>(<span class="ident">expected</span> <span class="op">=</span> <span class="string">&quot;width is too large&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">debug_assertions</span>)]</span>
     <span class="kw">fn</span> <span class="ident">too_large_width_can_not_be_add_assigned</span>() {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">p</span> <span class="op">=</span> <span class="ident">Point</span>::<span class="ident">zero</span>();
-        <span class="ident">p</span> <span class="op">+</span><span class="op">=</span> <span class="ident">Size</span>::<span class="ident">new</span>(<span class="ident">u32</span>::<span class="ident">max_value</span>(), <span class="number">0</span>);
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">p</span> <span class="op">=</span> <span class="ident">Point::zero</span>();
+        <span class="ident">p</span> <span class="op">+</span><span class="op">=</span> <span class="ident">Size::new</span>(<span class="ident">u32::max_value</span>(), <span class="number">0</span>);
     }
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="attribute">#[<span class="ident">should_panic</span>(<span class="ident">expected</span> <span class="op">=</span> <span class="string">&quot;height is too large&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">debug_assertions</span>)]</span>
     <span class="kw">fn</span> <span class="ident">too_large_height_can_not_be_added</span>() {
-        <span class="kw">let</span> <span class="ident">p</span> <span class="op">=</span> <span class="ident">Point</span>::<span class="ident">zero</span>();
-        <span class="kw">let</span> <span class="kw">_</span> <span class="op">=</span> <span class="ident">p</span> <span class="op">+</span> <span class="ident">Size</span>::<span class="ident">new</span>(<span class="number">0</span>, <span class="number">0x80000000</span>);
+        <span class="kw">let</span> <span class="ident">p</span> <span class="op">=</span> <span class="ident">Point::zero</span>();
+        <span class="kw">let</span> <span class="kw">_</span> <span class="op">=</span> <span class="ident">p</span> <span class="op">+</span> <span class="ident">Size::new</span>(<span class="number">0</span>, <span class="number">0x80000000</span>);
     }
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="attribute">#[<span class="ident">should_panic</span>(<span class="ident">expected</span> <span class="op">=</span> <span class="string">&quot;height is too large&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">debug_assertions</span>)]</span>
     <span class="kw">fn</span> <span class="ident">too_large_height_can_not_be_add_assigned</span>() {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">p</span> <span class="op">=</span> <span class="ident">Point</span>::<span class="ident">zero</span>();
-        <span class="ident">p</span> <span class="op">+</span><span class="op">=</span> <span class="ident">Size</span>::<span class="ident">new</span>(<span class="number">0</span>, <span class="number">0x80000000</span>);
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">p</span> <span class="op">=</span> <span class="ident">Point::zero</span>();
+        <span class="ident">p</span> <span class="op">+</span><span class="op">=</span> <span class="ident">Size::new</span>(<span class="number">0</span>, <span class="number">0x80000000</span>);
     }
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="attribute">#[<span class="ident">should_panic</span>(<span class="ident">expected</span> <span class="op">=</span> <span class="string">&quot;width is too large&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">debug_assertions</span>)]</span>
     <span class="kw">fn</span> <span class="ident">too_large_width_can_not_be_subtracted</span>() {
-        <span class="kw">let</span> <span class="ident">p</span> <span class="op">=</span> <span class="ident">Point</span>::<span class="ident">zero</span>();
-        <span class="kw">let</span> <span class="kw">_</span> <span class="op">=</span> <span class="ident">p</span> <span class="op">-</span> <span class="ident">Size</span>::<span class="ident">new</span>(<span class="ident">u32</span>::<span class="ident">max_value</span>(), <span class="number">0</span>);
+        <span class="kw">let</span> <span class="ident">p</span> <span class="op">=</span> <span class="ident">Point::zero</span>();
+        <span class="kw">let</span> <span class="kw">_</span> <span class="op">=</span> <span class="ident">p</span> <span class="op">-</span> <span class="ident">Size::new</span>(<span class="ident">u32::max_value</span>(), <span class="number">0</span>);
     }
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="attribute">#[<span class="ident">should_panic</span>(<span class="ident">expected</span> <span class="op">=</span> <span class="string">&quot;width is too large&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">debug_assertions</span>)]</span>
     <span class="kw">fn</span> <span class="ident">too_large_width_can_not_be_sub_assigned</span>() {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">p</span> <span class="op">=</span> <span class="ident">Point</span>::<span class="ident">zero</span>();
-        <span class="ident">p</span> <span class="op">-</span><span class="op">=</span> <span class="ident">Size</span>::<span class="ident">new</span>(<span class="ident">u32</span>::<span class="ident">max_value</span>(), <span class="number">0</span>);
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">p</span> <span class="op">=</span> <span class="ident">Point::zero</span>();
+        <span class="ident">p</span> <span class="op">-</span><span class="op">=</span> <span class="ident">Size::new</span>(<span class="ident">u32::max_value</span>(), <span class="number">0</span>);
     }
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="attribute">#[<span class="ident">should_panic</span>(<span class="ident">expected</span> <span class="op">=</span> <span class="string">&quot;height is too large&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">debug_assertions</span>)]</span>
     <span class="kw">fn</span> <span class="ident">too_large_height_can_not_be_subtracted</span>() {
-        <span class="kw">let</span> <span class="ident">p</span> <span class="op">=</span> <span class="ident">Point</span>::<span class="ident">zero</span>();
-        <span class="kw">let</span> <span class="kw">_</span> <span class="op">=</span> <span class="ident">p</span> <span class="op">-</span> <span class="ident">Size</span>::<span class="ident">new</span>(<span class="number">0</span>, <span class="number">0x80000000</span>);
+        <span class="kw">let</span> <span class="ident">p</span> <span class="op">=</span> <span class="ident">Point::zero</span>();
+        <span class="kw">let</span> <span class="kw">_</span> <span class="op">=</span> <span class="ident">p</span> <span class="op">-</span> <span class="ident">Size::new</span>(<span class="number">0</span>, <span class="number">0x80000000</span>);
     }
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="attribute">#[<span class="ident">should_panic</span>(<span class="ident">expected</span> <span class="op">=</span> <span class="string">&quot;height is too large&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">debug_assertions</span>)]</span>
     <span class="kw">fn</span> <span class="ident">too_large_height_can_not_be_sub_assigned</span>() {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">p</span> <span class="op">=</span> <span class="ident">Point</span>::<span class="ident">zero</span>();
-        <span class="ident">p</span> <span class="op">-</span><span class="op">=</span> <span class="ident">Size</span>::<span class="ident">new</span>(<span class="number">0</span>, <span class="number">0x80000000</span>);
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">p</span> <span class="op">=</span> <span class="ident">Point::zero</span>();
+        <span class="ident">p</span> <span class="op">-</span><span class="op">=</span> <span class="ident">Size::new</span>(<span class="number">0</span>, <span class="number">0x80000000</span>);
     }
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">from_tuple</span>() {
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">Point</span>::<span class="ident">from</span>((<span class="number">20i32</span>, <span class="number">30i32</span>)), <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">20</span>, <span class="number">30</span>));
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">Point</span>::<span class="ident">from</span>((<span class="number">20i32</span>, <span class="number">30i32</span>)), <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">20</span>, <span class="number">30</span>));
+        <span class="macro">assert_eq!</span>(<span class="ident">Point::from</span>((<span class="number">20i32</span>, <span class="number">30i32</span>)), <span class="ident">Point::new</span>(<span class="number">20</span>, <span class="number">30</span>));
+        <span class="macro">assert_eq!</span>(<span class="ident">Point::from</span>((<span class="number">20i32</span>, <span class="number">30i32</span>)), <span class="ident">Point::new</span>(<span class="number">20</span>, <span class="number">30</span>));
     }
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">from_array</span>() {
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">Point</span>::<span class="ident">from</span>([<span class="number">20i32</span>, <span class="number">30i32</span>]), <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">20</span>, <span class="number">30</span>));
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">Point</span>::<span class="ident">from</span>([<span class="number">20i32</span>, <span class="number">30i32</span>]), <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">20</span>, <span class="number">30</span>));
+        <span class="macro">assert_eq!</span>(<span class="ident">Point::from</span>([<span class="number">20i32</span>, <span class="number">30i32</span>]), <span class="ident">Point::new</span>(<span class="number">20</span>, <span class="number">30</span>));
+        <span class="macro">assert_eq!</span>(<span class="ident">Point::from</span>([<span class="number">20i32</span>, <span class="number">30i32</span>]), <span class="ident">Point::new</span>(<span class="number">20</span>, <span class="number">30</span>));
     }
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">from_array_ref</span>() {
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">Point</span>::<span class="ident">from</span>(<span class="kw-2">&amp;</span>[<span class="number">20i32</span>, <span class="number">30i32</span>]), <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">20</span>, <span class="number">30</span>));
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">Point</span>::<span class="ident">from</span>(<span class="kw-2">&amp;</span>[<span class="number">20i32</span>, <span class="number">30i32</span>]), <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">20</span>, <span class="number">30</span>));
+        <span class="macro">assert_eq!</span>(<span class="ident">Point::from</span>(<span class="kw-2">&amp;</span>[<span class="number">20i32</span>, <span class="number">30i32</span>]), <span class="ident">Point::new</span>(<span class="number">20</span>, <span class="number">30</span>));
+        <span class="macro">assert_eq!</span>(<span class="ident">Point::from</span>(<span class="kw-2">&amp;</span>[<span class="number">20i32</span>, <span class="number">30i32</span>]), <span class="ident">Point::new</span>(<span class="number">20</span>, <span class="number">30</span>));
     }
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">neg</span>() {
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="op">-</span><span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">10</span>, <span class="number">20</span>), <span class="ident">Point</span>::<span class="ident">new</span>(<span class="op">-</span><span class="number">10</span>, <span class="op">-</span><span class="number">20</span>));
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="op">-</span><span class="ident">Point</span>::<span class="ident">new</span>(<span class="op">-</span><span class="number">40</span>, <span class="op">-</span><span class="number">50</span>), <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">40</span>, <span class="number">50</span>));
+        <span class="macro">assert_eq!</span>(<span class="op">-</span><span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">20</span>), <span class="ident">Point::new</span>(<span class="op">-</span><span class="number">10</span>, <span class="op">-</span><span class="number">20</span>));
+        <span class="macro">assert_eq!</span>(<span class="op">-</span><span class="ident">Point::new</span>(<span class="op">-</span><span class="number">40</span>, <span class="op">-</span><span class="number">50</span>), <span class="ident">Point::new</span>(<span class="number">40</span>, <span class="number">50</span>));
     }
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">index</span>() {
-        <span class="kw">let</span> <span class="ident">point</span> <span class="op">=</span> <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">12</span>, <span class="op">-</span><span class="number">34</span>);
+        <span class="kw">let</span> <span class="ident">point</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="number">12</span>, <span class="op">-</span><span class="number">34</span>);
 
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">point</span>.<span class="ident">x</span>, <span class="ident">point</span>[<span class="number">0</span>]);
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">point</span>.<span class="ident">y</span>, <span class="ident">point</span>[<span class="number">1</span>]);
+        <span class="macro">assert_eq!</span>(<span class="ident">point</span>.<span class="ident">x</span>, <span class="ident">point</span>[<span class="number">0</span>]);
+        <span class="macro">assert_eq!</span>(<span class="ident">point</span>.<span class="ident">y</span>, <span class="ident">point</span>[<span class="number">1</span>]);
     }
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="attribute">#[<span class="ident">should_panic</span>]</span>
     <span class="kw">fn</span> <span class="ident">index_out_of_bounds</span>() {
-        <span class="kw">let</span> <span class="ident">point</span> <span class="op">=</span> <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">1</span>, <span class="number">2</span>);
+        <span class="kw">let</span> <span class="ident">point</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="number">1</span>, <span class="number">2</span>);
         <span class="kw">let</span> <span class="kw">_</span> <span class="op">=</span> <span class="ident">point</span>[<span class="number">2</span>];
     }
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nalgebra_support&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">nalgebra_support</span>() {
-        <span class="kw">let</span> <span class="ident">left</span> <span class="op">=</span> <span class="ident">nalgebra</span>::<span class="ident">Vector2</span>::<span class="ident">new</span>(<span class="number">30</span>, <span class="number">40</span>);
-        <span class="kw">let</span> <span class="ident">right</span> <span class="op">=</span> <span class="ident">nalgebra</span>::<span class="ident">Vector2</span>::<span class="ident">new</span>(<span class="number">10</span>, <span class="number">20</span>);
+        <span class="kw">let</span> <span class="ident">left</span> <span class="op">=</span> <span class="ident">nalgebra::Vector2::new</span>(<span class="number">30</span>, <span class="number">40</span>);
+        <span class="kw">let</span> <span class="ident">right</span> <span class="op">=</span> <span class="ident">nalgebra::Vector2::new</span>(<span class="number">10</span>, <span class="number">20</span>);
 
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">Point</span>::<span class="ident">from</span>(<span class="ident">left</span> <span class="op">-</span> <span class="ident">right</span>), <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">20</span>, <span class="number">20</span>));
+        <span class="macro">assert_eq!</span>(<span class="ident">Point::from</span>(<span class="ident">left</span> <span class="op">-</span> <span class="ident">right</span>), <span class="ident">Point::new</span>(<span class="number">20</span>, <span class="number">20</span>));
     }
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;nalgebra_support&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">convert_ref</span>() {
-        <span class="kw">let</span> <span class="ident">left</span> <span class="op">=</span> <span class="ident">nalgebra</span>::<span class="ident">Vector2</span>::<span class="ident">new</span>(<span class="number">30</span>, <span class="number">40</span>);
-        <span class="kw">let</span> <span class="ident">right</span> <span class="op">=</span> <span class="ident">nalgebra</span>::<span class="ident">Vector2</span>::<span class="ident">new</span>(<span class="number">10</span>, <span class="number">20</span>);
+        <span class="kw">let</span> <span class="ident">left</span> <span class="op">=</span> <span class="ident">nalgebra::Vector2::new</span>(<span class="number">30</span>, <span class="number">40</span>);
+        <span class="kw">let</span> <span class="ident">right</span> <span class="op">=</span> <span class="ident">nalgebra::Vector2::new</span>(<span class="number">10</span>, <span class="number">20</span>);
 
         <span class="kw">let</span> <span class="ident">c</span> <span class="op">=</span> <span class="ident">left</span> <span class="op">-</span> <span class="ident">right</span>;
 
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">Point</span>::<span class="ident">from</span>(<span class="kw-2">&amp;</span><span class="ident">c</span>), <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">20</span>, <span class="number">20</span>));
+        <span class="macro">assert_eq!</span>(<span class="ident">Point::from</span>(<span class="kw-2">&amp;</span><span class="ident">c</span>), <span class="ident">Point::new</span>(<span class="number">20</span>, <span class="number">20</span>));
     }
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">component_min_max</span>() {
-        <span class="kw">let</span> <span class="ident">a</span> <span class="op">=</span> <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">20</span>, <span class="number">30</span>);
-        <span class="kw">let</span> <span class="ident">b</span> <span class="op">=</span> <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">15</span>, <span class="number">50</span>);
+        <span class="kw">let</span> <span class="ident">a</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="number">20</span>, <span class="number">30</span>);
+        <span class="kw">let</span> <span class="ident">b</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="number">15</span>, <span class="number">50</span>);
 
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">a</span>.<span class="ident">component_min</span>(<span class="ident">b</span>), <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">15</span>, <span class="number">30</span>));
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">a</span>.<span class="ident">component_max</span>(<span class="ident">b</span>), <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">20</span>, <span class="number">50</span>));
+        <span class="macro">assert_eq!</span>(<span class="ident">a</span>.<span class="ident">component_min</span>(<span class="ident">b</span>), <span class="ident">Point::new</span>(<span class="number">15</span>, <span class="number">30</span>));
+        <span class="macro">assert_eq!</span>(<span class="ident">a</span>.<span class="ident">component_max</span>(<span class="ident">b</span>), <span class="ident">Point::new</span>(<span class="number">20</span>, <span class="number">50</span>));
     }
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">display</span>() {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">buffer</span> <span class="op">=</span> <span class="ident">arrayvec</span>::<span class="ident">ArrayString</span>::<span class="op">&lt;</span>[<span class="ident">u8</span>; <span class="number">32</span>]<span class="op">&gt;</span>::<span class="ident">new</span>();
-        <span class="macro">write</span><span class="macro">!</span>(<span class="ident">buffer</span>, <span class="string">&quot;{}&quot;</span>, <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">123</span>, <span class="op">-</span><span class="number">456</span>)).<span class="ident">unwrap</span>();
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">buffer</span> <span class="op">=</span> <span class="ident">arrayvec::ArrayString</span>::<span class="op">&lt;</span>[<span class="ident">u8</span>; <span class="number">32</span>]<span class="op">&gt;</span><span class="ident">::new</span>();
+        <span class="macro">write!</span>(<span class="ident">buffer</span>, <span class="string">&quot;{}&quot;</span>, <span class="ident">Point::new</span>(<span class="number">123</span>, <span class="op">-</span><span class="number">456</span>)).<span class="ident">unwrap</span>();
 
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="kw-2">&amp;</span><span class="ident">buffer</span>, <span class="string">&quot;123, -456&quot;</span>);
+        <span class="macro">assert_eq!</span>(<span class="kw-2">&amp;</span><span class="ident">buffer</span>, <span class="string">&quot;123, -456&quot;</span>);
     }
 }
 </pre></div>
-</section><section id="search" class="content hidden"></section><section class="footer"></section><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="embedded_graphics_core" data-search-js="../../../search-index.js"></div>
-    <script src="../../../main.js"></script><script src="../../../source-script.js"></script><script src="../../../source-files.js"></script></body></html>
+</section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="embedded_graphics_core" data-search-index-js="../../../search-index.js" data-search-js="../../../search.js"></div><script src="../../../main.js"></script><script src="../../../source-script.js"></script><script src="../../../source-files.js"></script></body></html>

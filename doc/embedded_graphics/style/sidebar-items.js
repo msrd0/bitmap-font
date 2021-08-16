@@ -1,1 +1,0 @@
-initSidebarItems({"struct":[["PrimitiveStyle","Style properties for primitives."],["PrimitiveStyleBuilder","Primitive style builder."],["Styled","Styled."],["TextStyle","Style properties for text."],["TextStyleBuilder","Text style builder."]]});

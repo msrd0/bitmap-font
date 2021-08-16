@@ -1,7 +1,6 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.0/src/primitives/polyline/styled.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>styled.rs - source</title><link rel="stylesheet" type="text/css" href="../../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../../ayu.css" disabled ><script id="default-settings"></script><script src="../../../../storage.js"></script><script src="../../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../../../favicon.svg">
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.1/src/primitives/polyline/styled.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>styled.rs - source</title><link rel="stylesheet" type="text/css" href="../../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../../ayu.css" disabled ><script id="default-settings"></script><script src="../../../../storage.js"></script><script src="../../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../../../favicon.svg">
 <link rel="alternate icon" type="image/png" href="../../../../favicon-16x16.png">
-<link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../../embedded_graphics/index.html'><div class='logo-container'><img src='https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><script src="../../../../theme.js"></script><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" class="help-button">?</button>
-                <a id="settings-menu" href="../../../../settings.html"><img src="../../../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">  1</span>
+<link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../../embedded_graphics/index.html'><div class='logo-container'><img src='https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img src="../../../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../../../settings.html" title="settings"><img src="../../../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -635,32 +634,32 @@
 <span id="632">632</span>
 <span id="633">633</span>
 <span id="634">634</span>
-</pre><div class="example-wrap"><pre class="rust ">
+</pre><pre class="rust">
 <span class="kw">use</span> <span class="kw">crate</span>::{
     <span class="ident">draw_target</span>::{<span class="ident">DrawTarget</span>, <span class="ident">DrawTargetExt</span>},
     <span class="ident">geometry</span>::{<span class="ident">Dimensions</span>, <span class="ident">Point</span>, <span class="ident">Size</span>},
-    <span class="ident">pixelcolor</span>::<span class="ident">PixelColor</span>,
+    <span class="ident">pixelcolor::PixelColor</span>,
     <span class="ident">primitives</span>::{
         <span class="ident">common</span>::{<span class="ident">Scanline</span>, <span class="ident">StrokeOffset</span>, <span class="ident">ThickSegmentIter</span>},
-        <span class="ident">polyline</span>::{<span class="self">self</span>, <span class="ident">scanline_iterator</span>::<span class="ident">ScanlineIterator</span>, <span class="ident">Polyline</span>},
+        <span class="ident">polyline</span>::{<span class="self">self</span>, <span class="ident">scanline_iterator::ScanlineIterator</span>, <span class="ident">Polyline</span>},
         <span class="ident">styled</span>::{<span class="ident">StyledDimensions</span>, <span class="ident">StyledDrawable</span>, <span class="ident">StyledPixels</span>},
         <span class="ident">PointsIter</span>, <span class="ident">PrimitiveStyle</span>, <span class="ident">Rectangle</span>,
     },
-    <span class="ident">transform</span>::<span class="ident">Transform</span>,
+    <span class="ident">transform::Transform</span>,
     <span class="ident">Pixel</span>,
 };
 
 <span class="doccomment">/// Compute the bounding box of the non-translated polyline.</span>
-<span class="kw">pub</span>(<span class="kw">in</span> <span class="kw">crate</span>::<span class="ident">primitives</span>::<span class="ident">polyline</span>) <span class="kw">fn</span> <span class="ident">untranslated_bounding_box</span><span class="op">&lt;</span><span class="ident">C</span>: <span class="ident">PixelColor</span><span class="op">&gt;</span>(
+<span class="kw">pub</span>(<span class="kw">in</span> <span class="kw">crate</span><span class="ident">::primitives::polyline</span>) <span class="kw">fn</span> <span class="ident">untranslated_bounding_box</span><span class="op">&lt;</span><span class="ident">C</span>: <span class="ident">PixelColor</span><span class="op">&gt;</span>(
     <span class="ident">primitive</span>: <span class="kw-2">&amp;</span><span class="ident">Polyline</span>,
     <span class="ident">style</span>: <span class="kw-2">&amp;</span><span class="ident">PrimitiveStyle</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>,
 ) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Rectangle</span> {
     <span class="kw">if</span> <span class="ident">style</span>.<span class="ident">effective_stroke_color</span>().<span class="ident">is_some</span>() <span class="op">&amp;&amp;</span> <span class="ident">primitive</span>.<span class="ident">vertices</span>.<span class="ident">len</span>() <span class="op">&gt;</span> <span class="number">1</span> {
         <span class="kw">let</span> (<span class="ident">min</span>, <span class="ident">max</span>) <span class="op">=</span>
-            <span class="ident">ThickSegmentIter</span>::<span class="ident">new</span>(<span class="ident">primitive</span>.<span class="ident">vertices</span>, <span class="ident">style</span>.<span class="ident">stroke_width</span>, <span class="ident">StrokeOffset</span>::<span class="prelude-val">None</span>).<span class="ident">fold</span>(
+            <span class="ident">ThickSegmentIter::new</span>(<span class="ident">primitive</span>.<span class="ident">vertices</span>, <span class="ident">style</span>.<span class="ident">stroke_width</span>, <span class="ident">StrokeOffset::None</span>).<span class="ident">fold</span>(
                 (
-                    <span class="ident">Point</span>::<span class="ident">new_equal</span>(<span class="ident">core</span>::<span class="ident">i32</span>::<span class="ident">MAX</span>),
-                    <span class="ident">Point</span>::<span class="ident">new_equal</span>(<span class="ident">core</span>::<span class="ident">i32</span>::<span class="ident">MIN</span>),
+                    <span class="ident">Point::new_equal</span>(<span class="ident">core::i32::MAX</span>),
+                    <span class="ident">Point::new_equal</span>(<span class="ident">core::i32::MIN</span>),
                 ),
                 <span class="op">|</span>(<span class="ident">min</span>, <span class="ident">max</span>), <span class="ident">segment</span><span class="op">|</span> {
                     <span class="kw">let</span> <span class="ident">bb</span> <span class="op">=</span> <span class="ident">segment</span>.<span class="ident">edges_bounding_box</span>();
@@ -672,22 +671,22 @@
                 },
             );
 
-        <span class="ident">Rectangle</span>::<span class="ident">with_corners</span>(<span class="ident">min</span>, <span class="ident">max</span>)
+        <span class="ident">Rectangle::with_corners</span>(<span class="ident">min</span>, <span class="ident">max</span>)
     } <span class="kw">else</span> {
-        <span class="ident">Rectangle</span>::<span class="ident">new</span>(<span class="ident">primitive</span>.<span class="ident">bounding_box</span>().<span class="ident">center</span>(), <span class="ident">Size</span>::<span class="ident">zero</span>())
+        <span class="ident">Rectangle::new</span>(<span class="ident">primitive</span>.<span class="ident">bounding_box</span>().<span class="ident">center</span>(), <span class="ident">Size::zero</span>())
     }
 }
 
 <span class="kw">fn</span> <span class="ident">draw_thick</span><span class="op">&lt;</span><span class="ident">D</span><span class="op">&gt;</span>(
     <span class="ident">polyline</span>: <span class="kw-2">&amp;</span><span class="ident">Polyline</span>,
-    <span class="ident">style</span>: <span class="kw-2">&amp;</span><span class="ident">PrimitiveStyle</span><span class="op">&lt;</span><span class="ident">D</span>::<span class="ident">Color</span><span class="op">&gt;</span>,
-    <span class="ident">stroke_color</span>: <span class="ident">D</span>::<span class="ident">Color</span>,
+    <span class="ident">style</span>: <span class="kw-2">&amp;</span><span class="ident">PrimitiveStyle</span><span class="op">&lt;</span><span class="ident">D::Color</span><span class="op">&gt;</span>,
+    <span class="ident">stroke_color</span>: <span class="ident">D::Color</span>,
     <span class="ident">target</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">D</span>,
-) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">D</span>::<span class="ident">Error</span><span class="op">&gt;</span>
+) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">D::Error</span><span class="op">&gt;</span>
 <span class="kw">where</span>
     <span class="ident">D</span>: <span class="ident">DrawTarget</span>,
 {
-    <span class="kw">for</span> <span class="ident">line</span> <span class="kw">in</span> <span class="ident">ScanlineIterator</span>::<span class="ident">new</span>(<span class="ident">polyline</span>, <span class="ident">style</span>) {
+    <span class="kw">for</span> <span class="ident">line</span> <span class="kw">in</span> <span class="ident">ScanlineIterator::new</span>(<span class="ident">polyline</span>, <span class="ident">style</span>) {
         <span class="kw">let</span> <span class="ident">rect</span> <span class="op">=</span> <span class="ident">line</span>.<span class="ident">to_rectangle</span>();
 
         <span class="kw">if</span> <span class="op">!</span><span class="ident">rect</span>.<span class="ident">is_zero_sized</span>() {
@@ -700,7 +699,7 @@
 
 <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Clone</span>, <span class="ident">Debug</span>)]</span>
 <span class="kw">enum</span> <span class="ident">StyledIter</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
-    <span class="ident">Thin</span>(<span class="ident">polyline</span>::<span class="ident">Points</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span>),
+    <span class="ident">Thin</span>(<span class="ident">polyline::Points</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span>),
     <span class="ident">Thick</span> {
         <span class="ident">scanline_iter</span>: <span class="ident">ScanlineIterator</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span>,
         <span class="ident">line_iter</span>: <span class="ident">Scanline</span>,
@@ -716,16 +715,16 @@
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">C</span>: <span class="ident">PixelColor</span><span class="op">&gt;</span> <span class="ident">StyledPixelsIterator</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">C</span><span class="op">&gt;</span> {
-    <span class="kw">pub</span>(<span class="kw">in</span> <span class="kw">crate</span>::<span class="ident">primitives</span>) <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">primitive</span>: <span class="kw-2">&amp;</span><span class="ident">Polyline</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span>, <span class="ident">style</span>: <span class="kw-2">&amp;</span><span class="ident">PrimitiveStyle</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">pub</span>(<span class="kw">in</span> <span class="kw">crate</span><span class="ident">::primitives</span>) <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">primitive</span>: <span class="kw-2">&amp;</span><span class="ident">Polyline</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span>, <span class="ident">style</span>: <span class="kw-2">&amp;</span><span class="ident">PrimitiveStyle</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="kw">let</span> <span class="ident">line_iter</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">style</span>.<span class="ident">stroke_width</span> <span class="op">&lt;</span><span class="op">=</span> <span class="number">1</span> {
-            <span class="ident">StyledIter</span>::<span class="ident">Thin</span>(<span class="ident">primitive</span>.<span class="ident">points</span>())
+            <span class="ident">StyledIter::Thin</span>(<span class="ident">primitive</span>.<span class="ident">points</span>())
         } <span class="kw">else</span> {
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">scanline_iter</span> <span class="op">=</span> <span class="ident">ScanlineIterator</span>::<span class="ident">new</span>(<span class="ident">primitive</span>, <span class="ident">style</span>);
+            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">scanline_iter</span> <span class="op">=</span> <span class="ident">ScanlineIterator::new</span>(<span class="ident">primitive</span>, <span class="ident">style</span>);
             <span class="kw">let</span> <span class="ident">line_iter</span> <span class="op">=</span> <span class="ident">scanline_iter</span>
                 .<span class="ident">next</span>()
-                .<span class="ident">unwrap_or_else</span>(<span class="op">|</span><span class="op">|</span> <span class="ident">Scanline</span>::<span class="ident">new_empty</span>(<span class="number">0</span>));
+                .<span class="ident">unwrap_or_else</span>(<span class="op">|</span><span class="op">|</span> <span class="ident">Scanline::new_empty</span>(<span class="number">0</span>));
 
-            <span class="ident">StyledIter</span>::<span class="ident">Thick</span> {
+            <span class="ident">StyledIter::Thick</span> {
                 <span class="ident">scanline_iter</span>,
                 <span class="ident">line_iter</span>,
                 <span class="ident">translate</span>: <span class="ident">primitive</span>.<span class="ident">translate</span>,
@@ -742,13 +741,13 @@
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">C</span>: <span class="ident">PixelColor</span><span class="op">&gt;</span> <span class="ident">Iterator</span> <span class="kw">for</span> <span class="ident">StyledPixelsIterator</span><span class="op">&lt;</span><span class="lifetime">&#39;_</span>, <span class="ident">C</span><span class="op">&gt;</span> {
     <span class="kw">type</span> <span class="ident">Item</span> <span class="op">=</span> <span class="ident">Pixel</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>;
 
-    <span class="kw">fn</span> <span class="ident">next</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="ident">Item</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">next</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="self">Self</span><span class="ident">::Item</span><span class="op">&gt;</span> {
         <span class="comment">// Return none if stroke color is none</span>
         <span class="kw">let</span> <span class="ident">stroke_color</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">stroke_color</span><span class="question-mark">?</span>;
 
         <span class="kw">match</span> <span class="self">self</span>.<span class="ident">line_iter</span> {
-            <span class="ident">StyledIter</span>::<span class="ident">Thin</span>(<span class="kw-2">ref</span> <span class="kw-2">mut</span> <span class="ident">it</span>) <span class="op">=</span><span class="op">&gt;</span> <span class="ident">it</span>.<span class="ident">next</span>(),
-            <span class="ident">StyledIter</span>::<span class="ident">Thick</span> {
+            <span class="ident">StyledIter::Thin</span>(<span class="kw-2">ref</span> <span class="kw-2">mut</span> <span class="ident">it</span>) <span class="op">=</span><span class="op">&gt;</span> <span class="ident">it</span>.<span class="ident">next</span>(),
+            <span class="ident">StyledIter::Thick</span> {
                 <span class="kw-2">ref</span> <span class="kw-2">mut</span> <span class="ident">scanline_iter</span>,
                 <span class="kw-2">ref</span> <span class="kw-2">mut</span> <span class="ident">line_iter</span>,
                 <span class="ident">translate</span>,
@@ -773,8 +772,8 @@
 <span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">C</span>: <span class="ident">PixelColor</span><span class="op">&gt;</span> <span class="ident">StyledPixels</span><span class="op">&lt;</span><span class="ident">PrimitiveStyle</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Polyline</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
     <span class="kw">type</span> <span class="ident">Iter</span> <span class="op">=</span> <span class="ident">StyledPixelsIterator</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">C</span><span class="op">&gt;</span>;
 
-    <span class="kw">fn</span> <span class="ident">pixels</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">style</span>: <span class="kw-2">&amp;</span><span class="ident">PrimitiveStyle</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span>::<span class="ident">Iter</span> {
-        <span class="ident">StyledPixelsIterator</span>::<span class="ident">new</span>(<span class="self">self</span>, <span class="ident">style</span>)
+    <span class="kw">fn</span> <span class="ident">pixels</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">style</span>: <span class="kw-2">&amp;</span><span class="ident">PrimitiveStyle</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Iter</span> {
+        <span class="ident">StyledPixelsIterator::new</span>(<span class="self">self</span>, <span class="ident">style</span>)
     }
 }
 
@@ -786,7 +785,7 @@
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         <span class="ident">style</span>: <span class="kw-2">&amp;</span><span class="ident">PrimitiveStyle</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>,
         <span class="ident">target</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">D</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="ident">Output</span>, <span class="ident">D</span>::<span class="ident">Error</span><span class="op">&gt;</span>
+    ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="self">Self</span><span class="ident">::Output</span>, <span class="ident">D::Error</span><span class="op">&gt;</span>
     <span class="kw">where</span>
         <span class="ident">D</span>: <span class="ident">DrawTarget</span><span class="op">&lt;</span><span class="ident">Color</span> <span class="op">=</span> <span class="ident">C</span><span class="op">&gt;</span>,
     {
@@ -795,7 +794,7 @@
                 <span class="number">0</span> <span class="op">=</span><span class="op">&gt;</span> <span class="prelude-val">Ok</span>(()),
                 <span class="number">1</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">target</span>.<span class="ident">draw_iter</span>(<span class="self">self</span>.<span class="ident">points</span>().<span class="ident">map</span>(<span class="op">|</span><span class="ident">point</span><span class="op">|</span> <span class="ident">Pixel</span>(<span class="ident">point</span>, <span class="ident">stroke_color</span>))),
                 <span class="kw">_</span> <span class="op">=</span><span class="op">&gt;</span> {
-                    <span class="kw">if</span> <span class="self">self</span>.<span class="ident">translate</span> <span class="op">!</span><span class="op">=</span> <span class="ident">Point</span>::<span class="ident">zero</span>() {
+                    <span class="kw">if</span> <span class="self">self</span>.<span class="ident">translate</span> <span class="op">!</span><span class="op">=</span> <span class="ident">Point::zero</span>() {
                         <span class="ident">draw_thick</span>(
                             <span class="self">self</span>,
                             <span class="ident">style</span>,
@@ -823,29 +822,29 @@
 <span class="kw">mod</span> <span class="ident">tests</span> {
     <span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
     <span class="kw">use</span> <span class="kw">crate</span>::{
-        <span class="ident">geometry</span>::<span class="ident">Point</span>,
-        <span class="ident">iterator</span>::<span class="ident">PixelIteratorExt</span>,
-        <span class="ident">mock_display</span>::<span class="ident">MockDisplay</span>,
+        <span class="ident">geometry::Point</span>,
+        <span class="ident">iterator::PixelIteratorExt</span>,
+        <span class="ident">mock_display::MockDisplay</span>,
         <span class="ident">pixelcolor</span>::{<span class="ident">BinaryColor</span>, <span class="ident">Rgb565</span>, <span class="ident">RgbColor</span>},
         <span class="ident">primitives</span>::{<span class="ident">Primitive</span>, <span class="ident">PrimitiveStyle</span>, <span class="ident">PrimitiveStyleBuilder</span>, <span class="ident">StrokeAlignment</span>},
         <span class="ident">Drawable</span>,
     };
 
     <span class="comment">// Smaller test pattern for mock display</span>
-    <span class="kw">pub</span>(<span class="kw">in</span> <span class="kw">crate</span>::<span class="ident">primitives</span>::<span class="ident">polyline</span>) <span class="kw">const</span> <span class="ident">PATTERN</span>: [<span class="ident">Point</span>; <span class="number">4</span>] <span class="op">=</span> [
-        <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">5</span>, <span class="number">10</span>),
-        <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">13</span>, <span class="number">5</span>),
-        <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">20</span>, <span class="number">10</span>),
-        <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">30</span>, <span class="number">5</span>),
+    <span class="kw">pub</span>(<span class="kw">in</span> <span class="kw">crate</span><span class="ident">::primitives::polyline</span>) <span class="kw">const</span> <span class="ident">PATTERN</span>: [<span class="ident">Point</span>; <span class="number">4</span>] <span class="op">=</span> [
+        <span class="ident">Point::new</span>(<span class="number">5</span>, <span class="number">10</span>),
+        <span class="ident">Point::new</span>(<span class="number">13</span>, <span class="number">5</span>),
+        <span class="ident">Point::new</span>(<span class="number">20</span>, <span class="number">10</span>),
+        <span class="ident">Point::new</span>(<span class="number">30</span>, <span class="number">5</span>),
     ];
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">one_px_stroke</span>() {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="ident">new</span>();
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
 
-        <span class="ident">Polyline</span>::<span class="ident">new</span>(<span class="kw-2">&amp;</span><span class="ident">PATTERN</span>)
-            .<span class="ident">translate</span>(<span class="ident">Point</span>::<span class="ident">new</span>(<span class="op">-</span><span class="number">5</span>, <span class="op">-</span><span class="number">5</span>))
-            .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle</span>::<span class="ident">with_stroke</span>(<span class="ident">BinaryColor</span>::<span class="ident">On</span>, <span class="number">1</span>))
+        <span class="ident">Polyline::new</span>(<span class="kw-2">&amp;</span><span class="ident">PATTERN</span>)
+            .<span class="ident">translate</span>(<span class="ident">Point::new</span>(<span class="op">-</span><span class="number">5</span>, <span class="op">-</span><span class="number">5</span>))
+            .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle::with_stroke</span>(<span class="ident">BinaryColor::On</span>, <span class="number">1</span>))
             .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)
             .<span class="ident">unwrap</span>();
 
@@ -861,10 +860,10 @@
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">one_px_stroke_translated</span>() {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="ident">new</span>();
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
 
-        <span class="ident">Polyline</span>::<span class="ident">new</span>(<span class="kw-2">&amp;</span><span class="ident">PATTERN</span>)
-            .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle</span>::<span class="ident">with_stroke</span>(<span class="ident">BinaryColor</span>::<span class="ident">On</span>, <span class="number">1</span>))
+        <span class="ident">Polyline::new</span>(<span class="kw-2">&amp;</span><span class="ident">PATTERN</span>)
+            .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle::with_stroke</span>(<span class="ident">BinaryColor::On</span>, <span class="number">1</span>))
             .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)
             .<span class="ident">unwrap</span>();
 
@@ -885,10 +884,10 @@
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">thick_stroke</span>() {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="ident">new</span>();
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
 
-        <span class="ident">Polyline</span>::<span class="ident">new</span>(<span class="kw-2">&amp;</span><span class="ident">PATTERN</span>)
-            .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle</span>::<span class="ident">with_stroke</span>(<span class="ident">BinaryColor</span>::<span class="ident">On</span>, <span class="number">4</span>))
+        <span class="ident">Polyline::new</span>(<span class="kw-2">&amp;</span><span class="ident">PATTERN</span>)
+            .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle::with_stroke</span>(<span class="ident">BinaryColor::On</span>, <span class="number">4</span>))
             .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)
             .<span class="ident">unwrap</span>();
 
@@ -911,15 +910,15 @@
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">thick_stroke_translated</span>() {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="ident">new</span>();
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
 
-        <span class="kw">let</span> <span class="ident">styled</span> <span class="op">=</span> <span class="ident">Polyline</span>::<span class="ident">new</span>(<span class="kw-2">&amp;</span><span class="ident">PATTERN</span>)
-            .<span class="ident">translate</span>(<span class="ident">Point</span>::<span class="ident">new</span>(<span class="op">-</span><span class="number">4</span>, <span class="op">-</span><span class="number">3</span>))
-            .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle</span>::<span class="ident">with_stroke</span>(<span class="ident">BinaryColor</span>::<span class="ident">On</span>, <span class="number">4</span>));
+        <span class="kw">let</span> <span class="ident">styled</span> <span class="op">=</span> <span class="ident">Polyline::new</span>(<span class="kw-2">&amp;</span><span class="ident">PATTERN</span>)
+            .<span class="ident">translate</span>(<span class="ident">Point::new</span>(<span class="op">-</span><span class="number">4</span>, <span class="op">-</span><span class="number">3</span>))
+            .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle::with_stroke</span>(<span class="ident">BinaryColor::On</span>, <span class="number">4</span>));
 
-        <span class="macro">assert_eq</span><span class="macro">!</span>(
+        <span class="macro">assert_eq!</span>(
             <span class="ident">styled</span>.<span class="ident">bounding_box</span>(),
-            <span class="ident">Rectangle</span>::<span class="ident">new</span>(<span class="ident">Point</span>::<span class="ident">zero</span>(), <span class="ident">Size</span>::<span class="ident">new</span>(<span class="number">28</span>, <span class="number">10</span>))
+            <span class="ident">Rectangle::new</span>(<span class="ident">Point::zero</span>(), <span class="ident">Size::new</span>(<span class="number">28</span>, <span class="number">10</span>))
         );
 
         <span class="ident">styled</span>.<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>).<span class="ident">unwrap</span>();
@@ -940,12 +939,12 @@
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">thick_stroke_points</span>() {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">d1</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="ident">new</span>();
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">d2</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="ident">new</span>();
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">d1</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">d2</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
 
-        <span class="kw">let</span> <span class="ident">pl</span> <span class="op">=</span> <span class="ident">Polyline</span>::<span class="ident">new</span>(<span class="kw-2">&amp;</span><span class="ident">PATTERN</span>)
-            .<span class="ident">translate</span>(<span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">2</span>, <span class="number">3</span>))
-            .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle</span>::<span class="ident">with_stroke</span>(<span class="ident">BinaryColor</span>::<span class="ident">On</span>, <span class="number">4</span>));
+        <span class="kw">let</span> <span class="ident">pl</span> <span class="op">=</span> <span class="ident">Polyline::new</span>(<span class="kw-2">&amp;</span><span class="ident">PATTERN</span>)
+            .<span class="ident">translate</span>(<span class="ident">Point::new</span>(<span class="number">2</span>, <span class="number">3</span>))
+            .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle::with_stroke</span>(<span class="ident">BinaryColor::On</span>, <span class="number">4</span>));
 
         <span class="ident">pl</span>.<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">d1</span>).<span class="ident">unwrap</span>();
 
@@ -959,7 +958,7 @@
         <span class="kw">let</span> <span class="ident">cases</span>: [(<span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="kw-2">&amp;</span>[<span class="ident">Point</span>], <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span><span class="ident">str</span>]); <span class="number">4</span>] <span class="op">=</span> [
             (
                 <span class="string">&quot;Bevel with outside on right&quot;</span>,
-                <span class="kw-2">&amp;</span>[<span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">0</span>, <span class="number">6</span>), <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">25</span>, <span class="number">6</span>), <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">3</span>, <span class="number">1</span>)],
+                <span class="kw-2">&amp;</span>[<span class="ident">Point::new</span>(<span class="number">0</span>, <span class="number">6</span>), <span class="ident">Point::new</span>(<span class="number">25</span>, <span class="number">6</span>), <span class="ident">Point::new</span>(<span class="number">3</span>, <span class="number">1</span>)],
                 <span class="kw-2">&amp;</span>[
                     <span class="string">&quot;   ###                    &quot;</span>,
                     <span class="string">&quot;   #######                &quot;</span>,
@@ -973,7 +972,7 @@
             ),
             (
                 <span class="string">&quot;Bevel with outside on left&quot;</span>,
-                <span class="kw-2">&amp;</span>[<span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">0</span>, <span class="number">2</span>), <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">20</span>, <span class="number">2</span>), <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">3</span>, <span class="number">8</span>)],
+                <span class="kw-2">&amp;</span>[<span class="ident">Point::new</span>(<span class="number">0</span>, <span class="number">2</span>), <span class="ident">Point::new</span>(<span class="number">20</span>, <span class="number">2</span>), <span class="ident">Point::new</span>(<span class="number">3</span>, <span class="number">8</span>)],
                 <span class="kw-2">&amp;</span>[
                     <span class="string">&quot;##################### &quot;</span>,
                     <span class="string">&quot;##################### &quot;</span>,
@@ -990,7 +989,7 @@
             ),
             (
                 <span class="string">&quot;Miter with outside on right&quot;</span>,
-                <span class="kw-2">&amp;</span>[<span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">0</span>, <span class="number">6</span>), <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">10</span>, <span class="number">6</span>), <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">3</span>, <span class="number">1</span>)],
+                <span class="kw-2">&amp;</span>[<span class="ident">Point::new</span>(<span class="number">0</span>, <span class="number">6</span>), <span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">6</span>), <span class="ident">Point::new</span>(<span class="number">3</span>, <span class="number">1</span>)],
                 <span class="kw-2">&amp;</span>[
                     <span class="string">&quot;    #          &quot;</span>,
                     <span class="string">&quot;   ####        &quot;</span>,
@@ -1004,7 +1003,7 @@
             ),
             (
                 <span class="string">&quot;Miter with outside on left&quot;</span>,
-                <span class="kw-2">&amp;</span>[<span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">0</span>, <span class="number">2</span>), <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">10</span>, <span class="number">2</span>), <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">3</span>, <span class="number">8</span>)],
+                <span class="kw-2">&amp;</span>[<span class="ident">Point::new</span>(<span class="number">0</span>, <span class="number">2</span>), <span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">2</span>), <span class="ident">Point::new</span>(<span class="number">3</span>, <span class="number">8</span>)],
                 <span class="kw-2">&amp;</span>[
                     <span class="string">&quot;################&quot;</span>,
                     <span class="string">&quot;############### &quot;</span>,
@@ -1021,23 +1020,23 @@
         ];
 
         <span class="kw">for</span> (<span class="ident">case</span>, <span class="ident">points</span>, <span class="ident">expected</span>) <span class="kw">in</span> <span class="ident">cases</span>.<span class="ident">iter</span>() {
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="ident">new</span>();
+            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
 
-            <span class="ident">Polyline</span>::<span class="ident">new</span>(<span class="ident">points</span>)
-                .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle</span>::<span class="ident">with_stroke</span>(<span class="ident">BinaryColor</span>::<span class="ident">On</span>, <span class="number">4</span>))
+            <span class="ident">Polyline::new</span>(<span class="ident">points</span>)
+                .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle::with_stroke</span>(<span class="ident">BinaryColor::On</span>, <span class="number">4</span>))
                 .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)
                 .<span class="ident">unwrap</span>();
 
-            <span class="ident">display</span>.<span class="ident">assert_pattern_with_message</span>(<span class="ident">expected</span>, <span class="op">|</span><span class="ident">f</span><span class="op">|</span> <span class="macro">write</span><span class="macro">!</span>(<span class="ident">f</span>, <span class="string">&quot;Join {}&quot;</span>, <span class="ident">case</span>));
+            <span class="ident">display</span>.<span class="ident">assert_pattern_with_message</span>(<span class="ident">expected</span>, <span class="op">|</span><span class="ident">f</span><span class="op">|</span> <span class="macro">write!</span>(<span class="ident">f</span>, <span class="string">&quot;Join {}&quot;</span>, <span class="ident">case</span>));
         }
     }
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">degenerate_joint</span>() {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="ident">new</span>();
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
 
-        <span class="ident">Polyline</span>::<span class="ident">new</span>(<span class="kw-2">&amp;</span>[<span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">2</span>, <span class="number">5</span>), <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">25</span>, <span class="number">5</span>), <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">5</span>, <span class="number">2</span>)])
-            .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle</span>::<span class="ident">with_stroke</span>(<span class="ident">BinaryColor</span>::<span class="ident">On</span>, <span class="number">5</span>))
+        <span class="ident">Polyline::new</span>(<span class="kw-2">&amp;</span>[<span class="ident">Point::new</span>(<span class="number">2</span>, <span class="number">5</span>), <span class="ident">Point::new</span>(<span class="number">25</span>, <span class="number">5</span>), <span class="ident">Point::new</span>(<span class="number">5</span>, <span class="number">2</span>)])
+            .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle::with_stroke</span>(<span class="ident">BinaryColor::On</span>, <span class="number">5</span>))
             .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)
             .<span class="ident">unwrap</span>();
 
@@ -1055,42 +1054,42 @@
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">alignment_has_no_effect</span>() {
-        <span class="kw">let</span> <span class="ident">base_style</span> <span class="op">=</span> <span class="ident">PrimitiveStyleBuilder</span>::<span class="ident">new</span>()
-            .<span class="ident">stroke_color</span>(<span class="ident">BinaryColor</span>::<span class="ident">On</span>)
+        <span class="kw">let</span> <span class="ident">base_style</span> <span class="op">=</span> <span class="ident">PrimitiveStyleBuilder::new</span>()
+            .<span class="ident">stroke_color</span>(<span class="ident">BinaryColor::On</span>)
             .<span class="ident">stroke_width</span>(<span class="number">3</span>);
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">expected_display</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="ident">new</span>();
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">expected_display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
 
-        <span class="ident">Polyline</span>::<span class="ident">new</span>(<span class="kw-2">&amp;</span><span class="ident">PATTERN</span>)
+        <span class="ident">Polyline::new</span>(<span class="kw-2">&amp;</span><span class="ident">PATTERN</span>)
             .<span class="ident">into_styled</span>(<span class="ident">base_style</span>.<span class="ident">build</span>())
             .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">expected_display</span>)
             .<span class="ident">unwrap</span>();
 
-        <span class="kw">for</span> <span class="ident">alignment</span> <span class="kw">in</span> [<span class="ident">StrokeAlignment</span>::<span class="ident">Inside</span>, <span class="ident">StrokeAlignment</span>::<span class="ident">Outside</span>].<span class="ident">iter</span>() {
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="ident">new</span>();
+        <span class="kw">for</span> <span class="ident">alignment</span> <span class="kw">in</span> [<span class="ident">StrokeAlignment::Inside</span>, <span class="ident">StrokeAlignment::Outside</span>].<span class="ident">iter</span>() {
+            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
 
-            <span class="ident">Polyline</span>::<span class="ident">new</span>(<span class="kw-2">&amp;</span><span class="ident">PATTERN</span>)
+            <span class="ident">Polyline::new</span>(<span class="kw-2">&amp;</span><span class="ident">PATTERN</span>)
                 .<span class="ident">into_styled</span>(<span class="ident">base_style</span>.<span class="ident">stroke_alignment</span>(<span class="kw-2">*</span><span class="ident">alignment</span>).<span class="ident">build</span>())
                 .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)
                 .<span class="ident">unwrap</span>();
 
-            <span class="ident">display</span>.<span class="ident">assert_eq_with_message</span>(<span class="kw-2">&amp;</span><span class="ident">expected_display</span>, <span class="op">|</span><span class="ident">f</span><span class="op">|</span> <span class="macro">write</span><span class="macro">!</span>(<span class="ident">f</span>, <span class="string">&quot;{:?}&quot;</span>, <span class="ident">alignment</span>));
+            <span class="ident">display</span>.<span class="ident">assert_eq_with_message</span>(<span class="kw-2">&amp;</span><span class="ident">expected_display</span>, <span class="op">|</span><span class="ident">f</span><span class="op">|</span> <span class="macro">write!</span>(<span class="ident">f</span>, <span class="string">&quot;{:?}&quot;</span>, <span class="ident">alignment</span>));
         }
     }
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">thick_points</span>() {
-        <span class="kw">let</span> <span class="ident">base_style</span> <span class="op">=</span> <span class="ident">PrimitiveStyle</span>::<span class="ident">with_stroke</span>(<span class="ident">BinaryColor</span>::<span class="ident">On</span>, <span class="number">5</span>);
+        <span class="kw">let</span> <span class="ident">base_style</span> <span class="op">=</span> <span class="ident">PrimitiveStyle::with_stroke</span>(<span class="ident">BinaryColor::On</span>, <span class="number">5</span>);
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">expected_display</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="ident">new</span>();
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="ident">new</span>();
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">expected_display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
 
-        <span class="ident">Polyline</span>::<span class="ident">new</span>(<span class="kw-2">&amp;</span><span class="ident">PATTERN</span>)
+        <span class="ident">Polyline::new</span>(<span class="kw-2">&amp;</span><span class="ident">PATTERN</span>)
             .<span class="ident">into_styled</span>(<span class="ident">base_style</span>)
             .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">expected_display</span>)
             .<span class="ident">unwrap</span>();
 
-        <span class="ident">Polyline</span>::<span class="ident">new</span>(<span class="kw-2">&amp;</span><span class="ident">PATTERN</span>)
+        <span class="ident">Polyline::new</span>(<span class="kw-2">&amp;</span><span class="ident">PATTERN</span>)
             .<span class="ident">into_styled</span>(<span class="ident">base_style</span>)
             .<span class="ident">pixels</span>()
             .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)
@@ -1101,150 +1100,150 @@
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">empty_styled_iterators</span>() {
-        <span class="kw">let</span> <span class="ident">points</span>: [<span class="ident">Point</span>; <span class="number">3</span>] <span class="op">=</span> [<span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">2</span>, <span class="number">5</span>), <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">3</span>, <span class="number">4</span>), <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">4</span>, <span class="number">3</span>)];
+        <span class="kw">let</span> <span class="ident">points</span>: [<span class="ident">Point</span>; <span class="number">3</span>] <span class="op">=</span> [<span class="ident">Point::new</span>(<span class="number">2</span>, <span class="number">5</span>), <span class="ident">Point::new</span>(<span class="number">3</span>, <span class="number">4</span>), <span class="ident">Point::new</span>(<span class="number">4</span>, <span class="number">3</span>)];
 
         <span class="comment">// No stroke width = no pixels</span>
-        <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">Polyline</span>::<span class="ident">new</span>(<span class="kw-2">&amp;</span><span class="ident">points</span>)
-            .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle</span>::<span class="ident">with_stroke</span>(<span class="ident">Rgb565</span>::<span class="ident">BLUE</span>, <span class="number">0</span>))
+        <span class="macro">assert!</span>(<span class="ident">Polyline::new</span>(<span class="kw-2">&amp;</span><span class="ident">points</span>)
+            .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle::with_stroke</span>(<span class="ident">Rgb565::BLUE</span>, <span class="number">0</span>))
             .<span class="ident">pixels</span>()
-            .<span class="ident">eq</span>(<span class="ident">core</span>::<span class="ident">iter</span>::<span class="ident">empty</span>()));
+            .<span class="ident">eq</span>(<span class="ident">core::iter::empty</span>()));
 
         <span class="comment">// No stroke color = no pixels</span>
-        <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">Polyline</span>::<span class="ident">new</span>(<span class="kw-2">&amp;</span><span class="ident">points</span>)
+        <span class="macro">assert!</span>(<span class="ident">Polyline::new</span>(<span class="kw-2">&amp;</span><span class="ident">points</span>)
             .<span class="ident">into_styled</span>(
-                <span class="ident">PrimitiveStyleBuilder</span>::<span class="op">&lt;</span><span class="ident">Rgb565</span><span class="op">&gt;</span>::<span class="ident">new</span>()
+                <span class="ident">PrimitiveStyleBuilder</span>::<span class="op">&lt;</span><span class="ident">Rgb565</span><span class="op">&gt;</span><span class="ident">::new</span>()
                     .<span class="ident">stroke_width</span>(<span class="number">1</span>)
                     .<span class="ident">build</span>()
             )
             .<span class="ident">pixels</span>()
-            .<span class="ident">eq</span>(<span class="ident">core</span>::<span class="ident">iter</span>::<span class="ident">empty</span>()));
+            .<span class="ident">eq</span>(<span class="ident">core::iter::empty</span>()));
     }
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">bounding_box</span>() {
-        <span class="kw">let</span> <span class="ident">pl</span> <span class="op">=</span> <span class="ident">Polyline</span>::<span class="ident">new</span>(<span class="kw-2">&amp;</span><span class="ident">PATTERN</span>);
+        <span class="kw">let</span> <span class="ident">pl</span> <span class="op">=</span> <span class="ident">Polyline::new</span>(<span class="kw-2">&amp;</span><span class="ident">PATTERN</span>);
 
-        <span class="kw">let</span> <span class="ident">styled</span> <span class="op">=</span> <span class="ident">pl</span>.<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle</span>::<span class="ident">with_stroke</span>(<span class="ident">Rgb565</span>::<span class="ident">BLUE</span>, <span class="number">5</span>));
+        <span class="kw">let</span> <span class="ident">styled</span> <span class="op">=</span> <span class="ident">pl</span>.<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle::with_stroke</span>(<span class="ident">Rgb565::BLUE</span>, <span class="number">5</span>));
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="ident">new</span>();
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
         <span class="ident">styled</span>.<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>).<span class="ident">unwrap</span>();
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">display</span>.<span class="ident">affected_area</span>(), <span class="ident">styled</span>.<span class="ident">bounding_box</span>());
+        <span class="macro">assert_eq!</span>(<span class="ident">display</span>.<span class="ident">affected_area</span>(), <span class="ident">styled</span>.<span class="ident">bounding_box</span>());
 
-        <span class="macro">assert_eq</span><span class="macro">!</span>(
+        <span class="macro">assert_eq!</span>(
             <span class="ident">pl</span>.<span class="ident">into_styled</span>(
-                <span class="ident">PrimitiveStyleBuilder</span>::<span class="op">&lt;</span><span class="ident">Rgb565</span><span class="op">&gt;</span>::<span class="ident">new</span>()
+                <span class="ident">PrimitiveStyleBuilder</span>::<span class="op">&lt;</span><span class="ident">Rgb565</span><span class="op">&gt;</span><span class="ident">::new</span>()
                     .<span class="ident">stroke_width</span>(<span class="number">5</span>)
                     .<span class="ident">build</span>()
             )
             .<span class="ident">bounding_box</span>(),
-            <span class="ident">Rectangle</span>::<span class="ident">new</span>(<span class="ident">pl</span>.<span class="ident">bounding_box</span>().<span class="ident">center</span>(), <span class="ident">Size</span>::<span class="ident">zero</span>()),
+            <span class="ident">Rectangle::new</span>(<span class="ident">pl</span>.<span class="ident">bounding_box</span>().<span class="ident">center</span>(), <span class="ident">Size::zero</span>()),
             <span class="string">&quot;transparent&quot;</span>
         );
 
-        <span class="macro">assert_eq</span><span class="macro">!</span>(
-            <span class="ident">pl</span>.<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle</span>::<span class="ident">with_fill</span>(<span class="ident">Rgb565</span>::<span class="ident">RED</span>))
+        <span class="macro">assert_eq!</span>(
+            <span class="ident">pl</span>.<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle::with_fill</span>(<span class="ident">Rgb565::RED</span>))
                 .<span class="ident">bounding_box</span>(),
-            <span class="ident">Rectangle</span>::<span class="ident">new</span>(<span class="ident">pl</span>.<span class="ident">bounding_box</span>().<span class="ident">center</span>(), <span class="ident">Size</span>::<span class="ident">zero</span>()),
+            <span class="ident">Rectangle::new</span>(<span class="ident">pl</span>.<span class="ident">bounding_box</span>().<span class="ident">center</span>(), <span class="ident">Size::zero</span>()),
             <span class="string">&quot;filled&quot;</span>
         );
 
-        <span class="macro">assert_eq</span><span class="macro">!</span>(
-            <span class="ident">Polyline</span>::<span class="ident">new</span>(<span class="kw-2">&amp;</span><span class="ident">PATTERN</span>[<span class="number">0</span>..<span class="number">2</span>])
-                .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle</span>::<span class="ident">with_stroke</span>(<span class="ident">Rgb565</span>::<span class="ident">RED</span>, <span class="number">5</span>))
+        <span class="macro">assert_eq!</span>(
+            <span class="ident">Polyline::new</span>(<span class="kw-2">&amp;</span><span class="ident">PATTERN</span>[<span class="number">0</span>..<span class="number">2</span>])
+                .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle::with_stroke</span>(<span class="ident">Rgb565::RED</span>, <span class="number">5</span>))
                 .<span class="ident">bounding_box</span>(),
-            <span class="ident">Rectangle</span>::<span class="ident">new</span>(<span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">4</span>, <span class="number">3</span>), <span class="ident">Size</span>::<span class="ident">new</span>(<span class="number">11</span>, <span class="number">9</span>)),
+            <span class="ident">Rectangle::new</span>(<span class="ident">Point::new</span>(<span class="number">4</span>, <span class="number">3</span>), <span class="ident">Size::new</span>(<span class="number">11</span>, <span class="number">9</span>)),
             <span class="string">&quot;two points&quot;</span>
         );
 
-        <span class="macro">assert_eq</span><span class="macro">!</span>(
-            <span class="ident">Polyline</span>::<span class="ident">new</span>(<span class="kw-2">&amp;</span><span class="ident">PATTERN</span>[<span class="number">0</span>..<span class="number">1</span>])
-                .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle</span>::<span class="ident">with_stroke</span>(<span class="ident">Rgb565</span>::<span class="ident">RED</span>, <span class="number">5</span>))
+        <span class="macro">assert_eq!</span>(
+            <span class="ident">Polyline::new</span>(<span class="kw-2">&amp;</span><span class="ident">PATTERN</span>[<span class="number">0</span>..<span class="number">1</span>])
+                .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle::with_stroke</span>(<span class="ident">Rgb565::RED</span>, <span class="number">5</span>))
                 .<span class="ident">bounding_box</span>(),
-            <span class="ident">Rectangle</span>::<span class="ident">new</span>(<span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">5</span>, <span class="number">10</span>), <span class="ident">Size</span>::<span class="ident">zero</span>()),
+            <span class="ident">Rectangle::new</span>(<span class="ident">Point::new</span>(<span class="number">5</span>, <span class="number">10</span>), <span class="ident">Size::zero</span>()),
             <span class="string">&quot;one point&quot;</span>
         );
     }
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">translated_bounding_box</span>() {
-        <span class="kw">let</span> <span class="ident">by</span> <span class="op">=</span> <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">10</span>, <span class="number">12</span>);
-        <span class="kw">let</span> <span class="ident">pl</span> <span class="op">=</span> <span class="ident">Polyline</span>::<span class="ident">new</span>(<span class="kw-2">&amp;</span><span class="ident">PATTERN</span>).<span class="ident">translate</span>(<span class="ident">by</span>);
+        <span class="kw">let</span> <span class="ident">by</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">12</span>);
+        <span class="kw">let</span> <span class="ident">pl</span> <span class="op">=</span> <span class="ident">Polyline::new</span>(<span class="kw-2">&amp;</span><span class="ident">PATTERN</span>).<span class="ident">translate</span>(<span class="ident">by</span>);
 
-        <span class="macro">assert_eq</span><span class="macro">!</span>(
-            <span class="ident">pl</span>.<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle</span>::<span class="ident">with_stroke</span>(<span class="ident">Rgb565</span>::<span class="ident">RED</span>, <span class="number">1</span>))
+        <span class="macro">assert_eq!</span>(
+            <span class="ident">pl</span>.<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle::with_stroke</span>(<span class="ident">Rgb565::RED</span>, <span class="number">1</span>))
                 .<span class="ident">bounding_box</span>(),
-            <span class="ident">Rectangle</span>::<span class="ident">new</span>(<span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">15</span>, <span class="number">17</span>), <span class="ident">Size</span>::<span class="ident">new</span>(<span class="number">26</span>, <span class="number">6</span>)),
+            <span class="ident">Rectangle::new</span>(<span class="ident">Point::new</span>(<span class="number">15</span>, <span class="number">17</span>), <span class="ident">Size::new</span>(<span class="number">26</span>, <span class="number">6</span>)),
             <span class="string">&quot;thin translated&quot;</span>
         );
 
-        <span class="macro">assert_eq</span><span class="macro">!</span>(
-            <span class="ident">pl</span>.<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle</span>::<span class="ident">with_stroke</span>(<span class="ident">Rgb565</span>::<span class="ident">RED</span>, <span class="number">5</span>))
+        <span class="macro">assert_eq!</span>(
+            <span class="ident">pl</span>.<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle::with_stroke</span>(<span class="ident">Rgb565::RED</span>, <span class="number">5</span>))
                 .<span class="ident">bounding_box</span>(),
-            <span class="ident">Rectangle</span>::<span class="ident">new</span>(<span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">14</span>, <span class="number">14</span>), <span class="ident">Size</span>::<span class="ident">new</span>(<span class="number">28</span>, <span class="number">11</span>)),
+            <span class="ident">Rectangle::new</span>(<span class="ident">Point::new</span>(<span class="number">14</span>, <span class="number">14</span>), <span class="ident">Size::new</span>(<span class="number">28</span>, <span class="number">11</span>)),
             <span class="string">&quot;thick translated&quot;</span>
         );
 
-        <span class="macro">assert_eq</span><span class="macro">!</span>(
-            <span class="ident">Polyline</span>::<span class="ident">new</span>(<span class="kw-2">&amp;</span><span class="ident">PATTERN</span>[<span class="number">0</span>..<span class="number">2</span>])
+        <span class="macro">assert_eq!</span>(
+            <span class="ident">Polyline::new</span>(<span class="kw-2">&amp;</span><span class="ident">PATTERN</span>[<span class="number">0</span>..<span class="number">2</span>])
                 .<span class="ident">translate</span>(<span class="ident">by</span>)
-                .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle</span>::<span class="ident">with_stroke</span>(<span class="ident">Rgb565</span>::<span class="ident">RED</span>, <span class="number">5</span>))
+                .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle::with_stroke</span>(<span class="ident">Rgb565::RED</span>, <span class="number">5</span>))
                 .<span class="ident">bounding_box</span>(),
-            <span class="ident">Rectangle</span>::<span class="ident">new</span>(<span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">14</span>, <span class="number">15</span>), <span class="ident">Size</span>::<span class="ident">new</span>(<span class="number">11</span>, <span class="number">9</span>)),
+            <span class="ident">Rectangle::new</span>(<span class="ident">Point::new</span>(<span class="number">14</span>, <span class="number">15</span>), <span class="ident">Size::new</span>(<span class="number">11</span>, <span class="number">9</span>)),
             <span class="string">&quot;two points translated&quot;</span>
         );
 
-        <span class="macro">assert_eq</span><span class="macro">!</span>(
-            <span class="ident">Polyline</span>::<span class="ident">new</span>(<span class="kw-2">&amp;</span><span class="ident">PATTERN</span>[<span class="number">0</span>..<span class="number">1</span>])
+        <span class="macro">assert_eq!</span>(
+            <span class="ident">Polyline::new</span>(<span class="kw-2">&amp;</span><span class="ident">PATTERN</span>[<span class="number">0</span>..<span class="number">1</span>])
                 .<span class="ident">translate</span>(<span class="ident">by</span>)
-                .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle</span>::<span class="ident">with_stroke</span>(<span class="ident">Rgb565</span>::<span class="ident">RED</span>, <span class="number">5</span>))
+                .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle::with_stroke</span>(<span class="ident">Rgb565::RED</span>, <span class="number">5</span>))
                 .<span class="ident">bounding_box</span>(),
-            <span class="ident">Rectangle</span>::<span class="ident">new</span>(<span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">15</span>, <span class="number">22</span>), <span class="ident">Size</span>::<span class="ident">zero</span>()),
+            <span class="ident">Rectangle::new</span>(<span class="ident">Point::new</span>(<span class="number">15</span>, <span class="number">22</span>), <span class="ident">Size::zero</span>()),
             <span class="string">&quot;one point translated&quot;</span>
         );
     }
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">empty_line_no_draw</span>() {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="ident">new</span>();
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
 
-        <span class="ident">Polyline</span>::<span class="ident">new</span>(<span class="kw-2">&amp;</span>[])
-            .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle</span>::<span class="ident">with_stroke</span>(<span class="ident">Rgb565</span>::<span class="ident">GREEN</span>, <span class="number">2</span>))
+        <span class="ident">Polyline::new</span>(<span class="kw-2">&amp;</span>[])
+            .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle::with_stroke</span>(<span class="ident">Rgb565::GREEN</span>, <span class="number">2</span>))
             .<span class="ident">pixels</span>()
             .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)
             .<span class="ident">unwrap</span>();
 
-        <span class="ident">display</span>.<span class="ident">assert_eq</span>(<span class="kw-2">&amp;</span><span class="ident">MockDisplay</span>::<span class="ident">new</span>());
+        <span class="ident">display</span>.<span class="ident">assert_eq</span>(<span class="kw-2">&amp;</span><span class="ident">MockDisplay::new</span>());
     }
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">issue_489_overdraw</span>() {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="ident">new</span>();
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
 
         <span class="comment">// Panics if pixel is drawn twice.</span>
-        <span class="ident">Polyline</span>::<span class="ident">new</span>(<span class="kw-2">&amp;</span>[<span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">10</span>, <span class="number">5</span>), <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">5</span>, <span class="number">10</span>), <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">10</span>, <span class="number">10</span>)])
-            .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle</span>::<span class="ident">with_stroke</span>(<span class="ident">Rgb565</span>::<span class="ident">RED</span>, <span class="number">5</span>))
+        <span class="ident">Polyline::new</span>(<span class="kw-2">&amp;</span>[<span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">5</span>), <span class="ident">Point::new</span>(<span class="number">5</span>, <span class="number">10</span>), <span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">10</span>)])
+            .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle::with_stroke</span>(<span class="ident">Rgb565::RED</span>, <span class="number">5</span>))
             .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)
             .<span class="ident">unwrap</span>();
     }
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">issue_471_spurs</span>() {
-        <span class="kw">let</span> <span class="ident">points</span> <span class="op">=</span> [<span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">10</span>, <span class="number">70</span>), <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">20</span>, <span class="number">50</span>), <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">31</span>, <span class="number">30</span>)];
+        <span class="kw">let</span> <span class="ident">points</span> <span class="op">=</span> [<span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">70</span>), <span class="ident">Point::new</span>(<span class="number">20</span>, <span class="number">50</span>), <span class="ident">Point::new</span>(<span class="number">31</span>, <span class="number">30</span>)];
 
-        <span class="kw">let</span> <span class="ident">line</span> <span class="op">=</span> <span class="ident">Polyline</span>::<span class="ident">new</span>(<span class="kw-2">&amp;</span><span class="ident">points</span>)
-            .<span class="ident">translate</span>(<span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">0</span>, <span class="op">-</span><span class="number">15</span>))
-            .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle</span>::<span class="ident">with_stroke</span>(<span class="ident">Rgb565</span>::<span class="ident">RED</span>, <span class="number">18</span>));
+        <span class="kw">let</span> <span class="ident">line</span> <span class="op">=</span> <span class="ident">Polyline::new</span>(<span class="kw-2">&amp;</span><span class="ident">points</span>)
+            .<span class="ident">translate</span>(<span class="ident">Point::new</span>(<span class="number">0</span>, <span class="op">-</span><span class="number">15</span>))
+            .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle::with_stroke</span>(<span class="ident">Rgb565::RED</span>, <span class="number">18</span>));
 
         <span class="kw">let</span> <span class="ident">bb</span> <span class="op">=</span> <span class="ident">line</span>.<span class="ident">bounding_box</span>();
 
         <span class="comment">// Check bounding box is correct</span>
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">bb</span>, <span class="ident">Rectangle</span>::<span class="ident">new</span>(<span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">1</span>, <span class="number">11</span>), <span class="ident">Size</span>::<span class="ident">new</span>(<span class="number">39</span>, <span class="number">49</span>)));
+        <span class="macro">assert_eq!</span>(<span class="ident">bb</span>, <span class="ident">Rectangle::new</span>(<span class="ident">Point::new</span>(<span class="number">1</span>, <span class="number">11</span>), <span class="ident">Size::new</span>(<span class="number">39</span>, <span class="number">49</span>)));
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="ident">new</span>();
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
         <span class="ident">line</span>.<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>).<span class="ident">unwrap</span>();
 
         <span class="comment">// Check no pixels are drawn outside bounding box</span>
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">display</span>.<span class="ident">affected_area</span>(), <span class="ident">bb</span>);
+        <span class="macro">assert_eq!</span>(<span class="ident">display</span>.<span class="ident">affected_area</span>(), <span class="ident">bb</span>);
     }
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
@@ -1252,24 +1251,23 @@
     <span class="comment">// spur created from a different set of points than `issue_471_spurs`.</span>
     <span class="attribute">#[<span class="ident">ignore</span>]</span>
     <span class="kw">fn</span> <span class="ident">issue_471_spurs_2</span>() {
-        <span class="kw">let</span> <span class="ident">points</span> <span class="op">=</span> [<span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">13</span>, <span class="number">65</span>), <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">20</span>, <span class="number">50</span>), <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">31</span>, <span class="number">30</span>)];
+        <span class="kw">let</span> <span class="ident">points</span> <span class="op">=</span> [<span class="ident">Point::new</span>(<span class="number">13</span>, <span class="number">65</span>), <span class="ident">Point::new</span>(<span class="number">20</span>, <span class="number">50</span>), <span class="ident">Point::new</span>(<span class="number">31</span>, <span class="number">30</span>)];
 
-        <span class="kw">let</span> <span class="ident">line</span> <span class="op">=</span> <span class="ident">Polyline</span>::<span class="ident">new</span>(<span class="kw-2">&amp;</span><span class="ident">points</span>)
-            .<span class="ident">translate</span>(<span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">0</span>, <span class="op">-</span><span class="number">15</span>))
-            .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle</span>::<span class="ident">with_stroke</span>(<span class="ident">Rgb565</span>::<span class="ident">RED</span>, <span class="number">18</span>));
+        <span class="kw">let</span> <span class="ident">line</span> <span class="op">=</span> <span class="ident">Polyline::new</span>(<span class="kw-2">&amp;</span><span class="ident">points</span>)
+            .<span class="ident">translate</span>(<span class="ident">Point::new</span>(<span class="number">0</span>, <span class="op">-</span><span class="number">15</span>))
+            .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle::with_stroke</span>(<span class="ident">Rgb565::RED</span>, <span class="number">18</span>));
 
         <span class="kw">let</span> <span class="ident">bb</span> <span class="op">=</span> <span class="ident">line</span>.<span class="ident">bounding_box</span>();
 
         <span class="comment">// Check bounding box is correct</span>
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">bb</span>, <span class="ident">Rectangle</span>::<span class="ident">new</span>(<span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">4</span>, <span class="number">26</span>), <span class="ident">Size</span>::<span class="ident">new</span>(<span class="number">36</span>, <span class="number">44</span>)));
+        <span class="macro">assert_eq!</span>(<span class="ident">bb</span>, <span class="ident">Rectangle::new</span>(<span class="ident">Point::new</span>(<span class="number">4</span>, <span class="number">26</span>), <span class="ident">Size::new</span>(<span class="number">36</span>, <span class="number">44</span>)));
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="ident">new</span>();
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
         <span class="ident">line</span>.<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>).<span class="ident">unwrap</span>();
 
         <span class="comment">// Check no pixels are drawn outside bounding box</span>
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">display</span>.<span class="ident">affected_area</span>(), <span class="ident">bb</span>);
+        <span class="macro">assert_eq!</span>(<span class="ident">display</span>.<span class="ident">affected_area</span>(), <span class="ident">bb</span>);
     }
 }
 </pre></div>
-</section><section id="search" class="content hidden"></section><section class="footer"></section><div id="rustdoc-vars" data-root-path="../../../../" data-current-crate="embedded_graphics" data-search-js="../../../../search-index.js"></div>
-    <script src="../../../../main.js"></script><script src="../../../../source-script.js"></script><script src="../../../../source-files.js"></script></body></html>
+</section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../../../" data-current-crate="embedded_graphics" data-search-index-js="../../../../search-index.js" data-search-js="../../../../search.js"></div><script src="../../../../main.js"></script><script src="../../../../source-script.js"></script><script src="../../../../source-files.js"></script></body></html>

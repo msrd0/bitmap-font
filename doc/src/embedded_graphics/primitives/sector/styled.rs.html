@@ -1,7 +1,6 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.0/src/primitives/sector/styled.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>styled.rs - source</title><link rel="stylesheet" type="text/css" href="../../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../../ayu.css" disabled ><script id="default-settings"></script><script src="../../../../storage.js"></script><script src="../../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../../../favicon.svg">
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.1/src/primitives/sector/styled.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>styled.rs - source</title><link rel="stylesheet" type="text/css" href="../../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../../ayu.css" disabled ><script id="default-settings"></script><script src="../../../../storage.js"></script><script src="../../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../../../favicon.svg">
 <link rel="alternate icon" type="image/png" href="../../../../favicon-16x16.png">
-<link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../../embedded_graphics/index.html'><div class='logo-container'><img src='https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><script src="../../../../theme.js"></script><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" class="help-button">?</button>
-                <a id="settings-menu" href="../../../../settings.html"><img src="../../../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">  1</span>
+<link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../../embedded_graphics/index.html'><div class='logo-container'><img src='https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img src="../../../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../../../settings.html" title="settings"><img src="../../../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -695,12 +694,12 @@
 <span id="692">692</span>
 <span id="693">693</span>
 <span id="694">694</span>
-</pre><div class="example-wrap"><pre class="rust ">
+</pre><pre class="rust">
 <span class="kw">use</span> <span class="kw">crate</span>::{
-    <span class="ident">draw_target</span>::<span class="ident">DrawTarget</span>,
-    <span class="ident">geometry</span>::<span class="ident">angle_consts</span>::<span class="ident">ANGLE_90DEG</span>,
+    <span class="ident">draw_target::DrawTarget</span>,
+    <span class="ident">geometry::angle_consts::ANGLE_90DEG</span>,
     <span class="ident">geometry</span>::{<span class="ident">Angle</span>, <span class="ident">Dimensions</span>},
-    <span class="ident">pixelcolor</span>::<span class="ident">PixelColor</span>,
+    <span class="ident">pixelcolor::PixelColor</span>,
     <span class="ident">primitives</span>::{
         <span class="ident">common</span>::{
             <span class="ident">DistanceIterator</span>, <span class="ident">LineSide</span>, <span class="ident">LinearEquation</span>, <span class="ident">PlaneSector</span>, <span class="ident">PointType</span>, <span class="ident">NORMAL_VECTOR_SCALE</span>,
@@ -710,7 +709,7 @@
     },
     <span class="ident">Pixel</span>,
 };
-<span class="kw">use</span> <span class="ident">az</span>::<span class="ident">SaturatingAs</span>;
+<span class="kw">use</span> <span class="ident">az::SaturatingAs</span>;
 
 <span class="doccomment">/// Pixel iterator for each pixel in the sector border</span>
 <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Clone</span>, <span class="ident">PartialEq</span>, <span class="ident">Debug</span>)]</span>
@@ -742,13 +741,13 @@
             <span class="comment">// PERF: The distance iterator should use the smaller sector bounding box</span>
             <span class="ident">stroke_area_circle</span>.<span class="ident">distances</span>()
         } <span class="kw">else</span> {
-            <span class="ident">DistanceIterator</span>::<span class="ident">empty</span>()
+            <span class="ident">DistanceIterator::empty</span>()
         };
 
         <span class="kw">let</span> <span class="ident">outer_threshold</span> <span class="op">=</span> <span class="ident">stroke_area_circle</span>.<span class="ident">threshold</span>();
         <span class="kw">let</span> <span class="ident">inner_threshold</span> <span class="op">=</span> <span class="ident">fill_area</span>.<span class="ident">to_circle</span>().<span class="ident">threshold</span>();
 
-        <span class="kw">let</span> <span class="ident">plane_sector</span> <span class="op">=</span> <span class="ident">PlaneSector</span>::<span class="ident">new</span>(<span class="ident">stroke_area</span>.<span class="ident">angle_start</span>, <span class="ident">stroke_area</span>.<span class="ident">angle_sweep</span>);
+        <span class="kw">let</span> <span class="ident">plane_sector</span> <span class="op">=</span> <span class="ident">PlaneSector::new</span>(<span class="ident">stroke_area</span>.<span class="ident">angle_start</span>, <span class="ident">stroke_area</span>.<span class="ident">angle_sweep</span>);
 
         <span class="kw">let</span> <span class="ident">inside_stroke_width</span>: <span class="ident">i32</span> <span class="op">=</span> <span class="ident">style</span>.<span class="ident">inside_stroke_width</span>().<span class="ident">saturating_as</span>();
         <span class="kw">let</span> <span class="ident">outside_stroke_width</span>: <span class="ident">i32</span> <span class="op">=</span> <span class="ident">style</span>.<span class="ident">outside_stroke_width</span>().<span class="ident">saturating_as</span>();
@@ -760,24 +759,24 @@
 
         <span class="comment">// TODO: Polylines and sectors should use the same miter limit.</span>
         <span class="kw">let</span> <span class="ident">angle_sweep_abs</span> <span class="op">=</span> <span class="ident">primitive</span>.<span class="ident">angle_sweep</span>.<span class="ident">abs</span>();
-        <span class="kw">let</span> <span class="ident">exterior_bevel</span> <span class="op">=</span> <span class="ident">angle_sweep_abs</span> <span class="op">&lt;</span> <span class="ident">Angle</span>::<span class="ident">from_degrees</span>(<span class="number">55.0</span>);
-        <span class="kw">let</span> <span class="ident">interior_bevel</span> <span class="op">=</span> <span class="ident">angle_sweep_abs</span> <span class="op">&gt;</span> <span class="ident">Angle</span>::<span class="ident">from_degrees</span>(<span class="number">360.0</span> <span class="op">-</span> <span class="number">55.0</span>)
-            <span class="op">&amp;&amp;</span> <span class="ident">angle_sweep_abs</span> <span class="op">&lt;</span> <span class="ident">Angle</span>::<span class="ident">from_degrees</span>(<span class="number">360.0</span>);
+        <span class="kw">let</span> <span class="ident">exterior_bevel</span> <span class="op">=</span> <span class="ident">angle_sweep_abs</span> <span class="op">&lt;</span> <span class="ident">Angle::from_degrees</span>(<span class="number">55.0</span>);
+        <span class="kw">let</span> <span class="ident">interior_bevel</span> <span class="op">=</span> <span class="ident">angle_sweep_abs</span> <span class="op">&gt;</span> <span class="ident">Angle::from_degrees</span>(<span class="number">360.0</span> <span class="op">-</span> <span class="number">55.0</span>)
+            <span class="op">&amp;&amp;</span> <span class="ident">angle_sweep_abs</span> <span class="op">&lt;</span> <span class="ident">Angle::from_degrees</span>(<span class="number">360.0</span>);
 
         <span class="kw">let</span> <span class="ident">bevel</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">exterior_bevel</span> <span class="op">|</span><span class="op">|</span> <span class="ident">interior_bevel</span> {
             <span class="kw">let</span> <span class="ident">half_sweep</span> <span class="op">=</span> <span class="ident">primitive</span>.<span class="ident">angle_start</span>
-                <span class="op">+</span> <span class="ident">Angle</span>::<span class="ident">from_radians</span>(<span class="ident">primitive</span>.<span class="ident">angle_sweep</span>.<span class="ident">to_radians</span>() <span class="op">/</span> <span class="number">2.0</span>);
+                <span class="op">+</span> <span class="ident">Angle::from_radians</span>(<span class="ident">primitive</span>.<span class="ident">angle_sweep</span>.<span class="ident">to_radians</span>() <span class="op">/</span> <span class="number">2.0</span>);
             <span class="kw">let</span> <span class="ident">threshold</span> <span class="op">=</span> <span class="ident">outside_stroke_width</span> <span class="op">*</span> <span class="ident">NORMAL_VECTOR_SCALE</span> <span class="op">*</span> <span class="number">4</span>;
 
             <span class="kw">if</span> <span class="ident">interior_bevel</span> {
                 <span class="prelude-val">Some</span>((
-                    <span class="ident">BevelKind</span>::<span class="ident">Interior</span>,
-                    <span class="ident">LinearEquation</span>::<span class="ident">with_angle_and_distance</span>(<span class="ident">half_sweep</span> <span class="op">-</span> <span class="ident">ANGLE_90DEG</span>, <span class="ident">threshold</span>),
+                    <span class="ident">BevelKind::Interior</span>,
+                    <span class="ident">LinearEquation::with_angle_and_distance</span>(<span class="ident">half_sweep</span> <span class="op">-</span> <span class="ident">ANGLE_90DEG</span>, <span class="ident">threshold</span>),
                 ))
             } <span class="kw">else</span> {
                 <span class="prelude-val">Some</span>((
-                    <span class="ident">BevelKind</span>::<span class="ident">Exterior</span>,
-                    <span class="ident">LinearEquation</span>::<span class="ident">with_angle_and_distance</span>(<span class="ident">half_sweep</span> <span class="op">+</span> <span class="ident">ANGLE_90DEG</span>, <span class="ident">threshold</span>),
+                    <span class="ident">BevelKind::Exterior</span>,
+                    <span class="ident">LinearEquation::with_angle_and_distance</span>(<span class="ident">half_sweep</span> <span class="op">+</span> <span class="ident">ANGLE_90DEG</span>, <span class="ident">threshold</span>),
                 ))
             }
         } <span class="kw">else</span> {
@@ -801,7 +800,7 @@
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">C</span>: <span class="ident">PixelColor</span><span class="op">&gt;</span> <span class="ident">Iterator</span> <span class="kw">for</span> <span class="ident">StyledPixelsIterator</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span> {
     <span class="kw">type</span> <span class="ident">Item</span> <span class="op">=</span> <span class="ident">Pixel</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>;
 
-    <span class="kw">fn</span> <span class="ident">next</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="ident">Item</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">next</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="self">Self</span><span class="ident">::Item</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">outer_threshold</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">outer_threshold</span>;
 
         <span class="kw">loop</span> {
@@ -820,25 +819,25 @@
             };
 
             <span class="comment">// Bevel the line join.</span>
-            <span class="kw">if</span> <span class="ident">point_type</span> <span class="op">=</span><span class="op">=</span> <span class="ident">PointType</span>::<span class="ident">Stroke</span> {
+            <span class="kw">if</span> <span class="ident">point_type</span> <span class="op">=</span><span class="op">=</span> <span class="ident">PointType::Stroke</span> {
                 <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>((<span class="ident">kind</span>, <span class="ident">equation</span>)) <span class="op">=</span> <span class="self">self</span>.<span class="ident">bevel</span> {
-                    <span class="kw">if</span> <span class="ident">equation</span>.<span class="ident">check_side</span>(<span class="ident">delta</span>, <span class="ident">LineSide</span>::<span class="ident">Left</span>) {
+                    <span class="kw">if</span> <span class="ident">equation</span>.<span class="ident">check_side</span>(<span class="ident">delta</span>, <span class="ident">LineSide::Left</span>) {
                         <span class="kw">match</span> <span class="ident">kind</span> {
-                            <span class="ident">BevelKind</span>::<span class="ident">Interior</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">point_type</span> <span class="op">=</span> <span class="ident">PointType</span>::<span class="ident">Fill</span>,
-                            <span class="ident">BevelKind</span>::<span class="ident">Exterior</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">continue</span>,
+                            <span class="ident">BevelKind::Interior</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">point_type</span> <span class="op">=</span> <span class="ident">PointType::Fill</span>,
+                            <span class="ident">BevelKind::Exterior</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">continue</span>,
                         }
                     }
                 }
             }
 
             <span class="comment">// Add the outer circular stroke.</span>
-            <span class="kw">if</span> <span class="ident">point_type</span> <span class="op">=</span><span class="op">=</span> <span class="ident">PointType</span>::<span class="ident">Fill</span> <span class="op">&amp;&amp;</span> <span class="ident">distance</span> <span class="op">&gt;</span><span class="op">=</span> <span class="self">self</span>.<span class="ident">inner_threshold</span> {
-                <span class="ident">point_type</span> <span class="op">=</span> <span class="ident">PointType</span>::<span class="ident">Stroke</span>;
+            <span class="kw">if</span> <span class="ident">point_type</span> <span class="op">=</span><span class="op">=</span> <span class="ident">PointType::Fill</span> <span class="op">&amp;&amp;</span> <span class="ident">distance</span> <span class="op">&gt;</span><span class="op">=</span> <span class="self">self</span>.<span class="ident">inner_threshold</span> {
+                <span class="ident">point_type</span> <span class="op">=</span> <span class="ident">PointType::Stroke</span>;
             }
 
             <span class="kw">let</span> <span class="ident">color</span> <span class="op">=</span> <span class="kw">match</span> <span class="ident">point_type</span> {
-                <span class="ident">PointType</span>::<span class="ident">Stroke</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">self</span>.<span class="ident">stroke_color</span>,
-                <span class="ident">PointType</span>::<span class="ident">Fill</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">self</span>.<span class="ident">fill_color</span>,
+                <span class="ident">PointType::Stroke</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">self</span>.<span class="ident">stroke_color</span>,
+                <span class="ident">PointType::Fill</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">self</span>.<span class="ident">fill_color</span>,
             };
 
             <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">color</span>) <span class="op">=</span> <span class="ident">color</span> {
@@ -851,8 +850,8 @@
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">C</span>: <span class="ident">PixelColor</span><span class="op">&gt;</span> <span class="ident">StyledPixels</span><span class="op">&lt;</span><span class="ident">PrimitiveStyle</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Sector</span> {
     <span class="kw">type</span> <span class="ident">Iter</span> <span class="op">=</span> <span class="ident">StyledPixelsIterator</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>;
 
-    <span class="kw">fn</span> <span class="ident">pixels</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">style</span>: <span class="kw-2">&amp;</span><span class="ident">PrimitiveStyle</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span>::<span class="ident">Iter</span> {
-        <span class="ident">StyledPixelsIterator</span>::<span class="ident">new</span>(<span class="self">self</span>, <span class="ident">style</span>)
+    <span class="kw">fn</span> <span class="ident">pixels</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">style</span>: <span class="kw-2">&amp;</span><span class="ident">PrimitiveStyle</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Iter</span> {
+        <span class="ident">StyledPixelsIterator::new</span>(<span class="self">self</span>, <span class="ident">style</span>)
     }
 }
 
@@ -864,11 +863,11 @@
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         <span class="ident">style</span>: <span class="kw-2">&amp;</span><span class="ident">PrimitiveStyle</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>,
         <span class="ident">target</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">D</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="ident">Output</span>, <span class="ident">D</span>::<span class="ident">Error</span><span class="op">&gt;</span>
+    ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="self">Self</span><span class="ident">::Output</span>, <span class="ident">D::Error</span><span class="op">&gt;</span>
     <span class="kw">where</span>
         <span class="ident">D</span>: <span class="ident">DrawTarget</span><span class="op">&lt;</span><span class="ident">Color</span> <span class="op">=</span> <span class="ident">C</span><span class="op">&gt;</span>,
     {
-        <span class="ident">target</span>.<span class="ident">draw_iter</span>(<span class="ident">StyledPixelsIterator</span>::<span class="ident">new</span>(<span class="self">self</span>, <span class="ident">style</span>))
+        <span class="ident">target</span>.<span class="ident">draw_iter</span>(<span class="ident">StyledPixelsIterator::new</span>(<span class="self">self</span>, <span class="ident">style</span>))
     }
 }
 
@@ -892,7 +891,7 @@
     <span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
     <span class="kw">use</span> <span class="kw">crate</span>::{
         <span class="ident">geometry</span>::{<span class="ident">AngleUnit</span>, <span class="ident">Point</span>},
-        <span class="ident">mock_display</span>::<span class="ident">MockDisplay</span>,
+        <span class="ident">mock_display::MockDisplay</span>,
         <span class="ident">pixelcolor</span>::{<span class="ident">BinaryColor</span>, <span class="ident">Rgb888</span>, <span class="ident">RgbColor</span>},
         <span class="ident">primitives</span>::{
             <span class="ident">Circle</span>, <span class="ident">Primitive</span>, <span class="ident">PrimitiveStyle</span>, <span class="ident">PrimitiveStyleBuilder</span>, <span class="ident">StrokeAlignment</span>, <span class="ident">Styled</span>,
@@ -903,10 +902,10 @@
     <span class="comment">// Check the rendering of a simple sector</span>
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">tiny_sector</span>() {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="ident">new</span>();
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
 
-        <span class="ident">Sector</span>::<span class="ident">new</span>(<span class="ident">Point</span>::<span class="ident">zero</span>(), <span class="number">9</span>, <span class="number">30.0</span>.<span class="ident">deg</span>(), <span class="number">120.0</span>.<span class="ident">deg</span>())
-            .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle</span>::<span class="ident">with_stroke</span>(<span class="ident">BinaryColor</span>::<span class="ident">On</span>, <span class="number">1</span>))
+        <span class="ident">Sector::new</span>(<span class="ident">Point::zero</span>(), <span class="number">9</span>, <span class="number">30.0</span>.<span class="ident">deg</span>(), <span class="number">120.0</span>.<span class="ident">deg</span>())
+            .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle::with_stroke</span>(<span class="ident">BinaryColor::On</span>, <span class="number">1</span>))
             .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)
             .<span class="ident">unwrap</span>();
 
@@ -922,10 +921,10 @@
     <span class="comment">// Check the rendering of a filled sector with negative sweep</span>
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">tiny_sector_filled</span>() {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="ident">new</span>();
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
 
-        <span class="ident">Sector</span>::<span class="ident">new</span>(<span class="ident">Point</span>::<span class="ident">zero</span>(), <span class="number">7</span>, <span class="op">-</span><span class="number">30.0</span>.<span class="ident">deg</span>(), <span class="op">-</span><span class="number">300.0</span>.<span class="ident">deg</span>())
-            .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle</span>::<span class="ident">with_fill</span>(<span class="ident">BinaryColor</span>::<span class="ident">On</span>))
+        <span class="ident">Sector::new</span>(<span class="ident">Point::zero</span>(), <span class="number">7</span>, <span class="op">-</span><span class="number">30.0</span>.<span class="ident">deg</span>(), <span class="op">-</span><span class="number">300.0</span>.<span class="ident">deg</span>())
+            .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle::with_fill</span>(<span class="ident">BinaryColor::On</span>))
             .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)
             .<span class="ident">unwrap</span>();
 
@@ -943,10 +942,10 @@
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">transparent_border</span>() {
         <span class="kw">let</span> <span class="ident">sector</span>: <span class="ident">Styled</span><span class="op">&lt;</span><span class="ident">Sector</span>, <span class="ident">PrimitiveStyle</span><span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="op">=</span>
-            <span class="ident">Sector</span>::<span class="ident">new</span>(<span class="ident">Point</span>::<span class="ident">new</span>(<span class="op">-</span><span class="number">5</span>, <span class="op">-</span><span class="number">5</span>), <span class="number">21</span>, <span class="number">0.0</span>.<span class="ident">deg</span>(), <span class="number">90.0</span>.<span class="ident">deg</span>())
-                .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle</span>::<span class="ident">with_fill</span>(<span class="ident">BinaryColor</span>::<span class="ident">On</span>));
+            <span class="ident">Sector::new</span>(<span class="ident">Point::new</span>(<span class="op">-</span><span class="number">5</span>, <span class="op">-</span><span class="number">5</span>), <span class="number">21</span>, <span class="number">0.0</span>.<span class="ident">deg</span>(), <span class="number">90.0</span>.<span class="ident">deg</span>())
+                .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle::with_fill</span>(<span class="ident">BinaryColor::On</span>));
 
-        <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">sector</span>.<span class="ident">pixels</span>().<span class="ident">count</span>() <span class="op">&gt;</span> <span class="number">0</span>);
+        <span class="macro">assert!</span>(<span class="ident">sector</span>.<span class="ident">pixels</span>().<span class="ident">count</span>() <span class="op">&gt;</span> <span class="number">0</span>);
     }
 
     <span class="kw">fn</span> <span class="ident">test_stroke_alignment</span>(
@@ -954,15 +953,15 @@
         <span class="ident">diameter</span>: <span class="ident">u32</span>,
         <span class="ident">expected_pattern</span>: <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span><span class="ident">str</span>],
     ) {
-        <span class="kw">let</span> <span class="ident">style</span> <span class="op">=</span> <span class="ident">PrimitiveStyleBuilder</span>::<span class="ident">new</span>()
-            .<span class="ident">stroke_color</span>(<span class="ident">BinaryColor</span>::<span class="ident">On</span>)
+        <span class="kw">let</span> <span class="ident">style</span> <span class="op">=</span> <span class="ident">PrimitiveStyleBuilder::new</span>()
+            .<span class="ident">stroke_color</span>(<span class="ident">BinaryColor::On</span>)
             .<span class="ident">stroke_width</span>(<span class="number">3</span>)
             .<span class="ident">stroke_alignment</span>(<span class="ident">stroke_alignment</span>)
             .<span class="ident">build</span>();
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="ident">new</span>();
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
 
-        <span class="ident">Sector</span>::<span class="ident">with_center</span>(<span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">3</span>, <span class="number">10</span>), <span class="ident">diameter</span>, <span class="number">0.0</span>.<span class="ident">deg</span>(), <span class="number">90.0</span>.<span class="ident">deg</span>())
+        <span class="ident">Sector::with_center</span>(<span class="ident">Point::new</span>(<span class="number">3</span>, <span class="number">10</span>), <span class="ident">diameter</span>, <span class="number">0.0</span>.<span class="ident">deg</span>(), <span class="number">90.0</span>.<span class="ident">deg</span>())
             .<span class="ident">into_styled</span>(<span class="ident">style</span>)
             .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)
             .<span class="ident">unwrap</span>();
@@ -973,7 +972,7 @@
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">stroke_alignment_inside</span>() {
         <span class="ident">test_stroke_alignment</span>(
-            <span class="ident">StrokeAlignment</span>::<span class="ident">Inside</span>,
+            <span class="ident">StrokeAlignment::Inside</span>,
             <span class="number">19</span> <span class="op">+</span> <span class="number">2</span>,
             <span class="kw-2">&amp;</span>[
                 <span class="string">&quot;   ####       &quot;</span>,
@@ -994,7 +993,7 @@
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">stroke_alignment_center</span>() {
         <span class="ident">test_stroke_alignment</span>(
-            <span class="ident">StrokeAlignment</span>::<span class="ident">Center</span>,
+            <span class="ident">StrokeAlignment::Center</span>,
             <span class="number">19</span>,
             <span class="kw-2">&amp;</span>[
                 <span class="string">&quot;  #####       &quot;</span>,
@@ -1016,7 +1015,7 @@
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">stroke_alignment_outside</span>() {
         <span class="ident">test_stroke_alignment</span>(
-            <span class="ident">StrokeAlignment</span>::<span class="ident">Outside</span>,
+            <span class="ident">StrokeAlignment::Outside</span>,
             <span class="number">19</span> <span class="op">-</span> <span class="number">4</span>,
             <span class="kw-2">&amp;</span>[
                 <span class="string">&quot;#######       &quot;</span>,
@@ -1039,24 +1038,24 @@
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">bounding_boxes</span>() {
-        <span class="kw">const</span> <span class="ident">CENTER</span>: <span class="ident">Point</span> <span class="op">=</span> <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">15</span>, <span class="number">15</span>);
+        <span class="kw">const</span> <span class="ident">CENTER</span>: <span class="ident">Point</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="number">15</span>, <span class="number">15</span>);
         <span class="kw">const</span> <span class="ident">SIZE</span>: <span class="ident">u32</span> <span class="op">=</span> <span class="number">10</span>;
 
-        <span class="kw">let</span> <span class="ident">style</span> <span class="op">=</span> <span class="ident">PrimitiveStyle</span>::<span class="ident">with_stroke</span>(<span class="ident">BinaryColor</span>::<span class="ident">On</span>, <span class="number">3</span>);
+        <span class="kw">let</span> <span class="ident">style</span> <span class="op">=</span> <span class="ident">PrimitiveStyle::with_stroke</span>(<span class="ident">BinaryColor::On</span>, <span class="number">3</span>);
 
-        <span class="kw">let</span> <span class="ident">center</span> <span class="op">=</span> <span class="ident">Sector</span>::<span class="ident">with_center</span>(<span class="ident">CENTER</span>, <span class="ident">SIZE</span>, <span class="number">0.0</span>.<span class="ident">deg</span>(), <span class="number">90.0</span>.<span class="ident">deg</span>()).<span class="ident">into_styled</span>(<span class="ident">style</span>);
-        <span class="kw">let</span> <span class="ident">inside</span> <span class="op">=</span> <span class="ident">Sector</span>::<span class="ident">with_center</span>(<span class="ident">CENTER</span>, <span class="ident">SIZE</span> <span class="op">+</span> <span class="number">2</span>, <span class="number">0.0</span>.<span class="ident">deg</span>(), <span class="number">90.0</span>.<span class="ident">deg</span>()).<span class="ident">into_styled</span>(
-            <span class="ident">PrimitiveStyleBuilder</span>::<span class="ident">from</span>(<span class="kw-2">&amp;</span><span class="ident">style</span>)
-                .<span class="ident">stroke_alignment</span>(<span class="ident">StrokeAlignment</span>::<span class="ident">Inside</span>)
+        <span class="kw">let</span> <span class="ident">center</span> <span class="op">=</span> <span class="ident">Sector::with_center</span>(<span class="ident">CENTER</span>, <span class="ident">SIZE</span>, <span class="number">0.0</span>.<span class="ident">deg</span>(), <span class="number">90.0</span>.<span class="ident">deg</span>()).<span class="ident">into_styled</span>(<span class="ident">style</span>);
+        <span class="kw">let</span> <span class="ident">inside</span> <span class="op">=</span> <span class="ident">Sector::with_center</span>(<span class="ident">CENTER</span>, <span class="ident">SIZE</span> <span class="op">+</span> <span class="number">2</span>, <span class="number">0.0</span>.<span class="ident">deg</span>(), <span class="number">90.0</span>.<span class="ident">deg</span>()).<span class="ident">into_styled</span>(
+            <span class="ident">PrimitiveStyleBuilder::from</span>(<span class="kw-2">&amp;</span><span class="ident">style</span>)
+                .<span class="ident">stroke_alignment</span>(<span class="ident">StrokeAlignment::Inside</span>)
                 .<span class="ident">build</span>(),
         );
-        <span class="kw">let</span> <span class="ident">outside</span> <span class="op">=</span> <span class="ident">Sector</span>::<span class="ident">with_center</span>(<span class="ident">CENTER</span>, <span class="ident">SIZE</span> <span class="op">-</span> <span class="number">4</span>, <span class="number">0.0</span>.<span class="ident">deg</span>(), <span class="number">90.0</span>.<span class="ident">deg</span>()).<span class="ident">into_styled</span>(
-            <span class="ident">PrimitiveStyleBuilder</span>::<span class="ident">from</span>(<span class="kw-2">&amp;</span><span class="ident">style</span>)
-                .<span class="ident">stroke_alignment</span>(<span class="ident">StrokeAlignment</span>::<span class="ident">Outside</span>)
+        <span class="kw">let</span> <span class="ident">outside</span> <span class="op">=</span> <span class="ident">Sector::with_center</span>(<span class="ident">CENTER</span>, <span class="ident">SIZE</span> <span class="op">-</span> <span class="number">4</span>, <span class="number">0.0</span>.<span class="ident">deg</span>(), <span class="number">90.0</span>.<span class="ident">deg</span>()).<span class="ident">into_styled</span>(
+            <span class="ident">PrimitiveStyleBuilder::from</span>(<span class="kw-2">&amp;</span><span class="ident">style</span>)
+                .<span class="ident">stroke_alignment</span>(<span class="ident">StrokeAlignment::Outside</span>)
                 .<span class="ident">build</span>(),
         );
-        <span class="kw">let</span> <span class="ident">transparent</span> <span class="op">=</span> <span class="ident">Sector</span>::<span class="ident">with_center</span>(<span class="ident">CENTER</span>, <span class="ident">SIZE</span>, <span class="number">0.0</span>.<span class="ident">deg</span>(), <span class="number">90.0</span>.<span class="ident">deg</span>()).<span class="ident">into_styled</span>(
-            <span class="ident">PrimitiveStyleBuilder</span>::<span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span>::<span class="ident">new</span>()
+        <span class="kw">let</span> <span class="ident">transparent</span> <span class="op">=</span> <span class="ident">Sector::with_center</span>(<span class="ident">CENTER</span>, <span class="ident">SIZE</span>, <span class="number">0.0</span>.<span class="ident">deg</span>(), <span class="number">90.0</span>.<span class="ident">deg</span>()).<span class="ident">into_styled</span>(
+            <span class="ident">PrimitiveStyleBuilder</span>::<span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span><span class="ident">::new</span>()
                 .<span class="ident">stroke_width</span>(<span class="number">3</span>)
                 .<span class="ident">build</span>(),
         );
@@ -1066,22 +1065,22 @@
         <span class="comment">// center.draw(&amp;mut display).unwrap();</span>
         <span class="comment">// assert_eq!(display.affected_area(), center.bounding_box());</span>
 
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">center</span>.<span class="ident">bounding_box</span>(), <span class="ident">inside</span>.<span class="ident">bounding_box</span>());
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">outside</span>.<span class="ident">bounding_box</span>(), <span class="ident">inside</span>.<span class="ident">bounding_box</span>());
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">transparent</span>.<span class="ident">bounding_box</span>(), <span class="ident">inside</span>.<span class="ident">bounding_box</span>());
+        <span class="macro">assert_eq!</span>(<span class="ident">center</span>.<span class="ident">bounding_box</span>(), <span class="ident">inside</span>.<span class="ident">bounding_box</span>());
+        <span class="macro">assert_eq!</span>(<span class="ident">outside</span>.<span class="ident">bounding_box</span>(), <span class="ident">inside</span>.<span class="ident">bounding_box</span>());
+        <span class="macro">assert_eq!</span>(<span class="ident">transparent</span>.<span class="ident">bounding_box</span>(), <span class="ident">inside</span>.<span class="ident">bounding_box</span>());
     }
 
     <span class="doccomment">/// The radial lines should be connected using a line join.</span>
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">issue_484_line_join_90_deg</span>() {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="op">&lt;</span><span class="ident">Rgb888</span><span class="op">&gt;</span>::<span class="ident">new</span>();
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="op">&lt;</span><span class="ident">Rgb888</span><span class="op">&gt;</span><span class="ident">::new</span>();
 
-        <span class="ident">Sector</span>::<span class="ident">new</span>(<span class="ident">Point</span>::<span class="ident">new</span>(<span class="op">-</span><span class="number">6</span>, <span class="number">1</span>), <span class="number">15</span>, <span class="number">0.0</span>.<span class="ident">deg</span>(), <span class="number">90.0</span>.<span class="ident">deg</span>())
+        <span class="ident">Sector::new</span>(<span class="ident">Point::new</span>(<span class="op">-</span><span class="number">6</span>, <span class="number">1</span>), <span class="number">15</span>, <span class="number">0.0</span>.<span class="ident">deg</span>(), <span class="number">90.0</span>.<span class="ident">deg</span>())
             .<span class="ident">into_styled</span>(
-                <span class="ident">PrimitiveStyleBuilder</span>::<span class="ident">new</span>()
-                    .<span class="ident">stroke_color</span>(<span class="ident">Rgb888</span>::<span class="ident">RED</span>)
+                <span class="ident">PrimitiveStyleBuilder::new</span>()
+                    .<span class="ident">stroke_color</span>(<span class="ident">Rgb888::RED</span>)
                     .<span class="ident">stroke_width</span>(<span class="number">3</span>)
-                    .<span class="ident">fill_color</span>(<span class="ident">Rgb888</span>::<span class="ident">GREEN</span>)
+                    .<span class="ident">fill_color</span>(<span class="ident">Rgb888::GREEN</span>)
                     .<span class="ident">build</span>(),
             )
             .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)
@@ -1104,14 +1103,14 @@
     <span class="doccomment">/// The radial lines should be connected using a line join.</span>
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">issue_484_line_join_20_deg</span>() {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="op">&lt;</span><span class="ident">Rgb888</span><span class="op">&gt;</span>::<span class="ident">new</span>();
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="op">&lt;</span><span class="ident">Rgb888</span><span class="op">&gt;</span><span class="ident">::new</span>();
 
-        <span class="ident">Sector</span>::<span class="ident">new</span>(<span class="ident">Point</span>::<span class="ident">new</span>(<span class="op">-</span><span class="number">4</span>, <span class="op">-</span><span class="number">3</span>), <span class="number">15</span>, <span class="number">0.0</span>.<span class="ident">deg</span>(), <span class="number">20.0</span>.<span class="ident">deg</span>())
+        <span class="ident">Sector::new</span>(<span class="ident">Point::new</span>(<span class="op">-</span><span class="number">4</span>, <span class="op">-</span><span class="number">3</span>), <span class="number">15</span>, <span class="number">0.0</span>.<span class="ident">deg</span>(), <span class="number">20.0</span>.<span class="ident">deg</span>())
             .<span class="ident">into_styled</span>(
-                <span class="ident">PrimitiveStyleBuilder</span>::<span class="ident">new</span>()
-                    .<span class="ident">stroke_color</span>(<span class="ident">Rgb888</span>::<span class="ident">RED</span>)
+                <span class="ident">PrimitiveStyleBuilder::new</span>()
+                    .<span class="ident">stroke_color</span>(<span class="ident">Rgb888::RED</span>)
                     .<span class="ident">stroke_width</span>(<span class="number">3</span>)
-                    .<span class="ident">fill_color</span>(<span class="ident">Rgb888</span>::<span class="ident">GREEN</span>)
+                    .<span class="ident">fill_color</span>(<span class="ident">Rgb888::GREEN</span>)
                     .<span class="ident">build</span>(),
             )
             .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)
@@ -1130,14 +1129,14 @@
     <span class="doccomment">/// The radial lines should be connected using a line join.</span>
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">issue_484_line_join_340_deg</span>() {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="op">&lt;</span><span class="ident">Rgb888</span><span class="op">&gt;</span>::<span class="ident">new</span>();
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="op">&lt;</span><span class="ident">Rgb888</span><span class="op">&gt;</span><span class="ident">::new</span>();
 
-        <span class="ident">Sector</span>::<span class="ident">new</span>(<span class="ident">Point</span>::<span class="ident">new_equal</span>(<span class="number">2</span>), <span class="number">15</span>, <span class="number">0.0</span>.<span class="ident">deg</span>(), <span class="number">340.0</span>.<span class="ident">deg</span>())
+        <span class="ident">Sector::new</span>(<span class="ident">Point::new_equal</span>(<span class="number">2</span>), <span class="number">15</span>, <span class="number">0.0</span>.<span class="ident">deg</span>(), <span class="number">340.0</span>.<span class="ident">deg</span>())
             .<span class="ident">into_styled</span>(
-                <span class="ident">PrimitiveStyleBuilder</span>::<span class="ident">new</span>()
-                    .<span class="ident">stroke_color</span>(<span class="ident">Rgb888</span>::<span class="ident">RED</span>)
+                <span class="ident">PrimitiveStyleBuilder::new</span>()
+                    .<span class="ident">stroke_color</span>(<span class="ident">Rgb888::RED</span>)
                     .<span class="ident">stroke_width</span>(<span class="number">3</span>)
-                    .<span class="ident">fill_color</span>(<span class="ident">Rgb888</span>::<span class="ident">GREEN</span>)
+                    .<span class="ident">fill_color</span>(<span class="ident">Rgb888::GREEN</span>)
                     .<span class="ident">build</span>(),
             )
             .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)
@@ -1170,14 +1169,14 @@
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="attribute">#[<span class="ident">ignore</span>]</span>
     <span class="kw">fn</span> <span class="ident">issue_484_stroke_should_not_overlap_outer_edge</span>() {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="op">&lt;</span><span class="ident">Rgb888</span><span class="op">&gt;</span>::<span class="ident">new</span>();
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="op">&lt;</span><span class="ident">Rgb888</span><span class="op">&gt;</span><span class="ident">::new</span>();
 
-        <span class="ident">Sector</span>::<span class="ident">with_center</span>(<span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">10</span>, <span class="number">15</span>), <span class="number">11</span>, <span class="number">0.0</span>.<span class="ident">deg</span>(), <span class="number">90.0</span>.<span class="ident">deg</span>())
+        <span class="ident">Sector::with_center</span>(<span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">15</span>), <span class="number">11</span>, <span class="number">0.0</span>.<span class="ident">deg</span>(), <span class="number">90.0</span>.<span class="ident">deg</span>())
             .<span class="ident">into_styled</span>(
-                <span class="ident">PrimitiveStyleBuilder</span>::<span class="ident">new</span>()
-                    .<span class="ident">stroke_color</span>(<span class="ident">Rgb888</span>::<span class="ident">RED</span>)
+                <span class="ident">PrimitiveStyleBuilder::new</span>()
+                    .<span class="ident">stroke_color</span>(<span class="ident">Rgb888::RED</span>)
                     .<span class="ident">stroke_width</span>(<span class="number">21</span>)
-                    .<span class="ident">fill_color</span>(<span class="ident">Rgb888</span>::<span class="ident">GREEN</span>)
+                    .<span class="ident">fill_color</span>(<span class="ident">Rgb888::GREEN</span>)
                     .<span class="ident">build</span>(),
             )
             .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)
@@ -1216,15 +1215,15 @@
     <span class="doccomment">/// Both radial lines should be perfectly aligned for 180° sweep angle.</span>
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">issue_484_stroke_center_semicircle</span>() {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="ident">new</span>();
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
 
-        <span class="ident">Sector</span>::<span class="ident">new</span>(<span class="ident">Point</span>::<span class="ident">new_equal</span>(<span class="number">1</span>), <span class="number">15</span>, <span class="number">0.0</span>.<span class="ident">deg</span>(), <span class="number">180.0</span>.<span class="ident">deg</span>())
+        <span class="ident">Sector::new</span>(<span class="ident">Point::new_equal</span>(<span class="number">1</span>), <span class="number">15</span>, <span class="number">0.0</span>.<span class="ident">deg</span>(), <span class="number">180.0</span>.<span class="ident">deg</span>())
             .<span class="ident">into_styled</span>(
-                <span class="ident">PrimitiveStyleBuilder</span>::<span class="ident">new</span>()
-                    .<span class="ident">fill_color</span>(<span class="ident">BinaryColor</span>::<span class="ident">On</span>)
-                    .<span class="ident">stroke_color</span>(<span class="ident">BinaryColor</span>::<span class="ident">Off</span>)
+                <span class="ident">PrimitiveStyleBuilder::new</span>()
+                    .<span class="ident">fill_color</span>(<span class="ident">BinaryColor::On</span>)
+                    .<span class="ident">stroke_color</span>(<span class="ident">BinaryColor::Off</span>)
                     .<span class="ident">stroke_width</span>(<span class="number">2</span>)
-                    .<span class="ident">stroke_alignment</span>(<span class="ident">StrokeAlignment</span>::<span class="ident">Center</span>)
+                    .<span class="ident">stroke_alignment</span>(<span class="ident">StrokeAlignment::Center</span>)
                     .<span class="ident">build</span>(),
             )
             .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)
@@ -1247,15 +1246,15 @@
     <span class="doccomment">/// Both radial lines should be perfectly aligned for 180° sweep angle.</span>
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">issue_484_stroke_center_semicircle_vertical</span>() {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="ident">new</span>();
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
 
-        <span class="ident">Sector</span>::<span class="ident">new</span>(<span class="ident">Point</span>::<span class="ident">new_equal</span>(<span class="number">1</span>), <span class="number">15</span>, <span class="number">90.0</span>.<span class="ident">deg</span>(), <span class="number">180.0</span>.<span class="ident">deg</span>())
+        <span class="ident">Sector::new</span>(<span class="ident">Point::new_equal</span>(<span class="number">1</span>), <span class="number">15</span>, <span class="number">90.0</span>.<span class="ident">deg</span>(), <span class="number">180.0</span>.<span class="ident">deg</span>())
             .<span class="ident">into_styled</span>(
-                <span class="ident">PrimitiveStyleBuilder</span>::<span class="ident">new</span>()
-                    .<span class="ident">fill_color</span>(<span class="ident">BinaryColor</span>::<span class="ident">On</span>)
-                    .<span class="ident">stroke_color</span>(<span class="ident">BinaryColor</span>::<span class="ident">Off</span>)
+                <span class="ident">PrimitiveStyleBuilder::new</span>()
+                    .<span class="ident">fill_color</span>(<span class="ident">BinaryColor::On</span>)
+                    .<span class="ident">stroke_color</span>(<span class="ident">BinaryColor::Off</span>)
                     .<span class="ident">stroke_width</span>(<span class="number">2</span>)
-                    .<span class="ident">stroke_alignment</span>(<span class="ident">StrokeAlignment</span>::<span class="ident">Center</span>)
+                    .<span class="ident">stroke_alignment</span>(<span class="ident">StrokeAlignment::Center</span>)
                     .<span class="ident">build</span>(),
             )
             .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)
@@ -1285,13 +1284,13 @@
     <span class="doccomment">/// The fill shouldn&#39;t overlap the stroke and there should be no gaps between stroke and fill.</span>
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">issue_484_gaps_and_overlap</span>() {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="ident">new</span>();
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
 
-        <span class="ident">Sector</span>::<span class="ident">with_center</span>(<span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">2</span>, <span class="number">20</span>), <span class="number">40</span>, <span class="op">-</span><span class="number">14.0</span>.<span class="ident">deg</span>(), <span class="number">90.0</span>.<span class="ident">deg</span>())
+        <span class="ident">Sector::with_center</span>(<span class="ident">Point::new</span>(<span class="number">2</span>, <span class="number">20</span>), <span class="number">40</span>, <span class="op">-</span><span class="number">14.0</span>.<span class="ident">deg</span>(), <span class="number">90.0</span>.<span class="ident">deg</span>())
             .<span class="ident">into_styled</span>(
-                <span class="ident">PrimitiveStyleBuilder</span>::<span class="ident">new</span>()
-                    .<span class="ident">fill_color</span>(<span class="ident">Rgb888</span>::<span class="ident">GREEN</span>)
-                    .<span class="ident">stroke_color</span>(<span class="ident">Rgb888</span>::<span class="ident">RED</span>)
+                <span class="ident">PrimitiveStyleBuilder::new</span>()
+                    .<span class="ident">fill_color</span>(<span class="ident">Rgb888::GREEN</span>)
+                    .<span class="ident">stroke_color</span>(<span class="ident">Rgb888::RED</span>)
                     .<span class="ident">stroke_width</span>(<span class="number">2</span>)
                     .<span class="ident">build</span>(),
             )
@@ -1332,20 +1331,20 @@
     <span class="doccomment">/// No radial lines should be drawn if the sweep angle is 360°.</span>
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">issue_484_no_radial_lines_for_360_degree_sweep_angle</span>() {
-        <span class="kw">let</span> <span class="ident">style</span> <span class="op">=</span> <span class="ident">PrimitiveStyleBuilder</span>::<span class="ident">new</span>()
-            .<span class="ident">fill_color</span>(<span class="ident">Rgb888</span>::<span class="ident">GREEN</span>)
-            .<span class="ident">stroke_color</span>(<span class="ident">Rgb888</span>::<span class="ident">RED</span>)
+        <span class="kw">let</span> <span class="ident">style</span> <span class="op">=</span> <span class="ident">PrimitiveStyleBuilder::new</span>()
+            .<span class="ident">fill_color</span>(<span class="ident">Rgb888::GREEN</span>)
+            .<span class="ident">stroke_color</span>(<span class="ident">Rgb888::RED</span>)
             .<span class="ident">stroke_width</span>(<span class="number">1</span>)
             .<span class="ident">build</span>();
 
-        <span class="kw">let</span> <span class="ident">circle</span> <span class="op">=</span> <span class="ident">Circle</span>::<span class="ident">new</span>(<span class="ident">Point</span>::<span class="ident">new_equal</span>(<span class="number">1</span>), <span class="number">11</span>);
+        <span class="kw">let</span> <span class="ident">circle</span> <span class="op">=</span> <span class="ident">Circle::new</span>(<span class="ident">Point::new_equal</span>(<span class="number">1</span>), <span class="number">11</span>);
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">expected</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="ident">new</span>();
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">expected</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
         <span class="ident">circle</span>.<span class="ident">into_styled</span>(<span class="ident">style</span>).<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">expected</span>).<span class="ident">unwrap</span>();
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="ident">new</span>();
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
 
-        <span class="ident">Sector</span>::<span class="ident">new</span>(<span class="ident">Point</span>::<span class="ident">new_equal</span>(<span class="number">1</span>), <span class="number">11</span>, <span class="number">0.0</span>.<span class="ident">deg</span>(), <span class="number">360.0</span>.<span class="ident">deg</span>())
+        <span class="ident">Sector::new</span>(<span class="ident">Point::new_equal</span>(<span class="number">1</span>), <span class="number">11</span>, <span class="number">0.0</span>.<span class="ident">deg</span>(), <span class="number">360.0</span>.<span class="ident">deg</span>())
             .<span class="ident">into_styled</span>(<span class="ident">style</span>)
             .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)
             .<span class="ident">unwrap</span>();
@@ -1356,20 +1355,20 @@
     <span class="doccomment">/// No radial lines should be drawn for sweep angles larger than 360°.</span>
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">issue_484_no_radial_lines_for_sweep_angles_larger_than_360_degree</span>() {
-        <span class="kw">let</span> <span class="ident">style</span> <span class="op">=</span> <span class="ident">PrimitiveStyleBuilder</span>::<span class="ident">new</span>()
-            .<span class="ident">fill_color</span>(<span class="ident">Rgb888</span>::<span class="ident">GREEN</span>)
-            .<span class="ident">stroke_color</span>(<span class="ident">Rgb888</span>::<span class="ident">RED</span>)
+        <span class="kw">let</span> <span class="ident">style</span> <span class="op">=</span> <span class="ident">PrimitiveStyleBuilder::new</span>()
+            .<span class="ident">fill_color</span>(<span class="ident">Rgb888::GREEN</span>)
+            .<span class="ident">stroke_color</span>(<span class="ident">Rgb888::RED</span>)
             .<span class="ident">stroke_width</span>(<span class="number">1</span>)
             .<span class="ident">build</span>();
 
-        <span class="kw">let</span> <span class="ident">circle</span> <span class="op">=</span> <span class="ident">Circle</span>::<span class="ident">new</span>(<span class="ident">Point</span>::<span class="ident">new_equal</span>(<span class="number">1</span>), <span class="number">11</span>);
+        <span class="kw">let</span> <span class="ident">circle</span> <span class="op">=</span> <span class="ident">Circle::new</span>(<span class="ident">Point::new_equal</span>(<span class="number">1</span>), <span class="number">11</span>);
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">expected</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="ident">new</span>();
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">expected</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
         <span class="ident">circle</span>.<span class="ident">into_styled</span>(<span class="ident">style</span>).<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">expected</span>).<span class="ident">unwrap</span>();
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="ident">new</span>();
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
 
-        <span class="ident">Sector</span>::<span class="ident">from_circle</span>(<span class="ident">circle</span>, <span class="number">90.0</span>.<span class="ident">deg</span>(), <span class="op">-</span><span class="number">472.0</span>.<span class="ident">deg</span>())
+        <span class="ident">Sector::from_circle</span>(<span class="ident">circle</span>, <span class="number">90.0</span>.<span class="ident">deg</span>(), <span class="op">-</span><span class="number">472.0</span>.<span class="ident">deg</span>())
             .<span class="ident">into_styled</span>(<span class="ident">style</span>)
             .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)
             .<span class="ident">unwrap</span>();
@@ -1380,16 +1379,15 @@
     <span class="doccomment">/// The sector was mirrored along the Y axis if the start angle was exactly 360°.</span>
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">issue_484_sector_flips_at_360_degrees</span>() {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="ident">new</span>();
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
 
         <span class="comment">// This would trigger the out of bounds drawing check if the sector</span>
         <span class="comment">// would be mirrored along the Y axis.</span>
-        <span class="ident">Sector</span>::<span class="ident">new</span>(<span class="ident">Point</span>::<span class="ident">new</span>(<span class="op">-</span><span class="number">15</span>, <span class="number">0</span>), <span class="number">31</span>, <span class="number">360.0</span>.<span class="ident">deg</span>(), <span class="number">90.0</span>.<span class="ident">deg</span>())
-            .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle</span>::<span class="ident">with_fill</span>(<span class="ident">BinaryColor</span>::<span class="ident">On</span>))
+        <span class="ident">Sector::new</span>(<span class="ident">Point::new</span>(<span class="op">-</span><span class="number">15</span>, <span class="number">0</span>), <span class="number">31</span>, <span class="number">360.0</span>.<span class="ident">deg</span>(), <span class="number">90.0</span>.<span class="ident">deg</span>())
+            .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle::with_fill</span>(<span class="ident">BinaryColor::On</span>))
             .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)
             .<span class="ident">unwrap</span>();
     }
 }
 </pre></div>
-</section><section id="search" class="content hidden"></section><section class="footer"></section><div id="rustdoc-vars" data-root-path="../../../../" data-current-crate="embedded_graphics" data-search-js="../../../../search-index.js"></div>
-    <script src="../../../../main.js"></script><script src="../../../../source-script.js"></script><script src="../../../../source-files.js"></script></body></html>
+</section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../../../" data-current-crate="embedded_graphics" data-search-index-js="../../../../search-index.js" data-search-js="../../../../search.js"></div><script src="../../../../main.js"></script><script src="../../../../source-script.js"></script><script src="../../../../source-files.js"></script></body></html>

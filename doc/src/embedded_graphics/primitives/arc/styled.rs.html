@@ -1,7 +1,6 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.0/src/primitives/arc/styled.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>styled.rs - source</title><link rel="stylesheet" type="text/css" href="../../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../../ayu.css" disabled ><script id="default-settings"></script><script src="../../../../storage.js"></script><script src="../../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../../../favicon.svg">
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.1/src/primitives/arc/styled.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>styled.rs - source</title><link rel="stylesheet" type="text/css" href="../../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../../ayu.css" disabled ><script id="default-settings"></script><script src="../../../../storage.js"></script><script src="../../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../../../favicon.svg">
 <link rel="alternate icon" type="image/png" href="../../../../favicon-16x16.png">
-<link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../../embedded_graphics/index.html'><div class='logo-container'><img src='https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><script src="../../../../theme.js"></script><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" class="help-button">?</button>
-                <a id="settings-menu" href="../../../../settings.html"><img src="../../../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">  1</span>
+<link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../../embedded_graphics/index.html'><div class='logo-container'><img src='https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img src="../../../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../../../settings.html" title="settings"><img src="../../../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -265,13 +264,13 @@
 <span id="262">262</span>
 <span id="263">263</span>
 <span id="264">264</span>
-</pre><div class="example-wrap"><pre class="rust ">
+</pre><pre class="rust">
 <span class="kw">use</span> <span class="kw">crate</span>::{
-    <span class="ident">draw_target</span>::<span class="ident">DrawTarget</span>,
-    <span class="ident">geometry</span>::<span class="ident">Dimensions</span>,
-    <span class="ident">pixelcolor</span>::<span class="ident">PixelColor</span>,
+    <span class="ident">draw_target::DrawTarget</span>,
+    <span class="ident">geometry::Dimensions</span>,
+    <span class="ident">pixelcolor::PixelColor</span>,
     <span class="ident">primitives</span>::{
-        <span class="ident">arc</span>::<span class="ident">Arc</span>,
+        <span class="ident">arc::Arc</span>,
         <span class="ident">common</span>::{<span class="ident">DistanceIterator</span>, <span class="ident">PlaneSector</span>},
         <span class="ident">styled</span>::{<span class="ident">StyledDimensions</span>, <span class="ident">StyledDrawable</span>, <span class="ident">StyledPixels</span>},
         <span class="ident">OffsetOutline</span>, <span class="ident">PrimitiveStyle</span>, <span class="ident">Rectangle</span>,
@@ -279,7 +278,7 @@
     <span class="ident">Pixel</span>,
 };
 
-<span class="kw">use</span> <span class="ident">az</span>::<span class="ident">SaturatingAs</span>;
+<span class="kw">use</span> <span class="ident">az::SaturatingAs</span>;
 
 <span class="doccomment">/// Pixel iterator for each pixel in the arc border</span>
 <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Clone</span>, <span class="ident">PartialEq</span>, <span class="ident">Debug</span>)]</span>
@@ -305,10 +304,10 @@
             <span class="comment">// PERF: The distance iterator should use the smaller arc bounding box</span>
             <span class="ident">outside_edge</span>.<span class="ident">distances</span>()
         } <span class="kw">else</span> {
-            <span class="ident">DistanceIterator</span>::<span class="ident">empty</span>()
+            <span class="ident">DistanceIterator::empty</span>()
         };
 
-        <span class="kw">let</span> <span class="ident">plane_sector</span> <span class="op">=</span> <span class="ident">PlaneSector</span>::<span class="ident">new</span>(<span class="ident">primitive</span>.<span class="ident">angle_start</span>, <span class="ident">primitive</span>.<span class="ident">angle_sweep</span>);
+        <span class="kw">let</span> <span class="ident">plane_sector</span> <span class="op">=</span> <span class="ident">PlaneSector::new</span>(<span class="ident">primitive</span>.<span class="ident">angle_start</span>, <span class="ident">primitive</span>.<span class="ident">angle_sweep</span>);
 
         <span class="self">Self</span> {
             <span class="ident">iter</span>,
@@ -323,7 +322,7 @@
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">C</span>: <span class="ident">PixelColor</span><span class="op">&gt;</span> <span class="ident">Iterator</span> <span class="kw">for</span> <span class="ident">StyledPixelsIterator</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span> {
     <span class="kw">type</span> <span class="ident">Item</span> <span class="op">=</span> <span class="ident">Pixel</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>;
 
-    <span class="kw">fn</span> <span class="ident">next</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="ident">Item</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">next</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="self">Self</span><span class="ident">::Item</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">stroke_color</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">stroke_color</span><span class="question-mark">?</span>;
         <span class="kw">let</span> <span class="ident">outer_threshold</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">outer_threshold</span>;
         <span class="kw">let</span> <span class="ident">inner_threshold</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">inner_threshold</span>;
@@ -347,19 +346,19 @@
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         <span class="ident">style</span>: <span class="kw-2">&amp;</span><span class="ident">PrimitiveStyle</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>,
         <span class="ident">target</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">D</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="ident">Output</span>, <span class="ident">D</span>::<span class="ident">Error</span><span class="op">&gt;</span>
+    ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="self">Self</span><span class="ident">::Output</span>, <span class="ident">D::Error</span><span class="op">&gt;</span>
     <span class="kw">where</span>
         <span class="ident">D</span>: <span class="ident">DrawTarget</span><span class="op">&lt;</span><span class="ident">Color</span> <span class="op">=</span> <span class="ident">C</span><span class="op">&gt;</span>,
     {
-        <span class="ident">target</span>.<span class="ident">draw_iter</span>(<span class="ident">StyledPixelsIterator</span>::<span class="ident">new</span>(<span class="self">self</span>, <span class="ident">style</span>))
+        <span class="ident">target</span>.<span class="ident">draw_iter</span>(<span class="ident">StyledPixelsIterator::new</span>(<span class="self">self</span>, <span class="ident">style</span>))
     }
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">C</span>: <span class="ident">PixelColor</span><span class="op">&gt;</span> <span class="ident">StyledPixels</span><span class="op">&lt;</span><span class="ident">PrimitiveStyle</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Arc</span> {
     <span class="kw">type</span> <span class="ident">Iter</span> <span class="op">=</span> <span class="ident">StyledPixelsIterator</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>;
 
-    <span class="kw">fn</span> <span class="ident">pixels</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">style</span>: <span class="kw-2">&amp;</span><span class="ident">PrimitiveStyle</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span>::<span class="ident">Iter</span> {
-        <span class="ident">StyledPixelsIterator</span>::<span class="ident">new</span>(<span class="self">self</span>, <span class="ident">style</span>)
+    <span class="kw">fn</span> <span class="ident">pixels</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">style</span>: <span class="kw-2">&amp;</span><span class="ident">PrimitiveStyle</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span><span class="ident">::Iter</span> {
+        <span class="ident">StyledPixelsIterator::new</span>(<span class="self">self</span>, <span class="ident">style</span>)
     }
 }
 
@@ -376,21 +375,21 @@
 <span class="kw">mod</span> <span class="ident">tests</span> {
     <span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
     <span class="kw">use</span> <span class="kw">crate</span>::{
-        <span class="ident">draw_target</span>::<span class="ident">DrawTargetExt</span>,
+        <span class="ident">draw_target::DrawTargetExt</span>,
         <span class="ident">geometry</span>::{<span class="ident">AnchorPoint</span>, <span class="ident">AngleUnit</span>, <span class="ident">Point</span>, <span class="ident">Size</span>},
-        <span class="ident">mock_display</span>::<span class="ident">MockDisplay</span>,
-        <span class="ident">pixelcolor</span>::<span class="ident">BinaryColor</span>,
+        <span class="ident">mock_display::MockDisplay</span>,
+        <span class="ident">pixelcolor::BinaryColor</span>,
         <span class="ident">primitives</span>::{<span class="ident">Circle</span>, <span class="ident">Primitive</span>, <span class="ident">PrimitiveStyle</span>, <span class="ident">PrimitiveStyleBuilder</span>, <span class="ident">StrokeAlignment</span>},
         <span class="ident">Drawable</span>,
     };
 
     <span class="comment">// Check the rendering of a simple arc</span>
     <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">tiny_arc</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">core</span>::<span class="ident">convert</span>::<span class="ident">Infallible</span><span class="op">&gt;</span> {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="ident">new</span>();
+    <span class="kw">fn</span> <span class="ident">tiny_arc</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">core::convert::Infallible</span><span class="op">&gt;</span> {
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
 
-        <span class="ident">Arc</span>::<span class="ident">new</span>(<span class="ident">Point</span>::<span class="ident">zero</span>(), <span class="number">7</span>, <span class="number">30.0</span>.<span class="ident">deg</span>(), <span class="number">120.0</span>.<span class="ident">deg</span>())
-            .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle</span>::<span class="ident">with_stroke</span>(<span class="ident">BinaryColor</span>::<span class="ident">On</span>, <span class="number">1</span>))
+        <span class="ident">Arc::new</span>(<span class="ident">Point::zero</span>(), <span class="number">7</span>, <span class="number">30.0</span>.<span class="ident">deg</span>(), <span class="number">120.0</span>.<span class="ident">deg</span>())
+            .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle::with_stroke</span>(<span class="ident">BinaryColor::On</span>, <span class="number">1</span>))
             .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)<span class="question-mark">?</span>;
 
         <span class="ident">display</span>.<span class="ident">assert_pattern</span>(<span class="kw-2">&amp;</span>[
@@ -404,39 +403,39 @@
     <span class="doccomment">/// Draws arcs with +/-90° sweep angle and compares the result with drawing a quarter circle.</span>
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">quadrant_arcs</span>() {
-        <span class="kw">let</span> <span class="ident">style</span> <span class="op">=</span> <span class="ident">PrimitiveStyle</span>::<span class="ident">with_stroke</span>(<span class="ident">BinaryColor</span>::<span class="ident">On</span>, <span class="number">2</span>);
+        <span class="kw">let</span> <span class="ident">style</span> <span class="op">=</span> <span class="ident">PrimitiveStyle::with_stroke</span>(<span class="ident">BinaryColor::On</span>, <span class="number">2</span>);
 
         <span class="kw">for</span> <span class="kw-2">&amp;</span><span class="ident">diameter</span> <span class="kw">in</span> <span class="kw-2">&amp;</span>[<span class="number">11</span>, <span class="number">12</span>] {
             <span class="kw">for</span> <span class="kw-2">&amp;</span>(<span class="ident">angle_start</span>, <span class="ident">angle_sweep</span>, <span class="ident">anchor_point</span>) <span class="kw">in</span> <span class="kw-2">&amp;</span>[
-                (<span class="number">0.0</span>.<span class="ident">deg</span>(), <span class="number">90.0</span>.<span class="ident">deg</span>(), <span class="ident">AnchorPoint</span>::<span class="ident">TopRight</span>),
-                (<span class="number">90.0</span>.<span class="ident">deg</span>(), <span class="number">90.0</span>.<span class="ident">deg</span>(), <span class="ident">AnchorPoint</span>::<span class="ident">TopLeft</span>),
-                (<span class="number">180.0</span>.<span class="ident">deg</span>(), <span class="number">90.0</span>.<span class="ident">deg</span>(), <span class="ident">AnchorPoint</span>::<span class="ident">BottomLeft</span>),
-                (<span class="number">270.0</span>.<span class="ident">deg</span>(), <span class="number">90.0</span>.<span class="ident">deg</span>(), <span class="ident">AnchorPoint</span>::<span class="ident">BottomRight</span>),
-                (<span class="number">0.0</span>.<span class="ident">deg</span>(), <span class="op">-</span><span class="number">90.0</span>.<span class="ident">deg</span>(), <span class="ident">AnchorPoint</span>::<span class="ident">BottomRight</span>),
-                (<span class="number">90.0</span>.<span class="ident">deg</span>(), <span class="op">-</span><span class="number">90.0</span>.<span class="ident">deg</span>(), <span class="ident">AnchorPoint</span>::<span class="ident">TopRight</span>),
-                (<span class="number">180.0</span>.<span class="ident">deg</span>(), <span class="op">-</span><span class="number">90.0</span>.<span class="ident">deg</span>(), <span class="ident">AnchorPoint</span>::<span class="ident">TopLeft</span>),
-                (<span class="number">270.0</span>.<span class="ident">deg</span>(), <span class="op">-</span><span class="number">90.0</span>.<span class="ident">deg</span>(), <span class="ident">AnchorPoint</span>::<span class="ident">BottomLeft</span>),
+                (<span class="number">0.0</span>.<span class="ident">deg</span>(), <span class="number">90.0</span>.<span class="ident">deg</span>(), <span class="ident">AnchorPoint::TopRight</span>),
+                (<span class="number">90.0</span>.<span class="ident">deg</span>(), <span class="number">90.0</span>.<span class="ident">deg</span>(), <span class="ident">AnchorPoint::TopLeft</span>),
+                (<span class="number">180.0</span>.<span class="ident">deg</span>(), <span class="number">90.0</span>.<span class="ident">deg</span>(), <span class="ident">AnchorPoint::BottomLeft</span>),
+                (<span class="number">270.0</span>.<span class="ident">deg</span>(), <span class="number">90.0</span>.<span class="ident">deg</span>(), <span class="ident">AnchorPoint::BottomRight</span>),
+                (<span class="number">0.0</span>.<span class="ident">deg</span>(), <span class="op">-</span><span class="number">90.0</span>.<span class="ident">deg</span>(), <span class="ident">AnchorPoint::BottomRight</span>),
+                (<span class="number">90.0</span>.<span class="ident">deg</span>(), <span class="op">-</span><span class="number">90.0</span>.<span class="ident">deg</span>(), <span class="ident">AnchorPoint::TopRight</span>),
+                (<span class="number">180.0</span>.<span class="ident">deg</span>(), <span class="op">-</span><span class="number">90.0</span>.<span class="ident">deg</span>(), <span class="ident">AnchorPoint::TopLeft</span>),
+                (<span class="number">270.0</span>.<span class="ident">deg</span>(), <span class="op">-</span><span class="number">90.0</span>.<span class="ident">deg</span>(), <span class="ident">AnchorPoint::BottomLeft</span>),
             ] {
-                <span class="kw">let</span> <span class="ident">circle</span> <span class="op">=</span> <span class="ident">Circle</span>::<span class="ident">new</span>(<span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">1</span>, <span class="number">1</span>), <span class="ident">diameter</span>).<span class="ident">into_styled</span>(<span class="ident">style</span>);
+                <span class="kw">let</span> <span class="ident">circle</span> <span class="op">=</span> <span class="ident">Circle::new</span>(<span class="ident">Point::new</span>(<span class="number">1</span>, <span class="number">1</span>), <span class="ident">diameter</span>).<span class="ident">into_styled</span>(<span class="ident">style</span>);
 
                 <span class="comment">// Calculate a clip rectangle for the tested quadrant.</span>
                 <span class="kw">let</span> <span class="ident">bounding_box</span> <span class="op">=</span> <span class="ident">circle</span>.<span class="ident">bounding_box</span>();
                 <span class="kw">let</span> <span class="ident">clip_rect</span> <span class="op">=</span> <span class="ident">bounding_box</span>
-                    .<span class="ident">resized</span>((<span class="ident">bounding_box</span>.<span class="ident">size</span> <span class="op">+</span> <span class="ident">Size</span>::<span class="ident">new_equal</span>(<span class="number">1</span>)) <span class="op">/</span> <span class="number">2</span>, <span class="ident">anchor_point</span>);
+                    .<span class="ident">resized</span>((<span class="ident">bounding_box</span>.<span class="ident">size</span> <span class="op">+</span> <span class="ident">Size::new_equal</span>(<span class="number">1</span>)) <span class="op">/</span> <span class="number">2</span>, <span class="ident">anchor_point</span>);
 
                 <span class="comment">// Draw expected display by clipping the circle to the quadrant.</span>
-                <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">expected</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="ident">new</span>();
+                <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">expected</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
                 <span class="ident">circle</span>.<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">expected</span>.<span class="ident">clipped</span>(<span class="kw-2">&amp;</span><span class="ident">clip_rect</span>)).<span class="ident">unwrap</span>();
 
                 <span class="comment">// Draw the arc.</span>
-                <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="ident">new</span>();
-                <span class="ident">Arc</span>::<span class="ident">new</span>(<span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">1</span>, <span class="number">1</span>), <span class="ident">diameter</span>, <span class="ident">angle_start</span>, <span class="ident">angle_sweep</span>)
+                <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
+                <span class="ident">Arc::new</span>(<span class="ident">Point::new</span>(<span class="number">1</span>, <span class="number">1</span>), <span class="ident">diameter</span>, <span class="ident">angle_start</span>, <span class="ident">angle_sweep</span>)
                     .<span class="ident">into_styled</span>(<span class="ident">style</span>)
                     .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)
                     .<span class="ident">unwrap</span>();
 
                 <span class="ident">display</span>.<span class="ident">assert_eq_with_message</span>(<span class="kw-2">&amp;</span><span class="ident">expected</span>, <span class="op">|</span><span class="ident">f</span><span class="op">|</span> {
-                    <span class="macro">write</span><span class="macro">!</span>(
+                    <span class="macro">write!</span>(
                         <span class="ident">f</span>,
                         <span class="string">&quot;diameter: {}, angle_start: {}, angle_sweep: {}&quot;</span>,
                         <span class="ident">diameter</span>,
@@ -450,32 +449,32 @@
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">stroke_alignment</span>() {
-        <span class="kw">const</span> <span class="ident">CENTER</span>: <span class="ident">Point</span> <span class="op">=</span> <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">15</span>, <span class="number">15</span>);
+        <span class="kw">const</span> <span class="ident">CENTER</span>: <span class="ident">Point</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="number">15</span>, <span class="number">15</span>);
         <span class="kw">const</span> <span class="ident">SIZE</span>: <span class="ident">u32</span> <span class="op">=</span> <span class="number">10</span>;
 
-        <span class="kw">let</span> <span class="ident">style</span> <span class="op">=</span> <span class="ident">PrimitiveStyle</span>::<span class="ident">with_stroke</span>(<span class="ident">BinaryColor</span>::<span class="ident">On</span>, <span class="number">3</span>);
+        <span class="kw">let</span> <span class="ident">style</span> <span class="op">=</span> <span class="ident">PrimitiveStyle::with_stroke</span>(<span class="ident">BinaryColor::On</span>, <span class="number">3</span>);
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display_center</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="ident">new</span>();
-        <span class="ident">Arc</span>::<span class="ident">with_center</span>(<span class="ident">CENTER</span>, <span class="ident">SIZE</span>, <span class="number">0.0</span>.<span class="ident">deg</span>(), <span class="number">90.0</span>.<span class="ident">deg</span>())
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display_center</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
+        <span class="ident">Arc::with_center</span>(<span class="ident">CENTER</span>, <span class="ident">SIZE</span>, <span class="number">0.0</span>.<span class="ident">deg</span>(), <span class="number">90.0</span>.<span class="ident">deg</span>())
             .<span class="ident">into_styled</span>(<span class="ident">style</span>)
             .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display_center</span>)
             .<span class="ident">unwrap</span>();
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display_inside</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="ident">new</span>();
-        <span class="ident">Arc</span>::<span class="ident">with_center</span>(<span class="ident">CENTER</span>, <span class="ident">SIZE</span> <span class="op">+</span> <span class="number">2</span>, <span class="number">0.0</span>.<span class="ident">deg</span>(), <span class="number">90.0</span>.<span class="ident">deg</span>())
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display_inside</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
+        <span class="ident">Arc::with_center</span>(<span class="ident">CENTER</span>, <span class="ident">SIZE</span> <span class="op">+</span> <span class="number">2</span>, <span class="number">0.0</span>.<span class="ident">deg</span>(), <span class="number">90.0</span>.<span class="ident">deg</span>())
             .<span class="ident">into_styled</span>(
-                <span class="ident">PrimitiveStyleBuilder</span>::<span class="ident">from</span>(<span class="kw-2">&amp;</span><span class="ident">style</span>)
-                    .<span class="ident">stroke_alignment</span>(<span class="ident">StrokeAlignment</span>::<span class="ident">Inside</span>)
+                <span class="ident">PrimitiveStyleBuilder::from</span>(<span class="kw-2">&amp;</span><span class="ident">style</span>)
+                    .<span class="ident">stroke_alignment</span>(<span class="ident">StrokeAlignment::Inside</span>)
                     .<span class="ident">build</span>(),
             )
             .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display_inside</span>)
             .<span class="ident">unwrap</span>();
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display_outside</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="ident">new</span>();
-        <span class="ident">Arc</span>::<span class="ident">with_center</span>(<span class="ident">CENTER</span>, <span class="ident">SIZE</span> <span class="op">-</span> <span class="number">4</span>, <span class="number">0.0</span>.<span class="ident">deg</span>(), <span class="number">90.0</span>.<span class="ident">deg</span>())
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display_outside</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
+        <span class="ident">Arc::with_center</span>(<span class="ident">CENTER</span>, <span class="ident">SIZE</span> <span class="op">-</span> <span class="number">4</span>, <span class="number">0.0</span>.<span class="ident">deg</span>(), <span class="number">90.0</span>.<span class="ident">deg</span>())
             .<span class="ident">into_styled</span>(
-                <span class="ident">PrimitiveStyleBuilder</span>::<span class="ident">from</span>(<span class="kw-2">&amp;</span><span class="ident">style</span>)
-                    .<span class="ident">stroke_alignment</span>(<span class="ident">StrokeAlignment</span>::<span class="ident">Outside</span>)
+                <span class="ident">PrimitiveStyleBuilder::from</span>(<span class="kw-2">&amp;</span><span class="ident">style</span>)
+                    .<span class="ident">stroke_alignment</span>(<span class="ident">StrokeAlignment::Outside</span>)
                     .<span class="ident">build</span>(),
             )
             .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display_outside</span>)
@@ -487,25 +486,25 @@
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">bounding_boxes</span>() {
-        <span class="kw">const</span> <span class="ident">CENTER</span>: <span class="ident">Point</span> <span class="op">=</span> <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">15</span>, <span class="number">15</span>);
+        <span class="kw">const</span> <span class="ident">CENTER</span>: <span class="ident">Point</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="number">15</span>, <span class="number">15</span>);
         <span class="kw">const</span> <span class="ident">SIZE</span>: <span class="ident">u32</span> <span class="op">=</span> <span class="number">10</span>;
 
-        <span class="kw">let</span> <span class="ident">style</span> <span class="op">=</span> <span class="ident">PrimitiveStyle</span>::<span class="ident">with_stroke</span>(<span class="ident">BinaryColor</span>::<span class="ident">On</span>, <span class="number">3</span>);
+        <span class="kw">let</span> <span class="ident">style</span> <span class="op">=</span> <span class="ident">PrimitiveStyle::with_stroke</span>(<span class="ident">BinaryColor::On</span>, <span class="number">3</span>);
 
-        <span class="kw">let</span> <span class="ident">center</span> <span class="op">=</span> <span class="ident">Arc</span>::<span class="ident">with_center</span>(<span class="ident">CENTER</span>, <span class="ident">SIZE</span>, <span class="number">0.0</span>.<span class="ident">deg</span>(), <span class="number">90.0</span>.<span class="ident">deg</span>()).<span class="ident">into_styled</span>(<span class="ident">style</span>);
-        <span class="kw">let</span> <span class="ident">inside</span> <span class="op">=</span> <span class="ident">Arc</span>::<span class="ident">with_center</span>(<span class="ident">CENTER</span>, <span class="ident">SIZE</span> <span class="op">+</span> <span class="number">2</span>, <span class="number">0.0</span>.<span class="ident">deg</span>(), <span class="number">90.0</span>.<span class="ident">deg</span>()).<span class="ident">into_styled</span>(
-            <span class="ident">PrimitiveStyleBuilder</span>::<span class="ident">from</span>(<span class="kw-2">&amp;</span><span class="ident">style</span>)
-                .<span class="ident">stroke_alignment</span>(<span class="ident">StrokeAlignment</span>::<span class="ident">Inside</span>)
+        <span class="kw">let</span> <span class="ident">center</span> <span class="op">=</span> <span class="ident">Arc::with_center</span>(<span class="ident">CENTER</span>, <span class="ident">SIZE</span>, <span class="number">0.0</span>.<span class="ident">deg</span>(), <span class="number">90.0</span>.<span class="ident">deg</span>()).<span class="ident">into_styled</span>(<span class="ident">style</span>);
+        <span class="kw">let</span> <span class="ident">inside</span> <span class="op">=</span> <span class="ident">Arc::with_center</span>(<span class="ident">CENTER</span>, <span class="ident">SIZE</span> <span class="op">+</span> <span class="number">2</span>, <span class="number">0.0</span>.<span class="ident">deg</span>(), <span class="number">90.0</span>.<span class="ident">deg</span>()).<span class="ident">into_styled</span>(
+            <span class="ident">PrimitiveStyleBuilder::from</span>(<span class="kw-2">&amp;</span><span class="ident">style</span>)
+                .<span class="ident">stroke_alignment</span>(<span class="ident">StrokeAlignment::Inside</span>)
                 .<span class="ident">build</span>(),
         );
-        <span class="kw">let</span> <span class="ident">outside</span> <span class="op">=</span> <span class="ident">Arc</span>::<span class="ident">with_center</span>(<span class="ident">CENTER</span>, <span class="ident">SIZE</span> <span class="op">-</span> <span class="number">4</span>, <span class="number">0.0</span>.<span class="ident">deg</span>(), <span class="number">90.0</span>.<span class="ident">deg</span>()).<span class="ident">into_styled</span>(
-            <span class="ident">PrimitiveStyleBuilder</span>::<span class="ident">from</span>(<span class="kw-2">&amp;</span><span class="ident">style</span>)
-                .<span class="ident">stroke_alignment</span>(<span class="ident">StrokeAlignment</span>::<span class="ident">Outside</span>)
+        <span class="kw">let</span> <span class="ident">outside</span> <span class="op">=</span> <span class="ident">Arc::with_center</span>(<span class="ident">CENTER</span>, <span class="ident">SIZE</span> <span class="op">-</span> <span class="number">4</span>, <span class="number">0.0</span>.<span class="ident">deg</span>(), <span class="number">90.0</span>.<span class="ident">deg</span>()).<span class="ident">into_styled</span>(
+            <span class="ident">PrimitiveStyleBuilder::from</span>(<span class="kw-2">&amp;</span><span class="ident">style</span>)
+                .<span class="ident">stroke_alignment</span>(<span class="ident">StrokeAlignment::Outside</span>)
                 .<span class="ident">build</span>(),
         );
 
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">center</span>.<span class="ident">bounding_box</span>(), <span class="ident">inside</span>.<span class="ident">bounding_box</span>());
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">outside</span>.<span class="ident">bounding_box</span>(), <span class="ident">inside</span>.<span class="ident">bounding_box</span>());
+        <span class="macro">assert_eq!</span>(<span class="ident">center</span>.<span class="ident">bounding_box</span>(), <span class="ident">inside</span>.<span class="ident">bounding_box</span>());
+        <span class="macro">assert_eq!</span>(<span class="ident">outside</span>.<span class="ident">bounding_box</span>(), <span class="ident">inside</span>.<span class="ident">bounding_box</span>());
 
         <span class="comment">// TODO: Uncomment when arc bounding box is fixed in #405</span>
         <span class="comment">// let mut display = MockDisplay::new();</span>
@@ -515,21 +514,20 @@
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">bounding_box_is_independent_of_colors</span>() {
-        <span class="kw">const</span> <span class="ident">CENTER</span>: <span class="ident">Point</span> <span class="op">=</span> <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">15</span>, <span class="number">15</span>);
+        <span class="kw">const</span> <span class="ident">CENTER</span>: <span class="ident">Point</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="number">15</span>, <span class="number">15</span>);
         <span class="kw">const</span> <span class="ident">SIZE</span>: <span class="ident">u32</span> <span class="op">=</span> <span class="number">10</span>;
 
-        <span class="kw">let</span> <span class="ident">arc</span> <span class="op">=</span> <span class="ident">Arc</span>::<span class="ident">with_center</span>(<span class="ident">CENTER</span>, <span class="ident">SIZE</span>, <span class="number">0.0</span>.<span class="ident">deg</span>(), <span class="number">90.0</span>.<span class="ident">deg</span>());
+        <span class="kw">let</span> <span class="ident">arc</span> <span class="op">=</span> <span class="ident">Arc::with_center</span>(<span class="ident">CENTER</span>, <span class="ident">SIZE</span>, <span class="number">0.0</span>.<span class="ident">deg</span>(), <span class="number">90.0</span>.<span class="ident">deg</span>());
 
         <span class="kw">let</span> <span class="ident">transparent_arc</span> <span class="op">=</span> <span class="ident">arc</span>.<span class="ident">into_styled</span>(
-            <span class="ident">PrimitiveStyleBuilder</span>::<span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span>::<span class="ident">new</span>()
+            <span class="ident">PrimitiveStyleBuilder</span>::<span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span><span class="ident">::new</span>()
                 .<span class="ident">stroke_width</span>(<span class="number">5</span>)
                 .<span class="ident">build</span>(),
         );
-        <span class="kw">let</span> <span class="ident">stroked_arc</span> <span class="op">=</span> <span class="ident">arc</span>.<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle</span>::<span class="ident">with_stroke</span>(<span class="ident">BinaryColor</span>::<span class="ident">On</span>, <span class="number">5</span>));
+        <span class="kw">let</span> <span class="ident">stroked_arc</span> <span class="op">=</span> <span class="ident">arc</span>.<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle::with_stroke</span>(<span class="ident">BinaryColor::On</span>, <span class="number">5</span>));
 
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">transparent_arc</span>.<span class="ident">bounding_box</span>(), <span class="ident">stroked_arc</span>.<span class="ident">bounding_box</span>(),);
+        <span class="macro">assert_eq!</span>(<span class="ident">transparent_arc</span>.<span class="ident">bounding_box</span>(), <span class="ident">stroked_arc</span>.<span class="ident">bounding_box</span>(),);
     }
 }
 </pre></div>
-</section><section id="search" class="content hidden"></section><section class="footer"></section><div id="rustdoc-vars" data-root-path="../../../../" data-current-crate="embedded_graphics" data-search-js="../../../../search-index.js"></div>
-    <script src="../../../../main.js"></script><script src="../../../../source-script.js"></script><script src="../../../../source-files.js"></script></body></html>
+</section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../../../" data-current-crate="embedded_graphics" data-search-index-js="../../../../search-index.js" data-search-js="../../../../search.js"></div><script src="../../../../main.js"></script><script src="../../../../source-script.js"></script><script src="../../../../source-files.js"></script></body></html>

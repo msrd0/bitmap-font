@@ -1,7 +1,6 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.0/src/text/text.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>text.rs - source</title><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled ><script id="default-settings"></script><script src="../../../storage.js"></script><script src="../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.1/src/text/text.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>text.rs - source</title><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled ><script id="default-settings"></script><script src="../../../storage.js"></script><script src="../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
 <link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png">
-<link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../embedded_graphics/index.html'><div class='logo-container'><img src='https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><script src="../../../theme.js"></script><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" class="help-button">?</button>
-                <a id="settings-menu" href="../../../settings.html"><img src="../../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">  1</span>
+<link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../embedded_graphics/index.html'><div class='logo-container'><img src='https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img src="../../../brush.svg" width="18" height="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../../settings.html" title="settings"><img src="../../../wheel.svg" width="18" height="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -732,21 +731,21 @@
 <span id="729">729</span>
 <span id="730">730</span>
 <span id="731">731</span>
-</pre><div class="example-wrap"><pre class="rust ">
+</pre><pre class="rust">
 <span class="kw">use</span> <span class="kw">crate</span>::{
-    <span class="ident">draw_target</span>::<span class="ident">DrawTarget</span>,
+    <span class="ident">draw_target::DrawTarget</span>,
     <span class="ident">geometry</span>::{<span class="ident">Dimensions</span>, <span class="ident">Point</span>, <span class="ident">Size</span>},
-    <span class="ident">primitives</span>::<span class="ident">Rectangle</span>,
+    <span class="ident">primitives::Rectangle</span>,
     <span class="ident">text</span>::{
         <span class="ident">renderer</span>::{<span class="ident">TextMetrics</span>, <span class="ident">TextRenderer</span>},
         <span class="ident">Alignment</span>, <span class="ident">Baseline</span>, <span class="ident">TextStyle</span>,
     },
-    <span class="ident">transform</span>::<span class="ident">Transform</span>,
+    <span class="ident">transform::Transform</span>,
     <span class="ident">Drawable</span>,
 };
-<span class="kw">use</span> <span class="ident">az</span>::<span class="ident">SaturatingAs</span>;
+<span class="kw">use</span> <span class="ident">az::SaturatingAs</span>;
 
-<span class="kw">use</span> <span class="kw">super</span>::<span class="ident">TextStyleBuilder</span>;
+<span class="kw">use</span> <span class="kw">super</span><span class="ident">::TextStyleBuilder</span>;
 <span class="doccomment">/// Text drawable.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// A text drawable can be used to draw text to a draw target.</span>
@@ -776,7 +775,7 @@
             <span class="ident">text</span>,
             <span class="ident">position</span>,
             <span class="ident">character_style</span>,
-            <span class="ident">text_style</span>: <span class="ident">TextStyleBuilder</span>::<span class="ident">new</span>().<span class="ident">build</span>(),
+            <span class="ident">text_style</span>: <span class="ident">TextStyleBuilder::new</span>().<span class="ident">build</span>(),
         }
     }
 
@@ -806,7 +805,7 @@
             <span class="ident">text</span>,
             <span class="ident">position</span>,
             <span class="ident">character_style</span>,
-            <span class="ident">text_style</span>: <span class="ident">TextStyle</span>::<span class="ident">with_baseline</span>(<span class="ident">baseline</span>),
+            <span class="ident">text_style</span>: <span class="ident">TextStyle::with_baseline</span>(<span class="ident">baseline</span>),
         }
     }
 
@@ -821,7 +820,7 @@
             <span class="ident">text</span>,
             <span class="ident">position</span>,
             <span class="ident">character_style</span>,
-            <span class="ident">text_style</span>: <span class="ident">TextStyle</span>::<span class="ident">with_alignment</span>(<span class="ident">alignment</span>),
+            <span class="ident">text_style</span>: <span class="ident">TextStyle::with_alignment</span>(<span class="ident">alignment</span>),
         }
     }
 }
@@ -847,22 +846,22 @@
 
         <span class="self">self</span>.<span class="ident">text</span>.<span class="ident">lines</span>().<span class="ident">map</span>(<span class="kw">move</span> <span class="op">|</span><span class="ident">line</span><span class="op">|</span> {
             <span class="kw">let</span> <span class="ident">p</span> <span class="op">=</span> <span class="kw">match</span> <span class="self">self</span>.<span class="ident">text_style</span>.<span class="ident">alignment</span> {
-                <span class="ident">Alignment</span>::<span class="ident">Left</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">position</span>,
-                <span class="ident">Alignment</span>::<span class="ident">Right</span> <span class="op">=</span><span class="op">&gt;</span> {
+                <span class="ident">Alignment::Left</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">position</span>,
+                <span class="ident">Alignment::Right</span> <span class="op">=</span><span class="op">&gt;</span> {
                     <span class="kw">let</span> <span class="ident">metrics</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">character_style</span>.<span class="ident">measure_string</span>(
                         <span class="ident">line</span>,
-                        <span class="ident">Point</span>::<span class="ident">zero</span>(),
+                        <span class="ident">Point::zero</span>(),
                         <span class="self">self</span>.<span class="ident">text_style</span>.<span class="ident">baseline</span>,
                     );
-                    <span class="ident">position</span> <span class="op">-</span> (<span class="ident">metrics</span>.<span class="ident">next_position</span> <span class="op">-</span> <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">1</span>, <span class="number">0</span>))
+                    <span class="ident">position</span> <span class="op">-</span> (<span class="ident">metrics</span>.<span class="ident">next_position</span> <span class="op">-</span> <span class="ident">Point::new</span>(<span class="number">1</span>, <span class="number">0</span>))
                 }
-                <span class="ident">Alignment</span>::<span class="ident">Center</span> <span class="op">=</span><span class="op">&gt;</span> {
+                <span class="ident">Alignment::Center</span> <span class="op">=</span><span class="op">&gt;</span> {
                     <span class="kw">let</span> <span class="ident">metrics</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">character_style</span>.<span class="ident">measure_string</span>(
                         <span class="ident">line</span>,
-                        <span class="ident">Point</span>::<span class="ident">zero</span>(),
+                        <span class="ident">Point::zero</span>(),
                         <span class="self">self</span>.<span class="ident">text_style</span>.<span class="ident">baseline</span>,
                     );
-                    <span class="ident">position</span> <span class="op">-</span> (<span class="ident">metrics</span>.<span class="ident">next_position</span> <span class="op">-</span> <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">1</span>, <span class="number">0</span>)) <span class="op">/</span> <span class="number">2</span>
+                    <span class="ident">position</span> <span class="op">-</span> (<span class="ident">metrics</span>.<span class="ident">next_position</span> <span class="op">-</span> <span class="ident">Point::new</span>(<span class="number">1</span>, <span class="number">0</span>)) <span class="op">/</span> <span class="number">2</span>
                 }
             };
 
@@ -878,12 +877,12 @@
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">S</span>: <span class="ident">TextRenderer</span><span class="op">&gt;</span> <span class="ident">Drawable</span> <span class="kw">for</span> <span class="ident">Text</span><span class="op">&lt;</span><span class="lifetime">&#39;_</span>, <span class="ident">S</span><span class="op">&gt;</span> {
-    <span class="kw">type</span> <span class="ident">Color</span> <span class="op">=</span> <span class="ident">S</span>::<span class="ident">Color</span>;
+    <span class="kw">type</span> <span class="ident">Color</span> <span class="op">=</span> <span class="ident">S::Color</span>;
     <span class="kw">type</span> <span class="ident">Output</span> <span class="op">=</span> <span class="ident">Point</span>;
 
-    <span class="kw">fn</span> <span class="ident">draw</span><span class="op">&lt;</span><span class="ident">D</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">target</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">D</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">Point</span>, <span class="ident">D</span>::<span class="ident">Error</span><span class="op">&gt;</span>
+    <span class="kw">fn</span> <span class="ident">draw</span><span class="op">&lt;</span><span class="ident">D</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">target</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">D</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">Point</span>, <span class="ident">D::Error</span><span class="op">&gt;</span>
     <span class="kw">where</span>
-        <span class="ident">D</span>: <span class="ident">DrawTarget</span><span class="op">&lt;</span><span class="ident">Color</span> <span class="op">=</span> <span class="self">Self</span>::<span class="ident">Color</span><span class="op">&gt;</span>,
+        <span class="ident">D</span>: <span class="ident">DrawTarget</span><span class="op">&lt;</span><span class="ident">Color</span> <span class="op">=</span> <span class="self">Self</span><span class="ident">::Color</span><span class="op">&gt;</span>,
     {
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">next_position</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">position</span>;
 
@@ -925,9 +924,9 @@
         }
 
         <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>((<span class="ident">min</span>, <span class="ident">max</span>)) <span class="op">=</span> <span class="ident">min_max</span> {
-            <span class="ident">Rectangle</span>::<span class="ident">with_corners</span>(<span class="ident">min</span>, <span class="ident">max</span>)
+            <span class="ident">Rectangle::with_corners</span>(<span class="ident">min</span>, <span class="ident">max</span>)
         } <span class="kw">else</span> {
-            <span class="ident">Rectangle</span>::<span class="ident">new</span>(<span class="self">self</span>.<span class="ident">position</span>, <span class="ident">Size</span>::<span class="ident">zero</span>())
+            <span class="ident">Rectangle::new</span>(<span class="self">self</span>.<span class="ident">position</span>, <span class="ident">Size::zero</span>())
         }
     }
 }
@@ -936,14 +935,14 @@
 <span class="kw">mod</span> <span class="ident">tests</span> {
     <span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
     <span class="kw">use</span> <span class="kw">crate</span>::{
-        <span class="ident">geometry</span>::<span class="ident">Size</span>,
-        <span class="ident">mock_display</span>::<span class="ident">MockDisplay</span>,
+        <span class="ident">geometry::Size</span>,
+        <span class="ident">mock_display::MockDisplay</span>,
         <span class="ident">mono_font</span>::{
             <span class="ident">ascii</span>::{<span class="ident">FONT_6X13</span>, <span class="ident">FONT_6X9</span>},
-            <span class="ident">tests</span>::<span class="ident">assert_text_from_pattern</span>,
+            <span class="ident">tests::assert_text_from_pattern</span>,
             <span class="ident">MonoTextStyle</span>, <span class="ident">MonoTextStyleBuilder</span>,
         },
-        <span class="ident">pixelcolor</span>::<span class="ident">BinaryColor</span>,
+        <span class="ident">pixelcolor::BinaryColor</span>,
         <span class="ident">primitives</span>::{<span class="ident">Primitive</span>, <span class="ident">PrimitiveStyle</span>},
         <span class="ident">text</span>::{<span class="ident">Alignment</span>, <span class="ident">Baseline</span>, <span class="ident">LineHeight</span>, <span class="ident">TextStyleBuilder</span>},
     };
@@ -952,17 +951,17 @@
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">constructor</span>() {
-        <span class="kw">let</span> <span class="ident">character_style</span> <span class="op">=</span> <span class="ident">MonoTextStyle</span>::<span class="ident">new</span>(<span class="kw-2">&amp;</span><span class="ident">FONT_6X9</span>, <span class="ident">BinaryColor</span>::<span class="ident">On</span>);
+        <span class="kw">let</span> <span class="ident">character_style</span> <span class="op">=</span> <span class="ident">MonoTextStyle::new</span>(<span class="kw-2">&amp;</span><span class="ident">FONT_6X9</span>, <span class="ident">BinaryColor::On</span>);
 
-        <span class="kw">let</span> <span class="ident">text</span> <span class="op">=</span> <span class="ident">Text</span>::<span class="ident">new</span>(<span class="string">&quot;Hello e-g&quot;</span>, <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">10</span>, <span class="number">11</span>), <span class="ident">character_style</span>);
+        <span class="kw">let</span> <span class="ident">text</span> <span class="op">=</span> <span class="ident">Text::new</span>(<span class="string">&quot;Hello e-g&quot;</span>, <span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">11</span>), <span class="ident">character_style</span>);
 
-        <span class="macro">assert_eq</span><span class="macro">!</span>(
+        <span class="macro">assert_eq!</span>(
             <span class="ident">text</span>,
             <span class="ident">Text</span> {
                 <span class="ident">text</span>: <span class="string">&quot;Hello e-g&quot;</span>,
-                <span class="ident">position</span>: <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">10</span>, <span class="number">11</span>),
+                <span class="ident">position</span>: <span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">11</span>),
                 <span class="ident">character_style</span>,
-                <span class="ident">text_style</span>: <span class="ident">TextStyle</span>::<span class="ident">default</span>(),
+                <span class="ident">text_style</span>: <span class="ident">TextStyle::default</span>(),
             }
         );
     }
@@ -1031,57 +1030,57 @@
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">multiline_dimensions</span>() {
-        <span class="kw">let</span> <span class="ident">character_style</span> <span class="op">=</span> <span class="ident">MonoTextStyleBuilder</span>::<span class="ident">new</span>()
+        <span class="kw">let</span> <span class="ident">character_style</span> <span class="op">=</span> <span class="ident">MonoTextStyleBuilder::new</span>()
             .<span class="ident">font</span>(<span class="kw-2">&amp;</span><span class="ident">FONT_6X9</span>)
-            .<span class="ident">text_color</span>(<span class="ident">BinaryColor</span>::<span class="ident">On</span>)
+            .<span class="ident">text_color</span>(<span class="ident">BinaryColor::On</span>)
             .<span class="ident">build</span>();
 
-        <span class="kw">let</span> <span class="ident">text</span> <span class="op">=</span> <span class="ident">Text</span>::<span class="ident">with_baseline</span>(<span class="string">&quot;AB\nC&quot;</span>, <span class="ident">Point</span>::<span class="ident">zero</span>(), <span class="ident">character_style</span>, <span class="ident">Baseline</span>::<span class="ident">Top</span>);
+        <span class="kw">let</span> <span class="ident">text</span> <span class="op">=</span> <span class="ident">Text::with_baseline</span>(<span class="string">&quot;AB\nC&quot;</span>, <span class="ident">Point::zero</span>(), <span class="ident">character_style</span>, <span class="ident">Baseline::Top</span>);
 
-        <span class="macro">assert_eq</span><span class="macro">!</span>(
+        <span class="macro">assert_eq!</span>(
             <span class="ident">text</span>.<span class="ident">bounding_box</span>(),
-            <span class="ident">Rectangle</span>::<span class="ident">new</span>(<span class="ident">Point</span>::<span class="ident">zero</span>(), <span class="ident">Size</span>::<span class="ident">new</span>(<span class="number">2</span> <span class="op">*</span> <span class="number">6</span>, <span class="number">2</span> <span class="op">*</span> <span class="number">9</span>))
+            <span class="ident">Rectangle::new</span>(<span class="ident">Point::zero</span>(), <span class="ident">Size::new</span>(<span class="number">2</span> <span class="op">*</span> <span class="number">6</span>, <span class="number">2</span> <span class="op">*</span> <span class="number">9</span>))
         );
     }
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">position_and_translate</span>() {
-        <span class="kw">let</span> <span class="ident">style</span> <span class="op">=</span> <span class="ident">MonoTextStyle</span>::<span class="ident">new</span>(<span class="kw-2">&amp;</span><span class="ident">FONT_6X9</span>, <span class="ident">BinaryColor</span>::<span class="ident">On</span>);
+        <span class="kw">let</span> <span class="ident">style</span> <span class="op">=</span> <span class="ident">MonoTextStyle::new</span>(<span class="kw-2">&amp;</span><span class="ident">FONT_6X9</span>, <span class="ident">BinaryColor::On</span>);
 
-        <span class="kw">let</span> <span class="ident">hello</span> <span class="op">=</span> <span class="ident">Text</span>::<span class="ident">new</span>(<span class="ident">HELLO_WORLD</span>, <span class="ident">Point</span>::<span class="ident">zero</span>(), <span class="ident">style</span>);
+        <span class="kw">let</span> <span class="ident">hello</span> <span class="op">=</span> <span class="ident">Text::new</span>(<span class="ident">HELLO_WORLD</span>, <span class="ident">Point::zero</span>(), <span class="ident">style</span>);
 
-        <span class="kw">let</span> <span class="ident">hello_translated</span> <span class="op">=</span> <span class="ident">hello</span>.<span class="ident">translate</span>(<span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">5</span>, <span class="op">-</span><span class="number">20</span>));
-        <span class="macro">assert_eq</span><span class="macro">!</span>(
+        <span class="kw">let</span> <span class="ident">hello_translated</span> <span class="op">=</span> <span class="ident">hello</span>.<span class="ident">translate</span>(<span class="ident">Point::new</span>(<span class="number">5</span>, <span class="op">-</span><span class="number">20</span>));
+        <span class="macro">assert_eq!</span>(
             <span class="ident">hello</span>.<span class="ident">bounding_box</span>().<span class="ident">size</span>,
             <span class="ident">hello_translated</span>.<span class="ident">bounding_box</span>().<span class="ident">size</span>
         );
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">hello_with_point</span> <span class="op">=</span> <span class="ident">Text</span>::<span class="ident">new</span>(<span class="ident">HELLO_WORLD</span>, <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">5</span>, <span class="op">-</span><span class="number">20</span>), <span class="ident">style</span>);
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">hello_translated</span>, <span class="ident">hello_with_point</span>);
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">hello_with_point</span> <span class="op">=</span> <span class="ident">Text::new</span>(<span class="ident">HELLO_WORLD</span>, <span class="ident">Point::new</span>(<span class="number">5</span>, <span class="op">-</span><span class="number">20</span>), <span class="ident">style</span>);
+        <span class="macro">assert_eq!</span>(<span class="ident">hello_translated</span>, <span class="ident">hello_with_point</span>);
 
-        <span class="ident">hello_with_point</span>.<span class="ident">translate_mut</span>(<span class="ident">Point</span>::<span class="ident">new</span>(<span class="op">-</span><span class="number">5</span>, <span class="number">20</span>));
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">hello</span>, <span class="ident">hello_with_point</span>);
+        <span class="ident">hello_with_point</span>.<span class="ident">translate_mut</span>(<span class="ident">Point::new</span>(<span class="op">-</span><span class="number">5</span>, <span class="number">20</span>));
+        <span class="macro">assert_eq!</span>(<span class="ident">hello</span>, <span class="ident">hello_with_point</span>);
     }
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">inverted_text</span>() {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display_inverse</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="ident">new</span>();
-        <span class="kw">let</span> <span class="ident">style_inverse</span> <span class="op">=</span> <span class="ident">MonoTextStyleBuilder</span>::<span class="ident">new</span>()
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display_inverse</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
+        <span class="kw">let</span> <span class="ident">style_inverse</span> <span class="op">=</span> <span class="ident">MonoTextStyleBuilder::new</span>()
             .<span class="ident">font</span>(<span class="kw-2">&amp;</span><span class="ident">FONT_6X9</span>)
-            .<span class="ident">text_color</span>(<span class="ident">BinaryColor</span>::<span class="ident">Off</span>)
-            .<span class="ident">background_color</span>(<span class="ident">BinaryColor</span>::<span class="ident">On</span>)
+            .<span class="ident">text_color</span>(<span class="ident">BinaryColor::Off</span>)
+            .<span class="ident">background_color</span>(<span class="ident">BinaryColor::On</span>)
             .<span class="ident">build</span>();
-        <span class="ident">Text</span>::<span class="ident">new</span>(<span class="string">&quot;Mm&quot;</span>, <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">0</span>, <span class="number">7</span>), <span class="ident">style_inverse</span>)
+        <span class="ident">Text::new</span>(<span class="string">&quot;Mm&quot;</span>, <span class="ident">Point::new</span>(<span class="number">0</span>, <span class="number">7</span>), <span class="ident">style_inverse</span>)
             .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display_inverse</span>)
             .<span class="ident">unwrap</span>();
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display_normal</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="ident">new</span>();
-        <span class="kw">let</span> <span class="ident">style_normal</span> <span class="op">=</span> <span class="ident">MonoTextStyleBuilder</span>::<span class="ident">new</span>()
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display_normal</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
+        <span class="kw">let</span> <span class="ident">style_normal</span> <span class="op">=</span> <span class="ident">MonoTextStyleBuilder::new</span>()
             .<span class="ident">font</span>(<span class="kw-2">&amp;</span><span class="ident">FONT_6X9</span>)
-            .<span class="ident">text_color</span>(<span class="ident">BinaryColor</span>::<span class="ident">On</span>)
-            .<span class="ident">background_color</span>(<span class="ident">BinaryColor</span>::<span class="ident">Off</span>)
+            .<span class="ident">text_color</span>(<span class="ident">BinaryColor::On</span>)
+            .<span class="ident">background_color</span>(<span class="ident">BinaryColor::Off</span>)
             .<span class="ident">build</span>();
-        <span class="ident">Text</span>::<span class="ident">new</span>(<span class="string">&quot;Mm&quot;</span>, <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">0</span>, <span class="number">7</span>), <span class="ident">style_normal</span>)
+        <span class="ident">Text::new</span>(<span class="string">&quot;Mm&quot;</span>, <span class="ident">Point::new</span>(<span class="number">0</span>, <span class="number">7</span>), <span class="ident">style_normal</span>)
             .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display_normal</span>)
             .<span class="ident">unwrap</span>();
 
@@ -1090,35 +1089,35 @@
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">no_fill_does_not_hang</span>() {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="ident">new</span>();
-        <span class="ident">Text</span>::<span class="ident">new</span>(
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
+        <span class="ident">Text::new</span>(
             <span class="string">&quot; &quot;</span>,
-            <span class="ident">Point</span>::<span class="ident">zero</span>(),
-            <span class="ident">MonoTextStyle</span>::<span class="ident">new</span>(<span class="kw-2">&amp;</span><span class="ident">FONT_6X9</span>, <span class="ident">BinaryColor</span>::<span class="ident">On</span>),
+            <span class="ident">Point::zero</span>(),
+            <span class="ident">MonoTextStyle::new</span>(<span class="kw-2">&amp;</span><span class="ident">FONT_6X9</span>, <span class="ident">BinaryColor::On</span>),
         )
         .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)
         .<span class="ident">unwrap</span>();
 
-        <span class="ident">display</span>.<span class="ident">assert_eq</span>(<span class="kw-2">&amp;</span><span class="ident">MockDisplay</span>::<span class="ident">new</span>());
+        <span class="ident">display</span>.<span class="ident">assert_eq</span>(<span class="kw-2">&amp;</span><span class="ident">MockDisplay::new</span>());
     }
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">transparent_text_color_does_not_overwrite_background</span>() {
-        <span class="kw">let</span> <span class="ident">character_style</span> <span class="op">=</span> <span class="ident">MonoTextStyleBuilder</span>::<span class="ident">new</span>()
+        <span class="kw">let</span> <span class="ident">character_style</span> <span class="op">=</span> <span class="ident">MonoTextStyleBuilder::new</span>()
             .<span class="ident">font</span>(<span class="kw-2">&amp;</span><span class="ident">FONT_6X9</span>)
-            .<span class="ident">background_color</span>(<span class="ident">BinaryColor</span>::<span class="ident">On</span>)
+            .<span class="ident">background_color</span>(<span class="ident">BinaryColor::On</span>)
             .<span class="ident">build</span>();
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="ident">new</span>();
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
         <span class="ident">display</span>.<span class="ident">set_allow_overdraw</span>(<span class="bool-val">true</span>);
 
         <span class="comment">// Draw a background for the first character</span>
-        <span class="ident">Rectangle</span>::<span class="ident">new</span>(<span class="ident">Point</span>::<span class="ident">zero</span>(), <span class="ident">Size</span>::<span class="ident">new</span>(<span class="number">6</span>, <span class="number">8</span>))
-            .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle</span>::<span class="ident">with_fill</span>(<span class="ident">BinaryColor</span>::<span class="ident">Off</span>))
+        <span class="ident">Rectangle::new</span>(<span class="ident">Point::zero</span>(), <span class="ident">Size::new</span>(<span class="number">6</span>, <span class="number">8</span>))
+            .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle::with_fill</span>(<span class="ident">BinaryColor::Off</span>))
             .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)
             .<span class="ident">unwrap</span>();
 
-        <span class="ident">Text</span>::<span class="ident">with_baseline</span>(<span class="string">&quot;AA&quot;</span>, <span class="ident">Point</span>::<span class="ident">zero</span>(), <span class="ident">character_style</span>, <span class="ident">Baseline</span>::<span class="ident">Top</span>)
+        <span class="ident">Text::with_baseline</span>(<span class="string">&quot;AA&quot;</span>, <span class="ident">Point::zero</span>(), <span class="ident">character_style</span>, <span class="ident">Baseline::Top</span>)
             .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)
             .<span class="ident">unwrap</span>();
 
@@ -1138,33 +1137,33 @@
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="attribute">#[<span class="ident">ignore</span>]</span>
     <span class="kw">fn</span> <span class="ident">transparent_text_has_zero_size_but_retains_position</span>() {
-        <span class="kw">let</span> <span class="ident">style</span> <span class="op">=</span> <span class="ident">MonoTextStyleBuilder</span>::<span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span>::<span class="ident">new</span>()
+        <span class="kw">let</span> <span class="ident">style</span> <span class="op">=</span> <span class="ident">MonoTextStyleBuilder</span>::<span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span><span class="ident">::new</span>()
             .<span class="ident">font</span>(<span class="kw-2">&amp;</span><span class="ident">FONT_6X9</span>)
             .<span class="ident">build</span>();
 
-        <span class="kw">let</span> <span class="ident">styled</span> <span class="op">=</span> <span class="ident">Text</span>::<span class="ident">new</span>(<span class="string">&quot; A&quot;</span>, <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">7</span>, <span class="number">11</span>), <span class="ident">style</span>);
+        <span class="kw">let</span> <span class="ident">styled</span> <span class="op">=</span> <span class="ident">Text::new</span>(<span class="string">&quot; A&quot;</span>, <span class="ident">Point::new</span>(<span class="number">7</span>, <span class="number">11</span>), <span class="ident">style</span>);
 
-        <span class="macro">assert_eq</span><span class="macro">!</span>(
+        <span class="macro">assert_eq!</span>(
             <span class="ident">styled</span>.<span class="ident">bounding_box</span>(),
-            <span class="ident">Rectangle</span>::<span class="ident">new</span>(<span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">7</span>, <span class="number">11</span>), <span class="ident">Size</span>::<span class="ident">zero</span>()),
+            <span class="ident">Rectangle::new</span>(<span class="ident">Point::new</span>(<span class="number">7</span>, <span class="number">11</span>), <span class="ident">Size::zero</span>()),
             <span class="string">&quot;Transparent text is expected to have a zero sized bounding box with the top left corner at the text position&quot;</span>,
         );
     }
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">alignment_left</span>() {
-        <span class="kw">let</span> <span class="ident">character_style</span> <span class="op">=</span> <span class="ident">MonoTextStyleBuilder</span>::<span class="ident">new</span>()
+        <span class="kw">let</span> <span class="ident">character_style</span> <span class="op">=</span> <span class="ident">MonoTextStyleBuilder::new</span>()
             .<span class="ident">font</span>(<span class="kw-2">&amp;</span><span class="ident">FONT_6X9</span>)
-            .<span class="ident">text_color</span>(<span class="ident">BinaryColor</span>::<span class="ident">On</span>)
+            .<span class="ident">text_color</span>(<span class="ident">BinaryColor::On</span>)
             .<span class="ident">build</span>();
 
-        <span class="kw">let</span> <span class="ident">text_style</span> <span class="op">=</span> <span class="ident">TextStyleBuilder</span>::<span class="ident">new</span>()
-            .<span class="ident">alignment</span>(<span class="ident">Alignment</span>::<span class="ident">Left</span>)
-            .<span class="ident">baseline</span>(<span class="ident">Baseline</span>::<span class="ident">Top</span>)
+        <span class="kw">let</span> <span class="ident">text_style</span> <span class="op">=</span> <span class="ident">TextStyleBuilder::new</span>()
+            .<span class="ident">alignment</span>(<span class="ident">Alignment::Left</span>)
+            .<span class="ident">baseline</span>(<span class="ident">Baseline::Top</span>)
             .<span class="ident">build</span>();
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="ident">new</span>();
-        <span class="ident">Text</span>::<span class="ident">with_text_style</span>(<span class="string">&quot;A\nBC&quot;</span>, <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">0</span>, <span class="number">0</span>), <span class="ident">character_style</span>, <span class="ident">text_style</span>)
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
+        <span class="ident">Text::with_text_style</span>(<span class="string">&quot;A\nBC&quot;</span>, <span class="ident">Point::new</span>(<span class="number">0</span>, <span class="number">0</span>), <span class="ident">character_style</span>, <span class="ident">text_style</span>)
             .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)
             .<span class="ident">unwrap</span>();
 
@@ -1191,18 +1190,18 @@
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">alignment_center</span>() {
-        <span class="kw">let</span> <span class="ident">character_style</span> <span class="op">=</span> <span class="ident">MonoTextStyleBuilder</span>::<span class="ident">new</span>()
+        <span class="kw">let</span> <span class="ident">character_style</span> <span class="op">=</span> <span class="ident">MonoTextStyleBuilder::new</span>()
             .<span class="ident">font</span>(<span class="kw-2">&amp;</span><span class="ident">FONT_6X9</span>)
-            .<span class="ident">text_color</span>(<span class="ident">BinaryColor</span>::<span class="ident">On</span>)
+            .<span class="ident">text_color</span>(<span class="ident">BinaryColor::On</span>)
             .<span class="ident">build</span>();
 
-        <span class="kw">let</span> <span class="ident">text_style</span> <span class="op">=</span> <span class="ident">TextStyleBuilder</span>::<span class="ident">new</span>()
-            .<span class="ident">alignment</span>(<span class="ident">Alignment</span>::<span class="ident">Center</span>)
-            .<span class="ident">baseline</span>(<span class="ident">Baseline</span>::<span class="ident">Top</span>)
+        <span class="kw">let</span> <span class="ident">text_style</span> <span class="op">=</span> <span class="ident">TextStyleBuilder::new</span>()
+            .<span class="ident">alignment</span>(<span class="ident">Alignment::Center</span>)
+            .<span class="ident">baseline</span>(<span class="ident">Baseline::Top</span>)
             .<span class="ident">build</span>();
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="ident">new</span>();
-        <span class="ident">Text</span>::<span class="ident">with_text_style</span>(<span class="string">&quot;A\nBC&quot;</span>, <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">5</span>, <span class="number">0</span>), <span class="ident">character_style</span>, <span class="ident">text_style</span>)
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
+        <span class="ident">Text::with_text_style</span>(<span class="string">&quot;A\nBC&quot;</span>, <span class="ident">Point::new</span>(<span class="number">5</span>, <span class="number">0</span>), <span class="ident">character_style</span>, <span class="ident">text_style</span>)
             .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)
             .<span class="ident">unwrap</span>();
 
@@ -1229,18 +1228,18 @@
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">horizontal_alignment_right</span>() {
-        <span class="kw">let</span> <span class="ident">character_style</span> <span class="op">=</span> <span class="ident">MonoTextStyleBuilder</span>::<span class="ident">new</span>()
+        <span class="kw">let</span> <span class="ident">character_style</span> <span class="op">=</span> <span class="ident">MonoTextStyleBuilder::new</span>()
             .<span class="ident">font</span>(<span class="kw-2">&amp;</span><span class="ident">FONT_6X9</span>)
-            .<span class="ident">text_color</span>(<span class="ident">BinaryColor</span>::<span class="ident">On</span>)
+            .<span class="ident">text_color</span>(<span class="ident">BinaryColor::On</span>)
             .<span class="ident">build</span>();
 
-        <span class="kw">let</span> <span class="ident">text_style</span> <span class="op">=</span> <span class="ident">TextStyleBuilder</span>::<span class="ident">new</span>()
-            .<span class="ident">alignment</span>(<span class="ident">Alignment</span>::<span class="ident">Right</span>)
-            .<span class="ident">baseline</span>(<span class="ident">Baseline</span>::<span class="ident">Top</span>)
+        <span class="kw">let</span> <span class="ident">text_style</span> <span class="op">=</span> <span class="ident">TextStyleBuilder::new</span>()
+            .<span class="ident">alignment</span>(<span class="ident">Alignment::Right</span>)
+            .<span class="ident">baseline</span>(<span class="ident">Baseline::Top</span>)
             .<span class="ident">build</span>();
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="ident">new</span>();
-        <span class="ident">Text</span>::<span class="ident">with_text_style</span>(<span class="string">&quot;A\nBC&quot;</span>, <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">11</span>, <span class="number">0</span>), <span class="ident">character_style</span>, <span class="ident">text_style</span>)
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
+        <span class="ident">Text::with_text_style</span>(<span class="string">&quot;A\nBC&quot;</span>, <span class="ident">Point::new</span>(<span class="number">11</span>, <span class="number">0</span>), <span class="ident">character_style</span>, <span class="ident">text_style</span>)
             .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)
             .<span class="ident">unwrap</span>();
 
@@ -1267,27 +1266,27 @@
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">baseline</span>() {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="ident">new</span>();
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
 
-        <span class="kw">let</span> <span class="ident">character_style</span> <span class="op">=</span> <span class="ident">MonoTextStyleBuilder</span>::<span class="ident">new</span>()
+        <span class="kw">let</span> <span class="ident">character_style</span> <span class="op">=</span> <span class="ident">MonoTextStyleBuilder::new</span>()
             .<span class="ident">font</span>(<span class="kw-2">&amp;</span><span class="ident">FONT_6X9</span>)
-            .<span class="ident">text_color</span>(<span class="ident">BinaryColor</span>::<span class="ident">On</span>)
+            .<span class="ident">text_color</span>(<span class="ident">BinaryColor::On</span>)
             .<span class="ident">build</span>();
 
-        <span class="ident">Text</span>::<span class="ident">with_baseline</span>(<span class="string">&quot;t&quot;</span>, <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">0</span>, <span class="number">8</span>), <span class="ident">character_style</span>, <span class="ident">Baseline</span>::<span class="ident">Top</span>)
+        <span class="ident">Text::with_baseline</span>(<span class="string">&quot;t&quot;</span>, <span class="ident">Point::new</span>(<span class="number">0</span>, <span class="number">8</span>), <span class="ident">character_style</span>, <span class="ident">Baseline::Top</span>)
             .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)
             .<span class="ident">unwrap</span>();
-        <span class="ident">Text</span>::<span class="ident">with_baseline</span>(<span class="string">&quot;m&quot;</span>, <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">6</span>, <span class="number">8</span>), <span class="ident">character_style</span>, <span class="ident">Baseline</span>::<span class="ident">Middle</span>)
+        <span class="ident">Text::with_baseline</span>(<span class="string">&quot;m&quot;</span>, <span class="ident">Point::new</span>(<span class="number">6</span>, <span class="number">8</span>), <span class="ident">character_style</span>, <span class="ident">Baseline::Middle</span>)
             .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)
             .<span class="ident">unwrap</span>();
-        <span class="ident">Text</span>::<span class="ident">with_baseline</span>(<span class="string">&quot;b&quot;</span>, <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">12</span>, <span class="number">8</span>), <span class="ident">character_style</span>, <span class="ident">Baseline</span>::<span class="ident">Bottom</span>)
+        <span class="ident">Text::with_baseline</span>(<span class="string">&quot;b&quot;</span>, <span class="ident">Point::new</span>(<span class="number">12</span>, <span class="number">8</span>), <span class="ident">character_style</span>, <span class="ident">Baseline::Bottom</span>)
             .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)
             .<span class="ident">unwrap</span>();
-        <span class="ident">Text</span>::<span class="ident">with_baseline</span>(
+        <span class="ident">Text::with_baseline</span>(
             <span class="string">&quot;B&quot;</span>,
-            <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">18</span>, <span class="number">8</span>),
+            <span class="ident">Point::new</span>(<span class="number">18</span>, <span class="number">8</span>),
             <span class="ident">character_style</span>,
-            <span class="ident">Baseline</span>::<span class="ident">Alphabetic</span>,
+            <span class="ident">Baseline::Alphabetic</span>,
         )
         .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)
         .<span class="ident">unwrap</span>();
@@ -1314,34 +1313,34 @@
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">bounding_box</span>() {
         <span class="kw">for</span> <span class="kw-2">&amp;</span><span class="ident">baseline</span> <span class="kw">in</span> <span class="kw-2">&amp;</span>[
-            <span class="ident">Baseline</span>::<span class="ident">Top</span>,
-            <span class="ident">Baseline</span>::<span class="ident">Middle</span>,
-            <span class="ident">Baseline</span>::<span class="ident">Bottom</span>,
-            <span class="ident">Baseline</span>::<span class="ident">Alphabetic</span>,
+            <span class="ident">Baseline::Top</span>,
+            <span class="ident">Baseline::Middle</span>,
+            <span class="ident">Baseline::Bottom</span>,
+            <span class="ident">Baseline::Alphabetic</span>,
         ] {
-            <span class="kw">for</span> <span class="kw-2">&amp;</span><span class="ident">alignment</span> <span class="kw">in</span> <span class="kw-2">&amp;</span>[<span class="ident">Alignment</span>::<span class="ident">Left</span>, <span class="ident">Alignment</span>::<span class="ident">Center</span>, <span class="ident">Alignment</span>::<span class="ident">Right</span>] {
-                <span class="kw">let</span> <span class="ident">character_style</span> <span class="op">=</span> <span class="ident">MonoTextStyleBuilder</span>::<span class="ident">new</span>()
+            <span class="kw">for</span> <span class="kw-2">&amp;</span><span class="ident">alignment</span> <span class="kw">in</span> <span class="kw-2">&amp;</span>[<span class="ident">Alignment::Left</span>, <span class="ident">Alignment::Center</span>, <span class="ident">Alignment::Right</span>] {
+                <span class="kw">let</span> <span class="ident">character_style</span> <span class="op">=</span> <span class="ident">MonoTextStyleBuilder::new</span>()
                     .<span class="ident">font</span>(<span class="kw-2">&amp;</span><span class="ident">FONT_6X9</span>)
-                    .<span class="ident">text_color</span>(<span class="ident">BinaryColor</span>::<span class="ident">On</span>)
-                    .<span class="ident">background_color</span>(<span class="ident">BinaryColor</span>::<span class="ident">Off</span>)
+                    .<span class="ident">text_color</span>(<span class="ident">BinaryColor::On</span>)
+                    .<span class="ident">background_color</span>(<span class="ident">BinaryColor::Off</span>)
                     .<span class="ident">build</span>();
 
-                <span class="kw">let</span> <span class="ident">text_style</span> <span class="op">=</span> <span class="ident">TextStyleBuilder</span>::<span class="ident">new</span>()
+                <span class="kw">let</span> <span class="ident">text_style</span> <span class="op">=</span> <span class="ident">TextStyleBuilder::new</span>()
                     .<span class="ident">alignment</span>(<span class="ident">alignment</span>)
                     .<span class="ident">baseline</span>(<span class="ident">baseline</span>)
                     .<span class="ident">build</span>();
 
-                <span class="kw">let</span> <span class="ident">text</span> <span class="op">=</span> <span class="ident">Text</span>::<span class="ident">with_text_style</span>(
+                <span class="kw">let</span> <span class="ident">text</span> <span class="op">=</span> <span class="ident">Text::with_text_style</span>(
                     <span class="string">&quot;1\n23&quot;</span>,
-                    <span class="ident">Point</span>::<span class="ident">new_equal</span>(<span class="number">20</span>),
+                    <span class="ident">Point::new_equal</span>(<span class="number">20</span>),
                     <span class="ident">character_style</span>,
                     <span class="ident">text_style</span>,
                 );
 
-                <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="ident">new</span>();
+                <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
                 <span class="ident">text</span>.<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>).<span class="ident">unwrap</span>();
 
-                <span class="macro">assert_eq</span><span class="macro">!</span>(
+                <span class="macro">assert_eq!</span>(
                     <span class="ident">display</span>.<span class="ident">affected_area</span>(),
                     <span class="ident">text</span>.<span class="ident">bounding_box</span>(),
                     <span class="string">&quot;alignment: {:?}, baseline: {:?}&quot;</span>,
@@ -1354,21 +1353,21 @@
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">chained_text_drawing</span>() {
-        <span class="kw">let</span> <span class="ident">character_style1</span> <span class="op">=</span> <span class="ident">MonoTextStyleBuilder</span>::<span class="ident">new</span>()
+        <span class="kw">let</span> <span class="ident">character_style1</span> <span class="op">=</span> <span class="ident">MonoTextStyleBuilder::new</span>()
             .<span class="ident">font</span>(<span class="kw-2">&amp;</span><span class="ident">FONT_6X9</span>)
-            .<span class="ident">text_color</span>(<span class="ident">BinaryColor</span>::<span class="ident">On</span>)
+            .<span class="ident">text_color</span>(<span class="ident">BinaryColor::On</span>)
             .<span class="ident">build</span>();
 
-        <span class="kw">let</span> <span class="ident">character_style2</span> <span class="op">=</span> <span class="ident">MonoTextStyleBuilder</span>::<span class="ident">new</span>()
+        <span class="kw">let</span> <span class="ident">character_style2</span> <span class="op">=</span> <span class="ident">MonoTextStyleBuilder::new</span>()
             .<span class="ident">font</span>(<span class="kw-2">&amp;</span><span class="ident">FONT_6X13</span>)
-            .<span class="ident">text_color</span>(<span class="ident">BinaryColor</span>::<span class="ident">Off</span>)
+            .<span class="ident">text_color</span>(<span class="ident">BinaryColor::Off</span>)
             .<span class="ident">build</span>();
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="ident">new</span>();
-        <span class="kw">let</span> <span class="ident">next</span> <span class="op">=</span> <span class="ident">Text</span>::<span class="ident">new</span>(<span class="string">&quot;AB&quot;</span>, <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">0</span>, <span class="number">8</span>), <span class="ident">character_style1</span>)
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
+        <span class="kw">let</span> <span class="ident">next</span> <span class="op">=</span> <span class="ident">Text::new</span>(<span class="string">&quot;AB&quot;</span>, <span class="ident">Point::new</span>(<span class="number">0</span>, <span class="number">8</span>), <span class="ident">character_style1</span>)
             .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)
             .<span class="ident">unwrap</span>();
-        <span class="ident">Text</span>::<span class="ident">new</span>(<span class="string">&quot;C&quot;</span>, <span class="ident">next</span>, <span class="ident">character_style2</span>)
+        <span class="ident">Text::new</span>(<span class="string">&quot;C&quot;</span>, <span class="ident">next</span>, <span class="ident">character_style2</span>)
             .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)
             .<span class="ident">unwrap</span>();
 
@@ -1387,17 +1386,17 @@
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">line_height_pixels</span>() {
-        <span class="kw">let</span> <span class="ident">character_style</span> <span class="op">=</span> <span class="ident">MonoTextStyleBuilder</span>::<span class="ident">new</span>()
+        <span class="kw">let</span> <span class="ident">character_style</span> <span class="op">=</span> <span class="ident">MonoTextStyleBuilder::new</span>()
             .<span class="ident">font</span>(<span class="kw-2">&amp;</span><span class="ident">FONT_6X9</span>)
-            .<span class="ident">text_color</span>(<span class="ident">BinaryColor</span>::<span class="ident">On</span>)
+            .<span class="ident">text_color</span>(<span class="ident">BinaryColor::On</span>)
             .<span class="ident">build</span>();
 
-        <span class="kw">let</span> <span class="ident">text_style</span> <span class="op">=</span> <span class="ident">TextStyleBuilder</span>::<span class="ident">new</span>()
-            .<span class="ident">line_height</span>(<span class="ident">LineHeight</span>::<span class="ident">Pixels</span>(<span class="number">7</span>))
+        <span class="kw">let</span> <span class="ident">text_style</span> <span class="op">=</span> <span class="ident">TextStyleBuilder::new</span>()
+            .<span class="ident">line_height</span>(<span class="ident">LineHeight::Pixels</span>(<span class="number">7</span>))
             .<span class="ident">build</span>();
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="ident">new</span>();
-        <span class="ident">Text</span>::<span class="ident">with_text_style</span>(<span class="string">&quot;A\nB&quot;</span>, <span class="ident">Point</span>::<span class="ident">new</span>(<span class="number">0</span>, <span class="number">5</span>), <span class="ident">character_style</span>, <span class="ident">text_style</span>)
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
+        <span class="ident">Text::with_text_style</span>(<span class="string">&quot;A\nB&quot;</span>, <span class="ident">Point::new</span>(<span class="number">0</span>, <span class="number">5</span>), <span class="ident">character_style</span>, <span class="ident">text_style</span>)
             .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)
             .<span class="ident">unwrap</span>();
 
@@ -1420,18 +1419,18 @@
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">line_height_percent</span>() {
-        <span class="kw">let</span> <span class="ident">character_style</span> <span class="op">=</span> <span class="ident">MonoTextStyleBuilder</span>::<span class="ident">new</span>()
+        <span class="kw">let</span> <span class="ident">character_style</span> <span class="op">=</span> <span class="ident">MonoTextStyleBuilder::new</span>()
             .<span class="ident">font</span>(<span class="kw-2">&amp;</span><span class="ident">FONT_6X9</span>)
-            .<span class="ident">text_color</span>(<span class="ident">BinaryColor</span>::<span class="ident">On</span>)
+            .<span class="ident">text_color</span>(<span class="ident">BinaryColor::On</span>)
             .<span class="ident">build</span>();
 
-        <span class="kw">let</span> <span class="ident">text_style</span> <span class="op">=</span> <span class="ident">TextStyleBuilder</span>::<span class="ident">new</span>()
-            .<span class="ident">baseline</span>(<span class="ident">Baseline</span>::<span class="ident">Top</span>)
-            .<span class="ident">line_height</span>(<span class="ident">LineHeight</span>::<span class="ident">Percent</span>(<span class="number">200</span>))
+        <span class="kw">let</span> <span class="ident">text_style</span> <span class="op">=</span> <span class="ident">TextStyleBuilder::new</span>()
+            .<span class="ident">baseline</span>(<span class="ident">Baseline::Top</span>)
+            .<span class="ident">line_height</span>(<span class="ident">LineHeight::Percent</span>(<span class="number">200</span>))
             .<span class="ident">build</span>();
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="ident">new</span>();
-        <span class="ident">Text</span>::<span class="ident">with_text_style</span>(<span class="string">&quot;A\nBC&quot;</span>, <span class="ident">Point</span>::<span class="ident">zero</span>(), <span class="ident">character_style</span>, <span class="ident">text_style</span>)
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
+        <span class="ident">Text::with_text_style</span>(<span class="string">&quot;A\nBC&quot;</span>, <span class="ident">Point::zero</span>(), <span class="ident">character_style</span>, <span class="ident">text_style</span>)
             .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)
             .<span class="ident">unwrap</span>();
 
@@ -1465,5 +1464,4 @@
     }
 }
 </pre></div>
-</section><section id="search" class="content hidden"></section><section class="footer"></section><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="embedded_graphics" data-search-js="../../../search-index.js"></div>
-    <script src="../../../main.js"></script><script src="../../../source-script.js"></script><script src="../../../source-files.js"></script></body></html>
+</section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="embedded_graphics" data-search-index-js="../../../search-index.js" data-search-js="../../../search.js"></div><script src="../../../main.js"></script><script src="../../../source-script.js"></script><script src="../../../source-files.js"></script></body></html>

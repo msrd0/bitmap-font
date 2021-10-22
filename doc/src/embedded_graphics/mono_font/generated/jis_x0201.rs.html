@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `&#x2F;home&#x2F;runner&#x2F;.cargo&#x2F;registry&#x2F;src&#x2F;github.com-1ecc6299db9ec823&#x2F;embedded-graphics-0.7.1&#x2F;src&#x2F;mono_font&#x2F;generated&#x2F;jis_x0201.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>jis_x0201.rs - source</title><link rel="stylesheet" type="text/css" href="../../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../../ayu.css" disabled ><script id="default-settings" ></script><script src="../../../../storage.js"></script><script src="../../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../../../favicon.svg"><link rel="alternate icon" type="image/png" href="../../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../../embedded_graphics/index.html'><div class='logo-container rust-logo'><img src='https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;embedded-graphics&#x2F;embedded-graphics&#x2F;191fe7f8a0fedc713f9722b9dc59208dacadee7e&#x2F;assets&#x2F;logo.svg?sanitize=true' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="18" height="18" alt="Pick another theme!" src="../../../../brush.svg"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input"name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../../../settings.html" title="settings"><img width="18" height="18" alt="Change settings" src="../../../../wheel.svg"></a></div></form></nav><section id="main" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1"> 1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `&#x2F;home&#x2F;runner&#x2F;.cargo&#x2F;registry&#x2F;src&#x2F;github.com-1ecc6299db9ec823&#x2F;embedded-graphics-0.7.1&#x2F;src&#x2F;mono_font&#x2F;generated&#x2F;jis_x0201.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>jis_x0201.rs - source</title><link rel="stylesheet" type="text/css" href="../../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../../ayu.css" disabled ><script id="default-settings" ></script><script src="../../../../storage.js"></script><script src="../../../../crates.js"></script><noscript><link rel="stylesheet" href="../../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../../favicon.svg"><style type="text/css">#crate-search{background-image:url("../../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../../../embedded_graphics/index.html'><div class='logo-container rust-logo'><img src='https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;embedded-graphics&#x2F;embedded-graphics&#x2F;191fe7f8a0fedc713f9722b9dc59208dacadee7e&#x2F;assets&#x2F;logo.svg?sanitize=true' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="18" height="18" alt="Pick another theme!" src="../../../../brush.svg"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../../../settings.html" title="settings"><img width="18" height="18" alt="Change settings" src="../../../../wheel.svg"></a></div></form></nav><section id="main" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1"> 1</span>
 <span id="2"> 2</span>
 <span id="3"> 3</span>
 <span id="4"> 4</span>
@@ -94,8 +94,7 @@
 <span id="94">94</span>
 <span id="95">95</span>
 <span id="96">96</span>
-</pre><pre class="rust">
-<span class="comment">// GENERATED CODE DO NOT MODIFY!</span>
+</pre><pre class="rust"><code><span class="comment">// GENERATED CODE DO NOT MODIFY!</span>
 <span class="comment">// Any manual changes to this file will be overwritten!</span>
 <span class="doccomment">//! JIS_X0201 glyph subset.</span>
 <span class="doccomment">//!</span>
@@ -109,89 +108,89 @@
 <span class="doccomment">//! | `FONT_10X20` | ![FONT_10X20](data:image/png;base64,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) |</span>
 
 <span class="doccomment">/// 6x13 pixel monospace font.</span>
-<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">FONT_6X13</span>: <span class="kw">crate</span><span class="ident">::mono_font::MonoFont</span> <span class="op">=</span> <span class="kw">crate</span><span class="ident">::mono_font::MonoFont</span> {
-    <span class="ident">image</span>: <span class="kw">crate</span><span class="ident">::image::ImageRaw::new_binary</span>(
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">FONT_6X13</span>: <span class="ident"><span class="kw">crate</span>::mono_font::MonoFont</span> <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::mono_font::MonoFont</span> {
+    <span class="ident">image</span>: <span class="ident"><span class="kw">crate</span>::image::ImageRaw::new_binary</span>(
         <span class="macro">include_bytes!</span>(<span class="string">&quot;../../../fonts/raw/jis_x0201/font_6x13.raw&quot;</span>),
         <span class="number">96</span>,
     ),
-    <span class="ident">glyph_mapping</span>: <span class="kw-2">&amp;</span><span class="kw">crate</span><span class="ident">::mono_font::mapping::JIS_X0201</span>,
-    <span class="ident">character_size</span>: <span class="kw">crate</span><span class="ident">::geometry::Size::new</span>(<span class="number">6</span>, <span class="number">13</span>),
+    <span class="ident">glyph_mapping</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="kw">crate</span>::mono_font::mapping::JIS_X0201</span>,
+    <span class="ident">character_size</span>: <span class="ident"><span class="kw">crate</span>::geometry::Size::new</span>(<span class="number">6</span>, <span class="number">13</span>),
     <span class="ident">character_spacing</span>: <span class="number">0</span>,
     <span class="ident">baseline</span>: <span class="number">10</span>,
-    <span class="ident">underline</span>: <span class="kw">crate</span><span class="ident">::mono_font::DecorationDimensions::new</span>(<span class="number">10</span> <span class="op">+</span> <span class="number">2</span>, <span class="number">1</span>),
-    <span class="ident">strikethrough</span>: <span class="kw">crate</span><span class="ident">::mono_font::DecorationDimensions::new</span>(<span class="number">13</span> <span class="op">/</span> <span class="number">2</span>, <span class="number">1</span>),
+    <span class="ident">underline</span>: <span class="ident"><span class="kw">crate</span>::mono_font::DecorationDimensions::new</span>(<span class="number">10</span> <span class="op">+</span> <span class="number">2</span>, <span class="number">1</span>),
+    <span class="ident">strikethrough</span>: <span class="ident"><span class="kw">crate</span>::mono_font::DecorationDimensions::new</span>(<span class="number">13</span> <span class="op">/</span> <span class="number">2</span>, <span class="number">1</span>),
 };
 
 <span class="doccomment">/// 7x14 pixel monospace font.</span>
-<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">FONT_7X14</span>: <span class="kw">crate</span><span class="ident">::mono_font::MonoFont</span> <span class="op">=</span> <span class="kw">crate</span><span class="ident">::mono_font::MonoFont</span> {
-    <span class="ident">image</span>: <span class="kw">crate</span><span class="ident">::image::ImageRaw::new_binary</span>(
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">FONT_7X14</span>: <span class="ident"><span class="kw">crate</span>::mono_font::MonoFont</span> <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::mono_font::MonoFont</span> {
+    <span class="ident">image</span>: <span class="ident"><span class="kw">crate</span>::image::ImageRaw::new_binary</span>(
         <span class="macro">include_bytes!</span>(<span class="string">&quot;../../../fonts/raw/jis_x0201/font_7x14.raw&quot;</span>),
         <span class="number">112</span>,
     ),
-    <span class="ident">glyph_mapping</span>: <span class="kw-2">&amp;</span><span class="kw">crate</span><span class="ident">::mono_font::mapping::JIS_X0201</span>,
-    <span class="ident">character_size</span>: <span class="kw">crate</span><span class="ident">::geometry::Size::new</span>(<span class="number">7</span>, <span class="number">14</span>),
+    <span class="ident">glyph_mapping</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="kw">crate</span>::mono_font::mapping::JIS_X0201</span>,
+    <span class="ident">character_size</span>: <span class="ident"><span class="kw">crate</span>::geometry::Size::new</span>(<span class="number">7</span>, <span class="number">14</span>),
     <span class="ident">character_spacing</span>: <span class="number">0</span>,
     <span class="ident">baseline</span>: <span class="number">11</span>,
-    <span class="ident">underline</span>: <span class="kw">crate</span><span class="ident">::mono_font::DecorationDimensions::new</span>(<span class="number">11</span> <span class="op">+</span> <span class="number">2</span>, <span class="number">1</span>),
-    <span class="ident">strikethrough</span>: <span class="kw">crate</span><span class="ident">::mono_font::DecorationDimensions::new</span>(<span class="number">14</span> <span class="op">/</span> <span class="number">2</span>, <span class="number">1</span>),
+    <span class="ident">underline</span>: <span class="ident"><span class="kw">crate</span>::mono_font::DecorationDimensions::new</span>(<span class="number">11</span> <span class="op">+</span> <span class="number">2</span>, <span class="number">1</span>),
+    <span class="ident">strikethrough</span>: <span class="ident"><span class="kw">crate</span>::mono_font::DecorationDimensions::new</span>(<span class="number">14</span> <span class="op">/</span> <span class="number">2</span>, <span class="number">1</span>),
 };
 
 <span class="doccomment">/// 8x13 pixel monospace font.</span>
-<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">FONT_8X13</span>: <span class="kw">crate</span><span class="ident">::mono_font::MonoFont</span> <span class="op">=</span> <span class="kw">crate</span><span class="ident">::mono_font::MonoFont</span> {
-    <span class="ident">image</span>: <span class="kw">crate</span><span class="ident">::image::ImageRaw::new_binary</span>(
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">FONT_8X13</span>: <span class="ident"><span class="kw">crate</span>::mono_font::MonoFont</span> <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::mono_font::MonoFont</span> {
+    <span class="ident">image</span>: <span class="ident"><span class="kw">crate</span>::image::ImageRaw::new_binary</span>(
         <span class="macro">include_bytes!</span>(<span class="string">&quot;../../../fonts/raw/jis_x0201/font_8x13.raw&quot;</span>),
         <span class="number">128</span>,
     ),
-    <span class="ident">glyph_mapping</span>: <span class="kw-2">&amp;</span><span class="kw">crate</span><span class="ident">::mono_font::mapping::JIS_X0201</span>,
-    <span class="ident">character_size</span>: <span class="kw">crate</span><span class="ident">::geometry::Size::new</span>(<span class="number">8</span>, <span class="number">13</span>),
+    <span class="ident">glyph_mapping</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="kw">crate</span>::mono_font::mapping::JIS_X0201</span>,
+    <span class="ident">character_size</span>: <span class="ident"><span class="kw">crate</span>::geometry::Size::new</span>(<span class="number">8</span>, <span class="number">13</span>),
     <span class="ident">character_spacing</span>: <span class="number">0</span>,
     <span class="ident">baseline</span>: <span class="number">10</span>,
-    <span class="ident">underline</span>: <span class="kw">crate</span><span class="ident">::mono_font::DecorationDimensions::new</span>(<span class="number">10</span> <span class="op">+</span> <span class="number">2</span>, <span class="number">1</span>),
-    <span class="ident">strikethrough</span>: <span class="kw">crate</span><span class="ident">::mono_font::DecorationDimensions::new</span>(<span class="number">13</span> <span class="op">/</span> <span class="number">2</span>, <span class="number">1</span>),
+    <span class="ident">underline</span>: <span class="ident"><span class="kw">crate</span>::mono_font::DecorationDimensions::new</span>(<span class="number">10</span> <span class="op">+</span> <span class="number">2</span>, <span class="number">1</span>),
+    <span class="ident">strikethrough</span>: <span class="ident"><span class="kw">crate</span>::mono_font::DecorationDimensions::new</span>(<span class="number">13</span> <span class="op">/</span> <span class="number">2</span>, <span class="number">1</span>),
 };
 
 <span class="doccomment">/// 9x15 pixel monospace font.</span>
-<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">FONT_9X15</span>: <span class="kw">crate</span><span class="ident">::mono_font::MonoFont</span> <span class="op">=</span> <span class="kw">crate</span><span class="ident">::mono_font::MonoFont</span> {
-    <span class="ident">image</span>: <span class="kw">crate</span><span class="ident">::image::ImageRaw::new_binary</span>(
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">FONT_9X15</span>: <span class="ident"><span class="kw">crate</span>::mono_font::MonoFont</span> <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::mono_font::MonoFont</span> {
+    <span class="ident">image</span>: <span class="ident"><span class="kw">crate</span>::image::ImageRaw::new_binary</span>(
         <span class="macro">include_bytes!</span>(<span class="string">&quot;../../../fonts/raw/jis_x0201/font_9x15.raw&quot;</span>),
         <span class="number">144</span>,
     ),
-    <span class="ident">glyph_mapping</span>: <span class="kw-2">&amp;</span><span class="kw">crate</span><span class="ident">::mono_font::mapping::JIS_X0201</span>,
-    <span class="ident">character_size</span>: <span class="kw">crate</span><span class="ident">::geometry::Size::new</span>(<span class="number">9</span>, <span class="number">15</span>),
+    <span class="ident">glyph_mapping</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="kw">crate</span>::mono_font::mapping::JIS_X0201</span>,
+    <span class="ident">character_size</span>: <span class="ident"><span class="kw">crate</span>::geometry::Size::new</span>(<span class="number">9</span>, <span class="number">15</span>),
     <span class="ident">character_spacing</span>: <span class="number">0</span>,
     <span class="ident">baseline</span>: <span class="number">11</span>,
-    <span class="ident">underline</span>: <span class="kw">crate</span><span class="ident">::mono_font::DecorationDimensions::new</span>(<span class="number">11</span> <span class="op">+</span> <span class="number">2</span>, <span class="number">1</span>),
-    <span class="ident">strikethrough</span>: <span class="kw">crate</span><span class="ident">::mono_font::DecorationDimensions::new</span>(<span class="number">15</span> <span class="op">/</span> <span class="number">2</span>, <span class="number">1</span>),
+    <span class="ident">underline</span>: <span class="ident"><span class="kw">crate</span>::mono_font::DecorationDimensions::new</span>(<span class="number">11</span> <span class="op">+</span> <span class="number">2</span>, <span class="number">1</span>),
+    <span class="ident">strikethrough</span>: <span class="ident"><span class="kw">crate</span>::mono_font::DecorationDimensions::new</span>(<span class="number">15</span> <span class="op">/</span> <span class="number">2</span>, <span class="number">1</span>),
 };
 
 <span class="doccomment">/// 9x18 pixel monospace font.</span>
-<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">FONT_9X18</span>: <span class="kw">crate</span><span class="ident">::mono_font::MonoFont</span> <span class="op">=</span> <span class="kw">crate</span><span class="ident">::mono_font::MonoFont</span> {
-    <span class="ident">image</span>: <span class="kw">crate</span><span class="ident">::image::ImageRaw::new_binary</span>(
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">FONT_9X18</span>: <span class="ident"><span class="kw">crate</span>::mono_font::MonoFont</span> <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::mono_font::MonoFont</span> {
+    <span class="ident">image</span>: <span class="ident"><span class="kw">crate</span>::image::ImageRaw::new_binary</span>(
         <span class="macro">include_bytes!</span>(<span class="string">&quot;../../../fonts/raw/jis_x0201/font_9x18.raw&quot;</span>),
         <span class="number">144</span>,
     ),
-    <span class="ident">glyph_mapping</span>: <span class="kw-2">&amp;</span><span class="kw">crate</span><span class="ident">::mono_font::mapping::JIS_X0201</span>,
-    <span class="ident">character_size</span>: <span class="kw">crate</span><span class="ident">::geometry::Size::new</span>(<span class="number">9</span>, <span class="number">18</span>),
+    <span class="ident">glyph_mapping</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="kw">crate</span>::mono_font::mapping::JIS_X0201</span>,
+    <span class="ident">character_size</span>: <span class="ident"><span class="kw">crate</span>::geometry::Size::new</span>(<span class="number">9</span>, <span class="number">18</span>),
     <span class="ident">character_spacing</span>: <span class="number">0</span>,
     <span class="ident">baseline</span>: <span class="number">13</span>,
-    <span class="ident">underline</span>: <span class="kw">crate</span><span class="ident">::mono_font::DecorationDimensions::new</span>(<span class="number">13</span> <span class="op">+</span> <span class="number">2</span>, <span class="number">1</span>),
-    <span class="ident">strikethrough</span>: <span class="kw">crate</span><span class="ident">::mono_font::DecorationDimensions::new</span>(<span class="number">18</span> <span class="op">/</span> <span class="number">2</span>, <span class="number">1</span>),
+    <span class="ident">underline</span>: <span class="ident"><span class="kw">crate</span>::mono_font::DecorationDimensions::new</span>(<span class="number">13</span> <span class="op">+</span> <span class="number">2</span>, <span class="number">1</span>),
+    <span class="ident">strikethrough</span>: <span class="ident"><span class="kw">crate</span>::mono_font::DecorationDimensions::new</span>(<span class="number">18</span> <span class="op">/</span> <span class="number">2</span>, <span class="number">1</span>),
 };
 
 <span class="doccomment">/// 10x20 pixel monospace font.</span>
-<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">FONT_10X20</span>: <span class="kw">crate</span><span class="ident">::mono_font::MonoFont</span> <span class="op">=</span> <span class="kw">crate</span><span class="ident">::mono_font::MonoFont</span> {
-    <span class="ident">image</span>: <span class="kw">crate</span><span class="ident">::image::ImageRaw::new_binary</span>(
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">FONT_10X20</span>: <span class="ident"><span class="kw">crate</span>::mono_font::MonoFont</span> <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::mono_font::MonoFont</span> {
+    <span class="ident">image</span>: <span class="ident"><span class="kw">crate</span>::image::ImageRaw::new_binary</span>(
         <span class="macro">include_bytes!</span>(<span class="string">&quot;../../../fonts/raw/jis_x0201/font_10x20.raw&quot;</span>),
         <span class="number">160</span>,
     ),
-    <span class="ident">glyph_mapping</span>: <span class="kw-2">&amp;</span><span class="kw">crate</span><span class="ident">::mono_font::mapping::JIS_X0201</span>,
-    <span class="ident">character_size</span>: <span class="kw">crate</span><span class="ident">::geometry::Size::new</span>(<span class="number">10</span>, <span class="number">20</span>),
+    <span class="ident">glyph_mapping</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="kw">crate</span>::mono_font::mapping::JIS_X0201</span>,
+    <span class="ident">character_size</span>: <span class="ident"><span class="kw">crate</span>::geometry::Size::new</span>(<span class="number">10</span>, <span class="number">20</span>),
     <span class="ident">character_spacing</span>: <span class="number">0</span>,
     <span class="ident">baseline</span>: <span class="number">15</span>,
-    <span class="ident">underline</span>: <span class="kw">crate</span><span class="ident">::mono_font::DecorationDimensions::new</span>(<span class="number">15</span> <span class="op">+</span> <span class="number">2</span>, <span class="number">1</span>),
-    <span class="ident">strikethrough</span>: <span class="kw">crate</span><span class="ident">::mono_font::DecorationDimensions::new</span>(<span class="number">20</span> <span class="op">/</span> <span class="number">2</span>, <span class="number">1</span>),
+    <span class="ident">underline</span>: <span class="ident"><span class="kw">crate</span>::mono_font::DecorationDimensions::new</span>(<span class="number">15</span> <span class="op">+</span> <span class="number">2</span>, <span class="number">1</span>),
+    <span class="ident">strikethrough</span>: <span class="ident"><span class="kw">crate</span>::mono_font::DecorationDimensions::new</span>(<span class="number">20</span> <span class="op">/</span> <span class="number">2</span>, <span class="number">1</span>),
 };
-</pre></div>
+</code></pre></div>
 </section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../../../" data-current-crate="embedded_graphics" data-search-index-js="../../../../search-index.js" data-search-js="../../../../search.js"></div>
     <script src="../../../../main.js"></script><script src="../../../../source-script.js"></script><script src="../../../../source-files.js"></script>
 </body></html>

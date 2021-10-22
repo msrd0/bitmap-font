@@ -6,7 +6,7 @@ name = "bitmap-font-codegen"
 version = "0.0.0"
 publish = false
 authors = ["Dominic Meiser <git@msrd0.de>"]
-edition = "2018"
+edition = "2021"
 
 [dependencies]
 anyhow = "1.0"

@@ -72,10 +72,10 @@ impl Bitmap {
 		let mut bmp = Vec::<u8>::new();
 		macro_rules! write {
 			([$($byte:literal),*]) => {
-				bmp.extend(::std::array::IntoIter::new([$($byte),*]))
+				bmp.extend([$($byte),*].into_iter())
 			};
 			($int:expr) => {
-				bmp.extend(::std::array::IntoIter::new($int.to_le_bytes()))
+				bmp.extend($int.to_le_bytes().into_iter())
 			};
 		}
 

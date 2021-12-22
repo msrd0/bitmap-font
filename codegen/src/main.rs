@@ -32,8 +32,8 @@ const MIN_ROWS: u32 = 4;
 const MAX_ROWS: u32 = 20;
 
 mod filters {
-	pub fn chunks<'a>(src: &'a [u8], size: &usize) -> askama::Result<Vec<&'a [u8]>> {
-		Ok(src.chunks(*size).collect())
+	pub fn chunks<'a>(src: &'a [u8], size: usize) -> askama::Result<Vec<&'a [u8]>> {
+		Ok(src.chunks(size).collect())
 	}
 }
 
@@ -99,9 +99,34 @@ struct VirtualFont {
 	pixels: u32
 }
 
+// weird trait because askama doesn't want to learn proper borrowing/copying
+trait Char {
+	fn char(self) -> char;
+}
+
+impl Char for char {
+	fn char(self) -> char {
+		self
+	}
+}
+
+impl Char for &char {
+	fn char(self) -> char {
+		*self
+	}
+}
+
 impl VirtualFont {
-	fn glyph(&self, c: &char) -> GlyphData {
-		let mut glyph = self.glyphs.get(c).expect(&format!("No glyph found for char '{}'", c)).clone();
+	fn glyph<C>(&self, c: C) -> GlyphData
+	where
+		C: Char
+	{
+		let c = c.char();
+		let mut glyph = self
+			.glyphs
+			.get(&c)
+			.expect(&format!("No glyph found for char '{}'", c))
+			.clone();
 		glyph.pixels = self.pixels;
 		glyph
 	}
@@ -290,9 +315,9 @@ fn main() -> anyhow::Result<()> {
 		let glyphs: LinkedHashMap<char, GlyphData> = CHAR_RANGES
 			.iter()
 			.flat_map(|(start, end)| {
-				(*start..=*end).map(|char| {
-					let glyph = glyphs.get(&char).ok_or_else(|| anyhow!("char not in font")).unwrap();
-					(char, GlyphData::new(glyph, width, height).unwrap())
+				(*start..=*end).map(|ch| {
+					let glyph = glyphs.get(&ch).ok_or_else(|| anyhow!("char not in font")).unwrap();
+					(ch, GlyphData::new(glyph, width, height).unwrap())
 				})
 			})
 			.collect();

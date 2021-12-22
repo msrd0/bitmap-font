@@ -6,7 +6,7 @@ pixels were modified by drawing operations.</p>
 test results. The same patterns are used by the implementation of <code>Debug</code>
 and will be shown in failing tests.</p>
 <p>The display is internally capped at 64x64px.</p>
-<h1 id="assertions" class="section-header"><a href="#assertions">Assertions</a></h1>
+<h2 id="assertions" class="section-header"><a href="#assertions">Assertions</a></h2>
 <p><a href="struct.MockDisplay.html"><code>MockDisplay</code></a> provides the <a href="struct.MockDisplay.html#method.assert_eq"><code>assert_eq</code></a> and <a href="struct.MockDisplay.html#method.assert_pattern"><code>assert_pattern</code></a> methods to check if the
 display is in the correct state after some drawing operations were executed. It’s recommended
 to use these methods instead of the standard <code>assert_eq!</code> macro, because they provide an
@@ -18,32 +18,32 @@ display and the expected output will be shown:</p>
 that includes the upper half block character <code>'\u{2580}'</code>.</p>
 <p>The color code used to show the difference between the display and the expected output is shown
 in the documentation of the <a href="struct.MockDisplay.html#method.diff"><code>diff</code></a> method.</p>
-<h1 id="additional-out-of-bounds-and-overdraw-checks" class="section-header"><a href="#additional-out-of-bounds-and-overdraw-checks">Additional out of bounds and overdraw checks</a></h1>
+<h2 id="additional-out-of-bounds-and-overdraw-checks" class="section-header"><a href="#additional-out-of-bounds-and-overdraw-checks">Additional out of bounds and overdraw checks</a></h2>
 <p><a href="struct.MockDisplay.html"><code>MockDisplay</code></a> implements additional checks during drawing operations that will cause a panic if
 any pixel is drawn outside the framebuffer or if a pixel is drawn more than once. These
 stricter checks were added to help with testing and shouldn’t be implemented by normal
 <a href="../draw_target/trait.DrawTarget.html"><code>DrawTarget</code></a>s.</p>
 <p>If a test relies on out of bounds drawing or overdrawing the additional checks can explicitly
 be disabled  by using <a href="struct.MockDisplay.html#method.set_allow_out_of_bounds_drawing"><code>set_allow_out_of_bounds_drawing</code></a> and <a href="struct.MockDisplay.html#method.set_allow_overdraw"><code>set_allow_overdraw</code></a>.</p>
-<h1 id="characters-used-in-binarycolor-patterns" class="section-header"><a href="#characters-used-in-binarycolor-patterns">Characters used in <code>BinaryColor</code> patterns</a></h1>
+<h2 id="characters-used-in-binarycolor-patterns" class="section-header"><a href="#characters-used-in-binarycolor-patterns">Characters used in <code>BinaryColor</code> patterns</a></h2>
 <p>The following mappings are available for <a href="../pixelcolor/enum.BinaryColor.html"><code>BinaryColor</code></a>:</p>
-<table><thead><tr><th>Character</th><th>Color</th><th>Description</th></tr></thead><tbody>
+<div><table><thead><tr><th>Character</th><th>Color</th><th>Description</th></tr></thead><tbody>
 <tr><td><code>' '</code></td><td><code>None</code></td><td>No drawing operation changed the pixel</td></tr>
 <tr><td><code>'.'</code></td><td><code>Some(BinaryColor::Off)</code></td><td>Pixel was changed to <code>BinaryColor::Off</code></td></tr>
 <tr><td><code>'#'</code></td><td><code>Some(BinaryColor::On)</code></td><td>Pixel was changed to <code>BinaryColor::On</code></td></tr>
 </tbody></table>
-<h1 id="characters-used-in-gray2-patterns" class="section-header"><a href="#characters-used-in-gray2-patterns">Characters used in <code>Gray2</code> patterns</a></h1>
+</div><h2 id="characters-used-in-gray2-patterns" class="section-header"><a href="#characters-used-in-gray2-patterns">Characters used in <code>Gray2</code> patterns</a></h2>
 <p>The following mappings are available for <a href="../pixelcolor/struct.Gray2.html"><code>Gray2</code></a>:</p>
-<table><thead><tr><th>Character</th><th>Color</th><th>Description</th></tr></thead><tbody>
+<div><table><thead><tr><th>Character</th><th>Color</th><th>Description</th></tr></thead><tbody>
 <tr><td><code>' '</code></td><td><code>None</code></td><td>No drawing operation changed the pixel</td></tr>
 <tr><td><code>'0'</code></td><td><code>Some(Gray2::new(0x0))</code></td><td>Pixel was changed to <code>Gray2::new(0x0)</code></td></tr>
 <tr><td><code>'1'</code></td><td><code>Some(Gray2::new(0x1))</code></td><td>Pixel was changed to <code>Gray2::new(0x1)</code></td></tr>
 <tr><td><code>'2'</code></td><td><code>Some(Gray2::new(0x2))</code></td><td>Pixel was changed to <code>Gray2::new(0x2)</code></td></tr>
 <tr><td><code>'3'</code></td><td><code>Some(Gray2::new(0x3))</code></td><td>Pixel was changed to <code>Gray2::new(0x3)</code></td></tr>
 </tbody></table>
-<h1 id="characters-used-in-gray4-patterns" class="section-header"><a href="#characters-used-in-gray4-patterns">Characters used in <code>Gray4</code> patterns</a></h1>
+</div><h2 id="characters-used-in-gray4-patterns" class="section-header"><a href="#characters-used-in-gray4-patterns">Characters used in <code>Gray4</code> patterns</a></h2>
 <p>The following mappings are available for <a href="../pixelcolor/struct.Gray4.html"><code>Gray4</code></a>:</p>
-<table><thead><tr><th>Character</th><th>Color</th><th>Description</th></tr></thead><tbody>
+<div><table><thead><tr><th>Character</th><th>Color</th><th>Description</th></tr></thead><tbody>
 <tr><td><code>' '</code></td><td><code>None</code></td><td>No drawing operation changed the pixel</td></tr>
 <tr><td><code>'0'</code></td><td><code>Some(Gray4::new(0x0))</code></td><td>Pixel was changed to <code>Gray4::new(0x0)</code></td></tr>
 <tr><td><code>'1'</code></td><td><code>Some(Gray4::new(0x1))</code></td><td>Pixel was changed to <code>Gray4::new(0x1)</code></td></tr>
@@ -51,9 +51,9 @@ be disabled  by using <a href="struct.MockDisplay.html#method.set_allow_out_of_b
 <tr><td><code>'E'</code></td><td><code>Some(Gray4::new(0xE))</code></td><td>Pixel was changed to <code>Gray4::new(0xE)</code></td></tr>
 <tr><td><code>'F'</code></td><td><code>Some(Gray4::new(0xF))</code></td><td>Pixel was changed to <code>Gray4::new(0xF)</code></td></tr>
 </tbody></table>
-<h1 id="characters-used-in-gray8-patterns" class="section-header"><a href="#characters-used-in-gray8-patterns">Characters used in <code>Gray8</code> patterns</a></h1>
+</div><h2 id="characters-used-in-gray8-patterns" class="section-header"><a href="#characters-used-in-gray8-patterns">Characters used in <code>Gray8</code> patterns</a></h2>
 <p>The following mappings are available for <a href="../pixelcolor/struct.Gray8.html"><code>Gray8</code></a>:</p>
-<table><thead><tr><th>Character</th><th>Color</th><th>Description</th></tr></thead><tbody>
+<div><table><thead><tr><th>Character</th><th>Color</th><th>Description</th></tr></thead><tbody>
 <tr><td><code>' '</code></td><td><code>None</code></td><td>No drawing operation changed the pixel</td></tr>
 <tr><td><code>'0'</code></td><td><code>Some(Gray8::new(0x00))</code></td><td>Pixel was changed to <code>Gray8::new(0x00)</code></td></tr>
 <tr><td><code>'1'</code></td><td><code>Some(Gray8::new(0x11))</code></td><td>Pixel was changed to <code>Gray8::new(0x11)</code></td></tr>
@@ -61,13 +61,14 @@ be disabled  by using <a href="struct.MockDisplay.html#method.set_allow_out_of_b
 <tr><td><code>'E'</code></td><td><code>Some(Gray8::new(0xEE))</code></td><td>Pixel was changed to <code>Gray8::new(0xEE)</code></td></tr>
 <tr><td><code>'F'</code></td><td><code>Some(Gray8::new(0xFF))</code></td><td>Pixel was changed to <code>Gray8::new(0xFF)</code></td></tr>
 </tbody></table>
+</div>
 <p>Note: <code>Gray8</code> uses a different mapping than <code>Gray2</code> and <code>Gray4</code>, by duplicating the pattern
 value into the high and low nibble. This allows using a single digit to test luma values ranging
 from 0 to 255.</p>
-<h1 id="characters-used-in-rgb-color-patterns" class="section-header"><a href="#characters-used-in-rgb-color-patterns">Characters used in RGB color patterns</a></h1>
+<h2 id="characters-used-in-rgb-color-patterns" class="section-header"><a href="#characters-used-in-rgb-color-patterns">Characters used in RGB color patterns</a></h2>
 <p>The following mappings are available for all RGB color types in the <a href="../pixelcolor/index.html#structs"><code>pixelcolor</code></a> module,
 like <a href="../pixelcolor/struct.Rgb565.html"><code>Rgb565</code></a> or <a href="../pixelcolor/struct.Rgb888.html"><code>Rgb888</code></a>:</p>
-<table><thead><tr><th>Character</th><th>Color</th><th>Description</th></tr></thead><tbody>
+<div><table><thead><tr><th>Character</th><th>Color</th><th>Description</th></tr></thead><tbody>
 <tr><td><code>' '</code></td><td><code>None</code></td><td>No drawing operation changed the pixel</td></tr>
 <tr><td><code>'K'</code></td><td><code>Some(C::BLACK)</code></td><td>Pixel was changed to <code>C::BLACK</code></td></tr>
 <tr><td><code>'R'</code></td><td><code>Some(C::RED)</code></td><td>Pixel was changed to <code>C::RED</code></td></tr>
@@ -78,8 +79,9 @@ like <a href="../pixelcolor/struct.Rgb565.html"><code>Rgb565</code></a> or <a hr
 <tr><td><code>'C'</code></td><td><code>Some(C::CYAN)</code></td><td>Pixel was changed to <code>C::CYAN</code></td></tr>
 <tr><td><code>'W'</code></td><td><code>Some(C::WHITE)</code></td><td>Pixel was changed to <code>C::WHITE</code></td></tr>
 </tbody></table>
+</div>
 <p>Note: The table used <code>C</code> as a placeholder for the actual color type, like <code>Rgb565::BLACK</code>.</p>
-<h1 id="examples" class="section-header"><a href="#examples">Examples</a></h1><h2 id="assert-that-a-modified-display-matches-the-expected-value" class="section-header"><a href="#assert-that-a-modified-display-matches-the-expected-value">Assert that a modified display matches the expected value</a></h2>
+<h2 id="examples" class="section-header"><a href="#examples">Examples</a></h2><h3 id="assert-that-a-modified-display-matches-the-expected-value" class="section-header"><a href="#assert-that-a-modified-display-matches-the-expected-value">Assert that a modified display matches the expected value</a></h3>
 <p>This example sets three pixels on the display and checks that they’re turned on.</p>
 
 <div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use</span> <span class="ident">embedded_graphics</span>::{<span class="ident">mock_display::MockDisplay</span>, <span class="ident">pixelcolor::BinaryColor</span>, <span class="ident">prelude</span>::<span class="kw-2">*</span>};
@@ -95,7 +97,7 @@ like <a href="../pixelcolor/struct.Rgb565.html"><code>Rgb565</code></a> or <a hr
     <span class="string">&quot;  #&quot;</span>, <span class="comment">//</span>
     <span class="string">&quot; # &quot;</span>, <span class="comment">//</span>
 ]);</code></pre></div>
-<h2 id="load-and-validate-a-16bpp-image" class="section-header"><a href="#load-and-validate-a-16bpp-image">Load and validate a 16BPP image</a></h2>
+<h3 id="load-and-validate-a-16bpp-image" class="section-header"><a href="#load-and-validate-a-16bpp-image">Load and validate a 16BPP image</a></h3>
 <p>This example loads the following test image (scaled 10x to make it visible) and tests the
 returned pixels against an expected pattern.</p>
 <p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAUCAIAAABwJOjsAAAAMUlEQVRIx2NkwAv+45Vl/E++XiaGAQKjFo9aPGrx0LeYhVAJMxrUoxaPWjxq8aCzGAAVwwQnmlfSgwAAAABJRU5ErkJggg==" alt="Test image, scaled 1000%" /></p>
@@ -125,9 +127,9 @@ returned pixels against an expected pattern.</p>
     <span class="string">&quot;BCMW&quot;</span>, <span class="comment">//</span>
 ]);</code></pre></div>
 </div></details><h2 id="structs" class="section-header"><a href="#structs">Structs</a></h2>
-<div class="item-table"><div class="item-left module-item"><a class="struct" href="struct.MockDisplay.html" title="embedded_graphics::mock_display::MockDisplay struct">MockDisplay</a></div><div class="item-right docblock-short"><p>Mock display struct</p>
-</div></div><h2 id="traits" class="section-header"><a href="#traits">Traits</a></h2>
-<div class="item-table"><div class="item-left module-item"><a class="trait" href="trait.ColorMapping.html" title="embedded_graphics::mock_display::ColorMapping trait">ColorMapping</a></div><div class="item-right docblock-short"><p>Mapping between <code>char</code>s and colors.</p>
-</div></div></section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../" data-current-crate="embedded_graphics" data-search-index-js="../../search-index.js" data-search-js="../../search.js"></div>
+<div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.MockDisplay.html" title="embedded_graphics::mock_display::MockDisplay struct">MockDisplay</a></div><div class="item-right docblock-short"><p>Mock display struct</p>
+</div></div></div><h2 id="traits" class="section-header"><a href="#traits">Traits</a></h2>
+<div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="trait" href="trait.ColorMapping.html" title="embedded_graphics::mock_display::ColorMapping trait">ColorMapping</a></div><div class="item-right docblock-short"><p>Mapping between <code>char</code>s and colors.</p>
+</div></div></div></section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../" data-current-crate="embedded_graphics" data-search-index-js="../../search-index.js" data-search-js="../../search.js"></div>
     <script src="../../main.js"></script>
 </body></html>

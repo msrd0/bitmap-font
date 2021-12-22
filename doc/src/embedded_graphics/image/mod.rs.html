@@ -433,7 +433,7 @@
     <span class="ident">T</span>: <span class="ident">ImageDrawable</span>,
 {
     <span class="doccomment">/// Creates a new `Image`.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">image_drawable</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">T</span>, <span class="ident">position</span>: <span class="ident">Point</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">image_drawable</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">T</span>, <span class="ident">position</span>: <span class="ident">Point</span>) -&gt; <span class="self">Self</span> {
         <span class="self">Self</span> {
             <span class="ident">image_drawable</span>,
             <span class="ident">offset</span>: <span class="ident">position</span>,
@@ -468,7 +468,7 @@
     <span class="doccomment">/// assert_eq!(image.bounding_box().top_left, Point::zero());</span>
     <span class="doccomment">/// assert_eq!(image_moved.bounding_box().top_left, Point::new(10, 20));</span>
     <span class="doccomment">/// ```</span>
-    <span class="kw">fn</span> <span class="ident">translate</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">by</span>: <span class="ident">Point</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">fn</span> <span class="ident">translate</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">by</span>: <span class="ident">Point</span>) -&gt; <span class="self">Self</span> {
         <span class="self">Self</span> {
             <span class="ident">image_drawable</span>: <span class="self">self</span>.<span class="ident">image_drawable</span>,
             <span class="ident">offset</span>: <span class="self">self</span>.<span class="ident">offset</span> <span class="op">+</span> <span class="ident">by</span>,
@@ -500,7 +500,7 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// assert_eq!(image.bounding_box().top_left, Point::new(10, 20));</span>
     <span class="doccomment">/// ```</span>
-    <span class="kw">fn</span> <span class="ident">translate_mut</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">by</span>: <span class="ident">Point</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
+    <span class="kw">fn</span> <span class="ident">translate_mut</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">by</span>: <span class="ident">Point</span>) -&gt; <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">offset</span> <span class="op">+</span><span class="op">=</span> <span class="ident">by</span>;
 
         <span class="self">self</span>
@@ -514,7 +514,7 @@
     <span class="kw">type</span> <span class="ident">Color</span> <span class="op">=</span> <span class="ident">T::Color</span>;
     <span class="kw">type</span> <span class="ident">Output</span> <span class="op">=</span> ();
 
-    <span class="kw">fn</span> <span class="ident">draw</span><span class="op">&lt;</span><span class="ident">D</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">display</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">D</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Output</span>, <span class="ident">D::Error</span><span class="op">&gt;</span>
+    <span class="kw">fn</span> <span class="ident">draw</span><span class="op">&lt;</span><span class="ident">D</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">display</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">D</span>) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Output</span>, <span class="ident">D::Error</span><span class="op">&gt;</span>
     <span class="kw">where</span>
         <span class="ident">D</span>: <span class="ident">DrawTarget</span><span class="op">&lt;</span><span class="ident">Color</span> <span class="op">=</span> <span class="ident"><span class="self">Self</span>::Color</span><span class="op">&gt;</span>,
     {
@@ -527,7 +527,7 @@
 <span class="kw">where</span>
     <span class="ident">T</span>: <span class="ident">OriginDimensions</span>,
 {
-    <span class="kw">fn</span> <span class="ident">bounding_box</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Rectangle</span> {
+    <span class="kw">fn</span> <span class="ident">bounding_box</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Rectangle</span> {
         <span class="self">self</span>.<span class="ident">image_drawable</span>.<span class="ident">bounding_box</span>().<span class="ident">translate</span>(<span class="self">self</span>.<span class="ident">offset</span>)
     }
 }

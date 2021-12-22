@@ -189,7 +189,7 @@
 </pre><pre class="rust"><code><span class="doccomment">/// log_b(a) approximation for f32</span>
 <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::ln</span>;
 
-<span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">log_ln_approx</span>(<span class="ident">x</span>: <span class="ident">f32</span>, <span class="ident">base</span>: <span class="ident">f32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span> {
+<span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">log_ln_approx</span>(<span class="ident">x</span>: <span class="ident">f32</span>, <span class="ident">base</span>: <span class="ident">f32</span>) -&gt; <span class="ident">f32</span> {
     <span class="comment">//using change of base log_base(x) = ln(x)/ln(base)</span>
     <span class="kw">let</span> <span class="ident">fract_base_ln</span> <span class="op">=</span> <span class="number">1.0</span> <span class="op">/</span> <span class="ident">ln::ln_1to2_series_approximation</span>(<span class="ident">base</span>);
     <span class="kw">let</span> <span class="ident">value_ln</span> <span class="op">=</span> <span class="ident">ln::ln_1to2_series_approximation</span>(<span class="ident">x</span>);

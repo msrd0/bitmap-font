@@ -5,7 +5,7 @@ an implementation for <a href="struct.ImageRaw.html">raw pixel data</a>. Additio
 provided by external crates like <a href="https://crates.io/crates/tinybmp">tinybmp</a> and <a href="https://crates.io/crates/tinytga">tinytga</a>.</p>
 <p>The <a href="./struct.Image.html"><code>Image</code></a> object is used to specify the location at which an <a href="trait.ImageDrawable.html"><code>ImageDrawable</code></a> is drawn.
 Images are drawn relative to their top-left corner.</p>
-<h1 id="examples" class="section-header"><a href="#examples">Examples</a></h1><h2 id="display-an-rgb565-raw-data-image" class="section-header"><a href="#display-an-rgb565-raw-data-image">Display an RGB565 raw data image</a></h2>
+<h2 id="examples" class="section-header"><a href="#examples">Examples</a></h2><h3 id="display-an-rgb565-raw-data-image" class="section-header"><a href="#display-an-rgb565-raw-data-image">Display an RGB565 raw data image</a></h3>
 <p>This example displays a small image created from a raw data array. The image is RGB565 encoded,
 so it uses the <code>Rgb565</code> color type.</p>
 
@@ -34,7 +34,7 @@ so it uses the <code>Rgb565</code> color type.</p>
 <span class="comment">// Draw the image to the display.</span>
 <span class="ident">image</span>.<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)<span class="question-mark">?</span>;
 </code></pre></div>
-<h2 id="sub-images" class="section-header"><a href="#sub-images">Sub images</a></h2>
+<h3 id="sub-images" class="section-header"><a href="#sub-images">Sub images</a></h3>
 <p><a href="struct.SubImage.html"><code>SubImage</code></a>s are used to split a larger image drawables into multiple parts, e.g. to draw a
 single sprite from a sprite atlas as in this example. Use the <a href="trait.ImageDrawableExt.html#tymethod.sub_image"><code>sub_image</code></a> method provided by
 <a href="trait.ImageDrawableExt.html"><code>ImageDrawableExt</code></a> to get a sub image from an image drawable. <a href="trait.ImageDrawableExt.html"><code>ImageDrawableExt</code></a> is included
@@ -63,20 +63,20 @@ in the <a href="../prelude/index.html"><code>prelude</code></a>, which this exam
 <span class="ident">Image::new</span>(<span class="kw-2">&amp;</span><span class="ident">sprite_1</span>, <span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">10</span>)).<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)<span class="question-mark">?</span>;
 <span class="ident">Image::new</span>(<span class="kw-2">&amp;</span><span class="ident">sprite_2</span>, <span class="ident">Point::new</span>(<span class="number">40</span>, <span class="number">30</span>)).<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)<span class="question-mark">?</span>;
 </code></pre></div>
-<h1 id="implementing-new-image-formats" class="section-header"><a href="#implementing-new-image-formats">Implementing new image formats</a></h1>
+<h2 id="implementing-new-image-formats" class="section-header"><a href="#implementing-new-image-formats">Implementing new image formats</a></h2>
 <p>To add embedded-graphics support for an new image format the <a href="trait.ImageDrawable.html"><code>ImageDrawable</code></a> and
 <a href="../geometry/trait.OriginDimensions.html"><code>OriginDimensions</code></a> traits must be implemented. See the <a href="trait.ImageDrawable.html"><code>ImageDrawable</code></a> documentation
 for more information.</p>
 </div></details><h2 id="structs" class="section-header"><a href="#structs">Structs</a></h2>
-<div class="item-table"><div class="item-left module-item"><a class="struct" href="struct.Image.html" title="embedded_graphics::image::Image struct">Image</a></div><div class="item-right docblock-short"><p>Image object.</p>
-</div><div class="item-left module-item"><a class="struct" href="struct.ImageRaw.html" title="embedded_graphics::image::ImageRaw struct">ImageRaw</a></div><div class="item-right docblock-short"><p>An image constructed from a slice of raw pixel data.</p>
-</div><div class="item-left module-item"><a class="struct" href="struct.SubImage.html" title="embedded_graphics::image::SubImage struct">SubImage</a></div><div class="item-right docblock-short"><p>Sub image.</p>
-</div></div><h2 id="traits" class="section-header"><a href="#traits">Traits</a></h2>
-<div class="item-table"><div class="item-left module-item"><a class="trait" href="trait.ImageDrawable.html" title="embedded_graphics::image::ImageDrawable trait">ImageDrawable</a></div><div class="item-right docblock-short"><p>Image drawable.</p>
-</div><div class="item-left module-item"><a class="trait" href="trait.ImageDrawableExt.html" title="embedded_graphics::image::ImageDrawableExt trait">ImageDrawableExt</a></div><div class="item-right docblock-short"><p>Extension trait for image drawables.</p>
-</div></div><h2 id="types" class="section-header"><a href="#types">Type Definitions</a></h2>
-<div class="item-table"><div class="item-left module-item"><a class="type" href="type.ImageRawBE.html" title="embedded_graphics::image::ImageRawBE type">ImageRawBE</a></div><div class="item-right docblock-short"><p>Image with big endian data.</p>
-</div><div class="item-left module-item"><a class="type" href="type.ImageRawLE.html" title="embedded_graphics::image::ImageRawLE type">ImageRawLE</a></div><div class="item-right docblock-short"><p>Image with little endian data.</p>
-</div></div></section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../" data-current-crate="embedded_graphics" data-search-index-js="../../search-index.js" data-search-js="../../search.js"></div>
+<div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.Image.html" title="embedded_graphics::image::Image struct">Image</a></div><div class="item-right docblock-short"><p>Image object.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.ImageRaw.html" title="embedded_graphics::image::ImageRaw struct">ImageRaw</a></div><div class="item-right docblock-short"><p>An image constructed from a slice of raw pixel data.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.SubImage.html" title="embedded_graphics::image::SubImage struct">SubImage</a></div><div class="item-right docblock-short"><p>Sub image.</p>
+</div></div></div><h2 id="traits" class="section-header"><a href="#traits">Traits</a></h2>
+<div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="trait" href="trait.ImageDrawable.html" title="embedded_graphics::image::ImageDrawable trait">ImageDrawable</a></div><div class="item-right docblock-short"><p>Image drawable.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="trait" href="trait.ImageDrawableExt.html" title="embedded_graphics::image::ImageDrawableExt trait">ImageDrawableExt</a></div><div class="item-right docblock-short"><p>Extension trait for image drawables.</p>
+</div></div></div><h2 id="types" class="section-header"><a href="#types">Type Definitions</a></h2>
+<div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="type" href="type.ImageRawBE.html" title="embedded_graphics::image::ImageRawBE type">ImageRawBE</a></div><div class="item-right docblock-short"><p>Image with big endian data.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="type" href="type.ImageRawLE.html" title="embedded_graphics::image::ImageRawLE type">ImageRawLE</a></div><div class="item-right docblock-short"><p>Image with little endian data.</p>
+</div></div></div></section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../" data-current-crate="embedded_graphics" data-search-index-js="../../search-index.js" data-search-js="../../search.js"></div>
     <script src="../../main.js"></script>
 </body></html>

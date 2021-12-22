@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Embedded-friendly (i.e. `#![no_std]`) math library featuring fast, safe floating point approximations for common arithmetic operations, as well as 2D and 3D vector types, statistical analysis functions, and quaternions."><meta name="keywords" content="rust, rustlang, rust-lang, micromath"><title>micromath - Rust</title><link rel="stylesheet" type="text/css" href="../normalize.css"><link rel="stylesheet" type="text/css" href="../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../ayu.css" disabled ><script id="default-settings" ></script><script src="../storage.js"></script><script src="../crates.js"></script><noscript><link rel="stylesheet" href="../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../favicon.svg"><style type="text/css">#crate-search{background-image:url("../down-arrow.svg");}</style></head><body class="rustdoc mod crate"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../micromath/index.html'><div class='logo-container rust-logo'><img src='https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;tarcieri&#x2F;micromath&#x2F;main&#x2F;img&#x2F;micromath-sq.png' alt='logo'></div></a><h2 class="location">Crate micromath</h2><div class="block version"><div class="narrow-helper"></div><p>Version 1.1.1</p></div><div class="sidebar-elems"><a id="all-types" href="all.html"><p>See all micromath's items</p></a><div class="block items"><ul><li><a href="#traits">Traits</a></li></ul></div><div id="sidebar-vars" data-name="micromath" data-ty="mod" data-relpath=""></div><script defer src="sidebar-items.js"></script></div></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="18" height="18" alt="Pick another theme!" src="../brush.svg"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../settings.html" title="settings"><img width="18" height="18" alt="Change settings" src="../wheel.svg"></a></div></form></nav><section id="main" class="content"><h1 class="fqn"><span class="in-band">Crate <a class="mod" href="#">micromath</a><button id="copy-path" onclick="copy_path(this)" title="Copy item path to clipboard"><img src="../clipboard.svg" width="19" height="18" alt="Copy item path"></button></span><span class="out-of-band"><span id="render-detail"><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class="inner">&#x2212;</span>]</a></span><a class="srclink" href="../src/micromath/lib.rs.html#1-118" title="goto source code">[src]</a></span></h1><details class="rustdoc-toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><p>Embedded-friendly (i.e. <code>#![no_std]</code>) math library featuring fast, safe
 floating point approximations for common arithmetic operations, as well as
 2D and 3D vector types, statistical analysis functions, and quaternions.</p>
-<h2 id="floating-point-approximations" class="section-header"><a href="#floating-point-approximations">Floating point approximations</a></h2>
+<h3 id="floating-point-approximations" class="section-header"><a href="#floating-point-approximations">Floating point approximations</a></h3>
 <p><code>micromath</code> supports approximating many arithmetic operations on <code>f32</code>
 using bitwise operations, providing great performance and small code size
 at the cost of precision. For use cases like graphics and signal
@@ -14,7 +14,7 @@ impl’d for <code>f32</code>, providing a drop-in <code>std</code>-compatible (
 
 <span class="kw">let</span> <span class="ident">n</span> <span class="op">=</span> <span class="number">2.0</span>.<span class="ident">sqrt</span>();
 <span class="macro">assert_eq!</span>(<span class="ident">n</span>, <span class="number">1.5</span>); <span class="comment">// close enough</span></code></pre></div>
-<h3 id="unused-import-warnings-when-linking-std" class="section-header"><a href="#unused-import-warnings-when-linking-std">Unused import warnings when linking <code>std</code></a></h3>
+<h4 id="unused-import-warnings-when-linking-std" class="section-header"><a href="#unused-import-warnings-when-linking-std">Unused import warnings when linking <code>std</code></a></h4>
 <p>Since the <code>F32Ext</code> trait provides methods which are already defined in
 <code>std</code>, in cases where your crate links <code>std</code> the <code>F32Ext</code> versions of
 the same methods will not be used, in which case you will get an unused
@@ -23,11 +23,11 @@ import warning for <code>F32Ext</code>.</p>
 
 <div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="attribute">#[<span class="ident">allow</span>(<span class="ident">unused_imports</span>)]</span>
 <span class="kw">use</span> <span class="ident">micromath::F32Ext</span>;</code></pre></div>
-<h2 id="vector-types" class="section-header"><a href="#vector-types">Vector types</a></h2>
+<h3 id="vector-types" class="section-header"><a href="#vector-types">Vector types</a></h3>
 <p>See the <a href="https://docs.rs/micromath/latest/micromath/vector/index.html"><code>vector</code> module</a> for more information on vector types.</p>
 <p>The following vector types are available, all of which have <code>pub x</code> and
 <code>pub y</code> (and on 3D vectors, <code>pub z</code>) members:</p>
-<table><thead><tr><th>Rust</th><th>2D</th><th>3D</th></tr></thead><tbody>
+<div><table><thead><tr><th>Rust</th><th>2D</th><th>3D</th></tr></thead><tbody>
 <tr><td><code>i8</code></td><td><code>I8x2</code></td><td><code>I8x3</code></td></tr>
 <tr><td><code>i16</code></td><td><code>I16x2</code></td><td><code>I16x3</code></td></tr>
 <tr><td><code>i32</code></td><td><code>I32x2</code></td><td><code>I32x3</code></td></tr>
@@ -36,7 +36,7 @@ import warning for <code>F32Ext</code>.</p>
 <tr><td><code>u32</code></td><td><code>U32x2</code></td><td><code>U32x3</code></td></tr>
 <tr><td><code>f32</code></td><td><code>F32x2</code></td><td><code>F32x3</code></td></tr>
 </tbody></table>
-<h2 id="statistical-analysis" class="section-header"><a href="#statistical-analysis">Statistical analysis</a></h2>
+</div><h3 id="statistical-analysis" class="section-header"><a href="#statistical-analysis">Statistical analysis</a></h3>
 <p>See the <a href="https://docs.rs/micromath/latest/micromath/statistics/index.html"><code>statistics</code> module</a> for more information on statistical analysis
 traits and functionality.</p>
 <p>The following traits are available and impl’d for slices and iterators of
@@ -47,11 +47,11 @@ traits and functionality.</p>
 <li><a href="https://docs.rs/micromath/latest/micromath/statistics/trim/trait.Trim.html">Trim</a> - cull outliers from a sample slice with the <code>trim()</code> method.</li>
 <li><a href="https://docs.rs/micromath/latest/micromath/statistics/trait.Variance.html">Variance</a> - compute variance with the `variance() method</li>
 </ul>
-<h2 id="quaternions" class="section-header"><a href="#quaternions">Quaternions</a></h2>
+<h3 id="quaternions" class="section-header"><a href="#quaternions">Quaternions</a></h3>
 <p>See the <a href="https://docs.rs/micromath/latest/micromath/quaternion/index.html"><code>quaternion</code> module</a> for more information.</p>
 </div></details><h2 id="traits" class="section-header"><a href="#traits">Traits</a></h2>
-<div class="item-table"><div class="item-left module-item"><a class="trait" href="trait.F32Ext.html" title="micromath::F32Ext trait">F32Ext</a></div><div class="item-right docblock-short"><p><code>f32</code> extension providing various arithmetic approximations and polyfills
+<div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="trait" href="trait.F32Ext.html" title="micromath::F32Ext trait">F32Ext</a></div><div class="item-right docblock-short"><p><code>f32</code> extension providing various arithmetic approximations and polyfills
 for <code>std</code> functionality.</p>
-</div></div></section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../" data-current-crate="micromath" data-search-index-js="../search-index.js" data-search-js="../search.js"></div>
+</div></div></div></section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../" data-current-crate="micromath" data-search-index-js="../search-index.js" data-search-js="../search.js"></div>
     <script src="../main.js"></script>
 </body></html>

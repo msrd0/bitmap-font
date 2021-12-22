@@ -280,211 +280,211 @@
 <span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">F32Ext</span>: <span class="ident">Sized</span> {
     <span class="doccomment">/// Compute absolute value with a constant-time, data-independent</span>
     <span class="doccomment">/// implementation.</span>
-    <span class="kw">fn</span> <span class="ident">abs</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span>;
+    <span class="kw">fn</span> <span class="ident">abs</span>(<span class="self">self</span>) -&gt; <span class="ident">f32</span>;
 
     <span class="doccomment">/// Approximate `asin(x)` in radians in the range `[-pi/2, pi/2]`.</span>
-    <span class="kw">fn</span> <span class="ident">asin</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span>;
+    <span class="kw">fn</span> <span class="ident">asin</span>(<span class="self">self</span>) -&gt; <span class="ident">f32</span>;
 
     <span class="doccomment">/// Approximate `acos(x)` in radians in the range `[0, pi]`</span>
-    <span class="kw">fn</span> <span class="ident">acos</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span>;
+    <span class="kw">fn</span> <span class="ident">acos</span>(<span class="self">self</span>) -&gt; <span class="ident">f32</span>;
 
     <span class="doccomment">/// Approximate `atan(x)` in radians with a maximum error of `0.002`.</span>
-    <span class="kw">fn</span> <span class="ident">atan</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span>;
+    <span class="kw">fn</span> <span class="ident">atan</span>(<span class="self">self</span>) -&gt; <span class="ident">f32</span>;
 
     <span class="doccomment">/// Approximate `atan(x)` normalized to the `[−1,1]` range with a maximum</span>
     <span class="doccomment">/// error of `0.1620` degrees.</span>
-    <span class="kw">fn</span> <span class="ident">atan_norm</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span>;
+    <span class="kw">fn</span> <span class="ident">atan_norm</span>(<span class="self">self</span>) -&gt; <span class="ident">f32</span>;
 
     <span class="doccomment">/// Approximate the four quadrant arctangent `atan2(x)` in radians, with</span>
     <span class="doccomment">/// a maximum error of `0.002`.</span>
-    <span class="kw">fn</span> <span class="ident">atan2</span>(<span class="self">self</span>, <span class="ident">other</span>: <span class="ident">f32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span>;
+    <span class="kw">fn</span> <span class="ident">atan2</span>(<span class="self">self</span>, <span class="ident">other</span>: <span class="ident">f32</span>) -&gt; <span class="ident">f32</span>;
 
     <span class="doccomment">/// Approximate the four quadrant arctangent.</span>
     <span class="doccomment">/// Normalized to the `[0,4)` range with a maximum error of `0.1620` degrees.</span>
-    <span class="kw">fn</span> <span class="ident">atan2_norm</span>(<span class="self">self</span>, <span class="ident">other</span>: <span class="ident">f32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span>;
+    <span class="kw">fn</span> <span class="ident">atan2_norm</span>(<span class="self">self</span>, <span class="ident">other</span>: <span class="ident">f32</span>) -&gt; <span class="ident">f32</span>;
 
     <span class="doccomment">/// Approximate floating point ceiling.</span>
-    <span class="kw">fn</span> <span class="ident">ceil</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span>;
+    <span class="kw">fn</span> <span class="ident">ceil</span>(<span class="self">self</span>) -&gt; <span class="ident">f32</span>;
 
     <span class="doccomment">/// Approximate cosine in radians with a maximum error of `0.002`.</span>
-    <span class="kw">fn</span> <span class="ident">cos</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span>;
+    <span class="kw">fn</span> <span class="ident">cos</span>(<span class="self">self</span>) -&gt; <span class="ident">f32</span>;
 
     <span class="doccomment">/// Calculates Euclidean division, the matching method for `rem_euclid`.</span>
-    <span class="kw">fn</span> <span class="ident">div_euclid</span>(<span class="self">self</span>, <span class="ident">other</span>: <span class="ident">f32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span>;
+    <span class="kw">fn</span> <span class="ident">div_euclid</span>(<span class="self">self</span>, <span class="ident">other</span>: <span class="ident">f32</span>) -&gt; <span class="ident">f32</span>;
 
     <span class="doccomment">/// Approximate floating point floor.</span>
-    <span class="kw">fn</span> <span class="ident">floor</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span>;
+    <span class="kw">fn</span> <span class="ident">floor</span>(<span class="self">self</span>) -&gt; <span class="ident">f32</span>;
 
     <span class="doccomment">/// Approximate the length of the hypotenuse of a right-angle triangle given</span>
     <span class="doccomment">/// legs of length `x` and `y`.</span>
-    <span class="kw">fn</span> <span class="ident">hypot</span>(<span class="self">self</span>, <span class="ident">other</span>: <span class="ident">f32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span>;
+    <span class="kw">fn</span> <span class="ident">hypot</span>(<span class="self">self</span>, <span class="ident">other</span>: <span class="ident">f32</span>) -&gt; <span class="ident">f32</span>;
 
     <span class="doccomment">/// Approximate `1/x` with an average deviation of ~8%.</span>
-    <span class="kw">fn</span> <span class="ident">inv</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span>;
+    <span class="kw">fn</span> <span class="ident">inv</span>(<span class="self">self</span>) -&gt; <span class="ident">f32</span>;
 
     <span class="doccomment">/// Approximate inverse square root with an average deviation of ~5%.</span>
-    <span class="kw">fn</span> <span class="ident">invsqrt</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span>;
+    <span class="kw">fn</span> <span class="ident">invsqrt</span>(<span class="self">self</span>) -&gt; <span class="ident">f32</span>;
 
     <span class="doccomment">/// Calculates the least nonnegative remainder of `self (mod other)`.</span>
-    <span class="kw">fn</span> <span class="ident">rem_euclid</span>(<span class="self">self</span>, <span class="ident">other</span>: <span class="ident">f32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span>;
+    <span class="kw">fn</span> <span class="ident">rem_euclid</span>(<span class="self">self</span>, <span class="ident">other</span>: <span class="ident">f32</span>) -&gt; <span class="ident">f32</span>;
 
     <span class="doccomment">/// Approximate sine in radians with a maximum error of `0.002`.</span>
-    <span class="kw">fn</span> <span class="ident">sin</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span>;
+    <span class="kw">fn</span> <span class="ident">sin</span>(<span class="self">self</span>) -&gt; <span class="ident">f32</span>;
 
     <span class="doccomment">/// Approximate square root with an average deviation of ~5%.</span>
-    <span class="kw">fn</span> <span class="ident">sqrt</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span>;
+    <span class="kw">fn</span> <span class="ident">sqrt</span>(<span class="self">self</span>) -&gt; <span class="ident">f32</span>;
 
     <span class="doccomment">/// Approximate `tan(x)` in radians with a maximum error of `0.6`.</span>
-    <span class="kw">fn</span> <span class="ident">tan</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span>;
+    <span class="kw">fn</span> <span class="ident">tan</span>(<span class="self">self</span>) -&gt; <span class="ident">f32</span>;
 
     <span class="doccomment">/// Retrieve whole number part of floating point with sign.</span>
-    <span class="kw">fn</span> <span class="ident">trunc</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span>;
+    <span class="kw">fn</span> <span class="ident">trunc</span>(<span class="self">self</span>) -&gt; <span class="ident">f32</span>;
 
     <span class="doccomment">/// Round the number part of floating point with sign.</span>
-    <span class="kw">fn</span> <span class="ident">round</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span>;
+    <span class="kw">fn</span> <span class="ident">round</span>(<span class="self">self</span>) -&gt; <span class="ident">f32</span>;
 
     <span class="doccomment">/// Retrieve the fractional part of floating point with sign.</span>
-    <span class="kw">fn</span> <span class="ident">fract</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span>;
+    <span class="kw">fn</span> <span class="ident">fract</span>(<span class="self">self</span>) -&gt; <span class="ident">f32</span>;
 
     <span class="doccomment">/// Copies the sign from one number to another and returns it.</span>
-    <span class="kw">fn</span> <span class="ident">copysign</span>(<span class="self">self</span>, <span class="ident">sign</span>: <span class="ident">f32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span>;
+    <span class="kw">fn</span> <span class="ident">copysign</span>(<span class="self">self</span>, <span class="ident">sign</span>: <span class="ident">f32</span>) -&gt; <span class="ident">f32</span>;
 
     <span class="doccomment">/// Approximate `ln(x)`.</span>
-    <span class="kw">fn</span> <span class="ident">ln</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span>;
+    <span class="kw">fn</span> <span class="ident">ln</span>(<span class="self">self</span>) -&gt; <span class="ident">f32</span>;
 
     <span class="doccomment">/// Approximate `e^x`.</span>
-    <span class="kw">fn</span> <span class="ident">exp</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span>;
+    <span class="kw">fn</span> <span class="ident">exp</span>(<span class="self">self</span>) -&gt; <span class="ident">f32</span>;
 
     <span class="doccomment">/// Approximate `log` with an arbitrary base.</span>
-    <span class="kw">fn</span> <span class="ident">log</span>(<span class="self">self</span>, <span class="ident">base</span>: <span class="ident">f32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span>;
+    <span class="kw">fn</span> <span class="ident">log</span>(<span class="self">self</span>, <span class="ident">base</span>: <span class="ident">f32</span>) -&gt; <span class="ident">f32</span>;
 
     <span class="doccomment">/// Approximate `log2`.</span>
-    <span class="kw">fn</span> <span class="ident">log2</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span>;
+    <span class="kw">fn</span> <span class="ident">log2</span>(<span class="self">self</span>) -&gt; <span class="ident">f32</span>;
 
     <span class="doccomment">/// Approximate `log10`.</span>
-    <span class="kw">fn</span> <span class="ident">log10</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span>;
+    <span class="kw">fn</span> <span class="ident">log10</span>(<span class="self">self</span>) -&gt; <span class="ident">f32</span>;
 
     <span class="doccomment">/// Approximate `self^n`.</span>
-    <span class="kw">fn</span> <span class="ident">powf</span>(<span class="self">self</span>, <span class="ident">n</span>: <span class="ident">f32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span>;
+    <span class="kw">fn</span> <span class="ident">powf</span>(<span class="self">self</span>, <span class="ident">n</span>: <span class="ident">f32</span>) -&gt; <span class="ident">f32</span>;
 
     <span class="doccomment">/// Approximate `self^n` where n is an `i32`</span>
-    <span class="kw">fn</span> <span class="ident">powi</span>(<span class="self">self</span>, <span class="ident">n</span>: <span class="ident">i32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span>;
+    <span class="kw">fn</span> <span class="ident">powi</span>(<span class="self">self</span>, <span class="ident">n</span>: <span class="ident">i32</span>) -&gt; <span class="ident">f32</span>;
 }
 
 <span class="kw">impl</span> <span class="ident">F32Ext</span> <span class="kw">for</span> <span class="ident">f32</span> {
-    <span class="kw">fn</span> <span class="ident">abs</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span> {
+    <span class="kw">fn</span> <span class="ident">abs</span>(<span class="self">self</span>) -&gt; <span class="ident">f32</span> {
         <span class="ident"><span class="self">self</span>::abs::abs</span>(<span class="self">self</span>)
     }
 
-    <span class="kw">fn</span> <span class="ident">asin</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span> {
+    <span class="kw">fn</span> <span class="ident">asin</span>(<span class="self">self</span>) -&gt; <span class="ident">f32</span> {
         <span class="ident"><span class="self">self</span>::asin::asin_approx</span>(<span class="self">self</span>)
     }
 
-    <span class="kw">fn</span> <span class="ident">acos</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span> {
+    <span class="kw">fn</span> <span class="ident">acos</span>(<span class="self">self</span>) -&gt; <span class="ident">f32</span> {
         <span class="ident"><span class="self">self</span>::acos::acos_approx</span>(<span class="self">self</span>)
     }
 
-    <span class="kw">fn</span> <span class="ident">atan</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span> {
+    <span class="kw">fn</span> <span class="ident">atan</span>(<span class="self">self</span>) -&gt; <span class="ident">f32</span> {
         <span class="ident"><span class="self">self</span>::atan::atan_approx</span>(<span class="self">self</span>)
     }
 
-    <span class="kw">fn</span> <span class="ident">atan_norm</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span> {
+    <span class="kw">fn</span> <span class="ident">atan_norm</span>(<span class="self">self</span>) -&gt; <span class="ident">f32</span> {
         <span class="ident"><span class="self">self</span>::atan::atan_norm_approx</span>(<span class="self">self</span>)
     }
 
-    <span class="kw">fn</span> <span class="ident">atan2</span>(<span class="self">self</span>, <span class="ident">other</span>: <span class="ident">f32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span> {
+    <span class="kw">fn</span> <span class="ident">atan2</span>(<span class="self">self</span>, <span class="ident">other</span>: <span class="ident">f32</span>) -&gt; <span class="ident">f32</span> {
         <span class="ident"><span class="self">self</span>::atan2::atan2_approx</span>(<span class="self">self</span>, <span class="ident">other</span>)
     }
 
-    <span class="kw">fn</span> <span class="ident">atan2_norm</span>(<span class="self">self</span>, <span class="ident">other</span>: <span class="ident">f32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span> {
+    <span class="kw">fn</span> <span class="ident">atan2_norm</span>(<span class="self">self</span>, <span class="ident">other</span>: <span class="ident">f32</span>) -&gt; <span class="ident">f32</span> {
         <span class="ident"><span class="self">self</span>::atan2::atan2_norm_approx</span>(<span class="self">self</span>, <span class="ident">other</span>)
     }
 
-    <span class="kw">fn</span> <span class="ident">ceil</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span> {
+    <span class="kw">fn</span> <span class="ident">ceil</span>(<span class="self">self</span>) -&gt; <span class="ident">f32</span> {
         <span class="ident"><span class="self">self</span>::ceil::ceil</span>(<span class="self">self</span>)
     }
 
-    <span class="kw">fn</span> <span class="ident">cos</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span> {
+    <span class="kw">fn</span> <span class="ident">cos</span>(<span class="self">self</span>) -&gt; <span class="ident">f32</span> {
         <span class="ident"><span class="self">self</span>::cos::cos_approx</span>(<span class="self">self</span>)
     }
 
-    <span class="kw">fn</span> <span class="ident">div_euclid</span>(<span class="self">self</span>, <span class="ident">other</span>: <span class="ident">f32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span> {
+    <span class="kw">fn</span> <span class="ident">div_euclid</span>(<span class="self">self</span>, <span class="ident">other</span>: <span class="ident">f32</span>) -&gt; <span class="ident">f32</span> {
         <span class="ident"><span class="self">self</span>::div_euclid::div_euclid</span>(<span class="self">self</span>, <span class="ident">other</span>)
     }
 
-    <span class="kw">fn</span> <span class="ident">floor</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span> {
+    <span class="kw">fn</span> <span class="ident">floor</span>(<span class="self">self</span>) -&gt; <span class="ident">f32</span> {
         <span class="ident"><span class="self">self</span>::floor::floor</span>(<span class="self">self</span>)
     }
 
-    <span class="kw">fn</span> <span class="ident">hypot</span>(<span class="self">self</span>, <span class="ident">other</span>: <span class="ident">f32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span> {
+    <span class="kw">fn</span> <span class="ident">hypot</span>(<span class="self">self</span>, <span class="ident">other</span>: <span class="ident">f32</span>) -&gt; <span class="ident">f32</span> {
         <span class="ident"><span class="self">self</span>::hypot::hypot_approx</span>(<span class="self">self</span>, <span class="ident">other</span>)
     }
 
-    <span class="kw">fn</span> <span class="ident">inv</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span> {
+    <span class="kw">fn</span> <span class="ident">inv</span>(<span class="self">self</span>) -&gt; <span class="ident">f32</span> {
         <span class="ident"><span class="self">self</span>::inv::inv_approx</span>(<span class="self">self</span>)
     }
 
-    <span class="kw">fn</span> <span class="ident">invsqrt</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span> {
+    <span class="kw">fn</span> <span class="ident">invsqrt</span>(<span class="self">self</span>) -&gt; <span class="ident">f32</span> {
         <span class="ident"><span class="self">self</span>::invsqrt::invsqrt_approx</span>(<span class="self">self</span>)
     }
 
-    <span class="kw">fn</span> <span class="ident">rem_euclid</span>(<span class="self">self</span>, <span class="ident">other</span>: <span class="ident">f32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span> {
+    <span class="kw">fn</span> <span class="ident">rem_euclid</span>(<span class="self">self</span>, <span class="ident">other</span>: <span class="ident">f32</span>) -&gt; <span class="ident">f32</span> {
         <span class="ident"><span class="self">self</span>::rem_euclid::rem_euclid</span>(<span class="self">self</span>, <span class="ident">other</span>)
     }
 
-    <span class="kw">fn</span> <span class="ident">sin</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span> {
+    <span class="kw">fn</span> <span class="ident">sin</span>(<span class="self">self</span>) -&gt; <span class="ident">f32</span> {
         <span class="ident"><span class="self">self</span>::sin::sin_approx</span>(<span class="self">self</span>)
     }
 
-    <span class="kw">fn</span> <span class="ident">sqrt</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span> {
+    <span class="kw">fn</span> <span class="ident">sqrt</span>(<span class="self">self</span>) -&gt; <span class="ident">f32</span> {
         <span class="ident"><span class="self">self</span>::sqrt::sqrt_approx</span>(<span class="self">self</span>)
     }
 
-    <span class="kw">fn</span> <span class="ident">tan</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span> {
+    <span class="kw">fn</span> <span class="ident">tan</span>(<span class="self">self</span>) -&gt; <span class="ident">f32</span> {
         <span class="ident"><span class="self">self</span>::tan::tan_approx</span>(<span class="self">self</span>)
     }
 
-    <span class="kw">fn</span> <span class="ident">trunc</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span> {
+    <span class="kw">fn</span> <span class="ident">trunc</span>(<span class="self">self</span>) -&gt; <span class="ident">f32</span> {
         <span class="ident"><span class="self">self</span>::trunc::trunc_sign</span>(<span class="self">self</span>)
     }
 
-    <span class="kw">fn</span> <span class="ident">round</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span> {
+    <span class="kw">fn</span> <span class="ident">round</span>(<span class="self">self</span>) -&gt; <span class="ident">f32</span> {
         <span class="ident"><span class="self">self</span>::round::round</span>(<span class="self">self</span>)
     }
 
-    <span class="kw">fn</span> <span class="ident">fract</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span> {
+    <span class="kw">fn</span> <span class="ident">fract</span>(<span class="self">self</span>) -&gt; <span class="ident">f32</span> {
         <span class="ident"><span class="self">self</span>::fract::fract_sign</span>(<span class="self">self</span>)
     }
 
-    <span class="kw">fn</span> <span class="ident">copysign</span>(<span class="self">self</span>, <span class="ident">sign</span>: <span class="ident">f32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span> {
+    <span class="kw">fn</span> <span class="ident">copysign</span>(<span class="self">self</span>, <span class="ident">sign</span>: <span class="ident">f32</span>) -&gt; <span class="ident">f32</span> {
         <span class="ident"><span class="self">self</span>::copysign::copysign</span>(<span class="self">self</span>, <span class="ident">sign</span>)
     }
 
-    <span class="kw">fn</span> <span class="ident">ln</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span> {
+    <span class="kw">fn</span> <span class="ident">ln</span>(<span class="self">self</span>) -&gt; <span class="ident">f32</span> {
         <span class="ident"><span class="self">self</span>::ln::ln_1to2_series_approximation</span>(<span class="self">self</span>)
     }
 
-    <span class="kw">fn</span> <span class="ident">exp</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span> {
+    <span class="kw">fn</span> <span class="ident">exp</span>(<span class="self">self</span>) -&gt; <span class="ident">f32</span> {
         <span class="ident"><span class="self">self</span>::exp::exp_ln2_approximation</span>(<span class="self">self</span>, <span class="number">4</span>)
     }
 
-    <span class="kw">fn</span> <span class="ident">log</span>(<span class="self">self</span>, <span class="ident">base</span>: <span class="ident">f32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span> {
+    <span class="kw">fn</span> <span class="ident">log</span>(<span class="self">self</span>, <span class="ident">base</span>: <span class="ident">f32</span>) -&gt; <span class="ident">f32</span> {
         <span class="ident"><span class="self">self</span>::log::log_ln_approx</span>(<span class="self">self</span>, <span class="ident">base</span>)
     }
 
-    <span class="kw">fn</span> <span class="ident">log2</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span> {
+    <span class="kw">fn</span> <span class="ident">log2</span>(<span class="self">self</span>) -&gt; <span class="ident">f32</span> {
         <span class="ident"><span class="self">self</span>::log2::log2_ln_approx</span>(<span class="self">self</span>)
     }
 
-    <span class="kw">fn</span> <span class="ident">log10</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span> {
+    <span class="kw">fn</span> <span class="ident">log10</span>(<span class="self">self</span>) -&gt; <span class="ident">f32</span> {
         <span class="ident"><span class="self">self</span>::log10::log10_ln_approx</span>(<span class="self">self</span>)
     }
 
-    <span class="kw">fn</span> <span class="ident">powf</span>(<span class="self">self</span>, <span class="ident">n</span>: <span class="ident">f32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span> {
+    <span class="kw">fn</span> <span class="ident">powf</span>(<span class="self">self</span>, <span class="ident">n</span>: <span class="ident">f32</span>) -&gt; <span class="ident">f32</span> {
         <span class="ident"><span class="self">self</span>::powf::powf_exp_ln_approx</span>(<span class="self">self</span>, <span class="ident">n</span>)
     }
 
-    <span class="kw">fn</span> <span class="ident">powi</span>(<span class="self">self</span>, <span class="ident">n</span>: <span class="ident">i32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span> {
+    <span class="kw">fn</span> <span class="ident">powi</span>(<span class="self">self</span>, <span class="ident">n</span>: <span class="ident">i32</span>) -&gt; <span class="ident">f32</span> {
         <span class="ident"><span class="self">self</span>::powi::powi_exp_by_squaring</span>(<span class="self">self</span>, <span class="ident">n</span>)
     }
 }

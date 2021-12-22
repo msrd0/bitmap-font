@@ -377,7 +377,7 @@
         <span class="ident">diameter</span>: <span class="ident">u32</span>,
         <span class="ident">angle_start</span>: <span class="ident">Angle</span>,
         <span class="ident">angle_sweep</span>: <span class="ident">Angle</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    ) -&gt; <span class="self">Self</span> {
         <span class="ident">Sector</span> {
             <span class="ident">top_left</span>,
             <span class="ident">diameter</span>,
@@ -392,7 +392,7 @@
         <span class="ident">diameter</span>: <span class="ident">u32</span>,
         <span class="ident">angle_start</span>: <span class="ident">Angle</span>,
         <span class="ident">angle_sweep</span>: <span class="ident">Angle</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    ) -&gt; <span class="self">Self</span> {
         <span class="kw">let</span> <span class="ident">top_left</span> <span class="op">=</span> <span class="ident">Rectangle::with_center</span>(<span class="ident">center</span>, <span class="ident">Size::new_equal</span>(<span class="ident">diameter</span>)).<span class="ident">top_left</span>;
 
         <span class="ident">Sector</span> {
@@ -406,7 +406,7 @@
     <span class="doccomment">/// Creates an arc based on a circle.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// The resulting sector will match the `top_left` and `diameter` of the base circle.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">from_circle</span>(<span class="ident">circle</span>: <span class="ident">Circle</span>, <span class="ident">angle_start</span>: <span class="ident">Angle</span>, <span class="ident">angle_sweep</span>: <span class="ident">Angle</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">from_circle</span>(<span class="ident">circle</span>: <span class="ident">Circle</span>, <span class="ident">angle_start</span>: <span class="ident">Angle</span>, <span class="ident">angle_sweep</span>: <span class="ident">Angle</span>) -&gt; <span class="self">Self</span> {
         <span class="ident">Sector</span> {
             <span class="ident">top_left</span>: <span class="ident">circle</span>.<span class="ident">top_left</span>,
             <span class="ident">diameter</span>: <span class="ident">circle</span>.<span class="ident">diameter</span>,
@@ -416,12 +416,12 @@
     }
 
     <span class="doccomment">/// Returns a circle with the same `top_left` and `diameter` as this sector.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">to_circle</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Circle</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">to_circle</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Circle</span> {
         <span class="ident">Circle::new</span>(<span class="self">self</span>.<span class="ident">top_left</span>, <span class="self">self</span>.<span class="ident">diameter</span>)
     }
 
     <span class="doccomment">/// Return the center point of the sector</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">center</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Point</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">center</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Point</span> {
         <span class="self">self</span>.<span class="ident">bounding_box</span>().<span class="ident">center</span>()
     }
 
@@ -429,7 +429,7 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// This method is used to accurately calculate the outside edge of the sector.</span>
     <span class="doccomment">/// The result is not equivalent to `self.center() * 2` because of rounding.</span>
-    <span class="kw">fn</span> <span class="ident">center_2x</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Point</span> {
+    <span class="kw">fn</span> <span class="ident">center_2x</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Point</span> {
         <span class="comment">// The radius scaled up by a factor of 2 is equal to the diameter</span>
         <span class="kw">let</span> <span class="ident">radius</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">diameter</span>.<span class="ident">saturating_sub</span>(<span class="number">1</span>);
 
@@ -438,7 +438,7 @@
 }
 
 <span class="kw">impl</span> <span class="ident">OffsetOutline</span> <span class="kw">for</span> <span class="ident">Sector</span> {
-    <span class="kw">fn</span> <span class="ident">offset</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">offset</span>: <span class="ident">i32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">fn</span> <span class="ident">offset</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">offset</span>: <span class="ident">i32</span>) -&gt; <span class="self">Self</span> {
         <span class="kw">let</span> <span class="ident">circle</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">to_circle</span>().<span class="ident">offset</span>(<span class="ident">offset</span>);
 
         <span class="ident"><span class="self">Self</span>::from_circle</span>(<span class="ident">circle</span>, <span class="self">self</span>.<span class="ident">angle_start</span>, <span class="self">self</span>.<span class="ident">angle_sweep</span>)
@@ -450,13 +450,13 @@
 <span class="kw">impl</span> <span class="ident">PointsIter</span> <span class="kw">for</span> <span class="ident">Sector</span> {
     <span class="kw">type</span> <span class="ident">Iter</span> <span class="op">=</span> <span class="ident">Points</span>;
 
-    <span class="kw">fn</span> <span class="ident">points</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident"><span class="self">Self</span>::Iter</span> {
+    <span class="kw">fn</span> <span class="ident">points</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident"><span class="self">Self</span>::Iter</span> {
         <span class="ident">Points::new</span>(<span class="self">self</span>)
     }
 }
 
 <span class="kw">impl</span> <span class="ident">ContainsPoint</span> <span class="kw">for</span> <span class="ident">Sector</span> {
-    <span class="kw">fn</span> <span class="ident">contains</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">point</span>: <span class="ident">Point</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
+    <span class="kw">fn</span> <span class="ident">contains</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">point</span>: <span class="ident">Point</span>) -&gt; <span class="ident">bool</span> {
         <span class="kw">if</span> <span class="self">self</span>.<span class="ident">to_circle</span>().<span class="ident">contains</span>(<span class="ident">point</span>) {
             <span class="kw">let</span> <span class="ident">delta</span> <span class="op">=</span> <span class="ident">point</span> <span class="op">*</span> <span class="number">2</span> <span class="op">-</span> <span class="self">self</span>.<span class="ident">center_2x</span>();
             <span class="ident">PlaneSector::new</span>(<span class="self">self</span>.<span class="ident">angle_start</span>, <span class="self">self</span>.<span class="ident">angle_sweep</span>).<span class="ident">contains</span>(<span class="ident">delta</span>)
@@ -467,7 +467,7 @@
 }
 
 <span class="kw">impl</span> <span class="ident">Dimensions</span> <span class="kw">for</span> <span class="ident">Sector</span> {
-    <span class="kw">fn</span> <span class="ident">bounding_box</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Rectangle</span> {
+    <span class="kw">fn</span> <span class="ident">bounding_box</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Rectangle</span> {
         <span class="ident">Rectangle::new</span>(<span class="self">self</span>.<span class="ident">top_left</span>, <span class="ident">Size::new_equal</span>(<span class="self">self</span>.<span class="ident">diameter</span>))
     }
 }
@@ -484,7 +484,7 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// assert_eq!(moved.top_left, Point::new(15, 20));</span>
     <span class="doccomment">/// ```</span>
-    <span class="kw">fn</span> <span class="ident">translate</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">by</span>: <span class="ident">Point</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">fn</span> <span class="ident">translate</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">by</span>: <span class="ident">Point</span>) -&gt; <span class="self">Self</span> {
         <span class="self">Self</span> {
             <span class="ident">top_left</span>: <span class="self">self</span>.<span class="ident">top_left</span> <span class="op">+</span> <span class="ident">by</span>,
             ..<span class="kw-2">*</span><span class="self">self</span>
@@ -501,7 +501,7 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// assert_eq!(sector.top_left, Point::new(15, 20));</span>
     <span class="doccomment">/// ```</span>
-    <span class="kw">fn</span> <span class="ident">translate_mut</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">by</span>: <span class="ident">Point</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
+    <span class="kw">fn</span> <span class="ident">translate_mut</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">by</span>: <span class="ident">Point</span>) -&gt; <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">top_left</span> <span class="op">+</span><span class="op">=</span> <span class="ident">by</span>;
 
         <span class="self">self</span>

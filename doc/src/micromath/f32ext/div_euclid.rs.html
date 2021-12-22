@@ -26,7 +26,7 @@
 </pre><pre class="rust"><code><span class="doccomment">/// Euclidean division for f32</span>
 <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::trunc</span>;
 
-<span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">div_euclid</span>(<span class="ident">x</span>: <span class="ident">f32</span>, <span class="ident">y</span>: <span class="ident">f32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span> {
+<span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">div_euclid</span>(<span class="ident">x</span>: <span class="ident">f32</span>, <span class="ident">y</span>: <span class="ident">f32</span>) -&gt; <span class="ident">f32</span> {
     <span class="kw">let</span> <span class="ident">q</span> <span class="op">=</span> <span class="ident">trunc::trunc_sign</span>(<span class="ident">x</span> <span class="op">/</span> <span class="ident">y</span>);
     <span class="kw">if</span> <span class="ident">x</span> <span class="op">%</span> <span class="ident">y</span> <span class="op">&lt;</span> <span class="number">0.0</span> {
         <span class="kw">return</span> <span class="kw">if</span> <span class="ident">y</span> <span class="op">&gt;</span> <span class="number">0.0</span> { <span class="ident">q</span> <span class="op">-</span> <span class="number">1.0</span> } <span class="kw">else</span> { <span class="ident">q</span> <span class="op">+</span> <span class="number">1.0</span> };

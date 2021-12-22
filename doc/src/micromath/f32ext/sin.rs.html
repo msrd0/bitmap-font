@@ -85,7 +85,7 @@
 <span class="kw">use</span> <span class="ident">core::f32::consts::PI</span>;
 
 <span class="doccomment">/// Approximates `sin(x)` in radians with a maximum error of `0.002`</span>
-<span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">sin_approx</span>(<span class="ident">x</span>: <span class="ident">f32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span> {
+<span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">sin_approx</span>(<span class="ident">x</span>: <span class="ident">f32</span>) -&gt; <span class="ident">f32</span> {
     <span class="ident">cos_approx</span>(<span class="ident">x</span> <span class="op">-</span> <span class="ident">PI</span> <span class="op">/</span> <span class="number">2.0</span>)
 }
 

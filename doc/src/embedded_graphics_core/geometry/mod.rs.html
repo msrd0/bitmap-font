@@ -179,7 +179,7 @@
 <span class="doccomment">/// [`Styled`]: https://docs.rs/embedded-graphics/latest/embedded_graphics/style/styled/struct.Styled.html</span>
 <span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">Dimensions</span> {
     <span class="doccomment">/// Returns the bounding box.</span>
-    <span class="kw">fn</span> <span class="ident">bounding_box</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Rectangle</span>;
+    <span class="kw">fn</span> <span class="ident">bounding_box</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Rectangle</span>;
 }
 
 <span class="doccomment">/// Dimensions with `top_left` of the bounding box at `(0, 0)`.</span>
@@ -196,14 +196,14 @@
 <span class="doccomment">/// [`ImageDrawable`]: ../image/trait.ImageDrawable.html</span>
 <span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">OriginDimensions</span> {
     <span class="doccomment">/// Returns the size of the bounding box.</span>
-    <span class="kw">fn</span> <span class="ident">size</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Size</span>;
+    <span class="kw">fn</span> <span class="ident">size</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Size</span>;
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="ident">Dimensions</span> <span class="kw">for</span> <span class="ident">T</span>
 <span class="kw">where</span>
     <span class="ident">T</span>: <span class="ident">OriginDimensions</span>,
 {
-    <span class="kw">fn</span> <span class="ident">bounding_box</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Rectangle</span> {
+    <span class="kw">fn</span> <span class="ident">bounding_box</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Rectangle</span> {
         <span class="ident">Rectangle::new</span>(<span class="ident">Point::zero</span>(), <span class="self">self</span>.<span class="ident">size</span>())
     }
 }

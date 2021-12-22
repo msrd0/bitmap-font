@@ -650,7 +650,7 @@
 <span class="kw">pub</span>(<span class="kw">in</span> <span class="ident"><span class="kw">crate</span>::primitives::polyline</span>) <span class="kw">fn</span> <span class="ident">untranslated_bounding_box</span><span class="op">&lt;</span><span class="ident">C</span>: <span class="ident">PixelColor</span><span class="op">&gt;</span>(
     <span class="ident">primitive</span>: <span class="kw-2">&amp;</span><span class="ident">Polyline</span>,
     <span class="ident">style</span>: <span class="kw-2">&amp;</span><span class="ident">PrimitiveStyle</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>,
-) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Rectangle</span> {
+) -&gt; <span class="ident">Rectangle</span> {
     <span class="kw">if</span> <span class="ident">style</span>.<span class="ident">effective_stroke_color</span>().<span class="ident">is_some</span>() <span class="op">&amp;&amp;</span> <span class="ident">primitive</span>.<span class="ident">vertices</span>.<span class="ident">len</span>() <span class="op">&gt;</span> <span class="number">1</span> {
         <span class="kw">let</span> (<span class="ident">min</span>, <span class="ident">max</span>) <span class="op">=</span>
             <span class="ident">ThickSegmentIter::new</span>(<span class="ident">primitive</span>.<span class="ident">vertices</span>, <span class="ident">style</span>.<span class="ident">stroke_width</span>, <span class="ident">StrokeOffset::None</span>).<span class="ident">fold</span>(
@@ -679,7 +679,7 @@
     <span class="ident">style</span>: <span class="kw-2">&amp;</span><span class="ident">PrimitiveStyle</span><span class="op">&lt;</span><span class="ident">D::Color</span><span class="op">&gt;</span>,
     <span class="ident">stroke_color</span>: <span class="ident">D::Color</span>,
     <span class="ident">target</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">D</span>,
-) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">D::Error</span><span class="op">&gt;</span>
+) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">D::Error</span><span class="op">&gt;</span>
 <span class="kw">where</span>
     <span class="ident">D</span>: <span class="ident">DrawTarget</span>,
 {
@@ -712,7 +712,7 @@
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">C</span>: <span class="ident">PixelColor</span><span class="op">&gt;</span> <span class="ident">StyledPixelsIterator</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">C</span><span class="op">&gt;</span> {
-    <span class="kw">pub</span>(<span class="kw">in</span> <span class="ident"><span class="kw">crate</span>::primitives</span>) <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">primitive</span>: <span class="kw-2">&amp;</span><span class="ident">Polyline</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span>, <span class="ident">style</span>: <span class="kw-2">&amp;</span><span class="ident">PrimitiveStyle</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">pub</span>(<span class="kw">in</span> <span class="ident"><span class="kw">crate</span>::primitives</span>) <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">primitive</span>: <span class="kw-2">&amp;</span><span class="ident">Polyline</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span>, <span class="ident">style</span>: <span class="kw-2">&amp;</span><span class="ident">PrimitiveStyle</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>) -&gt; <span class="self">Self</span> {
         <span class="kw">let</span> <span class="ident">line_iter</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">style</span>.<span class="ident">stroke_width</span> <span class="op">&lt;</span><span class="op">=</span> <span class="number">1</span> {
             <span class="ident">StyledIter::Thin</span>(<span class="ident">primitive</span>.<span class="ident">points</span>())
         } <span class="kw">else</span> {
@@ -738,17 +738,17 @@
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">C</span>: <span class="ident">PixelColor</span><span class="op">&gt;</span> <span class="ident">Iterator</span> <span class="kw">for</span> <span class="ident">StyledPixelsIterator</span><span class="op">&lt;</span><span class="lifetime">&#39;_</span>, <span class="ident">C</span><span class="op">&gt;</span> {
     <span class="kw">type</span> <span class="ident">Item</span> <span class="op">=</span> <span class="ident">Pixel</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>;
 
-    <span class="kw">fn</span> <span class="ident">next</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Item</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">next</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Item</span><span class="op">&gt;</span> {
         <span class="comment">// Return none if stroke color is none</span>
         <span class="kw">let</span> <span class="ident">stroke_color</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">stroke_color</span><span class="question-mark">?</span>;
 
         <span class="kw">match</span> <span class="self">self</span>.<span class="ident">line_iter</span> {
-            <span class="ident">StyledIter::Thin</span>(<span class="kw-2">ref</span> <span class="kw-2">mut</span> <span class="ident">it</span>) <span class="op">=</span><span class="op">&gt;</span> <span class="ident">it</span>.<span class="ident">next</span>(),
+            <span class="ident">StyledIter::Thin</span>(<span class="kw-2">ref</span> <span class="kw-2">mut</span> <span class="ident">it</span>) =&gt; <span class="ident">it</span>.<span class="ident">next</span>(),
             <span class="ident">StyledIter::Thick</span> {
                 <span class="kw-2">ref</span> <span class="kw-2">mut</span> <span class="ident">scanline_iter</span>,
                 <span class="kw-2">ref</span> <span class="kw-2">mut</span> <span class="ident">line_iter</span>,
                 <span class="ident">translate</span>,
-            } <span class="op">=</span><span class="op">&gt;</span> {
+            } =&gt; {
                 <span class="comment">// We&#39;ve got a line to iterate over, so get it&#39;s next pixel.</span>
                 <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">p</span>) <span class="op">=</span> <span class="ident">line_iter</span>.<span class="ident">next</span>() {
                     <span class="prelude-val">Some</span>(<span class="ident">p</span>)
@@ -769,7 +769,7 @@
 <span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">C</span>: <span class="ident">PixelColor</span><span class="op">&gt;</span> <span class="ident">StyledPixels</span><span class="op">&lt;</span><span class="ident">PrimitiveStyle</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Polyline</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
     <span class="kw">type</span> <span class="ident">Iter</span> <span class="op">=</span> <span class="ident">StyledPixelsIterator</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">C</span><span class="op">&gt;</span>;
 
-    <span class="kw">fn</span> <span class="ident">pixels</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">style</span>: <span class="kw-2">&amp;</span><span class="ident">PrimitiveStyle</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident"><span class="self">Self</span>::Iter</span> {
+    <span class="kw">fn</span> <span class="ident">pixels</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">style</span>: <span class="kw-2">&amp;</span><span class="ident">PrimitiveStyle</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>) -&gt; <span class="ident"><span class="self">Self</span>::Iter</span> {
         <span class="ident">StyledPixelsIterator::new</span>(<span class="self">self</span>, <span class="ident">style</span>)
     }
 }
@@ -782,15 +782,15 @@
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         <span class="ident">style</span>: <span class="kw-2">&amp;</span><span class="ident">PrimitiveStyle</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>,
         <span class="ident">target</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">D</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Output</span>, <span class="ident">D::Error</span><span class="op">&gt;</span>
+    ) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Output</span>, <span class="ident">D::Error</span><span class="op">&gt;</span>
     <span class="kw">where</span>
         <span class="ident">D</span>: <span class="ident">DrawTarget</span><span class="op">&lt;</span><span class="ident">Color</span> <span class="op">=</span> <span class="ident">C</span><span class="op">&gt;</span>,
     {
         <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">stroke_color</span>) <span class="op">=</span> <span class="ident">style</span>.<span class="ident">stroke_color</span> {
             <span class="kw">match</span> <span class="ident">style</span>.<span class="ident">stroke_width</span> {
-                <span class="number">0</span> <span class="op">=</span><span class="op">&gt;</span> <span class="prelude-val">Ok</span>(()),
-                <span class="number">1</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">target</span>.<span class="ident">draw_iter</span>(<span class="self">self</span>.<span class="ident">points</span>().<span class="ident">map</span>(<span class="op">|</span><span class="ident">point</span><span class="op">|</span> <span class="ident">Pixel</span>(<span class="ident">point</span>, <span class="ident">stroke_color</span>))),
-                <span class="kw">_</span> <span class="op">=</span><span class="op">&gt;</span> {
+                <span class="number">0</span> =&gt; <span class="prelude-val">Ok</span>(()),
+                <span class="number">1</span> =&gt; <span class="ident">target</span>.<span class="ident">draw_iter</span>(<span class="self">self</span>.<span class="ident">points</span>().<span class="ident">map</span>(<span class="op">|</span><span class="ident">point</span><span class="op">|</span> <span class="ident">Pixel</span>(<span class="ident">point</span>, <span class="ident">stroke_color</span>))),
+                <span class="kw">_</span> =&gt; {
                     <span class="kw">if</span> <span class="self">self</span>.<span class="ident">translate</span> <span class="op">!</span><span class="op">=</span> <span class="ident">Point::zero</span>() {
                         <span class="ident">draw_thick</span>(
                             <span class="self">self</span>,
@@ -810,7 +810,7 @@
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">C</span>: <span class="ident">PixelColor</span><span class="op">&gt;</span> <span class="ident">StyledDimensions</span><span class="op">&lt;</span><span class="ident">PrimitiveStyle</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Polyline</span><span class="op">&lt;</span><span class="lifetime">&#39;_</span><span class="op">&gt;</span> {
-    <span class="kw">fn</span> <span class="ident">styled_bounding_box</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">style</span>: <span class="kw-2">&amp;</span><span class="ident">PrimitiveStyle</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Rectangle</span> {
+    <span class="kw">fn</span> <span class="ident">styled_bounding_box</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">style</span>: <span class="kw-2">&amp;</span><span class="ident">PrimitiveStyle</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>) -&gt; <span class="ident">Rectangle</span> {
         <span class="ident">untranslated_bounding_box</span>(<span class="self">self</span>, <span class="ident">style</span>).<span class="ident">translate</span>(<span class="self">self</span>.<span class="ident">translate</span>)
     }
 }

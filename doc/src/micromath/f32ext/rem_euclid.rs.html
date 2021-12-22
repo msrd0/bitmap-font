@@ -27,7 +27,7 @@
 </pre><pre class="rust"><code><span class="doccomment">/// Euclidean reminder for f32</span>
 <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::abs</span>;
 
-<span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">rem_euclid</span>(<span class="ident">x</span>: <span class="ident">f32</span>, <span class="ident">y</span>: <span class="ident">f32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span> {
+<span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">rem_euclid</span>(<span class="ident">x</span>: <span class="ident">f32</span>, <span class="ident">y</span>: <span class="ident">f32</span>) -&gt; <span class="ident">f32</span> {
     <span class="kw">let</span> <span class="ident">r</span> <span class="op">=</span> <span class="ident">x</span> <span class="op">%</span> <span class="ident">y</span>;
     <span class="kw">if</span> <span class="ident">r</span> <span class="op">&lt;</span> <span class="number">0.0</span> {
         <span class="ident">r</span> <span class="op">+</span> <span class="ident">abs::abs</span>(<span class="ident">y</span>)

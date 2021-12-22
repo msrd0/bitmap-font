@@ -31,7 +31,7 @@
 <span class="kw">use</span> <span class="ident">core::f32</span>;
 <span class="kw">use</span> <span class="ident">core::u32</span>;
 
-<span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">copysign</span>(<span class="ident">destination</span>: <span class="ident">f32</span>, <span class="ident">source</span>: <span class="ident">f32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span> {
+<span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">copysign</span>(<span class="ident">destination</span>: <span class="ident">f32</span>, <span class="ident">source</span>: <span class="ident">f32</span>) -&gt; <span class="ident">f32</span> {
     <span class="kw">let</span> <span class="ident">source_bits</span>: <span class="ident">u32</span> <span class="op">=</span> <span class="ident">source</span>.<span class="ident">to_bits</span>();
     <span class="kw">let</span> <span class="ident">source_sign</span>: <span class="ident">u32</span> <span class="op">=</span> <span class="ident">source_bits</span> <span class="op">&amp;</span> <span class="ident">utils::SIGN_MASK</span>;
     <span class="kw">let</span> <span class="ident">signless_destination_bits</span>: <span class="ident">u32</span> <span class="op">=</span> <span class="ident">destination</span>.<span class="ident">to_bits</span>() <span class="op">&amp;</span> <span class="op">!</span><span class="ident">utils::SIGN_MASK</span>;

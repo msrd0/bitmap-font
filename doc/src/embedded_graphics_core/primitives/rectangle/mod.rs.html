@@ -787,7 +787,7 @@
 }
 
 <span class="kw">impl</span> <span class="ident">Dimensions</span> <span class="kw">for</span> <span class="ident">Rectangle</span> {
-    <span class="kw">fn</span> <span class="ident">bounding_box</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Rectangle</span> {
+    <span class="kw">fn</span> <span class="ident">bounding_box</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Rectangle</span> {
         <span class="kw-2">*</span><span class="self">self</span>
     }
 }
@@ -795,7 +795,7 @@
 <span class="kw">impl</span> <span class="ident">PointsIter</span> <span class="kw">for</span> <span class="ident">Rectangle</span> {
     <span class="kw">type</span> <span class="ident">Iter</span> <span class="op">=</span> <span class="ident">Points</span>;
 
-    <span class="kw">fn</span> <span class="ident">points</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident"><span class="self">Self</span>::Iter</span> {
+    <span class="kw">fn</span> <span class="ident">points</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident"><span class="self">Self</span>::Iter</span> {
         <span class="ident"><span class="self">self</span>::Points::new</span>(<span class="self">self</span>)
     }
 }
@@ -804,18 +804,18 @@
 <span class="doccomment">///</span>
 <span class="doccomment">/// The center offset is defined as the offset between the top left corner and</span>
 <span class="doccomment">/// the center point of a rectangle with the given size.</span>
-<span class="kw">fn</span> <span class="ident">center_offset</span>(<span class="ident">size</span>: <span class="ident">Size</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Size</span> {
+<span class="kw">fn</span> <span class="ident">center_offset</span>(<span class="ident">size</span>: <span class="ident">Size</span>) -&gt; <span class="ident">Size</span> {
     <span class="ident">size</span>.<span class="ident">saturating_sub</span>(<span class="ident">Size::new_equal</span>(<span class="number">1</span>)) <span class="op">/</span> <span class="number">2</span>
 }
 
 <span class="kw">impl</span> <span class="ident">Rectangle</span> {
     <span class="doccomment">/// Creates a new rectangle from the top left point and the size.</span>
-    <span class="kw">pub</span> <span class="kw">const</span> <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">top_left</span>: <span class="ident">Point</span>, <span class="ident">size</span>: <span class="ident">Size</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">const</span> <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">top_left</span>: <span class="ident">Point</span>, <span class="ident">size</span>: <span class="ident">Size</span>) -&gt; <span class="self">Self</span> {
         <span class="ident">Rectangle</span> { <span class="ident">top_left</span>, <span class="ident">size</span> }
     }
 
     <span class="doccomment">/// Creates a new rectangle from two corners.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">with_corners</span>(<span class="ident">corner_1</span>: <span class="ident">Point</span>, <span class="ident">corner_2</span>: <span class="ident">Point</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">with_corners</span>(<span class="ident">corner_1</span>: <span class="ident">Point</span>, <span class="ident">corner_2</span>: <span class="ident">Point</span>) -&gt; <span class="self">Self</span> {
         <span class="kw">let</span> <span class="ident">left</span> <span class="op">=</span> <span class="ident">min</span>(<span class="ident">corner_1</span>.<span class="ident">x</span>, <span class="ident">corner_2</span>.<span class="ident">x</span>);
         <span class="kw">let</span> <span class="ident">top</span> <span class="op">=</span> <span class="ident">min</span>(<span class="ident">corner_1</span>.<span class="ident">y</span>, <span class="ident">corner_2</span>.<span class="ident">y</span>);
 
@@ -830,7 +830,7 @@
     <span class="doccomment">/// For rectangles with even width and/or height the top left corner doesn&#39;t</span>
     <span class="doccomment">/// align with the pixel grid. Because of this the coordinates of the top left</span>
     <span class="doccomment">/// corner will be rounded up to the nearest integer coordinate.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">with_center</span>(<span class="ident">center</span>: <span class="ident">Point</span>, <span class="ident">size</span>: <span class="ident">Size</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">with_center</span>(<span class="ident">center</span>: <span class="ident">Point</span>, <span class="ident">size</span>: <span class="ident">Size</span>) -&gt; <span class="self">Self</span> {
         <span class="ident">Rectangle</span> {
             <span class="ident">top_left</span>: <span class="ident">center</span> <span class="op">-</span> <span class="ident">center_offset</span>(<span class="ident">size</span>),
             <span class="ident">size</span>,
@@ -838,7 +838,7 @@
     }
 
     <span class="doccomment">/// Returns a zero sized rectangle.</span>
-    <span class="kw">pub</span> <span class="kw">const</span> <span class="kw">fn</span> <span class="ident">zero</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Rectangle</span> {
+    <span class="kw">pub</span> <span class="kw">const</span> <span class="kw">fn</span> <span class="ident">zero</span>() -&gt; <span class="ident">Rectangle</span> {
         <span class="ident">Rectangle::new</span>(<span class="ident">Point::zero</span>(), <span class="ident">Size::zero</span>())
     }
 
@@ -846,7 +846,7 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// For rectangles with even width and/or height the returned value is rounded down</span>
     <span class="doccomment">/// to the nearest integer coordinate.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">center</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Point</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">center</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Point</span> {
         <span class="self">self</span>.<span class="ident">top_left</span> <span class="op">+</span> <span class="ident">center_offset</span>(<span class="self">self</span>.<span class="ident">size</span>)
     }
 
@@ -855,7 +855,7 @@
     <span class="doccomment">/// Because the smallest rectangle that can be represented by its corners</span>
     <span class="doccomment">/// has a size of 1 x 1 pixels, this function returns `None` if the width or</span>
     <span class="doccomment">/// height of the rectangle is zero.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">bottom_right</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Point</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">bottom_right</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Point</span><span class="op">&gt;</span> {
         <span class="kw">if</span> <span class="self">self</span>.<span class="ident">size</span>.<span class="ident">width</span> <span class="op">&gt;</span> <span class="number">0</span> <span class="op">&amp;&amp;</span> <span class="self">self</span>.<span class="ident">size</span>.<span class="ident">height</span> <span class="op">&gt;</span> <span class="number">0</span> {
             <span class="prelude-val">Some</span>(<span class="self">self</span>.<span class="ident">top_left</span> <span class="op">+</span> <span class="self">self</span>.<span class="ident">size</span> <span class="op">-</span> <span class="ident">Point::new</span>(<span class="number">1</span>, <span class="number">1</span>))
         } <span class="kw">else</span> {
@@ -864,7 +864,7 @@
     }
 
     <span class="doccomment">/// Return whether the rectangle contains a given point.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">contains</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">point</span>: <span class="ident">Point</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">contains</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">point</span>: <span class="ident">Point</span>) -&gt; <span class="ident">bool</span> {
         <span class="kw">if</span> <span class="ident">point</span>.<span class="ident">x</span> <span class="op">&gt;</span><span class="op">=</span> <span class="self">self</span>.<span class="ident">top_left</span>.<span class="ident">x</span> <span class="op">&amp;&amp;</span> <span class="ident">point</span>.<span class="ident">y</span> <span class="op">&gt;</span><span class="op">=</span> <span class="self">self</span>.<span class="ident">top_left</span>.<span class="ident">y</span> {
             <span class="self">self</span>.<span class="ident">bottom_right</span>().<span class="ident">map_or</span>(<span class="bool-val">false</span>, <span class="op">|</span><span class="ident">bottom_right</span><span class="op">|</span> {
                 <span class="ident">point</span>.<span class="ident">x</span> <span class="op">&lt;</span><span class="op">=</span> <span class="ident">bottom_right</span>.<span class="ident">x</span> <span class="op">&amp;&amp;</span> <span class="ident">point</span>.<span class="ident">y</span> <span class="op">&lt;</span><span class="op">=</span> <span class="ident">bottom_right</span>.<span class="ident">y</span>
@@ -942,9 +942,9 @@
     <span class="doccomment">/// assert!(intersection.is_zero_sized());</span>
     <span class="doccomment">/// # Ok::&lt;(), core::convert::Infallible&gt;(())</span>
     <span class="doccomment">/// ```</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">intersection</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">other</span>: <span class="kw-2">&amp;</span><span class="ident">Rectangle</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Rectangle</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">intersection</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">other</span>: <span class="kw-2">&amp;</span><span class="ident">Rectangle</span>) -&gt; <span class="ident">Rectangle</span> {
         <span class="kw">match</span> (<span class="ident">other</span>.<span class="ident">bottom_right</span>(), <span class="self">self</span>.<span class="ident">bottom_right</span>()) {
-            (<span class="prelude-val">Some</span>(<span class="ident">other_bottom_right</span>), <span class="prelude-val">Some</span>(<span class="ident">self_bottom_right</span>)) <span class="op">=</span><span class="op">&gt;</span> {
+            (<span class="prelude-val">Some</span>(<span class="ident">other_bottom_right</span>), <span class="prelude-val">Some</span>(<span class="ident">self_bottom_right</span>)) =&gt; {
                 <span class="kw">if</span> <span class="ident">overlaps</span>(
                     <span class="self">self</span>.<span class="ident">top_left</span>.<span class="ident">x</span>..<span class="op">=</span><span class="ident">self_bottom_right</span>.<span class="ident">x</span>,
                     <span class="ident">other</span>.<span class="ident">top_left</span>.<span class="ident">x</span>..<span class="op">=</span><span class="ident">other_bottom_right</span>.<span class="ident">x</span>,
@@ -958,19 +958,19 @@
                     );
                 }
             }
-            (<span class="prelude-val">Some</span>(<span class="ident">_other_bottom_right</span>), <span class="prelude-val">None</span>) <span class="op">=</span><span class="op">&gt;</span> {
+            (<span class="prelude-val">Some</span>(<span class="ident">_other_bottom_right</span>), <span class="prelude-val">None</span>) =&gt; {
                 <span class="comment">// Check if zero sized self is inside other</span>
                 <span class="kw">if</span> <span class="ident">other</span>.<span class="ident">contains</span>(<span class="self">self</span>.<span class="ident">top_left</span>) {
                     <span class="kw">return</span> <span class="kw-2">*</span><span class="self">self</span>;
                 }
             }
-            (<span class="prelude-val">None</span>, <span class="prelude-val">Some</span>(<span class="ident">_self_bottom_right</span>)) <span class="op">=</span><span class="op">&gt;</span> {
+            (<span class="prelude-val">None</span>, <span class="prelude-val">Some</span>(<span class="ident">_self_bottom_right</span>)) =&gt; {
                 <span class="comment">// Check if zero sized other is inside self</span>
                 <span class="kw">if</span> <span class="self">self</span>.<span class="ident">contains</span>(<span class="ident">other</span>.<span class="ident">top_left</span>) {
                     <span class="kw">return</span> <span class="kw-2">*</span><span class="ident">other</span>;
                 }
             }
-            (<span class="prelude-val">None</span>, <span class="prelude-val">None</span>) <span class="op">=</span><span class="op">&gt;</span> (),
+            (<span class="prelude-val">None</span>, <span class="prelude-val">None</span>) =&gt; (),
         };
 
         <span class="comment">// No overlap present</span>
@@ -998,22 +998,22 @@
     <span class="doccomment">///     Rectangle::new(Point::new(15, 25), Size::new(20, 10))</span>
     <span class="doccomment">/// );</span>
     <span class="doccomment">/// ```</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">resized</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">size</span>: <span class="ident">Size</span>, <span class="ident">anchor_point</span>: <span class="ident">AnchorPoint</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">resized</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">size</span>: <span class="ident">Size</span>, <span class="ident">anchor_point</span>: <span class="ident">AnchorPoint</span>) -&gt; <span class="self">Self</span> {
         <span class="comment">// Assume size = 1 for zero sized dimensions.</span>
         <span class="kw">let</span> <span class="ident">one</span> <span class="op">=</span> <span class="ident">Size::new_equal</span>(<span class="number">1</span>);
         <span class="kw">let</span> <span class="ident">delta</span> <span class="op">=</span> <span class="ident">Point::zero</span>() <span class="op">+</span> <span class="self">self</span>.<span class="ident">size</span>.<span class="ident">component_max</span>(<span class="ident">one</span>) <span class="op">-</span> <span class="ident">size</span>.<span class="ident">component_max</span>(<span class="ident">one</span>);
 
         <span class="kw">let</span> <span class="ident">top_left</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">top_left</span>
             <span class="op">+</span> <span class="kw">match</span> <span class="ident">anchor_point</span> {
-                <span class="ident">AnchorPoint::TopLeft</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">Point::zero</span>(),
-                <span class="ident">AnchorPoint::TopCenter</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">delta</span>.<span class="ident">x_axis</span>() <span class="op">/</span> <span class="number">2</span>,
-                <span class="ident">AnchorPoint::TopRight</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">delta</span>.<span class="ident">x_axis</span>(),
-                <span class="ident">AnchorPoint::CenterLeft</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">delta</span>.<span class="ident">y_axis</span>() <span class="op">/</span> <span class="number">2</span>,
-                <span class="ident">AnchorPoint::Center</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">delta</span> <span class="op">/</span> <span class="number">2</span>,
-                <span class="ident">AnchorPoint::CenterRight</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">Point::new</span>(<span class="ident">delta</span>.<span class="ident">x</span>, <span class="ident">delta</span>.<span class="ident">y</span> <span class="op">/</span> <span class="number">2</span>),
-                <span class="ident">AnchorPoint::BottomLeft</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">delta</span>.<span class="ident">y_axis</span>(),
-                <span class="ident">AnchorPoint::BottomCenter</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">Point::new</span>(<span class="ident">delta</span>.<span class="ident">x</span> <span class="op">/</span> <span class="number">2</span>, <span class="ident">delta</span>.<span class="ident">y</span>),
-                <span class="ident">AnchorPoint::BottomRight</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">delta</span>,
+                <span class="ident">AnchorPoint::TopLeft</span> =&gt; <span class="ident">Point::zero</span>(),
+                <span class="ident">AnchorPoint::TopCenter</span> =&gt; <span class="ident">delta</span>.<span class="ident">x_axis</span>() <span class="op">/</span> <span class="number">2</span>,
+                <span class="ident">AnchorPoint::TopRight</span> =&gt; <span class="ident">delta</span>.<span class="ident">x_axis</span>(),
+                <span class="ident">AnchorPoint::CenterLeft</span> =&gt; <span class="ident">delta</span>.<span class="ident">y_axis</span>() <span class="op">/</span> <span class="number">2</span>,
+                <span class="ident">AnchorPoint::Center</span> =&gt; <span class="ident">delta</span> <span class="op">/</span> <span class="number">2</span>,
+                <span class="ident">AnchorPoint::CenterRight</span> =&gt; <span class="ident">Point::new</span>(<span class="ident">delta</span>.<span class="ident">x</span>, <span class="ident">delta</span>.<span class="ident">y</span> <span class="op">/</span> <span class="number">2</span>),
+                <span class="ident">AnchorPoint::BottomLeft</span> =&gt; <span class="ident">delta</span>.<span class="ident">y_axis</span>(),
+                <span class="ident">AnchorPoint::BottomCenter</span> =&gt; <span class="ident">Point::new</span>(<span class="ident">delta</span>.<span class="ident">x</span> <span class="op">/</span> <span class="number">2</span>, <span class="ident">delta</span>.<span class="ident">y</span>),
+                <span class="ident">AnchorPoint::BottomRight</span> =&gt; <span class="ident">delta</span>,
             };
 
         <span class="ident"><span class="self">Self</span>::new</span>(<span class="ident">top_left</span>, <span class="ident">size</span>)
@@ -1022,7 +1022,7 @@
     <span class="doccomment">/// Offset the rectangle by a given value.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// Negative values will shrink the rectangle.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">offset</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">offset</span>: <span class="ident">i32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">offset</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">offset</span>: <span class="ident">i32</span>) -&gt; <span class="self">Self</span> {
         <span class="kw">let</span> <span class="ident">size</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">offset</span> <span class="op">&gt;</span><span class="op">=</span> <span class="number">0</span> {
             <span class="self">self</span>.<span class="ident">size</span>.<span class="ident">saturating_add</span>(<span class="ident">Size::new_equal</span>(<span class="ident">offset</span> <span class="kw">as</span> <span class="ident">u32</span> <span class="op">*</span> <span class="number">2</span>))
         } <span class="kw">else</span> {
@@ -1051,22 +1051,22 @@
     <span class="doccomment">///     Point::new(25, 40)</span>
     <span class="doccomment">/// );</span>
     <span class="doccomment">/// ```</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">anchor_point</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">anchor_point</span>: <span class="ident">AnchorPoint</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Point</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">anchor_point</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">anchor_point</span>: <span class="ident">AnchorPoint</span>) -&gt; <span class="ident">Point</span> {
         <span class="comment">// Assume size = 1 for zero sized dimensions.</span>
         <span class="kw">let</span> <span class="ident">one</span> <span class="op">=</span> <span class="ident">Size::new_equal</span>(<span class="number">1</span>);
         <span class="kw">let</span> <span class="ident">delta</span> <span class="op">=</span> <span class="ident">Point::zero</span>() <span class="op">+</span> <span class="self">self</span>.<span class="ident">size</span>.<span class="ident">component_max</span>(<span class="ident">one</span>) <span class="op">-</span> <span class="ident">one</span>;
 
         <span class="self">self</span>.<span class="ident">top_left</span>
             <span class="op">+</span> <span class="kw">match</span> <span class="ident">anchor_point</span> {
-                <span class="ident">AnchorPoint::TopLeft</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">Point::zero</span>(),
-                <span class="ident">AnchorPoint::TopCenter</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">delta</span>.<span class="ident">x_axis</span>() <span class="op">/</span> <span class="number">2</span>,
-                <span class="ident">AnchorPoint::TopRight</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">delta</span>.<span class="ident">x_axis</span>(),
-                <span class="ident">AnchorPoint::CenterLeft</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">delta</span>.<span class="ident">y_axis</span>() <span class="op">/</span> <span class="number">2</span>,
-                <span class="ident">AnchorPoint::Center</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">delta</span> <span class="op">/</span> <span class="number">2</span>,
-                <span class="ident">AnchorPoint::CenterRight</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">Point::new</span>(<span class="ident">delta</span>.<span class="ident">x</span>, <span class="ident">delta</span>.<span class="ident">y</span> <span class="op">/</span> <span class="number">2</span>),
-                <span class="ident">AnchorPoint::BottomLeft</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">delta</span>.<span class="ident">y_axis</span>(),
-                <span class="ident">AnchorPoint::BottomCenter</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">Point::new</span>(<span class="ident">delta</span>.<span class="ident">x</span> <span class="op">/</span> <span class="number">2</span>, <span class="ident">delta</span>.<span class="ident">y</span>),
-                <span class="ident">AnchorPoint::BottomRight</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">delta</span>,
+                <span class="ident">AnchorPoint::TopLeft</span> =&gt; <span class="ident">Point::zero</span>(),
+                <span class="ident">AnchorPoint::TopCenter</span> =&gt; <span class="ident">delta</span>.<span class="ident">x_axis</span>() <span class="op">/</span> <span class="number">2</span>,
+                <span class="ident">AnchorPoint::TopRight</span> =&gt; <span class="ident">delta</span>.<span class="ident">x_axis</span>(),
+                <span class="ident">AnchorPoint::CenterLeft</span> =&gt; <span class="ident">delta</span>.<span class="ident">y_axis</span>() <span class="op">/</span> <span class="number">2</span>,
+                <span class="ident">AnchorPoint::Center</span> =&gt; <span class="ident">delta</span> <span class="op">/</span> <span class="number">2</span>,
+                <span class="ident">AnchorPoint::CenterRight</span> =&gt; <span class="ident">Point::new</span>(<span class="ident">delta</span>.<span class="ident">x</span>, <span class="ident">delta</span>.<span class="ident">y</span> <span class="op">/</span> <span class="number">2</span>),
+                <span class="ident">AnchorPoint::BottomLeft</span> =&gt; <span class="ident">delta</span>.<span class="ident">y_axis</span>(),
+                <span class="ident">AnchorPoint::BottomCenter</span> =&gt; <span class="ident">Point::new</span>(<span class="ident">delta</span>.<span class="ident">x</span> <span class="op">/</span> <span class="number">2</span>, <span class="ident">delta</span>.<span class="ident">y</span>),
+                <span class="ident">AnchorPoint::BottomRight</span> =&gt; <span class="ident">delta</span>,
             }
     }
 
@@ -1100,7 +1100,7 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// [`columns`]: #method.columns</span>
     <span class="doccomment">/// [`points`]: ../trait.PointsIter.html#tymethod.points</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">rows</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Range</span><span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">rows</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Range</span><span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span> {
         <span class="self">self</span>.<span class="ident">top_left</span>.<span class="ident">y</span>
             ..<span class="self">self</span>
                 .<span class="ident">top_left</span>
@@ -1139,7 +1139,7 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// [`rows`]: #method.rows</span>
     <span class="doccomment">/// [`points`]: ../trait.PointsIter.html#tymethod.points</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">columns</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Range</span><span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">columns</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Range</span><span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span> {
         <span class="self">self</span>.<span class="ident">top_left</span>.<span class="ident">x</span>
             ..<span class="self">self</span>
                 .<span class="ident">top_left</span>
@@ -1162,13 +1162,13 @@
     <span class="doccomment">/// assert_eq!(rect.is_zero_sized(), true);</span>
     <span class="doccomment">/// ```</span>
     <span class="comment">// MSRV: Add const when upgrading to at least 1.46.0</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">is_zero_sized</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
-        <span class="self">self</span>.<span class="ident">size</span>.<span class="ident">height</span> <span class="op">=</span><span class="op">=</span> <span class="number">0</span> <span class="op">|</span><span class="op">|</span> <span class="self">self</span>.<span class="ident">size</span>.<span class="ident">width</span> <span class="op">=</span><span class="op">=</span> <span class="number">0</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">is_zero_sized</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">bool</span> {
+        <span class="self">self</span>.<span class="ident">size</span>.<span class="ident">height</span> <span class="op">==</span> <span class="number">0</span> <span class="op">|</span><span class="op">|</span> <span class="self">self</span>.<span class="ident">size</span>.<span class="ident">width</span> <span class="op">==</span> <span class="number">0</span>
     }
 }
 
 <span class="doccomment">/// Checks if the two ranges overlap.</span>
-<span class="kw">fn</span> <span class="ident">overlaps</span>(<span class="ident">first</span>: <span class="ident">RangeInclusive</span><span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span>, <span class="ident">second</span>: <span class="ident">RangeInclusive</span><span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
+<span class="kw">fn</span> <span class="ident">overlaps</span>(<span class="ident">first</span>: <span class="ident">RangeInclusive</span><span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span>, <span class="ident">second</span>: <span class="ident">RangeInclusive</span><span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span>) -&gt; <span class="ident">bool</span> {
     <span class="ident">second</span>.<span class="ident">contains</span>(<span class="ident">first</span>.<span class="ident">start</span>())
         <span class="op">|</span><span class="op">|</span> <span class="ident">second</span>.<span class="ident">contains</span>(<span class="ident">first</span>.<span class="ident">end</span>())
         <span class="op">|</span><span class="op">|</span> <span class="ident">first</span>.<span class="ident">start</span>() <span class="op">&lt;</span> <span class="ident">second</span>.<span class="ident">start</span>() <span class="op">&amp;&amp;</span> <span class="ident">first</span>.<span class="ident">end</span>() <span class="op">&gt;</span> <span class="ident">second</span>.<span class="ident">end</span>()

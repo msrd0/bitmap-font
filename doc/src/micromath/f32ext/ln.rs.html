@@ -120,7 +120,7 @@
 <span class="comment">//excessive precision ignored because it hides the origin of the numbers used for the ln(1.0-&gt;2.0)</span>
 <span class="comment">// polynomial</span>
 <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">clippy::excessive_precision</span>)]</span>
-<span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">ln_1to2_series_approximation</span>(<span class="ident">x</span>: <span class="ident">f32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span> {
+<span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">ln_1to2_series_approximation</span>(<span class="ident">x</span>: <span class="ident">f32</span>) -&gt; <span class="ident">f32</span> {
     <span class="comment">// idea from https://stackoverflow.com/a/44232045/</span>
     <span class="comment">// modified to not be restricted to int range and only values of x above 1.0.</span>
     <span class="comment">// and got rid of most of the slow conversions,</span>

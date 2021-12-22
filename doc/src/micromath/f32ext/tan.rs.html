@@ -97,7 +97,7 @@
 <span class="kw">use</span> <span class="kw">super</span>::{<span class="ident">cos::cos_approx</span>, <span class="ident">sin::sin_approx</span>};
 
 <span class="doccomment">/// Computes `tan(x)` approximation in radians.</span>
-<span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">tan_approx</span>(<span class="ident">x</span>: <span class="ident">f32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span> {
+<span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">tan_approx</span>(<span class="ident">x</span>: <span class="ident">f32</span>) -&gt; <span class="ident">f32</span> {
     <span class="ident">sin_approx</span>(<span class="ident">x</span>) <span class="op">/</span> <span class="ident">cos_approx</span>(<span class="ident">x</span>)
 }
 

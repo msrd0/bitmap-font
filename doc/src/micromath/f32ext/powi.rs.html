@@ -2685,7 +2685,7 @@
 <span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::f32ext::utils::FloatComponents</span>;
 <span class="kw">use</span> <span class="ident">core::f32</span>;
 
-<span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">powi_exp_by_squaring</span>(<span class="ident">x</span>: <span class="ident">f32</span>, <span class="ident">n</span>: <span class="ident">i32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span> {
+<span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">powi_exp_by_squaring</span>(<span class="ident">x</span>: <span class="ident">f32</span>, <span class="ident">n</span>: <span class="ident">i32</span>) -&gt; <span class="ident">f32</span> {
     <span class="comment">// source: https://stackoverflow.com/a/101613</span>
     <span class="comment">// note not optimal for all powers, is NP complete</span>
     <span class="comment">// https://en.wikipedia.org/wiki/Addition-chain_exponentiation</span>
@@ -2698,11 +2698,11 @@
         <span class="ident">base</span> <span class="op">=</span> <span class="number">1.0</span> <span class="op">/</span> <span class="ident">x</span>;
     }
 
-    <span class="kw">if</span> <span class="ident">n</span> <span class="op">=</span><span class="op">=</span> <span class="number">0</span> {
+    <span class="kw">if</span> <span class="ident">n</span> <span class="op">==</span> <span class="number">0</span> {
         <span class="kw">return</span> <span class="number">1.0_f32</span>;
     }
     <span class="comment">//0.0_f32 == 0.0_f32 and -0.0_f32 according to ieee standards.</span>
-    <span class="kw">if</span> <span class="ident">x</span> <span class="op">=</span><span class="op">=</span> <span class="number">0.0_f32</span> <span class="op">&amp;&amp;</span> <span class="ident">n</span> <span class="op">&gt;</span> <span class="number">0</span> {
+    <span class="kw">if</span> <span class="ident">x</span> <span class="op">==</span> <span class="number">0.0_f32</span> <span class="op">&amp;&amp;</span> <span class="ident">n</span> <span class="op">&gt;</span> <span class="number">0</span> {
         <span class="kw">return</span> <span class="ident">x</span>;
     }
     <span class="comment">//for values less than 2.0, but greater than 0.5 (1.0/2.0), you can multiply longer with out going over exponent, ie 1.1 multiplied against itself will grow slowly.</span>
@@ -2712,9 +2712,9 @@
         <span class="kw">let</span> <span class="ident">max_representable_exponent</span> <span class="op">=</span> <span class="number">127</span>;
         <span class="kw">let</span> <span class="ident">min_representable_exponent</span> <span class="op">=</span> <span class="op">-</span><span class="number">126</span> <span class="op">-</span> (<span class="ident">utils::MANTISSA_BITS</span> <span class="kw">as</span> <span class="ident">i32</span>);
         <span class="kw">if</span> <span class="ident">approx_final_exponent</span> <span class="op">&gt;</span> <span class="ident">max_representable_exponent</span>
-            <span class="op">|</span><span class="op">|</span> (<span class="ident">x</span> <span class="op">=</span><span class="op">=</span> <span class="number">0.0_f32</span> <span class="op">&amp;&amp;</span> <span class="ident">approx_final_exponent</span> <span class="op">&lt;</span> <span class="number">0</span>)
+            <span class="op">|</span><span class="op">|</span> (<span class="ident">x</span> <span class="op">==</span> <span class="number">0.0_f32</span> <span class="op">&amp;&amp;</span> <span class="ident">approx_final_exponent</span> <span class="op">&lt;</span> <span class="number">0</span>)
         {
-            <span class="kw">if</span> <span class="ident">x</span>.<span class="ident">is_sign_positive</span>() <span class="op">|</span><span class="op">|</span> <span class="ident">n</span> <span class="op">&amp;</span> <span class="number">1</span> <span class="op">=</span><span class="op">=</span> <span class="number">0</span> {
+            <span class="kw">if</span> <span class="ident">x</span>.<span class="ident">is_sign_positive</span>() <span class="op">|</span><span class="op">|</span> <span class="ident">n</span> <span class="op">&amp;</span> <span class="number">1</span> <span class="op">==</span> <span class="number">0</span> {
                 <span class="kw">return</span> <span class="ident">f32::INFINITY</span>;
             } <span class="kw">else</span> {
                 <span class="kw">return</span> <span class="ident">f32::NEG_INFINITY</span>;
@@ -2727,11 +2727,11 @@
         }
     }
     <span class="kw">loop</span> {
-        <span class="kw">if</span> (<span class="ident">abs_n</span> <span class="op">&amp;</span> <span class="number">1</span>) <span class="op">=</span><span class="op">=</span> <span class="number">1</span> {
+        <span class="kw">if</span> (<span class="ident">abs_n</span> <span class="op">&amp;</span> <span class="number">1</span>) <span class="op">==</span> <span class="number">1</span> {
             <span class="ident">result</span> <span class="kw-2">*</span><span class="op">=</span> <span class="ident">base</span>;
         }
         <span class="ident">abs_n</span> <span class="op">&gt;</span><span class="op">&gt;</span><span class="op">=</span> <span class="number">1</span>;
-        <span class="kw">if</span> <span class="ident">abs_n</span> <span class="op">=</span><span class="op">=</span> <span class="number">0_i32</span> {
+        <span class="kw">if</span> <span class="ident">abs_n</span> <span class="op">==</span> <span class="number">0_i32</span> {
             <span class="kw">break</span>;
         }
         <span class="ident">base</span> <span class="kw-2">*</span><span class="op">=</span> <span class="ident">base</span>;
@@ -5329,10 +5329,10 @@
         (<span class="number">1.1</span>, <span class="number">150.0</span>, <span class="number">1617723.1</span>),
     ];
 
-    <span class="kw">fn</span> <span class="ident">calc_relative_error</span>(<span class="ident">experimental</span>: <span class="ident">f32</span>, <span class="ident">expected</span>: <span class="ident">f32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span> {
+    <span class="kw">fn</span> <span class="ident">calc_relative_error</span>(<span class="ident">experimental</span>: <span class="ident">f32</span>, <span class="ident">expected</span>: <span class="ident">f32</span>) -&gt; <span class="ident">f32</span> {
         <span class="kw">let</span> <span class="ident">relative_error</span>: <span class="ident">f32</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">experimental</span>.<span class="ident">is_nan</span>() <span class="op">&amp;&amp;</span> <span class="ident">expected</span>.<span class="ident">is_nan</span>() {
             <span class="number">0.0_f32</span>
-        } <span class="kw">else</span> <span class="kw">if</span> <span class="ident">experimental</span> <span class="op">=</span><span class="op">=</span> <span class="ident">expected</span> {
+        } <span class="kw">else</span> <span class="kw">if</span> <span class="ident">experimental</span> <span class="op">==</span> <span class="ident">expected</span> {
             <span class="number">0.0_f32</span>
         } <span class="kw">else</span> <span class="kw">if</span> <span class="ident">expected</span> <span class="op">!</span><span class="op">=</span> <span class="number">0.0_f32</span> {
             <span class="ident">abs::abs</span>(<span class="ident">experimental</span> <span class="op">-</span> <span class="ident">expected</span>) <span class="op">/</span> <span class="ident">expected</span>

@@ -22,7 +22,7 @@
 </pre><pre class="rust"><code><span class="kw">use</span> <span class="ident"><span class="kw">super</span>::floor::floor</span>;
 
 <span class="doccomment">/// Floating point ceiling approximation for a single-precision float</span>
-<span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">ceil</span>(<span class="ident">x</span>: <span class="ident">f32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span> {
+<span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">ceil</span>(<span class="ident">x</span>: <span class="ident">f32</span>) -&gt; <span class="ident">f32</span> {
     <span class="op">-</span><span class="ident">floor</span>(<span class="op">-</span><span class="ident">x</span>)
 }
 

@@ -77,7 +77,7 @@
 
 <span class="kw">impl</span> <span class="ident">StyledScanline</span> {
     <span class="doccomment">/// Creates a new styled scanline.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">y</span>: <span class="ident">i32</span>, <span class="ident">stroke_range</span>: <span class="ident">Range</span><span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span>, <span class="ident">fill_range</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Range</span><span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">y</span>: <span class="ident">i32</span>, <span class="ident">stroke_range</span>: <span class="ident">Range</span><span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span>, <span class="ident">fill_range</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Range</span><span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span><span class="op">&gt;</span>) -&gt; <span class="self">Self</span> {
         <span class="kw">let</span> <span class="ident">fill_range</span> <span class="op">=</span> <span class="ident">fill_range</span>.<span class="ident">unwrap_or_else</span>(<span class="op">|</span><span class="op">|</span> <span class="ident">stroke_range</span>.<span class="ident">end</span>..<span class="ident">stroke_range</span>.<span class="ident">end</span>);
 
         <span class="self">Self</span> {
@@ -90,19 +90,19 @@
     <span class="doccomment">/// Returns the stroke region on the left side.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// If the scanline contains no fill region the entire scanline will be returned.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">stroke_left</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Scanline</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">stroke_left</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Scanline</span> {
         <span class="ident">Scanline::new</span>(<span class="self">self</span>.<span class="ident">y</span>, <span class="self">self</span>.<span class="ident">stroke_range</span>.<span class="ident">start</span>..<span class="self">self</span>.<span class="ident">fill_range</span>.<span class="ident">start</span>)
     }
 
     <span class="doccomment">/// Returns the stroke region on the right side.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// If the scanline contains no fill region an empty scanline will be returned.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">stroke_right</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Scanline</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">stroke_right</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Scanline</span> {
         <span class="ident">Scanline::new</span>(<span class="self">self</span>.<span class="ident">y</span>, <span class="self">self</span>.<span class="ident">fill_range</span>.<span class="ident">end</span>..<span class="self">self</span>.<span class="ident">stroke_range</span>.<span class="ident">end</span>)
     }
 
     <span class="doccomment">/// Returns the fill region.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">fill</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Scanline</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">fill</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Scanline</span> {
         <span class="ident">Scanline::new</span>(<span class="self">self</span>.<span class="ident">y</span>, <span class="self">self</span>.<span class="ident">fill_range</span>.<span class="ident">clone</span>())
     }
 
@@ -111,7 +111,7 @@
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         <span class="ident">target</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">T</span>,
         <span class="ident">stroke_color</span>: <span class="ident">T::Color</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">T::Error</span><span class="op">&gt;</span> {
+    ) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">T::Error</span><span class="op">&gt;</span> {
         <span class="self">self</span>.<span class="ident">stroke_left</span>().<span class="ident">draw</span>(<span class="ident">target</span>, <span class="ident">stroke_color</span>)<span class="question-mark">?</span>;
         <span class="self">self</span>.<span class="ident">stroke_right</span>().<span class="ident">draw</span>(<span class="ident">target</span>, <span class="ident">stroke_color</span>)
     }
@@ -122,7 +122,7 @@
         <span class="ident">target</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">T</span>,
         <span class="ident">stroke_color</span>: <span class="ident">T::Color</span>,
         <span class="ident">fill_color</span>: <span class="ident">T::Color</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">T::Error</span><span class="op">&gt;</span> {
+    ) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">T::Error</span><span class="op">&gt;</span> {
         <span class="self">self</span>.<span class="ident">stroke_left</span>().<span class="ident">draw</span>(<span class="ident">target</span>, <span class="ident">stroke_color</span>)<span class="question-mark">?</span>;
         <span class="self">self</span>.<span class="ident">fill</span>().<span class="ident">draw</span>(<span class="ident">target</span>, <span class="ident">fill_color</span>)<span class="question-mark">?</span>;
         <span class="self">self</span>.<span class="ident">stroke_right</span>().<span class="ident">draw</span>(<span class="ident">target</span>, <span class="ident">stroke_color</span>)

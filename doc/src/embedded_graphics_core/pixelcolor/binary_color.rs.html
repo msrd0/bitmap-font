@@ -260,7 +260,7 @@
 }
 
 <span class="kw">impl</span> <span class="ident">Default</span> <span class="kw">for</span> <span class="ident">BinaryColor</span> {
-    <span class="kw">fn</span> <span class="ident">default</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">fn</span> <span class="ident">default</span>() -&gt; <span class="self">Self</span> {
         <span class="ident"><span class="self">Self</span>::Off</span>
     }
 }
@@ -277,10 +277,10 @@
     <span class="doccomment">/// assert_eq!(BinaryColor::On.invert(), BinaryColor::Off);</span>
     <span class="doccomment">/// ```</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">invert</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">invert</span>(<span class="self">self</span>) -&gt; <span class="self">Self</span> {
         <span class="kw">match</span> <span class="self">self</span> {
-            <span class="ident">BinaryColor::On</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">BinaryColor::Off</span>,
-            <span class="ident">BinaryColor::Off</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">BinaryColor::On</span>,
+            <span class="ident">BinaryColor::On</span> =&gt; <span class="ident">BinaryColor::Off</span>,
+            <span class="ident">BinaryColor::Off</span> =&gt; <span class="ident">BinaryColor::On</span>,
         }
     }
 
@@ -294,8 +294,8 @@
     <span class="doccomment">/// assert!(BinaryColor::On.is_on());</span>
     <span class="doccomment">/// ```</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">is_on</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
-        <span class="self">self</span> <span class="op">=</span><span class="op">=</span> <span class="ident">BinaryColor::On</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">is_on</span>(<span class="self">self</span>) -&gt; <span class="ident">bool</span> {
+        <span class="self">self</span> <span class="op">==</span> <span class="ident">BinaryColor::On</span>
     }
 
     <span class="doccomment">/// Returns `true` if this color is `Off`.</span>
@@ -308,8 +308,8 @@
     <span class="doccomment">/// assert!(BinaryColor::Off.is_off());</span>
     <span class="doccomment">/// ```</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">is_off</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
-        <span class="self">self</span> <span class="op">=</span><span class="op">=</span> <span class="ident">BinaryColor::Off</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">is_off</span>(<span class="self">self</span>) -&gt; <span class="ident">bool</span> {
+        <span class="self">self</span> <span class="op">==</span> <span class="ident">BinaryColor::Off</span>
     }
 
     <span class="doccomment">/// Maps active and inactive colors to a different type.</span>
@@ -321,10 +321,10 @@
     <span class="doccomment">/// let color = BinaryColor::On;</span>
     <span class="doccomment">/// assert_eq!(color.map_color(Rgb565::RED, Rgb565::GREEN), Rgb565::GREEN)</span>
     <span class="doccomment">/// ```</span>
-    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn</span> <span class="ident">map_color</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>(<span class="self">self</span>, <span class="ident">value_off</span>: <span class="ident">T</span>, <span class="ident">value_on</span>: <span class="ident">T</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">T</span> {
+    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn</span> <span class="ident">map_color</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>(<span class="self">self</span>, <span class="ident">value_off</span>: <span class="ident">T</span>, <span class="ident">value_on</span>: <span class="ident">T</span>) -&gt; <span class="ident">T</span> {
         <span class="kw">match</span> <span class="self">self</span> {
-            <span class="ident">BinaryColor::On</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">value_on</span>,
-            <span class="ident">BinaryColor::Off</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">value_off</span>,
+            <span class="ident">BinaryColor::On</span> =&gt; <span class="ident">value_on</span>,
+            <span class="ident">BinaryColor::Off</span> =&gt; <span class="ident">value_off</span>,
         }
     }
 }
@@ -334,7 +334,7 @@
 }
 
 <span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span><span class="ident">RawU1</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">BinaryColor</span> {
-    <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">data</span>: <span class="ident">RawU1</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">data</span>: <span class="ident">RawU1</span>) -&gt; <span class="self">Self</span> {
         <span class="kw">if</span> <span class="ident">data</span>.<span class="ident">into_inner</span>() <span class="op">!</span><span class="op">=</span> <span class="number">0</span> {
             <span class="ident">BinaryColor::On</span>
         } <span class="kw">else</span> {
@@ -344,13 +344,13 @@
 }
 
 <span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">RawU1</span> {
-    <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">color</span>: <span class="ident">BinaryColor</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">color</span>: <span class="ident">BinaryColor</span>) -&gt; <span class="self">Self</span> {
         <span class="ident">RawU1::new</span>(<span class="ident">color</span>.<span class="ident">map_color</span>(<span class="number">0</span>, <span class="number">1</span>))
     }
 }
 
 <span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span><span class="ident">bool</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">BinaryColor</span> {
-    <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">value</span>: <span class="ident">bool</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">value</span>: <span class="ident">bool</span>) -&gt; <span class="self">Self</span> {
         <span class="kw">if</span> <span class="ident">value</span> {
             <span class="ident">BinaryColor::On</span>
         } <span class="kw">else</span> {

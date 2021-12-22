@@ -223,7 +223,7 @@
 <span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::f32ext::utils::FloatComponents</span>;
 <span class="kw">use</span> <span class="ident">core::f32</span>;
 
-<span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">powf_exp_ln_approx</span>(<span class="ident">x</span>: <span class="ident">f32</span>, <span class="ident">n</span>: <span class="ident">f32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span> {
+<span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">powf_exp_ln_approx</span>(<span class="ident">x</span>: <span class="ident">f32</span>, <span class="ident">n</span>: <span class="ident">f32</span>) -&gt; <span class="ident">f32</span> {
     <span class="comment">// using x^n = exp(ln(x^n)) = exp(n*ln(x))</span>
     <span class="kw">if</span> <span class="ident">x</span> <span class="op">&lt;</span> <span class="number">0.0</span> {
         <span class="kw">if</span> <span class="op">!</span><span class="ident">n</span>.<span class="ident">is_integer</span>() {
@@ -379,7 +379,7 @@
         (<span class="op">-</span><span class="number">1000000.0</span>, <span class="number">4.0</span>, <span class="number">1e+24</span>),
     ];
 
-    <span class="kw">fn</span> <span class="ident">calc_relative_error</span>(<span class="ident">experimental</span>: <span class="ident">f32</span>, <span class="ident">expected</span>: <span class="ident">f32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span> {
+    <span class="kw">fn</span> <span class="ident">calc_relative_error</span>(<span class="ident">experimental</span>: <span class="ident">f32</span>, <span class="ident">expected</span>: <span class="ident">f32</span>) -&gt; <span class="ident">f32</span> {
         <span class="kw">let</span> <span class="ident">relative_error</span>: <span class="ident">f32</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">experimental</span>.<span class="ident">is_nan</span>() <span class="op">&amp;&amp;</span> <span class="ident">expected</span>.<span class="ident">is_nan</span>() {
             <span class="number">0.0_f32</span>
         } <span class="kw">else</span> <span class="kw">if</span> <span class="ident">expected</span> <span class="op">!</span><span class="op">=</span> <span class="number">0.0_f32</span> {

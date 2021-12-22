@@ -507,20 +507,20 @@
 <span class="kw">impl</span> <span class="ident">PointsIter</span> <span class="kw">for</span> <span class="ident">Line</span> {
     <span class="kw">type</span> <span class="ident">Iter</span> <span class="op">=</span> <span class="ident">Points</span>;
 
-    <span class="kw">fn</span> <span class="ident">points</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident"><span class="self">Self</span>::Iter</span> {
+    <span class="kw">fn</span> <span class="ident">points</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident"><span class="self">Self</span>::Iter</span> {
         <span class="ident">Points::new</span>(<span class="self">self</span>)
     }
 }
 
 <span class="kw">impl</span> <span class="ident">Dimensions</span> <span class="kw">for</span> <span class="ident">Line</span> {
-    <span class="kw">fn</span> <span class="ident">bounding_box</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Rectangle</span> {
+    <span class="kw">fn</span> <span class="ident">bounding_box</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Rectangle</span> {
         <span class="ident">Rectangle::with_corners</span>(<span class="self">self</span>.<span class="ident">start</span>, <span class="self">self</span>.<span class="ident">end</span>)
     }
 }
 
 <span class="kw">impl</span> <span class="ident">Line</span> {
     <span class="doccomment">/// Create a new line</span>
-    <span class="kw">pub</span> <span class="kw">const</span> <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">start</span>: <span class="ident">Point</span>, <span class="ident">end</span>: <span class="ident">Point</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">const</span> <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">start</span>: <span class="ident">Point</span>, <span class="ident">end</span>: <span class="ident">Point</span>) -&gt; <span class="self">Self</span> {
         <span class="self">Self</span> { <span class="ident">start</span>, <span class="ident">end</span> }
     }
 
@@ -528,7 +528,7 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// The returned line is rotated 90 degree counter clockwise and shares the start point with the</span>
     <span class="doccomment">/// original line.</span>
-    <span class="kw">fn</span> <span class="ident">perpendicular</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">fn</span> <span class="ident">perpendicular</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="self">Self</span> {
         <span class="kw">let</span> <span class="ident">delta</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">end</span> <span class="op">-</span> <span class="self">self</span>.<span class="ident">start</span>;
         <span class="kw">let</span> <span class="ident">delta</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="ident">delta</span>.<span class="ident">y</span>, <span class="op">-</span><span class="ident">delta</span>.<span class="ident">x</span>);
 
@@ -542,7 +542,7 @@
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         <span class="ident">thickness</span>: <span class="ident">u32</span>,
         <span class="ident">stroke_offset</span>: <span class="ident">StrokeOffset</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> (<span class="ident">Line</span>, <span class="ident">Line</span>) {
+    ) -&gt; (<span class="ident">Line</span>, <span class="ident">Line</span>) {
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">it</span> <span class="op">=</span> <span class="ident">ParallelsIterator::new</span>(<span class="self">self</span>, <span class="ident">thickness</span>.<span class="ident">saturating_as</span>(), <span class="ident">stroke_offset</span>);
         <span class="kw">let</span> <span class="ident">reduce</span> <span class="op">=</span>
             <span class="ident">it</span>.<span class="ident">parallel_parameters</span>.<span class="ident">position_step</span>.<span class="ident">major</span> <span class="op">+</span> <span class="ident">it</span>.<span class="ident">parallel_parameters</span>.<span class="ident">position_step</span>.<span class="ident">minor</span>;
@@ -551,7 +551,7 @@
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">right</span> <span class="op">=</span> (<span class="self">self</span>.<span class="ident">start</span>, <span class="ident">ParallelLineType::Normal</span>);
 
         <span class="kw">match</span> <span class="ident">stroke_offset</span> {
-            <span class="ident">StrokeOffset::None</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">loop</span> {
+            <span class="ident">StrokeOffset::None</span> =&gt; <span class="kw">loop</span> {
                 <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>((<span class="ident">bresenham</span>, <span class="ident">reduce</span>)) <span class="op">=</span> <span class="ident">it</span>.<span class="ident">next</span>() {
                     <span class="ident">right</span> <span class="op">=</span> (<span class="ident">bresenham</span>.<span class="ident">point</span>, <span class="ident">reduce</span>);
                 } <span class="kw">else</span> {
@@ -564,12 +564,12 @@
                     <span class="kw">break</span>;
                 }
             },
-            <span class="ident">StrokeOffset::Left</span> <span class="op">=</span><span class="op">&gt;</span> {
+            <span class="ident">StrokeOffset::Left</span> =&gt; {
                 <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>((<span class="ident">bresenham</span>, <span class="ident">reduce</span>)) <span class="op">=</span> <span class="ident">it</span>.<span class="ident">last</span>() {
                     <span class="ident">left</span> <span class="op">=</span> (<span class="ident">bresenham</span>.<span class="ident">point</span>, <span class="ident">reduce</span>);
                 }
             }
-            <span class="ident">StrokeOffset::Right</span> <span class="op">=</span><span class="op">&gt;</span> {
+            <span class="ident">StrokeOffset::Right</span> =&gt; {
                 <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>((<span class="ident">bresenham</span>, <span class="ident">reduce</span>)) <span class="op">=</span> <span class="ident">it</span>.<span class="ident">last</span>() {
                     <span class="ident">right</span> <span class="op">=</span> (<span class="ident">bresenham</span>.<span class="ident">point</span>, <span class="ident">reduce</span>);
                 }
@@ -585,8 +585,8 @@
             <span class="ident">left_start</span>,
             <span class="ident">left_start</span> <span class="op">+</span> <span class="ident">delta</span>
                 <span class="op">-</span> <span class="kw">match</span> <span class="ident">left</span>.<span class="number">1</span> {
-                    <span class="ident">ParallelLineType::Normal</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">Point::zero</span>(),
-                    <span class="ident">ParallelLineType::Extra</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">reduce</span>,
+                    <span class="ident">ParallelLineType::Normal</span> =&gt; <span class="ident">Point::zero</span>(),
+                    <span class="ident">ParallelLineType::Extra</span> =&gt; <span class="ident">reduce</span>,
                 },
         );
 
@@ -594,20 +594,20 @@
             <span class="ident">right_start</span>,
             <span class="ident">right_start</span> <span class="op">+</span> <span class="ident">delta</span>
                 <span class="op">-</span> <span class="kw">match</span> <span class="ident">right</span>.<span class="number">1</span> {
-                    <span class="ident">ParallelLineType::Normal</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">Point::zero</span>(),
-                    <span class="ident">ParallelLineType::Extra</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">reduce</span>,
+                    <span class="ident">ParallelLineType::Normal</span> =&gt; <span class="ident">Point::zero</span>(),
+                    <span class="ident">ParallelLineType::Extra</span> =&gt; <span class="ident">reduce</span>,
                 },
         );
         (<span class="ident">left_line</span>, <span class="ident">right_line</span>)
     }
 
     <span class="doccomment">/// Compute the midpoint of the line.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">midpoint</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Point</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">midpoint</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Point</span> {
         <span class="self">self</span>.<span class="ident">start</span> <span class="op">+</span> (<span class="self">self</span>.<span class="ident">end</span> <span class="op">-</span> <span class="self">self</span>.<span class="ident">start</span>) <span class="op">/</span> <span class="number">2</span>
     }
 
     <span class="doccomment">/// Compute the delta (`end - start`) of the line.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">delta</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Point</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">delta</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Point</span> {
         <span class="self">self</span>.<span class="ident">end</span> <span class="op">-</span> <span class="self">self</span>.<span class="ident">start</span>
     }
 }
@@ -625,7 +625,7 @@
     <span class="doccomment">/// assert_eq!(moved.start, Point::new(15, 20));</span>
     <span class="doccomment">/// assert_eq!(moved.end, Point::new(25, 30));</span>
     <span class="doccomment">/// ```</span>
-    <span class="kw">fn</span> <span class="ident">translate</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">by</span>: <span class="ident">Point</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">fn</span> <span class="ident">translate</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">by</span>: <span class="ident">Point</span>) -&gt; <span class="self">Self</span> {
         <span class="self">Self</span> {
             <span class="ident">start</span>: <span class="self">self</span>.<span class="ident">start</span> <span class="op">+</span> <span class="ident">by</span>,
             <span class="ident">end</span>: <span class="self">self</span>.<span class="ident">end</span> <span class="op">+</span> <span class="ident">by</span>,
@@ -643,7 +643,7 @@
     <span class="doccomment">/// assert_eq!(line.start, Point::new(15, 20));</span>
     <span class="doccomment">/// assert_eq!(line.end, Point::new(25, 30));</span>
     <span class="doccomment">/// ```</span>
-    <span class="kw">fn</span> <span class="ident">translate_mut</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">by</span>: <span class="ident">Point</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
+    <span class="kw">fn</span> <span class="ident">translate_mut</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">by</span>: <span class="ident">Point</span>) -&gt; <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">start</span> <span class="op">+</span><span class="op">=</span> <span class="ident">by</span>;
         <span class="self">self</span>.<span class="ident">end</span> <span class="op">+</span><span class="op">=</span> <span class="ident">by</span>;
 

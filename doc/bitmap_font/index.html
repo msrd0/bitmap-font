@@ -4,7 +4,7 @@ better than the <a href="../embedded_graphics/mono_font/index.html">built-in fon
 but also allow scaling fonts by pixel-doubling them, giving you two font sizes for the flash
 size requirements of the smaller one.</p>
 <p>See the <a href="tamzen/index.html" title="tamzen"><code>tamzen</code></a> module for a list of all included fonts.</p>
-<h1 id="usage" class="section-header"><a href="#usage">Usage</a></h1>
+<h2 id="usage" class="section-header"><a href="#usage">Usage</a></h2>
 <div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use</span> <span class="ident">bitmap_font</span>::{<span class="ident">tamzen::FONT_8x15</span>, <span class="ident">BitmapFont</span>, <span class="ident">TextStyle</span>};
 <span class="kw">use</span> <span class="ident">embedded_graphics</span>::{<span class="ident">pixelcolor::BinaryColor</span>, <span class="ident">prelude</span>::<span class="kw-2">*</span>, <span class="ident">text::Text</span>};
 
@@ -12,13 +12,13 @@ size requirements of the smaller one.</p>
 <span class="kw">let</span> <span class="ident">text</span> <span class="op">=</span> <span class="ident">Text::new</span>(<span class="string">&quot;Hello World!&quot;</span>, <span class="ident">Point::zero</span>(), <span class="ident">TextStyle::new</span>(<span class="kw-2">&amp;</span><span class="ident">FONT_8x15</span>, <span class="ident">BinaryColor::On</span>));
 <span class="ident">text</span>.<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)<span class="question-mark">?</span>;</code></pre></div>
 </div></details><h2 id="modules" class="section-header"><a href="#modules">Modules</a></h2>
-<div class="item-table"><div class="item-left module-item"><a class="mod" href="tamzen/index.html" title="bitmap_font::tamzen mod">tamzen</a></div><div class="item-right docblock-short"><p><a href="https://github.com/sunaku/tamzen-font">Tamzen font</a>-based bitmap fonts. The included glyphs
+<div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="mod" href="tamzen/index.html" title="bitmap_font::tamzen mod">tamzen</a></div><div class="item-right docblock-short"><p><a href="https://github.com/sunaku/tamzen-font">Tamzen font</a>-based bitmap fonts. The included glyphs
 are a subset of ISO 8859-1 plus the unicode powerline symbols. Additional symbols might be added
 in the future. If you are missing a glyph that is included in the Tamzen font, please open an
 issue.</p>
-</div></div><h2 id="structs" class="section-header"><a href="#structs">Structs</a></h2>
-<div class="item-table"><div class="item-left module-item"><a class="struct" href="struct.BitmapFont.html" title="bitmap_font::BitmapFont struct">BitmapFont</a></div><div class="item-right docblock-short"><p>Stores the font bitmap and some additional info for each font.</p>
-</div><div class="item-left module-item"><a class="struct" href="struct.TextStyle.html" title="bitmap_font::TextStyle struct">TextStyle</a></div><div class="item-right docblock-short"><p>The equivalent of <a href="../embedded_graphics/mono_font/mono_text_style/struct.MonoTextStyle.html" title="embedded_graphics::mono_font::MonoTextStyle"><code>MonoTextStyle</code></a> for <a href="struct.BitmapFont.html" title="BitmapFont"><code>BitmapFont</code></a>.</p>
-</div></div></section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../" data-current-crate="bitmap_font" data-search-index-js="../search-index.js" data-search-js="../search.js"></div>
+</div></div></div><h2 id="structs" class="section-header"><a href="#structs">Structs</a></h2>
+<div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.BitmapFont.html" title="bitmap_font::BitmapFont struct">BitmapFont</a></div><div class="item-right docblock-short"><p>Stores the font bitmap and some additional info for each font.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.TextStyle.html" title="bitmap_font::TextStyle struct">TextStyle</a></div><div class="item-right docblock-short"><p>The equivalent of <a href="../embedded_graphics/mono_font/mono_text_style/struct.MonoTextStyle.html" title="embedded_graphics::mono_font::MonoTextStyle"><code>MonoTextStyle</code></a> for <a href="struct.BitmapFont.html" title="BitmapFont"><code>BitmapFont</code></a>.</p>
+</div></div></div></section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../" data-current-crate="bitmap_font" data-search-index-js="../search-index.js" data-search-js="../search.js"></div>
     <script src="../main.js"></script>
 </body></html>

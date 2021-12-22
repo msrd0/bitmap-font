@@ -76,14 +76,14 @@
 <span class="kw">use</span> <span class="ident">core::f32::consts::PI</span>;
 
 <span class="doccomment">/// Computes an `atan2(y,x)` approximation in radians.</span>
-<span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">atan2_approx</span>(<span class="ident">y</span>: <span class="ident">f32</span>, <span class="ident">x</span>: <span class="ident">f32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span> {
+<span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">atan2_approx</span>(<span class="ident">y</span>: <span class="ident">f32</span>, <span class="ident">x</span>: <span class="ident">f32</span>) -&gt; <span class="ident">f32</span> {
     <span class="kw">let</span> <span class="ident">n</span> <span class="op">=</span> <span class="ident">atan2_norm_approx</span>(<span class="ident">y</span>, <span class="ident">x</span>);
     <span class="ident">PI</span> <span class="op">/</span> <span class="number">2.0</span> <span class="op">*</span> <span class="kw">if</span> <span class="ident">n</span> <span class="op">&gt;</span> <span class="number">2.0</span> { <span class="ident">n</span> <span class="op">-</span> <span class="number">4.0</span> } <span class="kw">else</span> { <span class="ident">n</span> }
 }
 
 <span class="doccomment">/// Approximates `atan2(y,x)` normalized to the `[0, 4)` range with a maximum</span>
 <span class="doccomment">/// error of `0.1620` degrees.</span>
-<span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">atan2_norm_approx</span>(<span class="ident">y</span>: <span class="ident">f32</span>, <span class="ident">x</span>: <span class="ident">f32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span> {
+<span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">atan2_norm_approx</span>(<span class="ident">y</span>: <span class="ident">f32</span>, <span class="ident">x</span>: <span class="ident">f32</span>) -&gt; <span class="ident">f32</span> {
     <span class="kw">const</span> <span class="ident">SIGN_MASK</span>: <span class="ident">u32</span> <span class="op">=</span> <span class="number">0x8000_0000</span>;
     <span class="kw">const</span> <span class="ident">B</span>: <span class="ident">f32</span> <span class="op">=</span> <span class="number">0.596_227</span>;
 

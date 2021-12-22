@@ -3,7 +3,7 @@
 won’t need to use these types directly and should instead use <a href="../../image/struct.ImageRaw.html"><code>ImageRaw</code></a>.</p>
 <p>The <a href="struct.RawDataSlice.html"><code>RawDataSlice</code></a> is used to specify the raw data format for a byte slice. This slice can
 than be converted into an optimized iterator for that data format by using <code>into_iter()</code>.</p>
-<h1 id="examples" class="section-header"><a href="#examples">Examples</a></h1>
+<h2 id="examples" class="section-header"><a href="#examples">Examples</a></h2>
 <div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use</span> <span class="ident">embedded_graphics</span>::{<span class="ident">iterator::raw::RawDataSlice</span>, <span class="ident">pixelcolor::raw</span>::{<span class="ident">RawU16</span>, <span class="ident">BigEndian</span>}};
 
 <span class="kw">let</span> <span class="ident">data</span> <span class="op">=</span> [<span class="number">0xAA</span>, <span class="number">0xBB</span>, <span class="number">0x12</span>, <span class="number">0x34</span>];
@@ -16,10 +16,10 @@ than be converted into an optimized iterator for that data format by using <code
 <span class="macro">assert_eq!</span>(<span class="ident">iter</span>.<span class="ident">next</span>(), <span class="prelude-val">Some</span>(<span class="ident">RawU16::new</span>(<span class="number">0x1234</span>)));
 <span class="macro">assert_eq!</span>(<span class="ident">iter</span>.<span class="ident">next</span>(), <span class="prelude-val">None</span>);</code></pre></div>
 </div></details><h2 id="structs" class="section-header"><a href="#structs">Structs</a></h2>
-<div class="item-table"><div class="item-left module-item"><a class="struct" href="struct.BitsIterator.html" title="embedded_graphics::iterator::raw::BitsIterator struct">BitsIterator</a></div><div class="item-right docblock-short"><p>Iterator for raw data slices with less than 8 BPP.</p>
-</div><div class="item-left module-item"><a class="struct" href="struct.ByteIterator.html" title="embedded_graphics::iterator::raw::ByteIterator struct">ByteIterator</a></div><div class="item-right docblock-short"><p>Iterator for raw data slices with 8 BPP.</p>
-</div><div class="item-left module-item"><a class="struct" href="struct.BytesIterator.html" title="embedded_graphics::iterator::raw::BytesIterator struct">BytesIterator</a></div><div class="item-right docblock-short"><p>Iterator for raw data slices more than 8 BPP.</p>
-</div><div class="item-left module-item"><a class="struct" href="struct.RawDataSlice.html" title="embedded_graphics::iterator::raw::RawDataSlice struct">RawDataSlice</a></div><div class="item-right docblock-short"><p>Raw data slice.</p>
-</div></div></section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="embedded_graphics" data-search-index-js="../../../search-index.js" data-search-js="../../../search.js"></div>
+<div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.BitsIterator.html" title="embedded_graphics::iterator::raw::BitsIterator struct">BitsIterator</a></div><div class="item-right docblock-short"><p>Iterator for raw data slices with less than 8 BPP.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.ByteIterator.html" title="embedded_graphics::iterator::raw::ByteIterator struct">ByteIterator</a></div><div class="item-right docblock-short"><p>Iterator for raw data slices with 8 BPP.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.BytesIterator.html" title="embedded_graphics::iterator::raw::BytesIterator struct">BytesIterator</a></div><div class="item-right docblock-short"><p>Iterator for raw data slices more than 8 BPP.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.RawDataSlice.html" title="embedded_graphics::iterator::raw::RawDataSlice struct">RawDataSlice</a></div><div class="item-right docblock-short"><p>Raw data slice.</p>
+</div></div></div></section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="embedded_graphics" data-search-index-js="../../../search-index.js" data-search-js="../../../search.js"></div>
     <script src="../../../main.js"></script>
 </body></html>

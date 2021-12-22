@@ -25,7 +25,7 @@ can have different positions of the top left corner.</p>
 <p>The bounding box will be returned as a <a href="../primitives/rectangle/struct.Rectangle.html"><code>Rectangle</code></a>. The methods provided by <a href="../primitives/rectangle/struct.Rectangle.html"><code>Rectangle</code></a> make
 it easy to implement additional functions like hit testing (by using <a href="https://docs.rs/embedded-graphics/latest/embedded_graphics/primitives/trait.ContainsPoint.html#tymethod.contains"><code>contains</code></a>) or drawing a focus
 rectangle around a drawable (by converting the rectangle into a <a href="https://docs.rs/embedded-graphics/latest/embedded_graphics/style/styled/struct.Styled.html"><code>Styled</code></a>).</p>
-<h1 id="implementation-notes" class="section-header"><a href="#implementation-notes">Implementation notes</a></h1>
+<h2 id="implementation-notes" class="section-header"><a href="#implementation-notes">Implementation notes</a></h2>
 <p><code>Dimensions</code> should be implemented for <code>Drawable</code>s if the bounding box is known before <a href="../trait.Drawable.html#tymethod.draw"><code>Drawable::draw</code></a> is
 executed. The implementation must return a rectangle that contains all drawn pixels.
 <a href="https://docs.rs/embedded-graphics/latest/embedded_graphics/mock_display/struct.MockDisplay.html#method.affected_area"><code>MockDisplay::affected_area</code></a> can be a used in unit tests to make sure a drawable returns a bounding box with

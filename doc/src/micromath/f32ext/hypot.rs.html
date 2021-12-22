@@ -28,7 +28,7 @@
 
 <span class="doccomment">/// Calculate the length of the hypotenuse of a right-angle triangle given</span>
 <span class="doccomment">/// legs of length `x` and `y`.</span>
-<span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">hypot_approx</span>(<span class="ident">x</span>: <span class="ident">f32</span>, <span class="ident">y</span>: <span class="ident">f32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span> {
+<span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">hypot_approx</span>(<span class="ident">x</span>: <span class="ident">f32</span>, <span class="ident">y</span>: <span class="ident">f32</span>) -&gt; <span class="ident">f32</span> {
     <span class="ident">sqrt_approx</span>(<span class="ident">x</span> <span class="op">*</span> <span class="ident">x</span> <span class="op">+</span> <span class="ident">y</span> <span class="op">*</span> <span class="ident">y</span>)
 }
 

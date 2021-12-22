@@ -461,29 +461,29 @@
     <span class="kw">type</span> <span class="ident">Bytes</span>;
 
     <span class="doccomment">/// Converts a color into a byte array with big endian byte order.</span>
-    <span class="kw">fn</span> <span class="ident">to_be_bytes</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident"><span class="self">Self</span>::Bytes</span>;
+    <span class="kw">fn</span> <span class="ident">to_be_bytes</span>(<span class="self">self</span>) -&gt; <span class="ident"><span class="self">Self</span>::Bytes</span>;
 
     <span class="doccomment">/// Converts a color into a byte array with little endian byte order.</span>
-    <span class="kw">fn</span> <span class="ident">to_le_bytes</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident"><span class="self">Self</span>::Bytes</span>;
+    <span class="kw">fn</span> <span class="ident">to_le_bytes</span>(<span class="self">self</span>) -&gt; <span class="ident"><span class="self">Self</span>::Bytes</span>;
 
     <span class="doccomment">/// Converts a color into a byte array with native byte order.</span>
-    <span class="kw">fn</span> <span class="ident">to_ne_bytes</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident"><span class="self">Self</span>::Bytes</span>;
+    <span class="kw">fn</span> <span class="ident">to_ne_bytes</span>(<span class="self">self</span>) -&gt; <span class="ident"><span class="self">Self</span>::Bytes</span>;
 }
 
 <span class="macro">macro_rules!</span> <span class="ident">impl_to_bytes</span> {
-    (<span class="macro-nonterminal">$</span><span class="kw">type</span>:<span class="macro-nonterminal">ty</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">bytes_type</span>:<span class="ident">ty</span>) <span class="op">=</span><span class="op">&gt;</span> {
+    (<span class="macro-nonterminal">$</span><span class="kw">type</span>:<span class="macro-nonterminal">ty</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">bytes_type</span>:<span class="ident">ty</span>) =&gt; {
         <span class="kw">impl</span> <span class="ident">ToBytes</span> <span class="kw">for</span> <span class="macro-nonterminal">$</span><span class="kw">type</span> {
             <span class="kw">type</span> <span class="macro-nonterminal">Bytes</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">bytes_type</span>;
 
-            <span class="kw">fn</span> <span class="ident">to_be_bytes</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident"><span class="self">Self</span>::Bytes</span> {
+            <span class="kw">fn</span> <span class="ident">to_be_bytes</span>(<span class="self">self</span>) -&gt; <span class="ident"><span class="self">Self</span>::Bytes</span> {
                 <span class="self">self</span>.<span class="number">0</span>.<span class="ident">to_be_bytes</span>()
             }
 
-            <span class="kw">fn</span> <span class="ident">to_le_bytes</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident"><span class="self">Self</span>::Bytes</span> {
+            <span class="kw">fn</span> <span class="ident">to_le_bytes</span>(<span class="self">self</span>) -&gt; <span class="ident"><span class="self">Self</span>::Bytes</span> {
                 <span class="self">self</span>.<span class="number">0</span>.<span class="ident">to_le_bytes</span>()
             }
 
-            <span class="kw">fn</span> <span class="ident">to_ne_bytes</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident"><span class="self">Self</span>::Bytes</span> {
+            <span class="kw">fn</span> <span class="ident">to_ne_bytes</span>(<span class="self">self</span>) -&gt; <span class="ident"><span class="self">Self</span>::Bytes</span> {
                 <span class="self">self</span>.<span class="number">0</span>.<span class="ident">to_ne_bytes</span>()
             }
         }
@@ -500,7 +500,7 @@
 <span class="kw">impl</span> <span class="ident">ToBytes</span> <span class="kw">for</span> <span class="ident">RawU18</span> {
     <span class="kw">type</span> <span class="ident">Bytes</span> <span class="op">=</span> [<span class="ident">u8</span>; <span class="number">3</span>];
 
-    <span class="kw">fn</span> <span class="ident">to_be_bytes</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident"><span class="self">Self</span>::Bytes</span> {
+    <span class="kw">fn</span> <span class="ident">to_be_bytes</span>(<span class="self">self</span>) -&gt; <span class="ident"><span class="self">Self</span>::Bytes</span> {
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">ret</span> <span class="op">=</span> [<span class="number">0</span>; <span class="number">3</span>];
 
         <span class="ident">ret</span>.<span class="ident">copy_from_slice</span>(<span class="kw-2">&amp;</span><span class="self">self</span>.<span class="number">0</span>.<span class="ident">to_be_bytes</span>()[<span class="number">1</span>..<span class="number">4</span>]);
@@ -508,7 +508,7 @@
         <span class="ident">ret</span>
     }
 
-    <span class="kw">fn</span> <span class="ident">to_le_bytes</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident"><span class="self">Self</span>::Bytes</span> {
+    <span class="kw">fn</span> <span class="ident">to_le_bytes</span>(<span class="self">self</span>) -&gt; <span class="ident"><span class="self">Self</span>::Bytes</span> {
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">ret</span> <span class="op">=</span> [<span class="number">0</span>; <span class="number">3</span>];
 
         <span class="ident">ret</span>.<span class="ident">copy_from_slice</span>(<span class="kw-2">&amp;</span><span class="self">self</span>.<span class="number">0</span>.<span class="ident">to_le_bytes</span>()[<span class="number">0</span>..<span class="number">3</span>]);
@@ -517,12 +517,12 @@
     }
 
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">target_endian</span> <span class="op">=</span> <span class="string">&quot;big&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">to_ne_bytes</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident"><span class="self">Self</span>::Bytes</span> {
+    <span class="kw">fn</span> <span class="ident">to_ne_bytes</span>(<span class="self">self</span>) -&gt; <span class="ident"><span class="self">Self</span>::Bytes</span> {
         <span class="self">self</span>.<span class="ident">to_be_bytes</span>()
     }
 
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">target_endian</span> <span class="op">=</span> <span class="string">&quot;little&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">to_ne_bytes</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident"><span class="self">Self</span>::Bytes</span> {
+    <span class="kw">fn</span> <span class="ident">to_ne_bytes</span>(<span class="self">self</span>) -&gt; <span class="ident"><span class="self">Self</span>::Bytes</span> {
         <span class="self">self</span>.<span class="ident">to_le_bytes</span>()
     }
 }
@@ -530,7 +530,7 @@
 <span class="kw">impl</span> <span class="ident">ToBytes</span> <span class="kw">for</span> <span class="ident">RawU24</span> {
     <span class="kw">type</span> <span class="ident">Bytes</span> <span class="op">=</span> [<span class="ident">u8</span>; <span class="number">3</span>];
 
-    <span class="kw">fn</span> <span class="ident">to_be_bytes</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident"><span class="self">Self</span>::Bytes</span> {
+    <span class="kw">fn</span> <span class="ident">to_be_bytes</span>(<span class="self">self</span>) -&gt; <span class="ident"><span class="self">Self</span>::Bytes</span> {
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">ret</span> <span class="op">=</span> [<span class="number">0</span>; <span class="number">3</span>];
 
         <span class="ident">ret</span>.<span class="ident">copy_from_slice</span>(<span class="kw-2">&amp;</span><span class="self">self</span>.<span class="number">0</span>.<span class="ident">to_be_bytes</span>()[<span class="number">1</span>..<span class="number">4</span>]);
@@ -538,7 +538,7 @@
         <span class="ident">ret</span>
     }
 
-    <span class="kw">fn</span> <span class="ident">to_le_bytes</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident"><span class="self">Self</span>::Bytes</span> {
+    <span class="kw">fn</span> <span class="ident">to_le_bytes</span>(<span class="self">self</span>) -&gt; <span class="ident"><span class="self">Self</span>::Bytes</span> {
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">ret</span> <span class="op">=</span> [<span class="number">0</span>; <span class="number">3</span>];
 
         <span class="ident">ret</span>.<span class="ident">copy_from_slice</span>(<span class="kw-2">&amp;</span><span class="self">self</span>.<span class="number">0</span>.<span class="ident">to_le_bytes</span>()[<span class="number">0</span>..<span class="number">3</span>]);
@@ -547,12 +547,12 @@
     }
 
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">target_endian</span> <span class="op">=</span> <span class="string">&quot;big&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">to_ne_bytes</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident"><span class="self">Self</span>::Bytes</span> {
+    <span class="kw">fn</span> <span class="ident">to_ne_bytes</span>(<span class="self">self</span>) -&gt; <span class="ident"><span class="self">Self</span>::Bytes</span> {
         <span class="self">self</span>.<span class="ident">to_be_bytes</span>()
     }
 
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">target_endian</span> <span class="op">=</span> <span class="string">&quot;little&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">to_ne_bytes</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident"><span class="self">Self</span>::Bytes</span> {
+    <span class="kw">fn</span> <span class="ident">to_ne_bytes</span>(<span class="self">self</span>) -&gt; <span class="ident"><span class="self">Self</span>::Bytes</span> {
         <span class="self">self</span>.<span class="ident">to_le_bytes</span>()
     }
 }
@@ -560,15 +560,15 @@
 <span class="kw">impl</span> <span class="ident">ToBytes</span> <span class="kw">for</span> () {
     <span class="kw">type</span> <span class="ident">Bytes</span> <span class="op">=</span> [<span class="ident">u8</span>; <span class="number">0</span>];
 
-    <span class="kw">fn</span> <span class="ident">to_be_bytes</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident"><span class="self">Self</span>::Bytes</span> {
+    <span class="kw">fn</span> <span class="ident">to_be_bytes</span>(<span class="self">self</span>) -&gt; <span class="ident"><span class="self">Self</span>::Bytes</span> {
         []
     }
 
-    <span class="kw">fn</span> <span class="ident">to_le_bytes</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident"><span class="self">Self</span>::Bytes</span> {
+    <span class="kw">fn</span> <span class="ident">to_le_bytes</span>(<span class="self">self</span>) -&gt; <span class="ident"><span class="self">Self</span>::Bytes</span> {
         []
     }
 
-    <span class="kw">fn</span> <span class="ident">to_ne_bytes</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident"><span class="self">Self</span>::Bytes</span> {
+    <span class="kw">fn</span> <span class="ident">to_ne_bytes</span>(<span class="self">self</span>) -&gt; <span class="ident"><span class="self">Self</span>::Bytes</span> {
         []
     }
 }
@@ -579,15 +579,15 @@
 {
     <span class="kw">type</span> <span class="ident">Bytes</span> <span class="op">=</span> <span class="op">&lt;</span><span class="op">&lt;</span><span class="ident">C</span> <span class="kw">as</span> <span class="ident">PixelColor</span><span class="op">&gt;</span><span class="ident">::Raw</span> <span class="kw">as</span> <span class="ident">ToBytes</span><span class="op">&gt;</span><span class="ident">::Bytes</span>;
 
-    <span class="kw">fn</span> <span class="ident">to_le_bytes</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident"><span class="self">Self</span>::Bytes</span> {
+    <span class="kw">fn</span> <span class="ident">to_le_bytes</span>(<span class="self">self</span>) -&gt; <span class="ident"><span class="self">Self</span>::Bytes</span> {
         <span class="self">self</span>.<span class="ident">into</span>().<span class="ident">to_le_bytes</span>()
     }
 
-    <span class="kw">fn</span> <span class="ident">to_be_bytes</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident"><span class="self">Self</span>::Bytes</span> {
+    <span class="kw">fn</span> <span class="ident">to_be_bytes</span>(<span class="self">self</span>) -&gt; <span class="ident"><span class="self">Self</span>::Bytes</span> {
         <span class="self">self</span>.<span class="ident">into</span>().<span class="ident">to_be_bytes</span>()
     }
 
-    <span class="kw">fn</span> <span class="ident">to_ne_bytes</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident"><span class="self">Self</span>::Bytes</span> {
+    <span class="kw">fn</span> <span class="ident">to_ne_bytes</span>(<span class="self">self</span>) -&gt; <span class="ident"><span class="self">Self</span>::Bytes</span> {
         <span class="self">self</span>.<span class="ident">into</span>().<span class="ident">to_ne_bytes</span>()
     }
 }

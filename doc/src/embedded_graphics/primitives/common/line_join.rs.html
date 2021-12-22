@@ -404,7 +404,7 @@
     <span class="doccomment">/// Create a starting join.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// `first_edge_end` and `second_edge_start` are set to the same points.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">start</span>(<span class="ident">start</span>: <span class="ident">Point</span>, <span class="ident">mid</span>: <span class="ident">Point</span>, <span class="ident">width</span>: <span class="ident">u32</span>, <span class="ident">stroke_offset</span>: <span class="ident">StrokeOffset</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">start</span>(<span class="ident">start</span>: <span class="ident">Point</span>, <span class="ident">mid</span>: <span class="ident">Point</span>, <span class="ident">width</span>: <span class="ident">u32</span>, <span class="ident">stroke_offset</span>: <span class="ident">StrokeOffset</span>) -&gt; <span class="self">Self</span> {
         <span class="kw">let</span> <span class="ident">line</span> <span class="op">=</span> <span class="ident">Line::new</span>(<span class="ident">start</span>, <span class="ident">mid</span>);
 
         <span class="kw">let</span> (<span class="ident">l</span>, <span class="ident">r</span>) <span class="op">=</span> <span class="ident">line</span>.<span class="ident">extents</span>(<span class="ident">width</span>, <span class="ident">stroke_offset</span>);
@@ -424,7 +424,7 @@
     <span class="doccomment">/// Create an ending join.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// `first_edge_end` and `second_edge_start` are set to the same points.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">end</span>(<span class="ident">mid</span>: <span class="ident">Point</span>, <span class="ident">end</span>: <span class="ident">Point</span>, <span class="ident">width</span>: <span class="ident">u32</span>, <span class="ident">stroke_offset</span>: <span class="ident">StrokeOffset</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">end</span>(<span class="ident">mid</span>: <span class="ident">Point</span>, <span class="ident">end</span>: <span class="ident">Point</span>, <span class="ident">width</span>: <span class="ident">u32</span>, <span class="ident">stroke_offset</span>: <span class="ident">StrokeOffset</span>) -&gt; <span class="self">Self</span> {
         <span class="kw">let</span> <span class="ident">line</span> <span class="op">=</span> <span class="ident">Line::new</span>(<span class="ident">mid</span>, <span class="ident">end</span>);
 
         <span class="kw">let</span> (<span class="ident">l</span>, <span class="ident">r</span>) <span class="op">=</span> <span class="ident">line</span>.<span class="ident">extents</span>(<span class="ident">width</span>, <span class="ident">stroke_offset</span>);
@@ -442,7 +442,7 @@
     }
 
     <span class="doccomment">/// Empty join</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">empty</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">empty</span>() -&gt; <span class="self">Self</span> {
         <span class="self">Self</span> {
             <span class="ident">kind</span>: <span class="ident">JoinKind::End</span>,
             <span class="ident">first_edge_end</span>: <span class="ident">EdgeCorners</span> {
@@ -463,7 +463,7 @@
         <span class="ident">end</span>: <span class="ident">Point</span>,
         <span class="ident">width</span>: <span class="ident">u32</span>,
         <span class="ident">stroke_offset</span>: <span class="ident">StrokeOffset</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    ) -&gt; <span class="self">Self</span> {
         <span class="kw">let</span> <span class="ident">first_line</span> <span class="op">=</span> <span class="ident">Line::new</span>(<span class="ident">start</span>, <span class="ident">mid</span>);
         <span class="kw">let</span> <span class="ident">second_line</span> <span class="op">=</span> <span class="ident">Line::new</span>(<span class="ident">mid</span>, <span class="ident">end</span>);
 
@@ -480,9 +480,9 @@
         ) {
             <span class="comment">// Check if the inside end point of the second line lies inside the first segment.</span>
             <span class="kw">let</span> <span class="ident">self_intersection</span> <span class="op">=</span> <span class="kw">match</span> <span class="ident">outer_side</span> {
-                <span class="ident">LineSide::Right</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">LinearEquation::from_line</span>(<span class="kw-2">&amp;</span><span class="ident">first_edge_left</span>)
+                <span class="ident">LineSide::Right</span> =&gt; <span class="ident">LinearEquation::from_line</span>(<span class="kw-2">&amp;</span><span class="ident">first_edge_left</span>)
                     .<span class="ident">check_side</span>(<span class="ident">second_edge_left</span>.<span class="ident">end</span>, <span class="ident">LineSide::Right</span>),
-                <span class="ident">LineSide::Left</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">LinearEquation::from_line</span>(<span class="kw-2">&amp;</span><span class="ident">first_edge_right</span>)
+                <span class="ident">LineSide::Left</span> =&gt; <span class="ident">LinearEquation::from_line</span>(<span class="kw-2">&amp;</span><span class="ident">first_edge_right</span>)
                     .<span class="ident">check_side</span>(<span class="ident">second_edge_right</span>.<span class="ident">end</span>, <span class="ident">LineSide::Left</span>),
             };
 
@@ -492,8 +492,8 @@
                 <span class="kw">let</span> <span class="ident">miter_length_squared</span> <span class="op">=</span> <span class="ident">Line::new</span>(
                     <span class="ident">mid</span>,
                     <span class="kw">match</span> <span class="ident">outer_side</span> {
-                        <span class="ident">LineSide::Left</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">l_intersection</span>,
-                        <span class="ident">LineSide::Right</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">r_intersection</span>,
+                        <span class="ident">LineSide::Left</span> =&gt; <span class="ident">l_intersection</span>,
+                        <span class="ident">LineSide::Right</span> =&gt; <span class="ident">r_intersection</span>,
                     },
                 )
                 .<span class="ident">delta</span>()
@@ -519,7 +519,7 @@
                 <span class="comment">// Miter is too long, chop it into bevel-style corner</span>
                 <span class="kw">else</span> {
                     <span class="kw">match</span> <span class="ident">outer_side</span> {
-                        <span class="ident">LineSide::Right</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span> {
+                        <span class="ident">LineSide::Right</span> =&gt; <span class="self">Self</span> {
                             <span class="ident">kind</span>: <span class="ident">JoinKind::Bevel</span> { <span class="ident">outer_side</span> },
                             <span class="ident">first_edge_end</span>: <span class="ident">EdgeCorners</span> {
                                 <span class="ident">left</span>: <span class="ident">l_intersection</span>,
@@ -530,7 +530,7 @@
                                 <span class="ident">right</span>: <span class="ident">second_edge_right</span>.<span class="ident">start</span>,
                             },
                         },
-                        <span class="ident">LineSide::Left</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">Self</span> {
+                        <span class="ident">LineSide::Left</span> =&gt; <span class="self">Self</span> {
                             <span class="ident">kind</span>: <span class="ident">JoinKind::Bevel</span> { <span class="ident">outer_side</span> },
                             <span class="ident">first_edge_end</span>: <span class="ident">EdgeCorners</span> {
                                 <span class="ident">left</span>: <span class="ident">first_edge_left</span>.<span class="ident">end</span>,
@@ -548,8 +548,8 @@
             <span class="kw">else</span> {
                 <span class="self">Self</span> {
                     <span class="ident">kind</span>: <span class="kw">match</span> <span class="ident">outer_side</span> {
-                        <span class="ident">LineSide::Left</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">JoinKind::Degenerate</span> { <span class="ident">outer_side</span> },
-                        <span class="ident">LineSide::Right</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">JoinKind::Degenerate</span> { <span class="ident">outer_side</span> },
+                        <span class="ident">LineSide::Left</span> =&gt; <span class="ident">JoinKind::Degenerate</span> { <span class="ident">outer_side</span> },
+                        <span class="ident">LineSide::Right</span> =&gt; <span class="ident">JoinKind::Degenerate</span> { <span class="ident">outer_side</span> },
                     },
                     <span class="ident">first_edge_end</span>: <span class="ident">EdgeCorners</span> {
                         <span class="ident">left</span>: <span class="ident">first_edge_left</span>.<span class="ident">end</span>,
@@ -579,25 +579,25 @@
     }
 
     <span class="doccomment">/// The filler line (if any) for bevel and degenerate joints.</span>
-    <span class="kw">fn</span> <span class="ident">filler_line</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Line</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">filler_line</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Line</span><span class="op">&gt;</span> {
         <span class="kw">match</span> <span class="self">self</span>.<span class="ident">kind</span> {
-            <span class="ident">JoinKind::Bevel</span> { <span class="ident">outer_side</span>, .. } <span class="op">|</span> <span class="ident">JoinKind::Degenerate</span> { <span class="ident">outer_side</span>, .. } <span class="op">=</span><span class="op">&gt;</span> {
+            <span class="ident">JoinKind::Bevel</span> { <span class="ident">outer_side</span>, .. } <span class="op">|</span> <span class="ident">JoinKind::Degenerate</span> { <span class="ident">outer_side</span>, .. } =&gt; {
                 <span class="kw">let</span> <span class="ident">line</span> <span class="op">=</span> <span class="kw">match</span> <span class="ident">outer_side</span> {
-                    <span class="ident">LineSide::Left</span> <span class="op">=</span><span class="op">&gt;</span> {
+                    <span class="ident">LineSide::Left</span> =&gt; {
                         <span class="ident">Line::new</span>(<span class="self">self</span>.<span class="ident">first_edge_end</span>.<span class="ident">left</span>, <span class="self">self</span>.<span class="ident">second_edge_start</span>.<span class="ident">left</span>)
                     }
-                    <span class="ident">LineSide::Right</span> <span class="op">=</span><span class="op">&gt;</span> {
+                    <span class="ident">LineSide::Right</span> =&gt; {
                         <span class="ident">Line::new</span>(<span class="self">self</span>.<span class="ident">first_edge_end</span>.<span class="ident">right</span>, <span class="self">self</span>.<span class="ident">second_edge_start</span>.<span class="ident">right</span>)
                     }
                 };
 
                 <span class="prelude-val">Some</span>(<span class="ident">line</span>)
             }
-            <span class="kw">_</span> <span class="op">=</span><span class="op">&gt;</span> <span class="prelude-val">None</span>,
+            <span class="kw">_</span> =&gt; <span class="prelude-val">None</span>,
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">cap</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">cap</span>: <span class="kw-2">&amp;</span><span class="ident">EdgeCorners</span>) <span class="op">-</span><span class="op">&gt;</span> (<span class="ident">Line</span>, <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Line</span><span class="op">&gt;</span>) {
+    <span class="kw">fn</span> <span class="ident">cap</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">cap</span>: <span class="kw-2">&amp;</span><span class="ident">EdgeCorners</span>) -&gt; (<span class="ident">Line</span>, <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Line</span><span class="op">&gt;</span>) {
         <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">filler</span>) <span class="op">=</span> <span class="self">self</span>.<span class="ident">filler_line</span>() {
             <span class="kw">let</span> <span class="ident">midpoint</span> <span class="op">=</span> <span class="ident">filler</span>.<span class="ident">midpoint</span>();
 
@@ -613,19 +613,19 @@
     <span class="doccomment">/// Start node bevel line(s).</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// If the join is a bevel join, this will return two lines, otherwise one.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">start_cap_lines</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> (<span class="ident">Line</span>, <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Line</span><span class="op">&gt;</span>) {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">start_cap_lines</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; (<span class="ident">Line</span>, <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Line</span><span class="op">&gt;</span>) {
         <span class="self">self</span>.<span class="ident">cap</span>(<span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">second_edge_start</span>)
     }
 
     <span class="doccomment">/// End node bevel line(s).</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// If the join is a bevel join, this will return two lines, otherwise one.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">end_cap_lines</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> (<span class="ident">Line</span>, <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Line</span><span class="op">&gt;</span>) {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">end_cap_lines</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; (<span class="ident">Line</span>, <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Line</span><span class="op">&gt;</span>) {
         <span class="self">self</span>.<span class="ident">cap</span>(<span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">first_edge_end</span>)
     }
 
     <span class="doccomment">/// Whether the join is degenerate (segments self-intersect) or not.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">is_degenerate</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">is_degenerate</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">bool</span> {
         <span class="comment">// MSRV: Use matches!() macro when we&#39;re at 1.42.0 or greater.</span>
         <span class="kw">if</span> <span class="kw">let</span> <span class="ident">JoinKind::Degenerate</span> { .. } <span class="op">=</span> <span class="self">self</span>.<span class="ident">kind</span> {
             <span class="bool-val">true</span>
@@ -640,7 +640,7 @@
     <span class="ident">first_edge_right</span>: <span class="kw-2">&amp;</span><span class="ident">Line</span>,
     <span class="ident">second_edge_left</span>: <span class="kw-2">&amp;</span><span class="ident">Line</span>,
     <span class="ident">second_edge_right</span>: <span class="kw-2">&amp;</span><span class="ident">Line</span>,
-) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span>(<span class="ident">Point</span>, <span class="ident">LineSide</span>, <span class="ident">Point</span>)<span class="op">&gt;</span> {
+) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span>(<span class="ident">Point</span>, <span class="ident">LineSide</span>, <span class="ident">Point</span>)<span class="op">&gt;</span> {
     <span class="kw">let</span> <span class="ident">params</span> <span class="op">=</span> <span class="ident">IntersectionParams::from_lines</span>(<span class="ident">second_edge_left</span>, <span class="ident">first_edge_left</span>);
 
     <span class="kw">let</span> (<span class="ident">l_intersection</span>, <span class="ident">outer_side</span>) <span class="op">=</span> <span class="kw">if</span> <span class="kw">let</span> <span class="ident">Intersection::Point</span> {

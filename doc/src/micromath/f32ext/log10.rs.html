@@ -77,7 +77,7 @@
 </pre><pre class="rust"><code><span class="doccomment">/// log base 2 approximation for f32</span>
 <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::ln</span>;
 <span class="kw">use</span> <span class="ident">core::f32</span>;
-<span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">log10_ln_approx</span>(<span class="ident">x</span>: <span class="ident">f32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span> {
+<span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">log10_ln_approx</span>(<span class="ident">x</span>: <span class="ident">f32</span>) -&gt; <span class="ident">f32</span> {
     <span class="comment">//using change of base log10(x) = ln(x)/ln(10)</span>
     <span class="kw">let</span> <span class="ident">ln10_recip</span> <span class="op">=</span> <span class="ident">f32::consts::LOG10_E</span>;
     <span class="kw">let</span> <span class="ident">fract_base_ln</span> <span class="op">=</span> <span class="ident">ln10_recip</span>;

@@ -121,7 +121,7 @@
 <span class="doccomment">/// Grayscale color.</span>
 <span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">GrayColor</span>: <span class="ident">PixelColor</span> {
     <span class="doccomment">/// Returns the luma channel value.</span>
-    <span class="kw">fn</span> <span class="ident">luma</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">u8</span>;
+    <span class="kw">fn</span> <span class="ident">luma</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">u8</span>;
 
     <span class="doccomment">/// Black color (0% luma).</span>
     <span class="kw">const</span> <span class="ident">BLACK</span>: <span class="self">Self</span>;
@@ -131,7 +131,7 @@
 }
 
 <span class="macro">macro_rules!</span> <span class="ident">gray_color</span> {
-    (<span class="macro-nonterminal">$</span><span class="kw">type</span>:<span class="macro-nonterminal">ident</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">raw_type</span>:<span class="ident">ident</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">bpp_str</span>:<span class="ident">expr</span>) <span class="op">=</span><span class="op">&gt;</span> {
+    (<span class="macro-nonterminal">$</span><span class="kw">type</span>:<span class="macro-nonterminal">ident</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">raw_type</span>:<span class="ident">ident</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">bpp_str</span>:<span class="ident">expr</span>) =&gt; {
         <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">bpp_str</span>]</span>
         <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;grayscale color.&quot;</span>]</span>
         <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Copy</span>, <span class="ident">Clone</span>, <span class="ident">Eq</span>, <span class="ident">PartialEq</span>, <span class="ident">Ord</span>, <span class="ident">PartialOrd</span>, <span class="ident">Hash</span>, <span class="ident">Debug</span>, <span class="ident">Default</span>)]</span>
@@ -144,7 +144,7 @@
             <span class="doccomment">///</span>
             <span class="doccomment">/// Too large luma values are masked to the valid range by setting</span>
             <span class="doccomment">/// the upper bits to `0`.</span>
-            <span class="kw">pub</span> <span class="kw">const</span> <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">luma</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+            <span class="kw">pub</span> <span class="kw">const</span> <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">luma</span>: <span class="ident">u8</span>) -&gt; <span class="self">Self</span> {
                 <span class="self">Self</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">raw_type::new</span>(<span class="ident">luma</span>))
             }
         }
@@ -154,7 +154,7 @@
         }
 
         <span class="kw">impl</span> <span class="ident">GrayColor</span> <span class="kw">for</span> <span class="macro-nonterminal">$</span><span class="kw">type</span> {
-            <span class="kw">fn</span> <span class="macro-nonterminal">luma</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">u8</span> {
+            <span class="kw">fn</span> <span class="macro-nonterminal">luma</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">u8</span> {
                 <span class="self">self</span>.<span class="number">0</span>.<span class="ident">into_inner</span>()
             }
 
@@ -163,13 +163,13 @@
         }
 
         <span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">raw_type</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="macro-nonterminal">$</span><span class="kw">type</span> {
-            <span class="kw">fn</span> <span class="macro-nonterminal">from</span>(<span class="ident">data</span>: <span class="macro-nonterminal">$</span><span class="macro-nonterminal">raw_type</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+            <span class="kw">fn</span> <span class="macro-nonterminal">from</span>(<span class="ident">data</span>: <span class="macro-nonterminal">$</span><span class="macro-nonterminal">raw_type</span>) -&gt; <span class="self">Self</span> {
                 <span class="self">Self</span>(<span class="ident">data</span>)
             }
         }
 
         <span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="kw">type</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">raw_type</span> {
-            <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">color</span>: <span class="macro-nonterminal">$</span><span class="kw">type</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="macro-nonterminal">Self</span> {
+            <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">color</span>: <span class="macro-nonterminal">$</span><span class="kw">type</span>) -&gt; <span class="macro-nonterminal">Self</span> {
                 <span class="ident">color</span>.<span class="number">0</span>
             }
         }

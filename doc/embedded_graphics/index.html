@@ -23,7 +23,7 @@ consuming application to use far less RAM at little to no performance penalty.</
 <li><a href="./text/index.html">Text</a></li>
 <li><a href="./mono_font/index.html">Monospaced fonts</a></li>
 </ul>
-<h1 id="additional-functions-provided-by-external-crates" class="section-header"><a href="#additional-functions-provided-by-external-crates">Additional functions provided by external crates</a></h1>
+<h2 id="additional-functions-provided-by-external-crates" class="section-header"><a href="#additional-functions-provided-by-external-crates">Additional functions provided by external crates</a></h2>
 <p>Embedded-graphics is designed to be extended by the application or other crates. Examples of
 this are adding support for different image formats or implementing custom fonts.</p>
 <ul>
@@ -39,7 +39,7 @@ this are adding support for different image formats or implementing custom fonts
 <p>Note that some of these crates may not support the latest version of embedded-graphics.</p>
 <p>If you know of a crate that is not in this list, please <a href="https://github.com/embedded-graphics/embedded-graphics/issues/new">open an
 issue</a> to add it.</p>
-<h1 id="display-drivers" class="section-header"><a href="#display-drivers">Display drivers</a></h1>
+<h2 id="display-drivers" class="section-header"><a href="#display-drivers">Display drivers</a></h2>
 <p>To support many different kinds of display, embedded-graphics doesn’t include any drivers
 directly but provides the <a href="https://docs.rs/embedded-graphics-core/latest/embedded_graphics_core/draw_target/trait.DrawTarget.html"><code>DrawTarget</code></a> API in <a href="https://docs.rs/embedded-graphics-core/"><code>embedded-graphics-core</code></a> that can be
 implemented by external crates. In addition to the drivers for real displays, the
@@ -71,7 +71,7 @@ that should be added to this list.</p>
 <li><a href="https://crates.io/crates/st7789">st7789</a>: A Rust driver library for ST7789 displays</li>
 <li><a href="https://crates.io/crates/st7920">st7920</a>: ST7920 LCD driver in Rust</li>
 </ul>
-<h1 id="simulator" class="section-header"><a href="#simulator">Simulator</a></h1>
+<h2 id="simulator" class="section-header"><a href="#simulator">Simulator</a></h2>
 <p>Embedded graphics comes with a <a href="https://github.com/embedded-graphics/simulator">simulator</a>! The simulator can be used to test and debug
 embedded graphics code, or produce examples and interactive demos to show off embedded graphics
 features.</p>
@@ -82,7 +82,7 @@ this:</p>
 <div class="example-wrap"><pre class="language-bash"><code>git clone https://github.com/embedded-graphics/examples.git
 cd examples
 
-cargo run --example hello-world</code></pre></div><h1 id="crate-features" class="section-header"><a href="#crate-features">Crate features</a></h1>
+cargo run --example hello-world</code></pre></div><h2 id="crate-features" class="section-header"><a href="#crate-features">Crate features</a></h2>
 <p>Additional features can be enabled by adding the following features to your <code>Cargo.toml</code>.</p>
 <ul>
 <li>
@@ -94,19 +94,19 @@ support to enable conversions from <code>nalgebra::Vector2</code> to <a href="./
 calculation.</p>
 </li>
 </ul>
-<h1 id="migrating-from-older-versions" class="section-header"><a href="#migrating-from-older-versions">Migrating from older versions</a></h1>
+<h2 id="migrating-from-older-versions" class="section-header"><a href="#migrating-from-older-versions">Migrating from older versions</a></h2>
 <ul>
 <li><a href="https://github.com/embedded-graphics/embedded-graphics/blob/master/MIGRATING-0.5-0.6.md">Migration guide from 0.5 to 0.6</a>.</li>
 <li><a href="https://github.com/embedded-graphics/embedded-graphics/blob/master/MIGRATING-0.5-0.6.md">Migration guide from 0.6 to 0.7</a>.</li>
 </ul>
-<h1 id="implementing-embedded_graphics-support-for-a-display-driver" class="section-header"><a href="#implementing-embedded_graphics-support-for-a-display-driver">Implementing <code>embedded_graphics</code> support for a display driver</a></h1>
+<h2 id="implementing-embedded_graphics-support-for-a-display-driver" class="section-header"><a href="#implementing-embedded_graphics-support-for-a-display-driver">Implementing <code>embedded_graphics</code> support for a display driver</a></h2>
 <p>To add support for embedded-graphics to a display driver, <a href="https://docs.rs/embedded-graphics-core/latest/embedded_graphics_core/draw_target/trait.DrawTarget.html"><code>DrawTarget</code></a> from
 <a href="https://docs.rs/embedded-graphics-core/"><code>embedded-graphics-core</code></a> must be implemented. This allows all embedded-graphics items to be
 rendered by the display. See the <a href="https://docs.rs/embedded-graphics-core/latest/embedded_graphics_core/draw_target/trait.DrawTarget.html"><code>DrawTarget</code></a> documentation for implementation details.</p>
-<h1 id="examples" class="section-header"><a href="#examples">Examples</a></h1><h2 id="drawing-examples" class="section-header"><a href="#drawing-examples">Drawing examples</a></h2>
+<h2 id="examples" class="section-header"><a href="#examples">Examples</a></h2><h3 id="drawing-examples" class="section-header"><a href="#drawing-examples">Drawing examples</a></h3>
 <p><a href="./examples/index.html"><img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/4c680418cc4c37b8f7ed92d8b26edfde880d4c96/doc/assets/all_drawing_ops.png" alt="A grid of screenshots showing primitives, text and other items that can be drawn using embedded-graphics." /></a></p>
 <p>Example usage of drawing primitives, text and images with embedded-graphics can be found <a href="./examples/index.html">here</a>.</p>
-<h2 id="shapes-and-text" class="section-header"><a href="#shapes-and-text">Shapes and text</a></h2>
+<h3 id="shapes-and-text" class="section-header"><a href="#shapes-and-text">Shapes and text</a></h3>
 <p>The following example draws some shapes and text to a <a href="./mock_display/struct.MockDisplay.html"><code>MockDisplay</code></a> in place of target
 hardware. The <a href="https://docs.rs/embedded-graphics-simulator/">simulator</a> can also be used for
 debugging, development or if hardware is not available.</p>
@@ -122,7 +122,7 @@ debugging, development or if hardware is not available.</p>
     <span class="ident">mock_display::MockDisplay</span>,
 };
 
-<span class="kw">fn</span> <span class="ident">main</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">std::convert::Infallible</span><span class="op">&gt;</span> {
+<span class="kw">fn</span> <span class="ident">main</span>() -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">std::convert::Infallible</span><span class="op">&gt;</span> {
     <span class="comment">// Create a new mock display</span>
     <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span>: <span class="ident">MockDisplay</span><span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
 
@@ -181,22 +181,22 @@ can be run using <code>cargo run --example hello-world</code>. It produces this 
 <p><img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/4c680418cc4c37b8f7ed92d8b26edfde880d4c96/assets/hello-world-simulator.png" alt="Embedded Graphics Simulator example screenshot" /></p>
 <p>Additional examples can be found in the <a href="https://github.com/embedded-graphics/examples">examples</a> repository.</p>
 </div></details><h2 id="modules" class="section-header"><a href="#modules">Modules</a></h2>
-<div class="item-table"><div class="item-left module-item"><a class="mod" href="draw_target/index.html" title="embedded_graphics::draw_target mod">draw_target</a></div><div class="item-right docblock-short"><p>A target for embedded-graphics drawing operations.</p>
-</div><div class="item-left module-item"><a class="mod" href="examples/index.html" title="embedded_graphics::examples mod">examples</a></div><div class="item-right docblock-short"><p>Drawing examples</p>
-</div><div class="item-left module-item"><a class="mod" href="geometry/index.html" title="embedded_graphics::geometry mod">geometry</a></div><div class="item-right docblock-short"><p>Geometry module.</p>
-</div><div class="item-left module-item"><a class="mod" href="image/index.html" title="embedded_graphics::image mod">image</a></div><div class="item-right docblock-short"><p>Image support for embedded-graphics</p>
-</div><div class="item-left module-item"><a class="mod" href="iterator/index.html" title="embedded_graphics::iterator mod">iterator</a></div><div class="item-right docblock-short"><p>Iterators.</p>
-</div><div class="item-left module-item"><a class="mod" href="mock_display/index.html" title="embedded_graphics::mock_display mod">mock_display</a></div><div class="item-right docblock-short"><p>Mock display for use in tests.</p>
-</div><div class="item-left module-item"><a class="mod" href="mono_font/index.html" title="embedded_graphics::mono_font mod">mono_font</a></div><div class="item-right docblock-short"><p>Monospaced bitmap fonts.</p>
-</div><div class="item-left module-item"><a class="mod" href="pixelcolor/index.html" title="embedded_graphics::pixelcolor mod">pixelcolor</a></div><div class="item-right docblock-short"><p>Pixel color types.</p>
-</div><div class="item-left module-item"><a class="mod" href="prelude/index.html" title="embedded_graphics::prelude mod">prelude</a></div><div class="item-right docblock-short"><p>Prelude</p>
-</div><div class="item-left module-item"><a class="mod" href="primitives/index.html" title="embedded_graphics::primitives mod">primitives</a></div><div class="item-right docblock-short"><p>Graphics primitives</p>
-</div><div class="item-left module-item"><a class="mod" href="text/index.html" title="embedded_graphics::text mod">text</a></div><div class="item-right docblock-short"><p>Text drawing.</p>
-</div><div class="item-left module-item"><a class="mod" href="transform/index.html" title="embedded_graphics::transform mod">transform</a></div><div class="item-right docblock-short"><p>Transformations for graphics objects</p>
-</div></div><h2 id="structs" class="section-header"><a href="#structs">Structs</a></h2>
-<div class="item-table"><div class="item-left module-item"><a class="struct" href="struct.Pixel.html" title="embedded_graphics::Pixel struct">Pixel</a></div><div class="item-right docblock-short"><p>A single pixel.</p>
-</div></div><h2 id="traits" class="section-header"><a href="#traits">Traits</a></h2>
-<div class="item-table"><div class="item-left module-item"><a class="trait" href="trait.Drawable.html" title="embedded_graphics::Drawable trait">Drawable</a></div><div class="item-right docblock-short"><p>Marks an object as “drawable”. Must be implemented for all graphics objects</p>
-</div></div></section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../" data-current-crate="embedded_graphics" data-search-index-js="../search-index.js" data-search-js="../search.js"></div>
+<div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="mod" href="draw_target/index.html" title="embedded_graphics::draw_target mod">draw_target</a></div><div class="item-right docblock-short"><p>A target for embedded-graphics drawing operations.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="examples/index.html" title="embedded_graphics::examples mod">examples</a></div><div class="item-right docblock-short"><p>Drawing examples</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="geometry/index.html" title="embedded_graphics::geometry mod">geometry</a></div><div class="item-right docblock-short"><p>Geometry module.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="image/index.html" title="embedded_graphics::image mod">image</a></div><div class="item-right docblock-short"><p>Image support for embedded-graphics</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="iterator/index.html" title="embedded_graphics::iterator mod">iterator</a></div><div class="item-right docblock-short"><p>Iterators.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="mock_display/index.html" title="embedded_graphics::mock_display mod">mock_display</a></div><div class="item-right docblock-short"><p>Mock display for use in tests.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="mono_font/index.html" title="embedded_graphics::mono_font mod">mono_font</a></div><div class="item-right docblock-short"><p>Monospaced bitmap fonts.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="pixelcolor/index.html" title="embedded_graphics::pixelcolor mod">pixelcolor</a></div><div class="item-right docblock-short"><p>Pixel color types.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="prelude/index.html" title="embedded_graphics::prelude mod">prelude</a></div><div class="item-right docblock-short"><p>Prelude</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="primitives/index.html" title="embedded_graphics::primitives mod">primitives</a></div><div class="item-right docblock-short"><p>Graphics primitives</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="text/index.html" title="embedded_graphics::text mod">text</a></div><div class="item-right docblock-short"><p>Text drawing.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="transform/index.html" title="embedded_graphics::transform mod">transform</a></div><div class="item-right docblock-short"><p>Transformations for graphics objects</p>
+</div></div></div><h2 id="structs" class="section-header"><a href="#structs">Structs</a></h2>
+<div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.Pixel.html" title="embedded_graphics::Pixel struct">Pixel</a></div><div class="item-right docblock-short"><p>A single pixel.</p>
+</div></div></div><h2 id="traits" class="section-header"><a href="#traits">Traits</a></h2>
+<div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="trait" href="trait.Drawable.html" title="embedded_graphics::Drawable trait">Drawable</a></div><div class="item-right docblock-short"><p>Marks an object as “drawable”. Must be implemented for all graphics objects</p>
+</div></div></div></section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../" data-current-crate="embedded_graphics" data-search-index-js="../search-index.js" data-search-js="../search.js"></div>
     <script src="../main.js"></script>
 </body></html>

@@ -140,7 +140,7 @@
         <span class="ident">position</span>: <span class="ident">Point</span>,
         <span class="ident">baseline</span>: <span class="ident">Baseline</span>,
         <span class="ident">target</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">D</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">Point</span>, <span class="ident">D::Error</span><span class="op">&gt;</span>
+    ) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">Point</span>, <span class="ident">D::Error</span><span class="op">&gt;</span>
     <span class="kw">where</span>
         <span class="ident">D</span>: <span class="ident">DrawTarget</span><span class="op">&lt;</span><span class="ident">Color</span> <span class="op">=</span> <span class="ident"><span class="self">Self</span>::Color</span><span class="op">&gt;</span>;
 
@@ -154,7 +154,7 @@
         <span class="ident">position</span>: <span class="ident">Point</span>,
         <span class="ident">baseline</span>: <span class="ident">Baseline</span>,
         <span class="ident">target</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">D</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">Point</span>, <span class="ident">D::Error</span><span class="op">&gt;</span>
+    ) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">Point</span>, <span class="ident">D::Error</span><span class="op">&gt;</span>
     <span class="kw">where</span>
         <span class="ident">D</span>: <span class="ident">DrawTarget</span><span class="op">&lt;</span><span class="ident">Color</span> <span class="op">=</span> <span class="ident"><span class="self">Self</span>::Color</span><span class="op">&gt;</span>;
 
@@ -170,13 +170,13 @@
     <span class="doccomment">/// This method must not interpret any control characters and only render a single line of text.</span>
     <span class="doccomment">/// Any control character in the `text` should be handled the same way as any other character</span>
     <span class="doccomment">/// that isn&#39;t included in the font.</span>
-    <span class="kw">fn</span> <span class="ident">measure_string</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">text</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="ident">position</span>: <span class="ident">Point</span>, <span class="ident">baseline</span>: <span class="ident">Baseline</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">TextMetrics</span>;
+    <span class="kw">fn</span> <span class="ident">measure_string</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">text</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="ident">position</span>: <span class="ident">Point</span>, <span class="ident">baseline</span>: <span class="ident">Baseline</span>) -&gt; <span class="ident">TextMetrics</span>;
 
     <span class="doccomment">/// Returns the default line height.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// The line height is defined as the vertical distance between the baseline of two adjacent</span>
     <span class="doccomment">/// lines in pixels.</span>
-    <span class="kw">fn</span> <span class="ident">line_height</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">u32</span>;
+    <span class="kw">fn</span> <span class="ident">line_height</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">u32</span>;
 }
 
 <span class="doccomment">/// Text metrics.</span>

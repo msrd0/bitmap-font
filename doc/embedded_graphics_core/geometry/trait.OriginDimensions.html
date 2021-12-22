@@ -3,7 +3,7 @@
 }</code></pre></div><details class="rustdoc-toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><p>Dimensions with <code>top_left</code> of the bounding box at <code>(0, 0)</code>.</p>
 <p>A blanket implementation of <code>Dimensions</code> is provided for all types that implement this trait.
 See the <a href="trait.Dimensions.html" title="Dimensions"><code>Dimensions</code></a> trait documentation for more information about bounding boxes.</p>
-<h1 id="implementation-notes" class="section-header"><a href="#implementation-notes">Implementation notes</a></h1>
+<h2 id="implementation-notes" class="section-header"><a href="#implementation-notes">Implementation notes</a></h2>
 <p>This trait should be implemented instead of <a href="trait.Dimensions.html" title="Dimensions"><code>Dimensions</code></a> if the top left corner of the bounding box
 will always be at the origin, which will be the case for most display drivers. Some types, like <a href="../image/trait.ImageDrawable.html"><code>ImageDrawable</code></a>,
 require a bounding box that starts at the origin and can only be used if <a href="trait.OriginDimensions.html" title="OriginDimensions"><code>OriginDimensions</code></a> is implemented.</p>

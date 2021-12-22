@@ -414,7 +414,7 @@
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">R</span>, <span class="ident">BO</span><span class="op">&gt;</span> <span class="ident">RawDataSlice</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">R</span>, <span class="ident">BO</span><span class="op">&gt;</span> {
     <span class="doccomment">/// Creates a new raw data slice.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">data</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> [<span class="ident">u8</span>]) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">data</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> [<span class="ident">u8</span>]) -&gt; <span class="self">Self</span> {
         <span class="self">Self</span> {
             <span class="ident">data</span>,
             <span class="ident">raw_type</span>: <span class="ident">PhantomData</span>,
@@ -424,12 +424,12 @@
 }
 
 <span class="macro">macro_rules!</span> <span class="ident">impl_bits_iterator</span> {
-    (<span class="macro-nonterminal">$</span><span class="kw">type</span>:<span class="macro-nonterminal">ident</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">bit_index_bits</span>:<span class="ident">expr</span>) <span class="op">=</span><span class="op">&gt;</span> {
+    (<span class="macro-nonterminal">$</span><span class="kw">type</span>:<span class="macro-nonterminal">ident</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">bit_index_bits</span>:<span class="ident">expr</span>) =&gt; {
         <span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">BO</span><span class="op">&gt;</span> <span class="ident">IntoIterator</span> <span class="kw">for</span> <span class="ident">RawDataSlice</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="macro-nonterminal">$</span><span class="kw">type</span>, <span class="macro-nonterminal">BO</span><span class="op">&gt;</span> {
             <span class="kw">type</span> <span class="ident">Item</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="kw">type</span>;
             <span class="kw">type</span> <span class="macro-nonterminal">IntoIter</span> <span class="op">=</span> <span class="ident">BitsIterator</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="macro-nonterminal">$</span><span class="kw">type</span><span class="op">&gt;</span>;
 
-            <span class="kw">fn</span> <span class="macro-nonterminal">into_iter</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident"><span class="self">Self</span>::IntoIter</span> {
+            <span class="kw">fn</span> <span class="macro-nonterminal">into_iter</span>(<span class="self">self</span>) -&gt; <span class="ident"><span class="self">Self</span>::IntoIter</span> {
                 <span class="ident">BitsIterator::new</span>(<span class="self">self</span>.<span class="ident">data</span>)
             }
         }
@@ -438,7 +438,7 @@
             <span class="kw">type</span> <span class="macro-nonterminal">Item</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="kw">type</span>;
 
             <span class="attribute">#[<span class="macro-nonterminal">inline</span>]</span>
-            <span class="kw">fn</span> <span class="ident">next</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Item</span><span class="op">&gt;</span> {
+            <span class="kw">fn</span> <span class="ident">next</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Item</span><span class="op">&gt;</span> {
                 <span class="self">self</span>.<span class="ident">data</span>.<span class="ident">get</span>(<span class="self">self</span>.<span class="ident">index</span> <span class="op">&gt;</span><span class="op">&gt;</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">bit_index_bits</span>).<span class="ident">map</span>(<span class="op">|</span><span class="ident">byte</span><span class="op">|</span> {
                     <span class="comment">// Number of bits the value needs to be shifted to the right for the first pixel.</span>
                     <span class="kw">let</span> <span class="ident">first_pixel_shift</span> <span class="op">=</span> <span class="number">8</span> <span class="op">-</span> <span class="macro-nonterminal">$</span><span class="kw">type</span><span class="macro-nonterminal">::BITS_PER_PIXEL</span>;
@@ -456,12 +456,12 @@
             }
 
             <span class="attribute">#[<span class="ident">inline</span>]</span>
-            <span class="kw">fn</span> <span class="ident">nth</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">n</span>: <span class="ident">usize</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Item</span><span class="op">&gt;</span> {
+            <span class="kw">fn</span> <span class="ident">nth</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">n</span>: <span class="ident">usize</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Item</span><span class="op">&gt;</span> {
                 <span class="self">self</span>.<span class="ident">index</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">index</span>.<span class="ident">saturating_add</span>(<span class="ident">n</span>);
                 <span class="self">self</span>.<span class="ident">next</span>()
             }
 
-            <span class="kw">fn</span> <span class="ident">size_hint</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> (<span class="ident">usize</span>, <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">usize</span><span class="op">&gt;</span>) {
+            <span class="kw">fn</span> <span class="ident">size_hint</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; (<span class="ident">usize</span>, <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">usize</span><span class="op">&gt;</span>) {
                 <span class="kw">let</span> <span class="ident">size</span> <span class="op">=</span>
                     (<span class="self">self</span>.<span class="ident">data</span>.<span class="ident">len</span>() <span class="op">*</span> (<span class="number">8</span> <span class="op">/</span> <span class="macro-nonterminal">$</span><span class="kw">type</span><span class="macro-nonterminal">::BITS_PER_PIXEL</span>)).<span class="ident">saturating_sub</span>(<span class="self">self</span>.<span class="ident">index</span>);
 
@@ -479,7 +479,7 @@
     <span class="kw">type</span> <span class="ident">Item</span> <span class="op">=</span> <span class="ident">RawU8</span>;
     <span class="kw">type</span> <span class="ident">IntoIter</span> <span class="op">=</span> <span class="ident">ByteIterator</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span>;
 
-    <span class="kw">fn</span> <span class="ident">into_iter</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident"><span class="self">Self</span>::IntoIter</span> {
+    <span class="kw">fn</span> <span class="ident">into_iter</span>(<span class="self">self</span>) -&gt; <span class="ident"><span class="self">Self</span>::IntoIter</span> {
         <span class="ident">ByteIterator::new</span>(<span class="self">self</span>.<span class="ident">data</span>)
     }
 }
@@ -497,7 +497,7 @@
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">R</span>: <span class="ident">RawData</span><span class="op">&gt;</span> <span class="ident">BitsIterator</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">R</span><span class="op">&gt;</span> {
-    <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">data</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> [<span class="ident">u8</span>]) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">data</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> [<span class="ident">u8</span>]) -&gt; <span class="self">Self</span> {
         <span class="self">Self</span> {
             <span class="ident">data</span>,
             <span class="ident">index</span>: <span class="number">0</span>,
@@ -517,7 +517,7 @@
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="ident">ByteIterator</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
-    <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">data</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> [<span class="ident">u8</span>]) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">data</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> [<span class="ident">u8</span>]) -&gt; <span class="self">Self</span> {
         <span class="self">Self</span> { <span class="ident">data</span>: <span class="ident">data</span>.<span class="ident">iter</span>() }
     }
 }
@@ -526,16 +526,16 @@
     <span class="kw">type</span> <span class="ident">Item</span> <span class="op">=</span> <span class="ident">RawU8</span>;
 
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">fn</span> <span class="ident">next</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Item</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">next</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Item</span><span class="op">&gt;</span> {
         <span class="self">self</span>.<span class="ident">data</span>.<span class="ident">next</span>().<span class="ident">copied</span>().<span class="ident">map</span>(<span class="ident">RawU8::new</span>)
     }
 
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">fn</span> <span class="ident">nth</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">n</span>: <span class="ident">usize</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Item</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">nth</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">n</span>: <span class="ident">usize</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Item</span><span class="op">&gt;</span> {
         <span class="self">self</span>.<span class="ident">data</span>.<span class="ident">nth</span>(<span class="ident">n</span>).<span class="ident">copied</span>().<span class="ident">map</span>(<span class="ident">RawU8::new</span>)
     }
 
-    <span class="kw">fn</span> <span class="ident">size_hint</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> (<span class="ident">usize</span>, <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">usize</span><span class="op">&gt;</span>) {
+    <span class="kw">fn</span> <span class="ident">size_hint</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; (<span class="ident">usize</span>, <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">usize</span><span class="op">&gt;</span>) {
         <span class="self">self</span>.<span class="ident">data</span>.<span class="ident">size_hint</span>()
     }
 }
@@ -554,7 +554,7 @@
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">R</span>: <span class="ident">RawData</span>, <span class="ident">BO</span><span class="op">&gt;</span> <span class="ident">BytesIterator</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">R</span>, <span class="ident">BO</span><span class="op">&gt;</span> {
-    <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">data</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> [<span class="ident">u8</span>]) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">data</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> [<span class="ident">u8</span>]) -&gt; <span class="self">Self</span> {
         <span class="self">Self</span> {
             <span class="ident">data</span>: <span class="ident">data</span>.<span class="ident">chunks_exact</span>(<span class="ident">R::BITS_PER_PIXEL</span> <span class="op">/</span> <span class="number">8</span>),
             <span class="ident">raw_type</span>: <span class="ident">PhantomData</span>,
@@ -564,21 +564,21 @@
 }
 
 <span class="macro">macro_rules!</span> <span class="ident">impl_bytes_iterator</span> {
-    (<span class="macro-nonterminal">$</span><span class="kw">type</span>:<span class="macro-nonterminal">ident</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">byte_order</span>:<span class="ident">ident</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">read_function</span>:<span class="ident">path</span>) <span class="op">=</span><span class="op">&gt;</span> {
+    (<span class="macro-nonterminal">$</span><span class="kw">type</span>:<span class="macro-nonterminal">ident</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">byte_order</span>:<span class="ident">ident</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">read_function</span>:<span class="ident">path</span>) =&gt; {
         <span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="ident">Iterator</span> <span class="kw">for</span> <span class="ident">BytesIterator</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="macro-nonterminal">$</span><span class="kw">type</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">byte_order</span><span class="op">&gt;</span> {
             <span class="kw">type</span> <span class="ident">Item</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="kw">type</span>;
 
             <span class="attribute">#[<span class="macro-nonterminal">inline</span>]</span>
-            <span class="kw">fn</span> <span class="ident">next</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Item</span><span class="op">&gt;</span> {
+            <span class="kw">fn</span> <span class="ident">next</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Item</span><span class="op">&gt;</span> {
                 <span class="self">self</span>.<span class="ident">data</span>.<span class="ident">next</span>().<span class="ident">map</span>(<span class="op">|</span><span class="ident">raw</span><span class="op">|</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">read_function</span>(<span class="ident">raw</span>).<span class="ident">into</span>())
             }
 
             <span class="attribute">#[<span class="ident">inline</span>]</span>
-            <span class="kw">fn</span> <span class="ident">nth</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">n</span>: <span class="ident">usize</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Item</span><span class="op">&gt;</span> {
+            <span class="kw">fn</span> <span class="ident">nth</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">n</span>: <span class="ident">usize</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Item</span><span class="op">&gt;</span> {
                 <span class="self">self</span>.<span class="ident">data</span>.<span class="ident">nth</span>(<span class="ident">n</span>).<span class="ident">map</span>(<span class="op">|</span><span class="ident">raw</span><span class="op">|</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">read_function</span>(<span class="ident">raw</span>).<span class="ident">into</span>())
             }
 
-            <span class="kw">fn</span> <span class="ident">size_hint</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> (<span class="ident">usize</span>, <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">usize</span><span class="op">&gt;</span>) {
+            <span class="kw">fn</span> <span class="ident">size_hint</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; (<span class="ident">usize</span>, <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">usize</span><span class="op">&gt;</span>) {
                 <span class="self">self</span>.<span class="ident">data</span>.<span class="ident">size_hint</span>()
             }
         }
@@ -587,13 +587,13 @@
             <span class="kw">type</span> <span class="ident">Item</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="kw">type</span>;
             <span class="kw">type</span> <span class="macro-nonterminal">IntoIter</span> <span class="op">=</span> <span class="ident">BytesIterator</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="macro-nonterminal">$</span><span class="kw">type</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">byte_order</span><span class="op">&gt;</span>;
 
-            <span class="kw">fn</span> <span class="ident">into_iter</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident"><span class="self">Self</span>::IntoIter</span> {
+            <span class="kw">fn</span> <span class="ident">into_iter</span>(<span class="self">self</span>) -&gt; <span class="ident"><span class="self">Self</span>::IntoIter</span> {
                 <span class="ident">BytesIterator::new</span>(<span class="self">self</span>.<span class="ident">data</span>)
             }
         }
     };
 
-    (<span class="macro-nonterminal">$</span><span class="kw">type</span>:<span class="macro-nonterminal">ident</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">read_function</span>:<span class="ident">ident</span>) <span class="op">=</span><span class="op">&gt;</span> {
+    (<span class="macro-nonterminal">$</span><span class="kw">type</span>:<span class="macro-nonterminal">ident</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">read_function</span>:<span class="ident">ident</span>) =&gt; {
         <span class="macro">impl_bytes_iterator!</span>(<span class="macro-nonterminal">$</span><span class="kw">type</span>, <span class="macro-nonterminal">LittleEndian</span>, <span class="ident">LE</span>::<span class="macro-nonterminal">$</span><span class="macro-nonterminal">read_function</span>);
         <span class="macro">impl_bytes_iterator!</span>(<span class="macro-nonterminal">$</span><span class="kw">type</span>, <span class="macro-nonterminal">BigEndian</span>, <span class="ident">BE</span>::<span class="macro-nonterminal">$</span><span class="macro-nonterminal">read_function</span>);
     };

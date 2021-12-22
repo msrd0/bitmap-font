@@ -4,7 +4,7 @@ information. Colors that implement the <a href="../trait.PixelColor.html"><code>
 associated <a href="../trait.PixelColor.html#associatedtype.Raw"><code>Raw</code></a> type to define their raw data representation.</p>
 <p>Specifying a <a href="../trait.PixelColor.html#associatedtype.Raw"><code>Raw</code></a> type for a <a href="../trait.PixelColor.html"><code>PixelColor</code></a> is required to use that color
 with the <a href="https://docs.rs/embedded-graphics/latest/embedded_graphics/image/struct.Image.html"><code>Image</code></a> struct.</p>
-<h1 id="converting-colors-to-raw-data" class="section-header"><a href="#converting-colors-to-raw-data">Converting colors to raw data</a></h1>
+<h2 id="converting-colors-to-raw-data" class="section-header"><a href="#converting-colors-to-raw-data">Converting colors to raw data</a></h2>
 <p>Colors can be converted into raw data by using two different methods. The <a href="../trait.IntoStorage.html#tymethod.into_storage"><code>into_storage</code></a>
 method is used to convert a color into a single integer value. To convert a color into a byte
 array the methods provided by the <a href="trait.ToBytes.html"><code>ToBytes</code></a> trait can be used. By using <a href="trait.ToBytes.html#tymethod.to_be_bytes"><code>to_be_bytes</code></a> the
@@ -17,7 +17,7 @@ color components will have the same order in memory as in the name of the type.<
 <span class="macro">assert_eq!</span>(<span class="ident">color</span>.<span class="ident">into_storage</span>(), <span class="number">0x00112233</span>);
 
 <span class="macro">assert_eq!</span>(<span class="ident">color</span>.<span class="ident">to_be_bytes</span>(), [<span class="number">0x11</span>, <span class="number">0x22</span>, <span class="number">0x33</span>]);</code></pre></div>
-<h1 id="implementing-pixelcolor-with-raw-support" class="section-header"><a href="#implementing-pixelcolor-with-raw-support">Implementing PixelColor with Raw support</a></h1>
+<h2 id="implementing-pixelcolor-with-raw-support" class="section-header"><a href="#implementing-pixelcolor-with-raw-support">Implementing PixelColor with Raw support</a></h2>
 <p>This example shows how to implement a new <a href="../trait.PixelColor.html"><code>PixelColor</code></a> that can be used
 with images.</p>
 <p>The RGBI color type uses 4 bits per pixel, one for each color channel and
@@ -31,7 +31,7 @@ an additional intensity bit.</p>
 
 <span class="kw">impl</span> <span class="ident">RGBI</span> {
     <span class="doccomment">/// Creates a RGBI color.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">red</span>: <span class="ident">bool</span>, <span class="ident">green</span>: <span class="ident">bool</span>, <span class="ident">blue</span>: <span class="ident">bool</span>, <span class="ident">intensity</span>: <span class="ident">bool</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">red</span>: <span class="ident">bool</span>, <span class="ident">green</span>: <span class="ident">bool</span>, <span class="ident">blue</span>: <span class="ident">bool</span>, <span class="ident">intensity</span>: <span class="ident">bool</span>) -&gt; <span class="self">Self</span> {
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">value</span> <span class="op">=</span> <span class="number">0</span>;
 
         <span class="kw">if</span> <span class="ident">red</span> {
@@ -58,7 +58,7 @@ an additional intensity bit.</p>
 
 <span class="doccomment">/// `From&lt;RawU4&gt;` is used by `Image` to construct RGBI colors.</span>
 <span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span><span class="ident">RawU4</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">RGBI</span> {
-    <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">data</span>: <span class="ident">RawU4</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">data</span>: <span class="ident">RawU4</span>) -&gt; <span class="self">Self</span> {
         <span class="self">Self</span>(<span class="ident">data</span>)
     }
 }
@@ -76,29 +76,29 @@ an additional intensity bit.</p>
 <span class="comment">// In a real application the image could now be drawn to a display:</span>
 <span class="comment">// display.draw(&amp;image);</span></code></pre></div>
 </div></details><h2 id="structs" class="section-header"><a href="#structs">Structs</a></h2>
-<div class="item-table"><div class="item-left module-item"><a class="struct" href="struct.RawU1.html" title="embedded_graphics::pixelcolor::raw::RawU1 struct">RawU1</a></div><div class="item-right docblock-short"><p>1 bit
+<div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.RawU1.html" title="embedded_graphics::pixelcolor::raw::RawU1 struct">RawU1</a></div><div class="item-right docblock-short"><p>1 bit
 per pixel raw data.</p>
-</div><div class="item-left module-item"><a class="struct" href="struct.RawU2.html" title="embedded_graphics::pixelcolor::raw::RawU2 struct">RawU2</a></div><div class="item-right docblock-short"><p>2 bits
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.RawU2.html" title="embedded_graphics::pixelcolor::raw::RawU2 struct">RawU2</a></div><div class="item-right docblock-short"><p>2 bits
 per pixel raw data.</p>
-</div><div class="item-left module-item"><a class="struct" href="struct.RawU4.html" title="embedded_graphics::pixelcolor::raw::RawU4 struct">RawU4</a></div><div class="item-right docblock-short"><p>4 bits
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.RawU4.html" title="embedded_graphics::pixelcolor::raw::RawU4 struct">RawU4</a></div><div class="item-right docblock-short"><p>4 bits
 per pixel raw data.</p>
-</div><div class="item-left module-item"><a class="struct" href="struct.RawU8.html" title="embedded_graphics::pixelcolor::raw::RawU8 struct">RawU8</a></div><div class="item-right docblock-short"><p>8 bits
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.RawU8.html" title="embedded_graphics::pixelcolor::raw::RawU8 struct">RawU8</a></div><div class="item-right docblock-short"><p>8 bits
 per pixel raw data.</p>
-</div><div class="item-left module-item"><a class="struct" href="struct.RawU16.html" title="embedded_graphics::pixelcolor::raw::RawU16 struct">RawU16</a></div><div class="item-right docblock-short"><p>16 bits
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.RawU16.html" title="embedded_graphics::pixelcolor::raw::RawU16 struct">RawU16</a></div><div class="item-right docblock-short"><p>16 bits
 per pixel raw data.</p>
-</div><div class="item-left module-item"><a class="struct" href="struct.RawU18.html" title="embedded_graphics::pixelcolor::raw::RawU18 struct">RawU18</a></div><div class="item-right docblock-short"><p>18 bits
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.RawU18.html" title="embedded_graphics::pixelcolor::raw::RawU18 struct">RawU18</a></div><div class="item-right docblock-short"><p>18 bits
 per pixel raw data.</p>
-</div><div class="item-left module-item"><a class="struct" href="struct.RawU24.html" title="embedded_graphics::pixelcolor::raw::RawU24 struct">RawU24</a></div><div class="item-right docblock-short"><p>24 bits
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.RawU24.html" title="embedded_graphics::pixelcolor::raw::RawU24 struct">RawU24</a></div><div class="item-right docblock-short"><p>24 bits
 per pixel raw data.</p>
-</div><div class="item-left module-item"><a class="struct" href="struct.RawU32.html" title="embedded_graphics::pixelcolor::raw::RawU32 struct">RawU32</a></div><div class="item-right docblock-short"><p>32 bits
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.RawU32.html" title="embedded_graphics::pixelcolor::raw::RawU32 struct">RawU32</a></div><div class="item-right docblock-short"><p>32 bits
 per pixel raw data.</p>
-</div></div><h2 id="enums" class="section-header"><a href="#enums">Enums</a></h2>
-<div class="item-table"><div class="item-left module-item"><a class="enum" href="enum.BigEndian.html" title="embedded_graphics::pixelcolor::raw::BigEndian enum">BigEndian</a></div><div class="item-right docblock-short"><p>Big endian byte order marker.</p>
-</div><div class="item-left module-item"><a class="enum" href="enum.LittleEndian.html" title="embedded_graphics::pixelcolor::raw::LittleEndian enum">LittleEndian</a></div><div class="item-right docblock-short"><p>Little endian byte order marker.</p>
-</div></div><h2 id="traits" class="section-header"><a href="#traits">Traits</a></h2>
-<div class="item-table"><div class="item-left module-item"><a class="trait" href="trait.ByteOrder.html" title="embedded_graphics::pixelcolor::raw::ByteOrder trait">ByteOrder</a></div><div class="item-right docblock-short"><p>Raw data byte order.</p>
-</div><div class="item-left module-item"><a class="trait" href="trait.RawData.html" title="embedded_graphics::pixelcolor::raw::RawData trait">RawData</a></div><div class="item-right docblock-short"><p>Trait implemented by all <code>RawUx</code> types.</p>
-</div><div class="item-left module-item"><a class="trait" href="trait.ToBytes.html" title="embedded_graphics::pixelcolor::raw::ToBytes trait">ToBytes</a></div><div class="item-right docblock-short"><p>Trait to convert colors into a byte array.</p>
-</div></div></section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="embedded_graphics" data-search-index-js="../../../search-index.js" data-search-js="../../../search.js"></div>
+</div></div></div><h2 id="enums" class="section-header"><a href="#enums">Enums</a></h2>
+<div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="enum" href="enum.BigEndian.html" title="embedded_graphics::pixelcolor::raw::BigEndian enum">BigEndian</a></div><div class="item-right docblock-short"><p>Big endian byte order marker.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="enum" href="enum.LittleEndian.html" title="embedded_graphics::pixelcolor::raw::LittleEndian enum">LittleEndian</a></div><div class="item-right docblock-short"><p>Little endian byte order marker.</p>
+</div></div></div><h2 id="traits" class="section-header"><a href="#traits">Traits</a></h2>
+<div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="trait" href="trait.ByteOrder.html" title="embedded_graphics::pixelcolor::raw::ByteOrder trait">ByteOrder</a></div><div class="item-right docblock-short"><p>Raw data byte order.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="trait" href="trait.RawData.html" title="embedded_graphics::pixelcolor::raw::RawData trait">RawData</a></div><div class="item-right docblock-short"><p>Trait implemented by all <code>RawUx</code> types.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="trait" href="trait.ToBytes.html" title="embedded_graphics::pixelcolor::raw::ToBytes trait">ToBytes</a></div><div class="item-right docblock-short"><p>Trait to convert colors into a byte array.</p>
+</div></div></div></section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="embedded_graphics" data-search-index-js="../../../search-index.js" data-search-js="../../../search.js"></div>
     <script src="../../../main.js"></script>
 </body></html>

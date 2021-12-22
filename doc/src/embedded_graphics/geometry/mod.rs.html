@@ -86,10 +86,10 @@
 
 <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">trait</span> <span class="ident">PointExt</span> {
     <span class="doccomment">/// Returns a point that is rotated by 90° relative to the origin.</span>
-    <span class="kw">fn</span> <span class="ident">rotate_90</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span>;
+    <span class="kw">fn</span> <span class="ident">rotate_90</span>(<span class="self">self</span>) -&gt; <span class="self">Self</span>;
 
     <span class="doccomment">/// Calculates the dot product of two points.</span>
-    <span class="kw">fn</span> <span class="ident">dot_product</span>(<span class="self">self</span>, <span class="ident">other</span>: <span class="ident">Point</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">i32</span>;
+    <span class="kw">fn</span> <span class="ident">dot_product</span>(<span class="self">self</span>, <span class="ident">other</span>: <span class="ident">Point</span>) -&gt; <span class="ident">i32</span>;
 
     <span class="doccomment">/// Calculates the determinant of a 2x2 matrix formed by this and another point.</span>
     <span class="doccomment">///</span>
@@ -98,29 +98,29 @@
     <span class="doccomment">/// result = |                 |</span>
     <span class="doccomment">///          | other.x other.y |</span>
     <span class="doccomment">/// ```</span>
-    <span class="kw">fn</span> <span class="ident">determinant</span>(<span class="self">self</span>, <span class="ident">other</span>: <span class="ident">Point</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">i32</span>;
+    <span class="kw">fn</span> <span class="ident">determinant</span>(<span class="self">self</span>, <span class="ident">other</span>: <span class="ident">Point</span>) -&gt; <span class="ident">i32</span>;
 
     <span class="doccomment">/// Returns the squared length.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// The returned value is the square of the length of a vector from `(0, 0)`</span>
     <span class="doccomment">/// to `(self.x, self.y)`.</span>
-    <span class="kw">fn</span> <span class="ident">length_squared</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">i32</span>;
+    <span class="kw">fn</span> <span class="ident">length_squared</span>(<span class="self">self</span>) -&gt; <span class="ident">i32</span>;
 }
 
 <span class="kw">impl</span> <span class="ident">PointExt</span> <span class="kw">for</span> <span class="ident">Point</span> {
-    <span class="kw">fn</span> <span class="ident">rotate_90</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">fn</span> <span class="ident">rotate_90</span>(<span class="self">self</span>) -&gt; <span class="self">Self</span> {
         <span class="ident"><span class="self">Self</span>::new</span>(<span class="self">self</span>.<span class="ident">y</span>, <span class="op">-</span><span class="self">self</span>.<span class="ident">x</span>)
     }
 
-    <span class="kw">fn</span> <span class="ident">dot_product</span>(<span class="self">self</span>, <span class="ident">other</span>: <span class="ident">Point</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">i32</span> {
+    <span class="kw">fn</span> <span class="ident">dot_product</span>(<span class="self">self</span>, <span class="ident">other</span>: <span class="ident">Point</span>) -&gt; <span class="ident">i32</span> {
         <span class="self">self</span>.<span class="ident">x</span> <span class="op">*</span> <span class="ident">other</span>.<span class="ident">x</span> <span class="op">+</span> <span class="self">self</span>.<span class="ident">y</span> <span class="op">*</span> <span class="ident">other</span>.<span class="ident">y</span>
     }
 
-    <span class="kw">fn</span> <span class="ident">determinant</span>(<span class="self">self</span>, <span class="ident">other</span>: <span class="ident">Point</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">i32</span> {
+    <span class="kw">fn</span> <span class="ident">determinant</span>(<span class="self">self</span>, <span class="ident">other</span>: <span class="ident">Point</span>) -&gt; <span class="ident">i32</span> {
         <span class="self">self</span>.<span class="ident">x</span> <span class="op">*</span> <span class="ident">other</span>.<span class="ident">y</span> <span class="op">-</span> <span class="self">self</span>.<span class="ident">y</span> <span class="op">*</span> <span class="ident">other</span>.<span class="ident">x</span>
     }
 
-    <span class="kw">fn</span> <span class="ident">length_squared</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">i32</span> {
+    <span class="kw">fn</span> <span class="ident">length_squared</span>(<span class="self">self</span>) -&gt; <span class="ident">i32</span> {
         <span class="self">self</span>.<span class="ident">x</span>.<span class="ident">pow</span>(<span class="number">2</span>) <span class="op">+</span> <span class="self">self</span>.<span class="ident">y</span>.<span class="ident">pow</span>(<span class="number">2</span>)
     }
 }

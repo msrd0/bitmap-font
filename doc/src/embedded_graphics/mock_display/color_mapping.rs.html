@@ -204,35 +204,35 @@
     <span class="kw">const</span> <span class="ident">NONE_COLOR</span>: <span class="ident">Rgb888</span> <span class="op">=</span> <span class="ident">Rgb888::new</span>(<span class="number">128</span>, <span class="number">128</span>, <span class="number">128</span>);
 
     <span class="doccomment">/// Converts a char into a color of type `C`.</span>
-    <span class="kw">fn</span> <span class="ident">char_to_color</span>(<span class="ident">c</span>: <span class="ident">char</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span>;
+    <span class="kw">fn</span> <span class="ident">char_to_color</span>(<span class="ident">c</span>: <span class="ident">char</span>) -&gt; <span class="self">Self</span>;
 
     <span class="doccomment">/// Converts a color of type `C` into a char.</span>
-    <span class="kw">fn</span> <span class="ident">color_to_char</span>(<span class="ident">color</span>: <span class="self">Self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">char</span>;
+    <span class="kw">fn</span> <span class="ident">color_to_char</span>(<span class="ident">color</span>: <span class="self">Self</span>) -&gt; <span class="ident">char</span>;
 }
 
 <span class="kw">impl</span> <span class="ident">ColorMapping</span> <span class="kw">for</span> <span class="ident">BinaryColor</span> {
-    <span class="kw">fn</span> <span class="ident">char_to_color</span>(<span class="ident">c</span>: <span class="ident">char</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">fn</span> <span class="ident">char_to_color</span>(<span class="ident">c</span>: <span class="ident">char</span>) -&gt; <span class="self">Self</span> {
         <span class="kw">match</span> <span class="ident">c</span> {
-            <span class="string">&#39;.&#39;</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">BinaryColor::Off</span>,
-            <span class="string">&#39;#&#39;</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">BinaryColor::On</span>,
-            <span class="kw">_</span> <span class="op">=</span><span class="op">&gt;</span> <span class="macro">panic!</span>(<span class="string">&quot;Invalid char in pattern: &#39;{}&#39;&quot;</span>, <span class="ident">c</span>),
+            <span class="string">&#39;.&#39;</span> =&gt; <span class="ident">BinaryColor::Off</span>,
+            <span class="string">&#39;#&#39;</span> =&gt; <span class="ident">BinaryColor::On</span>,
+            <span class="kw">_</span> =&gt; <span class="macro">panic!</span>(<span class="string">&quot;Invalid char in pattern: &#39;{}&#39;&quot;</span>, <span class="ident">c</span>),
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">color_to_char</span>(<span class="ident">color</span>: <span class="self">Self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">char</span> {
+    <span class="kw">fn</span> <span class="ident">color_to_char</span>(<span class="ident">color</span>: <span class="self">Self</span>) -&gt; <span class="ident">char</span> {
         <span class="kw">match</span> <span class="ident">color</span> {
-            <span class="ident">BinaryColor::Off</span> <span class="op">=</span><span class="op">&gt;</span> <span class="string">&#39;.&#39;</span>,
-            <span class="ident">BinaryColor::On</span> <span class="op">=</span><span class="op">&gt;</span> <span class="string">&#39;#&#39;</span>,
+            <span class="ident">BinaryColor::Off</span> =&gt; <span class="string">&#39;.&#39;</span>,
+            <span class="ident">BinaryColor::On</span> =&gt; <span class="string">&#39;#&#39;</span>,
         }
     }
 }
 
 <span class="macro">macro_rules!</span> <span class="ident">impl_gray_color_mapping</span> {
-    (<span class="macro-nonterminal">$</span><span class="kw">type</span>:<span class="macro-nonterminal">ident</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">radix</span>:<span class="ident">expr</span>) <span class="op">=</span><span class="op">&gt;</span> {
+    (<span class="macro-nonterminal">$</span><span class="kw">type</span>:<span class="macro-nonterminal">ident</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">radix</span>:<span class="ident">expr</span>) =&gt; {
         <span class="kw">impl</span> <span class="ident">ColorMapping</span> <span class="kw">for</span> <span class="macro-nonterminal">$</span><span class="kw">type</span> {
             <span class="kw">const</span> <span class="macro-nonterminal">NONE_COLOR</span>: <span class="ident">Rgb888</span> <span class="op">=</span> <span class="ident">Rgb888::CSS_STEEL_BLUE</span>;
 
-            <span class="kw">fn</span> <span class="ident">char_to_color</span>(<span class="ident">c</span>: <span class="ident">char</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+            <span class="kw">fn</span> <span class="ident">char_to_color</span>(<span class="ident">c</span>: <span class="ident">char</span>) -&gt; <span class="self">Self</span> {
                 <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">digit</span>) <span class="op">=</span> <span class="ident">c</span>.<span class="ident">to_digit</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">radix</span>) {
                     <span class="ident"><span class="self">Self</span>::new</span>(<span class="ident">digit</span> <span class="kw">as</span> <span class="ident">u8</span>)
                 } <span class="kw">else</span> {
@@ -240,7 +240,7 @@
                 }
             }
 
-            <span class="kw">fn</span> <span class="ident">color_to_char</span>(<span class="ident">color</span>: <span class="self">Self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">char</span> {
+            <span class="kw">fn</span> <span class="ident">color_to_char</span>(<span class="ident">color</span>: <span class="self">Self</span>) -&gt; <span class="ident">char</span> {
                 <span class="ident">core::char::from_digit</span>(<span class="ident">color</span>.<span class="ident">luma</span>() <span class="kw">as</span> <span class="ident">u32</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">radix</span>)
                     .<span class="ident">unwrap</span>()
                     .<span class="ident">to_ascii_uppercase</span>()
@@ -255,7 +255,7 @@
 <span class="kw">impl</span> <span class="ident">ColorMapping</span> <span class="kw">for</span> <span class="ident">Gray8</span> {
     <span class="kw">const</span> <span class="ident">NONE_COLOR</span>: <span class="ident">Rgb888</span> <span class="op">=</span> <span class="ident">Rgb888::CSS_STEEL_BLUE</span>;
 
-    <span class="kw">fn</span> <span class="ident">char_to_color</span>(<span class="ident">c</span>: <span class="ident">char</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">fn</span> <span class="ident">char_to_color</span>(<span class="ident">c</span>: <span class="ident">char</span>) -&gt; <span class="self">Self</span> {
         <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">digit</span>) <span class="op">=</span> <span class="ident">c</span>.<span class="ident">to_digit</span>(<span class="number">16</span>) {
             <span class="ident"><span class="self">Self</span>::new</span>(<span class="ident">digit</span> <span class="kw">as</span> <span class="ident">u8</span> <span class="op">*</span> <span class="number">0x11</span>)
         } <span class="kw">else</span> {
@@ -263,7 +263,7 @@
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">color_to_char</span>(<span class="ident">color</span>: <span class="self">Self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">char</span> {
+    <span class="kw">fn</span> <span class="ident">color_to_char</span>(<span class="ident">color</span>: <span class="self">Self</span>) -&gt; <span class="ident">char</span> {
         <span class="kw">let</span> <span class="ident">luma</span> <span class="op">=</span> <span class="ident">color</span>.<span class="ident">luma</span>();
         <span class="kw">let</span> <span class="ident">lower</span> <span class="op">=</span> <span class="ident">luma</span> <span class="op">&amp;</span> <span class="number">0xF</span>;
         <span class="kw">let</span> <span class="ident">upper</span> <span class="op">=</span> <span class="ident">luma</span> <span class="op">&gt;</span><span class="op">&gt;</span> <span class="number">4</span>;
@@ -279,33 +279,33 @@
 }
 
 <span class="macro">macro_rules!</span> <span class="ident">impl_rgb_color_mapping</span> {
-    (<span class="macro-nonterminal">$</span><span class="kw">type</span>:<span class="macro-nonterminal">ident</span>) <span class="op">=</span><span class="op">&gt;</span> {
+    (<span class="macro-nonterminal">$</span><span class="kw">type</span>:<span class="macro-nonterminal">ident</span>) =&gt; {
         <span class="kw">impl</span> <span class="ident">ColorMapping</span> <span class="kw">for</span> <span class="macro-nonterminal">$</span><span class="kw">type</span> {
-            <span class="kw">fn</span> <span class="macro-nonterminal">char_to_color</span>(<span class="ident">c</span>: <span class="ident">char</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+            <span class="kw">fn</span> <span class="macro-nonterminal">char_to_color</span>(<span class="ident">c</span>: <span class="ident">char</span>) -&gt; <span class="self">Self</span> {
                 <span class="kw">match</span> <span class="ident">c</span> {
-                    <span class="string">&#39;K&#39;</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident"><span class="self">Self</span>::BLACK</span>,
-                    <span class="string">&#39;R&#39;</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident"><span class="self">Self</span>::RED</span>,
-                    <span class="string">&#39;G&#39;</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident"><span class="self">Self</span>::GREEN</span>,
-                    <span class="string">&#39;B&#39;</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident"><span class="self">Self</span>::BLUE</span>,
-                    <span class="string">&#39;Y&#39;</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident"><span class="self">Self</span>::YELLOW</span>,
-                    <span class="string">&#39;M&#39;</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident"><span class="self">Self</span>::MAGENTA</span>,
-                    <span class="string">&#39;C&#39;</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident"><span class="self">Self</span>::CYAN</span>,
-                    <span class="string">&#39;W&#39;</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident"><span class="self">Self</span>::WHITE</span>,
-                    <span class="kw">_</span> <span class="op">=</span><span class="op">&gt;</span> <span class="macro">panic!</span>(<span class="string">&quot;Invalid char in pattern: &#39;{}&#39;&quot;</span>, <span class="ident">c</span>),
+                    <span class="string">&#39;K&#39;</span> =&gt; <span class="ident"><span class="self">Self</span>::BLACK</span>,
+                    <span class="string">&#39;R&#39;</span> =&gt; <span class="ident"><span class="self">Self</span>::RED</span>,
+                    <span class="string">&#39;G&#39;</span> =&gt; <span class="ident"><span class="self">Self</span>::GREEN</span>,
+                    <span class="string">&#39;B&#39;</span> =&gt; <span class="ident"><span class="self">Self</span>::BLUE</span>,
+                    <span class="string">&#39;Y&#39;</span> =&gt; <span class="ident"><span class="self">Self</span>::YELLOW</span>,
+                    <span class="string">&#39;M&#39;</span> =&gt; <span class="ident"><span class="self">Self</span>::MAGENTA</span>,
+                    <span class="string">&#39;C&#39;</span> =&gt; <span class="ident"><span class="self">Self</span>::CYAN</span>,
+                    <span class="string">&#39;W&#39;</span> =&gt; <span class="ident"><span class="self">Self</span>::WHITE</span>,
+                    <span class="kw">_</span> =&gt; <span class="macro">panic!</span>(<span class="string">&quot;Invalid char in pattern: &#39;{}&#39;&quot;</span>, <span class="ident">c</span>),
                 }
             }
 
-            <span class="kw">fn</span> <span class="ident">color_to_char</span>(<span class="ident">color</span>: <span class="self">Self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">char</span> {
+            <span class="kw">fn</span> <span class="ident">color_to_char</span>(<span class="ident">color</span>: <span class="self">Self</span>) -&gt; <span class="ident">char</span> {
                 <span class="kw">match</span> <span class="ident">color</span> {
-                    <span class="ident"><span class="self">Self</span>::BLACK</span> <span class="op">=</span><span class="op">&gt;</span> <span class="string">&#39;K&#39;</span>,
-                    <span class="ident"><span class="self">Self</span>::RED</span> <span class="op">=</span><span class="op">&gt;</span> <span class="string">&#39;R&#39;</span>,
-                    <span class="ident"><span class="self">Self</span>::GREEN</span> <span class="op">=</span><span class="op">&gt;</span> <span class="string">&#39;G&#39;</span>,
-                    <span class="ident"><span class="self">Self</span>::BLUE</span> <span class="op">=</span><span class="op">&gt;</span> <span class="string">&#39;B&#39;</span>,
-                    <span class="ident"><span class="self">Self</span>::YELLOW</span> <span class="op">=</span><span class="op">&gt;</span> <span class="string">&#39;Y&#39;</span>,
-                    <span class="ident"><span class="self">Self</span>::MAGENTA</span> <span class="op">=</span><span class="op">&gt;</span> <span class="string">&#39;M&#39;</span>,
-                    <span class="ident"><span class="self">Self</span>::CYAN</span> <span class="op">=</span><span class="op">&gt;</span> <span class="string">&#39;C&#39;</span>,
-                    <span class="ident"><span class="self">Self</span>::WHITE</span> <span class="op">=</span><span class="op">&gt;</span> <span class="string">&#39;W&#39;</span>,
-                    <span class="kw">_</span> <span class="op">=</span><span class="op">&gt;</span> <span class="string">&#39;?&#39;</span>,
+                    <span class="ident"><span class="self">Self</span>::BLACK</span> =&gt; <span class="string">&#39;K&#39;</span>,
+                    <span class="ident"><span class="self">Self</span>::RED</span> =&gt; <span class="string">&#39;R&#39;</span>,
+                    <span class="ident"><span class="self">Self</span>::GREEN</span> =&gt; <span class="string">&#39;G&#39;</span>,
+                    <span class="ident"><span class="self">Self</span>::BLUE</span> =&gt; <span class="string">&#39;B&#39;</span>,
+                    <span class="ident"><span class="self">Self</span>::YELLOW</span> =&gt; <span class="string">&#39;Y&#39;</span>,
+                    <span class="ident"><span class="self">Self</span>::MAGENTA</span> =&gt; <span class="string">&#39;M&#39;</span>,
+                    <span class="ident"><span class="self">Self</span>::CYAN</span> =&gt; <span class="string">&#39;C&#39;</span>,
+                    <span class="ident"><span class="self">Self</span>::WHITE</span> =&gt; <span class="string">&#39;W&#39;</span>,
+                    <span class="kw">_</span> =&gt; <span class="string">&#39;?&#39;</span>,
                 }
             }
         }

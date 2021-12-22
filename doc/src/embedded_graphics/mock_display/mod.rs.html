@@ -1030,7 +1030,7 @@
     <span class="ident">C</span>: <span class="ident">PixelColor</span>,
 {
     <span class="doccomment">/// Creates a new empty mock display.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>() -&gt; <span class="self">Self</span> {
         <span class="ident"><span class="self">Self</span>::default</span>()
     }
 
@@ -1065,7 +1065,7 @@
     <span class="doccomment">/// [`PointsIter::points`]: ../primitives/trait.PointsIter.html#tymethod.points</span>
     <span class="doccomment">/// [`map`]: #method.map</span>
     <span class="doccomment">/// [`BinaryColor`]: ../pixelcolor/enum.BinaryColor.html</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">from_points</span><span class="op">&lt;</span><span class="ident">I</span><span class="op">&gt;</span>(<span class="ident">points</span>: <span class="ident">I</span>, <span class="ident">color</span>: <span class="ident">C</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">from_points</span><span class="op">&lt;</span><span class="ident">I</span><span class="op">&gt;</span>(<span class="ident">points</span>: <span class="ident">I</span>, <span class="ident">color</span>: <span class="ident">C</span>) -&gt; <span class="self">Self</span>
     <span class="kw">where</span>
         <span class="ident">I</span>: <span class="ident">IntoIterator</span><span class="op">&lt;</span><span class="ident">Item</span> <span class="op">=</span> <span class="ident">Point</span><span class="op">&gt;</span>,
     {
@@ -1090,7 +1090,7 @@
     }
 
     <span class="doccomment">/// Returns the color of a pixel.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_pixel</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">p</span>: <span class="ident">Point</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_pixel</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">p</span>: <span class="ident">Point</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">Point</span> { <span class="ident">x</span>, <span class="ident">y</span> } <span class="op">=</span> <span class="ident">p</span>;
 
         <span class="self">self</span>.<span class="ident">pixels</span>[<span class="ident">x</span> <span class="kw">as</span> <span class="ident">usize</span> <span class="op">+</span> <span class="ident">y</span> <span class="kw">as</span> <span class="ident">usize</span> <span class="op">*</span> <span class="ident">SIZE</span>]
@@ -1134,7 +1134,7 @@
     }
 
     <span class="doccomment">/// Returns the area that was affected by drawing operations.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">affected_area</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Rectangle</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">affected_area</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Rectangle</span> {
         <span class="kw">let</span> (<span class="ident">tl</span>, <span class="ident">br</span>) <span class="op">=</span> <span class="self">self</span>
             .<span class="ident">bounding_box</span>()
             .<span class="ident">points</span>()
@@ -1158,7 +1158,7 @@
     }
 
     <span class="doccomment">/// Returns the `affected_area` with the top left corner extended to `(0, 0)`.</span>
-    <span class="kw">fn</span> <span class="ident">affected_area_origin</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Rectangle</span> {
+    <span class="kw">fn</span> <span class="ident">affected_area_origin</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Rectangle</span> {
         <span class="self">self</span>.<span class="ident">affected_area</span>()
             .<span class="ident">bottom_right</span>()
             .<span class="ident">map</span>(<span class="op">|</span><span class="ident">bottom_right</span><span class="op">|</span> <span class="ident">Rectangle::with_corners</span>(<span class="ident">Point::zero</span>(), <span class="ident">bottom_right</span>))
@@ -1225,7 +1225,7 @@
     <span class="doccomment">///     &quot;# ###&quot;,</span>
     <span class="doccomment">/// ]);</span>
     <span class="doccomment">/// ```</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">swap_xy</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">MockDisplay</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">swap_xy</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">MockDisplay</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">mirrored</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
 
         <span class="kw">for</span> <span class="ident">point</span> <span class="kw">in</span> <span class="self">self</span>.<span class="ident">bounding_box</span>().<span class="ident">points</span>() {
@@ -1260,10 +1260,10 @@
     <span class="doccomment">///     &quot;####&quot;,</span>
     <span class="doccomment">/// ]);</span>
     <span class="doccomment">/// ```</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">map</span><span class="op">&lt;</span><span class="ident">CT</span>, <span class="ident">F</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">MockDisplay</span><span class="op">&lt;</span><span class="ident">CT</span><span class="op">&gt;</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">map</span><span class="op">&lt;</span><span class="ident">CT</span>, <span class="ident">F</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) -&gt; <span class="ident">MockDisplay</span><span class="op">&lt;</span><span class="ident">CT</span><span class="op">&gt;</span>
     <span class="kw">where</span>
         <span class="ident">CT</span>: <span class="ident">PixelColor</span>,
-        <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="ident">C</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">CT</span> <span class="op">+</span> <span class="ident">Copy</span>,
+        <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="ident">C</span>) -&gt; <span class="ident">CT</span> <span class="op">+</span> <span class="ident">Copy</span>,
     {
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">target</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
 
@@ -1284,7 +1284,7 @@
     <span class="doccomment">/// | Some(Rgb888::GREEN) | The pixel was only set in `self`                              |</span>
     <span class="doccomment">/// | Some(Rgb888::RED)   | The pixel was only set in `other`                             |</span>
     <span class="doccomment">/// | Some(Rgb888::BLUE)  | The pixel was set to a different colors in `self` and `other` |</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">diff</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">other</span>: <span class="kw-2">&amp;</span><span class="ident">MockDisplay</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">MockDisplay</span><span class="op">&lt;</span><span class="ident">Rgb888</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">diff</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">other</span>: <span class="kw-2">&amp;</span><span class="ident">MockDisplay</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>) -&gt; <span class="ident">MockDisplay</span><span class="op">&lt;</span><span class="ident">Rgb888</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
 
         <span class="kw">for</span> <span class="ident">point</span> <span class="kw">in</span> <span class="ident">display</span>.<span class="ident">bounding_box</span>().<span class="ident">points</span>() {
@@ -1292,10 +1292,10 @@
             <span class="kw">let</span> <span class="ident">other_color</span> <span class="op">=</span> <span class="ident">other</span>.<span class="ident">get_pixel</span>(<span class="ident">point</span>);
 
             <span class="kw">let</span> <span class="ident">diff_color</span> <span class="op">=</span> <span class="kw">match</span> (<span class="ident">self_color</span>, <span class="ident">other_color</span>) {
-                (<span class="prelude-val">Some</span>(<span class="kw">_</span>), <span class="prelude-val">None</span>) <span class="op">=</span><span class="op">&gt;</span> <span class="prelude-val">Some</span>(<span class="ident">Rgb888::GREEN</span>),
-                (<span class="prelude-val">None</span>, <span class="prelude-val">Some</span>(<span class="kw">_</span>)) <span class="op">=</span><span class="op">&gt;</span> <span class="prelude-val">Some</span>(<span class="ident">Rgb888::RED</span>),
-                (<span class="prelude-val">Some</span>(<span class="ident">s</span>), <span class="prelude-val">Some</span>(<span class="ident">o</span>)) <span class="kw">if</span> <span class="ident">s</span> <span class="op">!</span><span class="op">=</span> <span class="ident">o</span> <span class="op">=</span><span class="op">&gt;</span> <span class="prelude-val">Some</span>(<span class="ident">Rgb888::BLUE</span>),
-                <span class="kw">_</span> <span class="op">=</span><span class="op">&gt;</span> <span class="prelude-val">None</span>,
+                (<span class="prelude-val">Some</span>(<span class="kw">_</span>), <span class="prelude-val">None</span>) =&gt; <span class="prelude-val">Some</span>(<span class="ident">Rgb888::GREEN</span>),
+                (<span class="prelude-val">None</span>, <span class="prelude-val">Some</span>(<span class="kw">_</span>)) =&gt; <span class="prelude-val">Some</span>(<span class="ident">Rgb888::RED</span>),
+                (<span class="prelude-val">Some</span>(<span class="ident">s</span>), <span class="prelude-val">Some</span>(<span class="ident">o</span>)) <span class="kw">if</span> <span class="ident">s</span> <span class="op">!</span><span class="op">=</span> <span class="ident">o</span> =&gt; <span class="prelude-val">Some</span>(<span class="ident">Rgb888::BLUE</span>),
+                <span class="kw">_</span> =&gt; <span class="prelude-val">None</span>,
             };
 
             <span class="ident">display</span>.<span class="ident">set_pixel_unchecked</span>(<span class="ident">point</span>, <span class="ident">diff_color</span>);
@@ -1306,7 +1306,7 @@
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">C</span>: <span class="ident">PixelColor</span><span class="op">&gt;</span> <span class="ident">PartialEq</span> <span class="kw">for</span> <span class="ident">MockDisplay</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span> {
-    <span class="kw">fn</span> <span class="ident">eq</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">other</span>: <span class="kw-2">&amp;</span><span class="self">Self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
+    <span class="kw">fn</span> <span class="ident">eq</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">other</span>: <span class="kw-2">&amp;</span><span class="self">Self</span>) -&gt; <span class="ident">bool</span> {
         <span class="self">self</span>.<span class="ident">pixels</span>.<span class="ident">iter</span>().<span class="ident">eq</span>(<span class="ident">other</span>.<span class="ident">pixels</span>.<span class="ident">iter</span>())
     }
 }
@@ -1326,7 +1326,7 @@
     <span class="doccomment">/// [`ColorMapping`] trait.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// [`ColorMapping`]: trait.ColorMapping.html</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">from_pattern</span>(<span class="ident">pattern</span>: <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span><span class="ident">str</span>]) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">MockDisplay</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">from_pattern</span>(<span class="ident">pattern</span>: <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span><span class="ident">str</span>]) -&gt; <span class="ident">MockDisplay</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span> {
         <span class="comment">// Check pattern dimensions.</span>
         <span class="kw">let</span> <span class="ident">pattern_width</span> <span class="op">=</span> <span class="ident">pattern</span>.<span class="ident">first</span>().<span class="ident">map_or</span>(<span class="number">0</span>, <span class="op">|</span><span class="ident">row</span><span class="op">|</span> <span class="ident">row</span>.<span class="ident">len</span>());
         <span class="kw">let</span> <span class="ident">pattern_height</span> <span class="op">=</span> <span class="ident">pattern</span>.<span class="ident">len</span>();
@@ -1357,8 +1357,8 @@
             .<span class="ident">flat_map</span>(<span class="op">|</span><span class="ident">row</span><span class="op">|</span> {
                 <span class="ident">row</span>.<span class="ident">chars</span>()
                     .<span class="ident">map</span>(<span class="op">|</span><span class="ident">c</span><span class="op">|</span> <span class="kw">match</span> <span class="ident">c</span> {
-                        <span class="string">&#39; &#39;</span> <span class="op">=</span><span class="op">&gt;</span> <span class="prelude-val">None</span>,
-                        <span class="kw">_</span> <span class="op">=</span><span class="op">&gt;</span> <span class="prelude-val">Some</span>(<span class="ident">C::char_to_color</span>(<span class="ident">c</span>)),
+                        <span class="string">&#39; &#39;</span> =&gt; <span class="prelude-val">None</span>,
+                        <span class="kw">_</span> =&gt; <span class="prelude-val">Some</span>(<span class="ident">C::char_to_color</span>(<span class="ident">c</span>)),
                     })
                     .<span class="ident">chain</span>(<span class="ident">iter::repeat</span>(<span class="prelude-val">None</span>))
                     .<span class="ident">take</span>(<span class="ident">SIZE</span>)
@@ -1389,7 +1389,7 @@
     <span class="comment">// #[track_caller]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">assert_eq</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">other</span>: <span class="kw-2">&amp;</span><span class="ident">MockDisplay</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>) {
         <span class="kw">if</span> <span class="op">!</span><span class="self">self</span>.<span class="ident">eq</span>(<span class="ident">other</span>) {
-            <span class="kw">if</span> <span class="macro">option_env!</span>(<span class="string">&quot;EG_FANCY_PANIC&quot;</span>) <span class="op">=</span><span class="op">=</span> <span class="prelude-val">Some</span>(<span class="string">&quot;1&quot;</span>) {
+            <span class="kw">if</span> <span class="macro">option_env!</span>(<span class="string">&quot;EG_FANCY_PANIC&quot;</span>) <span class="op">==</span> <span class="prelude-val">Some</span>(<span class="string">&quot;1&quot;</span>) {
                 <span class="kw">let</span> <span class="ident">fancy_panic</span> <span class="op">=</span> <span class="ident">FancyPanic::new</span>(<span class="self">self</span>, <span class="ident">other</span>, <span class="number">30</span>);
                 <span class="macro">panic!</span>(<span class="string">&quot;\n{}&quot;</span>, <span class="ident">fancy_panic</span>);
             } <span class="kw">else</span> {
@@ -1414,10 +1414,10 @@
     <span class="comment">// #[track_caller]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">assert_eq_with_message</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">other</span>: <span class="kw-2">&amp;</span><span class="ident">MockDisplay</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>, <span class="ident">msg</span>: <span class="ident">F</span>)
     <span class="kw">where</span>
-        <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">fmt::Formatter</span><span class="op">&lt;</span><span class="lifetime">&#39;_</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">fmt::Result</span>,
+        <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">fmt::Formatter</span><span class="op">&lt;</span><span class="lifetime">&#39;_</span><span class="op">&gt;</span>) -&gt; <span class="ident">fmt::Result</span>,
     {
         <span class="kw">if</span> <span class="op">!</span><span class="self">self</span>.<span class="ident">eq</span>(<span class="ident">other</span>) {
-            <span class="kw">if</span> <span class="macro">option_env!</span>(<span class="string">&quot;EG_FANCY_PANIC&quot;</span>) <span class="op">=</span><span class="op">=</span> <span class="prelude-val">Some</span>(<span class="string">&quot;1&quot;</span>) {
+            <span class="kw">if</span> <span class="macro">option_env!</span>(<span class="string">&quot;EG_FANCY_PANIC&quot;</span>) <span class="op">==</span> <span class="prelude-val">Some</span>(<span class="string">&quot;1&quot;</span>) {
                 <span class="kw">let</span> <span class="ident">fancy_panic</span> <span class="op">=</span> <span class="ident">FancyPanic::new</span>(<span class="self">self</span>, <span class="ident">other</span>, <span class="number">30</span>);
                 <span class="macro">panic!</span>(<span class="string">&quot;\n{}\n\n{}&quot;</span>, <span class="ident">MessageWrapper</span>(<span class="ident">msg</span>), <span class="ident">fancy_panic</span>);
             } <span class="kw">else</span> {
@@ -1465,7 +1465,7 @@
     <span class="comment">// #[track_caller]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">assert_pattern_with_message</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">pattern</span>: <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span><span class="ident">str</span>], <span class="ident">msg</span>: <span class="ident">F</span>)
     <span class="kw">where</span>
-        <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">fmt::Formatter</span><span class="op">&lt;</span><span class="lifetime">&#39;_</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">fmt::Result</span>,
+        <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">fmt::Formatter</span><span class="op">&lt;</span><span class="lifetime">&#39;_</span><span class="op">&gt;</span>) -&gt; <span class="ident">fmt::Result</span>,
     {
         <span class="kw">let</span> <span class="ident">other</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span><span class="ident">::from_pattern</span>(<span class="ident">pattern</span>);
 
@@ -1477,7 +1477,7 @@
 <span class="kw">where</span>
     <span class="ident">C</span>: <span class="ident">PixelColor</span>,
 {
-    <span class="kw">fn</span> <span class="ident">default</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">fn</span> <span class="ident">default</span>() -&gt; <span class="self">Self</span> {
         <span class="self">Self</span> {
             <span class="ident">pixels</span>: [<span class="prelude-val">None</span>; <span class="ident">SIZE</span> <span class="op">*</span> <span class="ident">SIZE</span>],
             <span class="ident">allow_overdraw</span>: <span class="bool-val">false</span>,
@@ -1490,7 +1490,7 @@
 <span class="kw">where</span>
     <span class="ident">C</span>: <span class="ident">PixelColor</span> <span class="op">+</span> <span class="ident">ColorMapping</span>,
 {
-    <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">fmt::Formatter</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">fmt::Result</span> {
+    <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">fmt::Formatter</span>) -&gt; <span class="ident">fmt::Result</span> {
         <span class="kw">let</span> <span class="ident">empty_rows</span> <span class="op">=</span> <span class="self">self</span>
             .<span class="ident">pixels</span>
             .<span class="ident">rchunks</span>(<span class="ident">SIZE</span>)
@@ -1520,7 +1520,7 @@
     <span class="kw">type</span> <span class="ident">Color</span> <span class="op">=</span> <span class="ident">C</span>;
     <span class="kw">type</span> <span class="ident">Error</span> <span class="op">=</span> <span class="ident">core::convert::Infallible</span>;
 
-    <span class="kw">fn</span> <span class="ident">draw_iter</span><span class="op">&lt;</span><span class="ident">I</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">pixels</span>: <span class="ident">I</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident"><span class="self">Self</span>::Error</span><span class="op">&gt;</span>
+    <span class="kw">fn</span> <span class="ident">draw_iter</span><span class="op">&lt;</span><span class="ident">I</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">pixels</span>: <span class="ident">I</span>) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident"><span class="self">Self</span>::Error</span><span class="op">&gt;</span>
     <span class="kw">where</span>
         <span class="ident">I</span>: <span class="ident">IntoIterator</span><span class="op">&lt;</span><span class="ident">Item</span> <span class="op">=</span> <span class="ident">Pixel</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Color</span><span class="op">&gt;</span><span class="op">&gt;</span>,
     {
@@ -1538,7 +1538,7 @@
 <span class="kw">where</span>
     <span class="ident">C</span>: <span class="ident">PixelColor</span>,
 {
-    <span class="kw">fn</span> <span class="ident">size</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Size</span> {
+    <span class="kw">fn</span> <span class="ident">size</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Size</span> {
         <span class="ident">DISPLAY_AREA</span>.<span class="ident">size</span>
     }
 }
@@ -1548,9 +1548,9 @@
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="ident">fmt::Display</span> <span class="kw">for</span> <span class="ident">MessageWrapper</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>
 <span class="kw">where</span>
-    <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">fmt::Formatter</span><span class="op">&lt;</span><span class="lifetime">&#39;_</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">fmt::Result</span>,
+    <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">fmt::Formatter</span><span class="op">&lt;</span><span class="lifetime">&#39;_</span><span class="op">&gt;</span>) -&gt; <span class="ident">fmt::Result</span>,
 {
-    <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">fmt::Formatter</span><span class="op">&lt;</span><span class="lifetime">&#39;_</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">fmt::Result</span> {
+    <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">fmt::Formatter</span><span class="op">&lt;</span><span class="lifetime">&#39;_</span><span class="op">&gt;</span>) -&gt; <span class="ident">fmt::Result</span> {
         <span class="self">self</span>.<span class="number">0</span>(<span class="ident">f</span>)
     }
 }

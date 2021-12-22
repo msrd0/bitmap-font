@@ -1234,7 +1234,7 @@
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">C</span>: <span class="ident">PixelColor</span><span class="op">&gt;</span> <span class="ident">MonoTextStyle</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">C</span><span class="op">&gt;</span> {
     <span class="doccomment">/// Creates a text style with transparent background.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">font</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">MonoFont</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span>, <span class="ident">text_color</span>: <span class="ident">C</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">font</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">MonoFont</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span>, <span class="ident">text_color</span>: <span class="ident">C</span>) -&gt; <span class="self">Self</span> {
         <span class="ident">MonoTextStyleBuilder::new</span>()
             .<span class="ident">font</span>(<span class="ident">font</span>)
             .<span class="ident">text_color</span>(<span class="ident">text_color</span>)
@@ -1246,7 +1246,7 @@
     <span class="doccomment">/// Drawing a `Text` with a transparent `MonoTextStyle` will not draw any pixels.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// [`Text`]: ../text/struct.Text.html</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">is_transparent</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">is_transparent</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">bool</span> {
         <span class="self">self</span>.<span class="ident">text_color</span>.<span class="ident">is_none</span>()
             <span class="op">&amp;&amp;</span> <span class="self">self</span>.<span class="ident">background_color</span>.<span class="ident">is_none</span>()
             <span class="op">&amp;&amp;</span> <span class="self">self</span>.<span class="ident">underline_color</span>.<span class="ident">is_none</span>()
@@ -1257,7 +1257,7 @@
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         <span class="kw-2">mut</span> <span class="ident">position</span>: <span class="ident">Point</span>,
         <span class="ident">text</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;t</span> <span class="ident">str</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="kw">impl</span> <span class="ident">Iterator</span><span class="op">&lt;</span><span class="ident">Item</span> <span class="op">=</span> (<span class="ident">Point</span>, <span class="ident">LineElement</span>)<span class="op">&gt;</span> <span class="op">+</span> <span class="lifetime">&#39;t</span> {
+    ) -&gt; <span class="kw">impl</span> <span class="ident">Iterator</span><span class="op">&lt;</span><span class="ident">Item</span> <span class="op">=</span> (<span class="ident">Point</span>, <span class="ident">LineElement</span>)<span class="op">&gt;</span> <span class="op">+</span> <span class="lifetime">&#39;t</span> {
         <span class="kw">let</span> <span class="ident">char_width</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">font</span>.<span class="ident">character_size</span>.<span class="ident">width</span> <span class="kw">as</span> <span class="ident">i32</span>;
         <span class="kw">let</span> <span class="ident">spacing_width</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">font</span>.<span class="ident">character_spacing</span> <span class="kw">as</span> <span class="ident">i32</span>;
 
@@ -1292,7 +1292,7 @@
         <span class="ident">width</span>: <span class="ident">u32</span>,
         <span class="ident">position</span>: <span class="ident">Point</span>,
         <span class="ident">target</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">D</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">D::Error</span><span class="op">&gt;</span>
+    ) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">D::Error</span><span class="op">&gt;</span>
     <span class="kw">where</span>
         <span class="ident">D</span>: <span class="ident">DrawTarget</span><span class="op">&lt;</span><span class="ident">Color</span> <span class="op">=</span> <span class="ident">C</span><span class="op">&gt;</span>,
     {
@@ -1314,18 +1314,18 @@
         <span class="ident">text</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>,
         <span class="ident">position</span>: <span class="ident">Point</span>,
         <span class="kw-2">mut</span> <span class="ident">target</span>: <span class="ident">D</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">Point</span>, <span class="ident">D::Error</span><span class="op">&gt;</span>
+    ) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">Point</span>, <span class="ident">D::Error</span><span class="op">&gt;</span>
     <span class="kw">where</span>
         <span class="ident">D</span>: <span class="ident">DrawTarget</span><span class="op">&lt;</span><span class="ident">Color</span> <span class="op">=</span> <span class="ident">BinaryColor</span><span class="op">&gt;</span>,
     {
         <span class="kw">for</span> (<span class="ident">p</span>, <span class="ident">element</span>) <span class="kw">in</span> <span class="self">self</span>.<span class="ident">line_elements</span>(<span class="ident">position</span>, <span class="ident">text</span>) {
             <span class="kw">match</span> <span class="ident">element</span> {
-                <span class="ident">LineElement::Char</span>(<span class="ident">c</span>) <span class="op">=</span><span class="op">&gt;</span> {
+                <span class="ident">LineElement::Char</span>(<span class="ident">c</span>) =&gt; {
                     <span class="kw">let</span> <span class="ident">glyph</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">font</span>.<span class="ident">glyph</span>(<span class="ident">c</span>);
                     <span class="ident">Image::new</span>(<span class="kw-2">&amp;</span><span class="ident">glyph</span>, <span class="ident">p</span>).<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">target</span>)<span class="question-mark">?</span>;
                 }
                 <span class="comment">// Fill space between characters if background color is set.</span>
-                <span class="ident">LineElement::Spacing</span> <span class="kw">if</span> <span class="self">self</span>.<span class="ident">font</span>.<span class="ident">character_spacing</span> <span class="op">&gt;</span> <span class="number">0</span> <span class="op">=</span><span class="op">&gt;</span> {
+                <span class="ident">LineElement::Spacing</span> <span class="kw">if</span> <span class="self">self</span>.<span class="ident">font</span>.<span class="ident">character_spacing</span> <span class="op">&gt;</span> <span class="number">0</span> =&gt; {
                     <span class="kw">if</span> <span class="self">self</span>.<span class="ident">background_color</span>.<span class="ident">is_some</span>() {
                         <span class="ident">target</span>.<span class="ident">fill_solid</span>(
                             <span class="kw-2">&amp;</span><span class="ident">Rectangle::new</span>(
@@ -1339,8 +1339,8 @@
                         )<span class="question-mark">?</span>;
                     }
                 }
-                <span class="ident">LineElement::Spacing</span> <span class="op">=</span><span class="op">&gt;</span> {}
-                <span class="ident">LineElement::Done</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">return</span> <span class="prelude-val">Ok</span>(<span class="ident">p</span>),
+                <span class="ident">LineElement::Spacing</span> =&gt; {}
+                <span class="ident">LineElement::Done</span> =&gt; <span class="kw">return</span> <span class="prelude-val">Ok</span>(<span class="ident">p</span>),
             }
         }
 
@@ -1348,19 +1348,19 @@
     }
 
     <span class="doccomment">/// Returns the vertical offset between the line position and the top edge of the bounding box.</span>
-    <span class="kw">fn</span> <span class="ident">baseline_offset</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">baseline</span>: <span class="ident">Baseline</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">i32</span> {
+    <span class="kw">fn</span> <span class="ident">baseline_offset</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">baseline</span>: <span class="ident">Baseline</span>) -&gt; <span class="ident">i32</span> {
         <span class="kw">match</span> <span class="ident">baseline</span> {
-            <span class="ident">Baseline::Top</span> <span class="op">=</span><span class="op">&gt;</span> <span class="number">0</span>,
-            <span class="ident">Baseline::Bottom</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">self</span>
+            <span class="ident">Baseline::Top</span> =&gt; <span class="number">0</span>,
+            <span class="ident">Baseline::Bottom</span> =&gt; <span class="self">self</span>
                 .<span class="ident">font</span>
                 .<span class="ident">character_size</span>
                 .<span class="ident">height</span>
                 .<span class="ident">saturating_sub</span>(<span class="number">1</span>)
                 .<span class="ident">saturating_as</span>(),
-            <span class="ident">Baseline::Middle</span> <span class="op">=</span><span class="op">&gt;</span> {
+            <span class="ident">Baseline::Middle</span> =&gt; {
                 (<span class="self">self</span>.<span class="ident">font</span>.<span class="ident">character_size</span>.<span class="ident">height</span>.<span class="ident">saturating_sub</span>(<span class="number">1</span>) <span class="op">/</span> <span class="number">2</span>).<span class="ident">saturating_as</span>()
             }
-            <span class="ident">Baseline::Alphabetic</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">self</span>.<span class="ident">font</span>.<span class="ident">baseline</span>.<span class="ident">saturating_as</span>(),
+            <span class="ident">Baseline::Alphabetic</span> =&gt; <span class="self">self</span>.<span class="ident">font</span>.<span class="ident">baseline</span>.<span class="ident">saturating_as</span>(),
         }
     }
 }
@@ -1374,29 +1374,29 @@
         <span class="ident">position</span>: <span class="ident">Point</span>,
         <span class="ident">baseline</span>: <span class="ident">Baseline</span>,
         <span class="ident">target</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">D</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">Point</span>, <span class="ident">D::Error</span><span class="op">&gt;</span>
+    ) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">Point</span>, <span class="ident">D::Error</span><span class="op">&gt;</span>
     <span class="kw">where</span>
         <span class="ident">D</span>: <span class="ident">DrawTarget</span><span class="op">&lt;</span><span class="ident">Color</span> <span class="op">=</span> <span class="ident"><span class="self">Self</span>::Color</span><span class="op">&gt;</span>,
     {
         <span class="kw">let</span> <span class="ident">position</span> <span class="op">=</span> <span class="ident">position</span> <span class="op">-</span> <span class="ident">Point::new</span>(<span class="number">0</span>, <span class="self">self</span>.<span class="ident">baseline_offset</span>(<span class="ident">baseline</span>));
 
         <span class="kw">let</span> <span class="ident">next</span> <span class="op">=</span> <span class="kw">match</span> (<span class="self">self</span>.<span class="ident">text_color</span>, <span class="self">self</span>.<span class="ident">background_color</span>) {
-            (<span class="prelude-val">Some</span>(<span class="ident">text_color</span>), <span class="prelude-val">Some</span>(<span class="ident">background_color</span>)) <span class="op">=</span><span class="op">&gt;</span> <span class="self">self</span>.<span class="ident">draw_string_binary</span>(
+            (<span class="prelude-val">Some</span>(<span class="ident">text_color</span>), <span class="prelude-val">Some</span>(<span class="ident">background_color</span>)) =&gt; <span class="self">self</span>.<span class="ident">draw_string_binary</span>(
                 <span class="ident">text</span>,
                 <span class="ident">position</span>,
                 <span class="ident">MonoFontDrawTarget::new</span>(<span class="ident">target</span>, <span class="ident">Both</span>(<span class="ident">text_color</span>, <span class="ident">background_color</span>)),
             )<span class="question-mark">?</span>,
-            (<span class="prelude-val">Some</span>(<span class="ident">text_color</span>), <span class="prelude-val">None</span>) <span class="op">=</span><span class="op">&gt;</span> <span class="self">self</span>.<span class="ident">draw_string_binary</span>(
+            (<span class="prelude-val">Some</span>(<span class="ident">text_color</span>), <span class="prelude-val">None</span>) =&gt; <span class="self">self</span>.<span class="ident">draw_string_binary</span>(
                 <span class="ident">text</span>,
                 <span class="ident">position</span>,
                 <span class="ident">MonoFontDrawTarget::new</span>(<span class="ident">target</span>, <span class="ident">Foreground</span>(<span class="ident">text_color</span>)),
             )<span class="question-mark">?</span>,
-            (<span class="prelude-val">None</span>, <span class="prelude-val">Some</span>(<span class="ident">background_color</span>)) <span class="op">=</span><span class="op">&gt;</span> <span class="self">self</span>.<span class="ident">draw_string_binary</span>(
+            (<span class="prelude-val">None</span>, <span class="prelude-val">Some</span>(<span class="ident">background_color</span>)) =&gt; <span class="self">self</span>.<span class="ident">draw_string_binary</span>(
                 <span class="ident">text</span>,
                 <span class="ident">position</span>,
                 <span class="ident">MonoFontDrawTarget::new</span>(<span class="ident">target</span>, <span class="ident">Background</span>(<span class="ident">background_color</span>)),
             )<span class="question-mark">?</span>,
-            (<span class="prelude-val">None</span>, <span class="prelude-val">None</span>) <span class="op">=</span><span class="op">&gt;</span> {
+            (<span class="prelude-val">None</span>, <span class="prelude-val">None</span>) =&gt; {
                 <span class="kw">let</span> <span class="ident">dx</span> <span class="op">=</span> (<span class="self">self</span>.<span class="ident">font</span>.<span class="ident">character_size</span>.<span class="ident">width</span> <span class="op">+</span> <span class="self">self</span>.<span class="ident">font</span>.<span class="ident">character_spacing</span>)
                     <span class="op">*</span> <span class="ident">text</span>.<span class="ident">len</span>() <span class="kw">as</span> <span class="ident">u32</span>;
 
@@ -1418,7 +1418,7 @@
         <span class="ident">position</span>: <span class="ident">Point</span>,
         <span class="ident">baseline</span>: <span class="ident">Baseline</span>,
         <span class="ident">target</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">D</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">Point</span>, <span class="ident">D::Error</span><span class="op">&gt;</span>
+    ) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">Point</span>, <span class="ident">D::Error</span><span class="op">&gt;</span>
     <span class="kw">where</span>
         <span class="ident">D</span>: <span class="ident">DrawTarget</span><span class="op">&lt;</span><span class="ident">Color</span> <span class="op">=</span> <span class="ident"><span class="self">Self</span>::Color</span><span class="op">&gt;</span>,
     {
@@ -1438,7 +1438,7 @@
         <span class="prelude-val">Ok</span>(<span class="ident">position</span> <span class="op">+</span> <span class="ident">Point::new</span>(<span class="ident">width</span>.<span class="ident">saturating_as</span>(), <span class="self">self</span>.<span class="ident">baseline_offset</span>(<span class="ident">baseline</span>)))
     }
 
-    <span class="kw">fn</span> <span class="ident">measure_string</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">text</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="ident">position</span>: <span class="ident">Point</span>, <span class="ident">baseline</span>: <span class="ident">Baseline</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">TextMetrics</span> {
+    <span class="kw">fn</span> <span class="ident">measure_string</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">text</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="ident">position</span>: <span class="ident">Point</span>, <span class="ident">baseline</span>: <span class="ident">Baseline</span>) -&gt; <span class="ident">TextMetrics</span> {
         <span class="kw">let</span> <span class="ident">bb_position</span> <span class="op">=</span> <span class="ident">position</span> <span class="op">-</span> <span class="ident">Point::new</span>(<span class="number">0</span>, <span class="self">self</span>.<span class="ident">baseline_offset</span>(<span class="ident">baseline</span>));
 
         <span class="kw">let</span> <span class="ident">bb_width</span> <span class="op">=</span> (<span class="ident">text</span>.<span class="ident">len</span>() <span class="kw">as</span> <span class="ident">u32</span>
@@ -1459,7 +1459,7 @@
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">line_height</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">u32</span> {
+    <span class="kw">fn</span> <span class="ident">line_height</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">u32</span> {
         <span class="self">self</span>.<span class="ident">font</span>.<span class="ident">character_size</span>.<span class="ident">height</span>
     }
 }
@@ -1570,7 +1570,7 @@
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span> <span class="ident">MonoTextStyleBuilder</span><span class="op">&lt;</span><span class="lifetime">&#39;_</span>, <span class="ident">C</span><span class="op">&gt;</span> {
     <span class="doccomment">/// Creates a new text style builder.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>() -&gt; <span class="self">Self</span> {
         <span class="self">Self</span> {
             <span class="ident">style</span>: <span class="ident">MonoTextStyle</span> {
                 <span class="ident">font</span>: <span class="kw-2">&amp;</span><span class="ident"><span class="kw">super</span>::NULL_FONT</span>,
@@ -1585,7 +1585,7 @@
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">C</span><span class="op">&gt;</span> <span class="ident">MonoTextStyleBuilder</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">C</span><span class="op">&gt;</span> {
     <span class="doccomment">/// Sets the font.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">font</span><span class="op">&lt;</span><span class="lifetime">&#39;b</span><span class="op">&gt;</span>(<span class="self">self</span>, <span class="ident">font</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;b</span> <span class="ident">MonoFont</span><span class="op">&lt;</span><span class="lifetime">&#39;b</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">MonoTextStyleBuilder</span><span class="op">&lt;</span><span class="lifetime">&#39;b</span>, <span class="ident">C</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">font</span><span class="op">&lt;</span><span class="lifetime">&#39;b</span><span class="op">&gt;</span>(<span class="self">self</span>, <span class="ident">font</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;b</span> <span class="ident">MonoFont</span><span class="op">&lt;</span><span class="lifetime">&#39;b</span><span class="op">&gt;</span>) -&gt; <span class="ident">MonoTextStyleBuilder</span><span class="op">&lt;</span><span class="lifetime">&#39;b</span>, <span class="ident">C</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">style</span> <span class="op">=</span> <span class="ident">MonoTextStyle</span> {
             <span class="ident">font</span>,
             <span class="ident">background_color</span>: <span class="self">self</span>.<span class="ident">style</span>.<span class="ident">background_color</span>,
@@ -1598,42 +1598,42 @@
     }
 
     <span class="doccomment">/// Enables underline using the text color.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">underline</span>(<span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">underline</span>(<span class="kw-2">mut</span> <span class="self">self</span>) -&gt; <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">style</span>.<span class="ident">underline_color</span> <span class="op">=</span> <span class="ident">DecorationColor::TextColor</span>;
 
         <span class="self">self</span>
     }
 
     <span class="doccomment">/// Enables strikethrough using the text color.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">strikethrough</span>(<span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">strikethrough</span>(<span class="kw-2">mut</span> <span class="self">self</span>) -&gt; <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">style</span>.<span class="ident">strikethrough_color</span> <span class="op">=</span> <span class="ident">DecorationColor::TextColor</span>;
 
         <span class="self">self</span>
     }
 
     <span class="doccomment">/// Resets the text color to transparent.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">reset_text_color</span>(<span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">reset_text_color</span>(<span class="kw-2">mut</span> <span class="self">self</span>) -&gt; <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">style</span>.<span class="ident">text_color</span> <span class="op">=</span> <span class="prelude-val">None</span>;
 
         <span class="self">self</span>
     }
 
     <span class="doccomment">/// Resets the background color to transparent.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">reset_background_color</span>(<span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">reset_background_color</span>(<span class="kw-2">mut</span> <span class="self">self</span>) -&gt; <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">style</span>.<span class="ident">background_color</span> <span class="op">=</span> <span class="prelude-val">None</span>;
 
         <span class="self">self</span>
     }
 
     <span class="doccomment">/// Removes the underline decoration.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">reset_underline</span>(<span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">reset_underline</span>(<span class="kw-2">mut</span> <span class="self">self</span>) -&gt; <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">style</span>.<span class="ident">underline_color</span> <span class="op">=</span> <span class="ident">DecorationColor::None</span>;
 
         <span class="self">self</span>
     }
 
     <span class="doccomment">/// Removes the strikethrough decoration.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">reset_strikethrough</span>(<span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">reset_strikethrough</span>(<span class="kw-2">mut</span> <span class="self">self</span>) -&gt; <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">style</span>.<span class="ident">strikethrough_color</span> <span class="op">=</span> <span class="ident">DecorationColor::None</span>;
 
         <span class="self">self</span>
@@ -1642,28 +1642,28 @@
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">C</span>: <span class="ident">PixelColor</span><span class="op">&gt;</span> <span class="ident">MonoTextStyleBuilder</span><span class="op">&lt;</span><span class="lifetime">&#39;_</span>, <span class="ident">C</span><span class="op">&gt;</span> {
     <span class="doccomment">/// Sets the text color.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">text_color</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">text_color</span>: <span class="ident">C</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">text_color</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">text_color</span>: <span class="ident">C</span>) -&gt; <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">style</span>.<span class="ident">text_color</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">text_color</span>);
 
         <span class="self">self</span>
     }
 
     <span class="doccomment">/// Sets the background color.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">background_color</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">background_color</span>: <span class="ident">C</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">background_color</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">background_color</span>: <span class="ident">C</span>) -&gt; <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">style</span>.<span class="ident">background_color</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">background_color</span>);
 
         <span class="self">self</span>
     }
 
     <span class="doccomment">/// Enables underline with a custom color.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">underline_with_color</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">underline_color</span>: <span class="ident">C</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">underline_with_color</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">underline_color</span>: <span class="ident">C</span>) -&gt; <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">style</span>.<span class="ident">underline_color</span> <span class="op">=</span> <span class="ident">DecorationColor::Custom</span>(<span class="ident">underline_color</span>);
 
         <span class="self">self</span>
     }
 
     <span class="doccomment">/// Enables strikethrough with a custom color.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">strikethrough_with_color</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">strikethrough_color</span>: <span class="ident">C</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">strikethrough_with_color</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">strikethrough_color</span>: <span class="ident">C</span>) -&gt; <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">style</span>.<span class="ident">strikethrough_color</span> <span class="op">=</span> <span class="ident">DecorationColor::Custom</span>(<span class="ident">strikethrough_color</span>);
 
         <span class="self">self</span>
@@ -1677,13 +1677,13 @@
     <span class="doccomment">/// settings are optional and they will be set to their default value if they are missing.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// [`font`]: #method.font</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">build</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">MonoTextStyle</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">C</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">build</span>(<span class="self">self</span>) -&gt; <span class="ident">MonoTextStyle</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">C</span><span class="op">&gt;</span> {
         <span class="self">self</span>.<span class="ident">style</span>
     }
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">C</span>: <span class="ident">PixelColor</span><span class="op">&gt;</span> <span class="ident">From</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">MonoTextStyle</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">C</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">MonoTextStyleBuilder</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">C</span><span class="op">&gt;</span> {
-    <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">style</span>: <span class="kw-2">&amp;</span><span class="ident">MonoTextStyle</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">C</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">style</span>: <span class="kw-2">&amp;</span><span class="ident">MonoTextStyle</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">C</span><span class="op">&gt;</span>) -&gt; <span class="self">Self</span> {
         <span class="self">Self</span> { <span class="ident">style</span>: <span class="kw-2">*</span><span class="ident">style</span> }
     }
 }

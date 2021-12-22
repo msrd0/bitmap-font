@@ -27,7 +27,7 @@
 <span id="27">27</span>
 </pre><pre class="rust"><code><span class="kw">use</span> <span class="ident"><span class="kw">super</span>::copysign::copysign</span>;
 
-<span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">round</span>(<span class="ident">x</span>: <span class="ident">f32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span> {
+<span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">round</span>(<span class="ident">x</span>: <span class="ident">f32</span>) -&gt; <span class="ident">f32</span> {
     ((<span class="ident">x</span> <span class="op">+</span> <span class="ident">copysign</span>(<span class="number">0.5</span>, <span class="ident">x</span>)) <span class="kw">as</span> <span class="ident">i32</span>) <span class="kw">as</span> <span class="ident">f32</span>
 }
 

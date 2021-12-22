@@ -111,7 +111,7 @@
 <span class="kw">use</span> <span class="ident">core::i32</span>;
 <span class="kw">use</span> <span class="ident">core::u32</span>;
 
-<span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn</span> <span class="ident">exp_smallx</span>(<span class="ident">x</span>: <span class="ident">f32</span>, <span class="ident">iter</span>: <span class="ident">u32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span> {
+<span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn</span> <span class="ident">exp_smallx</span>(<span class="ident">x</span>: <span class="ident">f32</span>, <span class="ident">iter</span>: <span class="ident">u32</span>) -&gt; <span class="ident">f32</span> {
     <span class="comment">// if x is between 0.0 and 1.0, we can approximate it with the a series</span>
     <span class="comment">// series from here: https://stackoverflow.com/a/6984495, e^x ~= 1 + x(1 + x/2(1 + (x?</span>
     <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">total</span>: <span class="ident">f32</span> <span class="op">=</span> <span class="number">1.0_f32</span>;
@@ -121,9 +121,9 @@
     <span class="ident">total</span>
 }
 
-<span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">exp_ln2_approximation</span>(<span class="ident">x</span>: <span class="ident">f32</span>, <span class="ident">partial_iter</span>: <span class="ident">u32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span> {
+<span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">exp_ln2_approximation</span>(<span class="ident">x</span>: <span class="ident">f32</span>, <span class="ident">partial_iter</span>: <span class="ident">u32</span>) -&gt; <span class="ident">f32</span> {
     <span class="comment">// idea from# https://stackoverflow.com/a/6985769/2036035</span>
-    <span class="kw">if</span> <span class="ident">x</span> <span class="op">=</span><span class="op">=</span> <span class="number">0.0_f32</span> {
+    <span class="kw">if</span> <span class="ident">x</span> <span class="op">==</span> <span class="number">0.0_f32</span> {
         <span class="kw">return</span> <span class="number">1.0</span>;
     }
     <span class="kw">if</span> <span class="ident">abs::abs</span>(<span class="ident">x</span> <span class="op">-</span> <span class="number">1.0_f32</span>) <span class="op">&lt;</span> <span class="ident">f32::EPSILON</span> {

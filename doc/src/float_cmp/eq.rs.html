@@ -298,11 +298,11 @@
 
     <span class="doccomment">/// This method tests that the `self` and `other` values are equal within `margin`</span>
     <span class="doccomment">/// of each other.</span>
-    <span class="kw">fn</span> <span class="ident">approx_eq</span><span class="op">&lt;</span><span class="ident">M</span>: <span class="ident">Into</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Margin</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="self">self</span>, <span class="ident">other</span>: <span class="self">Self</span>, <span class="ident">margin</span>: <span class="ident">M</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span>;
+    <span class="kw">fn</span> <span class="ident">approx_eq</span><span class="op">&lt;</span><span class="ident">M</span>: <span class="ident">Into</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Margin</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="self">self</span>, <span class="ident">other</span>: <span class="self">Self</span>, <span class="ident">margin</span>: <span class="ident">M</span>) -&gt; <span class="ident">bool</span>;
 
     <span class="doccomment">/// This method tests that the `self` and `other` values are not within `margin`</span>
     <span class="doccomment">/// of each other.</span>
-    <span class="kw">fn</span> <span class="ident">approx_ne</span><span class="op">&lt;</span><span class="ident">M</span>: <span class="ident">Into</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Margin</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="self">self</span>, <span class="ident">other</span>: <span class="self">Self</span>, <span class="ident">margin</span>: <span class="ident">M</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
+    <span class="kw">fn</span> <span class="ident">approx_ne</span><span class="op">&lt;</span><span class="ident">M</span>: <span class="ident">Into</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Margin</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="self">self</span>, <span class="ident">other</span>: <span class="self">Self</span>, <span class="ident">margin</span>: <span class="ident">M</span>) -&gt; <span class="ident">bool</span> {
         <span class="op">!</span><span class="self">self</span>.<span class="ident">approx_eq</span>(<span class="ident">other</span>, <span class="ident">margin</span>)
     }
 }
@@ -331,7 +331,7 @@
 }
 <span class="kw">impl</span> <span class="ident">Default</span> <span class="kw">for</span> <span class="ident">F32Margin</span> {
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">fn</span> <span class="ident">default</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">F32Margin</span> {
+    <span class="kw">fn</span> <span class="ident">default</span>() -&gt; <span class="ident">F32Margin</span> {
         <span class="ident">F32Margin</span> {
             <span class="ident">epsilon</span>: <span class="ident">f32::EPSILON</span>,
             <span class="ident">ulps</span>: <span class="number">4</span>
@@ -340,19 +340,19 @@
 }
 <span class="kw">impl</span> <span class="ident">F32Margin</span> {
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">zero</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">F32Margin</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">zero</span>() -&gt; <span class="ident">F32Margin</span> {
         <span class="ident">F32Margin</span> {
             <span class="ident">epsilon</span>: <span class="number">0.0</span>,
             <span class="ident">ulps</span>: <span class="number">0</span>
         }
     }
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">epsilon</span>(<span class="self">self</span>, <span class="ident">epsilon</span>: <span class="ident">f32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">epsilon</span>(<span class="self">self</span>, <span class="ident">epsilon</span>: <span class="ident">f32</span>) -&gt; <span class="self">Self</span> {
         <span class="ident">F32Margin</span> {
             <span class="ident">epsilon</span>: <span class="ident">epsilon</span>,
             ..<span class="self">self</span>
         }
     }
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">ulps</span>(<span class="self">self</span>, <span class="ident">ulps</span>: <span class="ident">i32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">ulps</span>(<span class="self">self</span>, <span class="ident">ulps</span>: <span class="ident">i32</span>) -&gt; <span class="self">Self</span> {
         <span class="ident">F32Margin</span> {
             <span class="ident">ulps</span>: <span class="ident">ulps</span>,
             ..<span class="self">self</span>
@@ -360,7 +360,7 @@
     }
 }
 <span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span>(<span class="ident">f32</span>, <span class="ident">i32</span>)<span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">F32Margin</span> {
-    <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">m</span>: (<span class="ident">f32</span>, <span class="ident">i32</span>)) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">F32Margin</span> {
+    <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">m</span>: (<span class="ident">f32</span>, <span class="ident">i32</span>)) -&gt; <span class="ident">F32Margin</span> {
         <span class="ident">F32Margin</span> {
             <span class="ident">epsilon</span>: <span class="ident">m</span>.<span class="number">0</span>,
             <span class="ident">ulps</span>: <span class="ident">m</span>.<span class="number">1</span>
@@ -371,12 +371,12 @@
 <span class="kw">impl</span> <span class="ident">ApproxEq</span> <span class="kw">for</span> <span class="ident">f32</span> {
     <span class="kw">type</span> <span class="ident">Margin</span> <span class="op">=</span> <span class="ident">F32Margin</span>;
 
-    <span class="kw">fn</span> <span class="ident">approx_eq</span><span class="op">&lt;</span><span class="ident">M</span>: <span class="ident">Into</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Margin</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="self">self</span>, <span class="ident">other</span>: <span class="ident">f32</span>, <span class="ident">margin</span>: <span class="ident">M</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
+    <span class="kw">fn</span> <span class="ident">approx_eq</span><span class="op">&lt;</span><span class="ident">M</span>: <span class="ident">Into</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Margin</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="self">self</span>, <span class="ident">other</span>: <span class="ident">f32</span>, <span class="ident">margin</span>: <span class="ident">M</span>) -&gt; <span class="ident">bool</span> {
         <span class="kw">let</span> <span class="ident">margin</span> <span class="op">=</span> <span class="ident">margin</span>.<span class="ident">into</span>();
 
         <span class="comment">// Check for exact equality first. This is often true, and so we get the</span>
         <span class="comment">// performance benefit of only doing one compare in most cases.</span>
-        <span class="self">self</span><span class="op">=</span><span class="op">=</span><span class="ident">other</span> <span class="op">|</span><span class="op">|</span>
+        <span class="self">self</span><span class="op">==</span><span class="ident">other</span> <span class="op">|</span><span class="op">|</span>
 
         <span class="comment">// Perform epsilon comparison next</span>
             ((<span class="self">self</span> <span class="op">-</span> <span class="ident">other</span>).<span class="ident">abs</span>() <span class="op">&lt;</span><span class="op">=</span> <span class="ident">margin</span>.<span class="ident">epsilon</span>) <span class="op">|</span><span class="op">|</span>
@@ -394,25 +394,25 @@
     <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">f32</span> <span class="op">=</span> <span class="number">0.0_f32</span>;
     <span class="kw">let</span> <span class="ident">g</span>: <span class="ident">f32</span> <span class="op">=</span> <span class="op">-</span><span class="number">0.0000000000000005551115123125783_f32</span>;
     <span class="macro">assert!</span>(<span class="ident">f</span> <span class="op">!</span><span class="op">=</span> <span class="ident">g</span>); <span class="comment">// Should not be directly equal</span>
-    <span class="macro">assert!</span>(<span class="ident">f</span>.<span class="ident">approx_eq</span>(<span class="ident">g</span>, (<span class="ident">f32::EPSILON</span>, <span class="number">0</span>)) <span class="op">=</span><span class="op">=</span> <span class="bool-val">true</span>);
+    <span class="macro">assert!</span>(<span class="ident">f</span>.<span class="ident">approx_eq</span>(<span class="ident">g</span>, (<span class="ident">f32::EPSILON</span>, <span class="number">0</span>)) <span class="op">==</span> <span class="bool-val">true</span>);
 }
 <span class="attribute">#[<span class="ident">test</span>]</span>
 <span class="kw">fn</span> <span class="ident">f32_approx_eq_test2</span>() {
     <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">f32</span> <span class="op">=</span> <span class="number">0.0_f32</span>;
     <span class="kw">let</span> <span class="ident">g</span>: <span class="ident">f32</span> <span class="op">=</span> <span class="op">-</span><span class="number">0.0_f32</span>;
-    <span class="macro">assert!</span>(<span class="ident">f</span>.<span class="ident">approx_eq</span>(<span class="ident">g</span>, (<span class="ident">f32::EPSILON</span>, <span class="number">0</span>)) <span class="op">=</span><span class="op">=</span> <span class="bool-val">true</span>);
+    <span class="macro">assert!</span>(<span class="ident">f</span>.<span class="ident">approx_eq</span>(<span class="ident">g</span>, (<span class="ident">f32::EPSILON</span>, <span class="number">0</span>)) <span class="op">==</span> <span class="bool-val">true</span>);
 }
 <span class="attribute">#[<span class="ident">test</span>]</span>
 <span class="kw">fn</span> <span class="ident">f32_approx_eq_test3</span>() {
     <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">f32</span> <span class="op">=</span> <span class="number">0.0_f32</span>;
     <span class="kw">let</span> <span class="ident">g</span>: <span class="ident">f32</span> <span class="op">=</span> <span class="number">0.00000000000000001_f32</span>;
-    <span class="macro">assert!</span>(<span class="ident">f</span>.<span class="ident">approx_eq</span>(<span class="ident">g</span>, (<span class="ident">f32::EPSILON</span>, <span class="number">0</span>)) <span class="op">=</span><span class="op">=</span> <span class="bool-val">true</span>);
+    <span class="macro">assert!</span>(<span class="ident">f</span>.<span class="ident">approx_eq</span>(<span class="ident">g</span>, (<span class="ident">f32::EPSILON</span>, <span class="number">0</span>)) <span class="op">==</span> <span class="bool-val">true</span>);
 }
 <span class="attribute">#[<span class="ident">test</span>]</span>
 <span class="kw">fn</span> <span class="ident">f32_approx_eq_test4</span>() {
     <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">f32</span> <span class="op">=</span> <span class="number">0.00001_f32</span>;
     <span class="kw">let</span> <span class="ident">g</span>: <span class="ident">f32</span> <span class="op">=</span> <span class="number">0.00000000000000001_f32</span>;
-    <span class="macro">assert!</span>(<span class="ident">f</span>.<span class="ident">approx_eq</span>(<span class="ident">g</span>, (<span class="ident">f32::EPSILON</span>, <span class="number">0</span>)) <span class="op">=</span><span class="op">=</span> <span class="bool-val">false</span>);
+    <span class="macro">assert!</span>(<span class="ident">f</span>.<span class="ident">approx_eq</span>(<span class="ident">g</span>, (<span class="ident">f32::EPSILON</span>, <span class="number">0</span>)) <span class="op">==</span> <span class="bool-val">false</span>);
 }
 <span class="attribute">#[<span class="ident">test</span>]</span>
 <span class="kw">fn</span> <span class="ident">f32_approx_eq_test5</span>() {
@@ -421,17 +421,17 @@
     <span class="kw">for</span> <span class="kw">_</span> <span class="kw">in</span> <span class="number">0_isize</span>..<span class="number">10_isize</span> { <span class="ident">sum</span> <span class="op">+</span><span class="op">=</span> <span class="ident">f</span>; }
     <span class="kw">let</span> <span class="ident">product</span>: <span class="ident">f32</span> <span class="op">=</span> <span class="ident">f</span> <span class="op">*</span> <span class="number">10.0_f32</span>;
     <span class="macro">assert!</span>(<span class="ident">sum</span> <span class="op">!</span><span class="op">=</span> <span class="ident">product</span>); <span class="comment">// Should not be directly equal:</span>
-    <span class="macro">assert!</span>(<span class="ident">sum</span>.<span class="ident">approx_eq</span>(<span class="ident">product</span>, (<span class="ident">f32::EPSILON</span>, <span class="number">1</span>)) <span class="op">=</span><span class="op">=</span> <span class="bool-val">true</span>);
-    <span class="macro">assert!</span>(<span class="ident">sum</span>.<span class="ident">approx_eq</span>(<span class="ident">product</span>, <span class="ident">F32Margin::zero</span>()) <span class="op">=</span><span class="op">=</span> <span class="bool-val">false</span>);
+    <span class="macro">assert!</span>(<span class="ident">sum</span>.<span class="ident">approx_eq</span>(<span class="ident">product</span>, (<span class="ident">f32::EPSILON</span>, <span class="number">1</span>)) <span class="op">==</span> <span class="bool-val">true</span>);
+    <span class="macro">assert!</span>(<span class="ident">sum</span>.<span class="ident">approx_eq</span>(<span class="ident">product</span>, <span class="ident">F32Margin::zero</span>()) <span class="op">==</span> <span class="bool-val">false</span>);
 }
 <span class="attribute">#[<span class="ident">test</span>]</span>
 <span class="kw">fn</span> <span class="ident">f32_approx_eq_test6</span>() {
     <span class="kw">let</span> <span class="ident">x</span>: <span class="ident">f32</span> <span class="op">=</span> <span class="number">1000000_f32</span>;
     <span class="kw">let</span> <span class="ident">y</span>: <span class="ident">f32</span> <span class="op">=</span> <span class="number">1000000.1_f32</span>;
     <span class="macro">assert!</span>(<span class="ident">x</span> <span class="op">!</span><span class="op">=</span> <span class="ident">y</span>); <span class="comment">// Should not be directly equal</span>
-    <span class="macro">assert!</span>(<span class="ident">x</span>.<span class="ident">approx_eq</span>(<span class="ident">y</span>, (<span class="number">0.0</span>, <span class="number">2</span>)) <span class="op">=</span><span class="op">=</span> <span class="bool-val">true</span>); <span class="comment">// 2 ulps does it</span>
+    <span class="macro">assert!</span>(<span class="ident">x</span>.<span class="ident">approx_eq</span>(<span class="ident">y</span>, (<span class="number">0.0</span>, <span class="number">2</span>)) <span class="op">==</span> <span class="bool-val">true</span>); <span class="comment">// 2 ulps does it</span>
     <span class="comment">// epsilon method no good here:</span>
-    <span class="macro">assert!</span>(<span class="ident">x</span>.<span class="ident">approx_eq</span>(<span class="ident">y</span>, (<span class="number">1000.0</span> <span class="op">*</span> <span class="ident">f32::EPSILON</span>, <span class="number">0</span>)) <span class="op">=</span><span class="op">=</span> <span class="bool-val">false</span>);
+    <span class="macro">assert!</span>(<span class="ident">x</span>.<span class="ident">approx_eq</span>(<span class="ident">y</span>, (<span class="number">1000.0</span> <span class="op">*</span> <span class="ident">f32::EPSILON</span>, <span class="number">0</span>)) <span class="op">==</span> <span class="bool-val">false</span>);
 }
 
 <span class="doccomment">/// This type defines a margin within two `f64` values might be considered equal,</span>
@@ -457,7 +457,7 @@
 }
 <span class="kw">impl</span> <span class="ident">Default</span> <span class="kw">for</span> <span class="ident">F64Margin</span> {
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">fn</span> <span class="ident">default</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">F64Margin</span> {
+    <span class="kw">fn</span> <span class="ident">default</span>() -&gt; <span class="ident">F64Margin</span> {
         <span class="ident">F64Margin</span> {
             <span class="ident">epsilon</span>: <span class="ident">f64::EPSILON</span>,
             <span class="ident">ulps</span>: <span class="number">4</span>
@@ -466,19 +466,19 @@
 }
 <span class="kw">impl</span> <span class="ident">F64Margin</span> {
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">zero</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">F64Margin</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">zero</span>() -&gt; <span class="ident">F64Margin</span> {
         <span class="ident">F64Margin</span> {
             <span class="ident">epsilon</span>: <span class="number">0.0</span>,
             <span class="ident">ulps</span>: <span class="number">0</span>
         }
     }
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">epsilon</span>(<span class="self">self</span>, <span class="ident">epsilon</span>: <span class="ident">f64</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">epsilon</span>(<span class="self">self</span>, <span class="ident">epsilon</span>: <span class="ident">f64</span>) -&gt; <span class="self">Self</span> {
         <span class="ident">F64Margin</span> {
             <span class="ident">epsilon</span>: <span class="ident">epsilon</span>,
             ..<span class="self">self</span>
         }
     }
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">ulps</span>(<span class="self">self</span>, <span class="ident">ulps</span>: <span class="ident">i64</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">ulps</span>(<span class="self">self</span>, <span class="ident">ulps</span>: <span class="ident">i64</span>) -&gt; <span class="self">Self</span> {
         <span class="ident">F64Margin</span> {
             <span class="ident">ulps</span>: <span class="ident">ulps</span>,
             ..<span class="self">self</span>
@@ -486,7 +486,7 @@
     }
 }
 <span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span>(<span class="ident">f64</span>, <span class="ident">i64</span>)<span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">F64Margin</span> {
-    <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">m</span>: (<span class="ident">f64</span>, <span class="ident">i64</span>)) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">F64Margin</span> {
+    <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">m</span>: (<span class="ident">f64</span>, <span class="ident">i64</span>)) -&gt; <span class="ident">F64Margin</span> {
         <span class="ident">F64Margin</span> {
             <span class="ident">epsilon</span>: <span class="ident">m</span>.<span class="number">0</span>,
             <span class="ident">ulps</span>: <span class="ident">m</span>.<span class="number">1</span>
@@ -497,12 +497,12 @@
 <span class="kw">impl</span> <span class="ident">ApproxEq</span> <span class="kw">for</span> <span class="ident">f64</span> {
     <span class="kw">type</span> <span class="ident">Margin</span> <span class="op">=</span> <span class="ident">F64Margin</span>;
 
-    <span class="kw">fn</span> <span class="ident">approx_eq</span><span class="op">&lt;</span><span class="ident">M</span>: <span class="ident">Into</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Margin</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="self">self</span>, <span class="ident">other</span>: <span class="ident">f64</span>, <span class="ident">margin</span>: <span class="ident">M</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
+    <span class="kw">fn</span> <span class="ident">approx_eq</span><span class="op">&lt;</span><span class="ident">M</span>: <span class="ident">Into</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Margin</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="self">self</span>, <span class="ident">other</span>: <span class="ident">f64</span>, <span class="ident">margin</span>: <span class="ident">M</span>) -&gt; <span class="ident">bool</span> {
         <span class="kw">let</span> <span class="ident">margin</span> <span class="op">=</span> <span class="ident">margin</span>.<span class="ident">into</span>();
 
         <span class="comment">// Check for exact equality first. This is often true, and so we get the</span>
         <span class="comment">// performance benefit of only doing one compare in most cases.</span>
-        <span class="self">self</span> <span class="op">=</span><span class="op">=</span> <span class="ident">other</span> <span class="op">|</span><span class="op">|</span>
+        <span class="self">self</span> <span class="op">==</span> <span class="ident">other</span> <span class="op">|</span><span class="op">|</span>
 
         <span class="comment">// Perform epsilon comparison next</span>
             ((<span class="self">self</span> <span class="op">-</span> <span class="ident">other</span>).<span class="ident">abs</span>() <span class="op">&lt;</span><span class="op">=</span> <span class="ident">margin</span>.<span class="ident">epsilon</span>) <span class="op">|</span><span class="op">|</span>
@@ -520,26 +520,26 @@
     <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">f64</span> <span class="op">=</span> <span class="number">0.0_f64</span>;
     <span class="kw">let</span> <span class="ident">g</span>: <span class="ident">f64</span> <span class="op">=</span> <span class="op">-</span><span class="number">0.0000000000000005551115123125783_f64</span>;
     <span class="macro">assert!</span>(<span class="ident">f</span> <span class="op">!</span><span class="op">=</span> <span class="ident">g</span>); <span class="comment">// Should not be precisely equal.</span>
-    <span class="macro">assert!</span>(<span class="ident">f</span>.<span class="ident">approx_eq</span>(<span class="ident">g</span>, (<span class="number">3.0</span> <span class="op">*</span> <span class="ident">f64::EPSILON</span>, <span class="number">0</span>)) <span class="op">=</span><span class="op">=</span> <span class="bool-val">true</span>); <span class="comment">// 3e is enough.</span>
+    <span class="macro">assert!</span>(<span class="ident">f</span>.<span class="ident">approx_eq</span>(<span class="ident">g</span>, (<span class="number">3.0</span> <span class="op">*</span> <span class="ident">f64::EPSILON</span>, <span class="number">0</span>)) <span class="op">==</span> <span class="bool-val">true</span>); <span class="comment">// 3e is enough.</span>
     <span class="comment">// ULPs test won&#39;t ever call these equal.</span>
 }
 <span class="attribute">#[<span class="ident">test</span>]</span>
 <span class="kw">fn</span> <span class="ident">f64_approx_eq_test2</span>() {
     <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">f64</span> <span class="op">=</span> <span class="number">0.0_f64</span>;
     <span class="kw">let</span> <span class="ident">g</span>: <span class="ident">f64</span> <span class="op">=</span> <span class="op">-</span><span class="number">0.0_f64</span>;
-    <span class="macro">assert!</span>(<span class="ident">f</span>.<span class="ident">approx_eq</span>(<span class="ident">g</span>, (<span class="ident">f64::EPSILON</span>, <span class="number">0</span>)) <span class="op">=</span><span class="op">=</span> <span class="bool-val">true</span>);
+    <span class="macro">assert!</span>(<span class="ident">f</span>.<span class="ident">approx_eq</span>(<span class="ident">g</span>, (<span class="ident">f64::EPSILON</span>, <span class="number">0</span>)) <span class="op">==</span> <span class="bool-val">true</span>);
 }
 <span class="attribute">#[<span class="ident">test</span>]</span>
 <span class="kw">fn</span> <span class="ident">f64_approx_eq_test3</span>() {
     <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">f64</span> <span class="op">=</span> <span class="number">0.0_f64</span>;
     <span class="kw">let</span> <span class="ident">g</span>: <span class="ident">f64</span> <span class="op">=</span> <span class="number">1e-17_f64</span>;
-    <span class="macro">assert!</span>(<span class="ident">f</span>.<span class="ident">approx_eq</span>(<span class="ident">g</span>, (<span class="ident">f64::EPSILON</span>, <span class="number">0</span>)) <span class="op">=</span><span class="op">=</span> <span class="bool-val">true</span>);
+    <span class="macro">assert!</span>(<span class="ident">f</span>.<span class="ident">approx_eq</span>(<span class="ident">g</span>, (<span class="ident">f64::EPSILON</span>, <span class="number">0</span>)) <span class="op">==</span> <span class="bool-val">true</span>);
 }
 <span class="attribute">#[<span class="ident">test</span>]</span>
 <span class="kw">fn</span> <span class="ident">f64_approx_eq_test4</span>() {
     <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">f64</span> <span class="op">=</span> <span class="number">0.00001_f64</span>;
     <span class="kw">let</span> <span class="ident">g</span>: <span class="ident">f64</span> <span class="op">=</span> <span class="number">0.00000000000000001_f64</span>;
-    <span class="macro">assert!</span>(<span class="ident">f</span>.<span class="ident">approx_eq</span>(<span class="ident">g</span>, (<span class="ident">f64::EPSILON</span>, <span class="number">0</span>)) <span class="op">=</span><span class="op">=</span> <span class="bool-val">false</span>);
+    <span class="macro">assert!</span>(<span class="ident">f</span>.<span class="ident">approx_eq</span>(<span class="ident">g</span>, (<span class="ident">f64::EPSILON</span>, <span class="number">0</span>)) <span class="op">==</span> <span class="bool-val">false</span>);
 }
 <span class="attribute">#[<span class="ident">test</span>]</span>
 <span class="kw">fn</span> <span class="ident">f64_approx_eq_test5</span>() {
@@ -548,15 +548,15 @@
     <span class="kw">for</span> <span class="kw">_</span> <span class="kw">in</span> <span class="number">0_isize</span>..<span class="number">10_isize</span> { <span class="ident">sum</span> <span class="op">+</span><span class="op">=</span> <span class="ident">f</span>; }
     <span class="kw">let</span> <span class="ident">product</span>: <span class="ident">f64</span> <span class="op">=</span> <span class="ident">f</span> <span class="op">*</span> <span class="number">10.0_f64</span>;
     <span class="macro">assert!</span>(<span class="ident">sum</span> <span class="op">!</span><span class="op">=</span> <span class="ident">product</span>); <span class="comment">// Should not be precisely equaly.</span>
-    <span class="macro">assert!</span>(<span class="ident">sum</span>.<span class="ident">approx_eq</span>(<span class="ident">product</span>, (<span class="ident">f64::EPSILON</span>, <span class="number">0</span>)) <span class="op">=</span><span class="op">=</span> <span class="bool-val">true</span>);
-    <span class="macro">assert!</span>(<span class="ident">sum</span>.<span class="ident">approx_eq</span>(<span class="ident">product</span>, (<span class="number">0.0</span>, <span class="number">1</span>)) <span class="op">=</span><span class="op">=</span> <span class="bool-val">true</span>);
+    <span class="macro">assert!</span>(<span class="ident">sum</span>.<span class="ident">approx_eq</span>(<span class="ident">product</span>, (<span class="ident">f64::EPSILON</span>, <span class="number">0</span>)) <span class="op">==</span> <span class="bool-val">true</span>);
+    <span class="macro">assert!</span>(<span class="ident">sum</span>.<span class="ident">approx_eq</span>(<span class="ident">product</span>, (<span class="number">0.0</span>, <span class="number">1</span>)) <span class="op">==</span> <span class="bool-val">true</span>);
 }
 <span class="attribute">#[<span class="ident">test</span>]</span>
 <span class="kw">fn</span> <span class="ident">f64_approx_eq_test6</span>() {
     <span class="kw">let</span> <span class="ident">x</span>: <span class="ident">f64</span> <span class="op">=</span> <span class="number">1000000_f64</span>;
     <span class="kw">let</span> <span class="ident">y</span>: <span class="ident">f64</span> <span class="op">=</span> <span class="number">1000000.0000000003_f64</span>;
     <span class="macro">assert!</span>(<span class="ident">x</span> <span class="op">!</span><span class="op">=</span> <span class="ident">y</span>); <span class="comment">// Should not be precisely equal.</span>
-    <span class="macro">assert!</span>(<span class="ident">x</span>.<span class="ident">approx_eq</span>(<span class="ident">y</span>, (<span class="number">0.0</span>, <span class="number">3</span>)) <span class="op">=</span><span class="op">=</span> <span class="bool-val">true</span>);
+    <span class="macro">assert!</span>(<span class="ident">x</span>.<span class="ident">approx_eq</span>(<span class="ident">y</span>, (<span class="number">0.0</span>, <span class="number">3</span>)) <span class="op">==</span> <span class="bool-val">true</span>);
 }
 <span class="attribute">#[<span class="ident">test</span>]</span>
 <span class="kw">fn</span> <span class="ident">f64_code_triggering_issue_20</span>() {

@@ -31,7 +31,7 @@
 <span class="kw">use</span> <span class="kw">super</span>::{<span class="ident">atan::atan_approx</span>, <span class="ident">invsqrt::invsqrt_approx</span>};
 
 <span class="doccomment">/// Computes `asin(x)` approximation in radians in the range `[-pi/2, pi/2]`.</span>
-<span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">asin_approx</span>(<span class="ident">x</span>: <span class="ident">f32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f32</span> {
+<span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">asin_approx</span>(<span class="ident">x</span>: <span class="ident">f32</span>) -&gt; <span class="ident">f32</span> {
     <span class="ident">atan_approx</span>(<span class="ident">x</span> <span class="op">*</span> <span class="ident">invsqrt_approx</span>(<span class="number">1.0</span> <span class="op">-</span> <span class="ident">x</span> <span class="op">*</span> <span class="ident">x</span>))
 }
 

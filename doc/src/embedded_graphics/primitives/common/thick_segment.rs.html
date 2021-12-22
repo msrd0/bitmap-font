@@ -113,7 +113,7 @@
 
 <span class="kw">impl</span> <span class="ident">ThickSegment</span> {
     <span class="doccomment">/// Create a new thick segment from two joints.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">start_join</span>: <span class="ident">LineJoin</span>, <span class="ident">end_join</span>: <span class="ident">LineJoin</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">start_join</span>: <span class="ident">LineJoin</span>, <span class="ident">end_join</span>: <span class="ident">LineJoin</span>) -&gt; <span class="self">Self</span> {
         <span class="self">Self</span> {
             <span class="ident">start_join</span>,
             <span class="ident">end_join</span>,
@@ -121,12 +121,12 @@
     }
 
     <span class="doccomment">/// Check whether the thick segment is thick or not.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">is_skeleton</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
-        <span class="self">self</span>.<span class="ident">start_join</span>.<span class="ident">first_edge_end</span>.<span class="ident">left</span> <span class="op">=</span><span class="op">=</span> <span class="self">self</span>.<span class="ident">start_join</span>.<span class="ident">first_edge_end</span>.<span class="ident">right</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">is_skeleton</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">bool</span> {
+        <span class="self">self</span>.<span class="ident">start_join</span>.<span class="ident">first_edge_end</span>.<span class="ident">left</span> <span class="op">==</span> <span class="self">self</span>.<span class="ident">start_join</span>.<span class="ident">first_edge_end</span>.<span class="ident">right</span>
     }
 
     <span class="doccomment">/// Get the right/left edges of this line segment.</span>
-    <span class="kw">fn</span> <span class="ident">edges</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> (<span class="ident">Line</span>, <span class="ident">Line</span>) {
+    <span class="kw">fn</span> <span class="ident">edges</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; (<span class="ident">Line</span>, <span class="ident">Line</span>) {
         (
             <span class="ident">Line::new</span>(
                 <span class="self">self</span>.<span class="ident">start_join</span>.<span class="ident">second_edge_start</span>.<span class="ident">right</span>,
@@ -144,7 +144,7 @@
     <span class="doccomment">/// Note that this does not include any bevel/cap lines as returned by `perimeter` which is why</span>
     <span class="doccomment">/// this is not `impl Dimensions`. These lines don&#39;t need to be included as other segments</span>
     <span class="doccomment">/// in the polyline will expand the bounding box to the right place anyway.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">edges_bounding_box</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Rectangle</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">edges_bounding_box</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Rectangle</span> {
         <span class="kw">let</span> (<span class="ident">right</span>, <span class="ident">left</span>) <span class="op">=</span> <span class="self">self</span>.<span class="ident">edges</span>();
 
         <span class="kw">if</span> <span class="self">self</span>.<span class="ident">is_skeleton</span>() {
@@ -165,7 +165,7 @@
         )
     }
 
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">intersection</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">scanline_y</span>: <span class="ident">i32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Scanline</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">intersection</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">scanline_y</span>: <span class="ident">i32</span>) -&gt; <span class="ident">Scanline</span> {
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">scanline</span> <span class="op">=</span> <span class="ident">Scanline::new_empty</span>(<span class="ident">scanline_y</span>);
 
         <span class="comment">// Single 1px line</span>

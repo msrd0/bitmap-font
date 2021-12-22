@@ -109,11 +109,11 @@
 }
 
 <span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span><span class="ident">StrokeAlignment</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">StrokeOffset</span> {
-    <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">alignment</span>: <span class="ident">StrokeAlignment</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">alignment</span>: <span class="ident">StrokeAlignment</span>) -&gt; <span class="self">Self</span> {
         <span class="kw">match</span> <span class="ident">alignment</span> {
-            <span class="ident">StrokeAlignment::Inside</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident"><span class="self">Self</span>::Right</span>,
-            <span class="ident">StrokeAlignment::Outside</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident"><span class="self">Self</span>::Left</span>,
-            <span class="ident">StrokeAlignment::Center</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident"><span class="self">Self</span>::None</span>,
+            <span class="ident">StrokeAlignment::Inside</span> =&gt; <span class="ident"><span class="self">Self</span>::Right</span>,
+            <span class="ident">StrokeAlignment::Outside</span> =&gt; <span class="ident"><span class="self">Self</span>::Left</span>,
+            <span class="ident">StrokeAlignment::Center</span> =&gt; <span class="ident"><span class="self">Self</span>::None</span>,
         }
     }
 }
@@ -133,10 +133,10 @@
 
 <span class="kw">impl</span> <span class="ident">LineSide</span> {
     <span class="doccomment">/// Swap side.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">swap</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">swap</span>(<span class="self">self</span>) -&gt; <span class="self">Self</span> {
         <span class="kw">match</span> <span class="self">self</span> {
-            <span class="ident"><span class="self">Self</span>::Left</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident"><span class="self">Self</span>::Right</span>,
-            <span class="ident"><span class="self">Self</span>::Right</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident"><span class="self">Self</span>::Left</span>,
+            <span class="ident"><span class="self">Self</span>::Left</span> =&gt; <span class="ident"><span class="self">Self</span>::Right</span>,
+            <span class="ident"><span class="self">Self</span>::Right</span> =&gt; <span class="ident"><span class="self">Self</span>::Left</span>,
         }
     }
 }

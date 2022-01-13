@@ -12,8 +12,25 @@
 //! | Font | Flash Size (in Byte) | Screenshot | Pixel-double Font | Pixel-double Screenshot |
 //! | ---- | --------------------:|:----------:| ----------------- |:-----------------------:|
 {%- for font in fonts %}
-//! | [`FONT_{{ font.width }}x{{ font.height }}{% if font.bold %}_BOLD{% endif %}`] | {{ font.bitmap_len_str }} | ![Screenshot](data:image/bmp;base64,{{ font.bmp }}) | [`FONT_{{ 2*font.width }}x{{ 2*font.height }}{% if font.bold %}_BOLD{% endif %}`] | ![Pixel-double Screenshot](data:image/bmp;base64,{{ font.bmp_double }}) |
+#![doc = concat!(
+	"| [`FONT_{{font.width}}x{{font.height}}{% if font.bold %}_BOLD{% endif %}`] | {{font.bitmap_len_str}} | ![Screenshot](",
+	font_bmp!(FONT_{{font.width}}x{{font.height}}{% if font.bold %}_BOLD{% endif %}),
+	") | [`FONT_{{2*font.width}}x{{2*font.height}}{% if font.bold %}_BOLD{% endif %}`] | ![Pixel-double Screenshot](",
+	font_bmp!(FONT_{{2*font.width}}x{{2*font.height}}{% if font.bold %}_BOLD{% endif %}),
+	")"
+)]
 {%- endfor %}
+
+macro_rules! font_bmp {
+	{%- for font in fonts %}
+	(FONT_{{font.width}}x{{font.height}}{% if font.bold %}_BOLD{% endif %}) => {
+		"data:image/bmp;base64,{{font.bmp}}"
+	};
+	(FONT_{{2*font.width}}x{{2*font.height}}{% if font.bold %}_BOLD{% endif %}) => {
+		"data:image/bmp;base64,{{font.bmp_double}}"
+	};
+	{%- endfor %}
+}
 
 use crate::BitmapFont;
 use core::num::NonZeroU8;
@@ -46,7 +63,11 @@ const ONE: NonZeroU8 = match NonZeroU8::new(1) {
 
 /// Tamzen {{ font.width }}x{{ font.height }}{% if font.bold %} Bold{% endif %} Font.
 ///
-/// ![Screenshot](data:image/bmp;base64,{{ font.bmp }})
+#[doc = concat!(
+	"![Screenshot](",
+	font_bmp!(FONT_{{font.width}}x{{font.height}}{% if font.bold %}_BOLD{% endif %}),
+	")"
+)]
 ///
 /// Bitmap Size: {{ font.bitmap_len_str }} Byte <br/>
 /// Font Source: <https://github.com/sunaku/tamzen-font/blob/master/bdf/Tamzen{{ font.width }}x{{ font.height }}
@@ -75,7 +96,11 @@ pub const FONT_{{ font.width }}x{{ font.height }}{% if font.bold %}_BOLD{% endif
 
 /// Pixel-double version of [`FONT_{{ font.width }}x{{ font.height }}{% if font.bold %}_BOLD{% endif %}`].
 ///
-/// ![Screenshot](data:image/bmp;base64,{{ font.bmp_double }})
+#[doc = concat!(
+	"![Screenshot](",
+	font_bmp!(FONT_{{2*font.width}}x{{2*font.height}}{% if font.bold %}_BOLD{% endif %}),
+	")"
+)]
 ///
 /// This font does not store its own bitmap and therefore does not increase the flash size significantly.
 #[allow(non_upper_case_globals)]

@@ -65,5 +65,5 @@ of this font.
  [__link0]: https://crates.io/crates/embedded-graphics/0.7.1
  [__link1]: https://docs.rs/embedded-graphics/0.7.1/embedded_graphics/?search=embedded_graphics::mono_font
  [__link2]: https://github.com/sunaku/tamzen-font
- [__link3]: https://docs.rs/bitmap-font/0.2.1/bitmap_font/?search=bitmap_font::tamzen
+ [__link3]: https://docs.rs/bitmap-font/0.2.2/bitmap_font/?search=bitmap_font::tamzen
 

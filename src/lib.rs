@@ -39,6 +39,7 @@
 //!
 //!  [`embedded-graphics`]: embedded_graphics
 
+use core::num::NonZeroU8;
 use embedded_graphics::{
 	draw_target::DrawTarget,
 	geometry::{Dimensions, OriginDimensions, Point, Size},
@@ -67,20 +68,20 @@ pub struct BitmapFont<'a> {
 	/// The size of each character in the raw bitmap data.
 	size: Size,
 
-	/// The amount of pixels to draw per each font pixel. Must not be `0`. Set to `2` for
+	/// The amount of pixels to draw per each font pixel. Set to `2` for
 	/// pixel-double font.
-	pixels: u8
+	pixels: NonZeroU8
 }
 
 impl<'a> BitmapFont<'a> {
 	/// Return the width of each character.
 	pub const fn width(self) -> u32 {
-		self.size.width * self.pixels as u32
+		self.size.width * self.pixels.get() as u32
 	}
 
 	/// Return the height of each character.
 	pub const fn height(self) -> u32 {
-		self.size.height * self.pixels as u32
+		self.size.height * self.pixels.get() as u32
 	}
 
 	/// Draw a glyph to the `target` with `color` at position `pos`.
@@ -110,7 +111,11 @@ impl<'a> BitmapFont<'a> {
 
 	/// Returns a pixel-double version of this font.
 	pub const fn pixel_double(mut self) -> Self {
-		self.pixels *= 2;
+		// unwrap: if x is not zero, x*2 is also not zero
+		self.pixels = match NonZeroU8::new(self.pixels.get() * 2) {
+			Some(px) => px,
+			None => unreachable!()
+		};
 		self
 	}
 }
@@ -176,7 +181,7 @@ struct PixelDoublingDrawTarget<'a, D: DrawTarget<Color = BinaryColor>> {
 	target: &'a mut D,
 	color: BinaryColor,
 	offset: Point,
-	pixels: u8
+	pixels: NonZeroU8
 }
 
 impl<'a, D> Dimensions for PixelDoublingDrawTarget<'a, D>
@@ -186,8 +191,8 @@ where
 	fn bounding_box(&self) -> Rectangle {
 		let mut bb = self.target.bounding_box();
 		bb.top_left -= self.offset;
-		bb.top_left /= self.pixels as _;
-		bb.size /= self.pixels as _;
+		bb.top_left /= self.pixels.get().into();
+		bb.size /= self.pixels.get().into();
 		bb
 	}
 }
@@ -205,7 +210,7 @@ where
 	{
 		let color = self.color;
 		let offset = self.offset;
-		let pixels = self.pixels;
+		let pixels = self.pixels.get();
 		self.target.draw_iter(
 			pixel_iter
 				.into_iter()

@@ -16,6 +16,7 @@
 {%- endfor %}
 
 use crate::BitmapFont;
+use core::num::NonZeroU8;
 use embedded_graphics::{
 	geometry::Size,
 	image::ImageRaw,
@@ -36,6 +37,10 @@ impl GlyphMapping for Mapping {
 }
 
 const GLYPH_MAPPING: Mapping = Mapping;
+const ONE: NonZeroU8 = match NonZeroU8::new(1) {
+	Some(one) => one,
+	None => unreachable!()
+};
 
 {%- for font in fonts %}
 
@@ -61,7 +66,7 @@ pub const FONT_{{ font.width }}x{{ font.height }}{% if font.bold %}_BOLD{% endif
 	),
 	glyph_mapping: &GLYPH_MAPPING,
 	size: Size::new({{ font.width }}, {{ font.height }}),
-	pixels: 1
+	pixels: ONE
 };
 
 {%- endfor %}

@@ -1,1 +1,1 @@
-initSidebarItems({"trait":[["F32Ext","`f32` extension providing various arithmetic approximations and polyfills for `std` functionality."]]});
+window.SIDEBAR_ITEMS = {"trait":[["F32Ext","`f32` extension providing various arithmetic approximations and polyfills for `std` functionality."]]};

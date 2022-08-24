@@ -1,4 +1,4 @@
-var N = null;var sourcesIndex = {};
+var sourcesIndex = {};
 sourcesIndex["az"] = {"name":"","files":["float.rs","int.rs","lib.rs"]};
 sourcesIndex["bitmap_font"] = {"name":"","files":["lib.rs","tamzen.rs"]};
 sourcesIndex["byteorder"] = {"name":"","files":["lib.rs"]};
@@ -6,5 +6,5 @@ sourcesIndex["embedded_graphics"] = {"name":"","dirs":[{"name":"draw_target","fi
 sourcesIndex["embedded_graphics_core"] = {"name":"","dirs":[{"name":"draw_target","files":["mod.rs"]},{"name":"geometry","files":["mod.rs","point.rs","size.rs"]},{"name":"image","files":["image_drawable.rs","mod.rs"]},{"name":"pixelcolor","dirs":[{"name":"raw","files":["mod.rs","to_bytes.rs"]}],"files":["binary_color.rs","conversion.rs","gray_color.rs","mod.rs","rgb_color.rs","web_colors.rs"]},{"name":"primitives","dirs":[{"name":"rectangle","files":["mod.rs","points.rs"]}],"files":["mod.rs"]}],"files":["drawable.rs","lib.rs","prelude.rs"]};
 sourcesIndex["float_cmp"] = {"name":"","files":["eq.rs","lib.rs","macros.rs","ratio.rs","ulps.rs","ulps_eq.rs"]};
 sourcesIndex["micromath"] = {"name":"","dirs":[{"name":"f32ext","files":["abs.rs","acos.rs","asin.rs","atan.rs","atan2.rs","ceil.rs","copysign.rs","cos.rs","div_euclid.rs","exp.rs","floor.rs","fract.rs","hypot.rs","inv.rs","invsqrt.rs","ln.rs","log.rs","log10.rs","log2.rs","powf.rs","powi.rs","rem_euclid.rs","round.rs","sin.rs","sqrt.rs","tan.rs","trunc.rs","utils.rs"]}],"files":["f32ext.rs","lib.rs"]};
-sourcesIndex["num_traits"] = {"name":"","dirs":[{"name":"ops","files":["checked.rs","inv.rs","mod.rs","mul_add.rs","overflowing.rs","saturating.rs","wrapping.rs"]}],"files":["bounds.rs","cast.rs","float.rs","identities.rs","int.rs","lib.rs","macros.rs","pow.rs","sign.rs"]};
+sourcesIndex["num_traits"] = {"name":"","dirs":[{"name":"ops","files":["checked.rs","euclid.rs","inv.rs","mod.rs","mul_add.rs","overflowing.rs","saturating.rs","wrapping.rs"]}],"files":["bounds.rs","cast.rs","float.rs","identities.rs","int.rs","lib.rs","macros.rs","pow.rs","sign.rs"]};
 createSourceSidebar();

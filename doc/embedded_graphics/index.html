@@ -1,4 +1,13 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Embedded-graphics is a 2D graphics library that is focused on memory constrained embedded devices."><meta name="keywords" content="rust, rustlang, rust-lang, embedded_graphics"><title>embedded_graphics - Rust</title><link rel="stylesheet" type="text/css" href="../normalize.css"><link rel="stylesheet" type="text/css" href="../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../ayu.css" disabled ><script id="default-settings" ></script><script src="../storage.js"></script><script src="../crates.js"></script><noscript><link rel="stylesheet" href="../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../favicon.svg"><style type="text/css">#crate-search{background-image:url("../down-arrow.svg");}</style></head><body class="rustdoc mod crate"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../embedded_graphics/index.html'><div class='logo-container rust-logo'><img src='https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;embedded-graphics&#x2F;embedded-graphics&#x2F;191fe7f8a0fedc713f9722b9dc59208dacadee7e&#x2F;assets&#x2F;logo.svg?sanitize=true' alt='logo'></div></a><h2 class="location">Crate embedded_graphics</h2><div class="block version"><div class="narrow-helper"></div><p>Version 0.7.1</p></div><div class="sidebar-elems"><a id="all-types" href="all.html"><p>See all embedded_graphics's items</p></a><div class="block items"><ul><li><a href="#modules">Modules</a></li><li><a href="#structs">Structs</a></li><li><a href="#traits">Traits</a></li></ul></div><div id="sidebar-vars" data-name="embedded_graphics" data-ty="mod" data-relpath=""></div><script defer src="sidebar-items.js"></script></div></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="18" height="18" alt="Pick another theme!" src="../brush.svg"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../settings.html" title="settings"><img width="18" height="18" alt="Change settings" src="../wheel.svg"></a></div></form></nav><section id="main" class="content"><h1 class="fqn"><span class="in-band">Crate <a class="mod" href="#">embedded_graphics</a><button id="copy-path" onclick="copy_path(this)" title="Copy item path to clipboard"><img src="../clipboard.svg" width="19" height="18" alt="Copy item path"></button></span><span class="out-of-band"><span id="render-detail"><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class="inner">&#x2212;</span>]</a></span><a class="srclink" href="../src/embedded_graphics/lib.rs.html#1-246" title="goto source code">[src]</a></span></h1><details class="rustdoc-toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><p>Embedded-graphics is a 2D graphics library that is focused on memory constrained embedded devices.</p>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Embedded-graphics is a 2D graphics library that is focused on memory constrained embedded devices."><meta name="keywords" content="rust, rustlang, rust-lang, embedded_graphics"><title>embedded_graphics - Rust</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../normalize.css"><link rel="stylesheet" type="text/css" href="../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../dark.css" disabled><link rel="stylesheet" type="text/css" href="../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../storage.js"></script><script defer src="../crates.js"></script><script defer src="../main.js"></script><noscript><link rel="stylesheet" href="../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../favicon.svg"></head><body class="rustdoc mod crate"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../embedded_graphics/index.html"><div class="logo-container"><img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></div>
+        </a><h2 class="location"></h2>
+    </nav>
+    <nav class="sidebar"><a class="sidebar-logo" href="../embedded_graphics/index.html"><div class="logo-container">
+                    <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></div>
+        </a><h2 class="location"><a href="#">Crate embedded_graphics</a></h2><div class="sidebar-elems"><div class="block"><ul><li class="version">Version 0.7.1</li><li><a id="all-types" href="all.html">All Items</a></li></ul></div><section><div class="block"><ul><li><a href="#modules">Modules</a></li><li><a href="#structs">Structs</a></li><li><a href="#traits">Traits</a></li></ul></div></section></div></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../embedded_graphics/index.html">
+                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><button type="button" id="help-button" title="help">?</button><div id="settings-menu" tabindex="-1">
+                                <a href="../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../wheel.svg"></a></div>
+                        </div></form></nav></div><section id="main-content" class="content"><div class="main-heading">
+    <h1 class="fqn"><span class="in-band">Crate <a class="mod" href="#">embedded_graphics</a><button id="copy-path" onclick="copy_path(this)" title="Copy item path to clipboard"><img src="../clipboard.svg" width="19" height="18" alt="Copy item path"></button></span></h1><span class="out-of-band"><a class="srclink" href="../src/embedded_graphics/lib.rs.html#1-246">source</a> · <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class="inner">&#x2212;</span>]</a></span></div><details class="rustdoc-toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><p>Embedded-graphics is a 2D graphics library that is focused on memory constrained embedded devices.</p>
 <p>A core goal of embedded-graphics is to draw graphics without using any buffers; the crate is
 <code>no_std</code> compatible and works without a dynamic memory allocator, and without pre-allocating
 large chunks of memory. To achieve this, it takes an <code>Iterator</code> based approach, where pixel
@@ -23,7 +32,7 @@ consuming application to use far less RAM at little to no performance penalty.</
 <li><a href="./text/index.html">Text</a></li>
 <li><a href="./mono_font/index.html">Monospaced fonts</a></li>
 </ul>
-<h2 id="additional-functions-provided-by-external-crates" class="section-header"><a href="#additional-functions-provided-by-external-crates">Additional functions provided by external crates</a></h2>
+<h2 id="additional-functions-provided-by-external-crates"><a href="#additional-functions-provided-by-external-crates">Additional functions provided by external crates</a></h2>
 <p>Embedded-graphics is designed to be extended by the application or other crates. Examples of
 this are adding support for different image formats or implementing custom fonts.</p>
 <ul>
@@ -39,7 +48,7 @@ this are adding support for different image formats or implementing custom fonts
 <p>Note that some of these crates may not support the latest version of embedded-graphics.</p>
 <p>If you know of a crate that is not in this list, please <a href="https://github.com/embedded-graphics/embedded-graphics/issues/new">open an
 issue</a> to add it.</p>
-<h2 id="display-drivers" class="section-header"><a href="#display-drivers">Display drivers</a></h2>
+<h2 id="display-drivers"><a href="#display-drivers">Display drivers</a></h2>
 <p>To support many different kinds of display, embedded-graphics doesn’t include any drivers
 directly but provides the <a href="https://docs.rs/embedded-graphics-core/latest/embedded_graphics_core/draw_target/trait.DrawTarget.html"><code>DrawTarget</code></a> API in <a href="https://docs.rs/embedded-graphics-core/"><code>embedded-graphics-core</code></a> that can be
 implemented by external crates. In addition to the drivers for real displays, the
@@ -71,7 +80,7 @@ that should be added to this list.</p>
 <li><a href="https://crates.io/crates/st7789">st7789</a>: A Rust driver library for ST7789 displays</li>
 <li><a href="https://crates.io/crates/st7920">st7920</a>: ST7920 LCD driver in Rust</li>
 </ul>
-<h2 id="simulator" class="section-header"><a href="#simulator">Simulator</a></h2>
+<h2 id="simulator"><a href="#simulator">Simulator</a></h2>
 <p>Embedded graphics comes with a <a href="https://github.com/embedded-graphics/simulator">simulator</a>! The simulator can be used to test and debug
 embedded graphics code, or produce examples and interactive demos to show off embedded graphics
 features.</p>
@@ -82,7 +91,7 @@ this:</p>
 <div class="example-wrap"><pre class="language-bash"><code>git clone https://github.com/embedded-graphics/examples.git
 cd examples
 
-cargo run --example hello-world</code></pre></div><h2 id="crate-features" class="section-header"><a href="#crate-features">Crate features</a></h2>
+cargo run --example hello-world</code></pre></div><h2 id="crate-features"><a href="#crate-features">Crate features</a></h2>
 <p>Additional features can be enabled by adding the following features to your <code>Cargo.toml</code>.</p>
 <ul>
 <li>
@@ -94,19 +103,19 @@ support to enable conversions from <code>nalgebra::Vector2</code> to <a href="./
 calculation.</p>
 </li>
 </ul>
-<h2 id="migrating-from-older-versions" class="section-header"><a href="#migrating-from-older-versions">Migrating from older versions</a></h2>
+<h2 id="migrating-from-older-versions"><a href="#migrating-from-older-versions">Migrating from older versions</a></h2>
 <ul>
 <li><a href="https://github.com/embedded-graphics/embedded-graphics/blob/master/MIGRATING-0.5-0.6.md">Migration guide from 0.5 to 0.6</a>.</li>
 <li><a href="https://github.com/embedded-graphics/embedded-graphics/blob/master/MIGRATING-0.5-0.6.md">Migration guide from 0.6 to 0.7</a>.</li>
 </ul>
-<h2 id="implementing-embedded_graphics-support-for-a-display-driver" class="section-header"><a href="#implementing-embedded_graphics-support-for-a-display-driver">Implementing <code>embedded_graphics</code> support for a display driver</a></h2>
+<h2 id="implementing-embedded_graphics-support-for-a-display-driver"><a href="#implementing-embedded_graphics-support-for-a-display-driver">Implementing <code>embedded_graphics</code> support for a display driver</a></h2>
 <p>To add support for embedded-graphics to a display driver, <a href="https://docs.rs/embedded-graphics-core/latest/embedded_graphics_core/draw_target/trait.DrawTarget.html"><code>DrawTarget</code></a> from
 <a href="https://docs.rs/embedded-graphics-core/"><code>embedded-graphics-core</code></a> must be implemented. This allows all embedded-graphics items to be
 rendered by the display. See the <a href="https://docs.rs/embedded-graphics-core/latest/embedded_graphics_core/draw_target/trait.DrawTarget.html"><code>DrawTarget</code></a> documentation for implementation details.</p>
-<h2 id="examples" class="section-header"><a href="#examples">Examples</a></h2><h3 id="drawing-examples" class="section-header"><a href="#drawing-examples">Drawing examples</a></h3>
+<h2 id="examples"><a href="#examples">Examples</a></h2><h3 id="drawing-examples"><a href="#drawing-examples">Drawing examples</a></h3>
 <p><a href="./examples/index.html"><img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/4c680418cc4c37b8f7ed92d8b26edfde880d4c96/doc/assets/all_drawing_ops.png" alt="A grid of screenshots showing primitives, text and other items that can be drawn using embedded-graphics." /></a></p>
 <p>Example usage of drawing primitives, text and images with embedded-graphics can be found <a href="./examples/index.html">here</a>.</p>
-<h3 id="shapes-and-text" class="section-header"><a href="#shapes-and-text">Shapes and text</a></h3>
+<h3 id="shapes-and-text"><a href="#shapes-and-text">Shapes and text</a></h3>
 <p>The following example draws some shapes and text to a <a href="./mock_display/struct.MockDisplay.html"><code>MockDisplay</code></a> in place of target
 hardware. The <a href="https://docs.rs/embedded-graphics-simulator/">simulator</a> can also be used for
 debugging, development or if hardware is not available.</p>
@@ -143,7 +152,7 @@ debugging, development or if hardware is not available.</p>
     <span class="ident">display</span>
         .<span class="ident">bounding_box</span>()
         .<span class="ident">into_styled</span>(<span class="ident">border_stroke</span>)
-        .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)<span class="question-mark">?</span>;
+        .<span class="ident">draw</span>(<span class="kw-2">&amp;mut</span> <span class="ident">display</span>)<span class="question-mark">?</span>;
 
     <span class="comment">// Draw a triangle.</span>
     <span class="ident">Triangle::new</span>(
@@ -152,17 +161,17 @@ debugging, development or if hardware is not available.</p>
         <span class="ident">Point::new</span>(<span class="number">16</span> <span class="op">+</span> <span class="number">8</span>, <span class="ident">yoffset</span>),
     )
     .<span class="ident">into_styled</span>(<span class="ident">thin_stroke</span>)
-    .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)<span class="question-mark">?</span>;
+    .<span class="ident">draw</span>(<span class="kw-2">&amp;mut</span> <span class="ident">display</span>)<span class="question-mark">?</span>;
 
     <span class="comment">// Draw a filled square</span>
     <span class="ident">Rectangle::new</span>(<span class="ident">Point::new</span>(<span class="number">52</span>, <span class="ident">yoffset</span>), <span class="ident">Size::new</span>(<span class="number">16</span>, <span class="number">16</span>))
         .<span class="ident">into_styled</span>(<span class="ident">fill</span>)
-        .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)<span class="question-mark">?</span>;
+        .<span class="ident">draw</span>(<span class="kw-2">&amp;mut</span> <span class="ident">display</span>)<span class="question-mark">?</span>;
 
     <span class="comment">// Draw a circle with a 3px wide stroke.</span>
     <span class="ident">Circle::new</span>(<span class="ident">Point::new</span>(<span class="number">88</span>, <span class="ident">yoffset</span>), <span class="number">17</span>)
         .<span class="ident">into_styled</span>(<span class="ident">thick_stroke</span>)
-        .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)<span class="question-mark">?</span>;
+        .<span class="ident">draw</span>(<span class="kw-2">&amp;mut</span> <span class="ident">display</span>)<span class="question-mark">?</span>;
 
     <span class="comment">// Draw centered text.</span>
     <span class="kw">let</span> <span class="ident">text</span> <span class="op">=</span> <span class="string">&quot;embedded-graphics&quot;</span>;
@@ -172,7 +181,7 @@ debugging, development or if hardware is not available.</p>
         <span class="ident">character_style</span>,
         <span class="ident">Alignment::Center</span>,
     )
-    .<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">display</span>)<span class="question-mark">?</span>;
+    .<span class="ident">draw</span>(<span class="kw-2">&amp;mut</span> <span class="ident">display</span>)<span class="question-mark">?</span>;
 
     <span class="prelude-val">Ok</span>(())
 }</code></pre></div>
@@ -180,7 +189,7 @@ debugging, development or if hardware is not available.</p>
 can be run using <code>cargo run --example hello-world</code>. It produces this output:</p>
 <p><img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/4c680418cc4c37b8f7ed92d8b26edfde880d4c96/assets/hello-world-simulator.png" alt="Embedded Graphics Simulator example screenshot" /></p>
 <p>Additional examples can be found in the <a href="https://github.com/embedded-graphics/examples">examples</a> repository.</p>
-</div></details><h2 id="modules" class="section-header"><a href="#modules">Modules</a></h2>
+</div></details><h2 id="modules" class="small-section-header"><a href="#modules">Modules</a></h2>
 <div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="mod" href="draw_target/index.html" title="embedded_graphics::draw_target mod">draw_target</a></div><div class="item-right docblock-short"><p>A target for embedded-graphics drawing operations.</p>
 </div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="examples/index.html" title="embedded_graphics::examples mod">examples</a></div><div class="item-right docblock-short"><p>Drawing examples</p>
 </div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="geometry/index.html" title="embedded_graphics::geometry mod">geometry</a></div><div class="item-right docblock-short"><p>Geometry module.</p>
@@ -193,10 +202,9 @@ can be run using <code>cargo run --example hello-world</code>. It produces this 
 </div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="primitives/index.html" title="embedded_graphics::primitives mod">primitives</a></div><div class="item-right docblock-short"><p>Graphics primitives</p>
 </div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="text/index.html" title="embedded_graphics::text mod">text</a></div><div class="item-right docblock-short"><p>Text drawing.</p>
 </div></div><div class="item-row"><div class="item-left module-item"><a class="mod" href="transform/index.html" title="embedded_graphics::transform mod">transform</a></div><div class="item-right docblock-short"><p>Transformations for graphics objects</p>
-</div></div></div><h2 id="structs" class="section-header"><a href="#structs">Structs</a></h2>
+</div></div></div><h2 id="structs" class="small-section-header"><a href="#structs">Structs</a></h2>
 <div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.Pixel.html" title="embedded_graphics::Pixel struct">Pixel</a></div><div class="item-right docblock-short"><p>A single pixel.</p>
-</div></div></div><h2 id="traits" class="section-header"><a href="#traits">Traits</a></h2>
+</div></div></div><h2 id="traits" class="small-section-header"><a href="#traits">Traits</a></h2>
 <div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="trait" href="trait.Drawable.html" title="embedded_graphics::Drawable trait">Drawable</a></div><div class="item-right docblock-short"><p>Marks an object as “drawable”. Must be implemented for all graphics objects</p>
-</div></div></div></section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../" data-current-crate="embedded_graphics" data-search-index-js="../search-index.js" data-search-js="../search.js"></div>
-    <script src="../main.js"></script>
+</div></div></div></section></div></main><div id="rustdoc-vars" data-root-path="../" data-current-crate="embedded_graphics" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.63.0 (4b91a6ea7 2022-08-08)" ></div>
 </body></html>

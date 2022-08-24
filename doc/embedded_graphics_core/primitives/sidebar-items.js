@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["rectangle","The rectangle primitive."]],"trait":[["PointsIter","Create an iterator over all points in the primitive."]]});
+window.SIDEBAR_ITEMS = {"mod":[["rectangle","The rectangle primitive."]],"trait":[["PointsIter","Create an iterator over all points in the primitive."]]};

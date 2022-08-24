@@ -39,7 +39,11 @@ use bitmap_font::{tamzen::FONT_8x15, BitmapFont, TextStyle};
 use embedded_graphics::{pixelcolor::BinaryColor, prelude::*, text::Text};
 
 // Draw text 'Hello World!' with the top left corner being the origin
-let text = Text::new("Hello World!", Point::zero(), TextStyle::new(&FONT_8x15, BinaryColor::On));
+let text = Text::new(
+	"Hello World!",
+	Point::zero(),
+	TextStyle::new(&FONT_8x15, BinaryColor::On)
+);
 text.draw(&mut display)?;
 ```
 
@@ -100,6 +104,7 @@ of this font.
 ```
 
  [contributors]: https://github.com/msrd0/bitmap-font/graphs/contributors
+ [__cargo_doc2readme_dependencies_info]: ggGkYW0AYXSEG_N0QJHQOm9HG74Beb5vRrYBG2NMKQS7lQADG84YALdtFut5YXKEG89m3EOj9x66G_m6QaWoeiPfG85ltrT4zMl_G-hIu8KZbrDyYWSCg2tiaXRtYXAtZm9udGUwLjIuMmtiaXRtYXBfZm9udINxZW1iZWRkZWQtZ3JhcGhpY3NlMC43LjFxZW1iZWRkZWRfZ3JhcGhpY3M
  [__link0]: https://crates.io/crates/embedded-graphics/0.7.1
  [__link1]: https://docs.rs/embedded-graphics/0.7.1/embedded_graphics/?search=embedded_graphics::mono_font
  [__link2]: https://github.com/sunaku/tamzen-font

@@ -31,7 +31,11 @@
 //! # let mut display = Display;
 //!
 //! // Draw text 'Hello World!' with the top left corner being the origin
-//! let text = Text::new("Hello World!", Point::zero(), TextStyle::new(&FONT_8x15, BinaryColor::On));
+//! let text = Text::new(
+//! 	"Hello World!",
+//! 	Point::zero(),
+//! 	TextStyle::new(&FONT_8x15, BinaryColor::On)
+//! );
 //! text.draw(&mut display)?;
 //! # Ok(())
 //! # }

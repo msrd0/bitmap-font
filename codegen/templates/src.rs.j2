@@ -78,7 +78,7 @@ pub const FONT_{{ font.width }}x{{ font.height }}{% if font.bold %}_BOLD{% endif
 	bitmap: ImageRaw::new_binary(
 		// {{ font.img_width }} x {{ font.img_height }} ({{ font.bitmap_len }})
 		&[
-			{%- for chunk in font.bitmap | chunks(16) %}
+			{%- for chunk in font.bitmap|chunks(16) %}
 			{% for byte in chunk %}0x{{ "{:02x}"|format(byte) }}{% if !loop.last %}{{ ", " }}{% endif %}{% endfor %}
 			{%- if !loop.last %},{% endif %}
 			{%- endfor %}

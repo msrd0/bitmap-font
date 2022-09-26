@@ -130,7 +130,7 @@ jobs:
           	--out Html --out Json
         env:
           RUST_BACKTRACE: 1
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         with:
           name: tarpaulin-report
           path: |
@@ -150,7 +150,7 @@ jobs:
           key: ${{ runner.os }}-cargo-doc }}
       - run: cargo doc
       - run: tar cfJ rustdoc.tar.xz target/doc/
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         with:
           name: rustdoc
           path: rustdoc.tar.xz

@@ -1,21 +1,27 @@
-use anyhow::{anyhow, bail};
+#![warn(rust_2018_idioms)]
+#![forbid(elided_lifetimes_in_paths, unsafe_code)]
+// This suggestions makes the code soo much less readable
+#![allow(clippy::needless_range_loop)]
+
+use anyhow::bail;
 use askama::Template;
-use bdf::Glyph;
+use bdf_reader::Glyph;
 use bit_vec::BitVec;
-use linked_hash_map::LinkedHashMap;
+use indexmap::IndexMap;
 use num_format::{Locale, ToFormattedString};
 use std::{
 	cmp::Ordering,
-	collections::BTreeSet,
 	convert::TryInto,
 	fs::{self, File},
-	io::Write
+	io::{BufReader, Write}
 };
 
 mod bitmap;
 use bitmap::Bitmap;
 
 mod util;
+use log::{info, warn, LevelFilter};
+use simple_logger::SimpleLogger;
 use util::CeilingDiv;
 
 const CHAR_RANGES: &[(char, char)] = &[
@@ -28,11 +34,11 @@ const CHAR_RANGES: &[(char, char)] = &[
 	// powerline
 	('', '')
 ];
-const MIN_ROWS: u32 = 4;
-const MAX_ROWS: u32 = 20;
+const MIN_ROWS: usize = 4;
+const MAX_ROWS: usize = 20;
 
 mod filters {
-	pub fn chunks<'a>(src: &'a [u8], size: usize) -> askama::Result<Vec<&'a [u8]>> {
+	pub fn chunks(src: &[u8], size: usize) -> askama::Result<Vec<&[u8]>> {
 		Ok(src.chunks(size).collect())
 	}
 }
@@ -41,14 +47,14 @@ mod filters {
 #[template(path = "src.rs.j2", escape = "none")]
 struct RustSource<'a> {
 	char_ranges: &'a Vec<CharRange>,
-	fonts: &'a BTreeSet<Font>
+	fonts: &'a Vec<Font>
 }
 
 #[derive(Template)]
 #[template(path = "tests.rs.j2", escape = "none")]
-struct RustTests<'a> {
+struct RustTests<'a, 'b> {
 	char_ranges: &'a Vec<CharRange>,
-	fonts: &'a BTreeSet<VirtualFont>
+	fonts: &'a Vec<VirtualFont<'b>>
 }
 
 struct CharRange {
@@ -59,8 +65,8 @@ struct CharRange {
 }
 
 struct Font {
-	width: u32,
-	height: u32,
+	width: usize,
+	height: usize,
 	bold: bool,
 	bitmap: Vec<u8>,
 	bitmap_len: usize,
@@ -91,12 +97,12 @@ impl Ord for Font {
 	}
 }
 
-struct VirtualFont {
-	width: u32,
-	height: u32,
+struct VirtualFont<'a> {
+	width: usize,
+	height: usize,
 	bold: bool,
-	glyphs: LinkedHashMap<char, GlyphData>,
-	pixels: u32
+	glyphs: IndexMap<char, GlyphData<'a>>,
+	pixels: usize
 }
 
 // weird trait because askama doesn't want to learn proper borrowing/copying
@@ -116,8 +122,8 @@ impl Char for &char {
 	}
 }
 
-impl VirtualFont {
-	fn glyph<C>(&self, c: C) -> GlyphData
+impl<'a> VirtualFont<'a> {
+	fn glyph<C>(&self, c: C) -> GlyphData<'a>
 	where
 		C: Char
 	{
@@ -125,112 +131,134 @@ impl VirtualFont {
 		let mut glyph = self
 			.glyphs
 			.get(&c)
-			.expect(&format!("No glyph found for char '{}'", c))
+			.unwrap_or_else(|| panic!("No glyph found for char '{}'", c))
 			.clone();
 		glyph.pixels = self.pixels;
 		glyph
 	}
 }
 
-impl PartialEq for VirtualFont {
+impl PartialEq for VirtualFont<'_> {
 	fn eq(&self, other: &Self) -> bool {
 		self.width == other.width && self.height == other.height && self.bold == other.bold
 	}
 }
 
-impl Eq for VirtualFont {}
+impl Eq for VirtualFont<'_> {}
 
-impl PartialOrd for VirtualFont {
+impl PartialOrd for VirtualFont<'_> {
 	fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
 		Some(self.cmp(other))
 	}
 }
 
-impl Ord for VirtualFont {
+impl Ord for VirtualFont<'_> {
 	fn cmp(&self, other: &Self) -> Ordering {
 		(self.width, self.height, self.bold).cmp(&(other.width, other.height, other.bold))
 	}
 }
 
 #[derive(Clone)]
-struct GlyphData {
-	bitmap: bdf::Bitmap,
-	width: u32,
-	height: u32,
-	pixels: u32
+struct GlyphData<'a> {
+	bitmap: bdf_reader::Bitmap<'a>,
+	width: usize,
+	height: usize,
+	pixels: usize
 }
 
-impl GlyphData {
-	fn new(glyph: &Glyph, width: u32, height: u32) -> anyhow::Result<Self> {
-		if glyph.width() != width as u32 || glyph.height() != height as u32 {
+impl<'a> GlyphData<'a> {
+	fn new(glyph: &'a Glyph, width: usize, height: usize) -> anyhow::Result<Self> {
+		let bitmap = glyph.bitmap();
+
+		if bitmap.width() != width || bitmap.height() != height {
 			let msg = format!(
-				"Font is not a monospace font (width={}, height={}, glyph={}x{})",
+				"Font is not a monospace font (width={}, height={}, bitmap={}x{})",
 				width,
 				height,
-				glyph.width(),
-				glyph.height()
+				bitmap.width(),
+				bitmap.height()
 			);
-			if glyph.width() >= width as u32 && glyph.height() >= height as u32 {
-				println!("[WARN] {} - clipping", msg);
+			if bitmap.width() >= width && bitmap.height() >= height {
+				warn!("{} - clipping", msg);
 			} else {
 				bail!("{}", msg);
 			}
 		}
 
 		Ok(Self {
-			bitmap: glyph.map().clone(),
+			bitmap,
 			width,
 			height,
 			pixels: 1
 		})
 	}
 
-	fn push_to_bitmap(&self, lines: &mut Vec<BitVec>) {
+	fn push_to_bitmap(&self, lines: &mut [BitVec]) {
 		for y in 0..self.height {
 			for x in 0..self.width {
-				lines[y as usize].push(self.bitmap.get(x, y));
+				lines[y].push(self.bitmap.get(x, y).unwrap());
 			}
 		}
 	}
 
-	fn push_to_bitmap_double(&self, lines_double: &mut Vec<BitVec>) {
+	fn push_to_bitmap_double(&self, lines_double: &mut [BitVec]) {
 		for y in 0..self.height {
 			for x in 0..self.width {
 				for _ in 0..2 {
-					lines_double[y as usize].push(self.bitmap.get(x, y));
+					lines_double[y].push(self.bitmap.get(x, y).unwrap());
 				}
 			}
 		}
 	}
 
 	// y is a reference because askama is stupid
-	fn mock_line(&self, y: &u32) -> String {
+	fn mock_line(&self, y: &usize) -> String {
 		let y = y / self.pixels;
 		let mut line = String::new();
 		for x in 0..self.width {
 			for _ in 0..self.pixels {
-				line.push(self.bitmap.get(x, y).then(|| '#').unwrap_or(' '));
+				line.push(match self.bitmap.get(x, y).unwrap() {
+					true => '#',
+					false => ' '
+				});
 			}
 		}
 		line
 	}
 
 	// y is a reference because askama is stupid
-	fn mock_line_inverted(&self, y: &u32) -> String {
+	fn mock_line_inverted(&self, y: &usize) -> String {
 		let y = y / self.pixels;
 		let mut line = String::new();
 		for x in 0..self.width {
 			for _ in 0..self.pixels {
-				line.push(self.bitmap.get(x, y).then(|| '.').unwrap_or('#'));
+				line.push(match self.bitmap.get(x, y).unwrap() {
+					true => '.',
+					false => '#'
+				});
 			}
 		}
 		line
 	}
 }
 
+#[derive(Clone, Copy)]
+struct FontMetadata {
+	width: usize,
+	height: usize,
+	bold: bool,
+	per_line: usize
+}
+
 fn main() -> anyhow::Result<()> {
-	let mut fonts = BTreeSet::new();
-	let mut virtual_fonts = BTreeSet::new();
+	SimpleLogger::new()
+		.with_level(LevelFilter::Info)
+		.with_local_timestamps()
+		.init()?;
+
+	let mut fonts_with_metadata = Vec::new();
+	let mut fonts = Vec::new();
+	let mut virtual_fonts = Vec::new();
 
 	let char_count: usize = CHAR_RANGES
 		.iter()
@@ -253,7 +281,7 @@ fn main() -> anyhow::Result<()> {
 	for file in fs::read_dir(dir)? {
 		let file = file?;
 		let path = file.path().display().to_string();
-		println!("Inspecting file {}", path);
+		info!("Inspecting file {}", path);
 		let path = match path
 			.strip_prefix("tamzen-font/bdf/TamzenForPowerline")
 			.and_then(|path| path.strip_suffix(".bdf"))
@@ -261,9 +289,9 @@ fn main() -> anyhow::Result<()> {
 			Some(path) => path,
 			None => continue
 		};
-		let bold = if path.ends_with("b") {
+		let bold = if path.ends_with('b') {
 			true
-		} else if path.ends_with("r") {
+		} else if path.ends_with('r') {
 			false
 		} else {
 			continue;
@@ -272,13 +300,13 @@ fn main() -> anyhow::Result<()> {
 
 		let mut size = path.split('x');
 		let (width, height) = match (
-			size.next().and_then(|s| s.parse::<u32>().ok()),
-			size.next().and_then(|s| s.parse::<u32>().ok())
+			size.next().and_then(|s| s.parse::<usize>().ok()),
+			size.next().and_then(|s| s.parse::<usize>().ok())
 		) {
 			(Some(width), Some(height)) => (width, height),
 			_ => continue
 		};
-		println!(
+		info!(
 			" -> Found font {}x{} ({})",
 			width,
 			height,
@@ -286,11 +314,11 @@ fn main() -> anyhow::Result<()> {
 		);
 
 		let mut rows = 1;
-		let mut per_line = char_count as u32;
-		let mut min_raw_size = u32::MAX;
+		let mut per_line = char_count;
+		let mut min_raw_size = usize::MAX;
 		for r in MIN_ROWS..=MAX_ROWS {
 			// characters that can be displayed per line
-			let pl = (char_count as u32).ceiling_div(r);
+			let pl = char_count.ceiling_div(r);
 			// the minimum width of the image
 			let min_width = pl * width;
 			// the width the image will have
@@ -307,17 +335,38 @@ fn main() -> anyhow::Result<()> {
 			}
 		}
 
+		let file = BufReader::new(File::open(file.path())?);
+		let font = bdf_reader::Font::read(file)?;
+
+		let metadata = FontMetadata {
+			width,
+			height,
+			bold,
+			per_line
+		};
+		fonts_with_metadata.push((font, metadata));
+	}
+
+	for i in 0..fonts_with_metadata.len() {
+		let (font, metadata) = &fonts_with_metadata[i];
+		let FontMetadata {
+			width,
+			height,
+			bold,
+			per_line
+		} = *metadata;
+
 		let mut bitmap = Bitmap::new((per_line * width) as _);
 		let (mut lines, mut lines_double) = bitmap.init_lines(height);
-		let file = File::open(file.path())?;
-		let font = bdf::read(file)?;
-		let glyphs = font.glyphs();
-		let glyphs: LinkedHashMap<char, GlyphData> = CHAR_RANGES
+
+		let glyphs: IndexMap<char, GlyphData<'_>> = CHAR_RANGES
 			.iter()
 			.flat_map(|(start, end)| {
 				(*start..=*end).map(|ch| {
-					let glyph = glyphs.get(&ch).ok_or_else(|| anyhow!("char not in font")).unwrap();
-					(ch, GlyphData::new(glyph, width, height).unwrap())
+					(
+						ch,
+						GlyphData::new(font.glyph(ch).expect("char not in font"), width, height).unwrap()
+					)
 				})
 			})
 			.collect();
@@ -359,10 +408,10 @@ fn main() -> anyhow::Result<()> {
 			bitmap_len_str,
 			img_width: raw_width,
 			img_height: raw_height,
-			bmp: base64::encode(&bmp),
-			bmp_double: base64::encode(&bmp_double)
+			bmp: base64::encode(bmp),
+			bmp_double: base64::encode(bmp_double)
 		};
-		fonts.insert(font);
+		fonts.push(font);
 
 		let font = VirtualFont {
 			width,
@@ -371,7 +420,7 @@ fn main() -> anyhow::Result<()> {
 			glyphs: glyphs.clone(),
 			pixels: 1
 		};
-		virtual_fonts.insert(font);
+		virtual_fonts.push(font);
 
 		let font = VirtualFont {
 			width: 2 * width,
@@ -380,8 +429,11 @@ fn main() -> anyhow::Result<()> {
 			glyphs,
 			pixels: 2
 		};
-		virtual_fonts.insert(font);
+		virtual_fonts.push(font);
 	}
+
+	fonts.sort_unstable();
+	virtual_fonts.sort_unstable();
 
 	let mut rs = File::create("../src/tamzen.rs")?;
 	writeln!(

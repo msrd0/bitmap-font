@@ -38,7 +38,7 @@ impl Bitmap {
 		self.raw
 	}
 
-	pub fn init_lines(&self, char_height: u32) -> (Vec<BitVec>, Vec<BitVec>) {
+	pub fn init_lines(&self, char_height: usize) -> (Vec<BitVec>, Vec<BitVec>) {
 		let mut lines = Vec::new();
 		let mut lines_double = Vec::new();
 		for _ in 0..char_height {
@@ -83,14 +83,14 @@ impl Bitmap {
 		write!([0x42, 0x4D]);
 		write!(14 + 40 + 8 + raw.len() as u32);
 		write!([0, 0, 0, 0]);
-		write!(14 + 40 + 8 as u32);
+		write!(14 + 40 + 8_u32);
 
 		// info header
-		write!(40 as u32);
+		write!(40_u32);
 		write!(width);
 		write!(-height);
-		write!(1 as u16);
-		write!(1 as u16);
+		write!(1_u16);
+		write!(1_u16);
 		write!([0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
 
 		// color table

@@ -38,7 +38,7 @@ impl Bitmap {
 		self.raw
 	}
 
-	pub fn init_lines(&self, char_height: u32) -> (Vec<BitVec>, Vec<BitVec>) {
+	pub fn init_lines(&self, char_height: usize) -> (Vec<BitVec>, Vec<BitVec>) {
 		let mut lines = Vec::new();
 		let mut lines_double = Vec::new();
 		for _ in 0..char_height {

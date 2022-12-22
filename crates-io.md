@@ -66,9 +66,8 @@ of this font.
 ```
 
  [contributors]: https://github.com/msrd0/bitmap-font/graphs/contributors
- [__cargo_doc2readme_dependencies_info]: ggGkYW0AYXSEG8OLOcBnX8tEG0XUTjj8V5LfGxwiScerO4peG3cFs12J67qKYXKEG89m3EOj9x66G_m6QaWoeiPfG85ltrT4zMl_G-hIu8KZbrDyYWSCg2tiaXRtYXAtZm9udGUwLjIuMmtiaXRtYXBfZm9udINxZW1iZWRkZWQtZ3JhcGhpY3NlMC43LjFxZW1iZWRkZWRfZ3JhcGhpY3M
- [__link0]: https://crates.io/crates/embedded-graphics/0.7.1
- [__link1]: https://docs.rs/embedded-graphics/0.7.1/embedded_graphics/?search=embedded_graphics::mono_font
+ [__cargo_doc2readme_dependencies_info]: ggGkYW0BYXSEG8OLOcBnX8tEG0XUTjj8V5LfGxwiScerO4peG3cFs12J67qKYXKEG7QsMysq64PIGyOKYfl4MwNjG-1TTKAJaS94G62BH4qvezKCYWSCg2tiaXRtYXAtZm9udGUwLjIuMmtiaXRtYXBfZm9udIJxZW1iZWRkZWRfZ3JhcGhpY3NlMC43LjE
+ [__link0]: https://crates.io/crates/embedded_graphics/0.7.1
+ [__link1]: https://docs.rs/embedded_graphics/0.7.1/embedded_graphics/?search=mono_font
  [__link2]: https://github.com/sunaku/tamzen-font
- [__link3]: https://docs.rs/bitmap-font/0.2.2/bitmap_font/?search=bitmap_font::tamzen
-
+ [__link3]: https://docs.rs/bitmap-font/0.2.2/bitmap_font/tamzen/index.html

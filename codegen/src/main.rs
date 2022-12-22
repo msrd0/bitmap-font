@@ -7,7 +7,7 @@ use anyhow::bail;
 use askama::Template;
 use bdf_reader::Glyph;
 use bit_vec::BitVec;
-use linked_hash_map::LinkedHashMap;
+use indexmap::IndexMap;
 use num_format::{Locale, ToFormattedString};
 use std::{
 	cmp::Ordering,
@@ -99,7 +99,7 @@ struct VirtualFont<'a> {
 	width: usize,
 	height: usize,
 	bold: bool,
-	glyphs: LinkedHashMap<char, GlyphData<'a>>,
+	glyphs: IndexMap<char, GlyphData<'a>>,
 	pixels: usize
 }
 
@@ -231,8 +231,8 @@ impl<'a> GlyphData<'a> {
 		for x in 0..self.width {
 			for _ in 0..self.pixels {
 				line.push(match self.bitmap.get(x, y).unwrap() {
-					true => '#',
-					false => '.'
+					true => '.',
+					false => '#'
 				});
 			}
 		}
@@ -352,7 +352,7 @@ fn main() -> anyhow::Result<()> {
 		let mut bitmap = Bitmap::new((per_line * width) as _);
 		let (mut lines, mut lines_double) = bitmap.init_lines(height);
 
-		let glyphs: LinkedHashMap<char, GlyphData<'_>> = CHAR_RANGES
+		let glyphs: IndexMap<char, GlyphData<'_>> = CHAR_RANGES
 			.iter()
 			.flat_map(|(start, end)| {
 				(*start..=*end).map(|ch| {

@@ -1,3 +1,8 @@
+#![warn(rust_2018_idioms)]
+#![forbid(elided_lifetimes_in_paths, unsafe_code)]
+// This suggestions makes the code soo much less readable
+#![allow(clippy::needless_range_loop)]
+
 use anyhow::bail;
 use askama::Template;
 use bdf_reader::Glyph;
@@ -31,7 +36,7 @@ const MIN_ROWS: usize = 4;
 const MAX_ROWS: usize = 20;
 
 mod filters {
-	pub fn chunks<'a>(src: &'a [u8], size: usize) -> askama::Result<Vec<&'a [u8]>> {
+	pub fn chunks(src: &[u8], size: usize) -> askama::Result<Vec<&[u8]>> {
 		Ok(src.chunks(size).collect())
 	}
 }
@@ -45,7 +50,7 @@ struct RustSource<'a> {
 
 #[derive(Template)]
 #[template(path = "tests.rs.j2", escape = "none")]
-struct RustTests<'a, 'b: 'a> {
+struct RustTests<'a, 'b> {
 	char_ranges: &'a Vec<CharRange>,
 	fonts: &'a Vec<VirtualFont<'b>>
 }
@@ -124,7 +129,7 @@ impl<'a> VirtualFont<'a> {
 		let mut glyph = self
 			.glyphs
 			.get(&c)
-			.expect(&format!("No glyph found for char '{}'", c))
+			.unwrap_or_else(|| panic!("No glyph found for char '{}'", c))
 			.clone();
 		glyph.pixels = self.pixels;
 		glyph
@@ -186,7 +191,7 @@ impl<'a> GlyphData<'a> {
 		})
 	}
 
-	fn push_to_bitmap(&self, lines: &mut Vec<BitVec>) {
+	fn push_to_bitmap(&self, lines: &mut [BitVec]) {
 		for y in 0..self.height {
 			for x in 0..self.width {
 				lines[y].push(self.bitmap.get(x, y).unwrap());
@@ -194,11 +199,11 @@ impl<'a> GlyphData<'a> {
 		}
 	}
 
-	fn push_to_bitmap_double(&self, lines_double: &mut Vec<BitVec>) {
+	fn push_to_bitmap_double(&self, lines_double: &mut [BitVec]) {
 		for y in 0..self.height {
 			for x in 0..self.width {
 				for _ in 0..2 {
-					lines_double[y as usize].push(self.bitmap.get(x, y).unwrap());
+					lines_double[y].push(self.bitmap.get(x, y).unwrap());
 				}
 			}
 		}
@@ -210,7 +215,10 @@ impl<'a> GlyphData<'a> {
 		let mut line = String::new();
 		for x in 0..self.width {
 			for _ in 0..self.pixels {
-				line.push(self.bitmap.get(x, y).unwrap().then(|| '#').unwrap_or(' '));
+				line.push(match self.bitmap.get(x, y).unwrap() {
+					true => '#',
+					false => ' '
+				});
 			}
 		}
 		line
@@ -222,7 +230,10 @@ impl<'a> GlyphData<'a> {
 		let mut line = String::new();
 		for x in 0..self.width {
 			for _ in 0..self.pixels {
-				line.push(self.bitmap.get(x, y).unwrap().then(|| '.').unwrap_or('#'));
+				line.push(match self.bitmap.get(x, y).unwrap() {
+					true => '#',
+					false => '.'
+				});
 			}
 		}
 		line
@@ -271,9 +282,9 @@ fn main() -> anyhow::Result<()> {
 			Some(path) => path,
 			None => continue
 		};
-		let bold = if path.ends_with("b") {
+		let bold = if path.ends_with('b') {
 			true
-		} else if path.ends_with("r") {
+		} else if path.ends_with('r') {
 			false
 		} else {
 			continue;
@@ -341,7 +352,7 @@ fn main() -> anyhow::Result<()> {
 		let mut bitmap = Bitmap::new((per_line * width) as _);
 		let (mut lines, mut lines_double) = bitmap.init_lines(height);
 
-		let glyphs: LinkedHashMap<char, GlyphData> = CHAR_RANGES
+		let glyphs: LinkedHashMap<char, GlyphData<'_>> = CHAR_RANGES
 			.iter()
 			.flat_map(|(start, end)| {
 				(*start..=*end).map(|ch| {
@@ -390,8 +401,8 @@ fn main() -> anyhow::Result<()> {
 			bitmap_len_str,
 			img_width: raw_width,
 			img_height: raw_height,
-			bmp: base64::encode(&bmp),
-			bmp_double: base64::encode(&bmp_double)
+			bmp: base64::encode(bmp),
+			bmp_double: base64::encode(bmp_double)
 		};
 		fonts.push(font);
 

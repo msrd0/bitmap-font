@@ -83,14 +83,14 @@ impl Bitmap {
 		write!([0x42, 0x4D]);
 		write!(14 + 40 + 8 + raw.len() as u32);
 		write!([0, 0, 0, 0]);
-		write!(14 + 40 + 8 as u32);
+		write!(14 + 40 + 8_u32);
 
 		// info header
-		write!(40 as u32);
+		write!(40_u32);
 		write!(width);
 		write!(-height);
-		write!(1 as u16);
-		write!(1 as u16);
+		write!(1_u16);
+		write!(1_u16);
 		write!([0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
 
 		// color table

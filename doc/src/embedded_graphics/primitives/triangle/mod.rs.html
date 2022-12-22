@@ -1,6 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.1/src/primitives/triangle/mod.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../../storage.js"></script><script defer src="../../../../source-script.js"></script><script defer src="../../../../source-files.js"></script><script defer src="../../../../main.js"></script><noscript><link rel="stylesheet" href="../../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../../embedded_graphics/index.html"><div class="logo-container"><img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../../embedded_graphics/index.html"><div class="logo-container">
-                    <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../../embedded_graphics/index.html">
-                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.1/src/primitives/triangle/mod.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../../normalize.css"><link rel="stylesheet" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../../ayu.css" disabled><link rel="stylesheet" href="../../../../dark.css" disabled><link rel="stylesheet" href="../../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../../storage.js"></script><script defer src="../../../../source-script.js"></script><script defer src="../../../../source-files.js"></script><script defer src="../../../../main.js"></script><noscript><link rel="stylesheet" href="../../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../../embedded_graphics/index.html">
+                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../wheel.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -447,452 +446,452 @@
 <span id="445">445</span>
 <span id="446">446</span>
 <span id="447">447</span>
-</pre><pre class="rust"><code><span class="doccomment">//! The triangle primitive.</span>
+</pre><pre class="rust"><code><span class="doccomment">//! The triangle primitive.
 
-<span class="kw">use</span> <span class="ident">core::cmp</span>::{<span class="ident">max</span>, <span class="ident">min</span>, <span class="ident">Ordering</span>};
+</span><span class="kw">use </span>core::cmp::{max, min, Ordering};
 
-<span class="kw">use</span> <span class="kw">crate</span>::{
-    <span class="ident">geometry</span>::{<span class="ident">Dimensions</span>, <span class="ident">Point</span>},
-    <span class="ident">primitives</span>::{
-        <span class="ident">common</span>::{<span class="ident">LineJoin</span>, <span class="ident">LineSide</span>, <span class="ident">LinearEquation</span>, <span class="ident">Scanline</span>, <span class="ident">StrokeOffset</span>},
-        <span class="ident">ContainsPoint</span>, <span class="ident">Line</span>, <span class="ident">PointsIter</span>, <span class="ident">Primitive</span>, <span class="ident">Rectangle</span>,
+<span class="kw">use crate</span>::{
+    geometry::{Dimensions, Point},
+    primitives::{
+        common::{LineJoin, LineSide, LinearEquation, Scanline, StrokeOffset},
+        ContainsPoint, Line, PointsIter, Primitive, Rectangle,
     },
-    <span class="ident">transform::Transform</span>,
+    transform::Transform,
 };
 
-<span class="kw">mod</span> <span class="ident">points</span>;
-<span class="kw">mod</span> <span class="ident">scanline_intersections</span>;
-<span class="kw">mod</span> <span class="ident">scanline_iterator</span>;
-<span class="kw">mod</span> <span class="ident">styled</span>;
+<span class="kw">mod </span>points;
+<span class="kw">mod </span>scanline_intersections;
+<span class="kw">mod </span>scanline_iterator;
+<span class="kw">mod </span>styled;
 
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">points::Points</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">styled::StyledPixelsIterator</span>;
+<span class="kw">pub use </span>points::Points;
+<span class="kw">pub use </span>styled::StyledPixelsIterator;
 
-<span class="doccomment">/// Triangle primitive</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Examples</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// ## Create some triangles with different styles</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// ```rust</span>
-<span class="doccomment">/// use embedded_graphics::{</span>
-<span class="doccomment">///     pixelcolor::Rgb565, prelude::*, primitives::{Triangle, PrimitiveStyle},</span>
-<span class="doccomment">/// };</span>
-<span class="doccomment">/// # use embedded_graphics::mock_display::MockDisplay;</span>
-<span class="doccomment">/// # let mut display = MockDisplay::default();</span>
-<span class="doccomment">/// # display.set_allow_overdraw(true);</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// // Triangle with red 1 px wide stroke</span>
-<span class="doccomment">/// Triangle::new(Point::new(40, 20), Point::new(50, 25), Point::new(60, 60))</span>
-<span class="doccomment">///     .into_styled(PrimitiveStyle::with_stroke(Rgb565::RED, 1))</span>
-<span class="doccomment">///     .draw(&amp;mut display)?;</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// // Triangle with translation applied</span>
-<span class="doccomment">/// Triangle::new(Point::new(40, 20), Point::new(50, 25), Point::new(60, 60))</span>
-<span class="doccomment">///     .translate(Point::new(-10, -20))</span>
-<span class="doccomment">///     .into_styled(PrimitiveStyle::with_stroke(Rgb565::GREEN, 1))</span>
-<span class="doccomment">///     .draw(&amp;mut display)?;</span>
-<span class="doccomment">/// # Ok::&lt;(), core::convert::Infallible&gt;(())</span>
-<span class="doccomment">/// ```</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// ## Create a triangle from a slice</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// A triangle can be created from a `&amp;[Point]` slice. If the slice is not exactly 3 elements long,</span>
-<span class="doccomment">/// the [`from_slice`] method will panic.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// ```rust</span>
-<span class="doccomment">/// use embedded_graphics::{geometry::Point, primitives::Triangle};</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// let p1 = Point::new(5, 10);</span>
-<span class="doccomment">/// let p2 = Point::new(15, 25);</span>
-<span class="doccomment">/// let p3 = Point::new(5, 25);</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// let tri = Triangle::from_slice(&amp;[p1, p2, p3]);</span>
-<span class="doccomment">/// #</span>
-<span class="doccomment">/// # assert_eq!(tri, Triangle::new(p1, p2, p3));</span>
-<span class="doccomment">/// ```</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// [`from_slice`]: #method.from_slice</span>
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Copy</span>, <span class="ident">Clone</span>, <span class="ident">Eq</span>, <span class="ident">PartialEq</span>, <span class="ident">Ord</span>, <span class="ident">PartialOrd</span>, <span class="ident">Hash</span>, <span class="ident">Debug</span>, <span class="ident">Default</span>)]</span>
-<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Triangle</span> {
-    <span class="doccomment">/// The vertices of the triangle.</span>
-    <span class="kw">pub</span> <span class="ident">vertices</span>: [<span class="ident">Point</span>; <span class="number">3</span>],
+<span class="doccomment">/// Triangle primitive
+///
+/// # Examples
+///
+/// ## Create some triangles with different styles
+///
+/// ```rust
+/// use embedded_graphics::{
+///     pixelcolor::Rgb565, prelude::*, primitives::{Triangle, PrimitiveStyle},
+/// };
+/// # use embedded_graphics::mock_display::MockDisplay;
+/// # let mut display = MockDisplay::default();
+/// # display.set_allow_overdraw(true);
+///
+/// // Triangle with red 1 px wide stroke
+/// Triangle::new(Point::new(40, 20), Point::new(50, 25), Point::new(60, 60))
+///     .into_styled(PrimitiveStyle::with_stroke(Rgb565::RED, 1))
+///     .draw(&amp;mut display)?;
+///
+/// // Triangle with translation applied
+/// Triangle::new(Point::new(40, 20), Point::new(50, 25), Point::new(60, 60))
+///     .translate(Point::new(-10, -20))
+///     .into_styled(PrimitiveStyle::with_stroke(Rgb565::GREEN, 1))
+///     .draw(&amp;mut display)?;
+/// # Ok::&lt;(), core::convert::Infallible&gt;(())
+/// ```
+///
+/// ## Create a triangle from a slice
+///
+/// A triangle can be created from a `&amp;[Point]` slice. If the slice is not exactly 3 elements long,
+/// the [`from_slice`] method will panic.
+///
+/// ```rust
+/// use embedded_graphics::{geometry::Point, primitives::Triangle};
+///
+/// let p1 = Point::new(5, 10);
+/// let p2 = Point::new(15, 25);
+/// let p3 = Point::new(5, 25);
+///
+/// let tri = Triangle::from_slice(&amp;[p1, p2, p3]);
+/// #
+/// # assert_eq!(tri, Triangle::new(p1, p2, p3));
+/// ```
+///
+/// [`from_slice`]: #method.from_slice
+</span><span class="attribute">#[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Hash, Debug, Default)]
+</span><span class="kw">pub struct </span>Triangle {
+    <span class="doccomment">/// The vertices of the triangle.
+    </span><span class="kw">pub </span>vertices: [Point; <span class="number">3</span>],
 }
 
-<span class="kw">impl</span> <span class="ident">Primitive</span> <span class="kw">for</span> <span class="ident">Triangle</span> {}
+<span class="kw">impl </span>Primitive <span class="kw">for </span>Triangle {}
 
-<span class="kw">impl</span> <span class="ident">PointsIter</span> <span class="kw">for</span> <span class="ident">Triangle</span> {
-    <span class="kw">type</span> <span class="ident">Iter</span> <span class="op">=</span> <span class="ident">Points</span>;
+<span class="kw">impl </span>PointsIter <span class="kw">for </span>Triangle {
+    <span class="kw">type </span>Iter = Points;
 
-    <span class="kw">fn</span> <span class="ident">points</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident"><span class="self">Self</span>::Iter</span> {
-        <span class="ident">Points::new</span>(<span class="self">self</span>)
+    <span class="kw">fn </span>points(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="self">Self</span>::Iter {
+        Points::new(<span class="self">self</span>)
     }
 }
 
-<span class="kw">impl</span> <span class="ident">ContainsPoint</span> <span class="kw">for</span> <span class="ident">Triangle</span> {
-    <span class="kw">fn</span> <span class="ident">contains</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">point</span>: <span class="ident">Point</span>) -&gt; <span class="ident">bool</span> {
-        <span class="comment">// Skip expensive calculations below if point is outside the bounding box</span>
-        <span class="kw">if</span> <span class="op">!</span><span class="self">self</span>.<span class="ident">bounding_box</span>().<span class="ident">contains</span>(<span class="ident">point</span>) {
-            <span class="kw">return</span> <span class="bool-val">false</span>;
+<span class="kw">impl </span>ContainsPoint <span class="kw">for </span>Triangle {
+    <span class="kw">fn </span>contains(<span class="kw-2">&amp;</span><span class="self">self</span>, point: Point) -&gt; bool {
+        <span class="comment">// Skip expensive calculations below if point is outside the bounding box
+        </span><span class="kw">if </span>!<span class="self">self</span>.bounding_box().contains(point) {
+            <span class="kw">return </span><span class="bool-val">false</span>;
         }
 
-        <span class="kw">let</span> <span class="ident">p</span> <span class="op">=</span> <span class="ident">point</span>;
-        <span class="kw">let</span> [<span class="ident">p1</span>, <span class="ident">p2</span>, <span class="ident">p3</span>] <span class="op">=</span> <span class="self">self</span>.<span class="ident">vertices</span>;
+        <span class="kw">let </span>p = point;
+        <span class="kw">let </span>[p1, p2, p3] = <span class="self">self</span>.vertices;
 
-        <span class="comment">// Check if point is inside triangle using https://stackoverflow.com/a/20861130/383609.</span>
-        <span class="comment">// Works for any point ordering.</span>
-        <span class="kw">let</span> <span class="ident">is_inside</span> <span class="op">=</span> {
-            <span class="kw">let</span> <span class="ident">s</span> <span class="op">=</span> <span class="ident">p1</span>.<span class="ident">y</span> <span class="op">*</span> <span class="ident">p3</span>.<span class="ident">x</span> <span class="op">-</span> <span class="ident">p1</span>.<span class="ident">x</span> <span class="op">*</span> <span class="ident">p3</span>.<span class="ident">y</span> <span class="op">+</span> (<span class="ident">p3</span>.<span class="ident">y</span> <span class="op">-</span> <span class="ident">p1</span>.<span class="ident">y</span>) <span class="op">*</span> <span class="ident">p</span>.<span class="ident">x</span> <span class="op">+</span> (<span class="ident">p1</span>.<span class="ident">x</span> <span class="op">-</span> <span class="ident">p3</span>.<span class="ident">x</span>) <span class="op">*</span> <span class="ident">p</span>.<span class="ident">y</span>;
-            <span class="kw">let</span> <span class="ident">t</span> <span class="op">=</span> <span class="ident">p1</span>.<span class="ident">x</span> <span class="op">*</span> <span class="ident">p2</span>.<span class="ident">y</span> <span class="op">-</span> <span class="ident">p1</span>.<span class="ident">y</span> <span class="op">*</span> <span class="ident">p2</span>.<span class="ident">x</span> <span class="op">+</span> (<span class="ident">p1</span>.<span class="ident">y</span> <span class="op">-</span> <span class="ident">p2</span>.<span class="ident">y</span>) <span class="op">*</span> <span class="ident">p</span>.<span class="ident">x</span> <span class="op">+</span> (<span class="ident">p2</span>.<span class="ident">x</span> <span class="op">-</span> <span class="ident">p1</span>.<span class="ident">x</span>) <span class="op">*</span> <span class="ident">p</span>.<span class="ident">y</span>;
+        <span class="comment">// Check if point is inside triangle using https://stackoverflow.com/a/20861130/383609.
+        // Works for any point ordering.
+        </span><span class="kw">let </span>is_inside = {
+            <span class="kw">let </span>s = p1.y * p3.x - p1.x * p3.y + (p3.y - p1.y) * p.x + (p1.x - p3.x) * p.y;
+            <span class="kw">let </span>t = p1.x * p2.y - p1.y * p2.x + (p1.y - p2.y) * p.x + (p2.x - p1.x) * p.y;
 
-            <span class="kw">if</span> (<span class="ident">s</span> <span class="op">&lt;</span> <span class="number">0</span>) <span class="op">!</span><span class="op">=</span> (<span class="ident">t</span> <span class="op">&lt;</span> <span class="number">0</span>) {
-                <span class="bool-val">false</span>
-            } <span class="kw">else</span> {
-                <span class="comment">// Determinant</span>
-                <span class="kw">let</span> <span class="ident">a</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">area_doubled</span>();
+            <span class="kw">if </span>(s &lt; <span class="number">0</span>) != (t &lt; <span class="number">0</span>) {
+                <span class="bool-val">false
+            </span>} <span class="kw">else </span>{
+                <span class="comment">// Determinant
+                </span><span class="kw">let </span>a = <span class="self">self</span>.area_doubled();
 
-                <span class="comment">// If determinant is zero, triangle is colinear and can never contain a point.</span>
-                <span class="kw">if</span> <span class="ident">a</span> <span class="op">==</span> <span class="number">0</span> {
-                    <span class="kw">return</span> <span class="bool-val">false</span>;
+                <span class="comment">// If determinant is zero, triangle is colinear and can never contain a point.
+                </span><span class="kw">if </span>a == <span class="number">0 </span>{
+                    <span class="kw">return </span><span class="bool-val">false</span>;
                 }
 
-                <span class="comment">// This check allows this algorithm to work with clockwise or counterclockwise</span>
-                <span class="comment">// triangles.</span>
-                <span class="kw">if</span> <span class="ident">a</span> <span class="op">&lt;</span> <span class="number">0</span> {
-                    <span class="ident">s</span> <span class="op">&lt;</span><span class="op">=</span> <span class="number">0</span> <span class="op">&amp;&amp;</span> <span class="ident">s</span> <span class="op">+</span> <span class="ident">t</span> <span class="op">&gt;</span><span class="op">=</span> <span class="ident">a</span>
-                } <span class="kw">else</span> {
-                    <span class="ident">s</span> <span class="op">&gt;</span><span class="op">=</span> <span class="number">0</span> <span class="op">&amp;&amp;</span> <span class="ident">s</span> <span class="op">+</span> <span class="ident">t</span> <span class="op">&lt;</span><span class="op">=</span> <span class="ident">a</span>
+                <span class="comment">// This check allows this algorithm to work with clockwise or counterclockwise
+                // triangles.
+                </span><span class="kw">if </span>a &lt; <span class="number">0 </span>{
+                    s &lt;= <span class="number">0 </span>&amp;&amp; s + t &gt;= a
+                } <span class="kw">else </span>{
+                    s &gt;= <span class="number">0 </span>&amp;&amp; s + t &lt;= a
                 }
             }
         };
 
-        <span class="comment">// Skip expensive point-on-line check below if point is definitely inside triangle</span>
-        <span class="kw">if</span> <span class="ident">is_inside</span> {
-            <span class="kw">return</span> <span class="bool-val">true</span>;
+        <span class="comment">// Skip expensive point-on-line check below if point is definitely inside triangle
+        </span><span class="kw">if </span>is_inside {
+            <span class="kw">return </span><span class="bool-val">true</span>;
         }
 
-        <span class="comment">// Sort points into same order as `ScanlineIterator` so this check produces the same results</span>
-        <span class="comment">// as a rendered triangle would.</span>
-        <span class="kw">let</span> [<span class="ident">p1</span>, <span class="ident">p2</span>, <span class="ident">p3</span>] <span class="op">=</span> <span class="self">self</span>.<span class="ident">sorted_yx</span>().<span class="ident">vertices</span>;
+        <span class="comment">// Sort points into same order as `ScanlineIterator` so this check produces the same results
+        // as a rendered triangle would.
+        </span><span class="kw">let </span>[p1, p2, p3] = <span class="self">self</span>.sorted_yx().vertices;
 
-        <span class="comment">// Special case: due to the Bresenham algorithm being used to render triangles, some pixel</span>
-        <span class="comment">// centers on a Styled&lt;Triangle&gt; lie outside the mathematical triangle. This check</span>
-        <span class="comment">// inefficiently checks to see if the point lies on any of the border edges.</span>
-        <span class="ident">Line::new</span>(<span class="ident">p1</span>, <span class="ident">p2</span>)
-            .<span class="ident">points</span>()
-            .<span class="ident">chain</span>(<span class="ident">Line::new</span>(<span class="ident">p1</span>, <span class="ident">p3</span>).<span class="ident">points</span>())
-            .<span class="ident">chain</span>(<span class="ident">Line::new</span>(<span class="ident">p2</span>, <span class="ident">p3</span>).<span class="ident">points</span>())
-            .<span class="ident">any</span>(<span class="op">|</span><span class="ident">line_point</span><span class="op">|</span> <span class="ident">line_point</span> <span class="op">==</span> <span class="ident">p</span>)
+        <span class="comment">// Special case: due to the Bresenham algorithm being used to render triangles, some pixel
+        // centers on a Styled&lt;Triangle&gt; lie outside the mathematical triangle. This check
+        // inefficiently checks to see if the point lies on any of the border edges.
+        </span>Line::new(p1, p2)
+            .points()
+            .chain(Line::new(p1, p3).points())
+            .chain(Line::new(p2, p3).points())
+            .any(|line_point| line_point == p)
     }
 }
 
-<span class="kw">impl</span> <span class="ident">Dimensions</span> <span class="kw">for</span> <span class="ident">Triangle</span> {
-    <span class="kw">fn</span> <span class="ident">bounding_box</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Rectangle</span> {
-        <span class="kw">let</span> [<span class="ident">p1</span>, <span class="ident">p2</span>, <span class="ident">p3</span>] <span class="op">=</span> <span class="self">self</span>.<span class="ident">vertices</span>;
+<span class="kw">impl </span>Dimensions <span class="kw">for </span>Triangle {
+    <span class="kw">fn </span>bounding_box(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Rectangle {
+        <span class="kw">let </span>[p1, p2, p3] = <span class="self">self</span>.vertices;
 
-        <span class="kw">let</span> <span class="ident">x_min</span> <span class="op">=</span> <span class="ident">min</span>(<span class="ident">min</span>(<span class="ident">p1</span>.<span class="ident">x</span>, <span class="ident">p2</span>.<span class="ident">x</span>), <span class="ident">p3</span>.<span class="ident">x</span>);
-        <span class="kw">let</span> <span class="ident">y_min</span> <span class="op">=</span> <span class="ident">min</span>(<span class="ident">min</span>(<span class="ident">p1</span>.<span class="ident">y</span>, <span class="ident">p2</span>.<span class="ident">y</span>), <span class="ident">p3</span>.<span class="ident">y</span>);
+        <span class="kw">let </span>x_min = min(min(p1.x, p2.x), p3.x);
+        <span class="kw">let </span>y_min = min(min(p1.y, p2.y), p3.y);
 
-        <span class="kw">let</span> <span class="ident">x_max</span> <span class="op">=</span> <span class="ident">max</span>(<span class="ident">max</span>(<span class="ident">p1</span>.<span class="ident">x</span>, <span class="ident">p2</span>.<span class="ident">x</span>), <span class="ident">p3</span>.<span class="ident">x</span>);
-        <span class="kw">let</span> <span class="ident">y_max</span> <span class="op">=</span> <span class="ident">max</span>(<span class="ident">max</span>(<span class="ident">p1</span>.<span class="ident">y</span>, <span class="ident">p2</span>.<span class="ident">y</span>), <span class="ident">p3</span>.<span class="ident">y</span>);
+        <span class="kw">let </span>x_max = max(max(p1.x, p2.x), p3.x);
+        <span class="kw">let </span>y_max = max(max(p1.y, p2.y), p3.y);
 
-        <span class="ident">Rectangle::with_corners</span>(<span class="ident">Point::new</span>(<span class="ident">x_min</span>, <span class="ident">y_min</span>), <span class="ident">Point::new</span>(<span class="ident">x_max</span>, <span class="ident">y_max</span>))
+        Rectangle::with_corners(Point::new(x_min, y_min), Point::new(x_max, y_max))
     }
 }
 
-<span class="kw">impl</span> <span class="ident">Triangle</span> {
-    <span class="doccomment">/// Create a new triangle with the given vertices.</span>
-    <span class="kw">pub</span> <span class="kw">const</span> <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">vertex1</span>: <span class="ident">Point</span>, <span class="ident">vertex2</span>: <span class="ident">Point</span>, <span class="ident">vertex3</span>: <span class="ident">Point</span>) -&gt; <span class="self">Self</span> {
-        <span class="ident">Triangle</span> {
-            <span class="ident">vertices</span>: [<span class="ident">vertex1</span>, <span class="ident">vertex2</span>, <span class="ident">vertex3</span>],
+<span class="kw">impl </span>Triangle {
+    <span class="doccomment">/// Create a new triangle with the given vertices.
+    </span><span class="kw">pub const fn </span>new(vertex1: Point, vertex2: Point, vertex3: Point) -&gt; <span class="self">Self </span>{
+        Triangle {
+            vertices: [vertex1, vertex2, vertex3],
         }
     }
 
-    <span class="doccomment">/// Creates a new triangle from a [`Point`] slice.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Panics</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// This method will panic if the given slice is not exactly 3 items long.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [`Point`]: ../../geometry/struct.Point.html</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">from_slice</span>(<span class="ident">vertices</span>: <span class="kw-2">&amp;</span>[<span class="ident">Point</span>]) -&gt; <span class="self">Self</span> {
-        <span class="kw">match</span> <span class="ident">vertices</span> {
-            [<span class="ident">p1</span>, <span class="ident">p2</span>, <span class="ident">p3</span>] =&gt; <span class="ident"><span class="self">Self</span>::new</span>(<span class="kw-2">*</span><span class="ident">p1</span>, <span class="kw-2">*</span><span class="ident">p2</span>, <span class="kw-2">*</span><span class="ident">p3</span>),
-            <span class="ident">vertices</span> =&gt; <span class="macro">panic!</span>(<span class="string">&quot;source slice length ({}) must equal 3&quot;</span>, <span class="ident">vertices</span>.<span class="ident">len</span>()),
+    <span class="doccomment">/// Creates a new triangle from a [`Point`] slice.
+    ///
+    /// # Panics
+    ///
+    /// This method will panic if the given slice is not exactly 3 items long.
+    ///
+    /// [`Point`]: ../../geometry/struct.Point.html
+    </span><span class="kw">pub fn </span>from_slice(vertices: <span class="kw-2">&amp;</span>[Point]) -&gt; <span class="self">Self </span>{
+        <span class="kw">match </span>vertices {
+            [p1, p2, p3] =&gt; <span class="self">Self</span>::new(<span class="kw-2">*</span>p1, <span class="kw-2">*</span>p2, <span class="kw-2">*</span>p3),
+            vertices =&gt; <span class="macro">panic!</span>(<span class="string">&quot;source slice length ({}) must equal 3&quot;</span>, vertices.len()),
         }
     }
 
-    <span class="doccomment">/// Return the area of the triangle, doubled.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// This method can be used to determine if the triangle is colinear by checking if the returned</span>
-    <span class="doccomment">/// value is equal to zero.</span>
-    <span class="kw">pub</span>(<span class="kw">in</span> <span class="ident"><span class="kw">crate</span>::primitives</span>) <span class="kw">fn</span> <span class="ident">area_doubled</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">i32</span> {
-        <span class="kw">let</span> [<span class="ident">p1</span>, <span class="ident">p2</span>, <span class="ident">p3</span>] <span class="op">=</span> <span class="self">self</span>.<span class="ident">vertices</span>;
+    <span class="doccomment">/// Return the area of the triangle, doubled.
+    ///
+    /// This method can be used to determine if the triangle is colinear by checking if the returned
+    /// value is equal to zero.
+    </span><span class="kw">pub</span>(<span class="kw">in </span><span class="kw">crate</span>::primitives) <span class="kw">fn </span>area_doubled(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32 {
+        <span class="kw">let </span>[p1, p2, p3] = <span class="self">self</span>.vertices;
 
-        <span class="op">-</span><span class="ident">p2</span>.<span class="ident">y</span> <span class="op">*</span> <span class="ident">p3</span>.<span class="ident">x</span> <span class="op">+</span> <span class="ident">p1</span>.<span class="ident">y</span> <span class="op">*</span> (<span class="ident">p3</span>.<span class="ident">x</span> <span class="op">-</span> <span class="ident">p2</span>.<span class="ident">x</span>) <span class="op">+</span> <span class="ident">p1</span>.<span class="ident">x</span> <span class="op">*</span> (<span class="ident">p2</span>.<span class="ident">y</span> <span class="op">-</span> <span class="ident">p3</span>.<span class="ident">y</span>) <span class="op">+</span> <span class="ident">p2</span>.<span class="ident">x</span> <span class="op">*</span> <span class="ident">p3</span>.<span class="ident">y</span>
+        -p2.y * p3.x + p1.y * (p3.x - p2.x) + p1.x * (p2.y - p3.y) + p2.x * p3.y
     }
 
-    <span class="doccomment">/// Create a new triangle with points sorted in a clockwise direction.</span>
-    <span class="kw">pub</span>(<span class="kw">in</span> <span class="ident"><span class="kw">crate</span>::primitives::triangle</span>) <span class="kw">fn</span> <span class="ident">sorted_clockwise</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="self">Self</span> {
-        <span class="kw">match</span> <span class="self">self</span>.<span class="ident">area_doubled</span>().<span class="ident">cmp</span>(<span class="kw-2">&amp;</span><span class="number">0</span>) {
-            <span class="comment">// Triangle is wound CCW. Swap two points to make it CW.</span>
-            <span class="ident">Ordering::Less</span> =&gt; <span class="ident"><span class="self">Self</span>::new</span>(<span class="self">self</span>.<span class="ident">vertices</span>[<span class="number">1</span>], <span class="self">self</span>.<span class="ident">vertices</span>[<span class="number">0</span>], <span class="self">self</span>.<span class="ident">vertices</span>[<span class="number">2</span>]),
-            <span class="comment">// Triangle is already CW, do nothing.</span>
-            <span class="ident">Ordering::Greater</span> =&gt; <span class="kw-2">*</span><span class="self">self</span>,
-            <span class="comment">// Triangle is colinear. Sort points so they lie sequentially along the line.</span>
-            <span class="ident">Ordering::Equal</span> =&gt; <span class="self">self</span>.<span class="ident">sorted_yx</span>(),
+    <span class="doccomment">/// Create a new triangle with points sorted in a clockwise direction.
+    </span><span class="kw">pub</span>(<span class="kw">in </span><span class="kw">crate</span>::primitives::triangle) <span class="kw">fn </span>sorted_clockwise(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="self">Self </span>{
+        <span class="kw">match </span><span class="self">self</span>.area_doubled().cmp(<span class="kw-2">&amp;</span><span class="number">0</span>) {
+            <span class="comment">// Triangle is wound CCW. Swap two points to make it CW.
+            </span>Ordering::Less =&gt; <span class="self">Self</span>::new(<span class="self">self</span>.vertices[<span class="number">1</span>], <span class="self">self</span>.vertices[<span class="number">0</span>], <span class="self">self</span>.vertices[<span class="number">2</span>]),
+            <span class="comment">// Triangle is already CW, do nothing.
+            </span>Ordering::Greater =&gt; <span class="kw-2">*</span><span class="self">self</span>,
+            <span class="comment">// Triangle is colinear. Sort points so they lie sequentially along the line.
+            </span>Ordering::Equal =&gt; <span class="self">self</span>.sorted_yx(),
         }
     }
 
-    <span class="doccomment">/// Sort the 3 vertices of the triangle in order of increasing Y value.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// If two points have the same Y value, the one with the lesser X value is put before.</span>
-    <span class="kw">fn</span> <span class="ident">sorted_yx</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="self">Self</span> {
-        <span class="kw">let</span> [<span class="ident">p1</span>, <span class="ident">p2</span>, <span class="ident">p3</span>] <span class="op">=</span> <span class="self">self</span>.<span class="ident">vertices</span>;
+    <span class="doccomment">/// Sort the 3 vertices of the triangle in order of increasing Y value.
+    ///
+    /// If two points have the same Y value, the one with the lesser X value is put before.
+    </span><span class="kw">fn </span>sorted_yx(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="self">Self </span>{
+        <span class="kw">let </span>[p1, p2, p3] = <span class="self">self</span>.vertices;
 
-        <span class="kw">let</span> (<span class="ident">y1</span>, <span class="ident">y2</span>) <span class="op">=</span> <span class="ident">sort_two_yx</span>(<span class="ident">p1</span>, <span class="ident">p2</span>);
-        <span class="kw">let</span> (<span class="ident">y1</span>, <span class="ident">y3</span>) <span class="op">=</span> <span class="ident">sort_two_yx</span>(<span class="ident">p3</span>, <span class="ident">y1</span>);
-        <span class="kw">let</span> (<span class="ident">y2</span>, <span class="ident">y3</span>) <span class="op">=</span> <span class="ident">sort_two_yx</span>(<span class="ident">y3</span>, <span class="ident">y2</span>);
+        <span class="kw">let </span>(y1, y2) = sort_two_yx(p1, p2);
+        <span class="kw">let </span>(y1, y3) = sort_two_yx(p3, y1);
+        <span class="kw">let </span>(y2, y3) = sort_two_yx(y3, y2);
 
-        <span class="ident"><span class="self">Self</span>::new</span>(<span class="ident">y1</span>, <span class="ident">y2</span>, <span class="ident">y3</span>)
+        <span class="self">Self</span>::new(y1, y2, y3)
     }
 
-    <span class="kw">pub</span>(<span class="kw">in</span> <span class="ident"><span class="kw">crate</span>::primitives::triangle</span>) <span class="kw">fn</span> <span class="ident">scanline_intersection</span>(
+    <span class="kw">pub</span>(<span class="kw">in </span><span class="kw">crate</span>::primitives::triangle) <span class="kw">fn </span>scanline_intersection(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">scanline_y</span>: <span class="ident">i32</span>,
-    ) -&gt; <span class="ident">Scanline</span> {
-        <span class="kw">let</span> [<span class="ident">p1</span>, <span class="ident">p2</span>, <span class="ident">p3</span>] <span class="op">=</span> <span class="self">self</span>.<span class="ident">sorted_yx</span>().<span class="ident">vertices</span>;
+        scanline_y: i32,
+    ) -&gt; Scanline {
+        <span class="kw">let </span>[p1, p2, p3] = <span class="self">self</span>.sorted_yx().vertices;
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">scanline</span> <span class="op">=</span> <span class="ident">Scanline::new_empty</span>(<span class="ident">scanline_y</span>);
+        <span class="kw">let </span><span class="kw-2">mut </span>scanline = Scanline::new_empty(scanline_y);
 
-        <span class="comment">// Triangle is colinear. We can get away with only intersecting the single line.</span>
-        <span class="kw">if</span> <span class="self">self</span>.<span class="ident">area_doubled</span>() <span class="op">==</span> <span class="number">0</span> {
-            <span class="ident">scanline</span>.<span class="ident">bresenham_intersection</span>(<span class="kw-2">&amp;</span><span class="ident">Line::new</span>(<span class="ident">p1</span>, <span class="ident">p3</span>));
+        <span class="comment">// Triangle is colinear. We can get away with only intersecting the single line.
+        </span><span class="kw">if </span><span class="self">self</span>.area_doubled() == <span class="number">0 </span>{
+            scanline.bresenham_intersection(<span class="kw-2">&amp;</span>Line::new(p1, p3));
 
-            <span class="kw">return</span> <span class="ident">scanline</span>;
+            <span class="kw">return </span>scanline;
         }
 
-        <span class="ident">scanline</span>.<span class="ident">bresenham_intersection</span>(<span class="kw-2">&amp;</span><span class="ident">Line::new</span>(<span class="ident">p1</span>, <span class="ident">p2</span>));
-        <span class="ident">scanline</span>.<span class="ident">bresenham_intersection</span>(<span class="kw-2">&amp;</span><span class="ident">Line::new</span>(<span class="ident">p1</span>, <span class="ident">p3</span>));
-        <span class="ident">scanline</span>.<span class="ident">bresenham_intersection</span>(<span class="kw-2">&amp;</span><span class="ident">Line::new</span>(<span class="ident">p2</span>, <span class="ident">p3</span>));
+        scanline.bresenham_intersection(<span class="kw-2">&amp;</span>Line::new(p1, p2));
+        scanline.bresenham_intersection(<span class="kw-2">&amp;</span>Line::new(p1, p3));
+        scanline.bresenham_intersection(<span class="kw-2">&amp;</span>Line::new(p2, p3));
 
-        <span class="ident">scanline</span>
+        scanline
     }
 
-    <span class="doccomment">/// Generate a line join for each corner of the triangle.</span>
-    <span class="kw">fn</span> <span class="ident">joins</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">stroke_width</span>: <span class="ident">u32</span>, <span class="ident">stroke_offset</span>: <span class="ident">StrokeOffset</span>) -&gt; [<span class="ident">LineJoin</span>; <span class="number">3</span>] {
-        <span class="kw">let</span> [<span class="ident">p1</span>, <span class="ident">p2</span>, <span class="ident">p3</span>] <span class="op">=</span> <span class="self">self</span>.<span class="ident">vertices</span>;
+    <span class="doccomment">/// Generate a line join for each corner of the triangle.
+    </span><span class="kw">fn </span>joins(<span class="kw-2">&amp;</span><span class="self">self</span>, stroke_width: u32, stroke_offset: StrokeOffset) -&gt; [LineJoin; <span class="number">3</span>] {
+        <span class="kw">let </span>[p1, p2, p3] = <span class="self">self</span>.vertices;
 
         [
-            <span class="ident">LineJoin::from_points</span>(<span class="ident">p3</span>, <span class="ident">p1</span>, <span class="ident">p2</span>, <span class="ident">stroke_width</span>, <span class="ident">stroke_offset</span>),
-            <span class="ident">LineJoin::from_points</span>(<span class="ident">p1</span>, <span class="ident">p2</span>, <span class="ident">p3</span>, <span class="ident">stroke_width</span>, <span class="ident">stroke_offset</span>),
-            <span class="ident">LineJoin::from_points</span>(<span class="ident">p2</span>, <span class="ident">p3</span>, <span class="ident">p1</span>, <span class="ident">stroke_width</span>, <span class="ident">stroke_offset</span>),
+            LineJoin::from_points(p3, p1, p2, stroke_width, stroke_offset),
+            LineJoin::from_points(p1, p2, p3, stroke_width, stroke_offset),
+            LineJoin::from_points(p2, p3, p1, stroke_width, stroke_offset),
         ]
     }
 
-    <span class="doccomment">/// Compute whether a triangle with thick stroke has a hole in its center or is completely</span>
-    <span class="doccomment">/// filled by stroke.</span>
-    <span class="comment">// PERF: This doesn&#39;t need to compute the entire join, much like how `thick_stroke_inset`</span>
-    <span class="comment">// doesn&#39;t</span>
-    <span class="kw">pub</span>(<span class="kw">in</span> <span class="ident"><span class="kw">crate</span>::primitives::triangle</span>) <span class="kw">fn</span> <span class="ident">is_collapsed</span>(
+    <span class="doccomment">/// Compute whether a triangle with thick stroke has a hole in its center or is completely
+    /// filled by stroke.
+    </span><span class="comment">// PERF: This doesn&#39;t need to compute the entire join, much like how `thick_stroke_inset`
+    // doesn&#39;t
+    </span><span class="kw">pub</span>(<span class="kw">in </span><span class="kw">crate</span>::primitives::triangle) <span class="kw">fn </span>is_collapsed(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">stroke_width</span>: <span class="ident">u32</span>,
-        <span class="ident">stroke_offset</span>: <span class="ident">StrokeOffset</span>,
-    ) -&gt; <span class="ident">bool</span> {
-        <span class="kw">let</span> <span class="ident">joins</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">joins</span>(<span class="ident">stroke_width</span>, <span class="ident">stroke_offset</span>);
+        stroke_width: u32,
+        stroke_offset: StrokeOffset,
+    ) -&gt; bool {
+        <span class="kw">let </span>joins = <span class="self">self</span>.joins(stroke_width, stroke_offset);
 
-        <span class="ident">joins</span>.<span class="ident">iter</span>().<span class="ident">enumerate</span>().<span class="ident">any</span>(<span class="op">|</span>(<span class="ident">i</span>, <span class="ident">join</span>)<span class="op">|</span> {
-            <span class="comment">// Quick check: if the join is degenerate, no hole can occur.</span>
-            <span class="kw">if</span> <span class="ident">join</span>.<span class="ident">is_degenerate</span>() {
-                <span class="kw">return</span> <span class="bool-val">true</span>;
+        joins.iter().enumerate().any(|(i, join)| {
+            <span class="comment">// Quick check: if the join is degenerate, no hole can occur.
+            </span><span class="kw">if </span>join.is_degenerate() {
+                <span class="kw">return </span><span class="bool-val">true</span>;
             }
 
-            <span class="comment">// Compute inner-most points of each join. The triangle is sorted clockwise, so that&#39;s</span>
-            <span class="comment">// the right-side point. The `first_edge_end` and `second_edge_start` points are always</span>
-            <span class="comment">// the same in this case, as this is the &quot;pinched&quot; side of the join, so we&#39;ll</span>
-            <span class="comment">// arbitrarily pick `first_edge_end`.</span>
-            <span class="kw">let</span> <span class="ident">inner_point</span> <span class="op">=</span> <span class="ident">join</span>.<span class="ident">first_edge_end</span>.<span class="ident">right</span>;
+            <span class="comment">// Compute inner-most points of each join. The triangle is sorted clockwise, so that&#39;s
+            // the right-side point. The `first_edge_end` and `second_edge_start` points are always
+            // the same in this case, as this is the &quot;pinched&quot; side of the join, so we&#39;ll
+            // arbitrarily pick `first_edge_end`.
+            </span><span class="kw">let </span>inner_point = join.first_edge_end.right;
 
-            <span class="comment">// Find opposite edge to the given point.</span>
-            <span class="kw">let</span> <span class="ident">opposite</span> <span class="op">=</span> {
-                <span class="kw">let</span> <span class="ident">start</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">vertices</span>[(<span class="ident">i</span> <span class="op">+</span> <span class="number">1</span>) <span class="op">%</span> <span class="number">3</span>];
-                <span class="kw">let</span> <span class="ident">end</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">vertices</span>[(<span class="ident">i</span> <span class="op">+</span> <span class="number">2</span>) <span class="op">%</span> <span class="number">3</span>];
+            <span class="comment">// Find opposite edge to the given point.
+            </span><span class="kw">let </span>opposite = {
+                <span class="kw">let </span>start = <span class="self">self</span>.vertices[(i + <span class="number">1</span>) % <span class="number">3</span>];
+                <span class="kw">let </span>end = <span class="self">self</span>.vertices[(i + <span class="number">2</span>) % <span class="number">3</span>];
 
-                <span class="comment">// Get right side extent (triangle is sorted clockwise, remember)</span>
-                <span class="ident">Line::new</span>(<span class="ident">start</span>, <span class="ident">end</span>).<span class="ident">extents</span>(<span class="ident">stroke_width</span>, <span class="ident">stroke_offset</span>).<span class="number">1</span>
-            };
+                <span class="comment">// Get right side extent (triangle is sorted clockwise, remember)
+                </span>Line::new(start, end).extents(stroke_width, stroke_offset).<span class="number">1
+            </span>};
 
-            <span class="comment">// If the inner point is to the left of the opposite side line, the triangle edges self-</span>
-            <span class="comment">// intersect, so the triangle is collapsed.</span>
-            <span class="ident">LinearEquation::from_line</span>(<span class="kw-2">&amp;</span><span class="ident">opposite</span>).<span class="ident">check_side</span>(<span class="ident">inner_point</span>, <span class="ident">LineSide::Left</span>)
+            <span class="comment">// If the inner point is to the left of the opposite side line, the triangle edges self-
+            // intersect, so the triangle is collapsed.
+            </span>LinearEquation::from_line(<span class="kw-2">&amp;</span>opposite).check_side(inner_point, LineSide::Left)
         })
     }
 }
 
-<span class="kw">impl</span> <span class="ident">Transform</span> <span class="kw">for</span> <span class="ident">Triangle</span> {
-    <span class="doccomment">/// Translate the triangle from its current position to a new position by (x, y) pixels,</span>
-    <span class="doccomment">/// returning a new `Triangle`. For a mutating transform, see `translate_mut`.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ```</span>
-    <span class="doccomment">/// # use embedded_graphics::primitives::Triangle;</span>
-    <span class="doccomment">/// # use embedded_graphics::prelude::*;</span>
-    <span class="doccomment">/// let tri = Triangle::new(Point::new(5, 10), Point::new(15, 20), Point::new(8, 15));</span>
-    <span class="doccomment">/// let moved = tri.translate(Point::new(10, 10));</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// assert_eq!(</span>
-    <span class="doccomment">///     moved,</span>
-    <span class="doccomment">///     Triangle::new(Point::new(15, 20), Point::new(25, 30), Point::new(18, 25))</span>
-    <span class="doccomment">/// );</span>
-    <span class="doccomment">/// ```</span>
-    <span class="kw">fn</span> <span class="ident">translate</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">by</span>: <span class="ident">Point</span>) -&gt; <span class="self">Self</span> {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">triangle</span> <span class="op">=</span> <span class="kw-2">*</span><span class="self">self</span>;
-        <span class="ident">triangle</span>.<span class="ident">translate_mut</span>(<span class="ident">by</span>);
-        <span class="ident">triangle</span>
+<span class="kw">impl </span>Transform <span class="kw">for </span>Triangle {
+    <span class="doccomment">/// Translate the triangle from its current position to a new position by (x, y) pixels,
+    /// returning a new `Triangle`. For a mutating transform, see `translate_mut`.
+    ///
+    /// ```
+    /// # use embedded_graphics::primitives::Triangle;
+    /// # use embedded_graphics::prelude::*;
+    /// let tri = Triangle::new(Point::new(5, 10), Point::new(15, 20), Point::new(8, 15));
+    /// let moved = tri.translate(Point::new(10, 10));
+    ///
+    /// assert_eq!(
+    ///     moved,
+    ///     Triangle::new(Point::new(15, 20), Point::new(25, 30), Point::new(18, 25))
+    /// );
+    /// ```
+    </span><span class="kw">fn </span>translate(<span class="kw-2">&amp;</span><span class="self">self</span>, by: Point) -&gt; <span class="self">Self </span>{
+        <span class="kw">let </span><span class="kw-2">mut </span>triangle = <span class="kw-2">*</span><span class="self">self</span>;
+        triangle.translate_mut(by);
+        triangle
     }
 
-    <span class="doccomment">/// Translate the triangle from its current position to a new position by (x, y) pixels.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ```</span>
-    <span class="doccomment">/// # use embedded_graphics::primitives::Triangle;</span>
-    <span class="doccomment">/// # use embedded_graphics::prelude::*;</span>
-    <span class="doccomment">/// let mut tri = Triangle::new(Point::new(5, 10), Point::new(15, 20), Point::new(10, 15));</span>
-    <span class="doccomment">/// tri.translate_mut(Point::new(10, 10));</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// assert_eq!(</span>
-    <span class="doccomment">///     tri,</span>
-    <span class="doccomment">///     Triangle::new(Point::new(15, 20), Point::new(25, 30), Point::new(20, 25))</span>
-    <span class="doccomment">/// )</span>
-    <span class="doccomment">/// ```</span>
-    <span class="kw">fn</span> <span class="ident">translate_mut</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>, <span class="ident">by</span>: <span class="ident">Point</span>) -&gt; <span class="kw-2">&amp;mut</span> <span class="self">Self</span> {
-        <span class="self">self</span>.<span class="ident">vertices</span>.<span class="ident">iter_mut</span>().<span class="ident">for_each</span>(<span class="op">|</span><span class="ident">v</span><span class="op">|</span> <span class="kw-2">*</span><span class="ident">v</span> <span class="op">+</span><span class="op">=</span> <span class="ident">by</span>);
+    <span class="doccomment">/// Translate the triangle from its current position to a new position by (x, y) pixels.
+    ///
+    /// ```
+    /// # use embedded_graphics::primitives::Triangle;
+    /// # use embedded_graphics::prelude::*;
+    /// let mut tri = Triangle::new(Point::new(5, 10), Point::new(15, 20), Point::new(10, 15));
+    /// tri.translate_mut(Point::new(10, 10));
+    ///
+    /// assert_eq!(
+    ///     tri,
+    ///     Triangle::new(Point::new(15, 20), Point::new(25, 30), Point::new(20, 25))
+    /// )
+    /// ```
+    </span><span class="kw">fn </span>translate_mut(<span class="kw-2">&amp;mut </span><span class="self">self</span>, by: Point) -&gt; <span class="kw-2">&amp;mut </span><span class="self">Self </span>{
+        <span class="self">self</span>.vertices.iter_mut().for_each(|v| <span class="kw-2">*</span>v += by);
 
-        <span class="self">self</span>
+        <span class="self">self
+    </span>}
+}
+
+<span class="kw">fn </span>sort_two_yx(p1: Point, p2: Point) -&gt; (Point, Point) {
+    <span class="comment">// If p1.y is less than p2.y, return it first. Otherwise, if they have the same Y coordinate,
+    // the first point becomes the one with the lesser X coordinate.
+    </span><span class="kw">if </span>p1.y &lt; p2.y || (p1.y == p2.y &amp;&amp; p1.x &lt; p2.x) {
+        (p1, p2)
+    } <span class="kw">else </span>{
+        (p2, p1)
     }
 }
 
-<span class="kw">fn</span> <span class="ident">sort_two_yx</span>(<span class="ident">p1</span>: <span class="ident">Point</span>, <span class="ident">p2</span>: <span class="ident">Point</span>) -&gt; (<span class="ident">Point</span>, <span class="ident">Point</span>) {
-    <span class="comment">// If p1.y is less than p2.y, return it first. Otherwise, if they have the same Y coordinate,</span>
-    <span class="comment">// the first point becomes the one with the lesser X coordinate.</span>
-    <span class="kw">if</span> <span class="ident">p1</span>.<span class="ident">y</span> <span class="op">&lt;</span> <span class="ident">p2</span>.<span class="ident">y</span> <span class="op">|</span><span class="op">|</span> (<span class="ident">p1</span>.<span class="ident">y</span> <span class="op">==</span> <span class="ident">p2</span>.<span class="ident">y</span> <span class="op">&amp;&amp;</span> <span class="ident">p1</span>.<span class="ident">x</span> <span class="op">&lt;</span> <span class="ident">p2</span>.<span class="ident">x</span>) {
-        (<span class="ident">p1</span>, <span class="ident">p2</span>)
-    } <span class="kw">else</span> {
-        (<span class="ident">p2</span>, <span class="ident">p1</span>)
-    }
-}
+<span class="attribute">#[cfg(test)]
+</span><span class="kw">mod </span>tests {
+    <span class="kw">use super</span>::<span class="kw-2">*</span>;
+    <span class="kw">use crate</span>::{geometry::Size, mock_display::MockDisplay, pixelcolor::BinaryColor};
 
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
-<span class="kw">mod</span> <span class="ident">tests</span> {
-    <span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
-    <span class="kw">use</span> <span class="kw">crate</span>::{<span class="ident">geometry::Size</span>, <span class="ident">mock_display::MockDisplay</span>, <span class="ident">pixelcolor::BinaryColor</span>};
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>dimensions() {
+        <span class="kw">let </span>tri = Triangle::new(Point::new(<span class="number">5</span>, <span class="number">10</span>), Point::new(<span class="number">15</span>, <span class="number">25</span>), Point::new(<span class="number">5</span>, <span class="number">25</span>));
+        <span class="kw">let </span>moved = tri.translate(Point::new(-<span class="number">10</span>, -<span class="number">11</span>));
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">dimensions</span>() {
-        <span class="kw">let</span> <span class="ident">tri</span> <span class="op">=</span> <span class="ident">Triangle::new</span>(<span class="ident">Point::new</span>(<span class="number">5</span>, <span class="number">10</span>), <span class="ident">Point::new</span>(<span class="number">15</span>, <span class="number">25</span>), <span class="ident">Point::new</span>(<span class="number">5</span>, <span class="number">25</span>));
-        <span class="kw">let</span> <span class="ident">moved</span> <span class="op">=</span> <span class="ident">tri</span>.<span class="ident">translate</span>(<span class="ident">Point::new</span>(<span class="op">-</span><span class="number">10</span>, <span class="op">-</span><span class="number">11</span>));
-
-        <span class="macro">assert_eq!</span>(<span class="ident">tri</span>.<span class="ident">bounding_box</span>().<span class="ident">size</span>, <span class="ident">Size::new</span>(<span class="number">11</span>, <span class="number">16</span>));
+        <span class="macro">assert_eq!</span>(tri.bounding_box().size, Size::new(<span class="number">11</span>, <span class="number">16</span>));
 
         <span class="macro">assert_eq!</span>(
-            <span class="ident">moved</span>,
-            <span class="ident">Triangle::new</span>(<span class="ident">Point::new</span>(<span class="op">-</span><span class="number">5</span>, <span class="op">-</span><span class="number">1</span>), <span class="ident">Point::new</span>(<span class="number">5</span>, <span class="number">14</span>), <span class="ident">Point::new</span>(<span class="op">-</span><span class="number">5</span>, <span class="number">14</span>))
+            moved,
+            Triangle::new(Point::new(-<span class="number">5</span>, -<span class="number">1</span>), Point::new(<span class="number">5</span>, <span class="number">14</span>), Point::new(-<span class="number">5</span>, <span class="number">14</span>))
         );
-        <span class="macro">assert_eq!</span>(<span class="ident">moved</span>.<span class="ident">bounding_box</span>().<span class="ident">size</span>, <span class="ident">Size::new</span>(<span class="number">11</span>, <span class="number">16</span>));
+        <span class="macro">assert_eq!</span>(moved.bounding_box().size, Size::new(<span class="number">11</span>, <span class="number">16</span>));
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">it_can_be_translated</span>() {
-        <span class="kw">let</span> <span class="ident">tri</span> <span class="op">=</span> <span class="ident">Triangle::new</span>(<span class="ident">Point::new</span>(<span class="number">5</span>, <span class="number">10</span>), <span class="ident">Point::new</span>(<span class="number">15</span>, <span class="number">20</span>), <span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">15</span>));
-        <span class="kw">let</span> <span class="ident">moved</span> <span class="op">=</span> <span class="ident">tri</span>.<span class="ident">translate</span>(<span class="ident">Point::new</span>(<span class="number">5</span>, <span class="number">10</span>));
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>it_can_be_translated() {
+        <span class="kw">let </span>tri = Triangle::new(Point::new(<span class="number">5</span>, <span class="number">10</span>), Point::new(<span class="number">15</span>, <span class="number">20</span>), Point::new(<span class="number">10</span>, <span class="number">15</span>));
+        <span class="kw">let </span>moved = tri.translate(Point::new(<span class="number">5</span>, <span class="number">10</span>));
 
         <span class="macro">assert_eq!</span>(
-            <span class="ident">moved</span>,
-            <span class="ident">Triangle::new</span>(<span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">20</span>), <span class="ident">Point::new</span>(<span class="number">20</span>, <span class="number">30</span>), <span class="ident">Point::new</span>(<span class="number">15</span>, <span class="number">25</span>))
+            moved,
+            Triangle::new(Point::new(<span class="number">10</span>, <span class="number">20</span>), Point::new(<span class="number">20</span>, <span class="number">30</span>), Point::new(<span class="number">15</span>, <span class="number">25</span>))
         );
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">contains</span>() {
-        <span class="kw">let</span> <span class="ident">triangles</span> <span class="op">=</span> [
-            <span class="ident">Triangle::new</span>(<span class="ident">Point::new</span>(<span class="number">0</span>, <span class="number">0</span>), <span class="ident">Point::new</span>(<span class="number">63</span>, <span class="number">10</span>), <span class="ident">Point::new</span>(<span class="number">15</span>, <span class="number">63</span>)),
-            <span class="ident">Triangle::new</span>(<span class="ident">Point::new</span>(<span class="number">5</span>, <span class="number">0</span>), <span class="ident">Point::new</span>(<span class="number">30</span>, <span class="number">63</span>), <span class="ident">Point::new</span>(<span class="number">63</span>, <span class="number">0</span>)),
-            <span class="ident">Triangle::new</span>(<span class="ident">Point::new</span>(<span class="number">0</span>, <span class="number">0</span>), <span class="ident">Point::new</span>(<span class="number">0</span>, <span class="number">63</span>), <span class="ident">Point::new</span>(<span class="number">63</span>, <span class="number">30</span>)),
-            <span class="ident">Triangle::new</span>(<span class="ident">Point::new</span>(<span class="number">22</span>, <span class="number">0</span>), <span class="ident">Point::new</span>(<span class="number">0</span>, <span class="number">63</span>), <span class="ident">Point::new</span>(<span class="number">63</span>, <span class="number">63</span>)),
-            <span class="ident">Triangle::new</span>(<span class="ident">Point::new</span>(<span class="number">0</span>, <span class="number">22</span>), <span class="ident">Point::new</span>(<span class="number">63</span>, <span class="number">0</span>), <span class="ident">Point::new</span>(<span class="number">63</span>, <span class="number">63</span>)),
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>contains() {
+        <span class="kw">let </span>triangles = [
+            Triangle::new(Point::new(<span class="number">0</span>, <span class="number">0</span>), Point::new(<span class="number">63</span>, <span class="number">10</span>), Point::new(<span class="number">15</span>, <span class="number">63</span>)),
+            Triangle::new(Point::new(<span class="number">5</span>, <span class="number">0</span>), Point::new(<span class="number">30</span>, <span class="number">63</span>), Point::new(<span class="number">63</span>, <span class="number">0</span>)),
+            Triangle::new(Point::new(<span class="number">0</span>, <span class="number">0</span>), Point::new(<span class="number">0</span>, <span class="number">63</span>), Point::new(<span class="number">63</span>, <span class="number">30</span>)),
+            Triangle::new(Point::new(<span class="number">22</span>, <span class="number">0</span>), Point::new(<span class="number">0</span>, <span class="number">63</span>), Point::new(<span class="number">63</span>, <span class="number">63</span>)),
+            Triangle::new(Point::new(<span class="number">0</span>, <span class="number">22</span>), Point::new(<span class="number">63</span>, <span class="number">0</span>), Point::new(<span class="number">63</span>, <span class="number">63</span>)),
         ];
 
-        <span class="kw">for</span> <span class="ident">triangle</span> <span class="kw">in</span> <span class="ident">triangles</span>.<span class="ident">iter</span>() {
-            <span class="kw">let</span> <span class="ident">expected</span> <span class="op">=</span> <span class="ident">MockDisplay::from_points</span>(<span class="ident">triangle</span>.<span class="ident">points</span>(), <span class="ident">BinaryColor::On</span>);
+        <span class="kw">for </span>triangle <span class="kw">in </span>triangles.iter() {
+            <span class="kw">let </span>expected = MockDisplay::from_points(triangle.points(), BinaryColor::On);
 
-            <span class="kw">for</span> <span class="ident">point</span> <span class="kw">in</span> <span class="ident">Rectangle::new</span>(<span class="ident">Point::new</span>(<span class="op">-</span><span class="number">5</span>, <span class="op">-</span><span class="number">5</span>), <span class="ident">Size::new</span>(<span class="number">70</span>, <span class="number">70</span>)).<span class="ident">points</span>() {
-                <span class="kw">let</span> <span class="ident">should_contain</span> <span class="op">=</span>
-                    <span class="ident">expected</span>.<span class="ident">bounding_box</span>().<span class="ident">contains</span>(<span class="ident">point</span>) <span class="op">&amp;&amp;</span> <span class="ident">expected</span>.<span class="ident">get_pixel</span>(<span class="ident">point</span>).<span class="ident">is_some</span>();
+            <span class="kw">for </span>point <span class="kw">in </span>Rectangle::new(Point::new(-<span class="number">5</span>, -<span class="number">5</span>), Size::new(<span class="number">70</span>, <span class="number">70</span>)).points() {
+                <span class="kw">let </span>should_contain =
+                    expected.bounding_box().contains(point) &amp;&amp; expected.get_pixel(point).is_some();
 
                 <span class="macro">assert_eq!</span>(
-                    <span class="ident">triangle</span>.<span class="ident">contains</span>(<span class="ident">point</span>),
-                    <span class="ident">should_contain</span>,
+                    triangle.contains(point),
+                    should_contain,
                     <span class="string">&quot;{:?}, {:?}&quot;</span>,
-                    <span class="ident">point</span>,
-                    <span class="ident">triangle</span>
+                    point,
+                    triangle
                 );
             }
         }
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">colinear_never_contains</span>() {
-        <span class="kw">let</span> <span class="ident">triangles</span> <span class="op">=</span> [
-            <span class="ident">Triangle::new</span>(<span class="ident">Point::new</span>(<span class="number">5</span>, <span class="number">10</span>), <span class="ident">Point::new</span>(<span class="number">15</span>, <span class="number">20</span>), <span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">15</span>)),
-            <span class="ident">Triangle::new</span>(<span class="ident">Point::new</span>(<span class="number">2</span>, <span class="number">2</span>), <span class="ident">Point::new</span>(<span class="number">2</span>, <span class="number">4</span>), <span class="ident">Point::new</span>(<span class="number">2</span>, <span class="number">4</span>)),
-            <span class="ident">Triangle::new</span>(<span class="ident">Point::new</span>(<span class="number">2</span>, <span class="number">2</span>), <span class="ident">Point::new</span>(<span class="number">4</span>, <span class="number">2</span>), <span class="ident">Point::new</span>(<span class="number">4</span>, <span class="number">2</span>)),
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>colinear_never_contains() {
+        <span class="kw">let </span>triangles = [
+            Triangle::new(Point::new(<span class="number">5</span>, <span class="number">10</span>), Point::new(<span class="number">15</span>, <span class="number">20</span>), Point::new(<span class="number">10</span>, <span class="number">15</span>)),
+            Triangle::new(Point::new(<span class="number">2</span>, <span class="number">2</span>), Point::new(<span class="number">2</span>, <span class="number">4</span>), Point::new(<span class="number">2</span>, <span class="number">4</span>)),
+            Triangle::new(Point::new(<span class="number">2</span>, <span class="number">2</span>), Point::new(<span class="number">4</span>, <span class="number">2</span>), Point::new(<span class="number">4</span>, <span class="number">2</span>)),
         ];
 
-        <span class="kw">for</span> <span class="ident">triangle</span> <span class="kw">in</span> <span class="ident">triangles</span>.<span class="ident">iter</span>() {
-            <span class="kw">for</span> <span class="ident">point</span> <span class="kw">in</span> <span class="ident">Rectangle::new</span>(<span class="ident">Point::new</span>(<span class="op">-</span><span class="number">5</span>, <span class="op">-</span><span class="number">5</span>), <span class="ident">Size::new</span>(<span class="number">70</span>, <span class="number">70</span>)).<span class="ident">points</span>() {
-                <span class="macro">assert_eq!</span>(<span class="ident">triangle</span>.<span class="ident">contains</span>(<span class="ident">point</span>), <span class="bool-val">false</span>);
+        <span class="kw">for </span>triangle <span class="kw">in </span>triangles.iter() {
+            <span class="kw">for </span>point <span class="kw">in </span>Rectangle::new(Point::new(-<span class="number">5</span>, -<span class="number">5</span>), Size::new(<span class="number">70</span>, <span class="number">70</span>)).points() {
+                <span class="macro">assert_eq!</span>(triangle.contains(point), <span class="bool-val">false</span>);
             }
         }
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="attribute">#[<span class="ident">should_panic</span>(<span class="ident">expected</span> <span class="op">=</span> <span class="string">&quot;source slice length (2) must equal 3&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">slice_panic_too_short</span>() {
-        <span class="kw">let</span> <span class="ident">points</span> <span class="op">=</span> [<span class="ident">Point::zero</span>(), <span class="ident">Point::zero</span>()];
+    <span class="attribute">#[test]
+    #[should_panic(expected = <span class="string">&quot;source slice length (2) must equal 3&quot;</span>)]
+    </span><span class="kw">fn </span>slice_panic_too_short() {
+        <span class="kw">let </span>points = [Point::zero(), Point::zero()];
 
-        <span class="ident">Triangle::from_slice</span>(<span class="kw-2">&amp;</span><span class="ident">points</span>);
+        Triangle::from_slice(<span class="kw-2">&amp;</span>points);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="attribute">#[<span class="ident">should_panic</span>(<span class="ident">expected</span> <span class="op">=</span> <span class="string">&quot;source slice length (4) must equal 3&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">slice_panic_too_long</span>() {
-        <span class="kw">let</span> <span class="ident">points</span> <span class="op">=</span> [<span class="ident">Point::zero</span>(), <span class="ident">Point::zero</span>(), <span class="ident">Point::zero</span>(), <span class="ident">Point::zero</span>()];
+    <span class="attribute">#[test]
+    #[should_panic(expected = <span class="string">&quot;source slice length (4) must equal 3&quot;</span>)]
+    </span><span class="kw">fn </span>slice_panic_too_long() {
+        <span class="kw">let </span>points = [Point::zero(), Point::zero(), Point::zero(), Point::zero()];
 
-        <span class="ident">Triangle::from_slice</span>(<span class="kw-2">&amp;</span><span class="ident">points</span>);
+        Triangle::from_slice(<span class="kw-2">&amp;</span>points);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">slice_just_right</span>() {
-        <span class="kw">let</span> <span class="ident">points</span> <span class="op">=</span> [
-            <span class="ident">Point::new_equal</span>(<span class="number">1</span>),
-            <span class="ident">Point::new_equal</span>(<span class="number">2</span>),
-            <span class="ident">Point::new_equal</span>(<span class="number">3</span>),
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>slice_just_right() {
+        <span class="kw">let </span>points = [
+            Point::new_equal(<span class="number">1</span>),
+            Point::new_equal(<span class="number">2</span>),
+            Point::new_equal(<span class="number">3</span>),
         ];
 
         <span class="macro">assert_eq!</span>(
-            <span class="ident">Triangle::from_slice</span>(<span class="kw-2">&amp;</span><span class="ident">points</span>),
-            <span class="ident">Triangle::new</span>(
-                <span class="ident">Point::new_equal</span>(<span class="number">1</span>),
-                <span class="ident">Point::new_equal</span>(<span class="number">2</span>),
-                <span class="ident">Point::new_equal</span>(<span class="number">3</span>)
+            Triangle::from_slice(<span class="kw-2">&amp;</span>points),
+            Triangle::new(
+                Point::new_equal(<span class="number">1</span>),
+                Point::new_equal(<span class="number">2</span>),
+                Point::new_equal(<span class="number">3</span>)
             )
         );
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">check_collapsed</span>() {
-        <span class="kw">let</span> <span class="ident">triangle</span> <span class="op">=</span> <span class="ident">Triangle::new</span>(<span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">10</span>), <span class="ident">Point::new</span>(<span class="number">30</span>, <span class="number">20</span>), <span class="ident">Point::new</span>(<span class="number">20</span>, <span class="number">25</span>));
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>check_collapsed() {
+        <span class="kw">let </span>triangle = Triangle::new(Point::new(<span class="number">10</span>, <span class="number">10</span>), Point::new(<span class="number">30</span>, <span class="number">20</span>), Point::new(<span class="number">20</span>, <span class="number">25</span>));
 
-        <span class="macro">assert_eq!</span>(<span class="ident">triangle</span>.<span class="ident">is_collapsed</span>(<span class="number">20</span>, <span class="ident">StrokeOffset::None</span>), <span class="bool-val">true</span>);
+        <span class="macro">assert_eq!</span>(triangle.is_collapsed(<span class="number">20</span>, StrokeOffset::None), <span class="bool-val">true</span>);
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../../" data-current-crate="embedded_graphics" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0 (a55dd71d5 2022-09-19)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../../" data-current-crate="embedded_graphics" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0 (69f9c33d7 2022-12-12)" ></div></body></html>

@@ -1,6 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-core-0.3.3/src/pixelcolor/mod.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../embedded_graphics_core/index.html"><div class="logo-container"><img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/b225511f390c0ed9bc065eb67d05125845312148/assets/logo_core.svg?sanitize=true" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../embedded_graphics_core/index.html"><div class="logo-container">
-                    <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/b225511f390c0ed9bc065eb67d05125845312148/assets/logo_core.svg?sanitize=true" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../embedded_graphics_core/index.html">
-                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/b225511f390c0ed9bc065eb67d05125845312148/assets/logo_core.svg?sanitize=true" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-core-0.3.3/src/pixelcolor/mod.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../embedded_graphics_core/index.html">
+                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/b225511f390c0ed9bc065eb67d05125845312148/assets/logo_core.svg?sanitize=true" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -158,163 +157,163 @@
 <span id="156">156</span>
 <span id="157">157</span>
 <span id="158">158</span>
-</pre><pre class="rust"><code><span class="doccomment">//! Pixel color types.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! This module contains structs for commonly used pixel color formats and</span>
-<span class="doccomment">//! conversions between them. The [`raw` module] provides additional functions</span>
-<span class="doccomment">//! to convert colors to and from raw data for use with images and displays.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! # Implementing custom color types</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! Custom color types can be added by implementing the [`PixelColor`] trait.</span>
-<span class="doccomment">//! The following example shows how to implement a new color type for a</span>
-<span class="doccomment">//! 3 color EPD display.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ```</span>
-<span class="doccomment">//! use embedded_graphics::{</span>
-<span class="doccomment">//!     geometry::Size, prelude::*, primitives::{Rectangle, PrimitiveStyle},</span>
-<span class="doccomment">//! };</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! /// Color with 3 states.</span>
-<span class="doccomment">//! #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Hash, Debug)]</span>
-<span class="doccomment">//! pub enum EpdColor {</span>
-<span class="doccomment">//!     White,</span>
-<span class="doccomment">//!     Black,</span>
-<span class="doccomment">//!     Red,</span>
-<span class="doccomment">//! }</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! /// The `Raw` can be is set to `()` because `EpdColor` doesn&#39;t need to be</span>
-<span class="doccomment">//! /// converted to raw data for the display and isn&#39;t stored in images.</span>
-<span class="doccomment">//! impl PixelColor for EpdColor {</span>
-<span class="doccomment">//!     type Raw = ();</span>
-<span class="doccomment">//! }</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! /// Mock EPD display.</span>
-<span class="doccomment">//! pub struct EpdDisplay {}</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! impl DrawTarget for EpdDisplay {</span>
-<span class="doccomment">//!     type Color = EpdColor;</span>
-<span class="doccomment">//!     type Error = core::convert::Infallible;</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//!     fn draw_iter&lt;I&gt;(&amp;mut self, pixels: I) -&gt; Result&lt;(), Self::Error&gt;</span>
-<span class="doccomment">//!     where</span>
-<span class="doccomment">//!         I: IntoIterator&lt;Item = Pixel&lt;Self::Color&gt;&gt;,</span>
-<span class="doccomment">//!     {</span>
-<span class="doccomment">//!         for Pixel(point, color) in pixels.into_iter() {</span>
-<span class="doccomment">//!             match color {</span>
-<span class="doccomment">//!                 EpdColor::White =&gt; {} // draw white pixel at `point`</span>
-<span class="doccomment">//!                 EpdColor::Black =&gt; {} // draw black pixel at `point`</span>
-<span class="doccomment">//!                 EpdColor::Red =&gt; {}   // draw red pixel at `point`</span>
-<span class="doccomment">//!             }</span>
-<span class="doccomment">//!         }</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//!         Ok(())</span>
-<span class="doccomment">//!     }</span>
-<span class="doccomment">//! }</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! impl OriginDimensions for EpdDisplay {</span>
-<span class="doccomment">//!     fn size(&amp;self) -&gt; Size {</span>
-<span class="doccomment">//!         Size::new(300, 300)</span>
-<span class="doccomment">//!     }</span>
-<span class="doccomment">//! }</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! let mut display = EpdDisplay {};</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! Rectangle::new(Point::new(0, 0), Size::new(100, 100))</span>
-<span class="doccomment">//!     .into_styled(PrimitiveStyle::with_fill(EpdColor::White))</span>
-<span class="doccomment">//!     .draw(&amp;mut display)?;</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! Rectangle::new(Point::new(100, 0), Size::new(100, 100))</span>
-<span class="doccomment">//!     .into_styled(PrimitiveStyle::with_fill(EpdColor::Black))</span>
-<span class="doccomment">//!     .draw(&amp;mut display)?;</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! Rectangle::new(Point::new(200, 0), Size::new(100, 100))</span>
-<span class="doccomment">//!     .into_styled(PrimitiveStyle::with_fill(EpdColor::Red))</span>
-<span class="doccomment">//!     .draw(&amp;mut display)?;</span>
-<span class="doccomment">//! # Ok::&lt;(), core::convert::Infallible&gt;(())</span>
-<span class="doccomment">//! ```</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! The implementation of the [`DrawTarget`] trait uses a `match` statement to</span>
-<span class="doccomment">//! draw the specified color and doesn&#39;t depend on the raw data conversions,</span>
-<span class="doccomment">//! see the [`raw` module] documentation for an example that uses this feature.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! [`DrawTarget`]: ../draw_target/trait.DrawTarget.html</span>
-<span class="doccomment">//! [`PixelColor`]: trait.PixelColor.html</span>
-<span class="doccomment">//! [`Raw`]: trait.PixelColor.html#associatedtype.Raw</span>
-<span class="doccomment">//! [`raw` module]: raw/index.html</span>
+</pre><pre class="rust"><code><span class="doccomment">//! Pixel color types.
+//!
+//! This module contains structs for commonly used pixel color formats and
+//! conversions between them. The [`raw` module] provides additional functions
+//! to convert colors to and from raw data for use with images and displays.
+//!
+//! # Implementing custom color types
+//!
+//! Custom color types can be added by implementing the [`PixelColor`] trait.
+//! The following example shows how to implement a new color type for a
+//! 3 color EPD display.
+//!
+//! ```
+//! use embedded_graphics::{
+//!     geometry::Size, prelude::*, primitives::{Rectangle, PrimitiveStyle},
+//! };
+//!
+//! /// Color with 3 states.
+//! #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Hash, Debug)]
+//! pub enum EpdColor {
+//!     White,
+//!     Black,
+//!     Red,
+//! }
+//!
+//! /// The `Raw` can be is set to `()` because `EpdColor` doesn&#39;t need to be
+//! /// converted to raw data for the display and isn&#39;t stored in images.
+//! impl PixelColor for EpdColor {
+//!     type Raw = ();
+//! }
+//!
+//! /// Mock EPD display.
+//! pub struct EpdDisplay {}
+//!
+//! impl DrawTarget for EpdDisplay {
+//!     type Color = EpdColor;
+//!     type Error = core::convert::Infallible;
+//!
+//!     fn draw_iter&lt;I&gt;(&amp;mut self, pixels: I) -&gt; Result&lt;(), Self::Error&gt;
+//!     where
+//!         I: IntoIterator&lt;Item = Pixel&lt;Self::Color&gt;&gt;,
+//!     {
+//!         for Pixel(point, color) in pixels.into_iter() {
+//!             match color {
+//!                 EpdColor::White =&gt; {} // draw white pixel at `point`
+//!                 EpdColor::Black =&gt; {} // draw black pixel at `point`
+//!                 EpdColor::Red =&gt; {}   // draw red pixel at `point`
+//!             }
+//!         }
+//!
+//!         Ok(())
+//!     }
+//! }
+//!
+//! impl OriginDimensions for EpdDisplay {
+//!     fn size(&amp;self) -&gt; Size {
+//!         Size::new(300, 300)
+//!     }
+//! }
+//!
+//! let mut display = EpdDisplay {};
+//!
+//! Rectangle::new(Point::new(0, 0), Size::new(100, 100))
+//!     .into_styled(PrimitiveStyle::with_fill(EpdColor::White))
+//!     .draw(&amp;mut display)?;
+//!
+//! Rectangle::new(Point::new(100, 0), Size::new(100, 100))
+//!     .into_styled(PrimitiveStyle::with_fill(EpdColor::Black))
+//!     .draw(&amp;mut display)?;
+//!
+//! Rectangle::new(Point::new(200, 0), Size::new(100, 100))
+//!     .into_styled(PrimitiveStyle::with_fill(EpdColor::Red))
+//!     .draw(&amp;mut display)?;
+//! # Ok::&lt;(), core::convert::Infallible&gt;(())
+//! ```
+//!
+//! The implementation of the [`DrawTarget`] trait uses a `match` statement to
+//! draw the specified color and doesn&#39;t depend on the raw data conversions,
+//! see the [`raw` module] documentation for an example that uses this feature.
+//!
+//! [`DrawTarget`]: ../draw_target/trait.DrawTarget.html
+//! [`PixelColor`]: trait.PixelColor.html
+//! [`Raw`]: trait.PixelColor.html#associatedtype.Raw
+//! [`raw` module]: raw/index.html
 
-<span class="kw">mod</span> <span class="ident">binary_color</span>;
-<span class="kw">mod</span> <span class="ident">conversion</span>;
-<span class="kw">mod</span> <span class="ident">gray_color</span>;
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">raw</span>;
-<span class="kw">mod</span> <span class="ident">rgb_color</span>;
-<span class="kw">mod</span> <span class="ident">web_colors</span>;
+</span><span class="kw">mod </span>binary_color;
+<span class="kw">mod </span>conversion;
+<span class="kw">mod </span>gray_color;
+<span class="kw">pub mod </span>raw;
+<span class="kw">mod </span>rgb_color;
+<span class="kw">mod </span>web_colors;
 
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">binary_color</span>::<span class="kw-2">*</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">gray_color</span>::<span class="kw-2">*</span>;
-<span class="kw">use</span> <span class="ident">raw::RawData</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">rgb_color</span>::<span class="kw-2">*</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">web_colors::WebColors</span>;
+<span class="kw">pub use </span>binary_color::<span class="kw-2">*</span>;
+<span class="kw">pub use </span>gray_color::<span class="kw-2">*</span>;
+<span class="kw">use </span>raw::RawData;
+<span class="kw">pub use </span>rgb_color::<span class="kw-2">*</span>;
+<span class="kw">pub use </span>web_colors::WebColors;
 
-<span class="doccomment">/// Pixel color trait.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// This trait is used to represent types that can be used in drawing methods.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// See the [module-level documentation] for more details.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// [module-level documentation]: index.html</span>
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">PixelColor</span>: <span class="ident">Copy</span> <span class="op">+</span> <span class="ident">PartialEq</span> {
-    <span class="doccomment">/// Raw data type.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Specifies the raw storage type that can be used to represent this color.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// See the [`raw` module documentation] for more details.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [`raw` module documentation]: raw/index.html</span>
-    <span class="kw">type</span> <span class="ident">Raw</span>: <span class="ident">RawData</span>;
+<span class="doccomment">/// Pixel color trait.
+///
+/// This trait is used to represent types that can be used in drawing methods.
+///
+/// See the [module-level documentation] for more details.
+///
+/// [module-level documentation]: index.html
+</span><span class="kw">pub trait </span>PixelColor: Copy + PartialEq {
+    <span class="doccomment">/// Raw data type.
+    ///
+    /// Specifies the raw storage type that can be used to represent this color.
+    ///
+    /// See the [`raw` module documentation] for more details.
+    ///
+    /// [`raw` module documentation]: raw/index.html
+    </span><span class="kw">type </span>Raw: RawData;
 }
 
-<span class="doccomment">/// Convert a [`PixelColor`] into its underlying storage type</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// This trait provides the `into_storage` method for implementors of [`PixelColor`]. This method</span>
-<span class="doccomment">/// exposes the underlying storage value of a pixel color type.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Examples</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// ## Get the `u16` representing an `Rgb565` color</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// This example converts an [`Rgb565`] color into its underlying `u16` representation.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// ```rust</span>
-<span class="doccomment">/// use embedded_graphics::{pixelcolor::Rgb565, prelude::*};</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// let color = Rgb565::new(0x1f, 0x00, 0x0a);</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// let raw = color.into_storage();</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// assert_eq!(raw, 0b11111_000000_01010u16);</span>
-<span class="doccomment">/// ```</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// [`PixelColor`]: ./trait.PixelColor.html</span>
-<span class="doccomment">/// [`Rgb565`]: ./struct.Rgb565.html</span>
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">IntoStorage</span> {
-    <span class="doccomment">/// The underlying storage type for the pixel color</span>
-    <span class="kw">type</span> <span class="ident">Storage</span>;
+<span class="doccomment">/// Convert a [`PixelColor`] into its underlying storage type
+///
+/// This trait provides the `into_storage` method for implementors of [`PixelColor`]. This method
+/// exposes the underlying storage value of a pixel color type.
+///
+/// # Examples
+///
+/// ## Get the `u16` representing an `Rgb565` color
+///
+/// This example converts an [`Rgb565`] color into its underlying `u16` representation.
+///
+/// ```rust
+/// use embedded_graphics::{pixelcolor::Rgb565, prelude::*};
+///
+/// let color = Rgb565::new(0x1f, 0x00, 0x0a);
+///
+/// let raw = color.into_storage();
+///
+/// assert_eq!(raw, 0b11111_000000_01010u16);
+/// ```
+///
+/// [`PixelColor`]: ./trait.PixelColor.html
+/// [`Rgb565`]: ./struct.Rgb565.html
+</span><span class="kw">pub trait </span>IntoStorage {
+    <span class="doccomment">/// The underlying storage type for the pixel color
+    </span><span class="kw">type </span>Storage;
 
-    <span class="doccomment">/// Convert the `PixelColor` into its raw storage form</span>
-    <span class="kw">fn</span> <span class="ident">into_storage</span>(<span class="self">self</span>) -&gt; <span class="ident"><span class="self">Self</span>::Storage</span>;
+    <span class="doccomment">/// Convert the `PixelColor` into its raw storage form
+    </span><span class="kw">fn </span>into_storage(<span class="self">self</span>) -&gt; <span class="self">Self</span>::Storage;
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span> <span class="ident">IntoStorage</span> <span class="kw">for</span> <span class="ident">C</span>
-<span class="kw">where</span>
-    <span class="ident">C</span>: <span class="ident">PixelColor</span>,
-    <span class="ident">C::Raw</span>: <span class="ident">From</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>,
+<span class="kw">impl</span>&lt;C&gt; IntoStorage <span class="kw">for </span>C
+<span class="kw">where
+    </span>C: PixelColor,
+    C::Raw: From&lt;C&gt;,
 {
-    <span class="kw">type</span> <span class="ident">Storage</span> <span class="op">=</span> <span class="op">&lt;</span><span class="op">&lt;</span><span class="ident">C</span> <span class="kw">as</span> <span class="ident">PixelColor</span><span class="op">&gt;</span><span class="ident">::Raw</span> <span class="kw">as</span> <span class="ident">RawData</span><span class="op">&gt;</span><span class="ident">::Storage</span>;
+    <span class="kw">type </span>Storage = &lt;&lt;C <span class="kw">as </span>PixelColor&gt;::Raw <span class="kw">as </span>RawData&gt;::Storage;
 
-    <span class="kw">fn</span> <span class="ident">into_storage</span>(<span class="self">self</span>) -&gt; <span class="ident"><span class="self">Self</span>::Storage</span> {
-        <span class="ident">C::Raw::from</span>(<span class="self">self</span>).<span class="ident">into_inner</span>()
+    <span class="kw">fn </span>into_storage(<span class="self">self</span>) -&gt; <span class="self">Self</span>::Storage {
+        C::Raw::from(<span class="self">self</span>).into_inner()
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="embedded_graphics_core" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0 (a55dd71d5 2022-09-19)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="embedded_graphics_core" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0 (69f9c33d7 2022-12-12)" ></div></body></html>

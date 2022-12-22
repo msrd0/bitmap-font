@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/float-cmp-0.8.0/src/ulps.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>ulps.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script><script defer src="../../main.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../float_cmp/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../float_cmp/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../float_cmp/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/float-cmp-0.8.0/src/ulps.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>ulps.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../normalize.css"><link rel="stylesheet" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../ayu.css" disabled><link rel="stylesheet" href="../../dark.css" disabled><link rel="stylesheet" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script><script defer src="../../main.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../float_cmp/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -230,237 +230,237 @@
 <span id="230">230</span>
 <span id="231">231</span>
 <span id="232">232</span>
-</pre><pre class="rust"><code><span class="comment">// Copyright 2014-2020 Optimal Computing (NZ) Ltd.</span>
-<span class="comment">// Licensed under the MIT license.  See LICENSE for details.</span>
+</pre><pre class="rust"><code><span class="comment">// Copyright 2014-2020 Optimal Computing (NZ) Ltd.
+// Licensed under the MIT license.  See LICENSE for details.
 
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span><span class="op">=</span><span class="string">&quot;num_traits&quot;</span>)]</span>
-<span class="kw">use</span> <span class="ident">num_traits::NumCast</span>;
+</span><span class="attribute">#[cfg(feature=<span class="string">&quot;num_traits&quot;</span>)]
+</span><span class="kw">use </span>num_traits::NumCast;
 
-<span class="doccomment">/// A trait for floating point numbers which computes the number of representable</span>
-<span class="doccomment">/// values or ULPs (Units of Least Precision) that separate the two given values.</span>
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span><span class="op">=</span><span class="string">&quot;num_traits&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">Ulps</span> {
-    <span class="kw">type</span> <span class="ident">U</span>: <span class="ident">Copy</span> <span class="op">+</span> <span class="ident">NumCast</span>;
+<span class="doccomment">/// A trait for floating point numbers which computes the number of representable
+/// values or ULPs (Units of Least Precision) that separate the two given values.
+</span><span class="attribute">#[cfg(feature=<span class="string">&quot;num_traits&quot;</span>)]
+</span><span class="kw">pub trait </span>Ulps {
+    <span class="kw">type </span>U: Copy + NumCast;
 
-    <span class="doccomment">/// The number of representable values or ULPs (Units of Least Precision) that</span>
-    <span class="doccomment">/// separate `self` and `other`.  The result `U` is an integral value, and will</span>
-    <span class="doccomment">/// be zero if `self` and `other` are exactly equal.</span>
-    <span class="kw">fn</span> <span class="ident">ulps</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">other</span>: <span class="kw-2">&amp;</span><span class="self">Self</span>) -&gt; <span class="op">&lt;</span><span class="self">Self</span> <span class="kw">as</span> <span class="ident">Ulps</span><span class="op">&gt;</span><span class="ident">::U</span>;
+    <span class="doccomment">/// The number of representable values or ULPs (Units of Least Precision) that
+    /// separate `self` and `other`.  The result `U` is an integral value, and will
+    /// be zero if `self` and `other` are exactly equal.
+    </span><span class="kw">fn </span>ulps(<span class="kw-2">&amp;</span><span class="self">self</span>, other: <span class="kw-2">&amp;</span><span class="self">Self</span>) -&gt; &lt;<span class="self">Self </span><span class="kw">as </span>Ulps&gt;::U;
 
-    <span class="doccomment">/// The next representable number above this one</span>
-    <span class="kw">fn</span> <span class="ident">next</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="self">Self</span>;
+    <span class="doccomment">/// The next representable number above this one
+    </span><span class="kw">fn </span>next(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="self">Self</span>;
 
-    <span class="doccomment">/// The previous representable number below this one</span>
-    <span class="kw">fn</span> <span class="ident">prev</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="self">Self</span>;
+    <span class="doccomment">/// The previous representable number below this one
+    </span><span class="kw">fn </span>prev(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="self">Self</span>;
 }
 
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span><span class="op">=</span><span class="string">&quot;num_traits&quot;</span>))]</span>
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">Ulps</span> {
-    <span class="kw">type</span> <span class="ident">U</span>: <span class="ident">Copy</span>;
+<span class="attribute">#[cfg(not(feature=<span class="string">&quot;num_traits&quot;</span>))]
+</span><span class="kw">pub trait </span>Ulps {
+    <span class="kw">type </span>U: Copy;
 
-    <span class="doccomment">/// The number of representable values or ULPs (Units of Least Precision) that</span>
-    <span class="doccomment">/// separate `self` and `other`.  The result `U` is an integral value, and will</span>
-    <span class="doccomment">/// be zero if `self` and `other` are exactly equal.</span>
-    <span class="kw">fn</span> <span class="ident">ulps</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">other</span>: <span class="kw-2">&amp;</span><span class="self">Self</span>) -&gt; <span class="op">&lt;</span><span class="self">Self</span> <span class="kw">as</span> <span class="ident">Ulps</span><span class="op">&gt;</span><span class="ident">::U</span>;
+    <span class="doccomment">/// The number of representable values or ULPs (Units of Least Precision) that
+    /// separate `self` and `other`.  The result `U` is an integral value, and will
+    /// be zero if `self` and `other` are exactly equal.
+    </span><span class="kw">fn </span>ulps(<span class="kw-2">&amp;</span><span class="self">self</span>, other: <span class="kw-2">&amp;</span><span class="self">Self</span>) -&gt; &lt;<span class="self">Self </span><span class="kw">as </span>Ulps&gt;::U;
 
-    <span class="doccomment">/// The next representable number above this one</span>
-    <span class="kw">fn</span> <span class="ident">next</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="self">Self</span>;
+    <span class="doccomment">/// The next representable number above this one
+    </span><span class="kw">fn </span>next(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="self">Self</span>;
 
-    <span class="doccomment">/// The previous representable number below this one</span>
-    <span class="kw">fn</span> <span class="ident">prev</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="self">Self</span>;
+    <span class="doccomment">/// The previous representable number below this one
+    </span><span class="kw">fn </span>prev(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="self">Self</span>;
 }
 
-<span class="kw">impl</span> <span class="ident">Ulps</span> <span class="kw">for</span> <span class="ident">f32</span> {
-    <span class="kw">type</span> <span class="ident">U</span> <span class="op">=</span> <span class="ident">i32</span>;
+<span class="kw">impl </span>Ulps <span class="kw">for </span>f32 {
+    <span class="kw">type </span>U = i32;
 
-    <span class="kw">fn</span> <span class="ident">ulps</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">other</span>: <span class="kw-2">&amp;</span><span class="ident">f32</span>) -&gt; <span class="ident">i32</span> {
+    <span class="kw">fn </span>ulps(<span class="kw-2">&amp;</span><span class="self">self</span>, other: <span class="kw-2">&amp;</span>f32) -&gt; i32 {
 
-        <span class="comment">// IEEE754 defined floating point storage representation to</span>
-        <span class="comment">// maintain their order when their bit patterns are interpreted as</span>
-        <span class="comment">// integers.  This is a huge boon to the task at hand, as we can</span>
-        <span class="comment">// reinterpret them as integers to find out how many ULPs apart any</span>
-        <span class="comment">// two floats are</span>
+        <span class="comment">// IEEE754 defined floating point storage representation to
+        // maintain their order when their bit patterns are interpreted as
+        // integers.  This is a huge boon to the task at hand, as we can
+        // reinterpret them as integers to find out how many ULPs apart any
+        // two floats are
 
-        <span class="comment">// Setup integer representations of the input</span>
-        <span class="kw">let</span> <span class="ident">ai32</span>: <span class="ident">i32</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">to_bits</span>() <span class="kw">as</span> <span class="ident">i32</span>;
-        <span class="kw">let</span> <span class="ident">bi32</span>: <span class="ident">i32</span> <span class="op">=</span> <span class="ident">other</span>.<span class="ident">to_bits</span>() <span class="kw">as</span> <span class="ident">i32</span>;
+        // Setup integer representations of the input
+        </span><span class="kw">let </span>ai32: i32 = <span class="self">self</span>.to_bits() <span class="kw">as </span>i32;
+        <span class="kw">let </span>bi32: i32 = other.to_bits() <span class="kw">as </span>i32;
 
-        <span class="ident">ai32</span>.<span class="ident">wrapping_sub</span>(<span class="ident">bi32</span>)
+        ai32.wrapping_sub(bi32)
     }
 
-    <span class="kw">fn</span> <span class="ident">next</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="self">Self</span> {
-        <span class="kw">if</span> <span class="self">self</span>.<span class="ident">is_infinite</span>() <span class="op">&amp;&amp;</span> <span class="kw-2">*</span><span class="self">self</span> <span class="op">&gt;</span> <span class="number">0.0</span> {
-            <span class="kw-2">*</span><span class="self">self</span>
-        } <span class="kw">else</span> <span class="kw">if</span> <span class="kw-2">*</span><span class="self">self</span> <span class="op">==</span> <span class="op">-</span><span class="number">0.0</span> <span class="op">&amp;&amp;</span> <span class="self">self</span>.<span class="ident">is_sign_negative</span>() {
-            <span class="number">0.0</span>
-        } <span class="kw">else</span> {
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">u</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">to_bits</span>();
-            <span class="kw">if</span> <span class="kw-2">*</span><span class="self">self</span> <span class="op">&gt;</span><span class="op">=</span> <span class="number">0.0</span> {
-                <span class="ident">u</span> <span class="op">+</span><span class="op">=</span> <span class="number">1</span>;
-            } <span class="kw">else</span> {
-                <span class="ident">u</span> <span class="op">-</span><span class="op">=</span> <span class="number">1</span>;
+    <span class="kw">fn </span>next(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="self">Self </span>{
+        <span class="kw">if </span><span class="self">self</span>.is_infinite() &amp;&amp; <span class="kw-2">*</span><span class="self">self </span>&gt; <span class="number">0.0 </span>{
+            <span class="kw-2">*</span><span class="self">self
+        </span>} <span class="kw">else if </span><span class="kw-2">*</span><span class="self">self </span>== -<span class="number">0.0 </span>&amp;&amp; <span class="self">self</span>.is_sign_negative() {
+            <span class="number">0.0
+        </span>} <span class="kw">else </span>{
+            <span class="kw">let </span><span class="kw-2">mut </span>u = <span class="self">self</span>.to_bits();
+            <span class="kw">if </span><span class="kw-2">*</span><span class="self">self </span>&gt;= <span class="number">0.0 </span>{
+                u += <span class="number">1</span>;
+            } <span class="kw">else </span>{
+                u -= <span class="number">1</span>;
             }
-            <span class="ident">f32::from_bits</span>(<span class="ident">u</span>)
+            f32::from_bits(u)
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">prev</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="self">Self</span> {
-        <span class="kw">if</span> <span class="self">self</span>.<span class="ident">is_infinite</span>() <span class="op">&amp;&amp;</span> <span class="kw-2">*</span><span class="self">self</span> <span class="op">&lt;</span> <span class="number">0.0</span> {
-            <span class="kw-2">*</span><span class="self">self</span>
-        } <span class="kw">else</span> <span class="kw">if</span> <span class="kw-2">*</span><span class="self">self</span> <span class="op">==</span> <span class="number">0.0</span> <span class="op">&amp;&amp;</span> <span class="self">self</span>.<span class="ident">is_sign_positive</span>() {
-            <span class="op">-</span><span class="number">0.0</span>
-        } <span class="kw">else</span> {
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">u</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">to_bits</span>();
-            <span class="kw">if</span> <span class="kw-2">*</span><span class="self">self</span> <span class="op">&lt;</span><span class="op">=</span> <span class="op">-</span><span class="number">0.0</span> {
-                <span class="ident">u</span> <span class="op">+</span><span class="op">=</span> <span class="number">1</span>;
-            } <span class="kw">else</span> {
-                <span class="ident">u</span> <span class="op">-</span><span class="op">=</span> <span class="number">1</span>;
+    <span class="kw">fn </span>prev(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="self">Self </span>{
+        <span class="kw">if </span><span class="self">self</span>.is_infinite() &amp;&amp; <span class="kw-2">*</span><span class="self">self </span>&lt; <span class="number">0.0 </span>{
+            <span class="kw-2">*</span><span class="self">self
+        </span>} <span class="kw">else if </span><span class="kw-2">*</span><span class="self">self </span>== <span class="number">0.0 </span>&amp;&amp; <span class="self">self</span>.is_sign_positive() {
+            -<span class="number">0.0
+        </span>} <span class="kw">else </span>{
+            <span class="kw">let </span><span class="kw-2">mut </span>u = <span class="self">self</span>.to_bits();
+            <span class="kw">if </span><span class="kw-2">*</span><span class="self">self </span>&lt;= -<span class="number">0.0 </span>{
+                u += <span class="number">1</span>;
+            } <span class="kw">else </span>{
+                u -= <span class="number">1</span>;
             }
-            <span class="ident">f32::from_bits</span>(<span class="ident">u</span>)
-        }
-    }
-}
-
-<span class="attribute">#[<span class="ident">test</span>]</span>
-<span class="kw">fn</span> <span class="ident">f32_ulps_test1</span>() {
-    <span class="kw">let</span> <span class="ident">x</span>: <span class="ident">f32</span> <span class="op">=</span> <span class="number">1000000_f32</span>;
-    <span class="kw">let</span> <span class="ident">y</span>: <span class="ident">f32</span> <span class="op">=</span> <span class="number">1000000.1_f32</span>;
-    <span class="macro">assert!</span>(<span class="ident">x</span>.<span class="ident">ulps</span>(<span class="kw-2">&amp;</span><span class="ident">y</span>) <span class="op">==</span> <span class="op">-</span><span class="number">2</span>);
-}
-
-<span class="attribute">#[<span class="ident">test</span>]</span>
-<span class="kw">fn</span> <span class="ident">f32_ulps_test2</span>() {
-    <span class="kw">let</span> <span class="ident">pzero</span>: <span class="ident">f32</span> <span class="op">=</span> <span class="ident">f32::from_bits</span>(<span class="number">0x00000000_u32</span>);
-    <span class="kw">let</span> <span class="ident">nzero</span>: <span class="ident">f32</span> <span class="op">=</span> <span class="ident">f32::from_bits</span>(<span class="number">0x80000000_u32</span>);
-    <span class="macro">assert!</span>(<span class="ident">pzero</span>.<span class="ident">ulps</span>(<span class="kw-2">&amp;</span><span class="ident">nzero</span>) <span class="op">==</span> <span class="op">-</span><span class="number">2147483648</span>);
-}
-<span class="attribute">#[<span class="ident">test</span>]</span>
-<span class="kw">fn</span> <span class="ident">f32_ulps_test3</span>() {
-    <span class="kw">let</span> <span class="ident">pinf</span>: <span class="ident">f32</span> <span class="op">=</span> <span class="ident">f32::from_bits</span>(<span class="number">0x7f800000_u32</span>);
-    <span class="kw">let</span> <span class="ident">ninf</span>: <span class="ident">f32</span> <span class="op">=</span> <span class="ident">f32::from_bits</span>(<span class="number">0xff800000_u32</span>);
-    <span class="macro">assert!</span>(<span class="ident">pinf</span>.<span class="ident">ulps</span>(<span class="kw-2">&amp;</span><span class="ident">ninf</span>) <span class="op">==</span> <span class="op">-</span><span class="number">2147483648</span>);
-}
-
-<span class="attribute">#[<span class="ident">test</span>]</span>
-<span class="kw">fn</span> <span class="ident">f32_ulps_test4</span>() {
-    <span class="kw">let</span> <span class="ident">x</span>: <span class="ident">f32</span> <span class="op">=</span> <span class="ident">f32::from_bits</span>(<span class="number">0x63a7f026_u32</span>);
-    <span class="kw">let</span> <span class="ident">y</span>: <span class="ident">f32</span> <span class="op">=</span> <span class="ident">f32::from_bits</span>(<span class="number">0x63a7f023_u32</span>);
-    <span class="macro">assert!</span>(<span class="ident">x</span>.<span class="ident">ulps</span>(<span class="kw-2">&amp;</span><span class="ident">y</span>) <span class="op">==</span> <span class="number">3</span>);
-}
-
-<span class="attribute">#[<span class="ident">test</span>]</span>
-<span class="kw">fn</span> <span class="ident">f32_ulps_test5</span>() {
-    <span class="kw">let</span> <span class="ident">x</span>: <span class="ident">f32</span> <span class="op">=</span> <span class="number">2.0</span>;
-    <span class="kw">let</span> <span class="ident">ulps</span>: <span class="ident">i32</span> <span class="op">=</span> <span class="ident">x</span>.<span class="ident">to_bits</span>() <span class="kw">as</span> <span class="ident">i32</span>;
-    <span class="kw">let</span> <span class="ident">x2</span>: <span class="ident">f32</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">f32</span><span class="op">&gt;</span><span class="ident">::from_bits</span>(<span class="ident">ulps</span> <span class="kw">as</span> <span class="ident">u32</span>);
-    <span class="macro">assert_eq!</span>(<span class="ident">x</span>, <span class="ident">x2</span>);
-}
-
-<span class="attribute">#[<span class="ident">test</span>]</span>
-<span class="kw">fn</span> <span class="ident">f32_ulps_test6</span>() {
-    <span class="kw">let</span> <span class="ident">negzero</span>: <span class="ident">f32</span> <span class="op">=</span> <span class="op">-</span><span class="number">0.</span>;
-    <span class="kw">let</span> <span class="ident">zero</span>: <span class="ident">f32</span> <span class="op">=</span> <span class="number">0.</span>;
-    <span class="macro">assert_eq!</span>(<span class="ident">negzero</span>.<span class="ident">next</span>(), <span class="ident">zero</span>);
-    <span class="macro">assert_eq!</span>(<span class="ident">zero</span>.<span class="ident">prev</span>(), <span class="ident">negzero</span>);
-    <span class="macro">assert!</span>(<span class="ident">negzero</span>.<span class="ident">prev</span>() <span class="op">&lt;</span> <span class="number">0.0</span>);
-    <span class="macro">assert!</span>(<span class="ident">zero</span>.<span class="ident">next</span>() <span class="op">&gt;</span> <span class="number">0.0</span>);
-}
-
-<span class="kw">impl</span> <span class="ident">Ulps</span> <span class="kw">for</span> <span class="ident">f64</span> {
-    <span class="kw">type</span> <span class="ident">U</span> <span class="op">=</span> <span class="ident">i64</span>;
-
-    <span class="kw">fn</span> <span class="ident">ulps</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">other</span>: <span class="kw-2">&amp;</span><span class="ident">f64</span>) -&gt; <span class="ident">i64</span> {
-
-        <span class="comment">// IEEE754 defined floating point storage representation to</span>
-        <span class="comment">// maintain their order when their bit patterns are interpreted as</span>
-        <span class="comment">// integers.  This is a huge boon to the task at hand, as we can</span>
-        <span class="comment">// reinterpret them as integers to find out how many ULPs apart any</span>
-        <span class="comment">// two floats are</span>
-
-        <span class="comment">// Setup integer representations of the input</span>
-        <span class="kw">let</span> <span class="ident">ai64</span>: <span class="ident">i64</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">to_bits</span>() <span class="kw">as</span> <span class="ident">i64</span>;
-        <span class="kw">let</span> <span class="ident">bi64</span>: <span class="ident">i64</span> <span class="op">=</span> <span class="ident">other</span>.<span class="ident">to_bits</span>() <span class="kw">as</span> <span class="ident">i64</span>;
-
-        <span class="ident">ai64</span>.<span class="ident">wrapping_sub</span>(<span class="ident">bi64</span>)
-    }
-
-    <span class="kw">fn</span> <span class="ident">next</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="self">Self</span> {
-        <span class="kw">if</span> <span class="self">self</span>.<span class="ident">is_infinite</span>() <span class="op">&amp;&amp;</span> <span class="kw-2">*</span><span class="self">self</span> <span class="op">&gt;</span> <span class="number">0.0</span> {
-            <span class="kw-2">*</span><span class="self">self</span>
-        } <span class="kw">else</span> <span class="kw">if</span> <span class="kw-2">*</span><span class="self">self</span> <span class="op">==</span> <span class="op">-</span><span class="number">0.0</span> <span class="op">&amp;&amp;</span> <span class="self">self</span>.<span class="ident">is_sign_negative</span>() {
-            <span class="number">0.0</span>
-        } <span class="kw">else</span> {
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">u</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">to_bits</span>();
-            <span class="kw">if</span> <span class="kw-2">*</span><span class="self">self</span> <span class="op">&gt;</span><span class="op">=</span> <span class="number">0.0</span> {
-                <span class="ident">u</span> <span class="op">+</span><span class="op">=</span> <span class="number">1</span>;
-            } <span class="kw">else</span> {
-                <span class="ident">u</span> <span class="op">-</span><span class="op">=</span> <span class="number">1</span>;
-            }
-            <span class="ident">f64::from_bits</span>(<span class="ident">u</span>)
-        }
-    }
-
-    <span class="kw">fn</span> <span class="ident">prev</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="self">Self</span> {
-        <span class="kw">if</span> <span class="self">self</span>.<span class="ident">is_infinite</span>() <span class="op">&amp;&amp;</span> <span class="kw-2">*</span><span class="self">self</span> <span class="op">&lt;</span> <span class="number">0.0</span> {
-            <span class="kw-2">*</span><span class="self">self</span>
-        } <span class="kw">else</span> <span class="kw">if</span> <span class="kw-2">*</span><span class="self">self</span> <span class="op">==</span> <span class="number">0.0</span> <span class="op">&amp;&amp;</span> <span class="self">self</span>.<span class="ident">is_sign_positive</span>() {
-            <span class="op">-</span><span class="number">0.0</span>
-        } <span class="kw">else</span> {
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">u</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">to_bits</span>();
-            <span class="kw">if</span> <span class="kw-2">*</span><span class="self">self</span> <span class="op">&lt;</span><span class="op">=</span> <span class="op">-</span><span class="number">0.0</span> {
-                <span class="ident">u</span> <span class="op">+</span><span class="op">=</span> <span class="number">1</span>;
-            } <span class="kw">else</span> {
-                <span class="ident">u</span> <span class="op">-</span><span class="op">=</span> <span class="number">1</span>;
-            }
-            <span class="ident">f64::from_bits</span>(<span class="ident">u</span>)
+            f32::from_bits(u)
         }
     }
 }
 
-<span class="attribute">#[<span class="ident">test</span>]</span>
-<span class="kw">fn</span> <span class="ident">f64_ulps_test1</span>() {
-    <span class="kw">let</span> <span class="ident">x</span>: <span class="ident">f64</span> <span class="op">=</span> <span class="number">1000000_f64</span>;
-    <span class="kw">let</span> <span class="ident">y</span>: <span class="ident">f64</span> <span class="op">=</span> <span class="number">1000000.00000001_f64</span>;
-    <span class="macro">assert!</span>(<span class="ident">x</span>.<span class="ident">ulps</span>(<span class="kw-2">&amp;</span><span class="ident">y</span>) <span class="op">==</span> <span class="op">-</span><span class="number">86</span>);
+<span class="attribute">#[test]
+</span><span class="kw">fn </span>f32_ulps_test1() {
+    <span class="kw">let </span>x: f32 = <span class="number">1000000_f32</span>;
+    <span class="kw">let </span>y: f32 = <span class="number">1000000.1_f32</span>;
+    <span class="macro">assert!</span>(x.ulps(<span class="kw-2">&amp;</span>y) == -<span class="number">2</span>);
 }
 
-<span class="attribute">#[<span class="ident">test</span>]</span>
-<span class="kw">fn</span> <span class="ident">f64_ulps_test2</span>() {
-    <span class="kw">let</span> <span class="ident">pzero</span>: <span class="ident">f64</span> <span class="op">=</span> <span class="ident">f64::from_bits</span>(<span class="number">0x0000000000000000_u64</span>);
-    <span class="kw">let</span> <span class="ident">nzero</span>: <span class="ident">f64</span> <span class="op">=</span> <span class="ident">f64::from_bits</span>(<span class="number">0x8000000000000000_u64</span>);
-    <span class="macro">assert!</span>(<span class="ident">pzero</span>.<span class="ident">ulps</span>(<span class="kw-2">&amp;</span><span class="ident">nzero</span>) <span class="op">==</span> <span class="op">-</span><span class="number">9223372036854775808i64</span>);
+<span class="attribute">#[test]
+</span><span class="kw">fn </span>f32_ulps_test2() {
+    <span class="kw">let </span>pzero: f32 = f32::from_bits(<span class="number">0x00000000_u32</span>);
+    <span class="kw">let </span>nzero: f32 = f32::from_bits(<span class="number">0x80000000_u32</span>);
+    <span class="macro">assert!</span>(pzero.ulps(<span class="kw-2">&amp;</span>nzero) == -<span class="number">2147483648</span>);
 }
-<span class="attribute">#[<span class="ident">test</span>]</span>
-<span class="kw">fn</span> <span class="ident">f64_ulps_test3</span>() {
-    <span class="kw">let</span> <span class="ident">pinf</span>: <span class="ident">f64</span> <span class="op">=</span> <span class="ident">f64::from_bits</span>(<span class="number">0x7f80000000000000_u64</span>);
-    <span class="kw">let</span> <span class="ident">ninf</span>: <span class="ident">f64</span> <span class="op">=</span> <span class="ident">f64::from_bits</span>(<span class="number">0xff80000000000000_u64</span>);
-    <span class="macro">assert!</span>(<span class="ident">pinf</span>.<span class="ident">ulps</span>(<span class="kw-2">&amp;</span><span class="ident">ninf</span>) <span class="op">==</span> <span class="op">-</span><span class="number">9223372036854775808i64</span>);
-}
-
-<span class="attribute">#[<span class="ident">test</span>]</span>
-<span class="kw">fn</span> <span class="ident">f64_ulps_test4</span>() {
-    <span class="kw">let</span> <span class="ident">x</span>: <span class="ident">f64</span> <span class="op">=</span> <span class="ident">f64::from_bits</span>(<span class="number">0xd017f6cc63a7f026_u64</span>);
-    <span class="kw">let</span> <span class="ident">y</span>: <span class="ident">f64</span> <span class="op">=</span> <span class="ident">f64::from_bits</span>(<span class="number">0xd017f6cc63a7f023_u64</span>);
-    <span class="macro">assert!</span>(<span class="ident">x</span>.<span class="ident">ulps</span>(<span class="kw-2">&amp;</span><span class="ident">y</span>) <span class="op">==</span> <span class="number">3</span>);
+<span class="attribute">#[test]
+</span><span class="kw">fn </span>f32_ulps_test3() {
+    <span class="kw">let </span>pinf: f32 = f32::from_bits(<span class="number">0x7f800000_u32</span>);
+    <span class="kw">let </span>ninf: f32 = f32::from_bits(<span class="number">0xff800000_u32</span>);
+    <span class="macro">assert!</span>(pinf.ulps(<span class="kw-2">&amp;</span>ninf) == -<span class="number">2147483648</span>);
 }
 
-<span class="attribute">#[<span class="ident">test</span>]</span>
-<span class="kw">fn</span> <span class="ident">f64_ulps_test5</span>() {
-    <span class="kw">let</span> <span class="ident">x</span>: <span class="ident">f64</span> <span class="op">=</span> <span class="number">2.0</span>;
-    <span class="kw">let</span> <span class="ident">ulps</span>: <span class="ident">i64</span> <span class="op">=</span> <span class="ident">x</span>.<span class="ident">to_bits</span>() <span class="kw">as</span> <span class="ident">i64</span>;
-    <span class="kw">let</span> <span class="ident">x2</span>: <span class="ident">f64</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">f64</span><span class="op">&gt;</span><span class="ident">::from_bits</span>(<span class="ident">ulps</span> <span class="kw">as</span> <span class="ident">u64</span>);
-    <span class="macro">assert_eq!</span>(<span class="ident">x</span>, <span class="ident">x2</span>);
+<span class="attribute">#[test]
+</span><span class="kw">fn </span>f32_ulps_test4() {
+    <span class="kw">let </span>x: f32 = f32::from_bits(<span class="number">0x63a7f026_u32</span>);
+    <span class="kw">let </span>y: f32 = f32::from_bits(<span class="number">0x63a7f023_u32</span>);
+    <span class="macro">assert!</span>(x.ulps(<span class="kw-2">&amp;</span>y) == <span class="number">3</span>);
 }
 
-<span class="attribute">#[<span class="ident">test</span>]</span>
-<span class="kw">fn</span> <span class="ident">f64_ulps_test6</span>() {
-    <span class="kw">let</span> <span class="ident">negzero</span>: <span class="ident">f64</span> <span class="op">=</span> <span class="op">-</span><span class="number">0.</span>;
-    <span class="kw">let</span> <span class="ident">zero</span>: <span class="ident">f64</span> <span class="op">=</span> <span class="number">0.</span>;
-    <span class="macro">assert_eq!</span>(<span class="ident">negzero</span>.<span class="ident">next</span>(), <span class="ident">zero</span>);
-    <span class="macro">assert_eq!</span>(<span class="ident">zero</span>.<span class="ident">prev</span>(), <span class="ident">negzero</span>);
-    <span class="macro">assert!</span>(<span class="ident">negzero</span>.<span class="ident">prev</span>() <span class="op">&lt;</span> <span class="number">0.0</span>);
-    <span class="macro">assert!</span>(<span class="ident">zero</span>.<span class="ident">next</span>() <span class="op">&gt;</span> <span class="number">0.0</span>);
+<span class="attribute">#[test]
+</span><span class="kw">fn </span>f32_ulps_test5() {
+    <span class="kw">let </span>x: f32 = <span class="number">2.0</span>;
+    <span class="kw">let </span>ulps: i32 = x.to_bits() <span class="kw">as </span>i32;
+    <span class="kw">let </span>x2: f32 = &lt;f32&gt;::from_bits(ulps <span class="kw">as </span>u32);
+    <span class="macro">assert_eq!</span>(x, x2);
+}
+
+<span class="attribute">#[test]
+</span><span class="kw">fn </span>f32_ulps_test6() {
+    <span class="kw">let </span>negzero: f32 = -<span class="number">0.</span>;
+    <span class="kw">let </span>zero: f32 = <span class="number">0.</span>;
+    <span class="macro">assert_eq!</span>(negzero.next(), zero);
+    <span class="macro">assert_eq!</span>(zero.prev(), negzero);
+    <span class="macro">assert!</span>(negzero.prev() &lt; <span class="number">0.0</span>);
+    <span class="macro">assert!</span>(zero.next() &gt; <span class="number">0.0</span>);
+}
+
+<span class="kw">impl </span>Ulps <span class="kw">for </span>f64 {
+    <span class="kw">type </span>U = i64;
+
+    <span class="kw">fn </span>ulps(<span class="kw-2">&amp;</span><span class="self">self</span>, other: <span class="kw-2">&amp;</span>f64) -&gt; i64 {
+
+        <span class="comment">// IEEE754 defined floating point storage representation to
+        // maintain their order when their bit patterns are interpreted as
+        // integers.  This is a huge boon to the task at hand, as we can
+        // reinterpret them as integers to find out how many ULPs apart any
+        // two floats are
+
+        // Setup integer representations of the input
+        </span><span class="kw">let </span>ai64: i64 = <span class="self">self</span>.to_bits() <span class="kw">as </span>i64;
+        <span class="kw">let </span>bi64: i64 = other.to_bits() <span class="kw">as </span>i64;
+
+        ai64.wrapping_sub(bi64)
+    }
+
+    <span class="kw">fn </span>next(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="self">Self </span>{
+        <span class="kw">if </span><span class="self">self</span>.is_infinite() &amp;&amp; <span class="kw-2">*</span><span class="self">self </span>&gt; <span class="number">0.0 </span>{
+            <span class="kw-2">*</span><span class="self">self
+        </span>} <span class="kw">else if </span><span class="kw-2">*</span><span class="self">self </span>== -<span class="number">0.0 </span>&amp;&amp; <span class="self">self</span>.is_sign_negative() {
+            <span class="number">0.0
+        </span>} <span class="kw">else </span>{
+            <span class="kw">let </span><span class="kw-2">mut </span>u = <span class="self">self</span>.to_bits();
+            <span class="kw">if </span><span class="kw-2">*</span><span class="self">self </span>&gt;= <span class="number">0.0 </span>{
+                u += <span class="number">1</span>;
+            } <span class="kw">else </span>{
+                u -= <span class="number">1</span>;
+            }
+            f64::from_bits(u)
+        }
+    }
+
+    <span class="kw">fn </span>prev(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="self">Self </span>{
+        <span class="kw">if </span><span class="self">self</span>.is_infinite() &amp;&amp; <span class="kw-2">*</span><span class="self">self </span>&lt; <span class="number">0.0 </span>{
+            <span class="kw-2">*</span><span class="self">self
+        </span>} <span class="kw">else if </span><span class="kw-2">*</span><span class="self">self </span>== <span class="number">0.0 </span>&amp;&amp; <span class="self">self</span>.is_sign_positive() {
+            -<span class="number">0.0
+        </span>} <span class="kw">else </span>{
+            <span class="kw">let </span><span class="kw-2">mut </span>u = <span class="self">self</span>.to_bits();
+            <span class="kw">if </span><span class="kw-2">*</span><span class="self">self </span>&lt;= -<span class="number">0.0 </span>{
+                u += <span class="number">1</span>;
+            } <span class="kw">else </span>{
+                u -= <span class="number">1</span>;
+            }
+            f64::from_bits(u)
+        }
+    }
+}
+
+<span class="attribute">#[test]
+</span><span class="kw">fn </span>f64_ulps_test1() {
+    <span class="kw">let </span>x: f64 = <span class="number">1000000_f64</span>;
+    <span class="kw">let </span>y: f64 = <span class="number">1000000.00000001_f64</span>;
+    <span class="macro">assert!</span>(x.ulps(<span class="kw-2">&amp;</span>y) == -<span class="number">86</span>);
+}
+
+<span class="attribute">#[test]
+</span><span class="kw">fn </span>f64_ulps_test2() {
+    <span class="kw">let </span>pzero: f64 = f64::from_bits(<span class="number">0x0000000000000000_u64</span>);
+    <span class="kw">let </span>nzero: f64 = f64::from_bits(<span class="number">0x8000000000000000_u64</span>);
+    <span class="macro">assert!</span>(pzero.ulps(<span class="kw-2">&amp;</span>nzero) == -<span class="number">9223372036854775808i64</span>);
+}
+<span class="attribute">#[test]
+</span><span class="kw">fn </span>f64_ulps_test3() {
+    <span class="kw">let </span>pinf: f64 = f64::from_bits(<span class="number">0x7f80000000000000_u64</span>);
+    <span class="kw">let </span>ninf: f64 = f64::from_bits(<span class="number">0xff80000000000000_u64</span>);
+    <span class="macro">assert!</span>(pinf.ulps(<span class="kw-2">&amp;</span>ninf) == -<span class="number">9223372036854775808i64</span>);
+}
+
+<span class="attribute">#[test]
+</span><span class="kw">fn </span>f64_ulps_test4() {
+    <span class="kw">let </span>x: f64 = f64::from_bits(<span class="number">0xd017f6cc63a7f026_u64</span>);
+    <span class="kw">let </span>y: f64 = f64::from_bits(<span class="number">0xd017f6cc63a7f023_u64</span>);
+    <span class="macro">assert!</span>(x.ulps(<span class="kw-2">&amp;</span>y) == <span class="number">3</span>);
+}
+
+<span class="attribute">#[test]
+</span><span class="kw">fn </span>f64_ulps_test5() {
+    <span class="kw">let </span>x: f64 = <span class="number">2.0</span>;
+    <span class="kw">let </span>ulps: i64 = x.to_bits() <span class="kw">as </span>i64;
+    <span class="kw">let </span>x2: f64 = &lt;f64&gt;::from_bits(ulps <span class="kw">as </span>u64);
+    <span class="macro">assert_eq!</span>(x, x2);
+}
+
+<span class="attribute">#[test]
+</span><span class="kw">fn </span>f64_ulps_test6() {
+    <span class="kw">let </span>negzero: f64 = -<span class="number">0.</span>;
+    <span class="kw">let </span>zero: f64 = <span class="number">0.</span>;
+    <span class="macro">assert_eq!</span>(negzero.next(), zero);
+    <span class="macro">assert_eq!</span>(zero.prev(), negzero);
+    <span class="macro">assert!</span>(negzero.prev() &lt; <span class="number">0.0</span>);
+    <span class="macro">assert!</span>(zero.next() &gt; <span class="number">0.0</span>);
 }
 
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="float_cmp" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0 (a55dd71d5 2022-09-19)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="float_cmp" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0 (69f9c33d7 2022-12-12)" ></div></body></html>

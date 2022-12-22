@@ -1,6 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.1/src/iterator/raw.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>raw.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../embedded_graphics/index.html"><div class="logo-container"><img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../embedded_graphics/index.html"><div class="logo-container">
-                    <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../embedded_graphics/index.html">
-                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.1/src/iterator/raw.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>raw.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../embedded_graphics/index.html">
+                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -365,258 +364,258 @@
 <span id="363">363</span>
 <span id="364">364</span>
 <span id="365">365</span>
-</pre><pre class="rust"><code><span class="doccomment">//! Raw data iterator.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! Raw data iterators are used to implement rendering of custom image formats. Most users</span>
-<span class="doccomment">//! won&#39;t need to use these types directly and should instead use [`ImageRaw`].</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! The [`RawDataSlice`] is used to specify the raw data format for a byte slice. This slice can</span>
-<span class="doccomment">//! than be converted into an optimized iterator for that data format by using `into_iter()`.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! # Examples</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ```</span>
-<span class="doccomment">//! use embedded_graphics::{iterator::raw::RawDataSlice, pixelcolor::raw::{RawU16, BigEndian}};</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! let data = [0xAA, 0xBB, 0x12, 0x34];</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! // The data type and byte order needs to be specified explicitly to set the data format.</span>
-<span class="doccomment">//! let slice = RawDataSlice::&lt;RawU16, BigEndian&gt;::new(&amp;data);</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! let mut iter = slice.into_iter();</span>
-<span class="doccomment">//! assert_eq!(iter.next(), Some(RawU16::new(0xAABB)));</span>
-<span class="doccomment">//! assert_eq!(iter.next(), Some(RawU16::new(0x1234)));</span>
-<span class="doccomment">//! assert_eq!(iter.next(), None);</span>
-<span class="doccomment">//! ```</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! [`ImageRaw`]: ../../image/struct.ImageRaw.html</span>
-<span class="doccomment">//! [`RawDataSlice`]: struct.RawDataSlice.html</span>
+</pre><pre class="rust"><code><span class="doccomment">//! Raw data iterator.
+//!
+//! Raw data iterators are used to implement rendering of custom image formats. Most users
+//! won&#39;t need to use these types directly and should instead use [`ImageRaw`].
+//!
+//! The [`RawDataSlice`] is used to specify the raw data format for a byte slice. This slice can
+//! than be converted into an optimized iterator for that data format by using `into_iter()`.
+//!
+//! # Examples
+//!
+//! ```
+//! use embedded_graphics::{iterator::raw::RawDataSlice, pixelcolor::raw::{RawU16, BigEndian}};
+//!
+//! let data = [0xAA, 0xBB, 0x12, 0x34];
+//!
+//! // The data type and byte order needs to be specified explicitly to set the data format.
+//! let slice = RawDataSlice::&lt;RawU16, BigEndian&gt;::new(&amp;data);
+//!
+//! let mut iter = slice.into_iter();
+//! assert_eq!(iter.next(), Some(RawU16::new(0xAABB)));
+//! assert_eq!(iter.next(), Some(RawU16::new(0x1234)));
+//! assert_eq!(iter.next(), None);
+//! ```
+//!
+//! [`ImageRaw`]: ../../image/struct.ImageRaw.html
+//! [`RawDataSlice`]: struct.RawDataSlice.html
 
-<span class="kw">use</span> <span class="ident">core</span>::{<span class="ident">marker::PhantomData</span>, <span class="ident">slice</span>};
+</span><span class="kw">use </span>core::{marker::PhantomData, slice};
 
-<span class="kw">use</span> <span class="ident">byteorder</span>::{<span class="ident">ByteOrder</span>, <span class="ident">BE</span>, <span class="ident">LE</span>};
+<span class="kw">use </span>byteorder::{ByteOrder, BE, LE};
 
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::pixelcolor::raw</span>::{
-    <span class="ident">BigEndian</span>, <span class="ident">LittleEndian</span>, <span class="ident">RawData</span>, <span class="ident">RawU1</span>, <span class="ident">RawU16</span>, <span class="ident">RawU2</span>, <span class="ident">RawU24</span>, <span class="ident">RawU32</span>, <span class="ident">RawU4</span>, <span class="ident">RawU8</span>,
+<span class="kw">use </span><span class="kw">crate</span>::pixelcolor::raw::{
+    BigEndian, LittleEndian, RawData, RawU1, RawU16, RawU2, RawU24, RawU32, RawU4, RawU8,
 };
 
-<span class="doccomment">/// Raw data slice.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// This type is a wrapper around a byte array to specify the stored data format.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// See the [module-level documentation] for more information.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// [module-level documentation]: index.html</span>
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>, <span class="ident">Clone</span>, <span class="ident">Copy</span>, <span class="ident">PartialEq</span>, <span class="ident">Eq</span>, <span class="ident">PartialOrd</span>, <span class="ident">Ord</span>, <span class="ident">Hash</span>)]</span>
-<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">RawDataSlice</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">R</span>, <span class="ident">BO</span><span class="op">&gt;</span> {
-    <span class="ident">data</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> [<span class="ident">u8</span>],
-    <span class="ident">raw_type</span>: <span class="ident">PhantomData</span><span class="op">&lt;</span><span class="ident">R</span><span class="op">&gt;</span>,
-    <span class="ident">byte_order</span>: <span class="ident">PhantomData</span><span class="op">&lt;</span><span class="ident">BO</span><span class="op">&gt;</span>,
+<span class="doccomment">/// Raw data slice.
+///
+/// This type is a wrapper around a byte array to specify the stored data format.
+///
+/// See the [module-level documentation] for more information.
+///
+/// [module-level documentation]: index.html
+</span><span class="attribute">#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
+</span><span class="kw">pub struct </span>RawDataSlice&lt;<span class="lifetime">&#39;a</span>, R, BO&gt; {
+    data: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>[u8],
+    raw_type: PhantomData&lt;R&gt;,
+    byte_order: PhantomData&lt;BO&gt;,
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">R</span>, <span class="ident">BO</span><span class="op">&gt;</span> <span class="ident">RawDataSlice</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">R</span>, <span class="ident">BO</span><span class="op">&gt;</span> {
-    <span class="doccomment">/// Creates a new raw data slice.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">data</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> [<span class="ident">u8</span>]) -&gt; <span class="self">Self</span> {
-        <span class="self">Self</span> {
-            <span class="ident">data</span>,
-            <span class="ident">raw_type</span>: <span class="ident">PhantomData</span>,
-            <span class="ident">byte_order</span>: <span class="ident">PhantomData</span>,
+<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>, R, BO&gt; RawDataSlice&lt;<span class="lifetime">&#39;a</span>, R, BO&gt; {
+    <span class="doccomment">/// Creates a new raw data slice.
+    </span><span class="kw">pub fn </span>new(data: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>[u8]) -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{
+            data,
+            raw_type: PhantomData,
+            byte_order: PhantomData,
         }
     }
 }
 
-<span class="macro">macro_rules!</span> <span class="ident">impl_bits_iterator</span> {
-    (<span class="macro-nonterminal">$</span><span class="kw">type</span>:<span class="macro-nonterminal">ident</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">bit_index_bits</span>:<span class="ident">expr</span>) =&gt; {
-        <span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">BO</span><span class="op">&gt;</span> <span class="ident">IntoIterator</span> <span class="kw">for</span> <span class="ident">RawDataSlice</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="macro-nonterminal">$</span><span class="kw">type</span>, <span class="macro-nonterminal">BO</span><span class="op">&gt;</span> {
-            <span class="kw">type</span> <span class="ident">Item</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="kw">type</span>;
-            <span class="kw">type</span> <span class="macro-nonterminal">IntoIter</span> <span class="op">=</span> <span class="ident">BitsIterator</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="macro-nonterminal">$</span><span class="kw">type</span><span class="op">&gt;</span>;
+<span class="macro">macro_rules! </span>impl_bits_iterator {
+    (<span class="macro-nonterminal">$</span><span class="kw">type</span>:<span class="macro-nonterminal">ident</span>, <span class="macro-nonterminal">$bit_index_bits</span>:expr) =&gt; {
+        <span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>, BO&gt; IntoIterator <span class="kw">for </span>RawDataSlice&lt;<span class="lifetime">&#39;a</span>, <span class="macro-nonterminal">$</span><span class="kw">type</span>, <span class="macro-nonterminal">BO</span>&gt; {
+            <span class="kw">type </span>Item = <span class="macro-nonterminal">$</span><span class="kw">type</span>;
+            <span class="kw">type </span><span class="macro-nonterminal">IntoIter </span>= BitsIterator&lt;<span class="lifetime">&#39;a</span>, <span class="macro-nonterminal">$</span><span class="kw">type</span>&gt;;
 
-            <span class="kw">fn</span> <span class="macro-nonterminal">into_iter</span>(<span class="self">self</span>) -&gt; <span class="ident"><span class="self">Self</span>::IntoIter</span> {
-                <span class="ident">BitsIterator::new</span>(<span class="self">self</span>.<span class="ident">data</span>)
+            <span class="kw">fn </span><span class="macro-nonterminal">into_iter</span>(<span class="self">self</span>) -&gt; <span class="self">Self</span>::IntoIter {
+                BitsIterator::new(<span class="self">self</span>.data)
             }
         }
 
-        <span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="ident">Iterator</span> <span class="kw">for</span> <span class="ident">BitsIterator</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="macro-nonterminal">$</span><span class="kw">type</span><span class="op">&gt;</span> {
-            <span class="kw">type</span> <span class="macro-nonterminal">Item</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="kw">type</span>;
+        <span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>&gt; Iterator <span class="kw">for </span>BitsIterator&lt;<span class="lifetime">&#39;a</span>, <span class="macro-nonterminal">$</span><span class="kw">type</span>&gt; {
+            <span class="kw">type </span><span class="macro-nonterminal">Item </span>= <span class="macro-nonterminal">$</span><span class="kw">type</span>;
 
-            <span class="attribute">#[<span class="macro-nonterminal">inline</span>]</span>
-            <span class="kw">fn</span> <span class="ident">next</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Item</span><span class="op">&gt;</span> {
-                <span class="self">self</span>.<span class="ident">data</span>.<span class="ident">get</span>(<span class="self">self</span>.<span class="ident">index</span> <span class="op">&gt;</span><span class="op">&gt;</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">bit_index_bits</span>).<span class="ident">map</span>(<span class="op">|</span><span class="ident">byte</span><span class="op">|</span> {
-                    <span class="comment">// Number of bits the value needs to be shifted to the right for the first pixel.</span>
-                    <span class="kw">let</span> <span class="ident">first_pixel_shift</span> <span class="op">=</span> <span class="number">8</span> <span class="op">-</span> <span class="macro-nonterminal">$</span><span class="kw">type</span><span class="macro-nonterminal">::BITS_PER_PIXEL</span>;
+            <span class="attribute">#[<span class="macro-nonterminal">inline</span>]
+            </span><span class="kw">fn </span>next(<span class="kw-2">&amp;mut </span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="self">Self</span>::Item&gt; {
+                <span class="self">self</span>.data.get(<span class="self">self</span>.index &gt;&gt; <span class="macro-nonterminal">$bit_index_bits</span>).map(|byte| {
+                    <span class="comment">// Number of bits the value needs to be shifted to the right for the first pixel.
+                    </span><span class="kw">let </span>first_pixel_shift = <span class="number">8 </span>- <span class="macro-nonterminal">$</span><span class="kw">type</span><span class="macro-nonterminal">::BITS_PER_PIXEL</span>;
 
-                    <span class="comment">// Index to one of the pixels inside this byte.</span>
-                    <span class="kw">let</span> <span class="ident">sub_index</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">index</span> <span class="op">&amp;</span> (<span class="number">1</span> <span class="op">&lt;</span><span class="op">&lt;</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">bit_index_bits</span>) <span class="op">-</span> <span class="number">1</span>;
+                    <span class="comment">// Index to one of the pixels inside this byte.
+                    </span><span class="kw">let </span>sub_index = <span class="self">self</span>.index &amp; (<span class="number">1 </span>&lt;&lt; <span class="macro-nonterminal">$bit_index_bits</span>) - <span class="number">1</span>;
 
-                    <span class="comment">// Number of bits the value needs to be shifted.</span>
-                    <span class="kw">let</span> <span class="ident">shift</span> <span class="op">=</span> <span class="ident">first_pixel_shift</span> <span class="op">-</span> (<span class="ident">sub_index</span> <span class="op">&lt;</span><span class="op">&lt;</span> <span class="number">3</span> <span class="op">-</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">bit_index_bits</span>);
+                    <span class="comment">// Number of bits the value needs to be shifted.
+                    </span><span class="kw">let </span>shift = first_pixel_shift - (sub_index &lt;&lt; <span class="number">3 </span>- <span class="macro-nonterminal">$bit_index_bits</span>);
 
-                    <span class="self">self</span>.<span class="ident">index</span> <span class="op">+</span><span class="op">=</span> <span class="number">1</span>;
+                    <span class="self">self</span>.index += <span class="number">1</span>;
 
-                    <span class="macro-nonterminal">$</span><span class="kw">type</span><span class="macro-nonterminal">::new</span>(<span class="kw-2">*</span><span class="ident">byte</span> <span class="op">&gt;</span><span class="op">&gt;</span> <span class="ident">shift</span>)
+                    <span class="macro-nonterminal">$</span><span class="kw">type</span><span class="macro-nonterminal">::new</span>(<span class="kw-2">*</span>byte &gt;&gt; shift)
                 })
             }
 
-            <span class="attribute">#[<span class="ident">inline</span>]</span>
-            <span class="kw">fn</span> <span class="ident">nth</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>, <span class="ident">n</span>: <span class="ident">usize</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Item</span><span class="op">&gt;</span> {
-                <span class="self">self</span>.<span class="ident">index</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">index</span>.<span class="ident">saturating_add</span>(<span class="ident">n</span>);
-                <span class="self">self</span>.<span class="ident">next</span>()
+            <span class="attribute">#[inline]
+            </span><span class="kw">fn </span>nth(<span class="kw-2">&amp;mut </span><span class="self">self</span>, n: usize) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="self">Self</span>::Item&gt; {
+                <span class="self">self</span>.index = <span class="self">self</span>.index.saturating_add(n);
+                <span class="self">self</span>.next()
             }
 
-            <span class="kw">fn</span> <span class="ident">size_hint</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; (<span class="ident">usize</span>, <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">usize</span><span class="op">&gt;</span>) {
-                <span class="kw">let</span> <span class="ident">size</span> <span class="op">=</span>
-                    (<span class="self">self</span>.<span class="ident">data</span>.<span class="ident">len</span>() <span class="op">*</span> (<span class="number">8</span> <span class="op">/</span> <span class="macro-nonterminal">$</span><span class="kw">type</span><span class="macro-nonterminal">::BITS_PER_PIXEL</span>)).<span class="ident">saturating_sub</span>(<span class="self">self</span>.<span class="ident">index</span>);
+            <span class="kw">fn </span>size_hint(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; (usize, <span class="prelude-ty">Option</span>&lt;usize&gt;) {
+                <span class="kw">let </span>size =
+                    (<span class="self">self</span>.data.len() * (<span class="number">8 </span>/ <span class="macro-nonterminal">$</span><span class="kw">type</span><span class="macro-nonterminal">::BITS_PER_PIXEL</span>)).saturating_sub(<span class="self">self</span>.index);
 
-                (<span class="ident">size</span>, <span class="prelude-val">Some</span>(<span class="ident">size</span>))
-            }
-        }
-    };
-}
-
-<span class="macro">impl_bits_iterator!</span>(<span class="ident">RawU1</span>, <span class="number">3</span>);
-<span class="macro">impl_bits_iterator!</span>(<span class="ident">RawU2</span>, <span class="number">2</span>);
-<span class="macro">impl_bits_iterator!</span>(<span class="ident">RawU4</span>, <span class="number">1</span>);
-
-<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">BO</span><span class="op">&gt;</span> <span class="ident">IntoIterator</span> <span class="kw">for</span> <span class="ident">RawDataSlice</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">RawU8</span>, <span class="ident">BO</span><span class="op">&gt;</span> {
-    <span class="kw">type</span> <span class="ident">Item</span> <span class="op">=</span> <span class="ident">RawU8</span>;
-    <span class="kw">type</span> <span class="ident">IntoIter</span> <span class="op">=</span> <span class="ident">ByteIterator</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span>;
-
-    <span class="kw">fn</span> <span class="ident">into_iter</span>(<span class="self">self</span>) -&gt; <span class="ident"><span class="self">Self</span>::IntoIter</span> {
-        <span class="ident">ByteIterator::new</span>(<span class="self">self</span>.<span class="ident">data</span>)
-    }
-}
-
-<span class="doccomment">/// Iterator for raw data slices with less than 8 BPP.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// See the [module-level documentation] for more information.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// [module-level documentation]: index.html</span>
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>)]</span>
-<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">BitsIterator</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">R</span><span class="op">&gt;</span> {
-    <span class="ident">data</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> [<span class="ident">u8</span>],
-    <span class="ident">index</span>: <span class="ident">usize</span>,
-    <span class="ident">raw_type</span>: <span class="ident">PhantomData</span><span class="op">&lt;</span><span class="ident">R</span><span class="op">&gt;</span>,
-}
-
-<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">R</span>: <span class="ident">RawData</span><span class="op">&gt;</span> <span class="ident">BitsIterator</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">R</span><span class="op">&gt;</span> {
-    <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">data</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> [<span class="ident">u8</span>]) -&gt; <span class="self">Self</span> {
-        <span class="self">Self</span> {
-            <span class="ident">data</span>,
-            <span class="ident">index</span>: <span class="number">0</span>,
-            <span class="ident">raw_type</span>: <span class="ident">PhantomData</span>,
-        }
-    }
-}
-
-<span class="doccomment">/// Iterator for raw data slices with 8 BPP.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// See the [module-level documentation] for more information.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// [module-level documentation]: index.html</span>
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>)]</span>
-<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">ByteIterator</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
-    <span class="ident">data</span>: <span class="ident">slice::Iter</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">u8</span><span class="op">&gt;</span>,
-}
-
-<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="ident">ByteIterator</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
-    <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">data</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> [<span class="ident">u8</span>]) -&gt; <span class="self">Self</span> {
-        <span class="self">Self</span> { <span class="ident">data</span>: <span class="ident">data</span>.<span class="ident">iter</span>() }
-    }
-}
-
-<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="ident">Iterator</span> <span class="kw">for</span> <span class="ident">ByteIterator</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
-    <span class="kw">type</span> <span class="ident">Item</span> <span class="op">=</span> <span class="ident">RawU8</span>;
-
-    <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">fn</span> <span class="ident">next</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Item</span><span class="op">&gt;</span> {
-        <span class="self">self</span>.<span class="ident">data</span>.<span class="ident">next</span>().<span class="ident">copied</span>().<span class="ident">map</span>(<span class="ident">RawU8::new</span>)
-    }
-
-    <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">fn</span> <span class="ident">nth</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>, <span class="ident">n</span>: <span class="ident">usize</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Item</span><span class="op">&gt;</span> {
-        <span class="self">self</span>.<span class="ident">data</span>.<span class="ident">nth</span>(<span class="ident">n</span>).<span class="ident">copied</span>().<span class="ident">map</span>(<span class="ident">RawU8::new</span>)
-    }
-
-    <span class="kw">fn</span> <span class="ident">size_hint</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; (<span class="ident">usize</span>, <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">usize</span><span class="op">&gt;</span>) {
-        <span class="self">self</span>.<span class="ident">data</span>.<span class="ident">size_hint</span>()
-    }
-}
-
-<span class="doccomment">/// Iterator for raw data slices more than 8 BPP.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// See the [module-level documentation] for more information.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// [module-level documentation]: index.html</span>
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>)]</span>
-<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">BytesIterator</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">R</span>, <span class="ident">BO</span><span class="op">&gt;</span> {
-    <span class="comment">// MSRV: replace by ArrayChunks when the feature is stabilized</span>
-    <span class="ident">data</span>: <span class="ident">slice::ChunksExact</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">u8</span><span class="op">&gt;</span>,
-    <span class="ident">raw_type</span>: <span class="ident">PhantomData</span><span class="op">&lt;</span><span class="ident">R</span><span class="op">&gt;</span>,
-    <span class="ident">byte_order</span>: <span class="ident">PhantomData</span><span class="op">&lt;</span><span class="ident">BO</span><span class="op">&gt;</span>,
-}
-
-<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">R</span>: <span class="ident">RawData</span>, <span class="ident">BO</span><span class="op">&gt;</span> <span class="ident">BytesIterator</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">R</span>, <span class="ident">BO</span><span class="op">&gt;</span> {
-    <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">data</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> [<span class="ident">u8</span>]) -&gt; <span class="self">Self</span> {
-        <span class="self">Self</span> {
-            <span class="ident">data</span>: <span class="ident">data</span>.<span class="ident">chunks_exact</span>(<span class="ident">R::BITS_PER_PIXEL</span> <span class="op">/</span> <span class="number">8</span>),
-            <span class="ident">raw_type</span>: <span class="ident">PhantomData</span>,
-            <span class="ident">byte_order</span>: <span class="ident">PhantomData</span>,
-        }
-    }
-}
-
-<span class="macro">macro_rules!</span> <span class="ident">impl_bytes_iterator</span> {
-    (<span class="macro-nonterminal">$</span><span class="kw">type</span>:<span class="macro-nonterminal">ident</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">byte_order</span>:<span class="ident">ident</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">read_function</span>:<span class="ident">path</span>) =&gt; {
-        <span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="ident">Iterator</span> <span class="kw">for</span> <span class="ident">BytesIterator</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="macro-nonterminal">$</span><span class="kw">type</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">byte_order</span><span class="op">&gt;</span> {
-            <span class="kw">type</span> <span class="ident">Item</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="kw">type</span>;
-
-            <span class="attribute">#[<span class="macro-nonterminal">inline</span>]</span>
-            <span class="kw">fn</span> <span class="ident">next</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Item</span><span class="op">&gt;</span> {
-                <span class="self">self</span>.<span class="ident">data</span>.<span class="ident">next</span>().<span class="ident">map</span>(<span class="op">|</span><span class="ident">raw</span><span class="op">|</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">read_function</span>(<span class="ident">raw</span>).<span class="ident">into</span>())
-            }
-
-            <span class="attribute">#[<span class="ident">inline</span>]</span>
-            <span class="kw">fn</span> <span class="ident">nth</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>, <span class="ident">n</span>: <span class="ident">usize</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Item</span><span class="op">&gt;</span> {
-                <span class="self">self</span>.<span class="ident">data</span>.<span class="ident">nth</span>(<span class="ident">n</span>).<span class="ident">map</span>(<span class="op">|</span><span class="ident">raw</span><span class="op">|</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">read_function</span>(<span class="ident">raw</span>).<span class="ident">into</span>())
-            }
-
-            <span class="kw">fn</span> <span class="ident">size_hint</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; (<span class="ident">usize</span>, <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">usize</span><span class="op">&gt;</span>) {
-                <span class="self">self</span>.<span class="ident">data</span>.<span class="ident">size_hint</span>()
-            }
-        }
-
-        <span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="ident">IntoIterator</span> <span class="kw">for</span> <span class="ident">RawDataSlice</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="macro-nonterminal">$</span><span class="kw">type</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">byte_order</span><span class="op">&gt;</span> {
-            <span class="kw">type</span> <span class="ident">Item</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="kw">type</span>;
-            <span class="kw">type</span> <span class="macro-nonterminal">IntoIter</span> <span class="op">=</span> <span class="ident">BytesIterator</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="macro-nonterminal">$</span><span class="kw">type</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">byte_order</span><span class="op">&gt;</span>;
-
-            <span class="kw">fn</span> <span class="ident">into_iter</span>(<span class="self">self</span>) -&gt; <span class="ident"><span class="self">Self</span>::IntoIter</span> {
-                <span class="ident">BytesIterator::new</span>(<span class="self">self</span>.<span class="ident">data</span>)
+                (size, <span class="prelude-val">Some</span>(size))
             }
         }
     };
+}
 
-    (<span class="macro-nonterminal">$</span><span class="kw">type</span>:<span class="macro-nonterminal">ident</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">read_function</span>:<span class="ident">ident</span>) =&gt; {
-        <span class="macro">impl_bytes_iterator!</span>(<span class="macro-nonterminal">$</span><span class="kw">type</span>, <span class="macro-nonterminal">LittleEndian</span>, <span class="ident">LE</span>::<span class="macro-nonterminal">$</span><span class="macro-nonterminal">read_function</span>);
-        <span class="macro">impl_bytes_iterator!</span>(<span class="macro-nonterminal">$</span><span class="kw">type</span>, <span class="macro-nonterminal">BigEndian</span>, <span class="ident">BE</span>::<span class="macro-nonterminal">$</span><span class="macro-nonterminal">read_function</span>);
+<span class="macro">impl_bits_iterator!</span>(RawU1, <span class="number">3</span>);
+<span class="macro">impl_bits_iterator!</span>(RawU2, <span class="number">2</span>);
+<span class="macro">impl_bits_iterator!</span>(RawU4, <span class="number">1</span>);
+
+<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>, BO&gt; IntoIterator <span class="kw">for </span>RawDataSlice&lt;<span class="lifetime">&#39;a</span>, RawU8, BO&gt; {
+    <span class="kw">type </span>Item = RawU8;
+    <span class="kw">type </span>IntoIter = ByteIterator&lt;<span class="lifetime">&#39;a</span>&gt;;
+
+    <span class="kw">fn </span>into_iter(<span class="self">self</span>) -&gt; <span class="self">Self</span>::IntoIter {
+        ByteIterator::new(<span class="self">self</span>.data)
+    }
+}
+
+<span class="doccomment">/// Iterator for raw data slices with less than 8 BPP.
+///
+/// See the [module-level documentation] for more information.
+///
+/// [module-level documentation]: index.html
+</span><span class="attribute">#[derive(Debug)]
+</span><span class="kw">pub struct </span>BitsIterator&lt;<span class="lifetime">&#39;a</span>, R&gt; {
+    data: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>[u8],
+    index: usize,
+    raw_type: PhantomData&lt;R&gt;,
+}
+
+<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>, R: RawData&gt; BitsIterator&lt;<span class="lifetime">&#39;a</span>, R&gt; {
+    <span class="kw">fn </span>new(data: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>[u8]) -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{
+            data,
+            index: <span class="number">0</span>,
+            raw_type: PhantomData,
+        }
+    }
+}
+
+<span class="doccomment">/// Iterator for raw data slices with 8 BPP.
+///
+/// See the [module-level documentation] for more information.
+///
+/// [module-level documentation]: index.html
+</span><span class="attribute">#[derive(Debug)]
+</span><span class="kw">pub struct </span>ByteIterator&lt;<span class="lifetime">&#39;a</span>&gt; {
+    data: slice::Iter&lt;<span class="lifetime">&#39;a</span>, u8&gt;,
+}
+
+<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>&gt; ByteIterator&lt;<span class="lifetime">&#39;a</span>&gt; {
+    <span class="kw">fn </span>new(data: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>[u8]) -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{ data: data.iter() }
+    }
+}
+
+<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>&gt; Iterator <span class="kw">for </span>ByteIterator&lt;<span class="lifetime">&#39;a</span>&gt; {
+    <span class="kw">type </span>Item = RawU8;
+
+    <span class="attribute">#[inline]
+    </span><span class="kw">fn </span>next(<span class="kw-2">&amp;mut </span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="self">Self</span>::Item&gt; {
+        <span class="self">self</span>.data.next().copied().map(RawU8::new)
+    }
+
+    <span class="attribute">#[inline]
+    </span><span class="kw">fn </span>nth(<span class="kw-2">&amp;mut </span><span class="self">self</span>, n: usize) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="self">Self</span>::Item&gt; {
+        <span class="self">self</span>.data.nth(n).copied().map(RawU8::new)
+    }
+
+    <span class="kw">fn </span>size_hint(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; (usize, <span class="prelude-ty">Option</span>&lt;usize&gt;) {
+        <span class="self">self</span>.data.size_hint()
+    }
+}
+
+<span class="doccomment">/// Iterator for raw data slices more than 8 BPP.
+///
+/// See the [module-level documentation] for more information.
+///
+/// [module-level documentation]: index.html
+</span><span class="attribute">#[derive(Debug)]
+</span><span class="kw">pub struct </span>BytesIterator&lt;<span class="lifetime">&#39;a</span>, R, BO&gt; {
+    <span class="comment">// MSRV: replace by ArrayChunks when the feature is stabilized
+    </span>data: slice::ChunksExact&lt;<span class="lifetime">&#39;a</span>, u8&gt;,
+    raw_type: PhantomData&lt;R&gt;,
+    byte_order: PhantomData&lt;BO&gt;,
+}
+
+<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>, R: RawData, BO&gt; BytesIterator&lt;<span class="lifetime">&#39;a</span>, R, BO&gt; {
+    <span class="kw">fn </span>new(data: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>[u8]) -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{
+            data: data.chunks_exact(R::BITS_PER_PIXEL / <span class="number">8</span>),
+            raw_type: PhantomData,
+            byte_order: PhantomData,
+        }
+    }
+}
+
+<span class="macro">macro_rules! </span>impl_bytes_iterator {
+    (<span class="macro-nonterminal">$</span><span class="kw">type</span>:<span class="macro-nonterminal">ident</span>, <span class="macro-nonterminal">$byte_order</span>:ident, <span class="macro-nonterminal">$read_function</span>:path) =&gt; {
+        <span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>&gt; Iterator <span class="kw">for </span>BytesIterator&lt;<span class="lifetime">&#39;a</span>, <span class="macro-nonterminal">$</span><span class="kw">type</span>, <span class="macro-nonterminal">$byte_order</span>&gt; {
+            <span class="kw">type </span>Item = <span class="macro-nonterminal">$</span><span class="kw">type</span>;
+
+            <span class="attribute">#[<span class="macro-nonterminal">inline</span>]
+            </span><span class="kw">fn </span>next(<span class="kw-2">&amp;mut </span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="self">Self</span>::Item&gt; {
+                <span class="self">self</span>.data.next().map(|raw| <span class="macro-nonterminal">$read_function</span>(raw).into())
+            }
+
+            <span class="attribute">#[inline]
+            </span><span class="kw">fn </span>nth(<span class="kw-2">&amp;mut </span><span class="self">self</span>, n: usize) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="self">Self</span>::Item&gt; {
+                <span class="self">self</span>.data.nth(n).map(|raw| <span class="macro-nonterminal">$read_function</span>(raw).into())
+            }
+
+            <span class="kw">fn </span>size_hint(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; (usize, <span class="prelude-ty">Option</span>&lt;usize&gt;) {
+                <span class="self">self</span>.data.size_hint()
+            }
+        }
+
+        <span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>&gt; IntoIterator <span class="kw">for </span>RawDataSlice&lt;<span class="lifetime">&#39;a</span>, <span class="macro-nonterminal">$</span><span class="kw">type</span>, <span class="macro-nonterminal">$byte_order</span>&gt; {
+            <span class="kw">type </span>Item = <span class="macro-nonterminal">$</span><span class="kw">type</span>;
+            <span class="kw">type </span><span class="macro-nonterminal">IntoIter </span>= BytesIterator&lt;<span class="lifetime">&#39;a</span>, <span class="macro-nonterminal">$</span><span class="kw">type</span>, <span class="macro-nonterminal">$byte_order</span>&gt;;
+
+            <span class="kw">fn </span>into_iter(<span class="self">self</span>) -&gt; <span class="self">Self</span>::IntoIter {
+                BytesIterator::new(<span class="self">self</span>.data)
+            }
+        }
+    };
+
+    (<span class="macro-nonterminal">$</span><span class="kw">type</span>:<span class="macro-nonterminal">ident</span>, <span class="macro-nonterminal">$read_function</span>:ident) =&gt; {
+        <span class="macro">impl_bytes_iterator!</span>(<span class="macro-nonterminal">$</span><span class="kw">type</span>, <span class="macro-nonterminal">LittleEndian</span>, LE::<span class="macro-nonterminal">$read_function</span>);
+        <span class="macro">impl_bytes_iterator!</span>(<span class="macro-nonterminal">$</span><span class="kw">type</span>, <span class="macro-nonterminal">BigEndian</span>, BE::<span class="macro-nonterminal">$read_function</span>);
     };
 }
 
-<span class="macro">impl_bytes_iterator!</span>(<span class="ident">RawU16</span>, <span class="ident">read_u16</span>);
-<span class="macro">impl_bytes_iterator!</span>(<span class="ident">RawU24</span>, <span class="ident">read_u24</span>);
-<span class="macro">impl_bytes_iterator!</span>(<span class="ident">RawU32</span>, <span class="ident">read_u32</span>);
+<span class="macro">impl_bytes_iterator!</span>(RawU16, read_u16);
+<span class="macro">impl_bytes_iterator!</span>(RawU24, read_u24);
+<span class="macro">impl_bytes_iterator!</span>(RawU32, read_u32);
 
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
-<span class="kw">mod</span> <span class="ident">tests</span> {
-    <span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
+<span class="attribute">#[cfg(test)]
+</span><span class="kw">mod </span>tests {
+    <span class="kw">use super</span>::<span class="kw-2">*</span>;
 
-    <span class="kw">const</span> <span class="ident">BITS_DATA</span>: <span class="kw-2">&amp;</span>[<span class="ident">u8</span>] <span class="op">=</span> <span class="kw-2">&amp;</span>[<span class="number">0x12</span>, <span class="number">0x48</span>, <span class="number">0x5A</span>, <span class="number">0x0F</span>];
-    <span class="kw">const</span> <span class="ident">BYTES_DATA_1</span>: <span class="kw-2">&amp;</span>[<span class="ident">u8</span>] <span class="op">=</span> <span class="kw-2">&amp;</span>[<span class="number">0x10</span>, <span class="number">0x20</span>, <span class="number">0x30</span>, <span class="number">0x40</span>, <span class="number">0x50</span>, <span class="number">0x60</span>];
-    <span class="kw">const</span> <span class="ident">BYTES_DATA_2</span>: <span class="kw-2">&amp;</span>[<span class="ident">u8</span>] <span class="op">=</span> <span class="kw-2">&amp;</span>[<span class="number">0x10</span>, <span class="number">0x20</span>, <span class="number">0x30</span>, <span class="number">0x40</span>, <span class="number">0x50</span>, <span class="number">0x60</span>, <span class="number">0x70</span>, <span class="number">0x80</span>];
+    <span class="kw">const </span>BITS_DATA: <span class="kw-2">&amp;</span>[u8] = <span class="kw-2">&amp;</span>[<span class="number">0x12</span>, <span class="number">0x48</span>, <span class="number">0x5A</span>, <span class="number">0x0F</span>];
+    <span class="kw">const </span>BYTES_DATA_1: <span class="kw-2">&amp;</span>[u8] = <span class="kw-2">&amp;</span>[<span class="number">0x10</span>, <span class="number">0x20</span>, <span class="number">0x30</span>, <span class="number">0x40</span>, <span class="number">0x50</span>, <span class="number">0x60</span>];
+    <span class="kw">const </span>BYTES_DATA_2: <span class="kw-2">&amp;</span>[u8] = <span class="kw-2">&amp;</span>[<span class="number">0x10</span>, <span class="number">0x20</span>, <span class="number">0x30</span>, <span class="number">0x40</span>, <span class="number">0x50</span>, <span class="number">0x60</span>, <span class="number">0x70</span>, <span class="number">0x80</span>];
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">raw_u1</span>() {
-        <span class="attribute">#[<span class="ident">rustfmt::skip</span>]</span>
-        <span class="kw">let</span> <span class="ident">expected</span> <span class="op">=</span> [
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>raw_u1() {
+        <span class="attribute">#[rustfmt::skip]
+        </span><span class="kw">let </span>expected = [
             <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>,
             <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>,
             <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>,
@@ -626,109 +625,109 @@
             <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>,
             <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>,
         ]
-        .<span class="ident">iter</span>()
-        .<span class="ident">copied</span>()
-        .<span class="ident">map</span>(<span class="ident">RawU1::new</span>);
+        .iter()
+        .copied()
+        .map(RawU1::new);
 
-        <span class="kw">let</span> <span class="ident">iter</span> <span class="op">=</span> <span class="ident">RawDataSlice</span>::<span class="op">&lt;</span><span class="ident">RawU1</span>, <span class="ident">LittleEndian</span><span class="op">&gt;</span><span class="ident">::new</span>(<span class="ident">BITS_DATA</span>).<span class="ident">into_iter</span>();
-        <span class="macro">assert!</span>(<span class="ident">iter</span>.<span class="ident">eq</span>(<span class="ident">expected</span>));
+        <span class="kw">let </span>iter = RawDataSlice::&lt;RawU1, LittleEndian&gt;::new(BITS_DATA).into_iter();
+        <span class="macro">assert!</span>(iter.eq(expected));
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">raw_u2</span>() {
-        <span class="kw">let</span> <span class="ident">expected</span> <span class="op">=</span> [<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">3</span>]
-            .<span class="ident">iter</span>()
-            .<span class="ident">copied</span>()
-            .<span class="ident">map</span>(<span class="ident">RawU2::new</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>raw_u2() {
+        <span class="kw">let </span>expected = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">3</span>]
+            .iter()
+            .copied()
+            .map(RawU2::new);
 
-        <span class="kw">let</span> <span class="ident">iter</span> <span class="op">=</span> <span class="ident">RawDataSlice</span>::<span class="op">&lt;</span><span class="ident">RawU2</span>, <span class="ident">LittleEndian</span><span class="op">&gt;</span><span class="ident">::new</span>(<span class="ident">BITS_DATA</span>).<span class="ident">into_iter</span>();
-        <span class="macro">assert!</span>(<span class="ident">iter</span>.<span class="ident">eq</span>(<span class="ident">expected</span>));
+        <span class="kw">let </span>iter = RawDataSlice::&lt;RawU2, LittleEndian&gt;::new(BITS_DATA).into_iter();
+        <span class="macro">assert!</span>(iter.eq(expected));
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">raw_u4</span>() {
-        <span class="kw">let</span> <span class="ident">expected</span> <span class="op">=</span> [<span class="number">0x1</span>, <span class="number">0x2</span>, <span class="number">0x4</span>, <span class="number">0x8</span>, <span class="number">0x5</span>, <span class="number">0xA</span>, <span class="number">0x0</span>, <span class="number">0xF</span>]
-            .<span class="ident">iter</span>()
-            .<span class="ident">copied</span>()
-            .<span class="ident">map</span>(<span class="ident">RawU4::new</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>raw_u4() {
+        <span class="kw">let </span>expected = [<span class="number">0x1</span>, <span class="number">0x2</span>, <span class="number">0x4</span>, <span class="number">0x8</span>, <span class="number">0x5</span>, <span class="number">0xA</span>, <span class="number">0x0</span>, <span class="number">0xF</span>]
+            .iter()
+            .copied()
+            .map(RawU4::new);
 
-        <span class="kw">let</span> <span class="ident">iter</span> <span class="op">=</span> <span class="ident">RawDataSlice</span>::<span class="op">&lt;</span><span class="ident">RawU4</span>, <span class="ident">LittleEndian</span><span class="op">&gt;</span><span class="ident">::new</span>(<span class="ident">BITS_DATA</span>).<span class="ident">into_iter</span>();
-        <span class="macro">assert!</span>(<span class="ident">iter</span>.<span class="ident">eq</span>(<span class="ident">expected</span>));
+        <span class="kw">let </span>iter = RawDataSlice::&lt;RawU4, LittleEndian&gt;::new(BITS_DATA).into_iter();
+        <span class="macro">assert!</span>(iter.eq(expected));
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">raw_u8</span>() {
-        <span class="kw">let</span> <span class="ident">expected</span> <span class="op">=</span> <span class="ident">BYTES_DATA_1</span>.<span class="ident">iter</span>().<span class="ident">map</span>(<span class="op">|</span><span class="kw-2">&amp;</span><span class="ident">v</span><span class="op">|</span> <span class="ident">RawU8::new</span>(<span class="ident">v</span>));
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>raw_u8() {
+        <span class="kw">let </span>expected = BYTES_DATA_1.iter().map(|<span class="kw-2">&amp;</span>v| RawU8::new(v));
 
-        <span class="kw">let</span> <span class="ident">iter</span> <span class="op">=</span> <span class="ident">RawDataSlice</span>::<span class="op">&lt;</span><span class="ident">RawU8</span>, <span class="ident">LittleEndian</span><span class="op">&gt;</span><span class="ident">::new</span>(<span class="ident">BYTES_DATA_1</span>).<span class="ident">into_iter</span>();
-        <span class="macro">assert!</span>(<span class="ident">iter</span>.<span class="ident">eq</span>(<span class="ident">expected</span>));
+        <span class="kw">let </span>iter = RawDataSlice::&lt;RawU8, LittleEndian&gt;::new(BYTES_DATA_1).into_iter();
+        <span class="macro">assert!</span>(iter.eq(expected));
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">raw_u16_le</span>() {
-        <span class="kw">let</span> <span class="ident">expected</span> <span class="op">=</span> [<span class="number">0x2010</span>, <span class="number">0x4030</span>, <span class="number">0x6050</span>].<span class="ident">iter</span>().<span class="ident">copied</span>().<span class="ident">map</span>(<span class="ident">RawU16::new</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>raw_u16_le() {
+        <span class="kw">let </span>expected = [<span class="number">0x2010</span>, <span class="number">0x4030</span>, <span class="number">0x6050</span>].iter().copied().map(RawU16::new);
 
-        <span class="kw">let</span> <span class="ident">iter</span> <span class="op">=</span> <span class="ident">RawDataSlice</span>::<span class="op">&lt;</span><span class="ident">RawU16</span>, <span class="ident">LittleEndian</span><span class="op">&gt;</span><span class="ident">::new</span>(<span class="ident">BYTES_DATA_1</span>).<span class="ident">into_iter</span>();
-        <span class="macro">assert!</span>(<span class="ident">iter</span>.<span class="ident">eq</span>(<span class="ident">expected</span>));
+        <span class="kw">let </span>iter = RawDataSlice::&lt;RawU16, LittleEndian&gt;::new(BYTES_DATA_1).into_iter();
+        <span class="macro">assert!</span>(iter.eq(expected));
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">raw_u16_be</span>() {
-        <span class="kw">let</span> <span class="ident">expected</span> <span class="op">=</span> [<span class="number">0x1020</span>, <span class="number">0x3040</span>, <span class="number">0x5060</span>].<span class="ident">iter</span>().<span class="ident">copied</span>().<span class="ident">map</span>(<span class="ident">RawU16::new</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>raw_u16_be() {
+        <span class="kw">let </span>expected = [<span class="number">0x1020</span>, <span class="number">0x3040</span>, <span class="number">0x5060</span>].iter().copied().map(RawU16::new);
 
-        <span class="kw">let</span> <span class="ident">iter</span> <span class="op">=</span> <span class="ident">RawDataSlice</span>::<span class="op">&lt;</span><span class="ident">RawU16</span>, <span class="ident">BigEndian</span><span class="op">&gt;</span><span class="ident">::new</span>(<span class="ident">BYTES_DATA_1</span>).<span class="ident">into_iter</span>();
-        <span class="macro">assert!</span>(<span class="ident">iter</span>.<span class="ident">eq</span>(<span class="ident">expected</span>));
+        <span class="kw">let </span>iter = RawDataSlice::&lt;RawU16, BigEndian&gt;::new(BYTES_DATA_1).into_iter();
+        <span class="macro">assert!</span>(iter.eq(expected));
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">raw_u16_excess_bytes_are_ignored</span>() {
-        <span class="kw">let</span> <span class="ident">iter</span> <span class="op">=</span> <span class="ident">RawDataSlice</span>::<span class="op">&lt;</span><span class="ident">RawU16</span>, <span class="ident">LittleEndian</span><span class="op">&gt;</span><span class="ident">::new</span>(<span class="kw-2">&amp;</span>[<span class="number">0</span>; <span class="number">3</span>]).<span class="ident">into_iter</span>();
-        <span class="macro">assert_eq!</span>(<span class="ident">iter</span>.<span class="ident">count</span>(), <span class="number">1</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>raw_u16_excess_bytes_are_ignored() {
+        <span class="kw">let </span>iter = RawDataSlice::&lt;RawU16, LittleEndian&gt;::new(<span class="kw-2">&amp;</span>[<span class="number">0</span>; <span class="number">3</span>]).into_iter();
+        <span class="macro">assert_eq!</span>(iter.count(), <span class="number">1</span>);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">raw_u24_le</span>() {
-        <span class="kw">let</span> <span class="ident">expected</span> <span class="op">=</span> [<span class="number">0x302010</span>, <span class="number">0x605040</span>].<span class="ident">iter</span>().<span class="ident">copied</span>().<span class="ident">map</span>(<span class="ident">RawU24::new</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>raw_u24_le() {
+        <span class="kw">let </span>expected = [<span class="number">0x302010</span>, <span class="number">0x605040</span>].iter().copied().map(RawU24::new);
 
-        <span class="kw">let</span> <span class="ident">iter</span> <span class="op">=</span> <span class="ident">RawDataSlice</span>::<span class="op">&lt;</span><span class="ident">RawU24</span>, <span class="ident">LittleEndian</span><span class="op">&gt;</span><span class="ident">::new</span>(<span class="ident">BYTES_DATA_1</span>).<span class="ident">into_iter</span>();
-        <span class="macro">assert!</span>(<span class="ident">iter</span>.<span class="ident">into_iter</span>().<span class="ident">eq</span>(<span class="ident">expected</span>));
+        <span class="kw">let </span>iter = RawDataSlice::&lt;RawU24, LittleEndian&gt;::new(BYTES_DATA_1).into_iter();
+        <span class="macro">assert!</span>(iter.into_iter().eq(expected));
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">raw_u24_be</span>() {
-        <span class="kw">let</span> <span class="ident">expected</span> <span class="op">=</span> [<span class="number">0x102030</span>, <span class="number">0x405060</span>].<span class="ident">iter</span>().<span class="ident">copied</span>().<span class="ident">map</span>(<span class="ident">RawU24::new</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>raw_u24_be() {
+        <span class="kw">let </span>expected = [<span class="number">0x102030</span>, <span class="number">0x405060</span>].iter().copied().map(RawU24::new);
 
-        <span class="kw">let</span> <span class="ident">iter</span> <span class="op">=</span> <span class="ident">RawDataSlice</span>::<span class="op">&lt;</span><span class="ident">RawU24</span>, <span class="ident">BigEndian</span><span class="op">&gt;</span><span class="ident">::new</span>(<span class="ident">BYTES_DATA_1</span>).<span class="ident">into_iter</span>();
-        <span class="macro">assert!</span>(<span class="ident">iter</span>.<span class="ident">into_iter</span>().<span class="ident">eq</span>(<span class="ident">expected</span>));
+        <span class="kw">let </span>iter = RawDataSlice::&lt;RawU24, BigEndian&gt;::new(BYTES_DATA_1).into_iter();
+        <span class="macro">assert!</span>(iter.into_iter().eq(expected));
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">raw_u24_excess_bytes_are_ignored</span>() {
-        <span class="kw">let</span> <span class="ident">iter</span> <span class="op">=</span> <span class="ident">RawDataSlice</span>::<span class="op">&lt;</span><span class="ident">RawU24</span>, <span class="ident">LittleEndian</span><span class="op">&gt;</span><span class="ident">::new</span>(<span class="kw-2">&amp;</span>[<span class="number">0</span>; <span class="number">7</span>]).<span class="ident">into_iter</span>();
-        <span class="macro">assert_eq!</span>(<span class="ident">iter</span>.<span class="ident">count</span>(), <span class="number">2</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>raw_u24_excess_bytes_are_ignored() {
+        <span class="kw">let </span>iter = RawDataSlice::&lt;RawU24, LittleEndian&gt;::new(<span class="kw-2">&amp;</span>[<span class="number">0</span>; <span class="number">7</span>]).into_iter();
+        <span class="macro">assert_eq!</span>(iter.count(), <span class="number">2</span>);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">raw_u32_le</span>() {
-        <span class="kw">let</span> <span class="ident">expected</span> <span class="op">=</span> [<span class="number">0x40302010</span>, <span class="number">0x80706050</span>].<span class="ident">iter</span>().<span class="ident">copied</span>().<span class="ident">map</span>(<span class="ident">RawU32::new</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>raw_u32_le() {
+        <span class="kw">let </span>expected = [<span class="number">0x40302010</span>, <span class="number">0x80706050</span>].iter().copied().map(RawU32::new);
 
-        <span class="kw">let</span> <span class="ident">iter</span> <span class="op">=</span> <span class="ident">RawDataSlice</span>::<span class="op">&lt;</span><span class="ident">RawU32</span>, <span class="ident">LittleEndian</span><span class="op">&gt;</span><span class="ident">::new</span>(<span class="ident">BYTES_DATA_2</span>).<span class="ident">into_iter</span>();
-        <span class="macro">assert!</span>(<span class="ident">iter</span>.<span class="ident">into_iter</span>().<span class="ident">eq</span>(<span class="ident">expected</span>));
+        <span class="kw">let </span>iter = RawDataSlice::&lt;RawU32, LittleEndian&gt;::new(BYTES_DATA_2).into_iter();
+        <span class="macro">assert!</span>(iter.into_iter().eq(expected));
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">raw_u32_be</span>() {
-        <span class="kw">let</span> <span class="ident">expected</span> <span class="op">=</span> [<span class="number">0x10203040</span>, <span class="number">0x50607080</span>].<span class="ident">iter</span>().<span class="ident">copied</span>().<span class="ident">map</span>(<span class="ident">RawU32::new</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>raw_u32_be() {
+        <span class="kw">let </span>expected = [<span class="number">0x10203040</span>, <span class="number">0x50607080</span>].iter().copied().map(RawU32::new);
 
-        <span class="kw">let</span> <span class="ident">iter</span> <span class="op">=</span> <span class="ident">RawDataSlice</span>::<span class="op">&lt;</span><span class="ident">RawU32</span>, <span class="ident">BigEndian</span><span class="op">&gt;</span><span class="ident">::new</span>(<span class="ident">BYTES_DATA_2</span>).<span class="ident">into_iter</span>();
-        <span class="macro">assert!</span>(<span class="ident">iter</span>.<span class="ident">into_iter</span>().<span class="ident">eq</span>(<span class="ident">expected</span>));
+        <span class="kw">let </span>iter = RawDataSlice::&lt;RawU32, BigEndian&gt;::new(BYTES_DATA_2).into_iter();
+        <span class="macro">assert!</span>(iter.into_iter().eq(expected));
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">raw_u32_excess_bytes_are_ignored</span>() {
-        <span class="kw">let</span> <span class="ident">iter</span> <span class="op">=</span> <span class="ident">RawDataSlice</span>::<span class="op">&lt;</span><span class="ident">RawU32</span>, <span class="ident">LittleEndian</span><span class="op">&gt;</span><span class="ident">::new</span>(<span class="kw-2">&amp;</span>[<span class="number">0</span>; <span class="number">13</span>]).<span class="ident">into_iter</span>();
-        <span class="macro">assert_eq!</span>(<span class="ident">iter</span>.<span class="ident">count</span>(), <span class="number">3</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>raw_u32_excess_bytes_are_ignored() {
+        <span class="kw">let </span>iter = RawDataSlice::&lt;RawU32, LittleEndian&gt;::new(<span class="kw-2">&amp;</span>[<span class="number">0</span>; <span class="number">13</span>]).into_iter();
+        <span class="macro">assert_eq!</span>(iter.count(), <span class="number">3</span>);
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="embedded_graphics" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0 (a55dd71d5 2022-09-19)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="embedded_graphics" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0 (69f9c33d7 2022-12-12)" ></div></body></html>

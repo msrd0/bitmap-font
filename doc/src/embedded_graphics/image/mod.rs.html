@@ -1,6 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.1/src/image/mod.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../embedded_graphics/index.html"><div class="logo-container"><img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../embedded_graphics/index.html"><div class="logo-container">
-                    <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../embedded_graphics/index.html">
-                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.1/src/image/mod.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../embedded_graphics/index.html">
+                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -291,296 +290,296 @@
 <span id="289">289</span>
 <span id="290">290</span>
 <span id="291">291</span>
-</pre><pre class="rust"><code><span class="doccomment">//! Image support for embedded-graphics</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! The two main types used to draw images are [`ImageDrawable`] and [`Image`].</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! [`ImageDrawable`] is implemented to add support for different image formats. This crate includes</span>
-<span class="doccomment">//! an implementation for [raw pixel data]. Additional implementations for other image formats are</span>
-<span class="doccomment">//! provided by external crates like [tinybmp] and [tinytga].</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! The [`Image`] object is used to specify the location at which an [`ImageDrawable`] is drawn.</span>
-<span class="doccomment">//! Images are drawn relative to their top-left corner.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! # Examples</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ## Display an RGB565 raw data image</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! This example displays a small image created from a raw data array. The image is RGB565 encoded,</span>
-<span class="doccomment">//! so it uses the `Rgb565` color type.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ```rust</span>
-<span class="doccomment">//! use embedded_graphics::{</span>
-<span class="doccomment">//!     image::{Image, ImageRaw, ImageRawBE},</span>
-<span class="doccomment">//!     pixelcolor::Rgb565,</span>
-<span class="doccomment">//!     prelude::*,</span>
-<span class="doccomment">//! };</span>
-<span class="doccomment">//! # use embedded_graphics::mock_display::MockDisplay as Display;</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! let mut display: Display&lt;Rgb565&gt; = Display::default();</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! // Raw big endian image data for demonstration purposes. A real image would likely be much</span>
-<span class="doccomment">//! // larger.</span>
-<span class="doccomment">//! let data = [</span>
-<span class="doccomment">//!     0x00, 0x00, 0xF8, 0x00, 0x07, 0xE0, 0xFF, 0xE0, //</span>
-<span class="doccomment">//!     0x00, 0x1F, 0x07, 0xFF, 0xF8, 0x1F, 0xFF, 0xFF, //</span>
-<span class="doccomment">//! ];</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! // Create a raw image instance. Other image formats will require different code to load them.</span>
-<span class="doccomment">//! // All code after loading is the same for any image format.</span>
-<span class="doccomment">//! let raw: ImageRawBE&lt;Rgb565&gt; = ImageRaw::new(&amp;data, 4);</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! // Create an `Image` object to position the image at `Point::zero()`.</span>
-<span class="doccomment">//! let image = Image::new(&amp;raw, Point::zero());</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! // Draw the image to the display.</span>
-<span class="doccomment">//! image.draw(&amp;mut display)?;</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! # Ok::&lt;(), core::convert::Infallible&gt;(())</span>
-<span class="doccomment">//! ```</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ## Sub images</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! [`SubImage`]s are used to split a larger image drawables into multiple parts, e.g. to draw a</span>
-<span class="doccomment">//! single sprite from a sprite atlas as in this example. Use the [`sub_image`] method provided by</span>
-<span class="doccomment">//! [`ImageDrawableExt`] to get a sub image from an image drawable. [`ImageDrawableExt`] is included</span>
-<span class="doccomment">//! in the [`prelude`], which this example takes advantage of.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ```rust</span>
-<span class="doccomment">//! use embedded_graphics::{</span>
-<span class="doccomment">//!     image::{Image, ImageRaw, ImageRawBE},</span>
-<span class="doccomment">//!     pixelcolor::Rgb565,</span>
-<span class="doccomment">//!     prelude::*,</span>
-<span class="doccomment">//!     primitives::Rectangle,</span>
-<span class="doccomment">//! };</span>
-<span class="doccomment">//! # use embedded_graphics::mock_display::MockDisplay as Display;</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! let mut display: Display&lt;Rgb565&gt; = Display::default();</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! let data = [ 0xF8, 0x00, 0x07, 0xE0, 0xFF, 0xE0, /* ... */ ];</span>
-<span class="doccomment">//! // or: let data = include_bytes!(&quot;sprite_atlas.raw&quot;);</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! # let data = [0u8; 32 * 16 * 2];</span>
-<span class="doccomment">//! let sprite_atlas: ImageRawBE&lt;Rgb565&gt; = ImageRaw::new(&amp;data, 32);</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! // Create individual sub images for each sprite in the sprite atlas.</span>
-<span class="doccomment">//! // The position and size of the sub images is defined by a `Rectangle`.</span>
-<span class="doccomment">//! let sprite_1 = sprite_atlas.sub_image(&amp;Rectangle::new(Point::new(0, 0), Size::new(16, 16)));</span>
-<span class="doccomment">//! let sprite_2 = sprite_atlas.sub_image(&amp;Rectangle::new(Point::new(16, 0), Size::new(16, 16)));</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! // Create `Image` objects to draw the sprites at different positions on the display.</span>
-<span class="doccomment">//! Image::new(&amp;sprite_1, Point::new(10, 10)).draw(&amp;mut display)?;</span>
-<span class="doccomment">//! Image::new(&amp;sprite_2, Point::new(40, 30)).draw(&amp;mut display)?;</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! # Ok::&lt;(), core::convert::Infallible&gt;(())</span>
-<span class="doccomment">//! ```</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! # Implementing new image formats</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! To add embedded-graphics support for an new image format the [`ImageDrawable`] and</span>
-<span class="doccomment">//! [`OriginDimensions`] traits must be implemented. See the [`ImageDrawable`] documentation</span>
-<span class="doccomment">//! for more information.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! [tinytga]: https://crates.io/crates/tinytga</span>
-<span class="doccomment">//! [tinybmp]: https://crates.io/crates/tinybmp</span>
-<span class="doccomment">//! [raw pixel data]: struct.ImageRaw.html</span>
-<span class="doccomment">//! [`ImageDrawable`]: trait.ImageDrawable.html</span>
-<span class="doccomment">//! [`ImageDrawableExt`]: trait.ImageDrawableExt.html</span>
-<span class="doccomment">//! [`sub_image`]: trait.ImageDrawableExt.html#tymethod.sub_image</span>
-<span class="doccomment">//! [`OriginDimensions`]: ../geometry/trait.OriginDimensions.html</span>
-<span class="doccomment">//! [`Image`]: ./struct.Image.html</span>
-<span class="doccomment">//! [`SubImage`]: struct.SubImage.html</span>
-<span class="doccomment">//! [`prelude`]: ../prelude/index.html</span>
+</pre><pre class="rust"><code><span class="doccomment">//! Image support for embedded-graphics
+//!
+//! The two main types used to draw images are [`ImageDrawable`] and [`Image`].
+//!
+//! [`ImageDrawable`] is implemented to add support for different image formats. This crate includes
+//! an implementation for [raw pixel data]. Additional implementations for other image formats are
+//! provided by external crates like [tinybmp] and [tinytga].
+//!
+//! The [`Image`] object is used to specify the location at which an [`ImageDrawable`] is drawn.
+//! Images are drawn relative to their top-left corner.
+//!
+//! # Examples
+//!
+//! ## Display an RGB565 raw data image
+//!
+//! This example displays a small image created from a raw data array. The image is RGB565 encoded,
+//! so it uses the `Rgb565` color type.
+//!
+//! ```rust
+//! use embedded_graphics::{
+//!     image::{Image, ImageRaw, ImageRawBE},
+//!     pixelcolor::Rgb565,
+//!     prelude::*,
+//! };
+//! # use embedded_graphics::mock_display::MockDisplay as Display;
+//!
+//! let mut display: Display&lt;Rgb565&gt; = Display::default();
+//!
+//! // Raw big endian image data for demonstration purposes. A real image would likely be much
+//! // larger.
+//! let data = [
+//!     0x00, 0x00, 0xF8, 0x00, 0x07, 0xE0, 0xFF, 0xE0, //
+//!     0x00, 0x1F, 0x07, 0xFF, 0xF8, 0x1F, 0xFF, 0xFF, //
+//! ];
+//!
+//! // Create a raw image instance. Other image formats will require different code to load them.
+//! // All code after loading is the same for any image format.
+//! let raw: ImageRawBE&lt;Rgb565&gt; = ImageRaw::new(&amp;data, 4);
+//!
+//! // Create an `Image` object to position the image at `Point::zero()`.
+//! let image = Image::new(&amp;raw, Point::zero());
+//!
+//! // Draw the image to the display.
+//! image.draw(&amp;mut display)?;
+//!
+//! # Ok::&lt;(), core::convert::Infallible&gt;(())
+//! ```
+//!
+//! ## Sub images
+//!
+//! [`SubImage`]s are used to split a larger image drawables into multiple parts, e.g. to draw a
+//! single sprite from a sprite atlas as in this example. Use the [`sub_image`] method provided by
+//! [`ImageDrawableExt`] to get a sub image from an image drawable. [`ImageDrawableExt`] is included
+//! in the [`prelude`], which this example takes advantage of.
+//!
+//! ```rust
+//! use embedded_graphics::{
+//!     image::{Image, ImageRaw, ImageRawBE},
+//!     pixelcolor::Rgb565,
+//!     prelude::*,
+//!     primitives::Rectangle,
+//! };
+//! # use embedded_graphics::mock_display::MockDisplay as Display;
+//!
+//! let mut display: Display&lt;Rgb565&gt; = Display::default();
+//!
+//! let data = [ 0xF8, 0x00, 0x07, 0xE0, 0xFF, 0xE0, /* ... */ ];
+//! // or: let data = include_bytes!(&quot;sprite_atlas.raw&quot;);
+//!
+//! # let data = [0u8; 32 * 16 * 2];
+//! let sprite_atlas: ImageRawBE&lt;Rgb565&gt; = ImageRaw::new(&amp;data, 32);
+//!
+//! // Create individual sub images for each sprite in the sprite atlas.
+//! // The position and size of the sub images is defined by a `Rectangle`.
+//! let sprite_1 = sprite_atlas.sub_image(&amp;Rectangle::new(Point::new(0, 0), Size::new(16, 16)));
+//! let sprite_2 = sprite_atlas.sub_image(&amp;Rectangle::new(Point::new(16, 0), Size::new(16, 16)));
+//!
+//! // Create `Image` objects to draw the sprites at different positions on the display.
+//! Image::new(&amp;sprite_1, Point::new(10, 10)).draw(&amp;mut display)?;
+//! Image::new(&amp;sprite_2, Point::new(40, 30)).draw(&amp;mut display)?;
+//!
+//! # Ok::&lt;(), core::convert::Infallible&gt;(())
+//! ```
+//!
+//! # Implementing new image formats
+//!
+//! To add embedded-graphics support for an new image format the [`ImageDrawable`] and
+//! [`OriginDimensions`] traits must be implemented. See the [`ImageDrawable`] documentation
+//! for more information.
+//!
+//! [tinytga]: https://crates.io/crates/tinytga
+//! [tinybmp]: https://crates.io/crates/tinybmp
+//! [raw pixel data]: struct.ImageRaw.html
+//! [`ImageDrawable`]: trait.ImageDrawable.html
+//! [`ImageDrawableExt`]: trait.ImageDrawableExt.html
+//! [`sub_image`]: trait.ImageDrawableExt.html#tymethod.sub_image
+//! [`OriginDimensions`]: ../geometry/trait.OriginDimensions.html
+//! [`Image`]: ./struct.Image.html
+//! [`SubImage`]: struct.SubImage.html
+//! [`prelude`]: ../prelude/index.html
 
-<span class="kw">mod</span> <span class="ident">image_drawable_ext</span>;
-<span class="kw">mod</span> <span class="ident">image_raw</span>;
-<span class="kw">mod</span> <span class="ident">sub_image</span>;
+</span><span class="kw">mod </span>image_drawable_ext;
+<span class="kw">mod </span>image_raw;
+<span class="kw">mod </span>sub_image;
 
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">embedded_graphics_core::image::ImageDrawable</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">image_drawable_ext::ImageDrawableExt</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">image_raw</span>::{<span class="ident">ImageRaw</span>, <span class="ident">ImageRawBE</span>, <span class="ident">ImageRawLE</span>};
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">sub_image::SubImage</span>;
+<span class="kw">pub use </span>embedded_graphics_core::image::ImageDrawable;
+<span class="kw">pub use </span>image_drawable_ext::ImageDrawableExt;
+<span class="kw">pub use </span>image_raw::{ImageRaw, ImageRawBE, ImageRawLE};
+<span class="kw">pub use </span>sub_image::SubImage;
 
-<span class="kw">use</span> <span class="kw">crate</span>::{
-    <span class="ident">draw_target</span>::{<span class="ident">DrawTarget</span>, <span class="ident">DrawTargetExt</span>},
-    <span class="ident">geometry</span>::{<span class="ident">Dimensions</span>, <span class="ident">OriginDimensions</span>, <span class="ident">Point</span>},
-    <span class="ident">primitives::Rectangle</span>,
-    <span class="ident">transform::Transform</span>,
-    <span class="ident">Drawable</span>,
+<span class="kw">use crate</span>::{
+    draw_target::{DrawTarget, DrawTargetExt},
+    geometry::{Dimensions, OriginDimensions, Point},
+    primitives::Rectangle,
+    transform::Transform,
+    Drawable,
 };
-<span class="kw">use</span> <span class="ident">core::fmt::Debug</span>;
+<span class="kw">use </span>core::fmt::Debug;
 
-<span class="doccomment">/// Image object.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// The `Image` struct serves as a wrapper around an [`ImageDrawable`] that provides support for</span>
-<span class="doccomment">/// an image format (raw bytes, BMP, TGA, etc). It allows an image to be repositioned using</span>
-<span class="doccomment">/// [`Transform::translate`] or [`Transform::translate_mut`] and drawn to a display that</span>
-<span class="doccomment">/// implements the [`DrawTarget`] trait.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// Refer to the [module documentation] for examples.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// [module documentation]: ./index.html</span>
-<span class="doccomment">/// [`Transform::translate`]: ../transform/trait.Transform.html#tymethod.translate</span>
-<span class="doccomment">/// [`Transform::translate_mut`]: ../transform/trait.Transform.html#tymethod.translate_mut</span>
-<span class="doccomment">/// [`DrawTarget`]: ../draw_target/trait.DrawTarget.html</span>
-<span class="doccomment">/// [`ImageDrawable`]: trait.ImageDrawable.html</span>
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>, <span class="ident">Clone</span>, <span class="ident">Copy</span>)]</span>
-<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Image</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">T</span><span class="op">&gt;</span> {
-    <span class="ident">image_drawable</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">T</span>,
-    <span class="ident">offset</span>: <span class="ident">Point</span>,
+<span class="doccomment">/// Image object.
+///
+/// The `Image` struct serves as a wrapper around an [`ImageDrawable`] that provides support for
+/// an image format (raw bytes, BMP, TGA, etc). It allows an image to be repositioned using
+/// [`Transform::translate`] or [`Transform::translate_mut`] and drawn to a display that
+/// implements the [`DrawTarget`] trait.
+///
+/// Refer to the [module documentation] for examples.
+///
+/// [module documentation]: ./index.html
+/// [`Transform::translate`]: ../transform/trait.Transform.html#tymethod.translate
+/// [`Transform::translate_mut`]: ../transform/trait.Transform.html#tymethod.translate_mut
+/// [`DrawTarget`]: ../draw_target/trait.DrawTarget.html
+/// [`ImageDrawable`]: trait.ImageDrawable.html
+</span><span class="attribute">#[derive(Debug, Clone, Copy)]
+</span><span class="kw">pub struct </span>Image&lt;<span class="lifetime">&#39;a</span>, T&gt; {
+    image_drawable: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>T,
+    offset: Point,
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">T</span><span class="op">&gt;</span> <span class="ident">Image</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">T</span><span class="op">&gt;</span>
-<span class="kw">where</span>
-    <span class="ident">T</span>: <span class="ident">ImageDrawable</span>,
+<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>, T&gt; Image&lt;<span class="lifetime">&#39;a</span>, T&gt;
+<span class="kw">where
+    </span>T: ImageDrawable,
 {
-    <span class="doccomment">/// Creates a new `Image`.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">image_drawable</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">T</span>, <span class="ident">position</span>: <span class="ident">Point</span>) -&gt; <span class="self">Self</span> {
-        <span class="self">Self</span> {
-            <span class="ident">image_drawable</span>,
-            <span class="ident">offset</span>: <span class="ident">position</span>,
+    <span class="doccomment">/// Creates a new `Image`.
+    </span><span class="kw">pub fn </span>new(image_drawable: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>T, position: Point) -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{
+            image_drawable,
+            offset: position,
         }
     }
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="ident">Transform</span> <span class="kw">for</span> <span class="ident">Image</span><span class="op">&lt;</span><span class="lifetime">&#39;_</span>, <span class="ident">T</span><span class="op">&gt;</span> {
-    <span class="doccomment">/// Translate the image by a given delta, returning a new image</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Examples</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ## Move an image around</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// This examples moves a 4x4 black and white image by `(10, 20)` pixels without mutating the</span>
-    <span class="doccomment">/// original image</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ```rust</span>
-    <span class="doccomment">/// use embedded_graphics::{</span>
-    <span class="doccomment">///     geometry::Point,</span>
-    <span class="doccomment">///     image::{Image, ImageRaw},</span>
-    <span class="doccomment">///     pixelcolor::BinaryColor,</span>
-    <span class="doccomment">///     prelude::*,</span>
-    <span class="doccomment">/// };</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// let image: ImageRaw&lt;BinaryColor&gt; = ImageRaw::new(&amp;[0xff, 0x00, 0xff, 0x00], 4);</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// let image = Image::new(&amp;image, Point::zero());</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// let image_moved = image.translate(Point::new(10, 20));</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// assert_eq!(image.bounding_box().top_left, Point::zero());</span>
-    <span class="doccomment">/// assert_eq!(image_moved.bounding_box().top_left, Point::new(10, 20));</span>
-    <span class="doccomment">/// ```</span>
-    <span class="kw">fn</span> <span class="ident">translate</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">by</span>: <span class="ident">Point</span>) -&gt; <span class="self">Self</span> {
-        <span class="self">Self</span> {
-            <span class="ident">image_drawable</span>: <span class="self">self</span>.<span class="ident">image_drawable</span>,
-            <span class="ident">offset</span>: <span class="self">self</span>.<span class="ident">offset</span> <span class="op">+</span> <span class="ident">by</span>,
+<span class="kw">impl</span>&lt;T&gt; Transform <span class="kw">for </span>Image&lt;<span class="lifetime">&#39;_</span>, T&gt; {
+    <span class="doccomment">/// Translate the image by a given delta, returning a new image
+    ///
+    /// # Examples
+    ///
+    /// ## Move an image around
+    ///
+    /// This examples moves a 4x4 black and white image by `(10, 20)` pixels without mutating the
+    /// original image
+    ///
+    /// ```rust
+    /// use embedded_graphics::{
+    ///     geometry::Point,
+    ///     image::{Image, ImageRaw},
+    ///     pixelcolor::BinaryColor,
+    ///     prelude::*,
+    /// };
+    ///
+    /// let image: ImageRaw&lt;BinaryColor&gt; = ImageRaw::new(&amp;[0xff, 0x00, 0xff, 0x00], 4);
+    ///
+    /// let image = Image::new(&amp;image, Point::zero());
+    ///
+    /// let image_moved = image.translate(Point::new(10, 20));
+    ///
+    /// assert_eq!(image.bounding_box().top_left, Point::zero());
+    /// assert_eq!(image_moved.bounding_box().top_left, Point::new(10, 20));
+    /// ```
+    </span><span class="kw">fn </span>translate(<span class="kw-2">&amp;</span><span class="self">self</span>, by: Point) -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{
+            image_drawable: <span class="self">self</span>.image_drawable,
+            offset: <span class="self">self</span>.offset + by,
         }
     }
 
-    <span class="doccomment">/// Translate the image by a given delta, modifying the original object</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Examples</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ## Move an image around</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// This examples moves a 4x4 black and white image by `(10, 20)` pixels by mutating the</span>
-    <span class="doccomment">/// original image</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ```rust</span>
-    <span class="doccomment">/// use embedded_graphics::{</span>
-    <span class="doccomment">///     geometry::Point,</span>
-    <span class="doccomment">///     image::{Image, ImageRaw},</span>
-    <span class="doccomment">///     pixelcolor::BinaryColor,</span>
-    <span class="doccomment">///     prelude::*,</span>
-    <span class="doccomment">/// };</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// let image: ImageRaw&lt;BinaryColor&gt; = ImageRaw::new(&amp;[0xff, 0x00, 0xff, 0x00], 4);</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// let mut image = Image::new(&amp;image, Point::zero());</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// image.translate_mut(Point::new(10, 20));</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// assert_eq!(image.bounding_box().top_left, Point::new(10, 20));</span>
-    <span class="doccomment">/// ```</span>
-    <span class="kw">fn</span> <span class="ident">translate_mut</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>, <span class="ident">by</span>: <span class="ident">Point</span>) -&gt; <span class="kw-2">&amp;mut</span> <span class="self">Self</span> {
-        <span class="self">self</span>.<span class="ident">offset</span> <span class="op">+</span><span class="op">=</span> <span class="ident">by</span>;
+    <span class="doccomment">/// Translate the image by a given delta, modifying the original object
+    ///
+    /// # Examples
+    ///
+    /// ## Move an image around
+    ///
+    /// This examples moves a 4x4 black and white image by `(10, 20)` pixels by mutating the
+    /// original image
+    ///
+    /// ```rust
+    /// use embedded_graphics::{
+    ///     geometry::Point,
+    ///     image::{Image, ImageRaw},
+    ///     pixelcolor::BinaryColor,
+    ///     prelude::*,
+    /// };
+    ///
+    /// let image: ImageRaw&lt;BinaryColor&gt; = ImageRaw::new(&amp;[0xff, 0x00, 0xff, 0x00], 4);
+    ///
+    /// let mut image = Image::new(&amp;image, Point::zero());
+    ///
+    /// image.translate_mut(Point::new(10, 20));
+    ///
+    /// assert_eq!(image.bounding_box().top_left, Point::new(10, 20));
+    /// ```
+    </span><span class="kw">fn </span>translate_mut(<span class="kw-2">&amp;mut </span><span class="self">self</span>, by: Point) -&gt; <span class="kw-2">&amp;mut </span><span class="self">Self </span>{
+        <span class="self">self</span>.offset += by;
 
-        <span class="self">self</span>
-    }
+        <span class="self">self
+    </span>}
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">T</span><span class="op">&gt;</span> <span class="ident">Drawable</span> <span class="kw">for</span> <span class="ident">Image</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">T</span><span class="op">&gt;</span>
-<span class="kw">where</span>
-    <span class="ident">T</span>: <span class="ident">ImageDrawable</span>,
+<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>, T&gt; Drawable <span class="kw">for </span>Image&lt;<span class="lifetime">&#39;a</span>, T&gt;
+<span class="kw">where
+    </span>T: ImageDrawable,
 {
-    <span class="kw">type</span> <span class="ident">Color</span> <span class="op">=</span> <span class="ident">T::Color</span>;
-    <span class="kw">type</span> <span class="ident">Output</span> <span class="op">=</span> ();
+    <span class="kw">type </span>Color = T::Color;
+    <span class="kw">type </span>Output = ();
 
-    <span class="kw">fn</span> <span class="ident">draw</span><span class="op">&lt;</span><span class="ident">D</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">display</span>: <span class="kw-2">&amp;mut</span> <span class="ident">D</span>) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Output</span>, <span class="ident">D::Error</span><span class="op">&gt;</span>
-    <span class="kw">where</span>
-        <span class="ident">D</span>: <span class="ident">DrawTarget</span><span class="op">&lt;</span><span class="ident">Color</span> <span class="op">=</span> <span class="ident"><span class="self">Self</span>::Color</span><span class="op">&gt;</span>,
+    <span class="kw">fn </span>draw&lt;D&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, display: <span class="kw-2">&amp;mut </span>D) -&gt; <span class="prelude-ty">Result</span>&lt;<span class="self">Self</span>::Output, D::Error&gt;
+    <span class="kw">where
+        </span>D: DrawTarget&lt;Color = <span class="self">Self</span>::Color&gt;,
     {
-        <span class="self">self</span>.<span class="ident">image_drawable</span>
-            .<span class="ident">draw</span>(<span class="kw-2">&amp;mut</span> <span class="ident">display</span>.<span class="ident">translated</span>(<span class="self">self</span>.<span class="ident">offset</span>))
+        <span class="self">self</span>.image_drawable
+            .draw(<span class="kw-2">&amp;mut </span>display.translated(<span class="self">self</span>.offset))
     }
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">T</span><span class="op">&gt;</span> <span class="ident">Dimensions</span> <span class="kw">for</span> <span class="ident">Image</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">T</span><span class="op">&gt;</span>
-<span class="kw">where</span>
-    <span class="ident">T</span>: <span class="ident">OriginDimensions</span>,
+<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>, T&gt; Dimensions <span class="kw">for </span>Image&lt;<span class="lifetime">&#39;a</span>, T&gt;
+<span class="kw">where
+    </span>T: OriginDimensions,
 {
-    <span class="kw">fn</span> <span class="ident">bounding_box</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Rectangle</span> {
-        <span class="self">self</span>.<span class="ident">image_drawable</span>.<span class="ident">bounding_box</span>().<span class="ident">translate</span>(<span class="self">self</span>.<span class="ident">offset</span>)
+    <span class="kw">fn </span>bounding_box(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Rectangle {
+        <span class="self">self</span>.image_drawable.bounding_box().translate(<span class="self">self</span>.offset)
     }
 }
 
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
-<span class="kw">mod</span> <span class="ident">tests</span> {
-    <span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
-    <span class="kw">use</span> <span class="kw">crate</span>::{<span class="ident">geometry::Size</span>, <span class="ident">mock_display::MockDisplay</span>, <span class="ident">pixelcolor::BinaryColor</span>};
+<span class="attribute">#[cfg(test)]
+</span><span class="kw">mod </span>tests {
+    <span class="kw">use super</span>::<span class="kw-2">*</span>;
+    <span class="kw">use crate</span>::{geometry::Size, mock_display::MockDisplay, pixelcolor::BinaryColor};
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">negative_top_left</span>() {
-        <span class="kw">let</span> <span class="ident">image</span>: <span class="ident">ImageRaw</span><span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">ImageRaw::new</span>(<span class="kw-2">&amp;</span>[<span class="number">0xff</span>, <span class="number">0x00</span>, <span class="number">0xff</span>, <span class="number">0x00</span>], <span class="number">4</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>negative_top_left() {
+        <span class="kw">let </span>image: ImageRaw&lt;BinaryColor&gt; = ImageRaw::new(<span class="kw-2">&amp;</span>[<span class="number">0xff</span>, <span class="number">0x00</span>, <span class="number">0xff</span>, <span class="number">0x00</span>], <span class="number">4</span>);
 
-        <span class="kw">let</span> <span class="ident">image</span> <span class="op">=</span> <span class="ident">Image::new</span>(<span class="kw-2">&amp;</span><span class="ident">image</span>, <span class="ident">Point::zero</span>()).<span class="ident">translate</span>(<span class="ident">Point::new</span>(<span class="op">-</span><span class="number">1</span>, <span class="op">-</span><span class="number">1</span>));
+        <span class="kw">let </span>image = Image::new(<span class="kw-2">&amp;</span>image, Point::zero()).translate(Point::new(-<span class="number">1</span>, -<span class="number">1</span>));
 
         <span class="macro">assert_eq!</span>(
-            <span class="ident">image</span>.<span class="ident">bounding_box</span>(),
-            <span class="ident">Rectangle::new</span>(<span class="ident">Point::new</span>(<span class="op">-</span><span class="number">1</span>, <span class="op">-</span><span class="number">1</span>), <span class="ident">Size::new</span>(<span class="number">4</span>, <span class="number">4</span>))
+            image.bounding_box(),
+            Rectangle::new(Point::new(-<span class="number">1</span>, -<span class="number">1</span>), Size::new(<span class="number">4</span>, <span class="number">4</span>))
         );
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">dimensions</span>() {
-        <span class="kw">let</span> <span class="ident">image</span>: <span class="ident">ImageRaw</span><span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">ImageRaw::new</span>(<span class="kw-2">&amp;</span>[<span class="number">0xff</span>, <span class="number">0x00</span>, <span class="number">0xFF</span>, <span class="number">0x00</span>], <span class="number">4</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>dimensions() {
+        <span class="kw">let </span>image: ImageRaw&lt;BinaryColor&gt; = ImageRaw::new(<span class="kw-2">&amp;</span>[<span class="number">0xff</span>, <span class="number">0x00</span>, <span class="number">0xFF</span>, <span class="number">0x00</span>], <span class="number">4</span>);
 
-        <span class="kw">let</span> <span class="ident">image</span> <span class="op">=</span> <span class="ident">Image::new</span>(<span class="kw-2">&amp;</span><span class="ident">image</span>, <span class="ident">Point::zero</span>()).<span class="ident">translate</span>(<span class="ident">Point::new</span>(<span class="number">100</span>, <span class="number">200</span>));
+        <span class="kw">let </span>image = Image::new(<span class="kw-2">&amp;</span>image, Point::zero()).translate(Point::new(<span class="number">100</span>, <span class="number">200</span>));
 
         <span class="macro">assert_eq!</span>(
-            <span class="ident">image</span>.<span class="ident">bounding_box</span>(),
-            <span class="ident">Rectangle::new</span>(<span class="ident">Point::new</span>(<span class="number">100</span>, <span class="number">200</span>), <span class="ident">Size::new</span>(<span class="number">4</span>, <span class="number">4</span>))
+            image.bounding_box(),
+            Rectangle::new(Point::new(<span class="number">100</span>, <span class="number">200</span>), Size::new(<span class="number">4</span>, <span class="number">4</span>))
         );
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">position</span>() {
-        <span class="kw">let</span> <span class="ident">image_raw</span>: <span class="ident">ImageRaw</span><span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">ImageRaw::new</span>(<span class="kw-2">&amp;</span>[<span class="number">0xAA</span>, <span class="number">0x55</span>, <span class="number">0xAA</span>, <span class="number">0x55</span>], <span class="number">4</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>position() {
+        <span class="kw">let </span>image_raw: ImageRaw&lt;BinaryColor&gt; = ImageRaw::new(<span class="kw-2">&amp;</span>[<span class="number">0xAA</span>, <span class="number">0x55</span>, <span class="number">0xAA</span>, <span class="number">0x55</span>], <span class="number">4</span>);
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
-        <span class="ident">Image::new</span>(<span class="kw-2">&amp;</span><span class="ident">image_raw</span>, <span class="ident">Point::new</span>(<span class="number">1</span>, <span class="number">2</span>))
-            .<span class="ident">draw</span>(<span class="kw-2">&amp;mut</span> <span class="ident">display</span>)
-            .<span class="ident">unwrap</span>();
+        <span class="kw">let </span><span class="kw-2">mut </span>display = MockDisplay::new();
+        Image::new(<span class="kw-2">&amp;</span>image_raw, Point::new(<span class="number">1</span>, <span class="number">2</span>))
+            .draw(<span class="kw-2">&amp;mut </span>display)
+            .unwrap();
 
-        <span class="ident">display</span>.<span class="ident">assert_pattern</span>(<span class="kw-2">&amp;</span>[
-            <span class="string">&quot;     &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;     &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot; #.#.&quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot; .#.#&quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot; #.#.&quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot; .#.#&quot;</span>, <span class="comment">//</span>
-        ]);
+        display.assert_pattern(<span class="kw-2">&amp;</span>[
+            <span class="string">&quot;     &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;     &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot; #.#.&quot;</span>, <span class="comment">//
+            </span><span class="string">&quot; .#.#&quot;</span>, <span class="comment">//
+            </span><span class="string">&quot; #.#.&quot;</span>, <span class="comment">//
+            </span><span class="string">&quot; .#.#&quot;</span>, <span class="comment">//
+        </span>]);
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="embedded_graphics" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0 (a55dd71d5 2022-09-19)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="embedded_graphics" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0 (69f9c33d7 2022-12-12)" ></div></body></html>

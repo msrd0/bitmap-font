@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/lib.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>lib.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script><script defer src="../../main.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../bitmap_font/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../bitmap_font/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../bitmap_font/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/lib.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>lib.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../normalize.css"><link rel="stylesheet" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../ayu.css" disabled><link rel="stylesheet" href="../../dark.css" disabled><link rel="stylesheet" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script><script defer src="../../main.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../bitmap_font/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -323,330 +323,330 @@
 <span id="323">323</span>
 <span id="324">324</span>
 <span id="325">325</span>
-</pre><pre class="rust"><code><span class="attribute">#![<span class="ident">cfg_attr</span>(<span class="ident">not</span>(<span class="ident">test</span>), <span class="ident">no_std</span>)]</span>
-<span class="attribute">#![<span class="ident">allow</span>(<span class="ident">clippy::tabs_in_doc_comments</span>)]</span>
-<span class="attribute">#![<span class="ident">warn</span>(<span class="ident">rust_2018_idioms</span>, <span class="ident">unreachable_pub</span>)]</span>
-<span class="attribute">#![<span class="ident">forbid</span>(<span class="ident">unsafe_code</span>)]</span>
+</pre><pre class="rust"><code><span class="attribute">#![cfg_attr(not(test), no_std)]
+#![allow(clippy::tabs_in_doc_comments)]
+#![warn(rust_2018_idioms, unreachable_pub)]
+#![forbid(unsafe_code)]
 
-<span class="doccomment">//! This crate provides bitmap fonts for the [`embedded-graphics`] crate. Those don&#39;t only look</span>
-<span class="doccomment">//! better than the [built-in fonts](embedded_graphics::mono_font) by using the good-looking</span>
-<span class="doccomment">//! [Tamzen font](https://github.com/sunaku/tamzen-font) over a font that renders `.` like a `+`,</span>
-<span class="doccomment">//! but also allow scaling fonts by pixel-doubling them, giving you two font sizes for the flash</span>
-<span class="doccomment">//! size requirements of the smaller one.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! See the [`tamzen`] module for a list of all included fonts.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! # Usage</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ```rust</span>
-<span class="doccomment">//! use bitmap_font::{tamzen::FONT_8x15, BitmapFont, TextStyle};</span>
-<span class="doccomment">//! use embedded_graphics::{pixelcolor::BinaryColor, prelude::*, text::Text};</span>
-<span class="doccomment">//! # use core::convert::Infallible;</span>
-<span class="doccomment">//! # struct Display;</span>
-<span class="doccomment">//! # impl OriginDimensions for Display {</span>
-<span class="doccomment">//! #   fn size(&amp;self) -&gt; Size { unimplemented!() }</span>
-<span class="doccomment">//! # }</span>
-<span class="doccomment">//! # impl DrawTarget for Display {</span>
-<span class="doccomment">//! #   type Color = BinaryColor;</span>
-<span class="doccomment">//! #   type Error = Infallible;</span>
-<span class="doccomment">//! #   fn draw_iter&lt;I&gt;(&amp;mut self, pixels: I) -&gt; Result&lt;(), Infallible&gt;</span>
-<span class="doccomment">//! #   where I: IntoIterator&lt;Item = Pixel&lt;BinaryColor&gt;&gt;</span>
-<span class="doccomment">//! #   { Ok(()) }</span>
-<span class="doccomment">//! # }</span>
-<span class="doccomment">//! # fn main() -&gt; Result&lt;(), Infallible&gt; {</span>
-<span class="doccomment">//! # let mut display = Display;</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! // Draw text &#39;Hello World!&#39; with the top left corner being the origin</span>
-<span class="doccomment">//! let text = Text::new(</span>
-<span class="doccomment">//! 	&quot;Hello World!&quot;,</span>
-<span class="doccomment">//! 	Point::zero(),</span>
-<span class="doccomment">//! 	TextStyle::new(&amp;FONT_8x15, BinaryColor::On)</span>
-<span class="doccomment">//! );</span>
-<span class="doccomment">//! text.draw(&amp;mut display)?;</span>
-<span class="doccomment">//! # Ok(())</span>
-<span class="doccomment">//! # }</span>
-<span class="doccomment">//! ```</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//!  [`embedded-graphics`]: embedded_graphics</span>
+</span><span class="doccomment">//! This crate provides bitmap fonts for the [`embedded-graphics`] crate. Those don&#39;t only look
+//! better than the [built-in fonts](embedded_graphics::mono_font) by using the good-looking
+//! [Tamzen font](https://github.com/sunaku/tamzen-font) over a font that renders `.` like a `+`,
+//! but also allow scaling fonts by pixel-doubling them, giving you two font sizes for the flash
+//! size requirements of the smaller one.
+//!
+//! See the [`tamzen`] module for a list of all included fonts.
+//!
+//! # Usage
+//!
+//! ```rust
+//! use bitmap_font::{tamzen::FONT_8x15, BitmapFont, TextStyle};
+//! use embedded_graphics::{pixelcolor::BinaryColor, prelude::*, text::Text};
+//! # use core::convert::Infallible;
+//! # struct Display;
+//! # impl OriginDimensions for Display {
+//! #   fn size(&amp;self) -&gt; Size { unimplemented!() }
+//! # }
+//! # impl DrawTarget for Display {
+//! #   type Color = BinaryColor;
+//! #   type Error = Infallible;
+//! #   fn draw_iter&lt;I&gt;(&amp;mut self, pixels: I) -&gt; Result&lt;(), Infallible&gt;
+//! #   where I: IntoIterator&lt;Item = Pixel&lt;BinaryColor&gt;&gt;
+//! #   { Ok(()) }
+//! # }
+//! # fn main() -&gt; Result&lt;(), Infallible&gt; {
+//! # let mut display = Display;
+//!
+//! // Draw text &#39;Hello World!&#39; with the top left corner being the origin
+//! let text = Text::new(
+//! 	&quot;Hello World!&quot;,
+//! 	Point::zero(),
+//! 	TextStyle::new(&amp;FONT_8x15, BinaryColor::On)
+//! );
+//! text.draw(&amp;mut display)?;
+//! # Ok(())
+//! # }
+//! ```
+//!
+//!  [`embedded-graphics`]: embedded_graphics
 
-<span class="kw">use</span> <span class="ident">core::num::NonZeroU8</span>;
-<span class="kw">use</span> <span class="ident">embedded_graphics</span>::{
-	<span class="ident">draw_target::DrawTarget</span>,
-	<span class="ident">geometry</span>::{<span class="ident">Dimensions</span>, <span class="ident">OriginDimensions</span>, <span class="ident">Point</span>, <span class="ident">Size</span>},
-	<span class="ident">image</span>::{<span class="ident">ImageDrawable</span>, <span class="ident">ImageRaw</span>},
-	<span class="ident">mono_font::mapping::GlyphMapping</span>,
-	<span class="ident">pixelcolor::BinaryColor</span>,
-	<span class="ident">primitives::Rectangle</span>,
-	<span class="ident">text</span>::{
-		<span class="ident">renderer</span>::{<span class="ident">TextMetrics</span>, <span class="ident">TextRenderer</span>},
-		<span class="ident">Baseline</span>
+</span><span class="kw">use </span>core::num::NonZeroU8;
+<span class="kw">use </span>embedded_graphics::{
+	draw_target::DrawTarget,
+	geometry::{Dimensions, OriginDimensions, Point, Size},
+	image::{ImageDrawable, ImageRaw},
+	mono_font::mapping::GlyphMapping,
+	pixelcolor::BinaryColor,
+	primitives::Rectangle,
+	text::{
+		renderer::{TextMetrics, TextRenderer},
+		Baseline
 	},
-	<span class="ident">Pixel</span>
+	Pixel
 };
 
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">tamzen</span>;
+<span class="kw">pub mod </span>tamzen;
 
-<span class="doccomment">/// Stores the font bitmap and some additional info for each font.</span>
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Clone</span>, <span class="ident">Copy</span>)]</span>
-<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">BitmapFont</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
-	<span class="doccomment">/// The raw bitmap data for the font.</span>
-	<span class="ident">bitmap</span>: <span class="ident">ImageRaw</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">BinaryColor</span><span class="op">&gt;</span>,
+<span class="doccomment">/// Stores the font bitmap and some additional info for each font.
+</span><span class="attribute">#[derive(Clone, Copy)]
+</span><span class="kw">pub struct </span>BitmapFont&lt;<span class="lifetime">&#39;a</span>&gt; {
+	<span class="doccomment">/// The raw bitmap data for the font.
+	</span>bitmap: ImageRaw&lt;<span class="lifetime">&#39;a</span>, BinaryColor&gt;,
 
-	<span class="doccomment">/// The char to glyph mapping.</span>
-	<span class="ident">glyph_mapping</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="kw">dyn</span> <span class="ident">GlyphMapping</span>,
+	<span class="doccomment">/// The char to glyph mapping.
+	</span>glyph_mapping: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span><span class="kw">dyn </span>GlyphMapping,
 
-	<span class="doccomment">/// The size of each character in the raw bitmap data.</span>
-	<span class="ident">size</span>: <span class="ident">Size</span>,
+	<span class="doccomment">/// The size of each character in the raw bitmap data.
+	</span>size: Size,
 
-	<span class="doccomment">/// The amount of pixels to draw per each font pixel. Set to `2` for</span>
-	<span class="doccomment">/// pixel-double font.</span>
-	<span class="ident">pixels</span>: <span class="ident">NonZeroU8</span>
+	<span class="doccomment">/// The amount of pixels to draw per each font pixel. Set to `2` for
+	/// pixel-double font.
+	</span>pixels: NonZeroU8
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="ident">BitmapFont</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
-	<span class="doccomment">/// Return the width of each character.</span>
-	<span class="kw">pub</span> <span class="kw">const</span> <span class="kw">fn</span> <span class="ident">width</span>(<span class="self">self</span>) -&gt; <span class="ident">u32</span> {
-		<span class="self">self</span>.<span class="ident">size</span>.<span class="ident">width</span> <span class="op">*</span> <span class="self">self</span>.<span class="ident">pixels</span>.<span class="ident">get</span>() <span class="kw">as</span> <span class="ident">u32</span>
+<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>&gt; BitmapFont&lt;<span class="lifetime">&#39;a</span>&gt; {
+	<span class="doccomment">/// Return the width of each character.
+	</span><span class="kw">pub const fn </span>width(<span class="self">self</span>) -&gt; u32 {
+		<span class="self">self</span>.size.width * <span class="self">self</span>.pixels.get() <span class="kw">as </span>u32
 	}
 
-	<span class="doccomment">/// Return the height of each character.</span>
-	<span class="kw">pub</span> <span class="kw">const</span> <span class="kw">fn</span> <span class="ident">height</span>(<span class="self">self</span>) -&gt; <span class="ident">u32</span> {
-		<span class="self">self</span>.<span class="ident">size</span>.<span class="ident">height</span> <span class="op">*</span> <span class="self">self</span>.<span class="ident">pixels</span>.<span class="ident">get</span>() <span class="kw">as</span> <span class="ident">u32</span>
+	<span class="doccomment">/// Return the height of each character.
+	</span><span class="kw">pub const fn </span>height(<span class="self">self</span>) -&gt; u32 {
+		<span class="self">self</span>.size.height * <span class="self">self</span>.pixels.get() <span class="kw">as </span>u32
 	}
 
-	<span class="doccomment">/// Draw a glyph to the `target` with `color` at position `pos`.</span>
-	<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">draw_glyph</span><span class="op">&lt;</span><span class="ident">D</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">idx</span>: <span class="ident">u32</span>, <span class="ident">target</span>: <span class="kw-2">&amp;mut</span> <span class="ident">D</span>, <span class="ident">color</span>: <span class="ident">BinaryColor</span>, <span class="ident">pos</span>: <span class="ident">Point</span>) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">D::Error</span><span class="op">&gt;</span>
-	<span class="kw">where</span>
-		<span class="ident">D</span>: <span class="ident">DrawTarget</span><span class="op">&lt;</span><span class="ident">Color</span> <span class="op">=</span> <span class="ident">BinaryColor</span><span class="op">&gt;</span>
+	<span class="doccomment">/// Draw a glyph to the `target` with `color` at position `pos`.
+	</span><span class="kw">pub fn </span>draw_glyph&lt;D&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, idx: u32, target: <span class="kw-2">&amp;mut </span>D, color: BinaryColor, pos: Point) -&gt; <span class="prelude-ty">Result</span>&lt;(), D::Error&gt;
+	<span class="kw">where
+		</span>D: DrawTarget&lt;Color = BinaryColor&gt;
 	{
-		<span class="kw">let</span> <span class="ident">char_per_row</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">bitmap</span>.<span class="ident">size</span>().<span class="ident">width</span> <span class="op">/</span> <span class="self">self</span>.<span class="ident">size</span>.<span class="ident">width</span>;
-		<span class="kw">let</span> <span class="ident">row</span> <span class="op">=</span> <span class="ident">idx</span> <span class="op">/</span> <span class="ident">char_per_row</span>;
+		<span class="kw">let </span>char_per_row = <span class="self">self</span>.bitmap.size().width / <span class="self">self</span>.size.width;
+		<span class="kw">let </span>row = idx / char_per_row;
 
-		<span class="comment">// index in the raw bitmap</span>
-		<span class="kw">let</span> <span class="ident">char_x</span> <span class="op">=</span> (<span class="ident">idx</span> <span class="op">-</span> (<span class="ident">row</span> <span class="op">*</span> <span class="ident">char_per_row</span>)) <span class="op">*</span> <span class="self">self</span>.<span class="ident">size</span>.<span class="ident">width</span>;
-		<span class="kw">let</span> <span class="ident">char_y</span> <span class="op">=</span> <span class="ident">row</span> <span class="op">*</span> <span class="self">self</span>.<span class="ident">size</span>.<span class="ident">height</span>;
-		<span class="kw">let</span> <span class="ident">area</span> <span class="op">=</span> <span class="ident">Rectangle::new</span>(<span class="ident">Point::new</span>(<span class="ident">char_x</span> <span class="kw">as</span> <span class="kw">_</span>, <span class="ident">char_y</span> <span class="kw">as</span> <span class="kw">_</span>), <span class="self">self</span>.<span class="ident">size</span>);
+		<span class="comment">// index in the raw bitmap
+		</span><span class="kw">let </span>char_x = (idx - (row * char_per_row)) * <span class="self">self</span>.size.width;
+		<span class="kw">let </span>char_y = row * <span class="self">self</span>.size.height;
+		<span class="kw">let </span>area = Rectangle::new(Point::new(char_x <span class="kw">as _</span>, char_y <span class="kw">as _</span>), <span class="self">self</span>.size);
 
-		<span class="comment">// draw the glyph, suitably pixel-doubled</span>
-		<span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">pixel_doubling_target</span> <span class="op">=</span> <span class="ident">PixelDoublingDrawTarget</span> {
-			<span class="ident">target</span>,
-			<span class="ident">color</span>,
-			<span class="ident">offset</span>: <span class="ident">pos</span>,
-			<span class="ident">pixels</span>: <span class="self">self</span>.<span class="ident">pixels</span>
+		<span class="comment">// draw the glyph, suitably pixel-doubled
+		</span><span class="kw">let </span><span class="kw-2">mut </span>pixel_doubling_target = PixelDoublingDrawTarget {
+			target,
+			color,
+			offset: pos,
+			pixels: <span class="self">self</span>.pixels
 		};
-		<span class="self">self</span>.<span class="ident">bitmap</span>.<span class="ident">draw_sub_image</span>(<span class="kw-2">&amp;mut</span> <span class="ident">pixel_doubling_target</span>, <span class="kw-2">&amp;</span><span class="ident">area</span>)<span class="question-mark">?</span>;
+		<span class="self">self</span>.bitmap.draw_sub_image(<span class="kw-2">&amp;mut </span>pixel_doubling_target, <span class="kw-2">&amp;</span>area)<span class="question-mark">?</span>;
 
 		<span class="prelude-val">Ok</span>(())
 	}
 
-	<span class="doccomment">/// Returns a pixel-double version of this font.</span>
-	<span class="kw">pub</span> <span class="kw">const</span> <span class="kw">fn</span> <span class="ident">pixel_double</span>(<span class="kw-2">mut</span> <span class="self">self</span>) -&gt; <span class="self">Self</span> {
-		<span class="comment">// unwrap: if x is not zero, x*2 is also not zero</span>
-		<span class="self">self</span>.<span class="ident">pixels</span> <span class="op">=</span> <span class="kw">match</span> <span class="ident">NonZeroU8::new</span>(<span class="self">self</span>.<span class="ident">pixels</span>.<span class="ident">get</span>() <span class="op">*</span> <span class="number">2</span>) {
-			<span class="prelude-val">Some</span>(<span class="ident">px</span>) =&gt; <span class="ident">px</span>,
-			<span class="prelude-val">None</span> =&gt; <span class="macro">unreachable!</span>()
+	<span class="doccomment">/// Returns a pixel-double version of this font.
+	</span><span class="kw">pub const fn </span>pixel_double(<span class="kw-2">mut </span><span class="self">self</span>) -&gt; <span class="self">Self </span>{
+		<span class="comment">// unwrap: if x is not zero, x*2 is also not zero
+		</span><span class="self">self</span>.pixels = <span class="kw">match </span>NonZeroU8::new(<span class="self">self</span>.pixels.get() * <span class="number">2</span>) {
+			<span class="prelude-val">Some</span>(px) =&gt; px,
+			<span class="prelude-val">None </span>=&gt; <span class="macro">unreachable!</span>()
 		};
-		<span class="self">self</span>
+		<span class="self">self
+	</span>}
+}
+
+<span class="doccomment">/// The equivalent of [`MonoTextStyle`][embedded_graphics::mono_font::MonoTextStyle] for [`BitmapFont`].
+</span><span class="attribute">#[derive(Clone, Copy)]
+#[non_exhaustive]
+</span><span class="kw">pub struct </span>TextStyle&lt;<span class="lifetime">&#39;a</span>&gt; {
+	<span class="kw">pub </span>font: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>BitmapFont&lt;<span class="lifetime">&#39;a</span>&gt;,
+	<span class="kw">pub </span>color: BinaryColor
+}
+
+<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>&gt; TextStyle&lt;<span class="lifetime">&#39;a</span>&gt; {
+	<span class="kw">pub fn </span>new(font: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>BitmapFont&lt;<span class="lifetime">&#39;a</span>&gt;, color: BinaryColor) -&gt; <span class="self">Self </span>{
+		<span class="self">Self </span>{ font, color }
 	}
 }
 
-<span class="doccomment">/// The equivalent of [`MonoTextStyle`][embedded_graphics::mono_font::MonoTextStyle] for [`BitmapFont`].</span>
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Clone</span>, <span class="ident">Copy</span>)]</span>
-<span class="attribute">#[<span class="ident">non_exhaustive</span>]</span>
-<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">TextStyle</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
-	<span class="kw">pub</span> <span class="ident">font</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">BitmapFont</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span>,
-	<span class="kw">pub</span> <span class="ident">color</span>: <span class="ident">BinaryColor</span>
-}
+<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>&gt; TextRenderer <span class="kw">for </span>TextStyle&lt;<span class="lifetime">&#39;a</span>&gt; {
+	<span class="kw">type </span>Color = BinaryColor;
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="ident">TextStyle</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
-	<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">font</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">BitmapFont</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span>, <span class="ident">color</span>: <span class="ident">BinaryColor</span>) -&gt; <span class="self">Self</span> {
-		<span class="self">Self</span> { <span class="ident">font</span>, <span class="ident">color</span> }
-	}
-}
-
-<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="ident">TextRenderer</span> <span class="kw">for</span> <span class="ident">TextStyle</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
-	<span class="kw">type</span> <span class="ident">Color</span> <span class="op">=</span> <span class="ident">BinaryColor</span>;
-
-	<span class="kw">fn</span> <span class="ident">draw_string</span><span class="op">&lt;</span><span class="ident">D</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">text</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="kw-2">mut</span> <span class="ident">pos</span>: <span class="ident">Point</span>, <span class="kw">_</span>: <span class="ident">Baseline</span>, <span class="ident">target</span>: <span class="kw-2">&amp;mut</span> <span class="ident">D</span>) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">Point</span>, <span class="ident">D::Error</span><span class="op">&gt;</span>
-	<span class="kw">where</span>
-		<span class="ident">D</span>: <span class="ident">DrawTarget</span><span class="op">&lt;</span><span class="ident">Color</span> <span class="op">=</span> <span class="ident"><span class="self">Self</span>::Color</span><span class="op">&gt;</span>
+	<span class="kw">fn </span>draw_string&lt;D&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, text: <span class="kw-2">&amp;</span>str, <span class="kw-2">mut </span>pos: Point, <span class="kw">_</span>: Baseline, target: <span class="kw-2">&amp;mut </span>D) -&gt; <span class="prelude-ty">Result</span>&lt;Point, D::Error&gt;
+	<span class="kw">where
+		</span>D: DrawTarget&lt;Color = <span class="self">Self</span>::Color&gt;
 	{
-		<span class="kw">for</span> <span class="ident">c</span> <span class="kw">in</span> <span class="ident">text</span>.<span class="ident">chars</span>() {
-			<span class="kw">let</span> <span class="ident">glyph_idx</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">font</span>.<span class="ident">glyph_mapping</span>.<span class="ident">index</span>(<span class="ident">c</span>) <span class="kw">as</span> <span class="ident">u32</span>;
-			<span class="self">self</span>.<span class="ident">font</span>.<span class="ident">draw_glyph</span>(<span class="ident">glyph_idx</span>, <span class="ident">target</span>, <span class="self">self</span>.<span class="ident">color</span>, <span class="ident">pos</span>)<span class="question-mark">?</span>;
-			<span class="ident">pos</span> <span class="op">+</span><span class="op">=</span> <span class="ident">Size::new</span>(<span class="self">self</span>.<span class="ident">font</span>.<span class="ident">width</span>(), <span class="number">0</span>);
+		<span class="kw">for </span>c <span class="kw">in </span>text.chars() {
+			<span class="kw">let </span>glyph_idx = <span class="self">self</span>.font.glyph_mapping.index(c) <span class="kw">as </span>u32;
+			<span class="self">self</span>.font.draw_glyph(glyph_idx, target, <span class="self">self</span>.color, pos)<span class="question-mark">?</span>;
+			pos += Size::new(<span class="self">self</span>.font.width(), <span class="number">0</span>);
 		}
-		<span class="prelude-val">Ok</span>(<span class="ident">pos</span>)
+		<span class="prelude-val">Ok</span>(pos)
 	}
 
-	<span class="kw">fn</span> <span class="ident">draw_whitespace</span><span class="op">&lt;</span><span class="ident">D</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">width</span>: <span class="ident">u32</span>, <span class="ident">pos</span>: <span class="ident">Point</span>, <span class="kw">_</span>: <span class="ident">Baseline</span>, <span class="kw">_</span>: <span class="kw-2">&amp;mut</span> <span class="ident">D</span>) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">Point</span>, <span class="ident">D::Error</span><span class="op">&gt;</span>
-	<span class="kw">where</span>
-		<span class="ident">D</span>: <span class="ident">DrawTarget</span><span class="op">&lt;</span><span class="ident">Color</span> <span class="op">=</span> <span class="ident"><span class="self">Self</span>::Color</span><span class="op">&gt;</span>
+	<span class="kw">fn </span>draw_whitespace&lt;D&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, width: u32, pos: Point, <span class="kw">_</span>: Baseline, <span class="kw">_</span>: <span class="kw-2">&amp;mut </span>D) -&gt; <span class="prelude-ty">Result</span>&lt;Point, D::Error&gt;
+	<span class="kw">where
+		</span>D: DrawTarget&lt;Color = <span class="self">Self</span>::Color&gt;
 	{
-		<span class="comment">// we don&#39;t draw background nor text decorations</span>
-		<span class="prelude-val">Ok</span>(<span class="ident">pos</span> <span class="op">+</span> <span class="ident">Size::new</span>(<span class="ident">width</span> <span class="op">*</span> <span class="self">self</span>.<span class="ident">font</span>.<span class="ident">width</span>(), <span class="number">0</span>))
+		<span class="comment">// we don&#39;t draw background nor text decorations
+		</span><span class="prelude-val">Ok</span>(pos + Size::new(width * <span class="self">self</span>.font.width(), <span class="number">0</span>))
 	}
 
-	<span class="kw">fn</span> <span class="ident">measure_string</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">text</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="ident">pos</span>: <span class="ident">Point</span>, <span class="kw">_</span>: <span class="ident">Baseline</span>) -&gt; <span class="ident">TextMetrics</span> {
-		<span class="kw">let</span> <span class="ident">size</span> <span class="op">=</span> <span class="ident">Size::new</span>(<span class="self">self</span>.<span class="ident">font</span>.<span class="ident">width</span>() <span class="op">*</span> <span class="ident">text</span>.<span class="ident">len</span>() <span class="kw">as</span> <span class="ident">u32</span>, <span class="self">self</span>.<span class="ident">font</span>.<span class="ident">height</span>());
-		<span class="ident">TextMetrics</span> {
-			<span class="ident">bounding_box</span>: <span class="ident">Rectangle::new</span>(<span class="ident">pos</span>, <span class="ident">size</span>),
-			<span class="ident">next_position</span>: <span class="ident">pos</span> <span class="op">+</span> <span class="ident">Size::new</span>(<span class="ident">size</span>.<span class="ident">width</span>, <span class="number">0</span>)
+	<span class="kw">fn </span>measure_string(<span class="kw-2">&amp;</span><span class="self">self</span>, text: <span class="kw-2">&amp;</span>str, pos: Point, <span class="kw">_</span>: Baseline) -&gt; TextMetrics {
+		<span class="kw">let </span>size = Size::new(<span class="self">self</span>.font.width() * text.len() <span class="kw">as </span>u32, <span class="self">self</span>.font.height());
+		TextMetrics {
+			bounding_box: Rectangle::new(pos, size),
+			next_position: pos + Size::new(size.width, <span class="number">0</span>)
 		}
 	}
 
-	<span class="kw">fn</span> <span class="ident">line_height</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">u32</span> {
-		<span class="self">self</span>.<span class="ident">font</span>.<span class="ident">height</span>()
+	<span class="kw">fn </span>line_height(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; u32 {
+		<span class="self">self</span>.font.height()
 	}
 }
 
-<span class="doccomment">/// A pixel-doubling draw target. This works by intercepting all drawing operations, and doubling</span>
-<span class="doccomment">/// all pixels from the point of the origin. **This means you need to carefully select your</span>
-<span class="doccomment">/// origin!** All drawing operations, after being pixel-doubled (i.e. multiplied by the amount</span>
-<span class="doccomment">/// of pixels specified), will be offseted to map your custom origin to the `target`&#39;s origin.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// Also, this target draws `color` for all pixels that are on, and nothing for all pixels</span>
-<span class="doccomment">/// that are off.</span>
-<span class="kw">struct</span> <span class="ident">PixelDoublingDrawTarget</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">D</span>: <span class="ident">DrawTarget</span><span class="op">&lt;</span><span class="ident">Color</span> <span class="op">=</span> <span class="ident">BinaryColor</span><span class="op">&gt;</span><span class="op">&gt;</span> {
-	<span class="ident">target</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="kw-2">mut</span> <span class="ident">D</span>,
-	<span class="ident">color</span>: <span class="ident">BinaryColor</span>,
-	<span class="ident">offset</span>: <span class="ident">Point</span>,
-	<span class="ident">pixels</span>: <span class="ident">NonZeroU8</span>
+<span class="doccomment">/// A pixel-doubling draw target. This works by intercepting all drawing operations, and doubling
+/// all pixels from the point of the origin. **This means you need to carefully select your
+/// origin!** All drawing operations, after being pixel-doubled (i.e. multiplied by the amount
+/// of pixels specified), will be offseted to map your custom origin to the `target`&#39;s origin.
+///
+/// Also, this target draws `color` for all pixels that are on, and nothing for all pixels
+/// that are off.
+</span><span class="kw">struct </span>PixelDoublingDrawTarget&lt;<span class="lifetime">&#39;a</span>, D: DrawTarget&lt;Color = BinaryColor&gt;&gt; {
+	target: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span><span class="kw-2">mut </span>D,
+	color: BinaryColor,
+	offset: Point,
+	pixels: NonZeroU8
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">D</span><span class="op">&gt;</span> <span class="ident">Dimensions</span> <span class="kw">for</span> <span class="ident">PixelDoublingDrawTarget</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">D</span><span class="op">&gt;</span>
-<span class="kw">where</span>
-	<span class="ident">D</span>: <span class="ident">DrawTarget</span><span class="op">&lt;</span><span class="ident">Color</span> <span class="op">=</span> <span class="ident">BinaryColor</span><span class="op">&gt;</span>
+<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>, D&gt; Dimensions <span class="kw">for </span>PixelDoublingDrawTarget&lt;<span class="lifetime">&#39;a</span>, D&gt;
+<span class="kw">where
+	</span>D: DrawTarget&lt;Color = BinaryColor&gt;
 {
-	<span class="kw">fn</span> <span class="ident">bounding_box</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Rectangle</span> {
-		<span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">bb</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">target</span>.<span class="ident">bounding_box</span>();
-		<span class="ident">bb</span>.<span class="ident">top_left</span> <span class="op">-</span><span class="op">=</span> <span class="self">self</span>.<span class="ident">offset</span>;
-		<span class="ident">bb</span>.<span class="ident">top_left</span> <span class="op">/</span><span class="op">=</span> <span class="self">self</span>.<span class="ident">pixels</span>.<span class="ident">get</span>().<span class="ident">into</span>();
-		<span class="ident">bb</span>.<span class="ident">size</span> <span class="op">/</span><span class="op">=</span> <span class="self">self</span>.<span class="ident">pixels</span>.<span class="ident">get</span>().<span class="ident">into</span>();
-		<span class="ident">bb</span>
+	<span class="kw">fn </span>bounding_box(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Rectangle {
+		<span class="kw">let </span><span class="kw-2">mut </span>bb = <span class="self">self</span>.target.bounding_box();
+		bb.top_left -= <span class="self">self</span>.offset;
+		bb.top_left /= <span class="self">self</span>.pixels.get().into();
+		bb.size /= <span class="self">self</span>.pixels.get().into();
+		bb
 	}
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">D</span><span class="op">&gt;</span> <span class="ident">DrawTarget</span> <span class="kw">for</span> <span class="ident">PixelDoublingDrawTarget</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">D</span><span class="op">&gt;</span>
-<span class="kw">where</span>
-	<span class="ident">D</span>: <span class="ident">DrawTarget</span><span class="op">&lt;</span><span class="ident">Color</span> <span class="op">=</span> <span class="ident">BinaryColor</span><span class="op">&gt;</span>
+<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>, D&gt; DrawTarget <span class="kw">for </span>PixelDoublingDrawTarget&lt;<span class="lifetime">&#39;a</span>, D&gt;
+<span class="kw">where
+	</span>D: DrawTarget&lt;Color = BinaryColor&gt;
 {
-	<span class="kw">type</span> <span class="ident">Color</span> <span class="op">=</span> <span class="ident">BinaryColor</span>;
-	<span class="kw">type</span> <span class="ident">Error</span> <span class="op">=</span> <span class="ident">D::Error</span>;
+	<span class="kw">type </span>Color = BinaryColor;
+	<span class="kw">type </span>Error = D::Error;
 
-	<span class="kw">fn</span> <span class="ident">draw_iter</span><span class="op">&lt;</span><span class="ident">I</span><span class="op">&gt;</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>, <span class="ident">pixel_iter</span>: <span class="ident">I</span>) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident"><span class="self">Self</span>::Error</span><span class="op">&gt;</span>
-	<span class="kw">where</span>
-		<span class="ident">I</span>: <span class="ident">IntoIterator</span><span class="op">&lt;</span><span class="ident">Item</span> <span class="op">=</span> <span class="ident">Pixel</span><span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span><span class="op">&gt;</span>
+	<span class="kw">fn </span>draw_iter&lt;I&gt;(<span class="kw-2">&amp;mut </span><span class="self">self</span>, pixel_iter: I) -&gt; <span class="prelude-ty">Result</span>&lt;(), <span class="self">Self</span>::Error&gt;
+	<span class="kw">where
+		</span>I: IntoIterator&lt;Item = Pixel&lt;BinaryColor&gt;&gt;
 	{
-		<span class="kw">let</span> <span class="ident">color</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">color</span>;
-		<span class="kw">let</span> <span class="ident">offset</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">offset</span>;
-		<span class="kw">let</span> <span class="ident">pixels</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">pixels</span>.<span class="ident">get</span>();
-		<span class="self">self</span>.<span class="ident">target</span>.<span class="ident">draw_iter</span>(
-			<span class="ident">pixel_iter</span>
-				.<span class="ident">into_iter</span>()
-				.<span class="ident">filter</span>(<span class="op">|</span><span class="ident">pixel</span><span class="op">|</span> <span class="ident">pixel</span>.<span class="number">1</span> <span class="op">==</span> <span class="ident">BinaryColor::On</span>)
-				.<span class="ident">flat_map</span>(<span class="op">|</span><span class="ident">pixel</span><span class="op">|</span> <span class="ident">PixelDoublingIterator::new</span>(<span class="ident">pixel</span>, <span class="ident">pixels</span>).<span class="ident">map</span>(<span class="op">|</span><span class="ident">pixel</span><span class="op">|</span> <span class="ident">Pixel</span>(<span class="ident">pixel</span>.<span class="number">0</span> <span class="op">+</span> <span class="ident">offset</span>, <span class="ident">color</span>)))
+		<span class="kw">let </span>color = <span class="self">self</span>.color;
+		<span class="kw">let </span>offset = <span class="self">self</span>.offset;
+		<span class="kw">let </span>pixels = <span class="self">self</span>.pixels.get();
+		<span class="self">self</span>.target.draw_iter(
+			pixel_iter
+				.into_iter()
+				.filter(|pixel| pixel.<span class="number">1 </span>== BinaryColor::On)
+				.flat_map(|pixel| PixelDoublingIterator::new(pixel, pixels).map(|pixel| Pixel(pixel.<span class="number">0 </span>+ offset, color)))
 		)
 	}
 }
 
-<span class="kw">struct</span> <span class="ident">PixelDoublingIterator</span> {
-	<span class="ident">color</span>: <span class="ident">BinaryColor</span>,
-	<span class="ident">pos</span>: <span class="ident">Point</span>,
-	<span class="comment">// pixels traveled in x direction</span>
-	<span class="ident">x</span>: <span class="ident">u8</span>,
-	<span class="comment">// remaining after this one</span>
-	<span class="ident">remaining_x</span>: <span class="ident">u8</span>,
-	<span class="comment">// remaining including this one</span>
-	<span class="ident">remaining_y</span>: <span class="ident">u8</span>
+<span class="kw">struct </span>PixelDoublingIterator {
+	color: BinaryColor,
+	pos: Point,
+	<span class="comment">// pixels traveled in x direction
+	</span>x: u8,
+	<span class="comment">// remaining after this one
+	</span>remaining_x: u8,
+	<span class="comment">// remaining including this one
+	</span>remaining_y: u8
 }
 
-<span class="kw">impl</span> <span class="ident">PixelDoublingIterator</span> {
-	<span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">pixel</span>: <span class="ident">Pixel</span><span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span>, <span class="ident">pixels</span>: <span class="ident">u8</span>) -&gt; <span class="self">Self</span> {
-		<span class="self">Self</span> {
-			<span class="ident">color</span>: <span class="ident">pixel</span>.<span class="number">1</span>,
-			<span class="ident">pos</span>: <span class="ident">pixel</span>.<span class="number">0</span> <span class="op">*</span> <span class="ident">pixels</span> <span class="kw">as</span> <span class="kw">_</span>,
-			<span class="ident">x</span>: <span class="number">0</span>,
-			<span class="ident">remaining_x</span>: <span class="ident">pixels</span> <span class="op">-</span> <span class="number">1</span>,
-			<span class="ident">remaining_y</span>: <span class="ident">pixels</span>
+<span class="kw">impl </span>PixelDoublingIterator {
+	<span class="kw">fn </span>new(pixel: Pixel&lt;BinaryColor&gt;, pixels: u8) -&gt; <span class="self">Self </span>{
+		<span class="self">Self </span>{
+			color: pixel.<span class="number">1</span>,
+			pos: pixel.<span class="number">0 </span>* pixels <span class="kw">as _</span>,
+			x: <span class="number">0</span>,
+			remaining_x: pixels - <span class="number">1</span>,
+			remaining_y: pixels
 		}
 	}
 }
 
-<span class="kw">impl</span> <span class="ident">Iterator</span> <span class="kw">for</span> <span class="ident">PixelDoublingIterator</span> {
-	<span class="kw">type</span> <span class="ident">Item</span> <span class="op">=</span> <span class="ident">Pixel</span><span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span>;
+<span class="kw">impl </span>Iterator <span class="kw">for </span>PixelDoublingIterator {
+	<span class="kw">type </span>Item = Pixel&lt;BinaryColor&gt;;
 
-	<span class="kw">fn</span> <span class="ident">next</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Pixel</span><span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span><span class="op">&gt;</span> {
-		<span class="kw">if</span> <span class="self">self</span>.<span class="ident">remaining_y</span> <span class="op">==</span> <span class="number">0</span> {
-			<span class="kw">return</span> <span class="prelude-val">None</span>;
+	<span class="kw">fn </span>next(<span class="kw-2">&amp;mut </span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;Pixel&lt;BinaryColor&gt;&gt; {
+		<span class="kw">if </span><span class="self">self</span>.remaining_y == <span class="number">0 </span>{
+			<span class="kw">return </span><span class="prelude-val">None</span>;
 		}
 
-		<span class="kw">let</span> <span class="ident">pixel</span> <span class="op">=</span> <span class="ident">Pixel</span>(<span class="self">self</span>.<span class="ident">pos</span>, <span class="self">self</span>.<span class="ident">color</span>);
-		<span class="kw">if</span> <span class="self">self</span>.<span class="ident">remaining_x</span> <span class="op">&gt;</span> <span class="number">0</span> {
-			<span class="self">self</span>.<span class="ident">remaining_x</span> <span class="op">-</span><span class="op">=</span> <span class="number">1</span>;
-			<span class="self">self</span>.<span class="ident">x</span> <span class="op">+</span><span class="op">=</span> <span class="number">1</span>;
-			<span class="self">self</span>.<span class="ident">pos</span>.<span class="ident">x</span> <span class="op">+</span><span class="op">=</span> <span class="number">1</span>;
-		} <span class="kw">else</span> {
-			<span class="self">self</span>.<span class="ident">pos</span>.<span class="ident">x</span> <span class="op">-</span><span class="op">=</span> <span class="self">self</span>.<span class="ident">x</span> <span class="kw">as</span> <span class="ident">i32</span>;
-			<span class="self">self</span>.<span class="ident">remaining_x</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">x</span>;
-			<span class="self">self</span>.<span class="ident">x</span> <span class="op">=</span> <span class="number">0</span>;
+		<span class="kw">let </span>pixel = Pixel(<span class="self">self</span>.pos, <span class="self">self</span>.color);
+		<span class="kw">if </span><span class="self">self</span>.remaining_x &gt; <span class="number">0 </span>{
+			<span class="self">self</span>.remaining_x -= <span class="number">1</span>;
+			<span class="self">self</span>.x += <span class="number">1</span>;
+			<span class="self">self</span>.pos.x += <span class="number">1</span>;
+		} <span class="kw">else </span>{
+			<span class="self">self</span>.pos.x -= <span class="self">self</span>.x <span class="kw">as </span>i32;
+			<span class="self">self</span>.remaining_x = <span class="self">self</span>.x;
+			<span class="self">self</span>.x = <span class="number">0</span>;
 
-			<span class="self">self</span>.<span class="ident">remaining_y</span> <span class="op">-</span><span class="op">=</span> <span class="number">1</span>;
-			<span class="self">self</span>.<span class="ident">pos</span>.<span class="ident">y</span> <span class="op">+</span><span class="op">=</span> <span class="number">1</span>;
+			<span class="self">self</span>.remaining_y -= <span class="number">1</span>;
+			<span class="self">self</span>.pos.y += <span class="number">1</span>;
 		}
-		<span class="prelude-val">Some</span>(<span class="ident">pixel</span>)
+		<span class="prelude-val">Some</span>(pixel)
 	}
 }
 
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
-<span class="kw">mod</span> <span class="ident">tests</span> {
-	<span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
+<span class="attribute">#[cfg(test)]
+</span><span class="kw">mod </span>tests {
+	<span class="kw">use super</span>::<span class="kw-2">*</span>;
 
-	<span class="kw">fn</span> <span class="ident">px</span>(<span class="ident">x</span>: <span class="ident">i32</span>, <span class="ident">y</span>: <span class="ident">i32</span>) -&gt; <span class="ident">Pixel</span><span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span> {
-		<span class="ident">Pixel</span>(<span class="ident">Point::new</span>(<span class="ident">x</span>, <span class="ident">y</span>), <span class="ident">BinaryColor::On</span>)
+	<span class="kw">fn </span>px(x: i32, y: i32) -&gt; Pixel&lt;BinaryColor&gt; {
+		Pixel(Point::new(x, y), BinaryColor::On)
 	}
 
-	<span class="attribute">#[<span class="ident">test</span>]</span>
-	<span class="kw">fn</span> <span class="ident">pixel_doubling_iterator</span>() {
-		<span class="macro">assert_eq!</span>(<span class="ident">PixelDoublingIterator::new</span>(<span class="ident">px</span>(<span class="number">0</span>, <span class="number">0</span>), <span class="number">1</span>).<span class="ident">collect</span>::<span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;</span><span class="op">&gt;</span>(), <span class="macro">vec!</span>[<span class="ident">px</span>(<span class="number">0</span>, <span class="number">0</span>)]);
-		<span class="macro">assert_eq!</span>(<span class="ident">PixelDoublingIterator::new</span>(<span class="ident">px</span>(<span class="number">1</span>, <span class="number">2</span>), <span class="number">1</span>).<span class="ident">collect</span>::<span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;</span><span class="op">&gt;</span>(), <span class="macro">vec!</span>[<span class="ident">px</span>(<span class="number">1</span>, <span class="number">2</span>)]);
+	<span class="attribute">#[test]
+	</span><span class="kw">fn </span>pixel_doubling_iterator() {
+		<span class="macro">assert_eq!</span>(PixelDoublingIterator::new(px(<span class="number">0</span>, <span class="number">0</span>), <span class="number">1</span>).collect::&lt;Vec&lt;<span class="kw">_</span>&gt;&gt;(), <span class="macro">vec!</span>[px(<span class="number">0</span>, <span class="number">0</span>)]);
+		<span class="macro">assert_eq!</span>(PixelDoublingIterator::new(px(<span class="number">1</span>, <span class="number">2</span>), <span class="number">1</span>).collect::&lt;Vec&lt;<span class="kw">_</span>&gt;&gt;(), <span class="macro">vec!</span>[px(<span class="number">1</span>, <span class="number">2</span>)]);
 
-		<span class="macro">assert_eq!</span>(<span class="ident">PixelDoublingIterator::new</span>(<span class="ident">px</span>(<span class="number">0</span>, <span class="number">0</span>), <span class="number">2</span>).<span class="ident">collect</span>::<span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;</span><span class="op">&gt;</span>(), <span class="macro">vec!</span>[
-			<span class="ident">px</span>(<span class="number">0</span>, <span class="number">0</span>),
-			<span class="ident">px</span>(<span class="number">1</span>, <span class="number">0</span>),
-			<span class="ident">px</span>(<span class="number">0</span>, <span class="number">1</span>),
-			<span class="ident">px</span>(<span class="number">1</span>, <span class="number">1</span>)
+		<span class="macro">assert_eq!</span>(PixelDoublingIterator::new(px(<span class="number">0</span>, <span class="number">0</span>), <span class="number">2</span>).collect::&lt;Vec&lt;<span class="kw">_</span>&gt;&gt;(), <span class="macro">vec!</span>[
+			px(<span class="number">0</span>, <span class="number">0</span>),
+			px(<span class="number">1</span>, <span class="number">0</span>),
+			px(<span class="number">0</span>, <span class="number">1</span>),
+			px(<span class="number">1</span>, <span class="number">1</span>)
 		]);
-		<span class="macro">assert_eq!</span>(<span class="ident">PixelDoublingIterator::new</span>(<span class="ident">px</span>(<span class="number">1</span>, <span class="number">2</span>), <span class="number">2</span>).<span class="ident">collect</span>::<span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;</span><span class="op">&gt;</span>(), <span class="macro">vec!</span>[
-			<span class="ident">px</span>(<span class="number">2</span>, <span class="number">4</span>),
-			<span class="ident">px</span>(<span class="number">3</span>, <span class="number">4</span>),
-			<span class="ident">px</span>(<span class="number">2</span>, <span class="number">5</span>),
-			<span class="ident">px</span>(<span class="number">3</span>, <span class="number">5</span>)
+		<span class="macro">assert_eq!</span>(PixelDoublingIterator::new(px(<span class="number">1</span>, <span class="number">2</span>), <span class="number">2</span>).collect::&lt;Vec&lt;<span class="kw">_</span>&gt;&gt;(), <span class="macro">vec!</span>[
+			px(<span class="number">2</span>, <span class="number">4</span>),
+			px(<span class="number">3</span>, <span class="number">4</span>),
+			px(<span class="number">2</span>, <span class="number">5</span>),
+			px(<span class="number">3</span>, <span class="number">5</span>)
 		]);
 
-		<span class="macro">assert_eq!</span>(<span class="ident">PixelDoublingIterator::new</span>(<span class="ident">px</span>(<span class="number">0</span>, <span class="number">0</span>), <span class="number">3</span>).<span class="ident">collect</span>::<span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;</span><span class="op">&gt;</span>(), <span class="macro">vec!</span>[
-			<span class="ident">px</span>(<span class="number">0</span>, <span class="number">0</span>),
-			<span class="ident">px</span>(<span class="number">1</span>, <span class="number">0</span>),
-			<span class="ident">px</span>(<span class="number">2</span>, <span class="number">0</span>),
-			<span class="ident">px</span>(<span class="number">0</span>, <span class="number">1</span>),
-			<span class="ident">px</span>(<span class="number">1</span>, <span class="number">1</span>),
-			<span class="ident">px</span>(<span class="number">2</span>, <span class="number">1</span>),
-			<span class="ident">px</span>(<span class="number">0</span>, <span class="number">2</span>),
-			<span class="ident">px</span>(<span class="number">1</span>, <span class="number">2</span>),
-			<span class="ident">px</span>(<span class="number">2</span>, <span class="number">2</span>)
+		<span class="macro">assert_eq!</span>(PixelDoublingIterator::new(px(<span class="number">0</span>, <span class="number">0</span>), <span class="number">3</span>).collect::&lt;Vec&lt;<span class="kw">_</span>&gt;&gt;(), <span class="macro">vec!</span>[
+			px(<span class="number">0</span>, <span class="number">0</span>),
+			px(<span class="number">1</span>, <span class="number">0</span>),
+			px(<span class="number">2</span>, <span class="number">0</span>),
+			px(<span class="number">0</span>, <span class="number">1</span>),
+			px(<span class="number">1</span>, <span class="number">1</span>),
+			px(<span class="number">2</span>, <span class="number">1</span>),
+			px(<span class="number">0</span>, <span class="number">2</span>),
+			px(<span class="number">1</span>, <span class="number">2</span>),
+			px(<span class="number">2</span>, <span class="number">2</span>)
 		]);
-		<span class="macro">assert_eq!</span>(<span class="ident">PixelDoublingIterator::new</span>(<span class="ident">px</span>(<span class="number">1</span>, <span class="number">2</span>), <span class="number">3</span>).<span class="ident">collect</span>::<span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;</span><span class="op">&gt;</span>(), <span class="macro">vec!</span>[
-			<span class="ident">px</span>(<span class="number">3</span>, <span class="number">6</span>),
-			<span class="ident">px</span>(<span class="number">4</span>, <span class="number">6</span>),
-			<span class="ident">px</span>(<span class="number">5</span>, <span class="number">6</span>),
-			<span class="ident">px</span>(<span class="number">3</span>, <span class="number">7</span>),
-			<span class="ident">px</span>(<span class="number">4</span>, <span class="number">7</span>),
-			<span class="ident">px</span>(<span class="number">5</span>, <span class="number">7</span>),
-			<span class="ident">px</span>(<span class="number">3</span>, <span class="number">8</span>),
-			<span class="ident">px</span>(<span class="number">4</span>, <span class="number">8</span>),
-			<span class="ident">px</span>(<span class="number">5</span>, <span class="number">8</span>)
+		<span class="macro">assert_eq!</span>(PixelDoublingIterator::new(px(<span class="number">1</span>, <span class="number">2</span>), <span class="number">3</span>).collect::&lt;Vec&lt;<span class="kw">_</span>&gt;&gt;(), <span class="macro">vec!</span>[
+			px(<span class="number">3</span>, <span class="number">6</span>),
+			px(<span class="number">4</span>, <span class="number">6</span>),
+			px(<span class="number">5</span>, <span class="number">6</span>),
+			px(<span class="number">3</span>, <span class="number">7</span>),
+			px(<span class="number">4</span>, <span class="number">7</span>),
+			px(<span class="number">5</span>, <span class="number">7</span>),
+			px(<span class="number">3</span>, <span class="number">8</span>),
+			px(<span class="number">4</span>, <span class="number">8</span>),
+			px(<span class="number">5</span>, <span class="number">8</span>)
 		]);
 	}
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="bitmap_font" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0 (a55dd71d5 2022-09-19)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="bitmap_font" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0 (69f9c33d7 2022-12-12)" ></div></body></html>

@@ -1,6 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/micromath-1.1.1/src/lib.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>lib.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script><script defer src="../../main.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../micromath/index.html"><div class="logo-container"><img src="https://raw.githubusercontent.com/tarcieri/micromath/main/img/micromath-sq.png" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../micromath/index.html"><div class="logo-container">
-                    <img src="https://raw.githubusercontent.com/tarcieri/micromath/main/img/micromath-sq.png" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../micromath/index.html">
-                        <img src="https://raw.githubusercontent.com/tarcieri/micromath/main/img/micromath-sq.png" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/micromath-1.1.1/src/lib.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>lib.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../normalize.css"><link rel="stylesheet" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../ayu.css" disabled><link rel="stylesheet" href="../../dark.css" disabled><link rel="stylesheet" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script><script defer src="../../main.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../micromath/index.html">
+                        <img src="https://raw.githubusercontent.com/tarcieri/micromath/main/img/micromath-sq.png" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -118,123 +117,123 @@
 <span id="116">116</span>
 <span id="117">117</span>
 <span id="118">118</span>
-</pre><pre class="rust"><code><span class="doccomment">//! Embedded-friendly (i.e. `#![no_std]`) math library featuring fast, safe</span>
-<span class="doccomment">//! floating point approximations for common arithmetic operations, as well as</span>
-<span class="doccomment">//! 2D and 3D vector types, statistical analysis functions, and quaternions.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ## Floating point approximations</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! `micromath` supports approximating many arithmetic operations on `f32`</span>
-<span class="doccomment">//! using bitwise operations, providing great performance and small code size</span>
-<span class="doccomment">//! at the cost of precision. For use cases like graphics and signal</span>
-<span class="doccomment">//! processing, these approximations are often sufficient and the performance</span>
-<span class="doccomment">//! gains worth the lost precision.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! These approximations are provided by the [micromath::F32Ext] trait which is</span>
-<span class="doccomment">//! impl&#39;d for `f32`, providing a drop-in `std`-compatible (sans lost precision) API.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ```</span>
-<span class="doccomment">//! use micromath::F32Ext;</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! let n = 2.0.sqrt();</span>
-<span class="doccomment">//! assert_eq!(n, 1.5); // close enough</span>
-<span class="doccomment">//! ```</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ### Unused import warnings when linking `std`</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! Since the `F32Ext` trait provides methods which are already defined in</span>
-<span class="doccomment">//! `std`, in cases where your crate links `std` the `F32Ext` versions of</span>
-<span class="doccomment">//! the same methods will not be used, in which case you will get an unused</span>
-<span class="doccomment">//! import warning for `F32Ext`.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! If you encounter this, add an `#[allow(unused_imports)]` above the import.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ```</span>
-<span class="doccomment">//! #[allow(unused_imports)]</span>
-<span class="doccomment">//! use micromath::F32Ext;</span>
-<span class="doccomment">//! ```</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ## Vector types</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! See the [`vector` module] for more information on vector types.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! The following vector types are available, all of which have `pub x` and</span>
-<span class="doccomment">//! `pub y` (and on 3D vectors, `pub z`) members:</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! | Rust  | 2D      | 3D      |</span>
-<span class="doccomment">//! |-------|---------|---------|</span>
-<span class="doccomment">//! | `i8`  | `I8x2`  | `I8x3`  |</span>
-<span class="doccomment">//! | `i16` | `I16x2` | `I16x3` |</span>
-<span class="doccomment">//! | `i32` | `I32x2` | `I32x3` |</span>
-<span class="doccomment">//! | `u8`  | `U8x2`  | `U8x3`  |</span>
-<span class="doccomment">//! | `u16` | `U16x2` | `U16x3` |</span>
-<span class="doccomment">//! | `u32` | `U32x2` | `U32x3` |</span>
-<span class="doccomment">//! | `f32` | `F32x2` | `F32x3` |</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ## Statistical analysis</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! See the [`statistics` module] for more information on statistical analysis</span>
-<span class="doccomment">//! traits and functionality.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! The following traits are available and impl&#39;d for slices and iterators of</span>
-<span class="doccomment">//! `f32` (and can be impl&#39;d for other types):</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! - [Mean] - compute arithmetic mean with the `mean()` method</span>
-<span class="doccomment">//! - [StdDev] - compute standard deviation with the `stddev()` method</span>
-<span class="doccomment">//! - [Trim] - cull outliers from a sample slice with the `trim()` method.</span>
-<span class="doccomment">//! - [Variance] - compute variance with the `variance() method</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ## Quaternions</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! See the [`quaternion` module] for more information.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! [micromath::F32Ext]: https://docs.rs/micromath/latest/micromath/trait.F32Ext.html</span>
-<span class="doccomment">//! [`vector` module]: https://docs.rs/micromath/latest/micromath/vector/index.html</span>
-<span class="doccomment">//! [`statistics` module]: https://docs.rs/micromath/latest/micromath/statistics/index.html</span>
-<span class="doccomment">//! [`quaternion` module]: https://docs.rs/micromath/latest/micromath/quaternion/index.html</span>
-<span class="doccomment">//! [Mean]: https://docs.rs/micromath/latest/micromath/statistics/trait.Mean.html</span>
-<span class="doccomment">//! [StdDev]: https://docs.rs/micromath/latest/micromath/statistics/trait.StdDev.html</span>
-<span class="doccomment">//! [Trim]: https://docs.rs/micromath/latest/micromath/statistics/trim/trait.Trim.html</span>
-<span class="doccomment">//! [Variance]: https://docs.rs/micromath/latest/micromath/statistics/trait.Variance.html</span>
+</pre><pre class="rust"><code><span class="doccomment">//! Embedded-friendly (i.e. `#![no_std]`) math library featuring fast, safe
+//! floating point approximations for common arithmetic operations, as well as
+//! 2D and 3D vector types, statistical analysis functions, and quaternions.
+//!
+//! ## Floating point approximations
+//!
+//! `micromath` supports approximating many arithmetic operations on `f32`
+//! using bitwise operations, providing great performance and small code size
+//! at the cost of precision. For use cases like graphics and signal
+//! processing, these approximations are often sufficient and the performance
+//! gains worth the lost precision.
+//!
+//! These approximations are provided by the [micromath::F32Ext] trait which is
+//! impl&#39;d for `f32`, providing a drop-in `std`-compatible (sans lost precision) API.
+//!
+//! ```
+//! use micromath::F32Ext;
+//!
+//! let n = 2.0.sqrt();
+//! assert_eq!(n, 1.5); // close enough
+//! ```
+//!
+//! ### Unused import warnings when linking `std`
+//!
+//! Since the `F32Ext` trait provides methods which are already defined in
+//! `std`, in cases where your crate links `std` the `F32Ext` versions of
+//! the same methods will not be used, in which case you will get an unused
+//! import warning for `F32Ext`.
+//!
+//! If you encounter this, add an `#[allow(unused_imports)]` above the import.
+//!
+//! ```
+//! #[allow(unused_imports)]
+//! use micromath::F32Ext;
+//! ```
+//!
+//! ## Vector types
+//!
+//! See the [`vector` module] for more information on vector types.
+//!
+//! The following vector types are available, all of which have `pub x` and
+//! `pub y` (and on 3D vectors, `pub z`) members:
+//!
+//! | Rust  | 2D      | 3D      |
+//! |-------|---------|---------|
+//! | `i8`  | `I8x2`  | `I8x3`  |
+//! | `i16` | `I16x2` | `I16x3` |
+//! | `i32` | `I32x2` | `I32x3` |
+//! | `u8`  | `U8x2`  | `U8x3`  |
+//! | `u16` | `U16x2` | `U16x3` |
+//! | `u32` | `U32x2` | `U32x3` |
+//! | `f32` | `F32x2` | `F32x3` |
+//!
+//! ## Statistical analysis
+//!
+//! See the [`statistics` module] for more information on statistical analysis
+//! traits and functionality.
+//!
+//! The following traits are available and impl&#39;d for slices and iterators of
+//! `f32` (and can be impl&#39;d for other types):
+//!
+//! - [Mean] - compute arithmetic mean with the `mean()` method
+//! - [StdDev] - compute standard deviation with the `stddev()` method
+//! - [Trim] - cull outliers from a sample slice with the `trim()` method.
+//! - [Variance] - compute variance with the `variance() method
+//!
+//! ## Quaternions
+//!
+//! See the [`quaternion` module] for more information.
+//!
+//! [micromath::F32Ext]: https://docs.rs/micromath/latest/micromath/trait.F32Ext.html
+//! [`vector` module]: https://docs.rs/micromath/latest/micromath/vector/index.html
+//! [`statistics` module]: https://docs.rs/micromath/latest/micromath/statistics/index.html
+//! [`quaternion` module]: https://docs.rs/micromath/latest/micromath/quaternion/index.html
+//! [Mean]: https://docs.rs/micromath/latest/micromath/statistics/trait.Mean.html
+//! [StdDev]: https://docs.rs/micromath/latest/micromath/statistics/trait.StdDev.html
+//! [Trim]: https://docs.rs/micromath/latest/micromath/statistics/trim/trait.Trim.html
+//! [Variance]: https://docs.rs/micromath/latest/micromath/statistics/trait.Variance.html
 
-<span class="attribute">#![<span class="ident">no_std</span>]</span>
-<span class="attribute">#![<span class="ident">cfg_attr</span>(<span class="ident">docsrs</span>, <span class="ident">feature</span>(<span class="ident">doc_cfg</span>))]</span>
-<span class="attribute">#![<span class="ident">doc</span>(
-    <span class="ident">html_logo_url</span> <span class="op">=</span> <span class="string">&quot;https://raw.githubusercontent.com/tarcieri/micromath/main/img/micromath-sq.png&quot;</span>,
-    <span class="ident">html_root_url</span> <span class="op">=</span> <span class="string">&quot;https://docs.rs/micromath/1.1.1&quot;</span>
-)]</span>
-<span class="attribute">#![<span class="ident">forbid</span>(<span class="ident">unsafe_code</span>)]</span>
-<span class="attribute">#![<span class="ident">warn</span>(
-    <span class="ident">missing_docs</span>,
-    <span class="ident">rust_2018_idioms</span>,
-    <span class="ident">trivial_casts</span>,
-    <span class="ident">trivial_numeric_casts</span>,
-    <span class="ident">unused_qualifications</span>
-)]</span>
+</span><span class="attribute">#![no_std]
+#![cfg_attr(docsrs, feature(doc_cfg))]
+#![doc(
+    html_logo_url = <span class="string">&quot;https://raw.githubusercontent.com/tarcieri/micromath/main/img/micromath-sq.png&quot;</span>,
+    html_root_url = <span class="string">&quot;https://docs.rs/micromath/1.1.1&quot;
+</span>)]
+#![forbid(unsafe_code)]
+#![warn(
+    missing_docs,
+    rust_2018_idioms,
+    trivial_casts,
+    trivial_numeric_casts,
+    unused_qualifications
+)]
 
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;quaternion&quot;</span>)]</span>
-<span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">docsrs</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;quaternion&quot;</span>)))]</span>
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">quaternion</span>;
+#[cfg(feature = <span class="string">&quot;quaternion&quot;</span>)]
+#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;quaternion&quot;</span>)))]
+</span><span class="kw">pub mod </span>quaternion;
 
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;statistics&quot;</span>)]</span>
-<span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">docsrs</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;statistics&quot;</span>)))]</span>
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">statistics</span>;
+<span class="attribute">#[cfg(feature = <span class="string">&quot;statistics&quot;</span>)]
+#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;statistics&quot;</span>)))]
+</span><span class="kw">pub mod </span>statistics;
 
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;vector&quot;</span>)]</span>
-<span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">docsrs</span>, <span class="ident">doc</span>(<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;vector&quot;</span>)))]</span>
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">vector</span>;
+<span class="attribute">#[cfg(feature = <span class="string">&quot;vector&quot;</span>)]
+#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">&quot;vector&quot;</span>)))]
+</span><span class="kw">pub mod </span>vector;
 
-<span class="kw">mod</span> <span class="ident">f32ext</span>;
+<span class="kw">mod </span>f32ext;
 
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::f32ext::F32Ext</span>;
+<span class="kw">pub use </span><span class="kw">crate</span>::f32ext::F32Ext;
 
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;quaternion&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::quaternion::Quaternion</span>;
+<span class="attribute">#[cfg(feature = <span class="string">&quot;quaternion&quot;</span>)]
+</span><span class="kw">pub use </span><span class="kw">crate</span>::quaternion::Quaternion;
 
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;vector&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">use</span> {
-    <span class="ident"><span class="kw">crate</span>::vector</span>::{<span class="ident">Vector</span>, <span class="ident">VectorExt</span>},
-    <span class="ident">generic_array</span>,
+<span class="attribute">#[cfg(feature = <span class="string">&quot;vector&quot;</span>)]
+</span><span class="kw">pub use </span>{
+    <span class="kw">crate</span>::vector::{Vector, VectorExt},
+    generic_array,
 };
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="micromath" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0 (a55dd71d5 2022-09-19)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="micromath" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0 (69f9c33d7 2022-12-12)" ></div></body></html>

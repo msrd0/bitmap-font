@@ -1,6 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-core-0.3.3/src/primitives/rectangle/mod.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../../storage.js"></script><script defer src="../../../../source-script.js"></script><script defer src="../../../../source-files.js"></script><script defer src="../../../../main.js"></script><noscript><link rel="stylesheet" href="../../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../../embedded_graphics_core/index.html"><div class="logo-container"><img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/b225511f390c0ed9bc065eb67d05125845312148/assets/logo_core.svg?sanitize=true" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../../embedded_graphics_core/index.html"><div class="logo-container">
-                    <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/b225511f390c0ed9bc065eb67d05125845312148/assets/logo_core.svg?sanitize=true" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../../embedded_graphics_core/index.html">
-                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/b225511f390c0ed9bc065eb67d05125845312148/assets/logo_core.svg?sanitize=true" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-core-0.3.3/src/primitives/rectangle/mod.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../../normalize.css"><link rel="stylesheet" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../../ayu.css" disabled><link rel="stylesheet" href="../../../../dark.css" disabled><link rel="stylesheet" href="../../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../../storage.js"></script><script defer src="../../../../source-script.js"></script><script defer src="../../../../source-files.js"></script><script defer src="../../../../main.js"></script><noscript><link rel="stylesheet" href="../../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../../embedded_graphics_core/index.html">
+                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/b225511f390c0ed9bc065eb67d05125845312148/assets/logo_core.svg?sanitize=true" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../wheel.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -732,737 +731,737 @@
 <span id="730">730</span>
 <span id="731">731</span>
 <span id="732">732</span>
-</pre><pre class="rust"><code><span class="doccomment">//! The rectangle primitive.</span>
+</pre><pre class="rust"><code><span class="doccomment">//! The rectangle primitive.
 
-<span class="kw">mod</span> <span class="ident">points</span>;
+</span><span class="kw">mod </span>points;
 
-<span class="kw">use</span> <span class="kw">crate</span>::{
-    <span class="ident">geometry</span>::{<span class="ident">AnchorPoint</span>, <span class="ident">Dimensions</span>, <span class="ident">Point</span>, <span class="ident">Size</span>},
-    <span class="ident">primitives::PointsIter</span>,
+<span class="kw">use crate</span>::{
+    geometry::{AnchorPoint, Dimensions, Point, Size},
+    primitives::PointsIter,
 };
-<span class="kw">use</span> <span class="ident">az::SaturatingAs</span>;
-<span class="kw">use</span> <span class="ident">core</span>::{
-    <span class="ident">cmp::min</span>,
-    <span class="ident">ops</span>::{<span class="ident">Range</span>, <span class="ident">RangeInclusive</span>},
+<span class="kw">use </span>az::SaturatingAs;
+<span class="kw">use </span>core::{
+    cmp::min,
+    ops::{Range, RangeInclusive},
 };
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">points::Points</span>;
+<span class="kw">pub use </span>points::Points;
 
-<span class="doccomment">/// Rectangle primitive</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Examples</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// ## Create some rectangles with different styles</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// ```rust</span>
-<span class="doccomment">/// use embedded_graphics::{</span>
-<span class="doccomment">///     pixelcolor::Rgb565, prelude::*, primitives::{Rectangle, PrimitiveStyleBuilder},</span>
-<span class="doccomment">/// };</span>
-<span class="doccomment">/// # use embedded_graphics::mock_display::MockDisplay;</span>
-<span class="doccomment">/// # let mut display = MockDisplay::default();</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// // Rectangle with red 3 pixel wide stroke and green fill with the top left corner at (30, 20) and</span>
-<span class="doccomment">/// // a size of (10, 15)</span>
-<span class="doccomment">/// let style = PrimitiveStyleBuilder::new()</span>
-<span class="doccomment">///     .stroke_color(Rgb565::RED)</span>
-<span class="doccomment">///     .stroke_width(3)</span>
-<span class="doccomment">///     .fill_color(Rgb565::GREEN)</span>
-<span class="doccomment">///     .build();</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// Rectangle::new(Point::new(30, 20), Size::new(10, 15))</span>
-<span class="doccomment">///     .into_styled(style)</span>
-<span class="doccomment">///     .draw(&amp;mut display)?;</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// // Rectangle with translation applied</span>
-<span class="doccomment">/// Rectangle::new(Point::new(30, 20), Size::new(10, 15))</span>
-<span class="doccomment">///     .translate(Point::new(-20, -10))</span>
-<span class="doccomment">///     .into_styled(style)</span>
-<span class="doccomment">///     .draw(&amp;mut display)?;</span>
-<span class="doccomment">/// # Ok::&lt;(), core::convert::Infallible&gt;(())</span>
-<span class="doccomment">/// ```</span>
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Copy</span>, <span class="ident">Clone</span>, <span class="ident">Eq</span>, <span class="ident">PartialEq</span>, <span class="ident">Ord</span>, <span class="ident">PartialOrd</span>, <span class="ident">Hash</span>, <span class="ident">Debug</span>, <span class="ident">Default</span>)]</span>
-<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Rectangle</span> {
-    <span class="doccomment">/// Top left point of the rectangle.</span>
-    <span class="kw">pub</span> <span class="ident">top_left</span>: <span class="ident">Point</span>,
+<span class="doccomment">/// Rectangle primitive
+///
+/// # Examples
+///
+/// ## Create some rectangles with different styles
+///
+/// ```rust
+/// use embedded_graphics::{
+///     pixelcolor::Rgb565, prelude::*, primitives::{Rectangle, PrimitiveStyleBuilder},
+/// };
+/// # use embedded_graphics::mock_display::MockDisplay;
+/// # let mut display = MockDisplay::default();
+///
+/// // Rectangle with red 3 pixel wide stroke and green fill with the top left corner at (30, 20) and
+/// // a size of (10, 15)
+/// let style = PrimitiveStyleBuilder::new()
+///     .stroke_color(Rgb565::RED)
+///     .stroke_width(3)
+///     .fill_color(Rgb565::GREEN)
+///     .build();
+///
+/// Rectangle::new(Point::new(30, 20), Size::new(10, 15))
+///     .into_styled(style)
+///     .draw(&amp;mut display)?;
+///
+/// // Rectangle with translation applied
+/// Rectangle::new(Point::new(30, 20), Size::new(10, 15))
+///     .translate(Point::new(-20, -10))
+///     .into_styled(style)
+///     .draw(&amp;mut display)?;
+/// # Ok::&lt;(), core::convert::Infallible&gt;(())
+/// ```
+</span><span class="attribute">#[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Hash, Debug, Default)]
+</span><span class="kw">pub struct </span>Rectangle {
+    <span class="doccomment">/// Top left point of the rectangle.
+    </span><span class="kw">pub </span>top_left: Point,
 
-    <span class="doccomment">/// Size of the rectangle.</span>
-    <span class="kw">pub</span> <span class="ident">size</span>: <span class="ident">Size</span>,
+    <span class="doccomment">/// Size of the rectangle.
+    </span><span class="kw">pub </span>size: Size,
 }
 
-<span class="kw">impl</span> <span class="ident">Dimensions</span> <span class="kw">for</span> <span class="ident">Rectangle</span> {
-    <span class="kw">fn</span> <span class="ident">bounding_box</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Rectangle</span> {
-        <span class="kw-2">*</span><span class="self">self</span>
+<span class="kw">impl </span>Dimensions <span class="kw">for </span>Rectangle {
+    <span class="kw">fn </span>bounding_box(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Rectangle {
+        <span class="kw-2">*</span><span class="self">self
+    </span>}
+}
+
+<span class="kw">impl </span>PointsIter <span class="kw">for </span>Rectangle {
+    <span class="kw">type </span>Iter = Points;
+
+    <span class="kw">fn </span>points(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="self">Self</span>::Iter {
+        <span class="self">self</span>::Points::new(<span class="self">self</span>)
     }
 }
 
-<span class="kw">impl</span> <span class="ident">PointsIter</span> <span class="kw">for</span> <span class="ident">Rectangle</span> {
-    <span class="kw">type</span> <span class="ident">Iter</span> <span class="op">=</span> <span class="ident">Points</span>;
+<span class="doccomment">/// Returns the center offset.
+///
+/// The center offset is defined as the offset between the top left corner and
+/// the center point of a rectangle with the given size.
+</span><span class="kw">fn </span>center_offset(size: Size) -&gt; Size {
+    size.saturating_sub(Size::new_equal(<span class="number">1</span>)) / <span class="number">2
+</span>}
 
-    <span class="kw">fn</span> <span class="ident">points</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident"><span class="self">Self</span>::Iter</span> {
-        <span class="ident"><span class="self">self</span>::Points::new</span>(<span class="self">self</span>)
-    }
-}
-
-<span class="doccomment">/// Returns the center offset.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// The center offset is defined as the offset between the top left corner and</span>
-<span class="doccomment">/// the center point of a rectangle with the given size.</span>
-<span class="kw">fn</span> <span class="ident">center_offset</span>(<span class="ident">size</span>: <span class="ident">Size</span>) -&gt; <span class="ident">Size</span> {
-    <span class="ident">size</span>.<span class="ident">saturating_sub</span>(<span class="ident">Size::new_equal</span>(<span class="number">1</span>)) <span class="op">/</span> <span class="number">2</span>
-}
-
-<span class="kw">impl</span> <span class="ident">Rectangle</span> {
-    <span class="doccomment">/// Creates a new rectangle from the top left point and the size.</span>
-    <span class="kw">pub</span> <span class="kw">const</span> <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">top_left</span>: <span class="ident">Point</span>, <span class="ident">size</span>: <span class="ident">Size</span>) -&gt; <span class="self">Self</span> {
-        <span class="ident">Rectangle</span> { <span class="ident">top_left</span>, <span class="ident">size</span> }
+<span class="kw">impl </span>Rectangle {
+    <span class="doccomment">/// Creates a new rectangle from the top left point and the size.
+    </span><span class="kw">pub const fn </span>new(top_left: Point, size: Size) -&gt; <span class="self">Self </span>{
+        Rectangle { top_left, size }
     }
 
-    <span class="doccomment">/// Creates a new rectangle from two corners.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">with_corners</span>(<span class="ident">corner_1</span>: <span class="ident">Point</span>, <span class="ident">corner_2</span>: <span class="ident">Point</span>) -&gt; <span class="self">Self</span> {
-        <span class="kw">let</span> <span class="ident">left</span> <span class="op">=</span> <span class="ident">min</span>(<span class="ident">corner_1</span>.<span class="ident">x</span>, <span class="ident">corner_2</span>.<span class="ident">x</span>);
-        <span class="kw">let</span> <span class="ident">top</span> <span class="op">=</span> <span class="ident">min</span>(<span class="ident">corner_1</span>.<span class="ident">y</span>, <span class="ident">corner_2</span>.<span class="ident">y</span>);
+    <span class="doccomment">/// Creates a new rectangle from two corners.
+    </span><span class="kw">pub fn </span>with_corners(corner_1: Point, corner_2: Point) -&gt; <span class="self">Self </span>{
+        <span class="kw">let </span>left = min(corner_1.x, corner_2.x);
+        <span class="kw">let </span>top = min(corner_1.y, corner_2.y);
 
-        <span class="ident">Rectangle</span> {
-            <span class="ident">top_left</span>: <span class="ident">Point::new</span>(<span class="ident">left</span>, <span class="ident">top</span>),
-            <span class="ident">size</span>: <span class="ident">Size::from_bounding_box</span>(<span class="ident">corner_1</span>, <span class="ident">corner_2</span>),
+        Rectangle {
+            top_left: Point::new(left, top),
+            size: Size::from_bounding_box(corner_1, corner_2),
         }
     }
 
-    <span class="doccomment">/// Creates a new rectangle from the center point and the size.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// For rectangles with even width and/or height the top left corner doesn&#39;t</span>
-    <span class="doccomment">/// align with the pixel grid. Because of this the coordinates of the top left</span>
-    <span class="doccomment">/// corner will be rounded up to the nearest integer coordinate.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">with_center</span>(<span class="ident">center</span>: <span class="ident">Point</span>, <span class="ident">size</span>: <span class="ident">Size</span>) -&gt; <span class="self">Self</span> {
-        <span class="ident">Rectangle</span> {
-            <span class="ident">top_left</span>: <span class="ident">center</span> <span class="op">-</span> <span class="ident">center_offset</span>(<span class="ident">size</span>),
-            <span class="ident">size</span>,
+    <span class="doccomment">/// Creates a new rectangle from the center point and the size.
+    ///
+    /// For rectangles with even width and/or height the top left corner doesn&#39;t
+    /// align with the pixel grid. Because of this the coordinates of the top left
+    /// corner will be rounded up to the nearest integer coordinate.
+    </span><span class="kw">pub fn </span>with_center(center: Point, size: Size) -&gt; <span class="self">Self </span>{
+        Rectangle {
+            top_left: center - center_offset(size),
+            size,
         }
     }
 
-    <span class="doccomment">/// Returns a zero sized rectangle.</span>
-    <span class="kw">pub</span> <span class="kw">const</span> <span class="kw">fn</span> <span class="ident">zero</span>() -&gt; <span class="ident">Rectangle</span> {
-        <span class="ident">Rectangle::new</span>(<span class="ident">Point::zero</span>(), <span class="ident">Size::zero</span>())
+    <span class="doccomment">/// Returns a zero sized rectangle.
+    </span><span class="kw">pub const fn </span>zero() -&gt; Rectangle {
+        Rectangle::new(Point::zero(), Size::zero())
     }
 
-    <span class="doccomment">/// Returns the center of this rectangle.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// For rectangles with even width and/or height the returned value is rounded down</span>
-    <span class="doccomment">/// to the nearest integer coordinate.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">center</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Point</span> {
-        <span class="self">self</span>.<span class="ident">top_left</span> <span class="op">+</span> <span class="ident">center_offset</span>(<span class="self">self</span>.<span class="ident">size</span>)
+    <span class="doccomment">/// Returns the center of this rectangle.
+    ///
+    /// For rectangles with even width and/or height the returned value is rounded down
+    /// to the nearest integer coordinate.
+    </span><span class="kw">pub fn </span>center(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Point {
+        <span class="self">self</span>.top_left + center_offset(<span class="self">self</span>.size)
     }
 
-    <span class="doccomment">/// Returns the bottom right corner of this rectangle.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Because the smallest rectangle that can be represented by its corners</span>
-    <span class="doccomment">/// has a size of 1 x 1 pixels, this function returns `None` if the width or</span>
-    <span class="doccomment">/// height of the rectangle is zero.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">bottom_right</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Point</span><span class="op">&gt;</span> {
-        <span class="kw">if</span> <span class="self">self</span>.<span class="ident">size</span>.<span class="ident">width</span> <span class="op">&gt;</span> <span class="number">0</span> <span class="op">&amp;&amp;</span> <span class="self">self</span>.<span class="ident">size</span>.<span class="ident">height</span> <span class="op">&gt;</span> <span class="number">0</span> {
-            <span class="prelude-val">Some</span>(<span class="self">self</span>.<span class="ident">top_left</span> <span class="op">+</span> <span class="self">self</span>.<span class="ident">size</span> <span class="op">-</span> <span class="ident">Point::new</span>(<span class="number">1</span>, <span class="number">1</span>))
-        } <span class="kw">else</span> {
-            <span class="prelude-val">None</span>
-        }
+    <span class="doccomment">/// Returns the bottom right corner of this rectangle.
+    ///
+    /// Because the smallest rectangle that can be represented by its corners
+    /// has a size of 1 x 1 pixels, this function returns `None` if the width or
+    /// height of the rectangle is zero.
+    </span><span class="kw">pub fn </span>bottom_right(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;Point&gt; {
+        <span class="kw">if </span><span class="self">self</span>.size.width &gt; <span class="number">0 </span>&amp;&amp; <span class="self">self</span>.size.height &gt; <span class="number">0 </span>{
+            <span class="prelude-val">Some</span>(<span class="self">self</span>.top_left + <span class="self">self</span>.size - Point::new(<span class="number">1</span>, <span class="number">1</span>))
+        } <span class="kw">else </span>{
+            <span class="prelude-val">None
+        </span>}
     }
 
-    <span class="doccomment">/// Return whether the rectangle contains a given point.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">contains</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">point</span>: <span class="ident">Point</span>) -&gt; <span class="ident">bool</span> {
-        <span class="kw">if</span> <span class="ident">point</span>.<span class="ident">x</span> <span class="op">&gt;</span><span class="op">=</span> <span class="self">self</span>.<span class="ident">top_left</span>.<span class="ident">x</span> <span class="op">&amp;&amp;</span> <span class="ident">point</span>.<span class="ident">y</span> <span class="op">&gt;</span><span class="op">=</span> <span class="self">self</span>.<span class="ident">top_left</span>.<span class="ident">y</span> {
-            <span class="self">self</span>.<span class="ident">bottom_right</span>().<span class="ident">map_or</span>(<span class="bool-val">false</span>, <span class="op">|</span><span class="ident">bottom_right</span><span class="op">|</span> {
-                <span class="ident">point</span>.<span class="ident">x</span> <span class="op">&lt;</span><span class="op">=</span> <span class="ident">bottom_right</span>.<span class="ident">x</span> <span class="op">&amp;&amp;</span> <span class="ident">point</span>.<span class="ident">y</span> <span class="op">&lt;</span><span class="op">=</span> <span class="ident">bottom_right</span>.<span class="ident">y</span>
+    <span class="doccomment">/// Return whether the rectangle contains a given point.
+    </span><span class="kw">pub fn </span>contains(<span class="kw-2">&amp;</span><span class="self">self</span>, point: Point) -&gt; bool {
+        <span class="kw">if </span>point.x &gt;= <span class="self">self</span>.top_left.x &amp;&amp; point.y &gt;= <span class="self">self</span>.top_left.y {
+            <span class="self">self</span>.bottom_right().map_or(<span class="bool-val">false</span>, |bottom_right| {
+                point.x &lt;= bottom_right.x &amp;&amp; point.y &lt;= bottom_right.y
             })
-        } <span class="kw">else</span> {
-            <span class="bool-val">false</span>
-        }
+        } <span class="kw">else </span>{
+            <span class="bool-val">false
+        </span>}
     }
 
-    <span class="doccomment">/// Returns a new `Rectangle` containing the intersection of `self` and `other`.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// If no intersection is present, this method will return a zero sized rectangle.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Examples</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ## Intersection</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// This example draws two rectangles to a mock display using the `.` character, along with</span>
-    <span class="doccomment">/// their intersection shown with `#` characters.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ```rust</span>
-    <span class="doccomment">/// use embedded_graphics::{</span>
-    <span class="doccomment">///     mock_display::MockDisplay, pixelcolor::BinaryColor, prelude::*,</span>
-    <span class="doccomment">///     primitives::{Rectangle, PrimitiveStyle},</span>
-    <span class="doccomment">/// };</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// let mut display = MockDisplay::new();</span>
-    <span class="doccomment">/// # display.set_allow_overdraw(true);</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// let rect1 = Rectangle::new(Point::zero(), Size::new(7, 8));</span>
-    <span class="doccomment">/// let rect2 = Rectangle::new(Point::new(2, 3), Size::new(10, 7));</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// let intersection = rect1.intersection(&amp;rect2);</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// rect1</span>
-    <span class="doccomment">///     .into_styled(PrimitiveStyle::with_stroke(BinaryColor::Off, 1))</span>
-    <span class="doccomment">///     .draw(&amp;mut display)?;</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// rect2</span>
-    <span class="doccomment">///     .into_styled(PrimitiveStyle::with_stroke(BinaryColor::Off, 1))</span>
-    <span class="doccomment">///     .draw(&amp;mut display)?;</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// intersection</span>
-    <span class="doccomment">///     .into_styled(PrimitiveStyle::with_stroke(BinaryColor::On, 1))</span>
-    <span class="doccomment">///     .draw(&amp;mut display)?;</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// display.assert_pattern(&amp;[</span>
-    <span class="doccomment">///     &quot;.......     &quot;,</span>
-    <span class="doccomment">///     &quot;.     .     &quot;,</span>
-    <span class="doccomment">///     &quot;.     .     &quot;,</span>
-    <span class="doccomment">///     &quot;. #####.....&quot;,</span>
-    <span class="doccomment">///     &quot;. #   #    .&quot;,</span>
-    <span class="doccomment">///     &quot;. #   #    .&quot;,</span>
-    <span class="doccomment">///     &quot;. #   #    .&quot;,</span>
-    <span class="doccomment">///     &quot;..#####    .&quot;,</span>
-    <span class="doccomment">///     &quot;  .        .&quot;,</span>
-    <span class="doccomment">///     &quot;  ..........&quot;,</span>
-    <span class="doccomment">/// ]);</span>
-    <span class="doccomment">/// # Ok::&lt;(), core::convert::Infallible&gt;(())</span>
-    <span class="doccomment">/// ```</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ## No intersection</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// This example creates two rectangles with no intersection between them. In this case,</span>
-    <span class="doccomment">/// `intersection` returns a zero-sized rectangle.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ```rust</span>
-    <span class="doccomment">/// use embedded_graphics::{prelude::*, primitives::{Rectangle, PrimitiveStyle}};</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// let rect1 = Rectangle::new(Point::zero(), Size::new(7, 8));</span>
-    <span class="doccomment">/// let rect2 = Rectangle::new(Point::new(10, 15), Size::new(10, 7));</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// let intersection = rect1.intersection(&amp;rect2);</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// assert!(intersection.is_zero_sized());</span>
-    <span class="doccomment">/// # Ok::&lt;(), core::convert::Infallible&gt;(())</span>
-    <span class="doccomment">/// ```</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">intersection</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">other</span>: <span class="kw-2">&amp;</span><span class="ident">Rectangle</span>) -&gt; <span class="ident">Rectangle</span> {
-        <span class="kw">match</span> (<span class="ident">other</span>.<span class="ident">bottom_right</span>(), <span class="self">self</span>.<span class="ident">bottom_right</span>()) {
-            (<span class="prelude-val">Some</span>(<span class="ident">other_bottom_right</span>), <span class="prelude-val">Some</span>(<span class="ident">self_bottom_right</span>)) =&gt; {
-                <span class="kw">if</span> <span class="ident">overlaps</span>(
-                    <span class="self">self</span>.<span class="ident">top_left</span>.<span class="ident">x</span>..<span class="op">=</span><span class="ident">self_bottom_right</span>.<span class="ident">x</span>,
-                    <span class="ident">other</span>.<span class="ident">top_left</span>.<span class="ident">x</span>..<span class="op">=</span><span class="ident">other_bottom_right</span>.<span class="ident">x</span>,
-                ) <span class="op">&amp;&amp;</span> <span class="ident">overlaps</span>(
-                    <span class="self">self</span>.<span class="ident">top_left</span>.<span class="ident">y</span>..<span class="op">=</span><span class="ident">self_bottom_right</span>.<span class="ident">y</span>,
-                    <span class="ident">other</span>.<span class="ident">top_left</span>.<span class="ident">y</span>..<span class="op">=</span><span class="ident">other_bottom_right</span>.<span class="ident">y</span>,
+    <span class="doccomment">/// Returns a new `Rectangle` containing the intersection of `self` and `other`.
+    ///
+    /// If no intersection is present, this method will return a zero sized rectangle.
+    ///
+    /// # Examples
+    ///
+    /// ## Intersection
+    ///
+    /// This example draws two rectangles to a mock display using the `.` character, along with
+    /// their intersection shown with `#` characters.
+    ///
+    /// ```rust
+    /// use embedded_graphics::{
+    ///     mock_display::MockDisplay, pixelcolor::BinaryColor, prelude::*,
+    ///     primitives::{Rectangle, PrimitiveStyle},
+    /// };
+    ///
+    /// let mut display = MockDisplay::new();
+    /// # display.set_allow_overdraw(true);
+    ///
+    /// let rect1 = Rectangle::new(Point::zero(), Size::new(7, 8));
+    /// let rect2 = Rectangle::new(Point::new(2, 3), Size::new(10, 7));
+    ///
+    /// let intersection = rect1.intersection(&amp;rect2);
+    ///
+    /// rect1
+    ///     .into_styled(PrimitiveStyle::with_stroke(BinaryColor::Off, 1))
+    ///     .draw(&amp;mut display)?;
+    ///
+    /// rect2
+    ///     .into_styled(PrimitiveStyle::with_stroke(BinaryColor::Off, 1))
+    ///     .draw(&amp;mut display)?;
+    ///
+    /// intersection
+    ///     .into_styled(PrimitiveStyle::with_stroke(BinaryColor::On, 1))
+    ///     .draw(&amp;mut display)?;
+    ///
+    /// display.assert_pattern(&amp;[
+    ///     &quot;.......     &quot;,
+    ///     &quot;.     .     &quot;,
+    ///     &quot;.     .     &quot;,
+    ///     &quot;. #####.....&quot;,
+    ///     &quot;. #   #    .&quot;,
+    ///     &quot;. #   #    .&quot;,
+    ///     &quot;. #   #    .&quot;,
+    ///     &quot;..#####    .&quot;,
+    ///     &quot;  .        .&quot;,
+    ///     &quot;  ..........&quot;,
+    /// ]);
+    /// # Ok::&lt;(), core::convert::Infallible&gt;(())
+    /// ```
+    ///
+    /// ## No intersection
+    ///
+    /// This example creates two rectangles with no intersection between them. In this case,
+    /// `intersection` returns a zero-sized rectangle.
+    ///
+    /// ```rust
+    /// use embedded_graphics::{prelude::*, primitives::{Rectangle, PrimitiveStyle}};
+    ///
+    /// let rect1 = Rectangle::new(Point::zero(), Size::new(7, 8));
+    /// let rect2 = Rectangle::new(Point::new(10, 15), Size::new(10, 7));
+    ///
+    /// let intersection = rect1.intersection(&amp;rect2);
+    ///
+    /// assert!(intersection.is_zero_sized());
+    /// # Ok::&lt;(), core::convert::Infallible&gt;(())
+    /// ```
+    </span><span class="kw">pub fn </span>intersection(<span class="kw-2">&amp;</span><span class="self">self</span>, other: <span class="kw-2">&amp;</span>Rectangle) -&gt; Rectangle {
+        <span class="kw">match </span>(other.bottom_right(), <span class="self">self</span>.bottom_right()) {
+            (<span class="prelude-val">Some</span>(other_bottom_right), <span class="prelude-val">Some</span>(self_bottom_right)) =&gt; {
+                <span class="kw">if </span>overlaps(
+                    <span class="self">self</span>.top_left.x..=self_bottom_right.x,
+                    other.top_left.x..=other_bottom_right.x,
+                ) &amp;&amp; overlaps(
+                    <span class="self">self</span>.top_left.y..=self_bottom_right.y,
+                    other.top_left.y..=other_bottom_right.y,
                 ) {
-                    <span class="kw">return</span> <span class="ident">Rectangle::with_corners</span>(
-                        <span class="self">self</span>.<span class="ident">top_left</span>.<span class="ident">component_max</span>(<span class="ident">other</span>.<span class="ident">top_left</span>),
-                        <span class="ident">self_bottom_right</span>.<span class="ident">component_min</span>(<span class="ident">other_bottom_right</span>),
+                    <span class="kw">return </span>Rectangle::with_corners(
+                        <span class="self">self</span>.top_left.component_max(other.top_left),
+                        self_bottom_right.component_min(other_bottom_right),
                     );
                 }
             }
-            (<span class="prelude-val">Some</span>(<span class="ident">_other_bottom_right</span>), <span class="prelude-val">None</span>) =&gt; {
-                <span class="comment">// Check if zero sized self is inside other</span>
-                <span class="kw">if</span> <span class="ident">other</span>.<span class="ident">contains</span>(<span class="self">self</span>.<span class="ident">top_left</span>) {
-                    <span class="kw">return</span> <span class="kw-2">*</span><span class="self">self</span>;
+            (<span class="prelude-val">Some</span>(_other_bottom_right), <span class="prelude-val">None</span>) =&gt; {
+                <span class="comment">// Check if zero sized self is inside other
+                </span><span class="kw">if </span>other.contains(<span class="self">self</span>.top_left) {
+                    <span class="kw">return </span><span class="kw-2">*</span><span class="self">self</span>;
                 }
             }
-            (<span class="prelude-val">None</span>, <span class="prelude-val">Some</span>(<span class="ident">_self_bottom_right</span>)) =&gt; {
-                <span class="comment">// Check if zero sized other is inside self</span>
-                <span class="kw">if</span> <span class="self">self</span>.<span class="ident">contains</span>(<span class="ident">other</span>.<span class="ident">top_left</span>) {
-                    <span class="kw">return</span> <span class="kw-2">*</span><span class="ident">other</span>;
+            (<span class="prelude-val">None</span>, <span class="prelude-val">Some</span>(_self_bottom_right)) =&gt; {
+                <span class="comment">// Check if zero sized other is inside self
+                </span><span class="kw">if </span><span class="self">self</span>.contains(other.top_left) {
+                    <span class="kw">return </span><span class="kw-2">*</span>other;
                 }
             }
             (<span class="prelude-val">None</span>, <span class="prelude-val">None</span>) =&gt; (),
         };
 
-        <span class="comment">// No overlap present</span>
-        <span class="ident">Rectangle::zero</span>()
+        <span class="comment">// No overlap present
+        </span>Rectangle::zero()
     }
 
-    <span class="doccomment">/// Returns a resized copy of this rectangle.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The rectangle is resized relative to the given anchor point.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Examples</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ```</span>
-    <span class="doccomment">/// use embedded_graphics::{</span>
-    <span class="doccomment">///     prelude::*,</span>
-    <span class="doccomment">///     primitives::rectangle::Rectangle,</span>
-    <span class="doccomment">///     geometry::AnchorPoint,</span>
-    <span class="doccomment">/// };</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// let rect = Rectangle::new(Point::new(20, 20), Size::new(10, 20));</span>
-    <span class="doccomment">/// let resized = rect.resized(Size::new(20, 10), AnchorPoint::Center);</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// assert_eq!(</span>
-    <span class="doccomment">///     resized,</span>
-    <span class="doccomment">///     Rectangle::new(Point::new(15, 25), Size::new(20, 10))</span>
-    <span class="doccomment">/// );</span>
-    <span class="doccomment">/// ```</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">resized</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">size</span>: <span class="ident">Size</span>, <span class="ident">anchor_point</span>: <span class="ident">AnchorPoint</span>) -&gt; <span class="self">Self</span> {
-        <span class="comment">// Assume size = 1 for zero sized dimensions.</span>
-        <span class="kw">let</span> <span class="ident">one</span> <span class="op">=</span> <span class="ident">Size::new_equal</span>(<span class="number">1</span>);
-        <span class="kw">let</span> <span class="ident">delta</span> <span class="op">=</span> <span class="ident">Point::zero</span>() <span class="op">+</span> <span class="self">self</span>.<span class="ident">size</span>.<span class="ident">component_max</span>(<span class="ident">one</span>) <span class="op">-</span> <span class="ident">size</span>.<span class="ident">component_max</span>(<span class="ident">one</span>);
+    <span class="doccomment">/// Returns a resized copy of this rectangle.
+    ///
+    /// The rectangle is resized relative to the given anchor point.
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// use embedded_graphics::{
+    ///     prelude::*,
+    ///     primitives::rectangle::Rectangle,
+    ///     geometry::AnchorPoint,
+    /// };
+    ///
+    /// let rect = Rectangle::new(Point::new(20, 20), Size::new(10, 20));
+    /// let resized = rect.resized(Size::new(20, 10), AnchorPoint::Center);
+    ///
+    /// assert_eq!(
+    ///     resized,
+    ///     Rectangle::new(Point::new(15, 25), Size::new(20, 10))
+    /// );
+    /// ```
+    </span><span class="kw">pub fn </span>resized(<span class="kw-2">&amp;</span><span class="self">self</span>, size: Size, anchor_point: AnchorPoint) -&gt; <span class="self">Self </span>{
+        <span class="comment">// Assume size = 1 for zero sized dimensions.
+        </span><span class="kw">let </span>one = Size::new_equal(<span class="number">1</span>);
+        <span class="kw">let </span>delta = Point::zero() + <span class="self">self</span>.size.component_max(one) - size.component_max(one);
 
-        <span class="kw">let</span> <span class="ident">top_left</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">top_left</span>
-            <span class="op">+</span> <span class="kw">match</span> <span class="ident">anchor_point</span> {
-                <span class="ident">AnchorPoint::TopLeft</span> =&gt; <span class="ident">Point::zero</span>(),
-                <span class="ident">AnchorPoint::TopCenter</span> =&gt; <span class="ident">delta</span>.<span class="ident">x_axis</span>() <span class="op">/</span> <span class="number">2</span>,
-                <span class="ident">AnchorPoint::TopRight</span> =&gt; <span class="ident">delta</span>.<span class="ident">x_axis</span>(),
-                <span class="ident">AnchorPoint::CenterLeft</span> =&gt; <span class="ident">delta</span>.<span class="ident">y_axis</span>() <span class="op">/</span> <span class="number">2</span>,
-                <span class="ident">AnchorPoint::Center</span> =&gt; <span class="ident">delta</span> <span class="op">/</span> <span class="number">2</span>,
-                <span class="ident">AnchorPoint::CenterRight</span> =&gt; <span class="ident">Point::new</span>(<span class="ident">delta</span>.<span class="ident">x</span>, <span class="ident">delta</span>.<span class="ident">y</span> <span class="op">/</span> <span class="number">2</span>),
-                <span class="ident">AnchorPoint::BottomLeft</span> =&gt; <span class="ident">delta</span>.<span class="ident">y_axis</span>(),
-                <span class="ident">AnchorPoint::BottomCenter</span> =&gt; <span class="ident">Point::new</span>(<span class="ident">delta</span>.<span class="ident">x</span> <span class="op">/</span> <span class="number">2</span>, <span class="ident">delta</span>.<span class="ident">y</span>),
-                <span class="ident">AnchorPoint::BottomRight</span> =&gt; <span class="ident">delta</span>,
+        <span class="kw">let </span>top_left = <span class="self">self</span>.top_left
+            + <span class="kw">match </span>anchor_point {
+                AnchorPoint::TopLeft =&gt; Point::zero(),
+                AnchorPoint::TopCenter =&gt; delta.x_axis() / <span class="number">2</span>,
+                AnchorPoint::TopRight =&gt; delta.x_axis(),
+                AnchorPoint::CenterLeft =&gt; delta.y_axis() / <span class="number">2</span>,
+                AnchorPoint::Center =&gt; delta / <span class="number">2</span>,
+                AnchorPoint::CenterRight =&gt; Point::new(delta.x, delta.y / <span class="number">2</span>),
+                AnchorPoint::BottomLeft =&gt; delta.y_axis(),
+                AnchorPoint::BottomCenter =&gt; Point::new(delta.x / <span class="number">2</span>, delta.y),
+                AnchorPoint::BottomRight =&gt; delta,
             };
 
-        <span class="ident"><span class="self">Self</span>::new</span>(<span class="ident">top_left</span>, <span class="ident">size</span>)
+        <span class="self">Self</span>::new(top_left, size)
     }
 
-    <span class="doccomment">/// Offset the rectangle by a given value.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Negative values will shrink the rectangle.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">offset</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">offset</span>: <span class="ident">i32</span>) -&gt; <span class="self">Self</span> {
-        <span class="kw">let</span> <span class="ident">size</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">offset</span> <span class="op">&gt;</span><span class="op">=</span> <span class="number">0</span> {
-            <span class="self">self</span>.<span class="ident">size</span>.<span class="ident">saturating_add</span>(<span class="ident">Size::new_equal</span>(<span class="ident">offset</span> <span class="kw">as</span> <span class="ident">u32</span> <span class="op">*</span> <span class="number">2</span>))
-        } <span class="kw">else</span> {
-            <span class="self">self</span>.<span class="ident">size</span>
-                .<span class="ident">saturating_sub</span>(<span class="ident">Size::new_equal</span>((<span class="op">-</span><span class="ident">offset</span>) <span class="kw">as</span> <span class="ident">u32</span> <span class="op">*</span> <span class="number">2</span>))
+    <span class="doccomment">/// Offset the rectangle by a given value.
+    ///
+    /// Negative values will shrink the rectangle.
+    </span><span class="kw">pub fn </span>offset(<span class="kw-2">&amp;</span><span class="self">self</span>, offset: i32) -&gt; <span class="self">Self </span>{
+        <span class="kw">let </span>size = <span class="kw">if </span>offset &gt;= <span class="number">0 </span>{
+            <span class="self">self</span>.size.saturating_add(Size::new_equal(offset <span class="kw">as </span>u32 * <span class="number">2</span>))
+        } <span class="kw">else </span>{
+            <span class="self">self</span>.size
+                .saturating_sub(Size::new_equal((-offset) <span class="kw">as </span>u32 * <span class="number">2</span>))
         };
 
-        <span class="ident"><span class="self">Self</span>::with_center</span>(<span class="self">self</span>.<span class="ident">center</span>(), <span class="ident">size</span>)
+        <span class="self">Self</span>::with_center(<span class="self">self</span>.center(), size)
     }
 
-    <span class="doccomment">/// Returns an anchor point.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Examples</span>
-    <span class="doccomment">/// ```</span>
-    <span class="doccomment">/// use embedded_graphics::{</span>
-    <span class="doccomment">///     prelude::*,</span>
-    <span class="doccomment">///     primitives::rectangle::Rectangle,</span>
-    <span class="doccomment">///     geometry::AnchorPoint,</span>
-    <span class="doccomment">/// };</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// let mut rect = Rectangle::new(Point::new(20, 20), Size::new(11, 21));</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// assert_eq!(rect.anchor_point(AnchorPoint::TopLeft), Point::new(20, 20));</span>
-    <span class="doccomment">/// assert_eq!(</span>
-    <span class="doccomment">///     rect.anchor_point(AnchorPoint::BottomCenter),</span>
-    <span class="doccomment">///     Point::new(25, 40)</span>
-    <span class="doccomment">/// );</span>
-    <span class="doccomment">/// ```</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">anchor_point</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">anchor_point</span>: <span class="ident">AnchorPoint</span>) -&gt; <span class="ident">Point</span> {
-        <span class="comment">// Assume size = 1 for zero sized dimensions.</span>
-        <span class="kw">let</span> <span class="ident">one</span> <span class="op">=</span> <span class="ident">Size::new_equal</span>(<span class="number">1</span>);
-        <span class="kw">let</span> <span class="ident">delta</span> <span class="op">=</span> <span class="ident">Point::zero</span>() <span class="op">+</span> <span class="self">self</span>.<span class="ident">size</span>.<span class="ident">component_max</span>(<span class="ident">one</span>) <span class="op">-</span> <span class="ident">one</span>;
+    <span class="doccomment">/// Returns an anchor point.
+    ///
+    /// # Examples
+    /// ```
+    /// use embedded_graphics::{
+    ///     prelude::*,
+    ///     primitives::rectangle::Rectangle,
+    ///     geometry::AnchorPoint,
+    /// };
+    ///
+    /// let mut rect = Rectangle::new(Point::new(20, 20), Size::new(11, 21));
+    ///
+    /// assert_eq!(rect.anchor_point(AnchorPoint::TopLeft), Point::new(20, 20));
+    /// assert_eq!(
+    ///     rect.anchor_point(AnchorPoint::BottomCenter),
+    ///     Point::new(25, 40)
+    /// );
+    /// ```
+    </span><span class="kw">pub fn </span>anchor_point(<span class="kw-2">&amp;</span><span class="self">self</span>, anchor_point: AnchorPoint) -&gt; Point {
+        <span class="comment">// Assume size = 1 for zero sized dimensions.
+        </span><span class="kw">let </span>one = Size::new_equal(<span class="number">1</span>);
+        <span class="kw">let </span>delta = Point::zero() + <span class="self">self</span>.size.component_max(one) - one;
 
-        <span class="self">self</span>.<span class="ident">top_left</span>
-            <span class="op">+</span> <span class="kw">match</span> <span class="ident">anchor_point</span> {
-                <span class="ident">AnchorPoint::TopLeft</span> =&gt; <span class="ident">Point::zero</span>(),
-                <span class="ident">AnchorPoint::TopCenter</span> =&gt; <span class="ident">delta</span>.<span class="ident">x_axis</span>() <span class="op">/</span> <span class="number">2</span>,
-                <span class="ident">AnchorPoint::TopRight</span> =&gt; <span class="ident">delta</span>.<span class="ident">x_axis</span>(),
-                <span class="ident">AnchorPoint::CenterLeft</span> =&gt; <span class="ident">delta</span>.<span class="ident">y_axis</span>() <span class="op">/</span> <span class="number">2</span>,
-                <span class="ident">AnchorPoint::Center</span> =&gt; <span class="ident">delta</span> <span class="op">/</span> <span class="number">2</span>,
-                <span class="ident">AnchorPoint::CenterRight</span> =&gt; <span class="ident">Point::new</span>(<span class="ident">delta</span>.<span class="ident">x</span>, <span class="ident">delta</span>.<span class="ident">y</span> <span class="op">/</span> <span class="number">2</span>),
-                <span class="ident">AnchorPoint::BottomLeft</span> =&gt; <span class="ident">delta</span>.<span class="ident">y_axis</span>(),
-                <span class="ident">AnchorPoint::BottomCenter</span> =&gt; <span class="ident">Point::new</span>(<span class="ident">delta</span>.<span class="ident">x</span> <span class="op">/</span> <span class="number">2</span>, <span class="ident">delta</span>.<span class="ident">y</span>),
-                <span class="ident">AnchorPoint::BottomRight</span> =&gt; <span class="ident">delta</span>,
+        <span class="self">self</span>.top_left
+            + <span class="kw">match </span>anchor_point {
+                AnchorPoint::TopLeft =&gt; Point::zero(),
+                AnchorPoint::TopCenter =&gt; delta.x_axis() / <span class="number">2</span>,
+                AnchorPoint::TopRight =&gt; delta.x_axis(),
+                AnchorPoint::CenterLeft =&gt; delta.y_axis() / <span class="number">2</span>,
+                AnchorPoint::Center =&gt; delta / <span class="number">2</span>,
+                AnchorPoint::CenterRight =&gt; Point::new(delta.x, delta.y / <span class="number">2</span>),
+                AnchorPoint::BottomLeft =&gt; delta.y_axis(),
+                AnchorPoint::BottomCenter =&gt; Point::new(delta.x / <span class="number">2</span>, delta.y),
+                AnchorPoint::BottomRight =&gt; delta,
             }
     }
 
-    <span class="doccomment">/// Returns the range of Y coordinates in this rectangle.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Examples</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ```</span>
-    <span class="doccomment">/// use embedded_graphics::{prelude::*, primitives::Rectangle};</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// let rect = Rectangle::new(Point::new(10, 20), Size::new(3, 4));</span>
-    <span class="doccomment">/// assert_eq!(rect.rows(), 20..24);</span>
-    <span class="doccomment">/// ```</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// By combining this method with [`columns`] it is possible to iterate over all pixels inside</span>
-    <span class="doccomment">/// the rectangle. This can be more flexible than using the [`points`] iterator, for example,</span>
-    <span class="doccomment">/// if a different iteration order is required or some operations should be called once per row.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ```</span>
-    <span class="doccomment">/// use embedded_graphics::{prelude::*, primitives::Rectangle};</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// let rect = Rectangle::new(Point::new(10, 20), Size::new(3, 4));</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// // Iterate over the y coordinates of the rows in reverse order.</span>
-    <span class="doccomment">/// for y in rect.rows().rev() {</span>
-    <span class="doccomment">///     for x in rect.columns() {</span>
-    <span class="doccomment">///         // use x, y coordinates</span>
-    <span class="doccomment">///     }</span>
-    <span class="doccomment">/// }</span>
-    <span class="doccomment">/// ```</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [`columns`]: #method.columns</span>
-    <span class="doccomment">/// [`points`]: ../trait.PointsIter.html#tymethod.points</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">rows</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Range</span><span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span> {
-        <span class="self">self</span>.<span class="ident">top_left</span>.<span class="ident">y</span>
-            ..<span class="self">self</span>
-                .<span class="ident">top_left</span>
-                .<span class="ident">y</span>
-                .<span class="ident">saturating_add</span>(<span class="self">self</span>.<span class="ident">size</span>.<span class="ident">height</span>.<span class="ident">saturating_as</span>())
+    <span class="doccomment">/// Returns the range of Y coordinates in this rectangle.
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// use embedded_graphics::{prelude::*, primitives::Rectangle};
+    ///
+    /// let rect = Rectangle::new(Point::new(10, 20), Size::new(3, 4));
+    /// assert_eq!(rect.rows(), 20..24);
+    /// ```
+    ///
+    /// By combining this method with [`columns`] it is possible to iterate over all pixels inside
+    /// the rectangle. This can be more flexible than using the [`points`] iterator, for example,
+    /// if a different iteration order is required or some operations should be called once per row.
+    ///
+    /// ```
+    /// use embedded_graphics::{prelude::*, primitives::Rectangle};
+    ///
+    /// let rect = Rectangle::new(Point::new(10, 20), Size::new(3, 4));
+    ///
+    /// // Iterate over the y coordinates of the rows in reverse order.
+    /// for y in rect.rows().rev() {
+    ///     for x in rect.columns() {
+    ///         // use x, y coordinates
+    ///     }
+    /// }
+    /// ```
+    ///
+    /// [`columns`]: #method.columns
+    /// [`points`]: ../trait.PointsIter.html#tymethod.points
+    </span><span class="kw">pub fn </span>rows(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Range&lt;i32&gt; {
+        <span class="self">self</span>.top_left.y
+            ..<span class="self">self
+                </span>.top_left
+                .y
+                .saturating_add(<span class="self">self</span>.size.height.saturating_as())
     }
 
-    <span class="doccomment">/// Returns the range of X coordinates in this rectangle.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Examples</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ```</span>
-    <span class="doccomment">/// use embedded_graphics::{prelude::*, primitives::Rectangle};</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// let rect = Rectangle::new(Point::new(10, 20), Size::new(3, 4));</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// assert_eq!(rect.columns(), 10..13);</span>
-    <span class="doccomment">/// ```</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// By combining this method with [`rows`] it is possible to iterator over all pixels inside</span>
-    <span class="doccomment">/// the rectangle. This can be more flexible than using the [`points`] iterator, for example,</span>
-    <span class="doccomment">/// if a different iteration order is required or some operations should be called once per row.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ```</span>
-    <span class="doccomment">/// use embedded_graphics::{prelude::*, primitives::Rectangle};</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// let rect = Rectangle::new(Point::new(10, 20), Size::new(3, 4));</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// // Iterate over all points starting from the top right corner and advancing downwards.</span>
-    <span class="doccomment">/// for x in rect.columns().rev() {</span>
-    <span class="doccomment">///     for y in rect.rows() {</span>
-    <span class="doccomment">///         // use x, y coordinates</span>
-    <span class="doccomment">///     }</span>
-    <span class="doccomment">/// }</span>
-    <span class="doccomment">/// ```</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [`rows`]: #method.rows</span>
-    <span class="doccomment">/// [`points`]: ../trait.PointsIter.html#tymethod.points</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">columns</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Range</span><span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span> {
-        <span class="self">self</span>.<span class="ident">top_left</span>.<span class="ident">x</span>
-            ..<span class="self">self</span>
-                .<span class="ident">top_left</span>
-                .<span class="ident">x</span>
-                .<span class="ident">saturating_add</span>(<span class="self">self</span>.<span class="ident">size</span>.<span class="ident">width</span>.<span class="ident">saturating_as</span>())
+    <span class="doccomment">/// Returns the range of X coordinates in this rectangle.
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// use embedded_graphics::{prelude::*, primitives::Rectangle};
+    ///
+    /// let rect = Rectangle::new(Point::new(10, 20), Size::new(3, 4));
+    ///
+    /// assert_eq!(rect.columns(), 10..13);
+    /// ```
+    ///
+    /// By combining this method with [`rows`] it is possible to iterator over all pixels inside
+    /// the rectangle. This can be more flexible than using the [`points`] iterator, for example,
+    /// if a different iteration order is required or some operations should be called once per row.
+    ///
+    /// ```
+    /// use embedded_graphics::{prelude::*, primitives::Rectangle};
+    ///
+    /// let rect = Rectangle::new(Point::new(10, 20), Size::new(3, 4));
+    ///
+    /// // Iterate over all points starting from the top right corner and advancing downwards.
+    /// for x in rect.columns().rev() {
+    ///     for y in rect.rows() {
+    ///         // use x, y coordinates
+    ///     }
+    /// }
+    /// ```
+    ///
+    /// [`rows`]: #method.rows
+    /// [`points`]: ../trait.PointsIter.html#tymethod.points
+    </span><span class="kw">pub fn </span>columns(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Range&lt;i32&gt; {
+        <span class="self">self</span>.top_left.x
+            ..<span class="self">self
+                </span>.top_left
+                .x
+                .saturating_add(<span class="self">self</span>.size.width.saturating_as())
     }
 
-    <span class="doccomment">/// Returns `true` is the rectangle is zero sized.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// A rectangle is zero sized if the width or height are zero.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Examples</span>
-    <span class="doccomment">/// ```</span>
-    <span class="doccomment">/// use embedded_graphics::{prelude::*, primitives::Rectangle};</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// let rect = Rectangle::new(Point::new(10, 20), Size::new(10, 20));</span>
-    <span class="doccomment">/// assert_eq!(rect.is_zero_sized(), false);</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// let rect = Rectangle::new(Point::new(10, 20), Size::zero());</span>
-    <span class="doccomment">/// assert_eq!(rect.is_zero_sized(), true);</span>
-    <span class="doccomment">/// ```</span>
-    <span class="comment">// MSRV: Add const when upgrading to at least 1.46.0</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">is_zero_sized</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">bool</span> {
-        <span class="self">self</span>.<span class="ident">size</span>.<span class="ident">height</span> <span class="op">==</span> <span class="number">0</span> <span class="op">|</span><span class="op">|</span> <span class="self">self</span>.<span class="ident">size</span>.<span class="ident">width</span> <span class="op">==</span> <span class="number">0</span>
-    }
+    <span class="doccomment">/// Returns `true` is the rectangle is zero sized.
+    ///
+    /// A rectangle is zero sized if the width or height are zero.
+    ///
+    /// # Examples
+    /// ```
+    /// use embedded_graphics::{prelude::*, primitives::Rectangle};
+    ///
+    /// let rect = Rectangle::new(Point::new(10, 20), Size::new(10, 20));
+    /// assert_eq!(rect.is_zero_sized(), false);
+    ///
+    /// let rect = Rectangle::new(Point::new(10, 20), Size::zero());
+    /// assert_eq!(rect.is_zero_sized(), true);
+    /// ```
+    </span><span class="comment">// MSRV: Add const when upgrading to at least 1.46.0
+    </span><span class="kw">pub fn </span>is_zero_sized(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
+        <span class="self">self</span>.size.height == <span class="number">0 </span>|| <span class="self">self</span>.size.width == <span class="number">0
+    </span>}
 }
 
-<span class="doccomment">/// Checks if the two ranges overlap.</span>
-<span class="kw">fn</span> <span class="ident">overlaps</span>(<span class="ident">first</span>: <span class="ident">RangeInclusive</span><span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span>, <span class="ident">second</span>: <span class="ident">RangeInclusive</span><span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span>) -&gt; <span class="ident">bool</span> {
-    <span class="ident">second</span>.<span class="ident">contains</span>(<span class="ident">first</span>.<span class="ident">start</span>())
-        <span class="op">|</span><span class="op">|</span> <span class="ident">second</span>.<span class="ident">contains</span>(<span class="ident">first</span>.<span class="ident">end</span>())
-        <span class="op">|</span><span class="op">|</span> <span class="ident">first</span>.<span class="ident">start</span>() <span class="op">&lt;</span> <span class="ident">second</span>.<span class="ident">start</span>() <span class="op">&amp;&amp;</span> <span class="ident">first</span>.<span class="ident">end</span>() <span class="op">&gt;</span> <span class="ident">second</span>.<span class="ident">end</span>()
+<span class="doccomment">/// Checks if the two ranges overlap.
+</span><span class="kw">fn </span>overlaps(first: RangeInclusive&lt;i32&gt;, second: RangeInclusive&lt;i32&gt;) -&gt; bool {
+    second.contains(first.start())
+        || second.contains(first.end())
+        || first.start() &lt; second.start() &amp;&amp; first.end() &gt; second.end()
 }
 
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
-<span class="kw">mod</span> <span class="ident">tests</span> {
-    <span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
-    <span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::geometry</span>::{<span class="ident">Dimensions</span>, <span class="ident">Point</span>, <span class="ident">Size</span>};
+<span class="attribute">#[cfg(test)]
+</span><span class="kw">mod </span>tests {
+    <span class="kw">use super</span>::<span class="kw-2">*</span>;
+    <span class="kw">use </span><span class="kw">crate</span>::geometry::{Dimensions, Point, Size};
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">dimensions</span>() {
-        <span class="kw">let</span> <span class="ident">rect</span> <span class="op">=</span> <span class="ident">Rectangle::new</span>(<span class="ident">Point::new</span>(<span class="number">5</span>, <span class="number">10</span>), <span class="ident">Size::new</span>(<span class="number">10</span>, <span class="number">20</span>));
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>dimensions() {
+        <span class="kw">let </span>rect = Rectangle::new(Point::new(<span class="number">5</span>, <span class="number">10</span>), Size::new(<span class="number">10</span>, <span class="number">20</span>));
 
         <span class="macro">assert_eq!</span>(
-            <span class="ident">rect</span>.<span class="ident">bounding_box</span>(),
-            <span class="ident">Rectangle::new</span>(<span class="ident">Point::new</span>(<span class="number">5</span>, <span class="number">10</span>), <span class="ident">Size::new</span>(<span class="number">10</span>, <span class="number">20</span>))
+            rect.bounding_box(),
+            Rectangle::new(Point::new(<span class="number">5</span>, <span class="number">10</span>), Size::new(<span class="number">10</span>, <span class="number">20</span>))
         );
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">center</span>() {
-        <span class="kw">let</span> <span class="ident">odd</span> <span class="op">=</span> <span class="ident">Rectangle::new</span>(<span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">20</span>), <span class="ident">Size::new</span>(<span class="number">5</span>, <span class="number">7</span>));
-        <span class="macro">assert_eq!</span>(<span class="ident">odd</span>.<span class="ident">center</span>(), <span class="ident">Point::new</span>(<span class="number">12</span>, <span class="number">23</span>));
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>center() {
+        <span class="kw">let </span>odd = Rectangle::new(Point::new(<span class="number">10</span>, <span class="number">20</span>), Size::new(<span class="number">5</span>, <span class="number">7</span>));
+        <span class="macro">assert_eq!</span>(odd.center(), Point::new(<span class="number">12</span>, <span class="number">23</span>));
 
-        <span class="kw">let</span> <span class="ident">even</span> <span class="op">=</span> <span class="ident">Rectangle::new</span>(<span class="ident">Point::new</span>(<span class="number">20</span>, <span class="number">30</span>), <span class="ident">Size::new</span>(<span class="number">4</span>, <span class="number">8</span>));
-        <span class="macro">assert_eq!</span>(<span class="ident">even</span>.<span class="ident">center</span>(), <span class="ident">Point::new</span>(<span class="number">21</span>, <span class="number">33</span>));
+        <span class="kw">let </span>even = Rectangle::new(Point::new(<span class="number">20</span>, <span class="number">30</span>), Size::new(<span class="number">4</span>, <span class="number">8</span>));
+        <span class="macro">assert_eq!</span>(even.center(), Point::new(<span class="number">21</span>, <span class="number">33</span>));
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">bottom_right</span>() {
-        <span class="kw">let</span> <span class="ident">zero</span> <span class="op">=</span> <span class="ident">Rectangle::new</span>(<span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">20</span>), <span class="ident">Size::zero</span>());
-        <span class="macro">assert_eq!</span>(<span class="ident">zero</span>.<span class="ident">bottom_right</span>(), <span class="prelude-val">None</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>bottom_right() {
+        <span class="kw">let </span>zero = Rectangle::new(Point::new(<span class="number">10</span>, <span class="number">20</span>), Size::zero());
+        <span class="macro">assert_eq!</span>(zero.bottom_right(), <span class="prelude-val">None</span>);
 
-        <span class="kw">let</span> <span class="ident">odd</span> <span class="op">=</span> <span class="ident">Rectangle::new</span>(<span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">20</span>), <span class="ident">Size::new</span>(<span class="number">5</span>, <span class="number">7</span>));
-        <span class="macro">assert_eq!</span>(<span class="ident">odd</span>.<span class="ident">bottom_right</span>(), <span class="prelude-val">Some</span>(<span class="ident">Point::new</span>(<span class="number">14</span>, <span class="number">26</span>)));
+        <span class="kw">let </span>odd = Rectangle::new(Point::new(<span class="number">10</span>, <span class="number">20</span>), Size::new(<span class="number">5</span>, <span class="number">7</span>));
+        <span class="macro">assert_eq!</span>(odd.bottom_right(), <span class="prelude-val">Some</span>(Point::new(<span class="number">14</span>, <span class="number">26</span>)));
 
-        <span class="kw">let</span> <span class="ident">even</span> <span class="op">=</span> <span class="ident">Rectangle::new</span>(<span class="ident">Point::new</span>(<span class="number">20</span>, <span class="number">30</span>), <span class="ident">Size::new</span>(<span class="number">4</span>, <span class="number">8</span>));
-        <span class="macro">assert_eq!</span>(<span class="ident">even</span>.<span class="ident">bottom_right</span>(), <span class="prelude-val">Some</span>(<span class="ident">Point::new</span>(<span class="number">23</span>, <span class="number">37</span>)));
+        <span class="kw">let </span>even = Rectangle::new(Point::new(<span class="number">20</span>, <span class="number">30</span>), Size::new(<span class="number">4</span>, <span class="number">8</span>));
+        <span class="macro">assert_eq!</span>(even.bottom_right(), <span class="prelude-val">Some</span>(Point::new(<span class="number">23</span>, <span class="number">37</span>)));
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">rectangle_intersection</span>() {
-        <span class="kw">let</span> <span class="ident">rect1</span> <span class="op">=</span> <span class="ident">Rectangle::new</span>(<span class="ident">Point::new_equal</span>(<span class="number">10</span>), <span class="ident">Size::new</span>(<span class="number">20</span>, <span class="number">30</span>));
-        <span class="kw">let</span> <span class="ident">rect2</span> <span class="op">=</span> <span class="ident">Rectangle::new</span>(<span class="ident">Point::new_equal</span>(<span class="number">25</span>), <span class="ident">Size::new</span>(<span class="number">30</span>, <span class="number">40</span>));
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>rectangle_intersection() {
+        <span class="kw">let </span>rect1 = Rectangle::new(Point::new_equal(<span class="number">10</span>), Size::new(<span class="number">20</span>, <span class="number">30</span>));
+        <span class="kw">let </span>rect2 = Rectangle::new(Point::new_equal(<span class="number">25</span>), Size::new(<span class="number">30</span>, <span class="number">40</span>));
 
         <span class="macro">assert_eq!</span>(
-            <span class="ident">rect1</span>.<span class="ident">intersection</span>(<span class="kw-2">&amp;</span><span class="ident">rect2</span>),
-            <span class="ident">Rectangle::new</span>(<span class="ident">Point::new_equal</span>(<span class="number">25</span>), <span class="ident">Size::new</span>(<span class="number">5</span>, <span class="number">15</span>))
+            rect1.intersection(<span class="kw-2">&amp;</span>rect2),
+            Rectangle::new(Point::new_equal(<span class="number">25</span>), Size::new(<span class="number">5</span>, <span class="number">15</span>))
         );
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">rectangle_no_intersection</span>() {
-        <span class="kw">let</span> <span class="ident">rect1</span> <span class="op">=</span> <span class="ident">Rectangle::new</span>(<span class="ident">Point::new_equal</span>(<span class="number">10</span>), <span class="ident">Size::new</span>(<span class="number">20</span>, <span class="number">30</span>));
-        <span class="kw">let</span> <span class="ident">rect2</span> <span class="op">=</span> <span class="ident">Rectangle::new</span>(<span class="ident">Point::new_equal</span>(<span class="number">35</span>), <span class="ident">Size::new</span>(<span class="number">30</span>, <span class="number">40</span>));
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>rectangle_no_intersection() {
+        <span class="kw">let </span>rect1 = Rectangle::new(Point::new_equal(<span class="number">10</span>), Size::new(<span class="number">20</span>, <span class="number">30</span>));
+        <span class="kw">let </span>rect2 = Rectangle::new(Point::new_equal(<span class="number">35</span>), Size::new(<span class="number">30</span>, <span class="number">40</span>));
 
         <span class="macro">assert_eq!</span>(
-            <span class="ident">rect1</span>.<span class="ident">intersection</span>(<span class="kw-2">&amp;</span><span class="ident">rect2</span>),
-            <span class="ident">Rectangle::new</span>(<span class="ident">Point::zero</span>(), <span class="ident">Size::zero</span>())
+            rect1.intersection(<span class="kw-2">&amp;</span>rect2),
+            Rectangle::new(Point::zero(), Size::zero())
         );
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">rectangle_complete_intersection</span>() {
-        <span class="kw">let</span> <span class="ident">rect1</span> <span class="op">=</span> <span class="ident">Rectangle::new</span>(<span class="ident">Point::new_equal</span>(<span class="number">10</span>), <span class="ident">Size::new</span>(<span class="number">20</span>, <span class="number">30</span>));
-        <span class="kw">let</span> <span class="ident">rect2</span> <span class="op">=</span> <span class="ident">rect1</span>;
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>rectangle_complete_intersection() {
+        <span class="kw">let </span>rect1 = Rectangle::new(Point::new_equal(<span class="number">10</span>), Size::new(<span class="number">20</span>, <span class="number">30</span>));
+        <span class="kw">let </span>rect2 = rect1;
 
-        <span class="macro">assert_eq!</span>(<span class="ident">rect1</span>.<span class="ident">intersection</span>(<span class="kw-2">&amp;</span><span class="ident">rect2</span>), <span class="ident">rect1</span>);
+        <span class="macro">assert_eq!</span>(rect1.intersection(<span class="kw-2">&amp;</span>rect2), rect1);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">rectangle_contained_intersection</span>() {
-        <span class="kw">let</span> <span class="ident">rect1</span> <span class="op">=</span> <span class="ident">Rectangle::with_corners</span>(<span class="ident">Point::new_equal</span>(<span class="number">10</span>), <span class="ident">Point::new</span>(<span class="number">20</span>, <span class="number">30</span>));
-        <span class="kw">let</span> <span class="ident">rect2</span> <span class="op">=</span> <span class="ident">Rectangle::with_corners</span>(<span class="ident">Point::new_equal</span>(<span class="number">5</span>), <span class="ident">Point::new</span>(<span class="number">30</span>, <span class="number">40</span>));
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>rectangle_contained_intersection() {
+        <span class="kw">let </span>rect1 = Rectangle::with_corners(Point::new_equal(<span class="number">10</span>), Point::new(<span class="number">20</span>, <span class="number">30</span>));
+        <span class="kw">let </span>rect2 = Rectangle::with_corners(Point::new_equal(<span class="number">5</span>), Point::new(<span class="number">30</span>, <span class="number">40</span>));
 
-        <span class="macro">assert_eq!</span>(<span class="ident">rect1</span>.<span class="ident">intersection</span>(<span class="kw-2">&amp;</span><span class="ident">rect2</span>), <span class="ident">rect1</span>);
+        <span class="macro">assert_eq!</span>(rect1.intersection(<span class="kw-2">&amp;</span>rect2), rect1);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">zero_sized_intersection</span>() {
-        <span class="kw">let</span> <span class="ident">rect1</span> <span class="op">=</span> <span class="ident">Rectangle::new</span>(<span class="ident">Point::new</span>(<span class="number">1</span>, <span class="number">2</span>), <span class="ident">Size::new</span>(<span class="number">0</span>, <span class="number">0</span>));
-        <span class="kw">let</span> <span class="ident">rect2</span> <span class="op">=</span> <span class="ident">Rectangle::new</span>(<span class="ident">Point::new</span>(<span class="op">-</span><span class="number">10</span>, <span class="op">-</span><span class="number">10</span>), <span class="ident">Size::new</span>(<span class="number">20</span>, <span class="number">20</span>));
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>zero_sized_intersection() {
+        <span class="kw">let </span>rect1 = Rectangle::new(Point::new(<span class="number">1</span>, <span class="number">2</span>), Size::new(<span class="number">0</span>, <span class="number">0</span>));
+        <span class="kw">let </span>rect2 = Rectangle::new(Point::new(-<span class="number">10</span>, -<span class="number">10</span>), Size::new(<span class="number">20</span>, <span class="number">20</span>));
 
-        <span class="macro">assert_eq!</span>(<span class="ident">rect1</span>.<span class="ident">intersection</span>(<span class="kw-2">&amp;</span><span class="ident">rect2</span>), <span class="ident">rect1</span>);
+        <span class="macro">assert_eq!</span>(rect1.intersection(<span class="kw-2">&amp;</span>rect2), rect1);
 
-        <span class="kw">let</span> <span class="ident">rect1</span> <span class="op">=</span> <span class="ident">Rectangle::new</span>(<span class="ident">Point::new</span>(<span class="op">-</span><span class="number">10</span>, <span class="op">-</span><span class="number">10</span>), <span class="ident">Size::new</span>(<span class="number">20</span>, <span class="number">20</span>));
-        <span class="kw">let</span> <span class="ident">rect2</span> <span class="op">=</span> <span class="ident">Rectangle::new</span>(<span class="ident">Point::new</span>(<span class="number">2</span>, <span class="number">3</span>), <span class="ident">Size::new</span>(<span class="number">0</span>, <span class="number">0</span>));
+        <span class="kw">let </span>rect1 = Rectangle::new(Point::new(-<span class="number">10</span>, -<span class="number">10</span>), Size::new(<span class="number">20</span>, <span class="number">20</span>));
+        <span class="kw">let </span>rect2 = Rectangle::new(Point::new(<span class="number">2</span>, <span class="number">3</span>), Size::new(<span class="number">0</span>, <span class="number">0</span>));
 
-        <span class="macro">assert_eq!</span>(<span class="ident">rect1</span>.<span class="ident">intersection</span>(<span class="kw-2">&amp;</span><span class="ident">rect2</span>), <span class="ident">rect2</span>);
+        <span class="macro">assert_eq!</span>(rect1.intersection(<span class="kw-2">&amp;</span>rect2), rect2);
     }
 
-    <span class="doccomment">/// Test for issue #452</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Rectangles can intersect even if no corner of any rectangle is contained inside the other</span>
-    <span class="doccomment">/// rectangle.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Example:</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///     ****</span>
-    <span class="doccomment">///     *  *</span>
-    <span class="doccomment">/// ############</span>
-    <span class="doccomment">/// #   *  *   #</span>
-    <span class="doccomment">/// #   *  *   #</span>
-    <span class="doccomment">/// ############</span>
-    <span class="doccomment">///     *  *</span>
-    <span class="doccomment">///     ****</span>
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">issue_452_broken_intersection_check</span>() {
-        <span class="kw">let</span> <span class="ident">rect1</span> <span class="op">=</span> <span class="ident">Rectangle::new</span>(<span class="ident">Point::new</span>(<span class="number">50</span>, <span class="number">0</span>), <span class="ident">Size::new</span>(<span class="number">75</span>, <span class="number">200</span>));
-        <span class="kw">let</span> <span class="ident">rect2</span> <span class="op">=</span> <span class="ident">Rectangle::new</span>(<span class="ident">Point::new</span>(<span class="number">0</span>, <span class="number">75</span>), <span class="ident">Size::new</span>(<span class="number">200</span>, <span class="number">50</span>));
+    <span class="doccomment">/// Test for issue #452
+    ///
+    /// Rectangles can intersect even if no corner of any rectangle is contained inside the other
+    /// rectangle.
+    ///
+    /// Example:
+    ///
+    ///     ****
+    ///     *  *
+    /// ############
+    /// #   *  *   #
+    /// #   *  *   #
+    /// ############
+    ///     *  *
+    ///     ****
+    </span><span class="attribute">#[test]
+    </span><span class="kw">fn </span>issue_452_broken_intersection_check() {
+        <span class="kw">let </span>rect1 = Rectangle::new(Point::new(<span class="number">50</span>, <span class="number">0</span>), Size::new(<span class="number">75</span>, <span class="number">200</span>));
+        <span class="kw">let </span>rect2 = Rectangle::new(Point::new(<span class="number">0</span>, <span class="number">75</span>), Size::new(<span class="number">200</span>, <span class="number">50</span>));
 
-        <span class="kw">let</span> <span class="ident">expected</span> <span class="op">=</span> <span class="ident">Rectangle::new</span>(<span class="ident">Point::new</span>(<span class="number">50</span>, <span class="number">75</span>), <span class="ident">Size::new</span>(<span class="number">75</span>, <span class="number">50</span>));
+        <span class="kw">let </span>expected = Rectangle::new(Point::new(<span class="number">50</span>, <span class="number">75</span>), Size::new(<span class="number">75</span>, <span class="number">50</span>));
 
-        <span class="macro">assert_eq!</span>(<span class="ident">rect1</span>.<span class="ident">intersection</span>(<span class="kw-2">&amp;</span><span class="ident">rect2</span>), <span class="ident">expected</span>);
-        <span class="macro">assert_eq!</span>(<span class="ident">rect2</span>.<span class="ident">intersection</span>(<span class="kw-2">&amp;</span><span class="ident">rect1</span>), <span class="ident">expected</span>);
+        <span class="macro">assert_eq!</span>(rect1.intersection(<span class="kw-2">&amp;</span>rect2), expected);
+        <span class="macro">assert_eq!</span>(rect2.intersection(<span class="kw-2">&amp;</span>rect1), expected);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">offset</span>() {
-        <span class="kw">let</span> <span class="ident">center</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">20</span>);
-        <span class="kw">let</span> <span class="ident">rect</span> <span class="op">=</span> <span class="ident">Rectangle::with_center</span>(<span class="ident">center</span>, <span class="ident">Size::new</span>(<span class="number">3</span>, <span class="number">4</span>));
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>offset() {
+        <span class="kw">let </span>center = Point::new(<span class="number">10</span>, <span class="number">20</span>);
+        <span class="kw">let </span>rect = Rectangle::with_center(center, Size::new(<span class="number">3</span>, <span class="number">4</span>));
 
-        <span class="macro">assert_eq!</span>(<span class="ident">rect</span>.<span class="ident">offset</span>(<span class="number">0</span>), <span class="ident">rect</span>);
-
-        <span class="macro">assert_eq!</span>(
-            <span class="ident">rect</span>.<span class="ident">offset</span>(<span class="number">1</span>),
-            <span class="ident">Rectangle::with_center</span>(<span class="ident">center</span>, <span class="ident">Size::new</span>(<span class="number">5</span>, <span class="number">6</span>))
-        );
-        <span class="macro">assert_eq!</span>(
-            <span class="ident">rect</span>.<span class="ident">offset</span>(<span class="number">2</span>),
-            <span class="ident">Rectangle::with_center</span>(<span class="ident">center</span>, <span class="ident">Size::new</span>(<span class="number">7</span>, <span class="number">8</span>))
-        );
+        <span class="macro">assert_eq!</span>(rect.offset(<span class="number">0</span>), rect);
 
         <span class="macro">assert_eq!</span>(
-            <span class="ident">rect</span>.<span class="ident">offset</span>(<span class="op">-</span><span class="number">1</span>),
-            <span class="ident">Rectangle::with_center</span>(<span class="ident">center</span>, <span class="ident">Size::new</span>(<span class="number">1</span>, <span class="number">2</span>))
+            rect.offset(<span class="number">1</span>),
+            Rectangle::with_center(center, Size::new(<span class="number">5</span>, <span class="number">6</span>))
         );
         <span class="macro">assert_eq!</span>(
-            <span class="ident">rect</span>.<span class="ident">offset</span>(<span class="op">-</span><span class="number">2</span>),
-            <span class="ident">Rectangle::with_center</span>(<span class="ident">center</span>, <span class="ident">Size::new</span>(<span class="number">0</span>, <span class="number">0</span>))
+            rect.offset(<span class="number">2</span>),
+            Rectangle::with_center(center, Size::new(<span class="number">7</span>, <span class="number">8</span>))
+        );
+
+        <span class="macro">assert_eq!</span>(
+            rect.offset(-<span class="number">1</span>),
+            Rectangle::with_center(center, Size::new(<span class="number">1</span>, <span class="number">2</span>))
         );
         <span class="macro">assert_eq!</span>(
-            <span class="ident">rect</span>.<span class="ident">offset</span>(<span class="op">-</span><span class="number">3</span>),
-            <span class="ident">Rectangle::with_center</span>(<span class="ident">center</span>, <span class="ident">Size::new</span>(<span class="number">0</span>, <span class="number">0</span>))
+            rect.offset(-<span class="number">2</span>),
+            Rectangle::with_center(center, Size::new(<span class="number">0</span>, <span class="number">0</span>))
+        );
+        <span class="macro">assert_eq!</span>(
+            rect.offset(-<span class="number">3</span>),
+            Rectangle::with_center(center, Size::new(<span class="number">0</span>, <span class="number">0</span>))
         );
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">resized_smaller</span>() {
-        <span class="kw">let</span> <span class="ident">rect</span> <span class="op">=</span> <span class="ident">Rectangle::new</span>(<span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">20</span>), <span class="ident">Size::new</span>(<span class="number">30</span>, <span class="number">40</span>));
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>resized_smaller() {
+        <span class="kw">let </span>rect = Rectangle::new(Point::new(<span class="number">10</span>, <span class="number">20</span>), Size::new(<span class="number">30</span>, <span class="number">40</span>));
 
-        <span class="kw">for</span> <span class="kw-2">&amp;</span>(<span class="ident">anchor_point</span>, <span class="ident">expected_top_left</span>) <span class="kw">in</span> <span class="kw-2">&amp;</span>[
-            (<span class="ident">AnchorPoint::TopLeft</span>, <span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">20</span>)),
-            (<span class="ident">AnchorPoint::TopCenter</span>, <span class="ident">Point::new</span>(<span class="number">20</span>, <span class="number">20</span>)),
-            (<span class="ident">AnchorPoint::TopRight</span>, <span class="ident">Point::new</span>(<span class="number">30</span>, <span class="number">20</span>)),
-            (<span class="ident">AnchorPoint::CenterLeft</span>, <span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">30</span>)),
-            (<span class="ident">AnchorPoint::Center</span>, <span class="ident">Point::new</span>(<span class="number">20</span>, <span class="number">30</span>)),
-            (<span class="ident">AnchorPoint::CenterRight</span>, <span class="ident">Point::new</span>(<span class="number">30</span>, <span class="number">30</span>)),
-            (<span class="ident">AnchorPoint::BottomLeft</span>, <span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">40</span>)),
-            (<span class="ident">AnchorPoint::BottomCenter</span>, <span class="ident">Point::new</span>(<span class="number">20</span>, <span class="number">40</span>)),
-            (<span class="ident">AnchorPoint::BottomRight</span>, <span class="ident">Point::new</span>(<span class="number">30</span>, <span class="number">40</span>)),
+        <span class="kw">for </span><span class="kw-2">&amp;</span>(anchor_point, expected_top_left) <span class="kw">in </span><span class="kw-2">&amp;</span>[
+            (AnchorPoint::TopLeft, Point::new(<span class="number">10</span>, <span class="number">20</span>)),
+            (AnchorPoint::TopCenter, Point::new(<span class="number">20</span>, <span class="number">20</span>)),
+            (AnchorPoint::TopRight, Point::new(<span class="number">30</span>, <span class="number">20</span>)),
+            (AnchorPoint::CenterLeft, Point::new(<span class="number">10</span>, <span class="number">30</span>)),
+            (AnchorPoint::Center, Point::new(<span class="number">20</span>, <span class="number">30</span>)),
+            (AnchorPoint::CenterRight, Point::new(<span class="number">30</span>, <span class="number">30</span>)),
+            (AnchorPoint::BottomLeft, Point::new(<span class="number">10</span>, <span class="number">40</span>)),
+            (AnchorPoint::BottomCenter, Point::new(<span class="number">20</span>, <span class="number">40</span>)),
+            (AnchorPoint::BottomRight, Point::new(<span class="number">30</span>, <span class="number">40</span>)),
         ] {
-            <span class="kw">let</span> <span class="ident">resized</span> <span class="op">=</span> <span class="ident">rect</span>.<span class="ident">resized</span>(<span class="ident">Size::new</span>(<span class="number">10</span>, <span class="number">20</span>), <span class="ident">anchor_point</span>);
+            <span class="kw">let </span>resized = rect.resized(Size::new(<span class="number">10</span>, <span class="number">20</span>), anchor_point);
 
             <span class="macro">assert_eq!</span>(
-                <span class="ident">resized</span>,
-                <span class="ident">Rectangle::new</span>(<span class="ident">expected_top_left</span>, <span class="ident">Size::new</span>(<span class="number">10</span>, <span class="number">20</span>)),
+                resized,
+                Rectangle::new(expected_top_left, Size::new(<span class="number">10</span>, <span class="number">20</span>)),
                 <span class="string">&quot;{:?}&quot;</span>,
-                <span class="ident">anchor_point</span>,
+                anchor_point,
             );
         }
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">resized_larger</span>() {
-        <span class="kw">let</span> <span class="ident">rect</span> <span class="op">=</span> <span class="ident">Rectangle::new</span>(<span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">20</span>), <span class="ident">Size::new</span>(<span class="number">30</span>, <span class="number">40</span>));
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>resized_larger() {
+        <span class="kw">let </span>rect = Rectangle::new(Point::new(<span class="number">10</span>, <span class="number">20</span>), Size::new(<span class="number">30</span>, <span class="number">40</span>));
 
-        <span class="kw">for</span> <span class="kw-2">&amp;</span>(<span class="ident">anchor_point</span>, <span class="ident">expected_top_left</span>) <span class="kw">in</span> <span class="kw-2">&amp;</span>[
-            (<span class="ident">AnchorPoint::TopLeft</span>, <span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">20</span>)),
-            (<span class="ident">AnchorPoint::TopCenter</span>, <span class="ident">Point::new</span>(<span class="number">5</span>, <span class="number">20</span>)),
-            (<span class="ident">AnchorPoint::TopRight</span>, <span class="ident">Point::new</span>(<span class="number">0</span>, <span class="number">20</span>)),
-            (<span class="ident">AnchorPoint::CenterLeft</span>, <span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">15</span>)),
-            (<span class="ident">AnchorPoint::Center</span>, <span class="ident">Point::new</span>(<span class="number">5</span>, <span class="number">15</span>)),
-            (<span class="ident">AnchorPoint::CenterRight</span>, <span class="ident">Point::new</span>(<span class="number">0</span>, <span class="number">15</span>)),
-            (<span class="ident">AnchorPoint::BottomLeft</span>, <span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">10</span>)),
-            (<span class="ident">AnchorPoint::BottomCenter</span>, <span class="ident">Point::new</span>(<span class="number">5</span>, <span class="number">10</span>)),
-            (<span class="ident">AnchorPoint::BottomRight</span>, <span class="ident">Point::new</span>(<span class="number">0</span>, <span class="number">10</span>)),
+        <span class="kw">for </span><span class="kw-2">&amp;</span>(anchor_point, expected_top_left) <span class="kw">in </span><span class="kw-2">&amp;</span>[
+            (AnchorPoint::TopLeft, Point::new(<span class="number">10</span>, <span class="number">20</span>)),
+            (AnchorPoint::TopCenter, Point::new(<span class="number">5</span>, <span class="number">20</span>)),
+            (AnchorPoint::TopRight, Point::new(<span class="number">0</span>, <span class="number">20</span>)),
+            (AnchorPoint::CenterLeft, Point::new(<span class="number">10</span>, <span class="number">15</span>)),
+            (AnchorPoint::Center, Point::new(<span class="number">5</span>, <span class="number">15</span>)),
+            (AnchorPoint::CenterRight, Point::new(<span class="number">0</span>, <span class="number">15</span>)),
+            (AnchorPoint::BottomLeft, Point::new(<span class="number">10</span>, <span class="number">10</span>)),
+            (AnchorPoint::BottomCenter, Point::new(<span class="number">5</span>, <span class="number">10</span>)),
+            (AnchorPoint::BottomRight, Point::new(<span class="number">0</span>, <span class="number">10</span>)),
         ] {
-            <span class="kw">let</span> <span class="ident">resized</span> <span class="op">=</span> <span class="ident">rect</span>.<span class="ident">resized</span>(<span class="ident">Size::new</span>(<span class="number">40</span>, <span class="number">50</span>), <span class="ident">anchor_point</span>);
+            <span class="kw">let </span>resized = rect.resized(Size::new(<span class="number">40</span>, <span class="number">50</span>), anchor_point);
 
             <span class="macro">assert_eq!</span>(
-                <span class="ident">resized</span>,
-                <span class="ident">Rectangle::new</span>(<span class="ident">expected_top_left</span>, <span class="ident">Size::new</span>(<span class="number">40</span>, <span class="number">50</span>)),
+                resized,
+                Rectangle::new(expected_top_left, Size::new(<span class="number">40</span>, <span class="number">50</span>)),
                 <span class="string">&quot;{:?}&quot;</span>,
-                <span class="ident">anchor_point</span>,
+                anchor_point,
             );
         }
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">resized_zero_sized</span>() {
-        <span class="kw">let</span> <span class="ident">rect</span> <span class="op">=</span> <span class="ident">Rectangle::new</span>(<span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">20</span>), <span class="ident">Size::zero</span>());
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>resized_zero_sized() {
+        <span class="kw">let </span>rect = Rectangle::new(Point::new(<span class="number">10</span>, <span class="number">20</span>), Size::zero());
 
-        <span class="kw">for</span> <span class="kw-2">&amp;</span>(<span class="ident">anchor_point</span>, <span class="ident">expected_top_left</span>) <span class="kw">in</span> <span class="kw-2">&amp;</span>[
-            (<span class="ident">AnchorPoint::TopLeft</span>, <span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">20</span>)),
-            (<span class="ident">AnchorPoint::TopCenter</span>, <span class="ident">Point::new</span>(<span class="number">8</span>, <span class="number">20</span>)),
-            (<span class="ident">AnchorPoint::TopRight</span>, <span class="ident">Point::new</span>(<span class="number">6</span>, <span class="number">20</span>)),
-            (<span class="ident">AnchorPoint::CenterLeft</span>, <span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">17</span>)),
-            (<span class="ident">AnchorPoint::Center</span>, <span class="ident">Point::new</span>(<span class="number">8</span>, <span class="number">17</span>)),
-            (<span class="ident">AnchorPoint::CenterRight</span>, <span class="ident">Point::new</span>(<span class="number">6</span>, <span class="number">17</span>)),
-            (<span class="ident">AnchorPoint::BottomLeft</span>, <span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">14</span>)),
-            (<span class="ident">AnchorPoint::BottomCenter</span>, <span class="ident">Point::new</span>(<span class="number">8</span>, <span class="number">14</span>)),
-            (<span class="ident">AnchorPoint::BottomRight</span>, <span class="ident">Point::new</span>(<span class="number">6</span>, <span class="number">14</span>)),
+        <span class="kw">for </span><span class="kw-2">&amp;</span>(anchor_point, expected_top_left) <span class="kw">in </span><span class="kw-2">&amp;</span>[
+            (AnchorPoint::TopLeft, Point::new(<span class="number">10</span>, <span class="number">20</span>)),
+            (AnchorPoint::TopCenter, Point::new(<span class="number">8</span>, <span class="number">20</span>)),
+            (AnchorPoint::TopRight, Point::new(<span class="number">6</span>, <span class="number">20</span>)),
+            (AnchorPoint::CenterLeft, Point::new(<span class="number">10</span>, <span class="number">17</span>)),
+            (AnchorPoint::Center, Point::new(<span class="number">8</span>, <span class="number">17</span>)),
+            (AnchorPoint::CenterRight, Point::new(<span class="number">6</span>, <span class="number">17</span>)),
+            (AnchorPoint::BottomLeft, Point::new(<span class="number">10</span>, <span class="number">14</span>)),
+            (AnchorPoint::BottomCenter, Point::new(<span class="number">8</span>, <span class="number">14</span>)),
+            (AnchorPoint::BottomRight, Point::new(<span class="number">6</span>, <span class="number">14</span>)),
         ] {
-            <span class="kw">let</span> <span class="ident">resized</span> <span class="op">=</span> <span class="ident">rect</span>.<span class="ident">resized</span>(<span class="ident">Size::new</span>(<span class="number">5</span>, <span class="number">7</span>), <span class="ident">anchor_point</span>);
+            <span class="kw">let </span>resized = rect.resized(Size::new(<span class="number">5</span>, <span class="number">7</span>), anchor_point);
 
             <span class="macro">assert_eq!</span>(
-                <span class="ident">resized</span>,
-                <span class="ident">Rectangle::new</span>(<span class="ident">expected_top_left</span>, <span class="ident">Size::new</span>(<span class="number">5</span>, <span class="number">7</span>)),
+                resized,
+                Rectangle::new(expected_top_left, Size::new(<span class="number">5</span>, <span class="number">7</span>)),
                 <span class="string">&quot;{:?}&quot;</span>,
-                <span class="ident">anchor_point</span>,
+                anchor_point,
             );
         }
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">resized_to_zero_sized</span>() {
-        <span class="kw">let</span> <span class="ident">rect</span> <span class="op">=</span> <span class="ident">Rectangle::new</span>(<span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">20</span>), <span class="ident">Size::new</span>(<span class="number">21</span>, <span class="number">31</span>));
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>resized_to_zero_sized() {
+        <span class="kw">let </span>rect = Rectangle::new(Point::new(<span class="number">10</span>, <span class="number">20</span>), Size::new(<span class="number">21</span>, <span class="number">31</span>));
 
-        <span class="kw">for</span> <span class="kw-2">&amp;</span>(<span class="ident">anchor_point</span>, <span class="ident">expected_top_left</span>) <span class="kw">in</span> <span class="kw-2">&amp;</span>[
-            (<span class="ident">AnchorPoint::TopLeft</span>, <span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">20</span>)),
-            (<span class="ident">AnchorPoint::TopCenter</span>, <span class="ident">Point::new</span>(<span class="number">20</span>, <span class="number">20</span>)),
-            (<span class="ident">AnchorPoint::TopRight</span>, <span class="ident">Point::new</span>(<span class="number">30</span>, <span class="number">20</span>)),
-            (<span class="ident">AnchorPoint::CenterLeft</span>, <span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">35</span>)),
-            (<span class="ident">AnchorPoint::Center</span>, <span class="ident">Point::new</span>(<span class="number">20</span>, <span class="number">35</span>)),
-            (<span class="ident">AnchorPoint::CenterRight</span>, <span class="ident">Point::new</span>(<span class="number">30</span>, <span class="number">35</span>)),
-            (<span class="ident">AnchorPoint::BottomLeft</span>, <span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">50</span>)),
-            (<span class="ident">AnchorPoint::BottomCenter</span>, <span class="ident">Point::new</span>(<span class="number">20</span>, <span class="number">50</span>)),
-            (<span class="ident">AnchorPoint::BottomRight</span>, <span class="ident">Point::new</span>(<span class="number">30</span>, <span class="number">50</span>)),
+        <span class="kw">for </span><span class="kw-2">&amp;</span>(anchor_point, expected_top_left) <span class="kw">in </span><span class="kw-2">&amp;</span>[
+            (AnchorPoint::TopLeft, Point::new(<span class="number">10</span>, <span class="number">20</span>)),
+            (AnchorPoint::TopCenter, Point::new(<span class="number">20</span>, <span class="number">20</span>)),
+            (AnchorPoint::TopRight, Point::new(<span class="number">30</span>, <span class="number">20</span>)),
+            (AnchorPoint::CenterLeft, Point::new(<span class="number">10</span>, <span class="number">35</span>)),
+            (AnchorPoint::Center, Point::new(<span class="number">20</span>, <span class="number">35</span>)),
+            (AnchorPoint::CenterRight, Point::new(<span class="number">30</span>, <span class="number">35</span>)),
+            (AnchorPoint::BottomLeft, Point::new(<span class="number">10</span>, <span class="number">50</span>)),
+            (AnchorPoint::BottomCenter, Point::new(<span class="number">20</span>, <span class="number">50</span>)),
+            (AnchorPoint::BottomRight, Point::new(<span class="number">30</span>, <span class="number">50</span>)),
         ] {
-            <span class="kw">let</span> <span class="ident">resized</span> <span class="op">=</span> <span class="ident">rect</span>.<span class="ident">resized</span>(<span class="ident">Size::zero</span>(), <span class="ident">anchor_point</span>);
+            <span class="kw">let </span>resized = rect.resized(Size::zero(), anchor_point);
 
             <span class="macro">assert_eq!</span>(
-                <span class="ident">resized</span>,
-                <span class="ident">Rectangle::new</span>(<span class="ident">expected_top_left</span>, <span class="ident">Size::zero</span>()),
+                resized,
+                Rectangle::new(expected_top_left, Size::zero()),
                 <span class="string">&quot;{:?}&quot;</span>,
-                <span class="ident">anchor_point</span>,
+                anchor_point,
             );
         }
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">anchor_point</span>() {
-        <span class="kw">let</span> <span class="ident">rect</span> <span class="op">=</span> <span class="ident">Rectangle::new</span>(<span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">20</span>), <span class="ident">Size::new</span>(<span class="number">21</span>, <span class="number">31</span>));
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>anchor_point() {
+        <span class="kw">let </span>rect = Rectangle::new(Point::new(<span class="number">10</span>, <span class="number">20</span>), Size::new(<span class="number">21</span>, <span class="number">31</span>));
 
-        <span class="kw">for</span> <span class="kw-2">&amp;</span>(<span class="ident">anchor_point</span>, <span class="ident">expected</span>) <span class="kw">in</span> <span class="kw-2">&amp;</span>[
-            (<span class="ident">AnchorPoint::TopLeft</span>, <span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">20</span>)),
-            (<span class="ident">AnchorPoint::TopCenter</span>, <span class="ident">Point::new</span>(<span class="number">20</span>, <span class="number">20</span>)),
-            (<span class="ident">AnchorPoint::TopRight</span>, <span class="ident">Point::new</span>(<span class="number">30</span>, <span class="number">20</span>)),
-            (<span class="ident">AnchorPoint::CenterLeft</span>, <span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">35</span>)),
-            (<span class="ident">AnchorPoint::Center</span>, <span class="ident">Point::new</span>(<span class="number">20</span>, <span class="number">35</span>)),
-            (<span class="ident">AnchorPoint::CenterRight</span>, <span class="ident">Point::new</span>(<span class="number">30</span>, <span class="number">35</span>)),
-            (<span class="ident">AnchorPoint::BottomLeft</span>, <span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">50</span>)),
-            (<span class="ident">AnchorPoint::BottomCenter</span>, <span class="ident">Point::new</span>(<span class="number">20</span>, <span class="number">50</span>)),
-            (<span class="ident">AnchorPoint::BottomRight</span>, <span class="ident">Point::new</span>(<span class="number">30</span>, <span class="number">50</span>)),
+        <span class="kw">for </span><span class="kw-2">&amp;</span>(anchor_point, expected) <span class="kw">in </span><span class="kw-2">&amp;</span>[
+            (AnchorPoint::TopLeft, Point::new(<span class="number">10</span>, <span class="number">20</span>)),
+            (AnchorPoint::TopCenter, Point::new(<span class="number">20</span>, <span class="number">20</span>)),
+            (AnchorPoint::TopRight, Point::new(<span class="number">30</span>, <span class="number">20</span>)),
+            (AnchorPoint::CenterLeft, Point::new(<span class="number">10</span>, <span class="number">35</span>)),
+            (AnchorPoint::Center, Point::new(<span class="number">20</span>, <span class="number">35</span>)),
+            (AnchorPoint::CenterRight, Point::new(<span class="number">30</span>, <span class="number">35</span>)),
+            (AnchorPoint::BottomLeft, Point::new(<span class="number">10</span>, <span class="number">50</span>)),
+            (AnchorPoint::BottomCenter, Point::new(<span class="number">20</span>, <span class="number">50</span>)),
+            (AnchorPoint::BottomRight, Point::new(<span class="number">30</span>, <span class="number">50</span>)),
         ] {
             <span class="macro">assert_eq!</span>(
-                <span class="ident">rect</span>.<span class="ident">anchor_point</span>(<span class="ident">anchor_point</span>),
-                <span class="ident">expected</span>,
+                rect.anchor_point(anchor_point),
+                expected,
                 <span class="string">&quot;{:?}&quot;</span>,
-                <span class="ident">anchor_point</span>,
+                anchor_point,
             );
         }
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">rows_and_columns_zero_sized</span>() {
-        <span class="kw">let</span> <span class="ident">rect</span> <span class="op">=</span> <span class="ident">Rectangle::zero</span>();
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>rows_and_columns_zero_sized() {
+        <span class="kw">let </span>rect = Rectangle::zero();
 
         <span class="macro">assert_eq!</span>(
-            <span class="ident">rect</span>.<span class="ident">rows</span>().<span class="ident">next</span>(),
+            rect.rows().next(),
             <span class="prelude-val">None</span>,
-            <span class="string">&quot;the rows iterator for a zero sized rectangle shouldn&#39;t return any items&quot;</span>
-        );
+            <span class="string">&quot;the rows iterator for a zero sized rectangle shouldn&#39;t return any items&quot;
+        </span>);
 
         <span class="macro">assert_eq!</span>(
-            <span class="ident">rect</span>.<span class="ident">columns</span>().<span class="ident">next</span>(),
+            rect.columns().next(),
             <span class="prelude-val">None</span>,
-            <span class="string">&quot;the columns iterator for a zero sized rectangle shouldn&#39;t return any items&quot;</span>
-        );
+            <span class="string">&quot;the columns iterator for a zero sized rectangle shouldn&#39;t return any items&quot;
+        </span>);
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../../" data-current-crate="embedded_graphics_core" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0 (a55dd71d5 2022-09-19)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../../" data-current-crate="embedded_graphics_core" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0 (69f9c33d7 2022-12-12)" ></div></body></html>

@@ -1,6 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.1/src/primitives/line/mod.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../../storage.js"></script><script defer src="../../../../source-script.js"></script><script defer src="../../../../source-files.js"></script><script defer src="../../../../main.js"></script><noscript><link rel="stylesheet" href="../../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../../embedded_graphics/index.html"><div class="logo-container"><img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../../embedded_graphics/index.html"><div class="logo-container">
-                    <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../../embedded_graphics/index.html">
-                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.1/src/primitives/line/mod.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../../normalize.css"><link rel="stylesheet" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../../ayu.css" disabled><link rel="stylesheet" href="../../../../dark.css" disabled><link rel="stylesheet" href="../../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../../storage.js"></script><script defer src="../../../../source-script.js"></script><script defer src="../../../../source-files.js"></script><script defer src="../../../../main.js"></script><noscript><link rel="stylesheet" href="../../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../../embedded_graphics/index.html">
+                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../wheel.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -448,260 +447,260 @@
 <span id="446">446</span>
 <span id="447">447</span>
 <span id="448">448</span>
-</pre><pre class="rust"><code><span class="doccomment">//! The line primitive</span>
+</pre><pre class="rust"><code><span class="doccomment">//! The line primitive
 
-<span class="kw">use</span> <span class="kw">crate</span>::{
-    <span class="ident">geometry</span>::{<span class="ident">Dimensions</span>, <span class="ident">Point</span>},
-    <span class="ident">primitives</span>::{
-        <span class="ident">common::StrokeOffset</span>,
-        <span class="ident">line::thick_points</span>::{<span class="ident">ParallelLineType</span>, <span class="ident">ParallelsIterator</span>},
-        <span class="ident">PointsIter</span>, <span class="ident">Primitive</span>, <span class="ident">Rectangle</span>,
+</span><span class="kw">use crate</span>::{
+    geometry::{Dimensions, Point},
+    primitives::{
+        common::StrokeOffset,
+        line::thick_points::{ParallelLineType, ParallelsIterator},
+        PointsIter, Primitive, Rectangle,
     },
-    <span class="ident">transform::Transform</span>,
+    transform::Transform,
 };
-<span class="kw">use</span> <span class="ident">az::SaturatingAs</span>;
+<span class="kw">use </span>az::SaturatingAs;
 
-<span class="kw">mod</span> <span class="ident">bresenham</span>;
-<span class="kw">pub</span>(<span class="kw">in</span> <span class="ident"><span class="kw">crate</span>::primitives</span>) <span class="kw">mod</span> <span class="ident">intersection_params</span>;
-<span class="kw">mod</span> <span class="ident">points</span>;
-<span class="kw">mod</span> <span class="ident">styled</span>;
-<span class="kw">mod</span> <span class="ident">thick_points</span>;
+<span class="kw">mod </span>bresenham;
+<span class="kw">pub</span>(<span class="kw">in </span><span class="kw">crate</span>::primitives) <span class="kw">mod </span>intersection_params;
+<span class="kw">mod </span>points;
+<span class="kw">mod </span>styled;
+<span class="kw">mod </span>thick_points;
 
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">points::Points</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">styled::StyledPixelsIterator</span>;
+<span class="kw">pub use </span>points::Points;
+<span class="kw">pub use </span>styled::StyledPixelsIterator;
 
-<span class="doccomment">/// Line primitive</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Examples</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// ## Create some lines with different styles</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// ```rust</span>
-<span class="doccomment">/// use embedded_graphics::{</span>
-<span class="doccomment">///     pixelcolor::Rgb565, prelude::*, primitives::{Line, PrimitiveStyle},</span>
-<span class="doccomment">/// };</span>
-<span class="doccomment">/// # use embedded_graphics::mock_display::MockDisplay;</span>
-<span class="doccomment">/// # let mut display = MockDisplay::default();</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// // Red 1 pixel wide line from (50, 20) to (60, 35)</span>
-<span class="doccomment">/// Line::new(Point::new(50, 20), Point::new(60, 35))</span>
-<span class="doccomment">///     .into_styled(PrimitiveStyle::with_stroke(Rgb565::RED, 1))</span>
-<span class="doccomment">///     .draw(&amp;mut display)?;</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// // Green 10 pixel wide line with translation applied</span>
-<span class="doccomment">/// Line::new(Point::new(50, 20), Point::new(60, 35))</span>
-<span class="doccomment">///     .translate(Point::new(-30, 10))</span>
-<span class="doccomment">///     .into_styled(PrimitiveStyle::with_stroke(Rgb565::GREEN, 10))</span>
-<span class="doccomment">///     .draw(&amp;mut display)?;</span>
-<span class="doccomment">/// # Ok::&lt;(), core::convert::Infallible&gt;(())</span>
-<span class="doccomment">/// ```</span>
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Copy</span>, <span class="ident">Clone</span>, <span class="ident">Eq</span>, <span class="ident">PartialEq</span>, <span class="ident">Ord</span>, <span class="ident">PartialOrd</span>, <span class="ident">Hash</span>, <span class="ident">Debug</span>, <span class="ident">Default</span>)]</span>
-<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Line</span> {
-    <span class="doccomment">/// Start point</span>
-    <span class="kw">pub</span> <span class="ident">start</span>: <span class="ident">Point</span>,
+<span class="doccomment">/// Line primitive
+///
+/// # Examples
+///
+/// ## Create some lines with different styles
+///
+/// ```rust
+/// use embedded_graphics::{
+///     pixelcolor::Rgb565, prelude::*, primitives::{Line, PrimitiveStyle},
+/// };
+/// # use embedded_graphics::mock_display::MockDisplay;
+/// # let mut display = MockDisplay::default();
+///
+/// // Red 1 pixel wide line from (50, 20) to (60, 35)
+/// Line::new(Point::new(50, 20), Point::new(60, 35))
+///     .into_styled(PrimitiveStyle::with_stroke(Rgb565::RED, 1))
+///     .draw(&amp;mut display)?;
+///
+/// // Green 10 pixel wide line with translation applied
+/// Line::new(Point::new(50, 20), Point::new(60, 35))
+///     .translate(Point::new(-30, 10))
+///     .into_styled(PrimitiveStyle::with_stroke(Rgb565::GREEN, 10))
+///     .draw(&amp;mut display)?;
+/// # Ok::&lt;(), core::convert::Infallible&gt;(())
+/// ```
+</span><span class="attribute">#[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Hash, Debug, Default)]
+</span><span class="kw">pub struct </span>Line {
+    <span class="doccomment">/// Start point
+    </span><span class="kw">pub </span>start: Point,
 
-    <span class="doccomment">/// End point</span>
-    <span class="kw">pub</span> <span class="ident">end</span>: <span class="ident">Point</span>,
+    <span class="doccomment">/// End point
+    </span><span class="kw">pub </span>end: Point,
 }
 
-<span class="kw">impl</span> <span class="ident">Primitive</span> <span class="kw">for</span> <span class="ident">Line</span> {}
+<span class="kw">impl </span>Primitive <span class="kw">for </span>Line {}
 
-<span class="kw">impl</span> <span class="ident">PointsIter</span> <span class="kw">for</span> <span class="ident">Line</span> {
-    <span class="kw">type</span> <span class="ident">Iter</span> <span class="op">=</span> <span class="ident">Points</span>;
+<span class="kw">impl </span>PointsIter <span class="kw">for </span>Line {
+    <span class="kw">type </span>Iter = Points;
 
-    <span class="kw">fn</span> <span class="ident">points</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident"><span class="self">Self</span>::Iter</span> {
-        <span class="ident">Points::new</span>(<span class="self">self</span>)
-    }
-}
-
-<span class="kw">impl</span> <span class="ident">Dimensions</span> <span class="kw">for</span> <span class="ident">Line</span> {
-    <span class="kw">fn</span> <span class="ident">bounding_box</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Rectangle</span> {
-        <span class="ident">Rectangle::with_corners</span>(<span class="self">self</span>.<span class="ident">start</span>, <span class="self">self</span>.<span class="ident">end</span>)
+    <span class="kw">fn </span>points(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="self">Self</span>::Iter {
+        Points::new(<span class="self">self</span>)
     }
 }
 
-<span class="kw">impl</span> <span class="ident">Line</span> {
-    <span class="doccomment">/// Create a new line</span>
-    <span class="kw">pub</span> <span class="kw">const</span> <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">start</span>: <span class="ident">Point</span>, <span class="ident">end</span>: <span class="ident">Point</span>) -&gt; <span class="self">Self</span> {
-        <span class="self">Self</span> { <span class="ident">start</span>, <span class="ident">end</span> }
+<span class="kw">impl </span>Dimensions <span class="kw">for </span>Line {
+    <span class="kw">fn </span>bounding_box(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Rectangle {
+        Rectangle::with_corners(<span class="self">self</span>.start, <span class="self">self</span>.end)
+    }
+}
+
+<span class="kw">impl </span>Line {
+    <span class="doccomment">/// Create a new line
+    </span><span class="kw">pub const fn </span>new(start: Point, end: Point) -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{ start, end }
     }
 
-    <span class="doccomment">/// Returns a perpendicular line.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The returned line is rotated 90 degree counter clockwise and shares the start point with the</span>
-    <span class="doccomment">/// original line.</span>
-    <span class="kw">fn</span> <span class="ident">perpendicular</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="self">Self</span> {
-        <span class="kw">let</span> <span class="ident">delta</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">end</span> <span class="op">-</span> <span class="self">self</span>.<span class="ident">start</span>;
-        <span class="kw">let</span> <span class="ident">delta</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="ident">delta</span>.<span class="ident">y</span>, <span class="op">-</span><span class="ident">delta</span>.<span class="ident">x</span>);
+    <span class="doccomment">/// Returns a perpendicular line.
+    ///
+    /// The returned line is rotated 90 degree counter clockwise and shares the start point with the
+    /// original line.
+    </span><span class="kw">fn </span>perpendicular(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="self">Self </span>{
+        <span class="kw">let </span>delta = <span class="self">self</span>.end - <span class="self">self</span>.start;
+        <span class="kw">let </span>delta = Point::new(delta.y, -delta.x);
 
-        <span class="ident">Line::new</span>(<span class="self">self</span>.<span class="ident">start</span>, <span class="self">self</span>.<span class="ident">start</span> <span class="op">+</span> <span class="ident">delta</span>)
+        Line::new(<span class="self">self</span>.start, <span class="self">self</span>.start + delta)
     }
 
-    <span class="doccomment">/// Get two lines representing the left and right edges of the thick line.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// If a thickness of `0` is given, the lines returned will lie on the same points as `self`.</span>
-    <span class="kw">pub</span>(<span class="kw">in</span> <span class="ident"><span class="kw">crate</span>::primitives</span>) <span class="kw">fn</span> <span class="ident">extents</span>(
+    <span class="doccomment">/// Get two lines representing the left and right edges of the thick line.
+    ///
+    /// If a thickness of `0` is given, the lines returned will lie on the same points as `self`.
+    </span><span class="kw">pub</span>(<span class="kw">in </span><span class="kw">crate</span>::primitives) <span class="kw">fn </span>extents(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">thickness</span>: <span class="ident">u32</span>,
-        <span class="ident">stroke_offset</span>: <span class="ident">StrokeOffset</span>,
-    ) -&gt; (<span class="ident">Line</span>, <span class="ident">Line</span>) {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">it</span> <span class="op">=</span> <span class="ident">ParallelsIterator::new</span>(<span class="self">self</span>, <span class="ident">thickness</span>.<span class="ident">saturating_as</span>(), <span class="ident">stroke_offset</span>);
-        <span class="kw">let</span> <span class="ident">reduce</span> <span class="op">=</span>
-            <span class="ident">it</span>.<span class="ident">parallel_parameters</span>.<span class="ident">position_step</span>.<span class="ident">major</span> <span class="op">+</span> <span class="ident">it</span>.<span class="ident">parallel_parameters</span>.<span class="ident">position_step</span>.<span class="ident">minor</span>;
+        thickness: u32,
+        stroke_offset: StrokeOffset,
+    ) -&gt; (Line, Line) {
+        <span class="kw">let </span><span class="kw-2">mut </span>it = ParallelsIterator::new(<span class="self">self</span>, thickness.saturating_as(), stroke_offset);
+        <span class="kw">let </span>reduce =
+            it.parallel_parameters.position_step.major + it.parallel_parameters.position_step.minor;
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">left</span> <span class="op">=</span> (<span class="self">self</span>.<span class="ident">start</span>, <span class="ident">ParallelLineType::Normal</span>);
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">right</span> <span class="op">=</span> (<span class="self">self</span>.<span class="ident">start</span>, <span class="ident">ParallelLineType::Normal</span>);
+        <span class="kw">let </span><span class="kw-2">mut </span>left = (<span class="self">self</span>.start, ParallelLineType::Normal);
+        <span class="kw">let </span><span class="kw-2">mut </span>right = (<span class="self">self</span>.start, ParallelLineType::Normal);
 
-        <span class="kw">match</span> <span class="ident">stroke_offset</span> {
-            <span class="ident">StrokeOffset::None</span> =&gt; <span class="kw">loop</span> {
-                <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>((<span class="ident">bresenham</span>, <span class="ident">reduce</span>)) <span class="op">=</span> <span class="ident">it</span>.<span class="ident">next</span>() {
-                    <span class="ident">right</span> <span class="op">=</span> (<span class="ident">bresenham</span>.<span class="ident">point</span>, <span class="ident">reduce</span>);
-                } <span class="kw">else</span> {
+        <span class="kw">match </span>stroke_offset {
+            StrokeOffset::None =&gt; <span class="kw">loop </span>{
+                <span class="kw">if let </span><span class="prelude-val">Some</span>((bresenham, reduce)) = it.next() {
+                    right = (bresenham.point, reduce);
+                } <span class="kw">else </span>{
                     <span class="kw">break</span>;
                 }
 
-                <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>((<span class="ident">bresenham</span>, <span class="ident">reduce</span>)) <span class="op">=</span> <span class="ident">it</span>.<span class="ident">next</span>() {
-                    <span class="ident">left</span> <span class="op">=</span> (<span class="ident">bresenham</span>.<span class="ident">point</span>, <span class="ident">reduce</span>);
-                } <span class="kw">else</span> {
+                <span class="kw">if let </span><span class="prelude-val">Some</span>((bresenham, reduce)) = it.next() {
+                    left = (bresenham.point, reduce);
+                } <span class="kw">else </span>{
                     <span class="kw">break</span>;
                 }
             },
-            <span class="ident">StrokeOffset::Left</span> =&gt; {
-                <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>((<span class="ident">bresenham</span>, <span class="ident">reduce</span>)) <span class="op">=</span> <span class="ident">it</span>.<span class="ident">last</span>() {
-                    <span class="ident">left</span> <span class="op">=</span> (<span class="ident">bresenham</span>.<span class="ident">point</span>, <span class="ident">reduce</span>);
+            StrokeOffset::Left =&gt; {
+                <span class="kw">if let </span><span class="prelude-val">Some</span>((bresenham, reduce)) = it.last() {
+                    left = (bresenham.point, reduce);
                 }
             }
-            <span class="ident">StrokeOffset::Right</span> =&gt; {
-                <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>((<span class="ident">bresenham</span>, <span class="ident">reduce</span>)) <span class="op">=</span> <span class="ident">it</span>.<span class="ident">last</span>() {
-                    <span class="ident">right</span> <span class="op">=</span> (<span class="ident">bresenham</span>.<span class="ident">point</span>, <span class="ident">reduce</span>);
+            StrokeOffset::Right =&gt; {
+                <span class="kw">if let </span><span class="prelude-val">Some</span>((bresenham, reduce)) = it.last() {
+                    right = (bresenham.point, reduce);
                 }
             }
         };
 
-        <span class="kw">let</span> <span class="ident">left_start</span> <span class="op">=</span> <span class="ident">left</span>.<span class="number">0</span>;
-        <span class="kw">let</span> <span class="ident">right_start</span> <span class="op">=</span> <span class="ident">right</span>.<span class="number">0</span>;
+        <span class="kw">let </span>left_start = left.<span class="number">0</span>;
+        <span class="kw">let </span>right_start = right.<span class="number">0</span>;
 
-        <span class="kw">let</span> <span class="ident">delta</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">end</span> <span class="op">-</span> <span class="self">self</span>.<span class="ident">start</span>;
+        <span class="kw">let </span>delta = <span class="self">self</span>.end - <span class="self">self</span>.start;
 
-        <span class="kw">let</span> <span class="ident">left_line</span> <span class="op">=</span> <span class="ident">Line::new</span>(
-            <span class="ident">left_start</span>,
-            <span class="ident">left_start</span> <span class="op">+</span> <span class="ident">delta</span>
-                <span class="op">-</span> <span class="kw">match</span> <span class="ident">left</span>.<span class="number">1</span> {
-                    <span class="ident">ParallelLineType::Normal</span> =&gt; <span class="ident">Point::zero</span>(),
-                    <span class="ident">ParallelLineType::Extra</span> =&gt; <span class="ident">reduce</span>,
+        <span class="kw">let </span>left_line = Line::new(
+            left_start,
+            left_start + delta
+                - <span class="kw">match </span>left.<span class="number">1 </span>{
+                    ParallelLineType::Normal =&gt; Point::zero(),
+                    ParallelLineType::Extra =&gt; reduce,
                 },
         );
 
-        <span class="kw">let</span> <span class="ident">right_line</span> <span class="op">=</span> <span class="ident">Line::new</span>(
-            <span class="ident">right_start</span>,
-            <span class="ident">right_start</span> <span class="op">+</span> <span class="ident">delta</span>
-                <span class="op">-</span> <span class="kw">match</span> <span class="ident">right</span>.<span class="number">1</span> {
-                    <span class="ident">ParallelLineType::Normal</span> =&gt; <span class="ident">Point::zero</span>(),
-                    <span class="ident">ParallelLineType::Extra</span> =&gt; <span class="ident">reduce</span>,
+        <span class="kw">let </span>right_line = Line::new(
+            right_start,
+            right_start + delta
+                - <span class="kw">match </span>right.<span class="number">1 </span>{
+                    ParallelLineType::Normal =&gt; Point::zero(),
+                    ParallelLineType::Extra =&gt; reduce,
                 },
         );
-        (<span class="ident">left_line</span>, <span class="ident">right_line</span>)
+        (left_line, right_line)
     }
 
-    <span class="doccomment">/// Compute the midpoint of the line.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">midpoint</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Point</span> {
-        <span class="self">self</span>.<span class="ident">start</span> <span class="op">+</span> (<span class="self">self</span>.<span class="ident">end</span> <span class="op">-</span> <span class="self">self</span>.<span class="ident">start</span>) <span class="op">/</span> <span class="number">2</span>
-    }
+    <span class="doccomment">/// Compute the midpoint of the line.
+    </span><span class="kw">pub fn </span>midpoint(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Point {
+        <span class="self">self</span>.start + (<span class="self">self</span>.end - <span class="self">self</span>.start) / <span class="number">2
+    </span>}
 
-    <span class="doccomment">/// Compute the delta (`end - start`) of the line.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">delta</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Point</span> {
-        <span class="self">self</span>.<span class="ident">end</span> <span class="op">-</span> <span class="self">self</span>.<span class="ident">start</span>
+    <span class="doccomment">/// Compute the delta (`end - start`) of the line.
+    </span><span class="kw">pub fn </span>delta(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Point {
+        <span class="self">self</span>.end - <span class="self">self</span>.start
     }
 }
 
-<span class="kw">impl</span> <span class="ident">Transform</span> <span class="kw">for</span> <span class="ident">Line</span> {
-    <span class="doccomment">/// Translate the line from its current position to a new position by (x, y) pixels, returning</span>
-    <span class="doccomment">/// a new `Line`. For a mutating transform, see `translate_mut`.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ```</span>
-    <span class="doccomment">/// # use embedded_graphics::primitives::Line;</span>
-    <span class="doccomment">/// # use embedded_graphics::prelude::*;</span>
-    <span class="doccomment">/// let line = Line::new(Point::new(5, 10), Point::new(15, 20));</span>
-    <span class="doccomment">/// let moved = line.translate(Point::new(10, 10));</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// assert_eq!(moved.start, Point::new(15, 20));</span>
-    <span class="doccomment">/// assert_eq!(moved.end, Point::new(25, 30));</span>
-    <span class="doccomment">/// ```</span>
-    <span class="kw">fn</span> <span class="ident">translate</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">by</span>: <span class="ident">Point</span>) -&gt; <span class="self">Self</span> {
-        <span class="self">Self</span> {
-            <span class="ident">start</span>: <span class="self">self</span>.<span class="ident">start</span> <span class="op">+</span> <span class="ident">by</span>,
-            <span class="ident">end</span>: <span class="self">self</span>.<span class="ident">end</span> <span class="op">+</span> <span class="ident">by</span>,
+<span class="kw">impl </span>Transform <span class="kw">for </span>Line {
+    <span class="doccomment">/// Translate the line from its current position to a new position by (x, y) pixels, returning
+    /// a new `Line`. For a mutating transform, see `translate_mut`.
+    ///
+    /// ```
+    /// # use embedded_graphics::primitives::Line;
+    /// # use embedded_graphics::prelude::*;
+    /// let line = Line::new(Point::new(5, 10), Point::new(15, 20));
+    /// let moved = line.translate(Point::new(10, 10));
+    ///
+    /// assert_eq!(moved.start, Point::new(15, 20));
+    /// assert_eq!(moved.end, Point::new(25, 30));
+    /// ```
+    </span><span class="kw">fn </span>translate(<span class="kw-2">&amp;</span><span class="self">self</span>, by: Point) -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{
+            start: <span class="self">self</span>.start + by,
+            end: <span class="self">self</span>.end + by,
         }
     }
 
-    <span class="doccomment">/// Translate the line from its current position to a new position by (x, y) pixels.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ```</span>
-    <span class="doccomment">/// # use embedded_graphics::primitives::Line;</span>
-    <span class="doccomment">/// # use embedded_graphics::prelude::*;</span>
-    <span class="doccomment">/// let mut line = Line::new(Point::new(5, 10), Point::new(15, 20));</span>
-    <span class="doccomment">/// line.translate_mut(Point::new(10, 10));</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// assert_eq!(line.start, Point::new(15, 20));</span>
-    <span class="doccomment">/// assert_eq!(line.end, Point::new(25, 30));</span>
-    <span class="doccomment">/// ```</span>
-    <span class="kw">fn</span> <span class="ident">translate_mut</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>, <span class="ident">by</span>: <span class="ident">Point</span>) -&gt; <span class="kw-2">&amp;mut</span> <span class="self">Self</span> {
-        <span class="self">self</span>.<span class="ident">start</span> <span class="op">+</span><span class="op">=</span> <span class="ident">by</span>;
-        <span class="self">self</span>.<span class="ident">end</span> <span class="op">+</span><span class="op">=</span> <span class="ident">by</span>;
+    <span class="doccomment">/// Translate the line from its current position to a new position by (x, y) pixels.
+    ///
+    /// ```
+    /// # use embedded_graphics::primitives::Line;
+    /// # use embedded_graphics::prelude::*;
+    /// let mut line = Line::new(Point::new(5, 10), Point::new(15, 20));
+    /// line.translate_mut(Point::new(10, 10));
+    ///
+    /// assert_eq!(line.start, Point::new(15, 20));
+    /// assert_eq!(line.end, Point::new(25, 30));
+    /// ```
+    </span><span class="kw">fn </span>translate_mut(<span class="kw-2">&amp;mut </span><span class="self">self</span>, by: Point) -&gt; <span class="kw-2">&amp;mut </span><span class="self">Self </span>{
+        <span class="self">self</span>.start += by;
+        <span class="self">self</span>.end += by;
 
-        <span class="self">self</span>
-    }
+        <span class="self">self
+    </span>}
 }
 
-<span class="doccomment">/// Pixel iterator for each pixel in the line</span>
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
-<span class="kw">mod</span> <span class="ident">tests</span> {
-    <span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
-    <span class="kw">use</span> <span class="kw">crate</span>::{
-        <span class="ident">geometry::Size</span>, <span class="ident">mock_display::MockDisplay</span>, <span class="ident">pixelcolor::BinaryColor</span>,
-        <span class="ident">primitives::PrimitiveStyle</span>, <span class="ident">Drawable</span>, <span class="ident">Pixel</span>,
+<span class="doccomment">/// Pixel iterator for each pixel in the line
+</span><span class="attribute">#[cfg(test)]
+</span><span class="kw">mod </span>tests {
+    <span class="kw">use super</span>::<span class="kw-2">*</span>;
+    <span class="kw">use crate</span>::{
+        geometry::Size, mock_display::MockDisplay, pixelcolor::BinaryColor,
+        primitives::PrimitiveStyle, Drawable, Pixel,
     };
-    <span class="kw">use</span> <span class="ident">arrayvec::ArrayVec</span>;
+    <span class="kw">use </span>arrayvec::ArrayVec;
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">bounding_box</span>() {
-        <span class="kw">let</span> <span class="ident">start</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">10</span>);
-        <span class="kw">let</span> <span class="ident">end</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="number">19</span>, <span class="number">29</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>bounding_box() {
+        <span class="kw">let </span>start = Point::new(<span class="number">10</span>, <span class="number">10</span>);
+        <span class="kw">let </span>end = Point::new(<span class="number">19</span>, <span class="number">29</span>);
 
-        <span class="kw">let</span> <span class="ident">line</span>: <span class="ident">Line</span> <span class="op">=</span> <span class="ident">Line::new</span>(<span class="ident">start</span>, <span class="ident">end</span>);
-        <span class="kw">let</span> <span class="ident">backwards_line</span>: <span class="ident">Line</span> <span class="op">=</span> <span class="ident">Line::new</span>(<span class="ident">end</span>, <span class="ident">start</span>);
+        <span class="kw">let </span>line: Line = Line::new(start, end);
+        <span class="kw">let </span>backwards_line: Line = Line::new(end, start);
 
         <span class="macro">assert_eq!</span>(
-            <span class="ident">line</span>.<span class="ident">bounding_box</span>(),
-            <span class="ident">Rectangle::new</span>(<span class="ident">start</span>, <span class="ident">Size::new</span>(<span class="number">10</span>, <span class="number">20</span>))
+            line.bounding_box(),
+            Rectangle::new(start, Size::new(<span class="number">10</span>, <span class="number">20</span>))
         );
         <span class="macro">assert_eq!</span>(
-            <span class="ident">backwards_line</span>.<span class="ident">bounding_box</span>(),
-            <span class="ident">Rectangle::new</span>(<span class="ident">start</span>, <span class="ident">Size::new</span>(<span class="number">10</span>, <span class="number">20</span>))
+            backwards_line.bounding_box(),
+            Rectangle::new(start, Size::new(<span class="number">10</span>, <span class="number">20</span>))
         );
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">no_stroke_width_no_line</span>() {
-        <span class="kw">let</span> <span class="ident">start</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="number">2</span>, <span class="number">3</span>);
-        <span class="kw">let</span> <span class="ident">end</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="number">3</span>, <span class="number">2</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>no_stroke_width_no_line() {
+        <span class="kw">let </span>start = Point::new(<span class="number">2</span>, <span class="number">3</span>);
+        <span class="kw">let </span>end = Point::new(<span class="number">3</span>, <span class="number">2</span>);
 
-        <span class="kw">let</span> <span class="ident">line</span> <span class="op">=</span>
-            <span class="ident">Line::new</span>(<span class="ident">start</span>, <span class="ident">end</span>).<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle::with_stroke</span>(<span class="ident">BinaryColor::On</span>, <span class="number">0</span>));
+        <span class="kw">let </span>line =
+            Line::new(start, end).into_styled(PrimitiveStyle::with_stroke(BinaryColor::On, <span class="number">0</span>));
 
-        <span class="macro">assert!</span>(<span class="ident">line</span>.<span class="ident">pixels</span>().<span class="ident">eq</span>(<span class="ident">core::iter::empty</span>()));
+        <span class="macro">assert!</span>(line.pixels().eq(core::iter::empty()));
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">thick_line_octant_1</span>() {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span>: <span class="ident">MockDisplay</span><span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>thick_line_octant_1() {
+        <span class="kw">let </span><span class="kw-2">mut </span>display: MockDisplay&lt;BinaryColor&gt; = MockDisplay::new();
 
-        <span class="ident">Line::new</span>(<span class="ident">Point::new</span>(<span class="number">2</span>, <span class="number">2</span>), <span class="ident">Point::new</span>(<span class="number">20</span>, <span class="number">8</span>))
-            .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle::with_stroke</span>(<span class="ident">BinaryColor::On</span>, <span class="number">5</span>))
-            .<span class="ident">draw</span>(<span class="kw-2">&amp;mut</span> <span class="ident">display</span>)
-            .<span class="ident">unwrap</span>();
+        Line::new(Point::new(<span class="number">2</span>, <span class="number">2</span>), Point::new(<span class="number">20</span>, <span class="number">8</span>))
+            .into_styled(PrimitiveStyle::with_stroke(BinaryColor::On, <span class="number">5</span>))
+            .draw(<span class="kw-2">&amp;mut </span>display)
+            .unwrap();
 
-        <span class="ident">display</span>.<span class="ident">assert_pattern</span>(<span class="kw-2">&amp;</span>[
+        display.assert_pattern(<span class="kw-2">&amp;</span>[
             <span class="string">&quot;   #                   &quot;</span>,
             <span class="string">&quot;  #####                &quot;</span>,
             <span class="string">&quot;  ########             &quot;</span>,
@@ -716,23 +715,23 @@
         ]);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">thick_line_2px</span>() {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span>: <span class="ident">MockDisplay</span><span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>thick_line_2px() {
+        <span class="kw">let </span><span class="kw-2">mut </span>display: MockDisplay&lt;BinaryColor&gt; = MockDisplay::new();
 
-        <span class="comment">// Horizontal line</span>
-        <span class="ident">Line::new</span>(<span class="ident">Point::new</span>(<span class="number">2</span>, <span class="number">2</span>), <span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">2</span>))
-            .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle::with_stroke</span>(<span class="ident">BinaryColor::On</span>, <span class="number">2</span>))
-            .<span class="ident">draw</span>(<span class="kw-2">&amp;mut</span> <span class="ident">display</span>)
-            .<span class="ident">unwrap</span>();
+        <span class="comment">// Horizontal line
+        </span>Line::new(Point::new(<span class="number">2</span>, <span class="number">2</span>), Point::new(<span class="number">10</span>, <span class="number">2</span>))
+            .into_styled(PrimitiveStyle::with_stroke(BinaryColor::On, <span class="number">2</span>))
+            .draw(<span class="kw-2">&amp;mut </span>display)
+            .unwrap();
 
-        <span class="comment">// Vertical line</span>
-        <span class="ident">Line::new</span>(<span class="ident">Point::new</span>(<span class="number">2</span>, <span class="number">5</span>), <span class="ident">Point::new</span>(<span class="number">2</span>, <span class="number">10</span>))
-            .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle::with_stroke</span>(<span class="ident">BinaryColor::Off</span>, <span class="number">2</span>))
-            .<span class="ident">draw</span>(<span class="kw-2">&amp;mut</span> <span class="ident">display</span>)
-            .<span class="ident">unwrap</span>();
+        <span class="comment">// Vertical line
+        </span>Line::new(Point::new(<span class="number">2</span>, <span class="number">5</span>), Point::new(<span class="number">2</span>, <span class="number">10</span>))
+            .into_styled(PrimitiveStyle::with_stroke(BinaryColor::Off, <span class="number">2</span>))
+            .draw(<span class="kw-2">&amp;mut </span>display)
+            .unwrap();
 
-        <span class="ident">display</span>.<span class="ident">assert_pattern</span>(<span class="kw-2">&amp;</span>[
+        display.assert_pattern(<span class="kw-2">&amp;</span>[
             <span class="string">&quot;            &quot;</span>,
             <span class="string">&quot;  ######### &quot;</span>,
             <span class="string">&quot;  ######### &quot;</span>,
@@ -747,17 +746,17 @@
         ]);
     }
 
-    <span class="comment">// Check that 45 degree lines don&#39;t draw their right side 1px too long</span>
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">diagonal</span>() {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span>: <span class="ident">MockDisplay</span><span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
+    <span class="comment">// Check that 45 degree lines don&#39;t draw their right side 1px too long
+    </span><span class="attribute">#[test]
+    </span><span class="kw">fn </span>diagonal() {
+        <span class="kw">let </span><span class="kw-2">mut </span>display: MockDisplay&lt;BinaryColor&gt; = MockDisplay::new();
 
-        <span class="ident">Line::new</span>(<span class="ident">Point::new</span>(<span class="number">3</span>, <span class="number">2</span>), <span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">9</span>))
-            .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle::with_stroke</span>(<span class="ident">BinaryColor::On</span>, <span class="number">7</span>))
-            .<span class="ident">draw</span>(<span class="kw-2">&amp;mut</span> <span class="ident">display</span>)
-            .<span class="ident">unwrap</span>();
+        Line::new(Point::new(<span class="number">3</span>, <span class="number">2</span>), Point::new(<span class="number">10</span>, <span class="number">9</span>))
+            .into_styled(PrimitiveStyle::with_stroke(BinaryColor::On, <span class="number">7</span>))
+            .draw(<span class="kw-2">&amp;mut </span>display)
+            .unwrap();
 
-        <span class="ident">display</span>.<span class="ident">assert_pattern</span>(<span class="kw-2">&amp;</span>[
+        display.assert_pattern(<span class="kw-2">&amp;</span>[
             <span class="string">&quot;     #        &quot;</span>,
             <span class="string">&quot;    ###       &quot;</span>,
             <span class="string">&quot;   #####      &quot;</span>,
@@ -773,23 +772,23 @@
         ]);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">thick_line_3px</span>() {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span>: <span class="ident">MockDisplay</span><span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>thick_line_3px() {
+        <span class="kw">let </span><span class="kw-2">mut </span>display: MockDisplay&lt;BinaryColor&gt; = MockDisplay::new();
 
-        <span class="comment">// Horizontal line</span>
-        <span class="ident">Line::new</span>(<span class="ident">Point::new</span>(<span class="number">2</span>, <span class="number">2</span>), <span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">2</span>))
-            .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle::with_stroke</span>(<span class="ident">BinaryColor::On</span>, <span class="number">3</span>))
-            .<span class="ident">draw</span>(<span class="kw-2">&amp;mut</span> <span class="ident">display</span>)
-            .<span class="ident">unwrap</span>();
+        <span class="comment">// Horizontal line
+        </span>Line::new(Point::new(<span class="number">2</span>, <span class="number">2</span>), Point::new(<span class="number">10</span>, <span class="number">2</span>))
+            .into_styled(PrimitiveStyle::with_stroke(BinaryColor::On, <span class="number">3</span>))
+            .draw(<span class="kw-2">&amp;mut </span>display)
+            .unwrap();
 
-        <span class="comment">// Vertical line</span>
-        <span class="ident">Line::new</span>(<span class="ident">Point::new</span>(<span class="number">2</span>, <span class="number">5</span>), <span class="ident">Point::new</span>(<span class="number">2</span>, <span class="number">10</span>))
-            .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle::with_stroke</span>(<span class="ident">BinaryColor::Off</span>, <span class="number">3</span>))
-            .<span class="ident">draw</span>(<span class="kw-2">&amp;mut</span> <span class="ident">display</span>)
-            .<span class="ident">unwrap</span>();
+        <span class="comment">// Vertical line
+        </span>Line::new(Point::new(<span class="number">2</span>, <span class="number">5</span>), Point::new(<span class="number">2</span>, <span class="number">10</span>))
+            .into_styled(PrimitiveStyle::with_stroke(BinaryColor::Off, <span class="number">3</span>))
+            .draw(<span class="kw-2">&amp;mut </span>display)
+            .unwrap();
 
-        <span class="ident">display</span>.<span class="ident">assert_pattern</span>(<span class="kw-2">&amp;</span>[
+        display.assert_pattern(<span class="kw-2">&amp;</span>[
             <span class="string">&quot;            &quot;</span>,
             <span class="string">&quot;  ######### &quot;</span>,
             <span class="string">&quot;  ######### &quot;</span>,
@@ -804,40 +803,40 @@
         ]);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">thick_line_0px</span>() {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span>: <span class="ident">MockDisplay</span><span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>thick_line_0px() {
+        <span class="kw">let </span><span class="kw-2">mut </span>display: MockDisplay&lt;BinaryColor&gt; = MockDisplay::new();
 
-        <span class="ident">Line::new</span>(<span class="ident">Point::new</span>(<span class="number">2</span>, <span class="number">2</span>), <span class="ident">Point::new</span>(<span class="number">2</span>, <span class="number">2</span>))
-            .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle::with_stroke</span>(<span class="ident">BinaryColor::On</span>, <span class="number">3</span>))
-            .<span class="ident">draw</span>(<span class="kw-2">&amp;mut</span> <span class="ident">display</span>)
-            .<span class="ident">unwrap</span>();
+        Line::new(Point::new(<span class="number">2</span>, <span class="number">2</span>), Point::new(<span class="number">2</span>, <span class="number">2</span>))
+            .into_styled(PrimitiveStyle::with_stroke(BinaryColor::On, <span class="number">3</span>))
+            .draw(<span class="kw-2">&amp;mut </span>display)
+            .unwrap();
 
-        <span class="ident">display</span>.<span class="ident">assert_pattern</span>(<span class="kw-2">&amp;</span>[
-            <span class="string">&quot;   &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;  #&quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;  #&quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;  #&quot;</span>, <span class="comment">//</span>
-        ]);
+        display.assert_pattern(<span class="kw-2">&amp;</span>[
+            <span class="string">&quot;   &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;  #&quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;  #&quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;  #&quot;</span>, <span class="comment">//
+        </span>]);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">event_width_offset</span>() {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span>: <span class="ident">MockDisplay</span><span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>event_width_offset() {
+        <span class="kw">let </span><span class="kw-2">mut </span>display: MockDisplay&lt;BinaryColor&gt; = MockDisplay::new();
 
-        <span class="comment">// Horizontal line</span>
-        <span class="ident">Line::new</span>(<span class="ident">Point::new</span>(<span class="number">2</span>, <span class="number">3</span>), <span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">3</span>))
-            .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle::with_stroke</span>(<span class="ident">BinaryColor::On</span>, <span class="number">4</span>))
-            .<span class="ident">draw</span>(<span class="kw-2">&amp;mut</span> <span class="ident">display</span>)
-            .<span class="ident">unwrap</span>();
+        <span class="comment">// Horizontal line
+        </span>Line::new(Point::new(<span class="number">2</span>, <span class="number">3</span>), Point::new(<span class="number">10</span>, <span class="number">3</span>))
+            .into_styled(PrimitiveStyle::with_stroke(BinaryColor::On, <span class="number">4</span>))
+            .draw(<span class="kw-2">&amp;mut </span>display)
+            .unwrap();
 
-        <span class="comment">// Vertical line</span>
-        <span class="ident">Line::new</span>(<span class="ident">Point::new</span>(<span class="number">2</span>, <span class="number">9</span>), <span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">8</span>))
-            .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle::with_stroke</span>(<span class="ident">BinaryColor::On</span>, <span class="number">4</span>))
-            .<span class="ident">draw</span>(<span class="kw-2">&amp;mut</span> <span class="ident">display</span>)
-            .<span class="ident">unwrap</span>();
+        <span class="comment">// Vertical line
+        </span>Line::new(Point::new(<span class="number">2</span>, <span class="number">9</span>), Point::new(<span class="number">10</span>, <span class="number">8</span>))
+            .into_styled(PrimitiveStyle::with_stroke(BinaryColor::On, <span class="number">4</span>))
+            .draw(<span class="kw-2">&amp;mut </span>display)
+            .unwrap();
 
-        <span class="ident">display</span>.<span class="ident">assert_pattern</span>(<span class="kw-2">&amp;</span>[
+        display.assert_pattern(<span class="kw-2">&amp;</span>[
             <span class="string">&quot;            &quot;</span>,
             <span class="string">&quot;  ######### &quot;</span>,
             <span class="string">&quot;  ######### &quot;</span>,
@@ -852,49 +851,49 @@
         ]);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">points_iter</span>() {
-        <span class="kw">let</span> <span class="ident">line</span> <span class="op">=</span> <span class="ident">Line::new</span>(<span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">10</span>), <span class="ident">Point::new</span>(<span class="number">20</span>, <span class="number">30</span>));
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>points_iter() {
+        <span class="kw">let </span>line = Line::new(Point::new(<span class="number">10</span>, <span class="number">10</span>), Point::new(<span class="number">20</span>, <span class="number">30</span>));
 
-        <span class="kw">let</span> <span class="ident">styled_points</span>: <span class="ident">ArrayVec</span><span class="op">&lt;</span>[<span class="kw">_</span>; <span class="number">32</span>]<span class="op">&gt;</span> <span class="op">=</span> <span class="ident">line</span>
-            .<span class="ident">clone</span>()
-            .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle::with_stroke</span>(<span class="ident">BinaryColor::On</span>, <span class="number">1</span>))
-            .<span class="ident">pixels</span>()
-            .<span class="ident">map</span>(<span class="op">|</span><span class="ident">Pixel</span>(<span class="ident">p</span>, <span class="kw">_</span>)<span class="op">|</span> <span class="ident">p</span>)
-            .<span class="ident">collect</span>();
+        <span class="kw">let </span>styled_points: ArrayVec&lt;[<span class="kw">_</span>; <span class="number">32</span>]&gt; = line
+            .clone()
+            .into_styled(PrimitiveStyle::with_stroke(BinaryColor::On, <span class="number">1</span>))
+            .pixels()
+            .map(|Pixel(p, <span class="kw">_</span>)| p)
+            .collect();
 
-        <span class="kw">let</span> <span class="ident">points</span>: <span class="ident">ArrayVec</span><span class="op">&lt;</span>[<span class="kw">_</span>; <span class="number">32</span>]<span class="op">&gt;</span> <span class="op">=</span> <span class="ident">line</span>.<span class="ident">points</span>().<span class="ident">collect</span>();
+        <span class="kw">let </span>points: ArrayVec&lt;[<span class="kw">_</span>; <span class="number">32</span>]&gt; = line.points().collect();
 
-        <span class="macro">assert_eq!</span>(<span class="ident">points</span>, <span class="ident">styled_points</span>);
+        <span class="macro">assert_eq!</span>(points, styled_points);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">perpendicular</span>() {
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>perpendicular() {
         <span class="macro">assert_eq!</span>(
-            <span class="ident">Line::new</span>(<span class="ident">Point::zero</span>(), <span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">0</span>)).<span class="ident">perpendicular</span>(),
-            <span class="ident">Line::new</span>(<span class="ident">Point::zero</span>(), <span class="ident">Point::new</span>(<span class="number">0</span>, <span class="op">-</span><span class="number">10</span>))
+            Line::new(Point::zero(), Point::new(<span class="number">10</span>, <span class="number">0</span>)).perpendicular(),
+            Line::new(Point::zero(), Point::new(<span class="number">0</span>, -<span class="number">10</span>))
         );
 
         <span class="macro">assert_eq!</span>(
-            <span class="ident">Line::new</span>(<span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">20</span>), <span class="ident">Point::new</span>(<span class="number">20</span>, <span class="number">10</span>)).<span class="ident">perpendicular</span>(),
-            <span class="ident">Line::new</span>(<span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">20</span>), <span class="ident">Point::new</span>(<span class="number">0</span>, <span class="number">10</span>))
+            Line::new(Point::new(<span class="number">10</span>, <span class="number">20</span>), Point::new(<span class="number">20</span>, <span class="number">10</span>)).perpendicular(),
+            Line::new(Point::new(<span class="number">10</span>, <span class="number">20</span>), Point::new(<span class="number">0</span>, <span class="number">10</span>))
         );
 
         <span class="macro">assert_eq!</span>(
-            <span class="ident">Line::new</span>(<span class="ident">Point::zero</span>(), <span class="ident">Point::new</span>(<span class="number">0</span>, <span class="op">-</span><span class="number">10</span>)).<span class="ident">perpendicular</span>(),
-            <span class="ident">Line::new</span>(<span class="ident">Point::zero</span>(), <span class="ident">Point::new</span>(<span class="op">-</span><span class="number">10</span>, <span class="number">0</span>))
+            Line::new(Point::zero(), Point::new(<span class="number">0</span>, -<span class="number">10</span>)).perpendicular(),
+            Line::new(Point::zero(), Point::new(-<span class="number">10</span>, <span class="number">0</span>))
         );
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">extents_zero_thickness</span>() {
-        <span class="kw">let</span> <span class="ident">line</span> <span class="op">=</span> <span class="ident">Line::new</span>(<span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">20</span>), <span class="ident">Point::new</span>(<span class="number">20</span>, <span class="number">10</span>));
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>extents_zero_thickness() {
+        <span class="kw">let </span>line = Line::new(Point::new(<span class="number">10</span>, <span class="number">20</span>), Point::new(<span class="number">20</span>, <span class="number">10</span>));
 
-        <span class="kw">let</span> (<span class="ident">l</span>, <span class="ident">r</span>) <span class="op">=</span> <span class="ident">line</span>.<span class="ident">extents</span>(<span class="number">0</span>, <span class="ident">StrokeOffset::None</span>);
+        <span class="kw">let </span>(l, r) = line.extents(<span class="number">0</span>, StrokeOffset::None);
 
-        <span class="macro">assert_eq!</span>(<span class="ident">l</span>, <span class="ident">line</span>);
-        <span class="macro">assert_eq!</span>(<span class="ident">r</span>, <span class="ident">line</span>);
+        <span class="macro">assert_eq!</span>(l, line);
+        <span class="macro">assert_eq!</span>(r, line);
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../../" data-current-crate="embedded_graphics" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0 (a55dd71d5 2022-09-19)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../../" data-current-crate="embedded_graphics" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0 (69f9c33d7 2022-12-12)" ></div></body></html>

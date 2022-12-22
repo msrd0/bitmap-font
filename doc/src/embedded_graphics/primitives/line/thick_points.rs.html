@@ -1,6 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.1/src/primitives/line/thick_points.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>thick_points.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../../storage.js"></script><script defer src="../../../../source-script.js"></script><script defer src="../../../../source-files.js"></script><script defer src="../../../../main.js"></script><noscript><link rel="stylesheet" href="../../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../../embedded_graphics/index.html"><div class="logo-container"><img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../../embedded_graphics/index.html"><div class="logo-container">
-                    <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../../embedded_graphics/index.html">
-                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.1/src/primitives/line/thick_points.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>thick_points.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../../normalize.css"><link rel="stylesheet" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../../ayu.css" disabled><link rel="stylesheet" href="../../../../dark.css" disabled><link rel="stylesheet" href="../../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../../storage.js"></script><script defer src="../../../../source-script.js"></script><script defer src="../../../../source-files.js"></script><script defer src="../../../../main.js"></script><noscript><link rel="stylesheet" href="../../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../../embedded_graphics/index.html">
+                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../wheel.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -502,159 +501,159 @@
 <span id="500">500</span>
 <span id="501">501</span>
 <span id="502">502</span>
-</pre><pre class="rust"><code><span class="kw">use</span> <span class="kw">crate</span>::{
-    <span class="ident">geometry</span>::{<span class="ident">Point</span>, <span class="ident">PointExt</span>},
-    <span class="ident">primitives</span>::{
-        <span class="ident">common::LineSide</span>,
-        <span class="ident">line</span>::{
-            <span class="ident">bresenham</span>::{<span class="self">self</span>, <span class="ident">Bresenham</span>, <span class="ident">BresenhamParameters</span>, <span class="ident">BresenhamPoint</span>},
-            <span class="ident">Line</span>, <span class="ident">StrokeOffset</span>,
+</pre><pre class="rust"><code><span class="kw">use crate</span>::{
+    geometry::{Point, PointExt},
+    primitives::{
+        common::LineSide,
+        line::{
+            bresenham::{<span class="self">self</span>, Bresenham, BresenhamParameters, BresenhamPoint},
+            Line, StrokeOffset,
         },
     },
 };
 
-<span class="kw">const</span> <span class="ident">HORIZONTAL_LINE</span>: <span class="ident">Line</span> <span class="op">=</span> <span class="ident">Line::new</span>(<span class="ident">Point::zero</span>(), <span class="ident">Point::new</span>(<span class="number">1</span>, <span class="number">0</span>));
+<span class="kw">const </span>HORIZONTAL_LINE: Line = Line::new(Point::zero(), Point::new(<span class="number">1</span>, <span class="number">0</span>));
 
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Copy</span>, <span class="ident">Clone</span>, <span class="ident">Eq</span>, <span class="ident">PartialEq</span>, <span class="ident">Ord</span>, <span class="ident">PartialOrd</span>, <span class="ident">Hash</span>, <span class="ident">Debug</span>)]</span>
-<span class="kw">pub</span>(<span class="kw">in</span> <span class="ident"><span class="kw">crate</span>::primitives::line</span>) <span class="kw">enum</span> <span class="ident">ParallelLineType</span> {
-    <span class="ident">Normal</span>,
-    <span class="ident">Extra</span>,
+<span class="attribute">#[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Hash, Debug)]
+</span><span class="kw">pub</span>(<span class="kw">in </span><span class="kw">crate</span>::primitives::line) <span class="kw">enum </span>ParallelLineType {
+    Normal,
+    Extra,
 }
 
-<span class="doccomment">/// Iterator over the parallel lines used to draw a thick line.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// Thick lines are drawn using multiple 1px wide lines, which are parallel to</span>
-<span class="doccomment">/// the original primitive line. The lines returned by the iterator are alternating</span>
-<span class="doccomment">/// between the left and right side of original line to keep the resulting thick</span>
-<span class="doccomment">/// line symmetric.</span>
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Copy</span>, <span class="ident">Clone</span>, <span class="ident">Eq</span>, <span class="ident">PartialEq</span>, <span class="ident">Ord</span>, <span class="ident">PartialOrd</span>, <span class="ident">Hash</span>, <span class="ident">Debug</span>)]</span>
-<span class="kw">pub</span>(<span class="kw">in</span> <span class="ident"><span class="kw">crate</span>::primitives::line</span>) <span class="kw">struct</span> <span class="ident">ParallelsIterator</span> {
-    <span class="doccomment">/// Parameters used for moves along the parallel lines.</span>
-    <span class="kw">pub</span> <span class="ident">parallel_parameters</span>: <span class="ident">BresenhamParameters</span>,
+<span class="doccomment">/// Iterator over the parallel lines used to draw a thick line.
+///
+/// Thick lines are drawn using multiple 1px wide lines, which are parallel to
+/// the original primitive line. The lines returned by the iterator are alternating
+/// between the left and right side of original line to keep the resulting thick
+/// line symmetric.
+</span><span class="attribute">#[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Hash, Debug)]
+</span><span class="kw">pub</span>(<span class="kw">in </span><span class="kw">crate</span>::primitives::line) <span class="kw">struct </span>ParallelsIterator {
+    <span class="doccomment">/// Parameters used for moves along the parallel lines.
+    </span><span class="kw">pub </span>parallel_parameters: BresenhamParameters,
 
-    <span class="doccomment">/// Parameters used for moves perpendicular to the parallel lines.</span>
-    <span class="ident">perpendicular_parameters</span>: <span class="ident">BresenhamParameters</span>,
+    <span class="doccomment">/// Parameters used for moves perpendicular to the parallel lines.
+    </span>perpendicular_parameters: BresenhamParameters,
 
-    <span class="doccomment">/// Accumulated thickness.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The thickness accumulator is increased each time a parallel line is returned.</span>
-    <span class="ident">thickness_accumulator</span>: <span class="ident">i32</span>,
+    <span class="doccomment">/// Accumulated thickness.
+    ///
+    /// The thickness accumulator is increased each time a parallel line is returned.
+    </span>thickness_accumulator: i32,
 
-    <span class="doccomment">/// Thickness threshold.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The thickness threshold is compared with the thickness accumulator to stop the iterator once</span>
-    <span class="doccomment">/// the desired line thickness is reached.</span>
-    <span class="ident">thickness_threshold</span>: <span class="ident">i32</span>,
+    <span class="doccomment">/// Thickness threshold.
+    ///
+    /// The thickness threshold is compared with the thickness accumulator to stop the iterator once
+    /// the desired line thickness is reached.
+    </span>thickness_threshold: i32,
 
-    <span class="doccomment">/// Changes the sign of initial error variables.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// To keep the parallel lines in phase the sign of the error variables needs to be flipped in</span>
-    <span class="doccomment">/// some quadrants.</span>
-    <span class="ident">flip</span>: <span class="ident">bool</span>,
+    <span class="doccomment">/// Changes the sign of initial error variables.
+    ///
+    /// To keep the parallel lines in phase the sign of the error variables needs to be flipped in
+    /// some quadrants.
+    </span>flip: bool,
 
-    <span class="doccomment">/// Starting point for parallels on the left side.</span>
-    <span class="ident">left</span>: <span class="ident">Bresenham</span>,
+    <span class="doccomment">/// Starting point for parallels on the left side.
+    </span>left: Bresenham,
 
-    <span class="doccomment">/// Initial error for parallels on the left side.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The initial error for the parallels is used to keep adjacent parallels in phase and prevent</span>
-    <span class="doccomment">/// overlapping pixels.</span>
-    <span class="ident">left_error</span>: <span class="ident">i32</span>,
+    <span class="doccomment">/// Initial error for parallels on the left side.
+    ///
+    /// The initial error for the parallels is used to keep adjacent parallels in phase and prevent
+    /// overlapping pixels.
+    </span>left_error: i32,
 
-    <span class="doccomment">/// Starting point for parallels on the right side.</span>
-    <span class="ident">right</span>: <span class="ident">Bresenham</span>,
+    <span class="doccomment">/// Starting point for parallels on the right side.
+    </span>right: Bresenham,
 
-    <span class="doccomment">/// Initial error for parallels on the right side.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The initial error for the parallels is used to keep adjacent parallels in phase and prevent</span>
-    <span class="doccomment">/// overlapping pixels.</span>
-    <span class="ident">right_error</span>: <span class="ident">i32</span>,
+    <span class="doccomment">/// Initial error for parallels on the right side.
+    ///
+    /// The initial error for the parallels is used to keep adjacent parallels in phase and prevent
+    /// overlapping pixels.
+    </span>right_error: i32,
 
-    <span class="doccomment">/// The next side which will be drawn.</span>
-    <span class="ident">next_side</span>: <span class="ident">LineSide</span>,
+    <span class="doccomment">/// The next side which will be drawn.
+    </span>next_side: LineSide,
 
-    <span class="comment">// TODO: Add tests for stroke alignment when polygons/thick triangle support is added</span>
-    <span class="doccomment">/// Stroke offset.</span>
-    <span class="ident">stroke_offset</span>: <span class="ident">StrokeOffset</span>,
+    <span class="comment">// TODO: Add tests for stroke alignment when polygons/thick triangle support is added
+    </span><span class="doccomment">/// Stroke offset.
+    </span>stroke_offset: StrokeOffset,
 }
 
-<span class="kw">impl</span> <span class="ident">ParallelsIterator</span> {
-    <span class="doccomment">/// Creates a new parallels iterator.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>(<span class="kw-2">mut</span> <span class="ident">line</span>: <span class="kw-2">&amp;</span><span class="ident">Line</span>, <span class="ident">thickness</span>: <span class="ident">i32</span>, <span class="ident">stroke_offset</span>: <span class="ident">StrokeOffset</span>) -&gt; <span class="self">Self</span> {
-        <span class="kw">let</span> <span class="ident">start_point</span> <span class="op">=</span> <span class="ident">line</span>.<span class="ident">start</span>;
+<span class="kw">impl </span>ParallelsIterator {
+    <span class="doccomment">/// Creates a new parallels iterator.
+    </span><span class="kw">pub fn </span>new(<span class="kw-2">mut </span>line: <span class="kw-2">&amp;</span>Line, thickness: i32, stroke_offset: StrokeOffset) -&gt; <span class="self">Self </span>{
+        <span class="kw">let </span>start_point = line.start;
 
-        <span class="comment">// The lines orientation is undefined if start and end point are equal.</span>
-        <span class="comment">// To provide valid parameters a horizontal line is used to determine the</span>
-        <span class="comment">// parameters instead of the original line.</span>
-        <span class="kw">if</span> <span class="ident">line</span>.<span class="ident">start</span> <span class="op">==</span> <span class="ident">line</span>.<span class="ident">end</span> {
-            <span class="ident">line</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">HORIZONTAL_LINE</span>;
+        <span class="comment">// The lines orientation is undefined if start and end point are equal.
+        // To provide valid parameters a horizontal line is used to determine the
+        // parameters instead of the original line.
+        </span><span class="kw">if </span>line.start == line.end {
+            line = <span class="kw-2">&amp;</span>HORIZONTAL_LINE;
         }
 
-        <span class="kw">let</span> <span class="ident">parallel_parameters</span> <span class="op">=</span> <span class="ident">BresenhamParameters::new</span>(<span class="ident">line</span>);
-        <span class="kw">let</span> <span class="ident">perpendicular_parameters</span> <span class="op">=</span> <span class="ident">BresenhamParameters::new</span>(<span class="kw-2">&amp;</span><span class="ident">line</span>.<span class="ident">perpendicular</span>());
+        <span class="kw">let </span>parallel_parameters = BresenhamParameters::new(line);
+        <span class="kw">let </span>perpendicular_parameters = BresenhamParameters::new(<span class="kw-2">&amp;</span>line.perpendicular());
 
-        <span class="comment">// Thickness threshold, taking into account that fewer pixels are required to draw a</span>
-        <span class="comment">// diagonal line of the same perceived width.</span>
-        <span class="kw">let</span> <span class="ident">thickness_threshold</span> <span class="op">=</span> (<span class="ident">thickness</span> <span class="op">*</span> <span class="number">2</span>).<span class="ident">pow</span>(<span class="number">2</span>) <span class="op">*</span> <span class="ident">line</span>.<span class="ident">delta</span>().<span class="ident">length_squared</span>();
-        <span class="kw">let</span> <span class="ident">thickness_accumulator</span> <span class="op">=</span>
-            (<span class="ident">parallel_parameters</span>.<span class="ident">error_step</span>.<span class="ident">minor</span> <span class="op">+</span> <span class="ident">parallel_parameters</span>.<span class="ident">error_step</span>.<span class="ident">major</span>) <span class="op">/</span> <span class="number">2</span>;
+        <span class="comment">// Thickness threshold, taking into account that fewer pixels are required to draw a
+        // diagonal line of the same perceived width.
+        </span><span class="kw">let </span>thickness_threshold = (thickness * <span class="number">2</span>).pow(<span class="number">2</span>) * line.delta().length_squared();
+        <span class="kw">let </span>thickness_accumulator =
+            (parallel_parameters.error_step.minor + parallel_parameters.error_step.major) / <span class="number">2</span>;
 
-        <span class="comment">// Determine if the signs in the error calculation should be flipped.</span>
-        <span class="kw">let</span> <span class="ident">flip</span> <span class="op">=</span> <span class="ident">perpendicular_parameters</span>.<span class="ident">position_step</span>.<span class="ident">minor</span>
-            <span class="op">==</span> <span class="op">-</span><span class="ident">parallel_parameters</span>.<span class="ident">position_step</span>.<span class="ident">major</span>;
+        <span class="comment">// Determine if the signs in the error calculation should be flipped.
+        </span><span class="kw">let </span>flip = perpendicular_parameters.position_step.minor
+            == -parallel_parameters.position_step.major;
 
-        <span class="kw">let</span> <span class="ident">next_side</span> <span class="op">=</span> <span class="kw">match</span> <span class="ident">stroke_offset</span> {
-            <span class="ident">StrokeOffset::None</span> =&gt; <span class="ident">LineSide::Right</span>,
-            <span class="ident">StrokeOffset::Left</span> =&gt; <span class="ident">LineSide::Left</span>,
-            <span class="ident">StrokeOffset::Right</span> =&gt; <span class="ident">LineSide::Right</span>,
+        <span class="kw">let </span>next_side = <span class="kw">match </span>stroke_offset {
+            StrokeOffset::None =&gt; LineSide::Right,
+            StrokeOffset::Left =&gt; LineSide::Left,
+            StrokeOffset::Right =&gt; LineSide::Right,
         };
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">self_</span> <span class="op">=</span> <span class="self">Self</span> {
-            <span class="ident">parallel_parameters</span>,
-            <span class="ident">perpendicular_parameters</span>,
-            <span class="ident">thickness_accumulator</span>,
-            <span class="ident">thickness_threshold</span>,
-            <span class="ident">flip</span>,
-            <span class="ident">left</span>: <span class="ident">Bresenham::new</span>(<span class="ident">start_point</span>),
-            <span class="ident">left_error</span>: <span class="number">0</span>,
-            <span class="ident">right</span>: <span class="ident">Bresenham::new</span>(<span class="ident">start_point</span>),
-            <span class="ident">right_error</span>: <span class="number">0</span>,
-            <span class="ident">next_side</span>,
-            <span class="ident">stroke_offset</span>,
+        <span class="kw">let </span><span class="kw-2">mut </span>self_ = <span class="self">Self </span>{
+            parallel_parameters,
+            perpendicular_parameters,
+            thickness_accumulator,
+            thickness_threshold,
+            flip,
+            left: Bresenham::new(start_point),
+            left_error: <span class="number">0</span>,
+            right: Bresenham::new(start_point),
+            right_error: <span class="number">0</span>,
+            next_side,
+            stroke_offset,
         };
 
-        <span class="comment">// Skip center line</span>
-        <span class="ident">self_</span>.<span class="ident">next_parallel</span>(<span class="ident">next_side</span>.<span class="ident">swap</span>());
+        <span class="comment">// Skip center line
+        </span>self_.next_parallel(next_side.swap());
 
-        <span class="ident">self_</span>
+        self_
     }
 
-    <span class="doccomment">/// Returns the next parallel on the given side.</span>
-    <span class="kw">fn</span> <span class="ident">next_parallel</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>, <span class="ident">side</span>: <span class="ident">LineSide</span>) -&gt; (<span class="ident">BresenhamPoint</span>, <span class="ident">i32</span>) {
-        <span class="kw">let</span> (<span class="ident">error</span>, <span class="ident">decrease_error</span>) <span class="op">=</span> <span class="kw">match</span> <span class="ident">side</span> {
-            <span class="ident">LineSide::Left</span> =&gt; (<span class="kw-2">&amp;mut</span> <span class="self">self</span>.<span class="ident">left_error</span>, <span class="self">self</span>.<span class="ident">flip</span>),
-            <span class="ident">LineSide::Right</span> =&gt; (<span class="kw-2">&amp;mut</span> <span class="self">self</span>.<span class="ident">right_error</span>, <span class="op">!</span><span class="self">self</span>.<span class="ident">flip</span>),
+    <span class="doccomment">/// Returns the next parallel on the given side.
+    </span><span class="kw">fn </span>next_parallel(<span class="kw-2">&amp;mut </span><span class="self">self</span>, side: LineSide) -&gt; (BresenhamPoint, i32) {
+        <span class="kw">let </span>(error, decrease_error) = <span class="kw">match </span>side {
+            LineSide::Left =&gt; (<span class="kw-2">&amp;mut </span><span class="self">self</span>.left_error, <span class="self">self</span>.flip),
+            LineSide::Right =&gt; (<span class="kw-2">&amp;mut </span><span class="self">self</span>.right_error, !<span class="self">self</span>.flip),
         };
 
-        <span class="kw">loop</span> {
-            <span class="kw">let</span> <span class="ident">point</span> <span class="op">=</span> <span class="kw">match</span> <span class="ident">side</span> {
-                <span class="ident">LineSide::Left</span> =&gt; <span class="self">self</span>.<span class="ident">left</span>.<span class="ident">next_all</span>(<span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">perpendicular_parameters</span>),
-                <span class="ident">LineSide::Right</span> =&gt; <span class="self">self</span>.<span class="ident">right</span>.<span class="ident">previous_all</span>(<span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">perpendicular_parameters</span>),
+        <span class="kw">loop </span>{
+            <span class="kw">let </span>point = <span class="kw">match </span>side {
+                LineSide::Left =&gt; <span class="self">self</span>.left.next_all(<span class="kw-2">&amp;</span><span class="self">self</span>.perpendicular_parameters),
+                LineSide::Right =&gt; <span class="self">self</span>.right.previous_all(<span class="kw-2">&amp;</span><span class="self">self</span>.perpendicular_parameters),
             };
 
-            <span class="kw">match</span> <span class="ident">point</span> {
-                <span class="ident">BresenhamPoint::Normal</span>(<span class="kw">_</span>) =&gt; {
-                    <span class="kw">return</span> (<span class="ident">point</span>, <span class="kw-2">*</span><span class="ident">error</span>);
+            <span class="kw">match </span>point {
+                BresenhamPoint::Normal(<span class="kw">_</span>) =&gt; {
+                    <span class="kw">return </span>(point, <span class="kw-2">*</span>error);
                 }
-                <span class="ident">BresenhamPoint::Extra</span>(<span class="kw">_</span>) =&gt; {
-                    <span class="kw">if</span> <span class="ident">decrease_error</span> {
-                        <span class="kw">let</span> <span class="ident">error_before_decrease</span> <span class="op">=</span> <span class="kw-2">*</span><span class="ident">error</span>;
+                BresenhamPoint::Extra(<span class="kw">_</span>) =&gt; {
+                    <span class="kw">if </span>decrease_error {
+                        <span class="kw">let </span>error_before_decrease = <span class="kw-2">*</span>error;
 
-                        <span class="kw">if</span> <span class="self">self</span>.<span class="ident">parallel_parameters</span>.<span class="ident">decrease_error</span>(<span class="ident">error</span>) {
-                            <span class="kw">return</span> (<span class="ident">point</span>, <span class="ident">error_before_decrease</span>);
+                        <span class="kw">if </span><span class="self">self</span>.parallel_parameters.decrease_error(error) {
+                            <span class="kw">return </span>(point, error_before_decrease);
                         }
-                    } <span class="kw">else</span> <span class="kw">if</span> <span class="self">self</span>.<span class="ident">parallel_parameters</span>.<span class="ident">increase_error</span>(<span class="ident">error</span>) {
-                        <span class="kw">return</span> (<span class="ident">point</span>, <span class="kw-2">*</span><span class="ident">error</span>);
+                    } <span class="kw">else if </span><span class="self">self</span>.parallel_parameters.increase_error(error) {
+                        <span class="kw">return </span>(point, <span class="kw-2">*</span>error);
                     };
                 }
             }
@@ -662,347 +661,347 @@
     }
 }
 
-<span class="kw">impl</span> <span class="ident">Iterator</span> <span class="kw">for</span> <span class="ident">ParallelsIterator</span> {
-    <span class="doccomment">/// The bresenham state (`Bresenham`) and the line type.</span>
-    <span class="kw">type</span> <span class="ident">Item</span> <span class="op">=</span> (<span class="ident">Bresenham</span>, <span class="ident">ParallelLineType</span>);
+<span class="kw">impl </span>Iterator <span class="kw">for </span>ParallelsIterator {
+    <span class="doccomment">/// The bresenham state (`Bresenham`) and the line type.
+    </span><span class="kw">type </span>Item = (Bresenham, ParallelLineType);
 
-    <span class="kw">fn</span> <span class="ident">next</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Item</span><span class="op">&gt;</span> {
-        <span class="kw">if</span> <span class="self">self</span>.<span class="ident">thickness_accumulator</span>.<span class="ident">pow</span>(<span class="number">2</span>) <span class="op">&gt;</span> <span class="self">self</span>.<span class="ident">thickness_threshold</span> {
-            <span class="kw">return</span> <span class="prelude-val">None</span>;
+    <span class="kw">fn </span>next(<span class="kw-2">&amp;mut </span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="self">Self</span>::Item&gt; {
+        <span class="kw">if </span><span class="self">self</span>.thickness_accumulator.pow(<span class="number">2</span>) &gt; <span class="self">self</span>.thickness_threshold {
+            <span class="kw">return </span><span class="prelude-val">None</span>;
         }
 
-        <span class="kw">let</span> (<span class="ident">point</span>, <span class="ident">error</span>) <span class="op">=</span> <span class="self">self</span>.<span class="ident">next_parallel</span>(<span class="self">self</span>.<span class="ident">next_side</span>);
+        <span class="kw">let </span>(point, error) = <span class="self">self</span>.next_parallel(<span class="self">self</span>.next_side);
 
-        <span class="kw">let</span> <span class="ident">ret</span> <span class="op">=</span> <span class="kw">match</span> <span class="ident">point</span> {
-            <span class="ident">BresenhamPoint::Normal</span>(<span class="ident">point</span>) =&gt; {
-                <span class="self">self</span>.<span class="ident">thickness_accumulator</span> <span class="op">+</span><span class="op">=</span> <span class="self">self</span>.<span class="ident">perpendicular_parameters</span>.<span class="ident">error_step</span>.<span class="ident">minor</span>;
+        <span class="kw">let </span>ret = <span class="kw">match </span>point {
+            BresenhamPoint::Normal(point) =&gt; {
+                <span class="self">self</span>.thickness_accumulator += <span class="self">self</span>.perpendicular_parameters.error_step.minor;
 
-                <span class="comment">// Normal lines are the same length as the original primitive line.</span>
-                (
-                    <span class="ident">Bresenham::with_initial_error</span>(<span class="ident">point</span>, <span class="ident">error</span>),
-                    <span class="ident">ParallelLineType::Normal</span>,
+                <span class="comment">// Normal lines are the same length as the original primitive line.
+                </span>(
+                    Bresenham::with_initial_error(point, error),
+                    ParallelLineType::Normal,
                 )
             }
-            <span class="ident">BresenhamPoint::Extra</span>(<span class="ident">point</span>) =&gt; {
-                <span class="self">self</span>.<span class="ident">thickness_accumulator</span> <span class="op">+</span><span class="op">=</span> <span class="self">self</span>.<span class="ident">perpendicular_parameters</span>.<span class="ident">error_step</span>.<span class="ident">major</span>;
+            BresenhamPoint::Extra(point) =&gt; {
+                <span class="self">self</span>.thickness_accumulator += <span class="self">self</span>.perpendicular_parameters.error_step.major;
 
-                <span class="comment">// Extra lines are 1 pixel shorter than normal lines.</span>
-                (
-                    <span class="ident">Bresenham::with_initial_error</span>(<span class="ident">point</span>, <span class="ident">error</span>),
-                    <span class="ident">ParallelLineType::Extra</span>,
+                <span class="comment">// Extra lines are 1 pixel shorter than normal lines.
+                </span>(
+                    Bresenham::with_initial_error(point, error),
+                    ParallelLineType::Extra,
                 )
             }
         };
 
-        <span class="kw">if</span> <span class="self">self</span>.<span class="ident">stroke_offset</span> <span class="op">==</span> <span class="ident">StrokeOffset::None</span> {
-            <span class="self">self</span>.<span class="ident">next_side</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">next_side</span>.<span class="ident">swap</span>();
+        <span class="kw">if </span><span class="self">self</span>.stroke_offset == StrokeOffset::None {
+            <span class="self">self</span>.next_side = <span class="self">self</span>.next_side.swap();
         }
 
-        <span class="prelude-val">Some</span>(<span class="ident">ret</span>)
+        <span class="prelude-val">Some</span>(ret)
     }
 }
 
-<span class="doccomment">/// Iterator over all pixels in the stroke of a thick line.</span>
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Copy</span>, <span class="ident">Clone</span>, <span class="ident">Eq</span>, <span class="ident">PartialEq</span>, <span class="ident">Ord</span>, <span class="ident">PartialOrd</span>, <span class="ident">Hash</span>, <span class="ident">Debug</span>)]</span>
-<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">ThickPoints</span> {
-    <span class="ident">parallel</span>: <span class="ident">Bresenham</span>,
-    <span class="ident">parallel_length</span>: <span class="ident">u32</span>,
-    <span class="ident">parallel_points_remaining</span>: <span class="ident">u32</span>,
+<span class="doccomment">/// Iterator over all pixels in the stroke of a thick line.
+</span><span class="attribute">#[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Hash, Debug)]
+</span><span class="kw">pub struct </span>ThickPoints {
+    parallel: Bresenham,
+    parallel_length: u32,
+    parallel_points_remaining: u32,
 
-    <span class="ident">iter</span>: <span class="ident">ParallelsIterator</span>,
+    iter: ParallelsIterator,
 }
 
-<span class="kw">impl</span> <span class="ident">ThickPoints</span> {
-    <span class="doccomment">/// Creates a new iterator over the points in the stroke of a thick line.</span>
-    <span class="kw">pub</span>(<span class="kw">in</span> <span class="ident"><span class="kw">crate</span>::primitives</span>) <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">line</span>: <span class="kw-2">&amp;</span><span class="ident">Line</span>, <span class="ident">thickness</span>: <span class="ident">i32</span>) -&gt; <span class="self">Self</span> {
-        <span class="self">Self</span> {
-            <span class="ident">parallel</span>: <span class="ident">Bresenham::new</span>(<span class="ident">line</span>.<span class="ident">start</span>),
-            <span class="ident">parallel_length</span>: <span class="ident">bresenham::major_length</span>(<span class="ident">line</span>),
-            <span class="ident">parallel_points_remaining</span>: <span class="number">0</span>,
-            <span class="ident">iter</span>: <span class="ident">ParallelsIterator::new</span>(<span class="ident">line</span>, <span class="ident">thickness</span>, <span class="ident">StrokeOffset::None</span>),
+<span class="kw">impl </span>ThickPoints {
+    <span class="doccomment">/// Creates a new iterator over the points in the stroke of a thick line.
+    </span><span class="kw">pub</span>(<span class="kw">in </span><span class="kw">crate</span>::primitives) <span class="kw">fn </span>new(line: <span class="kw-2">&amp;</span>Line, thickness: i32) -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{
+            parallel: Bresenham::new(line.start),
+            parallel_length: bresenham::major_length(line),
+            parallel_points_remaining: <span class="number">0</span>,
+            iter: ParallelsIterator::new(line, thickness, StrokeOffset::None),
         }
     }
 }
 
-<span class="kw">impl</span> <span class="ident">Iterator</span> <span class="kw">for</span> <span class="ident">ThickPoints</span> {
-    <span class="kw">type</span> <span class="ident">Item</span> <span class="op">=</span> <span class="ident">Point</span>;
+<span class="kw">impl </span>Iterator <span class="kw">for </span>ThickPoints {
+    <span class="kw">type </span>Item = Point;
 
-    <span class="kw">fn</span> <span class="ident">next</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Item</span><span class="op">&gt;</span> {
-        <span class="kw">loop</span> {
-            <span class="kw">if</span> <span class="self">self</span>.<span class="ident">parallel_points_remaining</span> <span class="op">&gt;</span> <span class="number">0</span> {
-                <span class="self">self</span>.<span class="ident">parallel_points_remaining</span> <span class="op">-</span><span class="op">=</span> <span class="number">1</span>;
+    <span class="kw">fn </span>next(<span class="kw-2">&amp;mut </span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="self">Self</span>::Item&gt; {
+        <span class="kw">loop </span>{
+            <span class="kw">if </span><span class="self">self</span>.parallel_points_remaining &gt; <span class="number">0 </span>{
+                <span class="self">self</span>.parallel_points_remaining -= <span class="number">1</span>;
 
-                <span class="kw">return</span> <span class="prelude-val">Some</span>(<span class="self">self</span>.<span class="ident">parallel</span>.<span class="ident">next</span>(<span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">iter</span>.<span class="ident">parallel_parameters</span>));
-            } <span class="kw">else</span> {
-                <span class="kw">let</span> (<span class="ident">parallel</span>, <span class="ident">line_type</span>) <span class="op">=</span> <span class="self">self</span>.<span class="ident">iter</span>.<span class="ident">next</span>()<span class="question-mark">?</span>;
+                <span class="kw">return </span><span class="prelude-val">Some</span>(<span class="self">self</span>.parallel.next(<span class="kw-2">&amp;</span><span class="self">self</span>.iter.parallel_parameters));
+            } <span class="kw">else </span>{
+                <span class="kw">let </span>(parallel, line_type) = <span class="self">self</span>.iter.next()<span class="question-mark">?</span>;
 
-                <span class="self">self</span>.<span class="ident">parallel</span> <span class="op">=</span> <span class="ident">parallel</span>;
-                <span class="self">self</span>.<span class="ident">parallel_points_remaining</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">parallel_length</span>;
+                <span class="self">self</span>.parallel = parallel;
+                <span class="self">self</span>.parallel_points_remaining = <span class="self">self</span>.parallel_length;
 
-                <span class="comment">// Reduce the length of extra lines by one pixel</span>
-                <span class="kw">if</span> <span class="ident">line_type</span> <span class="op">==</span> <span class="ident">ParallelLineType::Extra</span> {
-                    <span class="self">self</span>.<span class="ident">parallel_points_remaining</span> <span class="op">-</span><span class="op">=</span> <span class="number">1</span>;
+                <span class="comment">// Reduce the length of extra lines by one pixel
+                </span><span class="kw">if </span>line_type == ParallelLineType::Extra {
+                    <span class="self">self</span>.parallel_points_remaining -= <span class="number">1</span>;
                 }
             }
         }
     }
 }
 
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
-<span class="kw">mod</span> <span class="ident">tests</span> {
-    <span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
-    <span class="kw">use</span> <span class="kw">crate</span>::{<span class="ident">mock_display::MockDisplay</span>, <span class="ident">pixelcolor::Gray8</span>};
+<span class="attribute">#[cfg(test)]
+</span><span class="kw">mod </span>tests {
+    <span class="kw">use super</span>::<span class="kw-2">*</span>;
+    <span class="kw">use crate</span>::{mock_display::MockDisplay, pixelcolor::Gray8};
 
-    <span class="doccomment">/// Draws the output of `ParallelsIterator` to a `MockDisplay`.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Each parallel line is drawn using a different `Gray8` color, to allow testing</span>
-    <span class="doccomment">/// of the drawing order. Points that are drawn multiple times are marked using</span>
-    <span class="doccomment">/// `Gray8::new(0xFF)`.</span>
-    <span class="kw">fn</span> <span class="ident">draw_parallels</span>(<span class="ident">line</span>: <span class="ident">Line</span>, <span class="ident">count</span>: <span class="ident">u8</span>) -&gt; <span class="ident">MockDisplay</span><span class="op">&lt;</span><span class="ident">Gray8</span><span class="op">&gt;</span> {
-        <span class="comment">// The maximum number of lines is 0xE, because 0xF is used to mark overdraw</span>
-        <span class="macro">assert!</span>(<span class="ident">count</span> <span class="op">&lt;</span> <span class="number">0xF</span>);
+    <span class="doccomment">/// Draws the output of `ParallelsIterator` to a `MockDisplay`.
+    ///
+    /// Each parallel line is drawn using a different `Gray8` color, to allow testing
+    /// of the drawing order. Points that are drawn multiple times are marked using
+    /// `Gray8::new(0xFF)`.
+    </span><span class="kw">fn </span>draw_parallels(line: Line, count: u8) -&gt; MockDisplay&lt;Gray8&gt; {
+        <span class="comment">// The maximum number of lines is 0xE, because 0xF is used to mark overdraw
+        </span><span class="macro">assert!</span>(count &lt; <span class="number">0xF</span>);
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">parallels</span> <span class="op">=</span> <span class="ident">ParallelsIterator::new</span>(<span class="kw-2">&amp;</span><span class="ident">line</span>, <span class="number">100</span>, <span class="ident">StrokeOffset::None</span>);
+        <span class="kw">let </span><span class="kw-2">mut </span>parallels = ParallelsIterator::new(<span class="kw-2">&amp;</span>line, <span class="number">100</span>, StrokeOffset::None);
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
+        <span class="kw">let </span><span class="kw-2">mut </span>display = MockDisplay::new();
 
-        <span class="kw">for</span> <span class="ident">line_number</span> <span class="kw">in</span> <span class="number">0</span>..<span class="ident">count</span> {
-            <span class="kw">let</span> (<span class="kw-2">mut</span> <span class="ident">parallel</span>, <span class="ident">line_type</span>) <span class="op">=</span> <span class="ident">parallels</span>.<span class="ident">next</span>().<span class="ident">unwrap</span>();
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">length</span> <span class="op">=</span> <span class="ident">bresenham::major_length</span>(<span class="kw-2">&amp;</span><span class="ident">line</span>);
+        <span class="kw">for </span>line_number <span class="kw">in </span><span class="number">0</span>..count {
+            <span class="kw">let </span>(<span class="kw-2">mut </span>parallel, line_type) = parallels.next().unwrap();
+            <span class="kw">let </span><span class="kw-2">mut </span>length = bresenham::major_length(<span class="kw-2">&amp;</span>line);
 
-            <span class="comment">// Reduce the length of extra lines by one pixel</span>
-            <span class="kw">if</span> <span class="ident">line_type</span> <span class="op">==</span> <span class="ident">ParallelLineType::Extra</span> {
-                <span class="ident">length</span> <span class="op">-</span><span class="op">=</span> <span class="number">1</span>;
+            <span class="comment">// Reduce the length of extra lines by one pixel
+            </span><span class="kw">if </span>line_type == ParallelLineType::Extra {
+                length -= <span class="number">1</span>;
             }
 
-            <span class="kw">for</span> <span class="kw">_</span> <span class="kw">in</span> <span class="number">0</span>..<span class="ident">length</span> {
-                <span class="kw">let</span> <span class="ident">point</span> <span class="op">=</span> <span class="ident">parallel</span>.<span class="ident">next</span>(<span class="kw-2">&amp;</span><span class="ident">parallels</span>.<span class="ident">parallel_parameters</span>);
+            <span class="kw">for _ in </span><span class="number">0</span>..length {
+                <span class="kw">let </span>point = parallel.next(<span class="kw-2">&amp;</span>parallels.parallel_parameters);
 
-                <span class="kw">let</span> <span class="ident">color</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">display</span>.<span class="ident">get_pixel</span>(<span class="ident">point</span>).<span class="ident">is_some</span>() {
-                    <span class="comment">// mark overdraw with `F`</span>
-                    <span class="ident">Gray8::new</span>(<span class="number">0xFF</span>)
-                } <span class="kw">else</span> {
-                    <span class="ident">Gray8::new</span>(<span class="ident">line_number</span> <span class="op">*</span> <span class="number">0x11</span>)
+                <span class="kw">let </span>color = <span class="kw">if </span>display.get_pixel(point).is_some() {
+                    <span class="comment">// mark overdraw with `F`
+                    </span>Gray8::new(<span class="number">0xFF</span>)
+                } <span class="kw">else </span>{
+                    Gray8::new(line_number * <span class="number">0x11</span>)
                 };
 
-                <span class="ident">display</span>.<span class="ident">draw_pixel</span>(<span class="ident">point</span>, <span class="ident">color</span>);
+                display.draw_pixel(point, color);
             }
         }
 
-        <span class="ident">display</span>
+        display
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">equal_start_and_end</span>() {
-        <span class="kw">let</span> <span class="ident">line</span> <span class="op">=</span> <span class="ident">Line::new</span>(<span class="ident">Point::new</span>(<span class="number">3</span>, <span class="number">3</span>), <span class="ident">Point::new</span>(<span class="number">3</span>, <span class="number">3</span>));
-        <span class="kw">let</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">draw_parallels</span>(<span class="ident">line</span>, <span class="number">3</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>equal_start_and_end() {
+        <span class="kw">let </span>line = Line::new(Point::new(<span class="number">3</span>, <span class="number">3</span>), Point::new(<span class="number">3</span>, <span class="number">3</span>));
+        <span class="kw">let </span>display = draw_parallels(line, <span class="number">3</span>);
 
-        <span class="ident">display</span>.<span class="ident">assert_pattern</span>(<span class="kw-2">&amp;</span>[
-            <span class="string">&quot;        &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;        &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;   1    &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;   0    &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;   2    &quot;</span>, <span class="comment">//</span>
+        display.assert_pattern(<span class="kw-2">&amp;</span>[
+            <span class="string">&quot;        &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;        &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;   1    &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;   0    &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;   2    &quot;</span>, <span class="comment">//
+        </span>]);
+    }
+
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>horizontal_1() {
+        <span class="kw">let </span>line = Line::new(Point::new(<span class="number">1</span>, <span class="number">3</span>), Point::new(<span class="number">4</span>, <span class="number">3</span>));
+        <span class="kw">let </span>display = draw_parallels(line, <span class="number">3</span>);
+
+        display.assert_pattern(<span class="kw-2">&amp;</span>[
+            <span class="string">&quot;        &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;        &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot; 1111   &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot; 0000   &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot; 2222   &quot;</span>, <span class="comment">//
+        </span>]);
+    }
+
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>horizontal_2() {
+        <span class="kw">let </span>line = Line::new(Point::new(<span class="number">4</span>, <span class="number">3</span>), Point::new(<span class="number">1</span>, <span class="number">3</span>));
+        <span class="kw">let </span>display = draw_parallels(line, <span class="number">3</span>);
+
+        display.assert_pattern(<span class="kw-2">&amp;</span>[
+            <span class="string">&quot;        &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;        &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot; 2222   &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot; 0000   &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot; 1111   &quot;</span>, <span class="comment">//
+        </span>]);
+    }
+
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>vertical_1() {
+        <span class="kw">let </span>line = Line::new(Point::new(<span class="number">3</span>, <span class="number">3</span>), Point::new(<span class="number">3</span>, <span class="number">0</span>));
+        <span class="kw">let </span>display = draw_parallels(line, <span class="number">3</span>);
+
+        display.assert_pattern(<span class="kw-2">&amp;</span>[
+            <span class="string">&quot;  102   &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;  102   &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;  102   &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;  102   &quot;</span>, <span class="comment">//
+        </span>]);
+    }
+
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>vertical_2() {
+        <span class="kw">let </span>line = Line::new(Point::new(<span class="number">3</span>, <span class="number">0</span>), Point::new(<span class="number">3</span>, <span class="number">3</span>));
+        <span class="kw">let </span>display = draw_parallels(line, <span class="number">3</span>);
+
+        display.assert_pattern(<span class="kw-2">&amp;</span>[
+            <span class="string">&quot;  201   &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;  201   &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;  201   &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;  201   &quot;</span>, <span class="comment">//
+        </span>]);
+    }
+
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>line_45_1() {
+        <span class="kw">let </span>line = Line::new(Point::new(<span class="number">2</span>, <span class="number">4</span>), Point::new(<span class="number">5</span>, <span class="number">1</span>));
+        <span class="kw">let </span>display = draw_parallels(line, <span class="number">5</span>);
+
+        display.assert_pattern(<span class="kw-2">&amp;</span>[
+            <span class="string">&quot;    3   &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;   310  &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;  31024 &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot; 31024  &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;  024   &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;   4    &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;        &quot;</span>,
         ]);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">horizontal_1</span>() {
-        <span class="kw">let</span> <span class="ident">line</span> <span class="op">=</span> <span class="ident">Line::new</span>(<span class="ident">Point::new</span>(<span class="number">1</span>, <span class="number">3</span>), <span class="ident">Point::new</span>(<span class="number">4</span>, <span class="number">3</span>));
-        <span class="kw">let</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">draw_parallels</span>(<span class="ident">line</span>, <span class="number">3</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>line_45_2() {
+        <span class="kw">let </span>line = Line::new(Point::new(<span class="number">5</span>, <span class="number">1</span>), Point::new(<span class="number">2</span>, <span class="number">4</span>));
+        <span class="kw">let </span>display = draw_parallels(line, <span class="number">5</span>);
 
-        <span class="ident">display</span>.<span class="ident">assert_pattern</span>(<span class="kw-2">&amp;</span>[
-            <span class="string">&quot;        &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;        &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot; 1111   &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot; 0000   &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot; 2222   &quot;</span>, <span class="comment">//</span>
+        display.assert_pattern(<span class="kw-2">&amp;</span>[
+            <span class="string">&quot;    4   &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;   420  &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;  42013 &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot; 42013  &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;  013   &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;   3    &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;        &quot;</span>,
         ]);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">horizontal_2</span>() {
-        <span class="kw">let</span> <span class="ident">line</span> <span class="op">=</span> <span class="ident">Line::new</span>(<span class="ident">Point::new</span>(<span class="number">4</span>, <span class="number">3</span>), <span class="ident">Point::new</span>(<span class="number">1</span>, <span class="number">3</span>));
-        <span class="kw">let</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">draw_parallels</span>(<span class="ident">line</span>, <span class="number">3</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>line_45_3() {
+        <span class="kw">let </span>line = Line::new(Point::new(<span class="number">2</span>, <span class="number">2</span>), Point::new(<span class="number">5</span>, <span class="number">5</span>));
+        <span class="kw">let </span>display = draw_parallels(line, <span class="number">5</span>);
 
-        <span class="ident">display</span>.<span class="ident">assert_pattern</span>(<span class="kw-2">&amp;</span>[
-            <span class="string">&quot;        &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;        &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot; 2222   &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot; 0000   &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot; 1111   &quot;</span>, <span class="comment">//</span>
+        display.assert_pattern(<span class="kw-2">&amp;</span>[
+            <span class="string">&quot;        &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;   3    &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;  013   &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot; 42013  &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;  42013 &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;   420  &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;    4   &quot;</span>,
         ]);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">vertical_1</span>() {
-        <span class="kw">let</span> <span class="ident">line</span> <span class="op">=</span> <span class="ident">Line::new</span>(<span class="ident">Point::new</span>(<span class="number">3</span>, <span class="number">3</span>), <span class="ident">Point::new</span>(<span class="number">3</span>, <span class="number">0</span>));
-        <span class="kw">let</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">draw_parallels</span>(<span class="ident">line</span>, <span class="number">3</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>line_45_4() {
+        <span class="kw">let </span>line = Line::new(Point::new(<span class="number">5</span>, <span class="number">5</span>), Point::new(<span class="number">2</span>, <span class="number">2</span>));
+        <span class="kw">let </span>display = draw_parallels(line, <span class="number">5</span>);
 
-        <span class="ident">display</span>.<span class="ident">assert_pattern</span>(<span class="kw-2">&amp;</span>[
-            <span class="string">&quot;  102   &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;  102   &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;  102   &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;  102   &quot;</span>, <span class="comment">//</span>
+        display.assert_pattern(<span class="kw-2">&amp;</span>[
+            <span class="string">&quot;        &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;   4    &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;  024   &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot; 31024  &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;  31024 &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;   310  &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;    3   &quot;</span>,
         ]);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">vertical_2</span>() {
-        <span class="kw">let</span> <span class="ident">line</span> <span class="op">=</span> <span class="ident">Line::new</span>(<span class="ident">Point::new</span>(<span class="number">3</span>, <span class="number">0</span>), <span class="ident">Point::new</span>(<span class="number">3</span>, <span class="number">3</span>));
-        <span class="kw">let</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">draw_parallels</span>(<span class="ident">line</span>, <span class="number">3</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>line_1() {
+        <span class="kw">let </span>line = Line::new(Point::new(<span class="number">2</span>, <span class="number">2</span>), Point::new(<span class="number">5</span>, <span class="number">4</span>));
+        <span class="kw">let </span>display = draw_parallels(line, <span class="number">5</span>);
 
-        <span class="ident">display</span>.<span class="ident">assert_pattern</span>(<span class="kw-2">&amp;</span>[
-            <span class="string">&quot;  201   &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;  201   &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;  201   &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;  201   &quot;</span>, <span class="comment">//</span>
+        display.assert_pattern(<span class="kw-2">&amp;</span>[
+            <span class="string">&quot;        &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;   33   &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;  0113  &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot; 420013 &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;  4220  &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;   44   &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;        &quot;</span>,
         ]);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">line_45_1</span>() {
-        <span class="kw">let</span> <span class="ident">line</span> <span class="op">=</span> <span class="ident">Line::new</span>(<span class="ident">Point::new</span>(<span class="number">2</span>, <span class="number">4</span>), <span class="ident">Point::new</span>(<span class="number">5</span>, <span class="number">1</span>));
-        <span class="kw">let</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">draw_parallels</span>(<span class="ident">line</span>, <span class="number">5</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>line_2() {
+        <span class="kw">let </span>line = Line::new(Point::new(<span class="number">5</span>, <span class="number">4</span>), Point::new(<span class="number">2</span>, <span class="number">2</span>));
+        <span class="kw">let </span>display = draw_parallels(line, <span class="number">5</span>);
 
-        <span class="ident">display</span>.<span class="ident">assert_pattern</span>(<span class="kw-2">&amp;</span>[
-            <span class="string">&quot;    3   &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;   310  &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;  31024 &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot; 31024  &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;  024   &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;   4    &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;        &quot;</span>,
+        display.assert_pattern(<span class="kw-2">&amp;</span>[
+            <span class="string">&quot;        &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;   44   &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;  0224  &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot; 310024 &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;  3110  &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;   33   &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;        &quot;</span>,
         ]);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">line_45_2</span>() {
-        <span class="kw">let</span> <span class="ident">line</span> <span class="op">=</span> <span class="ident">Line::new</span>(<span class="ident">Point::new</span>(<span class="number">5</span>, <span class="number">1</span>), <span class="ident">Point::new</span>(<span class="number">2</span>, <span class="number">4</span>));
-        <span class="kw">let</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">draw_parallels</span>(<span class="ident">line</span>, <span class="number">5</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>line_3() {
+        <span class="kw">let </span>line = Line::new(Point::new(<span class="number">2</span>, <span class="number">4</span>), Point::new(<span class="number">5</span>, <span class="number">2</span>));
+        <span class="kw">let </span>display = draw_parallels(line, <span class="number">5</span>);
 
-        <span class="ident">display</span>.<span class="ident">assert_pattern</span>(<span class="kw-2">&amp;</span>[
-            <span class="string">&quot;    4   &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;   420  &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;  42013 &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot; 42013  &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;  013   &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;   3    &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;        &quot;</span>,
+        display.assert_pattern(<span class="kw-2">&amp;</span>[
+            <span class="string">&quot;        &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;   33   &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;  3110  &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot; 310024 &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;  0224  &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;   44   &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;        &quot;</span>,
         ]);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">line_45_3</span>() {
-        <span class="kw">let</span> <span class="ident">line</span> <span class="op">=</span> <span class="ident">Line::new</span>(<span class="ident">Point::new</span>(<span class="number">2</span>, <span class="number">2</span>), <span class="ident">Point::new</span>(<span class="number">5</span>, <span class="number">5</span>));
-        <span class="kw">let</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">draw_parallels</span>(<span class="ident">line</span>, <span class="number">5</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>line_4() {
+        <span class="kw">let </span>line = Line::new(Point::new(<span class="number">5</span>, <span class="number">2</span>), Point::new(<span class="number">2</span>, <span class="number">4</span>));
+        <span class="kw">let </span>display = draw_parallels(line, <span class="number">5</span>);
 
-        <span class="ident">display</span>.<span class="ident">assert_pattern</span>(<span class="kw-2">&amp;</span>[
-            <span class="string">&quot;        &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;   3    &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;  013   &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot; 42013  &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;  42013 &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;   420  &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;    4   &quot;</span>,
+        display.assert_pattern(<span class="kw-2">&amp;</span>[
+            <span class="string">&quot;        &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;   44   &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;  4220  &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot; 420013 &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;  0113  &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;   33   &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;        &quot;</span>,
         ]);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">line_45_4</span>() {
-        <span class="kw">let</span> <span class="ident">line</span> <span class="op">=</span> <span class="ident">Line::new</span>(<span class="ident">Point::new</span>(<span class="number">5</span>, <span class="number">5</span>), <span class="ident">Point::new</span>(<span class="number">2</span>, <span class="number">2</span>));
-        <span class="kw">let</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">draw_parallels</span>(<span class="ident">line</span>, <span class="number">5</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>line_5() {
+        <span class="kw">let </span>line = Line::new(Point::new(<span class="number">3</span>, <span class="number">3</span>), Point::new(<span class="number">5</span>, <span class="number">2</span>));
+        <span class="kw">let </span>display = draw_parallels(line, <span class="number">3</span>);
 
-        <span class="ident">display</span>.<span class="ident">assert_pattern</span>(<span class="kw-2">&amp;</span>[
-            <span class="string">&quot;        &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;   4    &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;  024   &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot; 31024  &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;  31024 &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;   310  &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;    3   &quot;</span>,
-        ]);
-    }
-
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">line_1</span>() {
-        <span class="kw">let</span> <span class="ident">line</span> <span class="op">=</span> <span class="ident">Line::new</span>(<span class="ident">Point::new</span>(<span class="number">2</span>, <span class="number">2</span>), <span class="ident">Point::new</span>(<span class="number">5</span>, <span class="number">4</span>));
-        <span class="kw">let</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">draw_parallels</span>(<span class="ident">line</span>, <span class="number">5</span>);
-
-        <span class="ident">display</span>.<span class="ident">assert_pattern</span>(<span class="kw-2">&amp;</span>[
-            <span class="string">&quot;        &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;   33   &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;  0113  &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot; 420013 &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;  4220  &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;   44   &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;        &quot;</span>,
-        ]);
-    }
-
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">line_2</span>() {
-        <span class="kw">let</span> <span class="ident">line</span> <span class="op">=</span> <span class="ident">Line::new</span>(<span class="ident">Point::new</span>(<span class="number">5</span>, <span class="number">4</span>), <span class="ident">Point::new</span>(<span class="number">2</span>, <span class="number">2</span>));
-        <span class="kw">let</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">draw_parallels</span>(<span class="ident">line</span>, <span class="number">5</span>);
-
-        <span class="ident">display</span>.<span class="ident">assert_pattern</span>(<span class="kw-2">&amp;</span>[
-            <span class="string">&quot;        &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;   44   &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;  0224  &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot; 310024 &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;  3110  &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;   33   &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;        &quot;</span>,
-        ]);
-    }
-
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">line_3</span>() {
-        <span class="kw">let</span> <span class="ident">line</span> <span class="op">=</span> <span class="ident">Line::new</span>(<span class="ident">Point::new</span>(<span class="number">2</span>, <span class="number">4</span>), <span class="ident">Point::new</span>(<span class="number">5</span>, <span class="number">2</span>));
-        <span class="kw">let</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">draw_parallels</span>(<span class="ident">line</span>, <span class="number">5</span>);
-
-        <span class="ident">display</span>.<span class="ident">assert_pattern</span>(<span class="kw-2">&amp;</span>[
-            <span class="string">&quot;        &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;   33   &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;  3110  &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot; 310024 &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;  0224  &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;   44   &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;        &quot;</span>,
-        ]);
-    }
-
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">line_4</span>() {
-        <span class="kw">let</span> <span class="ident">line</span> <span class="op">=</span> <span class="ident">Line::new</span>(<span class="ident">Point::new</span>(<span class="number">5</span>, <span class="number">2</span>), <span class="ident">Point::new</span>(<span class="number">2</span>, <span class="number">4</span>));
-        <span class="kw">let</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">draw_parallels</span>(<span class="ident">line</span>, <span class="number">5</span>);
-
-        <span class="ident">display</span>.<span class="ident">assert_pattern</span>(<span class="kw-2">&amp;</span>[
-            <span class="string">&quot;        &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;   44   &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;  4220  &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot; 420013 &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;  0113  &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;   33   &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;        &quot;</span>,
-        ]);
-    }
-
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">line_5</span>() {
-        <span class="kw">let</span> <span class="ident">line</span> <span class="op">=</span> <span class="ident">Line::new</span>(<span class="ident">Point::new</span>(<span class="number">3</span>, <span class="number">3</span>), <span class="ident">Point::new</span>(<span class="number">5</span>, <span class="number">2</span>));
-        <span class="kw">let</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">draw_parallels</span>(<span class="ident">line</span>, <span class="number">3</span>);
-
-        <span class="ident">display</span>.<span class="ident">assert_pattern</span>(<span class="kw-2">&amp;</span>[
-            <span class="string">&quot;        &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;     1  &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;   110  &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;   0022 &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;    2   &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;        &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;        &quot;</span>,
+        display.assert_pattern(<span class="kw-2">&amp;</span>[
+            <span class="string">&quot;        &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;     1  &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;   110  &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;   0022 &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;    2   &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;        &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;        &quot;</span>,
         ]);
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../../" data-current-crate="embedded_graphics" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0 (a55dd71d5 2022-09-19)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../../" data-current-crate="embedded_graphics" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0 (69f9c33d7 2022-12-12)" ></div></body></html>

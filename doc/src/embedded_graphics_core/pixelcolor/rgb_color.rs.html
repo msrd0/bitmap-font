@@ -1,6 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-core-0.3.3/src/pixelcolor/rgb_color.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>rgb_color.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../embedded_graphics_core/index.html"><div class="logo-container"><img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/b225511f390c0ed9bc065eb67d05125845312148/assets/logo_core.svg?sanitize=true" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../embedded_graphics_core/index.html"><div class="logo-container">
-                    <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/b225511f390c0ed9bc065eb67d05125845312148/assets/logo_core.svg?sanitize=true" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../embedded_graphics_core/index.html">
-                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/b225511f390c0ed9bc065eb67d05125845312148/assets/logo_core.svg?sanitize=true" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-core-0.3.3/src/pixelcolor/rgb_color.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>rgb_color.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../embedded_graphics_core/index.html">
+                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/b225511f390c0ed9bc065eb67d05125845312148/assets/logo_core.svg?sanitize=true" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -338,343 +337,343 @@
 <span id="336">336</span>
 <span id="337">337</span>
 <span id="338">338</span>
-</pre><pre class="rust"><code><span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::pixelcolor</span>::{
-    <span class="ident">raw</span>::{<span class="ident">RawData</span>, <span class="ident">RawU16</span>, <span class="ident">RawU18</span>, <span class="ident">RawU24</span>},
-    <span class="ident">PixelColor</span>,
+</pre><pre class="rust"><code><span class="kw">use </span><span class="kw">crate</span>::pixelcolor::{
+    raw::{RawData, RawU16, RawU18, RawU24},
+    PixelColor,
 };
-<span class="kw">use</span> <span class="ident">core::fmt</span>;
+<span class="kw">use </span>core::fmt;
 
-<span class="doccomment">/// RGB color.</span>
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">RgbColor</span>: <span class="ident">PixelColor</span> {
-    <span class="doccomment">/// Returns the red channel value.</span>
-    <span class="kw">fn</span> <span class="ident">r</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">u8</span>;
+<span class="doccomment">/// RGB color.
+</span><span class="kw">pub trait </span>RgbColor: PixelColor {
+    <span class="doccomment">/// Returns the red channel value.
+    </span><span class="kw">fn </span>r(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; u8;
 
-    <span class="doccomment">/// Returns the green channel value.</span>
-    <span class="kw">fn</span> <span class="ident">g</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">u8</span>;
+    <span class="doccomment">/// Returns the green channel value.
+    </span><span class="kw">fn </span>g(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; u8;
 
-    <span class="doccomment">/// Returns the blue channel value.</span>
-    <span class="kw">fn</span> <span class="ident">b</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">u8</span>;
+    <span class="doccomment">/// Returns the blue channel value.
+    </span><span class="kw">fn </span>b(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; u8;
 
-    <span class="doccomment">/// The maximum value in the red channel.</span>
-    <span class="kw">const</span> <span class="ident">MAX_R</span>: <span class="ident">u8</span>;
+    <span class="doccomment">/// The maximum value in the red channel.
+    </span><span class="kw">const </span>MAX_R: u8;
 
-    <span class="doccomment">/// The maximum value in the green channel.</span>
-    <span class="kw">const</span> <span class="ident">MAX_G</span>: <span class="ident">u8</span>;
+    <span class="doccomment">/// The maximum value in the green channel.
+    </span><span class="kw">const </span>MAX_G: u8;
 
-    <span class="doccomment">/// The maximum value in the blue channel.</span>
-    <span class="kw">const</span> <span class="ident">MAX_B</span>: <span class="ident">u8</span>;
+    <span class="doccomment">/// The maximum value in the blue channel.
+    </span><span class="kw">const </span>MAX_B: u8;
 
-    <span class="doccomment">/// Black color (R: 0%, G: 0%, B: 0%)</span>
-    <span class="kw">const</span> <span class="ident">BLACK</span>: <span class="self">Self</span>;
+    <span class="doccomment">/// Black color (R: 0%, G: 0%, B: 0%)
+    </span><span class="kw">const </span>BLACK: <span class="self">Self</span>;
 
-    <span class="doccomment">/// Red color (R: 100%, G: 0%, B: 0%)</span>
-    <span class="kw">const</span> <span class="ident">RED</span>: <span class="self">Self</span>;
+    <span class="doccomment">/// Red color (R: 100%, G: 0%, B: 0%)
+    </span><span class="kw">const </span>RED: <span class="self">Self</span>;
 
-    <span class="doccomment">/// Green color (R: 0%, G: 100%, B: 0%)</span>
-    <span class="kw">const</span> <span class="ident">GREEN</span>: <span class="self">Self</span>;
+    <span class="doccomment">/// Green color (R: 0%, G: 100%, B: 0%)
+    </span><span class="kw">const </span>GREEN: <span class="self">Self</span>;
 
-    <span class="doccomment">/// Blue color (R: 0%, G: 0%, B: 100%)</span>
-    <span class="kw">const</span> <span class="ident">BLUE</span>: <span class="self">Self</span>;
+    <span class="doccomment">/// Blue color (R: 0%, G: 0%, B: 100%)
+    </span><span class="kw">const </span>BLUE: <span class="self">Self</span>;
 
-    <span class="doccomment">/// Yellow color (R: 100%, G: 100%, B: 0%)</span>
-    <span class="kw">const</span> <span class="ident">YELLOW</span>: <span class="self">Self</span>;
+    <span class="doccomment">/// Yellow color (R: 100%, G: 100%, B: 0%)
+    </span><span class="kw">const </span>YELLOW: <span class="self">Self</span>;
 
-    <span class="doccomment">/// Magenta color (R: 100%, G: 0%, B: 100%)</span>
-    <span class="kw">const</span> <span class="ident">MAGENTA</span>: <span class="self">Self</span>;
+    <span class="doccomment">/// Magenta color (R: 100%, G: 0%, B: 100%)
+    </span><span class="kw">const </span>MAGENTA: <span class="self">Self</span>;
 
-    <span class="doccomment">/// Cyan color (R: 0%, G: 100%, B: 100%)</span>
-    <span class="kw">const</span> <span class="ident">CYAN</span>: <span class="self">Self</span>;
+    <span class="doccomment">/// Cyan color (R: 0%, G: 100%, B: 100%)
+    </span><span class="kw">const </span>CYAN: <span class="self">Self</span>;
 
-    <span class="doccomment">/// White color (R: 100%, G: 100%, B: 100%)</span>
-    <span class="kw">const</span> <span class="ident">WHITE</span>: <span class="self">Self</span>;
+    <span class="doccomment">/// White color (R: 100%, G: 100%, B: 100%)
+    </span><span class="kw">const </span>WHITE: <span class="self">Self</span>;
 }
 
-<span class="doccomment">/// Macro to implement a RgbColor type with the given channel bit positions.</span>
-<span class="macro">macro_rules!</span> <span class="ident">impl_rgb_color</span> {
+<span class="doccomment">/// Macro to implement a RgbColor type with the given channel bit positions.
+</span><span class="macro">macro_rules! </span>impl_rgb_color {
     (
         <span class="macro-nonterminal">$</span><span class="kw">type</span>:<span class="macro-nonterminal">ident</span>,
-        <span class="macro-nonterminal">$</span><span class="macro-nonterminal">data_type</span>:<span class="ident">ty</span>,
-        <span class="macro-nonterminal">$</span><span class="macro-nonterminal">storage_type</span>:<span class="ident">ty</span>,
-        (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">r_bits</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">g_bits</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">b_bits</span>:<span class="ident">expr</span>),
-        (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">r_pos</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">g_pos</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">b_pos</span>:<span class="ident">expr</span>),
-        <span class="macro-nonterminal">$</span><span class="macro-nonterminal">type_str</span>:<span class="ident">expr</span>
+        <span class="macro-nonterminal">$data_type</span>:ty,
+        <span class="macro-nonterminal">$storage_type</span>:ty,
+        (<span class="macro-nonterminal">$r_bits</span>:expr, <span class="macro-nonterminal">$g_bits</span>:expr, <span class="macro-nonterminal">$b_bits</span>:expr),
+        (<span class="macro-nonterminal">$r_pos</span>:expr, <span class="macro-nonterminal">$g_pos</span>:expr, <span class="macro-nonterminal">$b_pos</span>:expr),
+        <span class="macro-nonterminal">$type_str</span>:expr
     ) =&gt; {
-        <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">type_str</span>]</span>
-        <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;color.&quot;</span>]</span>
-        <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;&quot;</span>]</span>
-        <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;Use the methods provided by the [`RgbColor`] trait to access&quot;</span>]</span>
-        <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;individual color channels and predefined color constants.&quot;</span>]</span>
-        <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;&quot;</span>]</span>
-        <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;See the [module-level documentation] for more information about&quot;</span>]</span>
-        <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;conversion between this type and raw data.&quot;</span>]</span>
-        <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;&quot;</span>]</span>
-        <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;[`RgbColor`]: trait.RgbColor.html&quot;</span>]</span>
-        <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;[module-level documentation]: index.html&quot;</span>]</span>
-        <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Copy</span>, <span class="ident">Clone</span>, <span class="ident">Eq</span>, <span class="ident">PartialEq</span>, <span class="ident">Ord</span>, <span class="ident">PartialOrd</span>, <span class="ident">Hash</span>, <span class="ident">Default</span>)]</span>
-        <span class="kw">pub</span> <span class="kw">struct</span> <span class="macro-nonterminal">$</span><span class="kw">type</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">storage_type</span>);
+        <span class="attribute">#[doc = <span class="macro-nonterminal">$type_str</span>]
+        #[doc = <span class="string">&quot;color.&quot;</span>]
+        #[doc = <span class="string">&quot;&quot;</span>]
+        #[doc = <span class="string">&quot;Use the methods provided by the [`RgbColor`] trait to access&quot;</span>]
+        #[doc = <span class="string">&quot;individual color channels and predefined color constants.&quot;</span>]
+        #[doc = <span class="string">&quot;&quot;</span>]
+        #[doc = <span class="string">&quot;See the [module-level documentation] for more information about&quot;</span>]
+        #[doc = <span class="string">&quot;conversion between this type and raw data.&quot;</span>]
+        #[doc = <span class="string">&quot;&quot;</span>]
+        #[doc = <span class="string">&quot;[`RgbColor`]: trait.RgbColor.html&quot;</span>]
+        #[doc = <span class="string">&quot;[module-level documentation]: index.html&quot;</span>]
+        #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Hash, Default)]
+        </span><span class="kw">pub struct </span><span class="macro-nonterminal">$</span><span class="kw">type</span>(<span class="macro-nonterminal">$storage_type</span>);
 
-        <span class="kw">impl</span> <span class="macro-nonterminal">$</span><span class="kw">type</span> {
-            <span class="kw">const</span> <span class="macro-nonterminal">R_MASK</span>: <span class="macro-nonterminal">$</span><span class="macro-nonterminal">storage_type</span> <span class="op">=</span> (<span class="macro-nonterminal">$</span><span class="kw">type</span><span class="macro-nonterminal">::MAX_R</span> <span class="kw">as</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">storage_type</span>) <span class="op">&lt;</span><span class="op">&lt;</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">r_pos</span>;
-            <span class="kw">const</span> <span class="ident">G_MASK</span>: <span class="macro-nonterminal">$</span><span class="macro-nonterminal">storage_type</span> <span class="op">=</span> (<span class="macro-nonterminal">$</span><span class="kw">type</span><span class="macro-nonterminal">::MAX_G</span> <span class="kw">as</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">storage_type</span>) <span class="op">&lt;</span><span class="op">&lt;</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">g_pos</span>;
-            <span class="kw">const</span> <span class="ident">B_MASK</span>: <span class="macro-nonterminal">$</span><span class="macro-nonterminal">storage_type</span> <span class="op">=</span> (<span class="macro-nonterminal">$</span><span class="kw">type</span><span class="macro-nonterminal">::MAX_B</span> <span class="kw">as</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">storage_type</span>) <span class="op">&lt;</span><span class="op">&lt;</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">b_pos</span>;
-            <span class="kw">const</span> <span class="ident">RGB_MASK</span>: <span class="macro-nonterminal">$</span><span class="macro-nonterminal">storage_type</span> <span class="op">=</span> <span class="ident"><span class="self">Self</span>::R_MASK</span> <span class="op">|</span> <span class="ident"><span class="self">Self</span>::B_MASK</span> <span class="op">|</span> <span class="ident"><span class="self">Self</span>::G_MASK</span>;
+        <span class="kw">impl </span><span class="macro-nonterminal">$</span><span class="kw">type </span>{
+            <span class="kw">const </span><span class="macro-nonterminal">R_MASK</span>: <span class="macro-nonterminal">$storage_type </span>= (<span class="macro-nonterminal">$</span><span class="kw">type</span><span class="macro-nonterminal">::MAX_R </span><span class="kw">as </span><span class="macro-nonterminal">$storage_type</span>) &lt;&lt; <span class="macro-nonterminal">$r_pos</span>;
+            <span class="kw">const </span>G_MASK: <span class="macro-nonterminal">$storage_type </span>= (<span class="macro-nonterminal">$</span><span class="kw">type</span><span class="macro-nonterminal">::MAX_G </span><span class="kw">as </span><span class="macro-nonterminal">$storage_type</span>) &lt;&lt; <span class="macro-nonterminal">$g_pos</span>;
+            <span class="kw">const </span>B_MASK: <span class="macro-nonterminal">$storage_type </span>= (<span class="macro-nonterminal">$</span><span class="kw">type</span><span class="macro-nonterminal">::MAX_B </span><span class="kw">as </span><span class="macro-nonterminal">$storage_type</span>) &lt;&lt; <span class="macro-nonterminal">$b_pos</span>;
+            <span class="kw">const </span>RGB_MASK: <span class="macro-nonterminal">$storage_type </span>= <span class="self">Self</span>::R_MASK | <span class="self">Self</span>::B_MASK | <span class="self">Self</span>::G_MASK;
         }
 
-        <span class="kw">impl</span> <span class="ident">fmt::Debug</span> <span class="kw">for</span> <span class="macro-nonterminal">$</span><span class="kw">type</span> {
-            <span class="kw">fn</span> <span class="macro-nonterminal">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="kw-2">&amp;mut</span> <span class="ident">fmt::Formatter</span>) -&gt; <span class="ident">fmt::Result</span> {
+        <span class="kw">impl </span>fmt::Debug <span class="kw">for </span><span class="macro-nonterminal">$</span><span class="kw">type </span>{
+            <span class="kw">fn </span><span class="macro-nonterminal">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span>fmt::Formatter) -&gt; fmt::Result {
                 <span class="macro">write!</span>(
-                    <span class="ident">f</span>,
+                    f,
                     <span class="string">&quot;{}(r: {}, g: {}, b: {})&quot;</span>,
                     <span class="macro">stringify!</span>(<span class="macro-nonterminal">$</span><span class="kw">type</span>),
-                    <span class="macro-nonterminal">self</span>.<span class="ident">r</span>(),
-                    <span class="self">self</span>.<span class="ident">g</span>(),
-                    <span class="self">self</span>.<span class="ident">b</span>()
+                    <span class="macro-nonterminal">self</span>.r(),
+                    <span class="self">self</span>.g(),
+                    <span class="self">self</span>.b()
                 )
             }
         }
 
-        <span class="kw">impl</span> <span class="macro-nonterminal">$</span><span class="kw">type</span>
-        <span class="kw">where</span>
-            <span class="macro-nonterminal">Self</span>: <span class="ident">RgbColor</span>,
+        <span class="kw">impl </span><span class="macro-nonterminal">$</span><span class="kw">type
+        where
+            </span><span class="macro-nonterminal">Self</span>: RgbColor,
         {
-            <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;Creates a new&quot;</span>]</span>
-            <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">type_str</span>]</span>
-            <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;color.\n&quot;</span>]</span>
-            <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;Too large channel values will be limited by setting the&quot;</span>]</span>
-            <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;unused most significant bits to zero.&quot;</span>]</span>
-            <span class="kw">pub</span> <span class="kw">const</span> <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">r</span>: <span class="ident">u8</span>, <span class="ident">g</span>: <span class="ident">u8</span>, <span class="ident">b</span>: <span class="ident">u8</span>) -&gt; <span class="self">Self</span> {
-                <span class="kw">let</span> <span class="ident">r_shifted</span> <span class="op">=</span> (<span class="ident">r</span> <span class="op">&amp;</span> <span class="ident"><span class="self">Self</span>::MAX_R</span>) <span class="kw">as</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">storage_type</span> <span class="op">&lt;</span><span class="op">&lt;</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">r_pos</span>;
-                <span class="kw">let</span> <span class="ident">g_shifted</span> <span class="op">=</span> (<span class="ident">g</span> <span class="op">&amp;</span> <span class="ident"><span class="self">Self</span>::MAX_G</span>) <span class="kw">as</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">storage_type</span> <span class="op">&lt;</span><span class="op">&lt;</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">g_pos</span>;
-                <span class="kw">let</span> <span class="ident">b_shifted</span> <span class="op">=</span> (<span class="ident">b</span> <span class="op">&amp;</span> <span class="ident"><span class="self">Self</span>::MAX_B</span>) <span class="kw">as</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">storage_type</span> <span class="op">&lt;</span><span class="op">&lt;</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">b_pos</span>;
+            <span class="attribute">#[doc = <span class="string">&quot;Creates a new&quot;</span>]
+            #[doc = <span class="macro-nonterminal">$type_str</span>]
+            #[doc = <span class="string">&quot;color.\n&quot;</span>]
+            #[doc = <span class="string">&quot;Too large channel values will be limited by setting the&quot;</span>]
+            #[doc = <span class="string">&quot;unused most significant bits to zero.&quot;</span>]
+            </span><span class="kw">pub const fn </span>new(r: u8, g: u8, b: u8) -&gt; <span class="self">Self </span>{
+                <span class="kw">let </span>r_shifted = (r &amp; <span class="self">Self</span>::MAX_R) <span class="kw">as </span><span class="macro-nonterminal">$storage_type </span>&lt;&lt; <span class="macro-nonterminal">$r_pos</span>;
+                <span class="kw">let </span>g_shifted = (g &amp; <span class="self">Self</span>::MAX_G) <span class="kw">as </span><span class="macro-nonterminal">$storage_type </span>&lt;&lt; <span class="macro-nonterminal">$g_pos</span>;
+                <span class="kw">let </span>b_shifted = (b &amp; <span class="self">Self</span>::MAX_B) <span class="kw">as </span><span class="macro-nonterminal">$storage_type </span>&lt;&lt; <span class="macro-nonterminal">$b_pos</span>;
 
-                <span class="self">Self</span>(<span class="ident">r_shifted</span> <span class="op">|</span> <span class="ident">g_shifted</span> <span class="op">|</span> <span class="ident">b_shifted</span>)
+                <span class="self">Self</span>(r_shifted | g_shifted | b_shifted)
             }
         }
 
-        <span class="kw">impl</span> <span class="ident">RgbColor</span> <span class="kw">for</span> <span class="macro-nonterminal">$</span><span class="kw">type</span> {
-            <span class="kw">fn</span> <span class="macro-nonterminal">r</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">u8</span> {
-                <span class="attribute">#![<span class="ident">allow</span>(<span class="ident">trivial_numeric_casts</span>)]</span>
+        <span class="kw">impl </span>RgbColor <span class="kw">for </span><span class="macro-nonterminal">$</span><span class="kw">type </span>{
+            <span class="kw">fn </span><span class="macro-nonterminal">r</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; u8 {
+                <span class="attribute">#![allow(trivial_numeric_casts)]
 
-                (<span class="self">self</span>.<span class="number">0</span> <span class="op">&gt;</span><span class="op">&gt;</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">r_pos</span>) <span class="kw">as</span> <span class="ident">u8</span> <span class="op">&amp;</span> <span class="ident"><span class="self">Self</span>::MAX_R</span>
+                </span>(<span class="self">self</span>.<span class="number">0 </span>&gt;&gt; <span class="macro-nonterminal">$r_pos</span>) <span class="kw">as </span>u8 &amp; <span class="self">Self</span>::MAX_R
             }
 
-            <span class="kw">fn</span> <span class="ident">g</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">u8</span> {
-                <span class="attribute">#![<span class="ident">allow</span>(<span class="ident">trivial_numeric_casts</span>)]</span>
+            <span class="kw">fn </span>g(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; u8 {
+                <span class="attribute">#![allow(trivial_numeric_casts)]
 
-                (<span class="self">self</span>.<span class="number">0</span> <span class="op">&gt;</span><span class="op">&gt;</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">g_pos</span>) <span class="kw">as</span> <span class="ident">u8</span> <span class="op">&amp;</span> <span class="ident"><span class="self">Self</span>::MAX_G</span>
+                </span>(<span class="self">self</span>.<span class="number">0 </span>&gt;&gt; <span class="macro-nonterminal">$g_pos</span>) <span class="kw">as </span>u8 &amp; <span class="self">Self</span>::MAX_G
             }
 
-            <span class="kw">fn</span> <span class="ident">b</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">u8</span> {
-                <span class="attribute">#![<span class="ident">allow</span>(<span class="ident">trivial_numeric_casts</span>)]</span>
+            <span class="kw">fn </span>b(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; u8 {
+                <span class="attribute">#![allow(trivial_numeric_casts)]
 
-                (<span class="self">self</span>.<span class="number">0</span> <span class="op">&gt;</span><span class="op">&gt;</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">b_pos</span>) <span class="kw">as</span> <span class="ident">u8</span> <span class="op">&amp;</span> <span class="ident"><span class="self">Self</span>::MAX_B</span>
+                </span>(<span class="self">self</span>.<span class="number">0 </span>&gt;&gt; <span class="macro-nonterminal">$b_pos</span>) <span class="kw">as </span>u8 &amp; <span class="self">Self</span>::MAX_B
             }
 
-            <span class="kw">const</span> <span class="ident">MAX_R</span>: <span class="ident">u8</span> <span class="op">=</span> ((<span class="number">1usize</span> <span class="op">&lt;</span><span class="op">&lt;</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">r_bits</span>) <span class="op">-</span> <span class="number">1</span>) <span class="kw">as</span> <span class="ident">u8</span>;
-            <span class="kw">const</span> <span class="ident">MAX_G</span>: <span class="ident">u8</span> <span class="op">=</span> ((<span class="number">1usize</span> <span class="op">&lt;</span><span class="op">&lt;</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">g_bits</span>) <span class="op">-</span> <span class="number">1</span>) <span class="kw">as</span> <span class="ident">u8</span>;
-            <span class="kw">const</span> <span class="ident">MAX_B</span>: <span class="ident">u8</span> <span class="op">=</span> ((<span class="number">1usize</span> <span class="op">&lt;</span><span class="op">&lt;</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">b_bits</span>) <span class="op">-</span> <span class="number">1</span>) <span class="kw">as</span> <span class="ident">u8</span>;
+            <span class="kw">const </span>MAX_R: u8 = ((<span class="number">1usize </span>&lt;&lt; <span class="macro-nonterminal">$r_bits</span>) - <span class="number">1</span>) <span class="kw">as </span>u8;
+            <span class="kw">const </span>MAX_G: u8 = ((<span class="number">1usize </span>&lt;&lt; <span class="macro-nonterminal">$g_bits</span>) - <span class="number">1</span>) <span class="kw">as </span>u8;
+            <span class="kw">const </span>MAX_B: u8 = ((<span class="number">1usize </span>&lt;&lt; <span class="macro-nonterminal">$b_bits</span>) - <span class="number">1</span>) <span class="kw">as </span>u8;
 
-            <span class="kw">const</span> <span class="ident">BLACK</span>: <span class="self">Self</span> <span class="op">=</span> <span class="ident"><span class="self">Self</span>::new</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>);
-            <span class="kw">const</span> <span class="ident">RED</span>: <span class="self">Self</span> <span class="op">=</span> <span class="ident"><span class="self">Self</span>::new</span>(<span class="ident"><span class="self">Self</span>::MAX_R</span>, <span class="number">0</span>, <span class="number">0</span>);
-            <span class="kw">const</span> <span class="ident">GREEN</span>: <span class="self">Self</span> <span class="op">=</span> <span class="ident"><span class="self">Self</span>::new</span>(<span class="number">0</span>, <span class="ident"><span class="self">Self</span>::MAX_G</span>, <span class="number">0</span>);
-            <span class="kw">const</span> <span class="ident">BLUE</span>: <span class="self">Self</span> <span class="op">=</span> <span class="ident"><span class="self">Self</span>::new</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="ident"><span class="self">Self</span>::MAX_B</span>);
-            <span class="kw">const</span> <span class="ident">YELLOW</span>: <span class="self">Self</span> <span class="op">=</span> <span class="ident"><span class="self">Self</span>::new</span>(<span class="ident"><span class="self">Self</span>::MAX_R</span>, <span class="ident"><span class="self">Self</span>::MAX_G</span>, <span class="number">0</span>);
-            <span class="kw">const</span> <span class="ident">MAGENTA</span>: <span class="self">Self</span> <span class="op">=</span> <span class="ident"><span class="self">Self</span>::new</span>(<span class="ident"><span class="self">Self</span>::MAX_R</span>, <span class="number">0</span>, <span class="ident"><span class="self">Self</span>::MAX_B</span>);
-            <span class="kw">const</span> <span class="ident">CYAN</span>: <span class="self">Self</span> <span class="op">=</span> <span class="ident"><span class="self">Self</span>::new</span>(<span class="number">0</span>, <span class="ident"><span class="self">Self</span>::MAX_G</span>, <span class="ident"><span class="self">Self</span>::MAX_B</span>);
-            <span class="kw">const</span> <span class="ident">WHITE</span>: <span class="self">Self</span> <span class="op">=</span> <span class="ident"><span class="self">Self</span>::new</span>(<span class="ident"><span class="self">Self</span>::MAX_R</span>, <span class="ident"><span class="self">Self</span>::MAX_G</span>, <span class="ident"><span class="self">Self</span>::MAX_B</span>);
+            <span class="kw">const </span>BLACK: <span class="self">Self </span>= <span class="self">Self</span>::new(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>);
+            <span class="kw">const </span>RED: <span class="self">Self </span>= <span class="self">Self</span>::new(<span class="self">Self</span>::MAX_R, <span class="number">0</span>, <span class="number">0</span>);
+            <span class="kw">const </span>GREEN: <span class="self">Self </span>= <span class="self">Self</span>::new(<span class="number">0</span>, <span class="self">Self</span>::MAX_G, <span class="number">0</span>);
+            <span class="kw">const </span>BLUE: <span class="self">Self </span>= <span class="self">Self</span>::new(<span class="number">0</span>, <span class="number">0</span>, <span class="self">Self</span>::MAX_B);
+            <span class="kw">const </span>YELLOW: <span class="self">Self </span>= <span class="self">Self</span>::new(<span class="self">Self</span>::MAX_R, <span class="self">Self</span>::MAX_G, <span class="number">0</span>);
+            <span class="kw">const </span>MAGENTA: <span class="self">Self </span>= <span class="self">Self</span>::new(<span class="self">Self</span>::MAX_R, <span class="number">0</span>, <span class="self">Self</span>::MAX_B);
+            <span class="kw">const </span>CYAN: <span class="self">Self </span>= <span class="self">Self</span>::new(<span class="number">0</span>, <span class="self">Self</span>::MAX_G, <span class="self">Self</span>::MAX_B);
+            <span class="kw">const </span>WHITE: <span class="self">Self </span>= <span class="self">Self</span>::new(<span class="self">Self</span>::MAX_R, <span class="self">Self</span>::MAX_G, <span class="self">Self</span>::MAX_B);
         }
 
-        <span class="kw">impl</span> <span class="ident">PixelColor</span> <span class="kw">for</span> <span class="macro-nonterminal">$</span><span class="kw">type</span> {
-            <span class="kw">type</span> <span class="macro-nonterminal">Raw</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">data_type</span>;
+        <span class="kw">impl </span>PixelColor <span class="kw">for </span><span class="macro-nonterminal">$</span><span class="kw">type </span>{
+            <span class="kw">type </span><span class="macro-nonterminal">Raw </span>= <span class="macro-nonterminal">$data_type</span>;
         }
 
-        <span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">data_type</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="macro-nonterminal">$</span><span class="kw">type</span> {
-            <span class="kw">fn</span> <span class="macro-nonterminal">from</span>(<span class="ident">data</span>: <span class="macro-nonterminal">$</span><span class="macro-nonterminal">data_type</span>) -&gt; <span class="self">Self</span> {
-                <span class="kw">let</span> <span class="ident">data</span> <span class="op">=</span> <span class="ident">data</span>.<span class="ident">into_inner</span>();
+        <span class="kw">impl </span>From&lt;<span class="macro-nonterminal">$data_type</span>&gt; <span class="kw">for </span><span class="macro-nonterminal">$</span><span class="kw">type </span>{
+            <span class="kw">fn </span><span class="macro-nonterminal">from</span>(data: <span class="macro-nonterminal">$data_type</span>) -&gt; <span class="self">Self </span>{
+                <span class="kw">let </span>data = data.into_inner();
 
-                <span class="self">Self</span>(<span class="ident">data</span> <span class="op">&amp;</span> <span class="ident"><span class="self">Self</span>::RGB_MASK</span>)
+                <span class="self">Self</span>(data &amp; <span class="self">Self</span>::RGB_MASK)
             }
         }
 
-        <span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="kw">type</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">data_type</span> {
-            <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">color</span>: <span class="macro-nonterminal">$</span><span class="kw">type</span>) -&gt; <span class="macro-nonterminal">Self</span> {
-                <span class="ident"><span class="self">Self</span>::new</span>(<span class="ident">color</span>.<span class="number">0</span>)
+        <span class="kw">impl </span>From&lt;<span class="macro-nonterminal">$</span><span class="kw">type</span>&gt; <span class="kw">for </span><span class="macro-nonterminal">$data_type </span>{
+            <span class="kw">fn </span>from(color: <span class="macro-nonterminal">$</span><span class="kw">type</span>) -&gt; <span class="macro-nonterminal">Self </span>{
+                <span class="self">Self</span>::new(color.<span class="number">0</span>)
             }
         }
     };
 
-    <span class="comment">// Recursive macro to stringify the type.</span>
-    (
+    <span class="comment">// Recursive macro to stringify the type.
+    </span>(
         <span class="macro-nonterminal">$</span><span class="kw">type</span>:<span class="macro-nonterminal">ident</span>,
-        <span class="macro-nonterminal">$</span><span class="macro-nonterminal">data_type</span>:<span class="ident">ty</span>,
-        <span class="macro-nonterminal">$</span><span class="macro-nonterminal">storage_type</span>:<span class="ident">ty</span>,
-        (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">r_bits</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">g_bits</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">b_bits</span>:<span class="ident">expr</span>),
-        (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">r_pos</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">g_pos</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">b_pos</span>:<span class="ident">expr</span>)
+        <span class="macro-nonterminal">$data_type</span>:ty,
+        <span class="macro-nonterminal">$storage_type</span>:ty,
+        (<span class="macro-nonterminal">$r_bits</span>:expr, <span class="macro-nonterminal">$g_bits</span>:expr, <span class="macro-nonterminal">$b_bits</span>:expr),
+        (<span class="macro-nonterminal">$r_pos</span>:expr, <span class="macro-nonterminal">$g_pos</span>:expr, <span class="macro-nonterminal">$b_pos</span>:expr)
     ) =&gt; {
         <span class="macro">impl_rgb_color!</span>(
             <span class="macro-nonterminal">$</span><span class="kw">type</span>,
-            <span class="macro-nonterminal">$</span><span class="macro-nonterminal">data_type</span>,
-            <span class="macro-nonterminal">$</span><span class="macro-nonterminal">storage_type</span>,
-            (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">r_bits</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">g_bits</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">b_bits</span>),
-            (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">r_pos</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">g_pos</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">b_pos</span>),
+            <span class="macro-nonterminal">$data_type</span>,
+            <span class="macro-nonterminal">$storage_type</span>,
+            (<span class="macro-nonterminal">$r_bits</span>, <span class="macro-nonterminal">$g_bits</span>, <span class="macro-nonterminal">$b_bits</span>),
+            (<span class="macro-nonterminal">$r_pos</span>, <span class="macro-nonterminal">$g_pos</span>, <span class="macro-nonterminal">$b_pos</span>),
             <span class="macro">stringify!</span>(<span class="macro-nonterminal">$</span><span class="kw">type</span>)
         );
     };
 }
 
-<span class="doccomment">/// Helper macro to calculate bit positions for RGB and BGR colors</span>
-<span class="macro">macro_rules!</span> <span class="macro-nonterminal">rgb_color</span> {
+<span class="doccomment">/// Helper macro to calculate bit positions for RGB and BGR colors
+</span><span class="macro">macro_rules! </span><span class="macro-nonterminal">rgb_color </span>{
     (
         <span class="macro-nonterminal">$</span><span class="kw">type</span>:<span class="macro-nonterminal">ident</span>,
-        <span class="macro-nonterminal">$</span><span class="macro-nonterminal">data_type</span>:<span class="ident">ty</span>,
-        <span class="macro-nonterminal">$</span><span class="macro-nonterminal">storage_type</span>:<span class="ident">ty</span>,<span class="ident">Rgb</span> <span class="op">=</span>
-        (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">r_bits</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">g_bits</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">b_bits</span>:<span class="ident">expr</span>)
+        <span class="macro-nonterminal">$data_type</span>:ty,
+        <span class="macro-nonterminal">$storage_type</span>:ty,Rgb =
+        (<span class="macro-nonterminal">$r_bits</span>:expr, <span class="macro-nonterminal">$g_bits</span>:expr, <span class="macro-nonterminal">$b_bits</span>:expr)
     ) =&gt; {
         <span class="macro">impl_rgb_color!</span>(
             <span class="macro-nonterminal">$</span><span class="kw">type</span>,
-            <span class="macro-nonterminal">$</span><span class="macro-nonterminal">data_type</span>,
-            <span class="macro-nonterminal">$</span><span class="macro-nonterminal">storage_type</span>,
-            (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">r_bits</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">g_bits</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">b_bits</span>),
-            (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">g_bits</span> <span class="op">+</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">b_bits</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">b_bits</span>, <span class="number">0</span>)
+            <span class="macro-nonterminal">$data_type</span>,
+            <span class="macro-nonterminal">$storage_type</span>,
+            (<span class="macro-nonterminal">$r_bits</span>, <span class="macro-nonterminal">$g_bits</span>, <span class="macro-nonterminal">$b_bits</span>),
+            (<span class="macro-nonterminal">$g_bits </span>+ <span class="macro-nonterminal">$b_bits</span>, <span class="macro-nonterminal">$b_bits</span>, <span class="number">0</span>)
         );
     };
 
     (
         <span class="macro-nonterminal">$</span><span class="kw">type</span>:<span class="macro-nonterminal">ident</span>,
-        <span class="macro-nonterminal">$</span><span class="macro-nonterminal">data_type</span>:<span class="ident">ty</span>,
-        <span class="macro-nonterminal">$</span><span class="macro-nonterminal">storage_type</span>:<span class="ident">ty</span>,<span class="ident">Bgr</span> <span class="op">=</span>
-        (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">r_bits</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">g_bits</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">b_bits</span>:<span class="ident">expr</span>)
+        <span class="macro-nonterminal">$data_type</span>:ty,
+        <span class="macro-nonterminal">$storage_type</span>:ty,Bgr =
+        (<span class="macro-nonterminal">$r_bits</span>:expr, <span class="macro-nonterminal">$g_bits</span>:expr, <span class="macro-nonterminal">$b_bits</span>:expr)
     ) =&gt; {
         <span class="macro">impl_rgb_color!</span>(
             <span class="macro-nonterminal">$</span><span class="kw">type</span>,
-            <span class="macro-nonterminal">$</span><span class="macro-nonterminal">data_type</span>,
-            <span class="macro-nonterminal">$</span><span class="macro-nonterminal">storage_type</span>,
-            (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">r_bits</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">g_bits</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">b_bits</span>),
-            (<span class="number">0</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">r_bits</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">r_bits</span> <span class="op">+</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">g_bits</span>)
+            <span class="macro-nonterminal">$data_type</span>,
+            <span class="macro-nonterminal">$storage_type</span>,
+            (<span class="macro-nonterminal">$r_bits</span>, <span class="macro-nonterminal">$g_bits</span>, <span class="macro-nonterminal">$b_bits</span>),
+            (<span class="number">0</span>, <span class="macro-nonterminal">$r_bits</span>, <span class="macro-nonterminal">$r_bits </span>+ <span class="macro-nonterminal">$g_bits</span>)
         );
     };
 }
 
-<span class="macro">rgb_color!</span>(<span class="ident">Rgb555</span>, <span class="ident">RawU16</span>, <span class="ident">u16</span>, <span class="ident">Rgb</span> <span class="op">=</span> (<span class="number">5</span>, <span class="number">5</span>, <span class="number">5</span>));
-<span class="macro">rgb_color!</span>(<span class="ident">Bgr555</span>, <span class="ident">RawU16</span>, <span class="ident">u16</span>, <span class="ident">Bgr</span> <span class="op">=</span> (<span class="number">5</span>, <span class="number">5</span>, <span class="number">5</span>));
-<span class="macro">rgb_color!</span>(<span class="ident">Rgb565</span>, <span class="ident">RawU16</span>, <span class="ident">u16</span>, <span class="ident">Rgb</span> <span class="op">=</span> (<span class="number">5</span>, <span class="number">6</span>, <span class="number">5</span>));
-<span class="macro">rgb_color!</span>(<span class="ident">Bgr565</span>, <span class="ident">RawU16</span>, <span class="ident">u16</span>, <span class="ident">Bgr</span> <span class="op">=</span> (<span class="number">5</span>, <span class="number">6</span>, <span class="number">5</span>));
+<span class="macro">rgb_color!</span>(Rgb555, RawU16, u16, Rgb = (<span class="number">5</span>, <span class="number">5</span>, <span class="number">5</span>));
+<span class="macro">rgb_color!</span>(Bgr555, RawU16, u16, Bgr = (<span class="number">5</span>, <span class="number">5</span>, <span class="number">5</span>));
+<span class="macro">rgb_color!</span>(Rgb565, RawU16, u16, Rgb = (<span class="number">5</span>, <span class="number">6</span>, <span class="number">5</span>));
+<span class="macro">rgb_color!</span>(Bgr565, RawU16, u16, Bgr = (<span class="number">5</span>, <span class="number">6</span>, <span class="number">5</span>));
 
-<span class="macro">rgb_color!</span>(<span class="ident">Rgb666</span>, <span class="ident">RawU18</span>, <span class="ident">u32</span>, <span class="ident">Rgb</span> <span class="op">=</span> (<span class="number">6</span>, <span class="number">6</span>, <span class="number">6</span>));
-<span class="macro">rgb_color!</span>(<span class="ident">Bgr666</span>, <span class="ident">RawU18</span>, <span class="ident">u32</span>, <span class="ident">Bgr</span> <span class="op">=</span> (<span class="number">6</span>, <span class="number">6</span>, <span class="number">6</span>));
+<span class="macro">rgb_color!</span>(Rgb666, RawU18, u32, Rgb = (<span class="number">6</span>, <span class="number">6</span>, <span class="number">6</span>));
+<span class="macro">rgb_color!</span>(Bgr666, RawU18, u32, Bgr = (<span class="number">6</span>, <span class="number">6</span>, <span class="number">6</span>));
 
-<span class="macro">rgb_color!</span>(<span class="ident">Rgb888</span>, <span class="ident">RawU24</span>, <span class="ident">u32</span>, <span class="ident">Rgb</span> <span class="op">=</span> (<span class="number">8</span>, <span class="number">8</span>, <span class="number">8</span>));
-<span class="macro">rgb_color!</span>(<span class="ident">Bgr888</span>, <span class="ident">RawU24</span>, <span class="ident">u32</span>, <span class="ident">Bgr</span> <span class="op">=</span> (<span class="number">8</span>, <span class="number">8</span>, <span class="number">8</span>));
+<span class="macro">rgb_color!</span>(Rgb888, RawU24, u32, Rgb = (<span class="number">8</span>, <span class="number">8</span>, <span class="number">8</span>));
+<span class="macro">rgb_color!</span>(Bgr888, RawU24, u32, Bgr = (<span class="number">8</span>, <span class="number">8</span>, <span class="number">8</span>));
 
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
-<span class="kw">mod</span> <span class="ident">tests</span> {
-    <span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
-    <span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::pixelcolor::IntoStorage</span>;
+<span class="attribute">#[cfg(test)]
+</span><span class="kw">mod </span>tests {
+    <span class="kw">use super</span>::<span class="kw-2">*</span>;
+    <span class="kw">use </span><span class="kw">crate</span>::pixelcolor::IntoStorage;
 
-    <span class="doccomment">/// Convert color to integer and back again to test bit positions</span>
-    <span class="kw">fn</span> <span class="ident">test_bpp16</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>(<span class="ident">color</span>: <span class="ident">C</span>, <span class="ident">value</span>: <span class="ident">u16</span>)
-    <span class="kw">where</span>
-        <span class="ident">C</span>: <span class="ident">RgbColor</span> <span class="op">+</span> <span class="ident">From</span><span class="op">&lt;</span><span class="ident">RawU16</span><span class="op">&gt;</span> <span class="op">+</span> <span class="ident">Into</span><span class="op">&lt;</span><span class="ident">RawU16</span><span class="op">&gt;</span> <span class="op">+</span> <span class="ident">core::fmt::Debug</span>,
+    <span class="doccomment">/// Convert color to integer and back again to test bit positions
+    </span><span class="kw">fn </span>test_bpp16&lt;C&gt;(color: C, value: u16)
+    <span class="kw">where
+        </span>C: RgbColor + From&lt;RawU16&gt; + Into&lt;RawU16&gt; + core::fmt::Debug,
     {
-        <span class="kw">let</span> <span class="ident">value</span> <span class="op">=</span> <span class="ident">RawU16::new</span>(<span class="ident">value</span>);
+        <span class="kw">let </span>value = RawU16::new(value);
 
-        <span class="macro">assert_eq!</span>(<span class="ident">color</span>.<span class="ident">into</span>(), <span class="ident">value</span>);
-        <span class="macro">assert_eq!</span>(<span class="ident">C::from</span>(<span class="ident">value</span>), <span class="ident">color</span>);
+        <span class="macro">assert_eq!</span>(color.into(), value);
+        <span class="macro">assert_eq!</span>(C::from(value), color);
     }
 
-    <span class="doccomment">/// Convert color to integer and back again to test bit positions</span>
-    <span class="kw">fn</span> <span class="ident">test_bpp18</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>(<span class="ident">color</span>: <span class="ident">C</span>, <span class="ident">value</span>: <span class="ident">u32</span>)
-    <span class="kw">where</span>
-        <span class="ident">C</span>: <span class="ident">RgbColor</span> <span class="op">+</span> <span class="ident">From</span><span class="op">&lt;</span><span class="ident">RawU18</span><span class="op">&gt;</span> <span class="op">+</span> <span class="ident">Into</span><span class="op">&lt;</span><span class="ident">RawU18</span><span class="op">&gt;</span> <span class="op">+</span> <span class="ident">core::fmt::Debug</span>,
+    <span class="doccomment">/// Convert color to integer and back again to test bit positions
+    </span><span class="kw">fn </span>test_bpp18&lt;C&gt;(color: C, value: u32)
+    <span class="kw">where
+        </span>C: RgbColor + From&lt;RawU18&gt; + Into&lt;RawU18&gt; + core::fmt::Debug,
     {
-        <span class="kw">let</span> <span class="ident">value</span> <span class="op">=</span> <span class="ident">RawU18::new</span>(<span class="ident">value</span>);
+        <span class="kw">let </span>value = RawU18::new(value);
 
-        <span class="macro">assert_eq!</span>(<span class="ident">color</span>.<span class="ident">into</span>(), <span class="ident">value</span>);
-        <span class="macro">assert_eq!</span>(<span class="ident">C::from</span>(<span class="ident">value</span>), <span class="ident">color</span>);
+        <span class="macro">assert_eq!</span>(color.into(), value);
+        <span class="macro">assert_eq!</span>(C::from(value), color);
     }
 
-    <span class="doccomment">/// Convert color to integer and back again to test bit positions</span>
-    <span class="kw">fn</span> <span class="ident">test_bpp24</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>(<span class="ident">color</span>: <span class="ident">C</span>, <span class="ident">value</span>: <span class="ident">u32</span>)
-    <span class="kw">where</span>
-        <span class="ident">C</span>: <span class="ident">RgbColor</span> <span class="op">+</span> <span class="ident">From</span><span class="op">&lt;</span><span class="ident">RawU24</span><span class="op">&gt;</span> <span class="op">+</span> <span class="ident">Into</span><span class="op">&lt;</span><span class="ident">RawU24</span><span class="op">&gt;</span> <span class="op">+</span> <span class="ident">core::fmt::Debug</span>,
+    <span class="doccomment">/// Convert color to integer and back again to test bit positions
+    </span><span class="kw">fn </span>test_bpp24&lt;C&gt;(color: C, value: u32)
+    <span class="kw">where
+        </span>C: RgbColor + From&lt;RawU24&gt; + Into&lt;RawU24&gt; + core::fmt::Debug,
     {
-        <span class="kw">let</span> <span class="ident">value</span> <span class="op">=</span> <span class="ident">RawU24::new</span>(<span class="ident">value</span>);
+        <span class="kw">let </span>value = RawU24::new(value);
 
-        <span class="macro">assert_eq!</span>(<span class="ident">color</span>.<span class="ident">into</span>(), <span class="ident">value</span>);
-        <span class="macro">assert_eq!</span>(<span class="ident">C::from</span>(<span class="ident">value</span>), <span class="ident">color</span>);
+        <span class="macro">assert_eq!</span>(color.into(), value);
+        <span class="macro">assert_eq!</span>(C::from(value), color);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">bit_positions_rgb555</span>() {
-        <span class="ident">test_bpp16</span>(<span class="ident">Rgb555::new</span>(<span class="number">0b10001</span>, <span class="number">0</span>, <span class="number">0</span>), <span class="number">0b10001</span> <span class="op">&lt;</span><span class="op">&lt;</span> <span class="number">5</span> <span class="op">+</span> <span class="number">5</span>);
-        <span class="ident">test_bpp16</span>(<span class="ident">Rgb555::new</span>(<span class="number">0</span>, <span class="number">0b10001</span>, <span class="number">0</span>), <span class="number">0b10001</span> <span class="op">&lt;</span><span class="op">&lt;</span> <span class="number">5</span>);
-        <span class="ident">test_bpp16</span>(<span class="ident">Rgb555::new</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0b10001</span>), <span class="number">0b10001</span> <span class="op">&lt;</span><span class="op">&lt;</span> <span class="number">0</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">pub fn </span>bit_positions_rgb555() {
+        test_bpp16(Rgb555::new(<span class="number">0b10001</span>, <span class="number">0</span>, <span class="number">0</span>), <span class="number">0b10001 </span>&lt;&lt; <span class="number">5 </span>+ <span class="number">5</span>);
+        test_bpp16(Rgb555::new(<span class="number">0</span>, <span class="number">0b10001</span>, <span class="number">0</span>), <span class="number">0b10001 </span>&lt;&lt; <span class="number">5</span>);
+        test_bpp16(Rgb555::new(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0b10001</span>), <span class="number">0b10001 </span>&lt;&lt; <span class="number">0</span>);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">bit_positions_bgr555</span>() {
-        <span class="ident">test_bpp16</span>(<span class="ident">Bgr555::new</span>(<span class="number">0b10001</span>, <span class="number">0</span>, <span class="number">0</span>), <span class="number">0b10001</span> <span class="op">&lt;</span><span class="op">&lt;</span> <span class="number">0</span>);
-        <span class="ident">test_bpp16</span>(<span class="ident">Bgr555::new</span>(<span class="number">0</span>, <span class="number">0b10001</span>, <span class="number">0</span>), <span class="number">0b10001</span> <span class="op">&lt;</span><span class="op">&lt;</span> <span class="number">5</span>);
-        <span class="ident">test_bpp16</span>(<span class="ident">Bgr555::new</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0b10001</span>), <span class="number">0b10001</span> <span class="op">&lt;</span><span class="op">&lt;</span> <span class="number">5</span> <span class="op">+</span> <span class="number">5</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">pub fn </span>bit_positions_bgr555() {
+        test_bpp16(Bgr555::new(<span class="number">0b10001</span>, <span class="number">0</span>, <span class="number">0</span>), <span class="number">0b10001 </span>&lt;&lt; <span class="number">0</span>);
+        test_bpp16(Bgr555::new(<span class="number">0</span>, <span class="number">0b10001</span>, <span class="number">0</span>), <span class="number">0b10001 </span>&lt;&lt; <span class="number">5</span>);
+        test_bpp16(Bgr555::new(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0b10001</span>), <span class="number">0b10001 </span>&lt;&lt; <span class="number">5 </span>+ <span class="number">5</span>);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">bit_positions_rgb565</span>() {
-        <span class="ident">test_bpp16</span>(<span class="ident">Rgb565::new</span>(<span class="number">0b10001</span>, <span class="number">0</span>, <span class="number">0</span>), <span class="number">0b10001</span> <span class="op">&lt;</span><span class="op">&lt;</span> <span class="number">5</span> <span class="op">+</span> <span class="number">6</span>);
-        <span class="ident">test_bpp16</span>(<span class="ident">Rgb565::new</span>(<span class="number">0</span>, <span class="number">0b100001</span>, <span class="number">0</span>), <span class="number">0b100001</span> <span class="op">&lt;</span><span class="op">&lt;</span> <span class="number">5</span>);
-        <span class="ident">test_bpp16</span>(<span class="ident">Rgb565::new</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0b10001</span>), <span class="number">0b10001</span> <span class="op">&lt;</span><span class="op">&lt;</span> <span class="number">0</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">pub fn </span>bit_positions_rgb565() {
+        test_bpp16(Rgb565::new(<span class="number">0b10001</span>, <span class="number">0</span>, <span class="number">0</span>), <span class="number">0b10001 </span>&lt;&lt; <span class="number">5 </span>+ <span class="number">6</span>);
+        test_bpp16(Rgb565::new(<span class="number">0</span>, <span class="number">0b100001</span>, <span class="number">0</span>), <span class="number">0b100001 </span>&lt;&lt; <span class="number">5</span>);
+        test_bpp16(Rgb565::new(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0b10001</span>), <span class="number">0b10001 </span>&lt;&lt; <span class="number">0</span>);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">bit_positions_bgr565</span>() {
-        <span class="ident">test_bpp16</span>(<span class="ident">Bgr565::new</span>(<span class="number">0b10001</span>, <span class="number">0</span>, <span class="number">0</span>), <span class="number">0b10001</span> <span class="op">&lt;</span><span class="op">&lt;</span> <span class="number">0</span>);
-        <span class="ident">test_bpp16</span>(<span class="ident">Bgr565::new</span>(<span class="number">0</span>, <span class="number">0b100001</span>, <span class="number">0</span>), <span class="number">0b100001</span> <span class="op">&lt;</span><span class="op">&lt;</span> <span class="number">5</span>);
-        <span class="ident">test_bpp16</span>(<span class="ident">Bgr565::new</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0b10001</span>), <span class="number">0b10001</span> <span class="op">&lt;</span><span class="op">&lt;</span> <span class="number">5</span> <span class="op">+</span> <span class="number">6</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">pub fn </span>bit_positions_bgr565() {
+        test_bpp16(Bgr565::new(<span class="number">0b10001</span>, <span class="number">0</span>, <span class="number">0</span>), <span class="number">0b10001 </span>&lt;&lt; <span class="number">0</span>);
+        test_bpp16(Bgr565::new(<span class="number">0</span>, <span class="number">0b100001</span>, <span class="number">0</span>), <span class="number">0b100001 </span>&lt;&lt; <span class="number">5</span>);
+        test_bpp16(Bgr565::new(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0b10001</span>), <span class="number">0b10001 </span>&lt;&lt; <span class="number">5 </span>+ <span class="number">6</span>);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">bit_positions_rgb666</span>() {
-        <span class="ident">test_bpp18</span>(<span class="ident">Rgb666::new</span>(<span class="number">0b100001</span>, <span class="number">0</span>, <span class="number">0</span>), <span class="number">0b100001</span> <span class="op">&lt;</span><span class="op">&lt;</span> <span class="number">6</span> <span class="op">+</span> <span class="number">6</span>);
-        <span class="ident">test_bpp18</span>(<span class="ident">Rgb666::new</span>(<span class="number">0</span>, <span class="number">0b100001</span>, <span class="number">0</span>), <span class="number">0b100001</span> <span class="op">&lt;</span><span class="op">&lt;</span> <span class="number">6</span>);
-        <span class="ident">test_bpp18</span>(<span class="ident">Rgb666::new</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0b100001</span>), <span class="number">0b100001</span> <span class="op">&lt;</span><span class="op">&lt;</span> <span class="number">0</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">pub fn </span>bit_positions_rgb666() {
+        test_bpp18(Rgb666::new(<span class="number">0b100001</span>, <span class="number">0</span>, <span class="number">0</span>), <span class="number">0b100001 </span>&lt;&lt; <span class="number">6 </span>+ <span class="number">6</span>);
+        test_bpp18(Rgb666::new(<span class="number">0</span>, <span class="number">0b100001</span>, <span class="number">0</span>), <span class="number">0b100001 </span>&lt;&lt; <span class="number">6</span>);
+        test_bpp18(Rgb666::new(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0b100001</span>), <span class="number">0b100001 </span>&lt;&lt; <span class="number">0</span>);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">bit_positions_bgr666</span>() {
-        <span class="ident">test_bpp18</span>(<span class="ident">Bgr666::new</span>(<span class="number">0b100001</span>, <span class="number">0</span>, <span class="number">0</span>), <span class="number">0b100001</span> <span class="op">&lt;</span><span class="op">&lt;</span> <span class="number">0</span>);
-        <span class="ident">test_bpp18</span>(<span class="ident">Bgr666::new</span>(<span class="number">0</span>, <span class="number">0b100001</span>, <span class="number">0</span>), <span class="number">0b100001</span> <span class="op">&lt;</span><span class="op">&lt;</span> <span class="number">6</span>);
-        <span class="ident">test_bpp18</span>(<span class="ident">Bgr666::new</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0b100001</span>), <span class="number">0b100001</span> <span class="op">&lt;</span><span class="op">&lt;</span> <span class="number">6</span> <span class="op">+</span> <span class="number">6</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">pub fn </span>bit_positions_bgr666() {
+        test_bpp18(Bgr666::new(<span class="number">0b100001</span>, <span class="number">0</span>, <span class="number">0</span>), <span class="number">0b100001 </span>&lt;&lt; <span class="number">0</span>);
+        test_bpp18(Bgr666::new(<span class="number">0</span>, <span class="number">0b100001</span>, <span class="number">0</span>), <span class="number">0b100001 </span>&lt;&lt; <span class="number">6</span>);
+        test_bpp18(Bgr666::new(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0b100001</span>), <span class="number">0b100001 </span>&lt;&lt; <span class="number">6 </span>+ <span class="number">6</span>);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">bit_positions_rgb888</span>() {
-        <span class="ident">test_bpp24</span>(<span class="ident">Rgb888::new</span>(<span class="number">0b10000001</span>, <span class="number">0</span>, <span class="number">0</span>), <span class="number">0b10000001</span> <span class="op">&lt;</span><span class="op">&lt;</span> <span class="number">8</span> <span class="op">+</span> <span class="number">8</span>);
-        <span class="ident">test_bpp24</span>(<span class="ident">Rgb888::new</span>(<span class="number">0</span>, <span class="number">0b10000001</span>, <span class="number">0</span>), <span class="number">0b10000001</span> <span class="op">&lt;</span><span class="op">&lt;</span> <span class="number">8</span>);
-        <span class="ident">test_bpp24</span>(<span class="ident">Rgb888::new</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0b10000001</span>), <span class="number">0b10000001</span> <span class="op">&lt;</span><span class="op">&lt;</span> <span class="number">0</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">pub fn </span>bit_positions_rgb888() {
+        test_bpp24(Rgb888::new(<span class="number">0b10000001</span>, <span class="number">0</span>, <span class="number">0</span>), <span class="number">0b10000001 </span>&lt;&lt; <span class="number">8 </span>+ <span class="number">8</span>);
+        test_bpp24(Rgb888::new(<span class="number">0</span>, <span class="number">0b10000001</span>, <span class="number">0</span>), <span class="number">0b10000001 </span>&lt;&lt; <span class="number">8</span>);
+        test_bpp24(Rgb888::new(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0b10000001</span>), <span class="number">0b10000001 </span>&lt;&lt; <span class="number">0</span>);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">bit_positions_bgr888</span>() {
-        <span class="ident">test_bpp24</span>(<span class="ident">Bgr888::new</span>(<span class="number">0b10000001</span>, <span class="number">0</span>, <span class="number">0</span>), <span class="number">0b10000001</span> <span class="op">&lt;</span><span class="op">&lt;</span> <span class="number">0</span>);
-        <span class="ident">test_bpp24</span>(<span class="ident">Bgr888::new</span>(<span class="number">0</span>, <span class="number">0b10000001</span>, <span class="number">0</span>), <span class="number">0b10000001</span> <span class="op">&lt;</span><span class="op">&lt;</span> <span class="number">8</span>);
-        <span class="ident">test_bpp24</span>(<span class="ident">Bgr888::new</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0b10000001</span>), <span class="number">0b10000001</span> <span class="op">&lt;</span><span class="op">&lt;</span> <span class="number">8</span> <span class="op">+</span> <span class="number">8</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">pub fn </span>bit_positions_bgr888() {
+        test_bpp24(Bgr888::new(<span class="number">0b10000001</span>, <span class="number">0</span>, <span class="number">0</span>), <span class="number">0b10000001 </span>&lt;&lt; <span class="number">0</span>);
+        test_bpp24(Bgr888::new(<span class="number">0</span>, <span class="number">0b10000001</span>, <span class="number">0</span>), <span class="number">0b10000001 </span>&lt;&lt; <span class="number">8</span>);
+        test_bpp24(Bgr888::new(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0b10000001</span>), <span class="number">0b10000001 </span>&lt;&lt; <span class="number">8 </span>+ <span class="number">8</span>);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">unused_bits_are_ignored</span>() {
-        <span class="kw">let</span> <span class="ident">color</span>: <span class="ident">Rgb555</span> <span class="op">=</span> <span class="ident">RawU16::from</span>(<span class="number">0xFFFF</span>).<span class="ident">into</span>();
-        <span class="macro">assert_eq!</span>(<span class="ident">RawU16::from</span>(<span class="ident">color</span>).<span class="ident">into_inner</span>(), <span class="number">0x7FFF</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">pub fn </span>unused_bits_are_ignored() {
+        <span class="kw">let </span>color: Rgb555 = RawU16::from(<span class="number">0xFFFF</span>).into();
+        <span class="macro">assert_eq!</span>(RawU16::from(color).into_inner(), <span class="number">0x7FFF</span>);
 
-        <span class="kw">let</span> <span class="ident">color</span>: <span class="ident">Bgr555</span> <span class="op">=</span> <span class="ident">RawU16::from</span>(<span class="number">0xFFFF</span>).<span class="ident">into</span>();
-        <span class="macro">assert_eq!</span>(<span class="ident">RawU16::from</span>(<span class="ident">color</span>).<span class="ident">into_inner</span>(), <span class="number">0x7FFF</span>);
+        <span class="kw">let </span>color: Bgr555 = RawU16::from(<span class="number">0xFFFF</span>).into();
+        <span class="macro">assert_eq!</span>(RawU16::from(color).into_inner(), <span class="number">0x7FFF</span>);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">convert_to_raw</span>() {
-        <span class="kw">let</span> <span class="ident">color</span> <span class="op">=</span> <span class="ident">Rgb888::new</span>(<span class="number">0xAA</span>, <span class="number">0xBB</span>, <span class="number">0xCC</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>convert_to_raw() {
+        <span class="kw">let </span>color = Rgb888::new(<span class="number">0xAA</span>, <span class="number">0xBB</span>, <span class="number">0xCC</span>);
 
-        <span class="macro">assert_eq!</span>(<span class="ident">color</span>.<span class="ident">into_storage</span>(), <span class="number">0x00AABBCC</span>);
+        <span class="macro">assert_eq!</span>(color.into_storage(), <span class="number">0x00AABBCC</span>);
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="embedded_graphics_core" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0 (a55dd71d5 2022-09-19)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="embedded_graphics_core" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0 (69f9c33d7 2022-12-12)" ></div></body></html>

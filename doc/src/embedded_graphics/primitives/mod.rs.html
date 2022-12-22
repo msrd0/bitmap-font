@@ -1,6 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.1/src/primitives/mod.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../embedded_graphics/index.html"><div class="logo-container"><img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../embedded_graphics/index.html"><div class="logo-container">
-                    <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../embedded_graphics/index.html">
-                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.1/src/primitives/mod.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../embedded_graphics/index.html">
+                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -58,63 +57,63 @@
 <span id="56">56</span>
 <span id="57">57</span>
 <span id="58">58</span>
-</pre><pre class="rust"><code><span class="doccomment">//! Graphics primitives</span>
+</pre><pre class="rust"><code><span class="doccomment">//! Graphics primitives
 
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">arc</span>;
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">circle</span>;
-<span class="kw">mod</span> <span class="ident">common</span>;
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">ellipse</span>;
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">line</span>;
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">polyline</span>;
-<span class="kw">mod</span> <span class="ident">primitive_style</span>;
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">rectangle</span>;
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">rounded_rectangle</span>;
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">sector</span>;
-<span class="kw">mod</span> <span class="ident">styled</span>;
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">triangle</span>;
+</span><span class="kw">pub mod </span>arc;
+<span class="kw">pub mod </span>circle;
+<span class="kw">mod </span>common;
+<span class="kw">pub mod </span>ellipse;
+<span class="kw">pub mod </span>line;
+<span class="kw">pub mod </span>polyline;
+<span class="kw">mod </span>primitive_style;
+<span class="kw">pub mod </span>rectangle;
+<span class="kw">pub mod </span>rounded_rectangle;
+<span class="kw">pub mod </span>sector;
+<span class="kw">mod </span>styled;
+<span class="kw">pub mod </span>triangle;
 
-<span class="attribute">#[<span class="ident">doc</span>(<span class="ident">no_inline</span>)]</span>
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::rectangle::Rectangle</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span>::{
-    <span class="ident">arc::Arc</span>,
-    <span class="ident">circle::Circle</span>,
-    <span class="ident">ellipse::Ellipse</span>,
-    <span class="ident">line::Line</span>,
-    <span class="ident">polyline::Polyline</span>,
-    <span class="ident">primitive_style</span>::{<span class="ident">PrimitiveStyle</span>, <span class="ident">PrimitiveStyleBuilder</span>, <span class="ident">StrokeAlignment</span>},
-    <span class="ident">rounded_rectangle</span>::{<span class="ident">CornerRadii</span>, <span class="ident">CornerRadiiBuilder</span>, <span class="ident">RoundedRectangle</span>},
-    <span class="ident">sector::Sector</span>,
-    <span class="ident">triangle::Triangle</span>,
+<span class="attribute">#[doc(no_inline)]
+</span><span class="kw">pub use </span><span class="self">self</span>::rectangle::Rectangle;
+<span class="kw">pub use </span><span class="self">self</span>::{
+    arc::Arc,
+    circle::Circle,
+    ellipse::Ellipse,
+    line::Line,
+    polyline::Polyline,
+    primitive_style::{PrimitiveStyle, PrimitiveStyleBuilder, StrokeAlignment},
+    rounded_rectangle::{CornerRadii, CornerRadiiBuilder, RoundedRectangle},
+    sector::Sector,
+    triangle::Triangle,
 };
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::geometry</span>::{<span class="ident">Dimensions</span>, <span class="ident">Point</span>};
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">embedded_graphics_core::primitives::PointsIter</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">styled</span>::{<span class="ident">Styled</span>, <span class="ident">StyledDimensions</span>, <span class="ident">StyledDrawable</span>};
+<span class="kw">use </span><span class="kw">crate</span>::geometry::{Dimensions, Point};
+<span class="kw">pub use </span>embedded_graphics_core::primitives::PointsIter;
+<span class="kw">pub use </span>styled::{Styled, StyledDimensions, StyledDrawable};
 
-<span class="doccomment">/// Primitive trait</span>
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">Primitive</span>: <span class="ident">Dimensions</span> {
-    <span class="doccomment">/// Converts this primitive into a `Styled`.</span>
-    <span class="kw">fn</span> <span class="ident">into_styled</span><span class="op">&lt;</span><span class="ident">S</span><span class="op">&gt;</span>(<span class="self">self</span>, <span class="ident">style</span>: <span class="ident">S</span>) -&gt; <span class="ident">Styled</span><span class="op">&lt;</span><span class="self">Self</span>, <span class="ident">S</span><span class="op">&gt;</span>
-    <span class="kw">where</span>
-        <span class="self">Self</span>: <span class="ident">Sized</span>,
+<span class="doccomment">/// Primitive trait
+</span><span class="kw">pub trait </span>Primitive: Dimensions {
+    <span class="doccomment">/// Converts this primitive into a `Styled`.
+    </span><span class="kw">fn </span>into_styled&lt;S&gt;(<span class="self">self</span>, style: S) -&gt; Styled&lt;<span class="self">Self</span>, S&gt;
+    <span class="kw">where
+        </span><span class="self">Self</span>: Sized,
     {
-        <span class="ident">Styled::new</span>(<span class="self">self</span>, <span class="ident">style</span>)
+        Styled::new(<span class="self">self</span>, style)
     }
 }
 
-<span class="doccomment">/// Trait to check if a point is inside a closed shape.</span>
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">ContainsPoint</span> {
-    <span class="doccomment">/// Returns `true` if the given point is inside the shape.</span>
-    <span class="kw">fn</span> <span class="ident">contains</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">point</span>: <span class="ident">Point</span>) -&gt; <span class="ident">bool</span>;
+<span class="doccomment">/// Trait to check if a point is inside a closed shape.
+</span><span class="kw">pub trait </span>ContainsPoint {
+    <span class="doccomment">/// Returns `true` if the given point is inside the shape.
+    </span><span class="kw">fn </span>contains(<span class="kw-2">&amp;</span><span class="self">self</span>, point: Point) -&gt; bool;
 }
 
-<span class="doccomment">/// Offset outline trait.</span>
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">OffsetOutline</span> {
-    <span class="doccomment">/// Offsets the outline of the shape.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The offset is applied perpendicular to each element of the outline.</span>
-    <span class="doccomment">/// Offset values greater than zero will expand the shape and values less</span>
-    <span class="doccomment">/// than zero will shrink the shape.</span>
-    <span class="kw">fn</span> <span class="ident">offset</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">offset</span>: <span class="ident">i32</span>) -&gt; <span class="self">Self</span>;
+<span class="doccomment">/// Offset outline trait.
+</span><span class="kw">pub trait </span>OffsetOutline {
+    <span class="doccomment">/// Offsets the outline of the shape.
+    ///
+    /// The offset is applied perpendicular to each element of the outline.
+    /// Offset values greater than zero will expand the shape and values less
+    /// than zero will shrink the shape.
+    </span><span class="kw">fn </span>offset(<span class="kw-2">&amp;</span><span class="self">self</span>, offset: i32) -&gt; <span class="self">Self</span>;
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="embedded_graphics" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0 (a55dd71d5 2022-09-19)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="embedded_graphics" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0 (69f9c33d7 2022-12-12)" ></div></body></html>

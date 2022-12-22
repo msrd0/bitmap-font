@@ -1,6 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.1/src/primitives/rounded_rectangle/styled.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>styled.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../../storage.js"></script><script defer src="../../../../source-script.js"></script><script defer src="../../../../source-files.js"></script><script defer src="../../../../main.js"></script><noscript><link rel="stylesheet" href="../../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../../embedded_graphics/index.html"><div class="logo-container"><img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../../embedded_graphics/index.html"><div class="logo-container">
-                    <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../../embedded_graphics/index.html">
-                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.1/src/primitives/rounded_rectangle/styled.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>styled.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../../normalize.css"><link rel="stylesheet" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../../ayu.css" disabled><link rel="stylesheet" href="../../../../dark.css" disabled><link rel="stylesheet" href="../../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../../storage.js"></script><script defer src="../../../../source-script.js"></script><script defer src="../../../../source-files.js"></script><script defer src="../../../../main.js"></script><noscript><link rel="stylesheet" href="../../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../../embedded_graphics/index.html">
+                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../wheel.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -454,140 +453,140 @@
 <span id="452">452</span>
 <span id="453">453</span>
 <span id="454">454</span>
-</pre><pre class="rust"><code><span class="kw">use</span> <span class="kw">crate</span>::{
-    <span class="ident">draw_target::DrawTarget</span>,
-    <span class="ident">geometry</span>::{<span class="ident">Dimensions</span>, <span class="ident">Point</span>},
-    <span class="ident">pixelcolor::PixelColor</span>,
-    <span class="ident">primitives</span>::{
-        <span class="ident">common</span>::{<span class="ident">Scanline</span>, <span class="ident">StyledScanline</span>},
-        <span class="ident">rounded_rectangle</span>::{<span class="ident">points::Scanlines</span>, <span class="ident">RoundedRectangle</span>},
-        <span class="ident">styled</span>::{<span class="ident">StyledDimensions</span>, <span class="ident">StyledDrawable</span>, <span class="ident">StyledPixels</span>},
-        <span class="ident">PrimitiveStyle</span>, <span class="ident">Rectangle</span>,
+</pre><pre class="rust"><code><span class="kw">use crate</span>::{
+    draw_target::DrawTarget,
+    geometry::{Dimensions, Point},
+    pixelcolor::PixelColor,
+    primitives::{
+        common::{Scanline, StyledScanline},
+        rounded_rectangle::{points::Scanlines, RoundedRectangle},
+        styled::{StyledDimensions, StyledDrawable, StyledPixels},
+        PrimitiveStyle, Rectangle,
     },
-    <span class="ident">Pixel</span>,
+    Pixel,
 };
-<span class="kw">use</span> <span class="ident">az::SaturatingAs</span>;
+<span class="kw">use </span>az::SaturatingAs;
 
-<span class="kw">use</span> <span class="ident"><span class="kw">super</span>::RoundedRectangleContains</span>;
+<span class="kw">use </span><span class="kw">super</span>::RoundedRectangleContains;
 
-<span class="doccomment">/// Pixel iterator for each pixel in the rect border</span>
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Clone</span>, <span class="ident">Eq</span>, <span class="ident">PartialEq</span>, <span class="ident">Hash</span>, <span class="ident">Debug</span>)]</span>
-<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">StyledPixelsIterator</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span> {
-    <span class="ident">styled_scanlines</span>: <span class="ident">StyledScanlines</span>,
+<span class="doccomment">/// Pixel iterator for each pixel in the rect border
+</span><span class="attribute">#[derive(Clone, Eq, PartialEq, Hash, Debug)]
+</span><span class="kw">pub struct </span>StyledPixelsIterator&lt;C&gt; {
+    styled_scanlines: StyledScanlines,
 
-    <span class="ident">stroke_left</span>: <span class="ident">Scanline</span>,
-    <span class="ident">fill</span>: <span class="ident">Scanline</span>,
-    <span class="ident">stroke_right</span>: <span class="ident">Scanline</span>,
+    stroke_left: Scanline,
+    fill: Scanline,
+    stroke_right: Scanline,
 
-    <span class="ident">stroke_color</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>,
-    <span class="ident">fill_color</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>,
+    stroke_color: <span class="prelude-ty">Option</span>&lt;C&gt;,
+    fill_color: <span class="prelude-ty">Option</span>&lt;C&gt;,
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">C</span>: <span class="ident">PixelColor</span><span class="op">&gt;</span> <span class="ident">StyledPixelsIterator</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span> {
-    <span class="kw">pub</span>(<span class="kw">in</span> <span class="ident"><span class="kw">crate</span>::primitives</span>) <span class="kw">fn</span> <span class="ident">new</span>(
-        <span class="ident">primitive</span>: <span class="kw-2">&amp;</span><span class="ident">RoundedRectangle</span>,
-        <span class="ident">style</span>: <span class="kw-2">&amp;</span><span class="ident">PrimitiveStyle</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>,
-    ) -&gt; <span class="self">Self</span> {
-        <span class="kw">let</span> <span class="ident">stroke_area</span> <span class="op">=</span> <span class="ident">style</span>.<span class="ident">stroke_area</span>(<span class="ident">primitive</span>);
-        <span class="kw">let</span> <span class="ident">fill_area</span> <span class="op">=</span> <span class="ident">style</span>.<span class="ident">fill_area</span>(<span class="ident">primitive</span>);
+<span class="kw">impl</span>&lt;C: PixelColor&gt; StyledPixelsIterator&lt;C&gt; {
+    <span class="kw">pub</span>(<span class="kw">in </span><span class="kw">crate</span>::primitives) <span class="kw">fn </span>new(
+        primitive: <span class="kw-2">&amp;</span>RoundedRectangle,
+        style: <span class="kw-2">&amp;</span>PrimitiveStyle&lt;C&gt;,
+    ) -&gt; <span class="self">Self </span>{
+        <span class="kw">let </span>stroke_area = style.stroke_area(primitive);
+        <span class="kw">let </span>fill_area = style.fill_area(primitive);
 
-        <span class="self">Self</span> {
-            <span class="ident">styled_scanlines</span>: <span class="ident">StyledScanlines::new</span>(<span class="kw-2">&amp;</span><span class="ident">stroke_area</span>, <span class="kw-2">&amp;</span><span class="ident">fill_area</span>),
-            <span class="ident">stroke_left</span>: <span class="ident">Scanline::new_empty</span>(<span class="number">0</span>),
-            <span class="ident">fill</span>: <span class="ident">Scanline::new_empty</span>(<span class="number">0</span>),
-            <span class="ident">stroke_right</span>: <span class="ident">Scanline::new_empty</span>(<span class="number">0</span>),
-            <span class="ident">stroke_color</span>: <span class="ident">style</span>.<span class="ident">stroke_color</span>,
-            <span class="ident">fill_color</span>: <span class="ident">style</span>.<span class="ident">fill_color</span>,
+        <span class="self">Self </span>{
+            styled_scanlines: StyledScanlines::new(<span class="kw-2">&amp;</span>stroke_area, <span class="kw-2">&amp;</span>fill_area),
+            stroke_left: Scanline::new_empty(<span class="number">0</span>),
+            fill: Scanline::new_empty(<span class="number">0</span>),
+            stroke_right: Scanline::new_empty(<span class="number">0</span>),
+            stroke_color: style.stroke_color,
+            fill_color: style.fill_color,
         }
     }
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">C</span>: <span class="ident">PixelColor</span><span class="op">&gt;</span> <span class="ident">Iterator</span> <span class="kw">for</span> <span class="ident">StyledPixelsIterator</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span> {
-    <span class="kw">type</span> <span class="ident">Item</span> <span class="op">=</span> <span class="ident">Pixel</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>;
+<span class="kw">impl</span>&lt;C: PixelColor&gt; Iterator <span class="kw">for </span>StyledPixelsIterator&lt;C&gt; {
+    <span class="kw">type </span>Item = Pixel&lt;C&gt;;
 
-    <span class="kw">fn</span> <span class="ident">next</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Item</span><span class="op">&gt;</span> {
-        <span class="kw">match</span> (<span class="self">self</span>.<span class="ident">stroke_color</span>, <span class="self">self</span>.<span class="ident">fill_color</span>) {
-            (<span class="prelude-val">Some</span>(<span class="ident">stroke_color</span>), <span class="prelude-val">None</span>) =&gt; <span class="kw">loop</span> {
-                <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">pixel</span>) <span class="op">=</span> <span class="self">self</span>
-                    .<span class="ident">stroke_left</span>
-                    .<span class="ident">next</span>()
-                    .<span class="ident">or_else</span>(<span class="op">|</span><span class="op">|</span> <span class="self">self</span>.<span class="ident">stroke_right</span>.<span class="ident">next</span>())
-                    .<span class="ident">map</span>(<span class="op">|</span><span class="ident">p</span><span class="op">|</span> <span class="ident">Pixel</span>(<span class="ident">p</span>, <span class="ident">stroke_color</span>))
+    <span class="kw">fn </span>next(<span class="kw-2">&amp;mut </span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="self">Self</span>::Item&gt; {
+        <span class="kw">match </span>(<span class="self">self</span>.stroke_color, <span class="self">self</span>.fill_color) {
+            (<span class="prelude-val">Some</span>(stroke_color), <span class="prelude-val">None</span>) =&gt; <span class="kw">loop </span>{
+                <span class="kw">if let </span><span class="prelude-val">Some</span>(pixel) = <span class="self">self
+                    </span>.stroke_left
+                    .next()
+                    .or_else(|| <span class="self">self</span>.stroke_right.next())
+                    .map(|p| Pixel(p, stroke_color))
                 {
-                    <span class="kw">return</span> <span class="prelude-val">Some</span>(<span class="ident">pixel</span>);
+                    <span class="kw">return </span><span class="prelude-val">Some</span>(pixel);
                 }
 
-                <span class="kw">let</span> <span class="ident">scanline</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">styled_scanlines</span>.<span class="ident">next</span>()<span class="question-mark">?</span>;
-                <span class="self">self</span>.<span class="ident">stroke_left</span> <span class="op">=</span> <span class="ident">scanline</span>.<span class="ident">stroke_left</span>();
-                <span class="self">self</span>.<span class="ident">stroke_right</span> <span class="op">=</span> <span class="ident">scanline</span>.<span class="ident">stroke_right</span>();
+                <span class="kw">let </span>scanline = <span class="self">self</span>.styled_scanlines.next()<span class="question-mark">?</span>;
+                <span class="self">self</span>.stroke_left = scanline.stroke_left();
+                <span class="self">self</span>.stroke_right = scanline.stroke_right();
             },
-            (<span class="prelude-val">Some</span>(<span class="ident">stroke_color</span>), <span class="prelude-val">Some</span>(<span class="ident">fill_color</span>)) =&gt; <span class="kw">loop</span> {
-                <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">pixel</span>) <span class="op">=</span> <span class="self">self</span>
-                    .<span class="ident">stroke_left</span>
-                    .<span class="ident">next</span>()
-                    .<span class="ident">map</span>(<span class="op">|</span><span class="ident">p</span><span class="op">|</span> <span class="ident">Pixel</span>(<span class="ident">p</span>, <span class="ident">stroke_color</span>))
-                    .<span class="ident">or_else</span>(<span class="op">|</span><span class="op">|</span> <span class="self">self</span>.<span class="ident">fill</span>.<span class="ident">next</span>().<span class="ident">map</span>(<span class="op">|</span><span class="ident">p</span><span class="op">|</span> <span class="ident">Pixel</span>(<span class="ident">p</span>, <span class="ident">fill_color</span>)))
-                    .<span class="ident">or_else</span>(<span class="op">|</span><span class="op">|</span> <span class="self">self</span>.<span class="ident">stroke_right</span>.<span class="ident">next</span>().<span class="ident">map</span>(<span class="op">|</span><span class="ident">p</span><span class="op">|</span> <span class="ident">Pixel</span>(<span class="ident">p</span>, <span class="ident">stroke_color</span>)))
+            (<span class="prelude-val">Some</span>(stroke_color), <span class="prelude-val">Some</span>(fill_color)) =&gt; <span class="kw">loop </span>{
+                <span class="kw">if let </span><span class="prelude-val">Some</span>(pixel) = <span class="self">self
+                    </span>.stroke_left
+                    .next()
+                    .map(|p| Pixel(p, stroke_color))
+                    .or_else(|| <span class="self">self</span>.fill.next().map(|p| Pixel(p, fill_color)))
+                    .or_else(|| <span class="self">self</span>.stroke_right.next().map(|p| Pixel(p, stroke_color)))
                 {
-                    <span class="kw">return</span> <span class="prelude-val">Some</span>(<span class="ident">pixel</span>);
+                    <span class="kw">return </span><span class="prelude-val">Some</span>(pixel);
                 }
 
-                <span class="kw">let</span> <span class="ident">scanline</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">styled_scanlines</span>.<span class="ident">next</span>()<span class="question-mark">?</span>;
-                <span class="self">self</span>.<span class="ident">stroke_left</span> <span class="op">=</span> <span class="ident">scanline</span>.<span class="ident">stroke_left</span>();
-                <span class="self">self</span>.<span class="ident">fill</span> <span class="op">=</span> <span class="ident">scanline</span>.<span class="ident">fill</span>();
-                <span class="self">self</span>.<span class="ident">stroke_right</span> <span class="op">=</span> <span class="ident">scanline</span>.<span class="ident">stroke_right</span>();
+                <span class="kw">let </span>scanline = <span class="self">self</span>.styled_scanlines.next()<span class="question-mark">?</span>;
+                <span class="self">self</span>.stroke_left = scanline.stroke_left();
+                <span class="self">self</span>.fill = scanline.fill();
+                <span class="self">self</span>.stroke_right = scanline.stroke_right();
             },
-            (<span class="prelude-val">None</span>, <span class="prelude-val">Some</span>(<span class="ident">fill_color</span>)) =&gt; <span class="kw">loop</span> {
-                <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">pixel</span>) <span class="op">=</span> <span class="self">self</span>.<span class="ident">fill</span>.<span class="ident">next</span>().<span class="ident">map</span>(<span class="op">|</span><span class="ident">p</span><span class="op">|</span> <span class="ident">Pixel</span>(<span class="ident">p</span>, <span class="ident">fill_color</span>)) {
-                    <span class="kw">return</span> <span class="prelude-val">Some</span>(<span class="ident">pixel</span>);
+            (<span class="prelude-val">None</span>, <span class="prelude-val">Some</span>(fill_color)) =&gt; <span class="kw">loop </span>{
+                <span class="kw">if let </span><span class="prelude-val">Some</span>(pixel) = <span class="self">self</span>.fill.next().map(|p| Pixel(p, fill_color)) {
+                    <span class="kw">return </span><span class="prelude-val">Some</span>(pixel);
                 }
 
-                <span class="kw">let</span> <span class="ident">scanline</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">styled_scanlines</span>.<span class="ident">next</span>()<span class="question-mark">?</span>;
-                <span class="self">self</span>.<span class="ident">fill</span> <span class="op">=</span> <span class="ident">scanline</span>.<span class="ident">fill</span>();
+                <span class="kw">let </span>scanline = <span class="self">self</span>.styled_scanlines.next()<span class="question-mark">?</span>;
+                <span class="self">self</span>.fill = scanline.fill();
             },
             (<span class="prelude-val">None</span>, <span class="prelude-val">None</span>) =&gt; <span class="prelude-val">None</span>,
         }
     }
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">C</span>: <span class="ident">PixelColor</span><span class="op">&gt;</span> <span class="ident">StyledPixels</span><span class="op">&lt;</span><span class="ident">PrimitiveStyle</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">RoundedRectangle</span> {
-    <span class="kw">type</span> <span class="ident">Iter</span> <span class="op">=</span> <span class="ident">StyledPixelsIterator</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>;
+<span class="kw">impl</span>&lt;C: PixelColor&gt; StyledPixels&lt;PrimitiveStyle&lt;C&gt;&gt; <span class="kw">for </span>RoundedRectangle {
+    <span class="kw">type </span>Iter = StyledPixelsIterator&lt;C&gt;;
 
-    <span class="kw">fn</span> <span class="ident">pixels</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">style</span>: <span class="kw-2">&amp;</span><span class="ident">PrimitiveStyle</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>) -&gt; <span class="ident"><span class="self">Self</span>::Iter</span> {
-        <span class="ident">StyledPixelsIterator::new</span>(<span class="self">self</span>, <span class="ident">style</span>)
+    <span class="kw">fn </span>pixels(<span class="kw-2">&amp;</span><span class="self">self</span>, style: <span class="kw-2">&amp;</span>PrimitiveStyle&lt;C&gt;) -&gt; <span class="self">Self</span>::Iter {
+        StyledPixelsIterator::new(<span class="self">self</span>, style)
     }
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">C</span>: <span class="ident">PixelColor</span><span class="op">&gt;</span> <span class="ident">StyledDrawable</span><span class="op">&lt;</span><span class="ident">PrimitiveStyle</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">RoundedRectangle</span> {
-    <span class="kw">type</span> <span class="ident">Color</span> <span class="op">=</span> <span class="ident">C</span>;
-    <span class="kw">type</span> <span class="ident">Output</span> <span class="op">=</span> ();
+<span class="kw">impl</span>&lt;C: PixelColor&gt; StyledDrawable&lt;PrimitiveStyle&lt;C&gt;&gt; <span class="kw">for </span>RoundedRectangle {
+    <span class="kw">type </span>Color = C;
+    <span class="kw">type </span>Output = ();
 
-    <span class="kw">fn</span> <span class="ident">draw_styled</span><span class="op">&lt;</span><span class="ident">D</span><span class="op">&gt;</span>(
+    <span class="kw">fn </span>draw_styled&lt;D&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">style</span>: <span class="kw-2">&amp;</span><span class="ident">PrimitiveStyle</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>,
-        <span class="ident">target</span>: <span class="kw-2">&amp;mut</span> <span class="ident">D</span>,
-    ) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Output</span>, <span class="ident">D::Error</span><span class="op">&gt;</span>
-    <span class="kw">where</span>
-        <span class="ident">D</span>: <span class="ident">DrawTarget</span><span class="op">&lt;</span><span class="ident">Color</span> <span class="op">=</span> <span class="ident">C</span><span class="op">&gt;</span>,
+        style: <span class="kw-2">&amp;</span>PrimitiveStyle&lt;C&gt;,
+        target: <span class="kw-2">&amp;mut </span>D,
+    ) -&gt; <span class="prelude-ty">Result</span>&lt;<span class="self">Self</span>::Output, D::Error&gt;
+    <span class="kw">where
+        </span>D: DrawTarget&lt;Color = C&gt;,
     {
-        <span class="kw">match</span> (<span class="ident">style</span>.<span class="ident">effective_stroke_color</span>(), <span class="ident">style</span>.<span class="ident">fill_color</span>) {
-            (<span class="prelude-val">Some</span>(<span class="ident">stroke_color</span>), <span class="prelude-val">None</span>) =&gt; {
-                <span class="kw">for</span> <span class="ident">scanline</span> <span class="kw">in</span>
-                    <span class="ident">StyledScanlines::new</span>(<span class="kw-2">&amp;</span><span class="ident">style</span>.<span class="ident">stroke_area</span>(<span class="self">self</span>), <span class="kw-2">&amp;</span><span class="ident">style</span>.<span class="ident">fill_area</span>(<span class="self">self</span>))
+        <span class="kw">match </span>(style.effective_stroke_color(), style.fill_color) {
+            (<span class="prelude-val">Some</span>(stroke_color), <span class="prelude-val">None</span>) =&gt; {
+                <span class="kw">for </span>scanline <span class="kw">in
+                    </span>StyledScanlines::new(<span class="kw-2">&amp;</span>style.stroke_area(<span class="self">self</span>), <span class="kw-2">&amp;</span>style.fill_area(<span class="self">self</span>))
                 {
-                    <span class="ident">scanline</span>.<span class="ident">draw_stroke</span>(<span class="ident">target</span>, <span class="ident">stroke_color</span>)<span class="question-mark">?</span>;
+                    scanline.draw_stroke(target, stroke_color)<span class="question-mark">?</span>;
                 }
             }
-            (<span class="prelude-val">Some</span>(<span class="ident">stroke_color</span>), <span class="prelude-val">Some</span>(<span class="ident">fill_color</span>)) =&gt; {
-                <span class="kw">for</span> <span class="ident">scanline</span> <span class="kw">in</span>
-                    <span class="ident">StyledScanlines::new</span>(<span class="kw-2">&amp;</span><span class="ident">style</span>.<span class="ident">stroke_area</span>(<span class="self">self</span>), <span class="kw-2">&amp;</span><span class="ident">style</span>.<span class="ident">fill_area</span>(<span class="self">self</span>))
+            (<span class="prelude-val">Some</span>(stroke_color), <span class="prelude-val">Some</span>(fill_color)) =&gt; {
+                <span class="kw">for </span>scanline <span class="kw">in
+                    </span>StyledScanlines::new(<span class="kw-2">&amp;</span>style.stroke_area(<span class="self">self</span>), <span class="kw-2">&amp;</span>style.fill_area(<span class="self">self</span>))
                 {
-                    <span class="ident">scanline</span>.<span class="ident">draw_stroke_and_fill</span>(<span class="ident">target</span>, <span class="ident">stroke_color</span>, <span class="ident">fill_color</span>)<span class="question-mark">?</span>;
+                    scanline.draw_stroke_and_fill(target, stroke_color, fill_color)<span class="question-mark">?</span>;
                 }
             }
-            (<span class="prelude-val">None</span>, <span class="prelude-val">Some</span>(<span class="ident">fill_color</span>)) =&gt; {
-                <span class="kw">for</span> <span class="ident">scanline</span> <span class="kw">in</span> <span class="ident">Scanlines::new</span>(<span class="kw-2">&amp;</span><span class="ident">style</span>.<span class="ident">fill_area</span>(<span class="self">self</span>)) {
-                    <span class="ident">scanline</span>.<span class="ident">draw</span>(<span class="ident">target</span>, <span class="ident">fill_color</span>)<span class="question-mark">?</span>;
+            (<span class="prelude-val">None</span>, <span class="prelude-val">Some</span>(fill_color)) =&gt; {
+                <span class="kw">for </span>scanline <span class="kw">in </span>Scanlines::new(<span class="kw-2">&amp;</span>style.fill_area(<span class="self">self</span>)) {
+                    scanline.draw(target, fill_color)<span class="question-mark">?</span>;
                 }
             }
             (<span class="prelude-val">None</span>, <span class="prelude-val">None</span>) =&gt; {}
@@ -597,113 +596,113 @@
     }
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">C</span>: <span class="ident">PixelColor</span><span class="op">&gt;</span> <span class="ident">StyledDimensions</span><span class="op">&lt;</span><span class="ident">PrimitiveStyle</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">RoundedRectangle</span> {
-    <span class="kw">fn</span> <span class="ident">styled_bounding_box</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">style</span>: <span class="kw-2">&amp;</span><span class="ident">PrimitiveStyle</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>) -&gt; <span class="ident">Rectangle</span> {
-        <span class="kw">let</span> <span class="ident">offset</span> <span class="op">=</span> <span class="ident">style</span>.<span class="ident">outside_stroke_width</span>().<span class="ident">saturating_as</span>();
+<span class="kw">impl</span>&lt;C: PixelColor&gt; StyledDimensions&lt;PrimitiveStyle&lt;C&gt;&gt; <span class="kw">for </span>RoundedRectangle {
+    <span class="kw">fn </span>styled_bounding_box(<span class="kw-2">&amp;</span><span class="self">self</span>, style: <span class="kw-2">&amp;</span>PrimitiveStyle&lt;C&gt;) -&gt; Rectangle {
+        <span class="kw">let </span>offset = style.outside_stroke_width().saturating_as();
 
-        <span class="self">self</span>.<span class="ident">bounding_box</span>().<span class="ident">offset</span>(<span class="ident">offset</span>)
+        <span class="self">self</span>.bounding_box().offset(offset)
     }
 }
 
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Clone</span>, <span class="ident">Eq</span>, <span class="ident">PartialEq</span>, <span class="ident">Hash</span>, <span class="ident">Debug</span>)]</span>
-<span class="kw">struct</span> <span class="ident">StyledScanlines</span> {
-    <span class="ident">scanlines</span>: <span class="ident">Scanlines</span>,
-    <span class="ident">fill_area</span>: <span class="ident">RoundedRectangleContains</span>,
+<span class="attribute">#[derive(Clone, Eq, PartialEq, Hash, Debug)]
+</span><span class="kw">struct </span>StyledScanlines {
+    scanlines: Scanlines,
+    fill_area: RoundedRectangleContains,
 }
 
-<span class="kw">impl</span> <span class="ident">StyledScanlines</span> {
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">stroke_area</span>: <span class="kw-2">&amp;</span><span class="ident">RoundedRectangle</span>, <span class="ident">fill_area</span>: <span class="kw-2">&amp;</span><span class="ident">RoundedRectangle</span>) -&gt; <span class="self">Self</span> {
-        <span class="self">Self</span> {
-            <span class="ident">scanlines</span>: <span class="ident">Scanlines::new</span>(<span class="ident">stroke_area</span>),
-            <span class="ident">fill_area</span>: <span class="ident">RoundedRectangleContains::new</span>(<span class="ident">fill_area</span>),
+<span class="kw">impl </span>StyledScanlines {
+    <span class="kw">pub fn </span>new(stroke_area: <span class="kw-2">&amp;</span>RoundedRectangle, fill_area: <span class="kw-2">&amp;</span>RoundedRectangle) -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{
+            scanlines: Scanlines::new(stroke_area),
+            fill_area: RoundedRectangleContains::new(fill_area),
         }
     }
 }
 
-<span class="kw">impl</span> <span class="ident">Iterator</span> <span class="kw">for</span> <span class="ident">StyledScanlines</span> {
-    <span class="kw">type</span> <span class="ident">Item</span> <span class="op">=</span> <span class="ident">StyledScanline</span>;
+<span class="kw">impl </span>Iterator <span class="kw">for </span>StyledScanlines {
+    <span class="kw">type </span>Item = StyledScanline;
 
-    <span class="kw">fn</span> <span class="ident">next</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Item</span><span class="op">&gt;</span> {
-        <span class="self">self</span>.<span class="ident">scanlines</span>.<span class="ident">next</span>().<span class="ident">map</span>(<span class="op">|</span><span class="ident">scanline</span><span class="op">|</span> {
-            <span class="kw">if</span> <span class="self">self</span>.<span class="ident">fill_area</span>.<span class="ident">rows</span>.<span class="ident">contains</span>(<span class="kw-2">&amp;</span><span class="ident">scanline</span>.<span class="ident">y</span>) {
-                <span class="kw">let</span> <span class="ident">fill_start</span> <span class="op">=</span> <span class="ident">scanline</span>
-                    .<span class="ident">x</span>
-                    .<span class="ident">clone</span>()
-                    .<span class="ident">find</span>(<span class="op">|</span><span class="ident">x</span><span class="op">|</span> <span class="self">self</span>.<span class="ident">fill_area</span>.<span class="ident">contains</span>(<span class="ident">Point::new</span>(<span class="kw-2">*</span><span class="ident">x</span>, <span class="ident">scanline</span>.<span class="ident">y</span>)))
-                    .<span class="ident">unwrap_or</span>(<span class="ident">scanline</span>.<span class="ident">x</span>.<span class="ident">start</span>);
+    <span class="kw">fn </span>next(<span class="kw-2">&amp;mut </span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="self">Self</span>::Item&gt; {
+        <span class="self">self</span>.scanlines.next().map(|scanline| {
+            <span class="kw">if </span><span class="self">self</span>.fill_area.rows.contains(<span class="kw-2">&amp;</span>scanline.y) {
+                <span class="kw">let </span>fill_start = scanline
+                    .x
+                    .clone()
+                    .find(|x| <span class="self">self</span>.fill_area.contains(Point::new(<span class="kw-2">*</span>x, scanline.y)))
+                    .unwrap_or(scanline.x.start);
 
-                <span class="kw">let</span> <span class="ident">fill_end</span> <span class="op">=</span> <span class="ident">scanline</span>
-                    .<span class="ident">x</span>
-                    .<span class="ident">clone</span>()
-                    .<span class="ident">rfind</span>(<span class="op">|</span><span class="ident">x</span><span class="op">|</span> <span class="self">self</span>.<span class="ident">fill_area</span>.<span class="ident">contains</span>(<span class="ident">Point::new</span>(<span class="kw-2">*</span><span class="ident">x</span>, <span class="ident">scanline</span>.<span class="ident">y</span>)))
-                    .<span class="ident">map</span>(<span class="op">|</span><span class="ident">x</span><span class="op">|</span> <span class="ident">x</span> <span class="op">+</span> <span class="number">1</span>)
-                    .<span class="ident">unwrap_or</span>(<span class="ident">scanline</span>.<span class="ident">x</span>.<span class="ident">end</span>);
+                <span class="kw">let </span>fill_end = scanline
+                    .x
+                    .clone()
+                    .rfind(|x| <span class="self">self</span>.fill_area.contains(Point::new(<span class="kw-2">*</span>x, scanline.y)))
+                    .map(|x| x + <span class="number">1</span>)
+                    .unwrap_or(scanline.x.end);
 
-                <span class="ident">StyledScanline::new</span>(<span class="ident">scanline</span>.<span class="ident">y</span>, <span class="ident">scanline</span>.<span class="ident">x</span>, <span class="prelude-val">Some</span>(<span class="ident">fill_start</span>..<span class="ident">fill_end</span>))
-            } <span class="kw">else</span> {
-                <span class="ident">StyledScanline::new</span>(<span class="ident">scanline</span>.<span class="ident">y</span>, <span class="ident">scanline</span>.<span class="ident">x</span>, <span class="prelude-val">None</span>)
+                StyledScanline::new(scanline.y, scanline.x, <span class="prelude-val">Some</span>(fill_start..fill_end))
+            } <span class="kw">else </span>{
+                StyledScanline::new(scanline.y, scanline.x, <span class="prelude-val">None</span>)
             }
         })
     }
 }
 
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
-<span class="kw">mod</span> <span class="ident">tests</span> {
-    <span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
-    <span class="kw">use</span> <span class="kw">crate</span>::{
-        <span class="ident">geometry</span>::{<span class="ident">Dimensions</span>, <span class="ident">Point</span>, <span class="ident">Size</span>},
-        <span class="ident">iterator::PixelIteratorExt</span>,
-        <span class="ident">mock_display::MockDisplay</span>,
-        <span class="ident">pixelcolor</span>::{<span class="ident">BinaryColor</span>, <span class="ident">Rgb888</span>, <span class="ident">RgbColor</span>},
-        <span class="ident">primitives</span>::{
-            <span class="ident">rectangle::Rectangle</span>, <span class="ident">CornerRadii</span>, <span class="ident">Primitive</span>, <span class="ident">PrimitiveStyleBuilder</span>, <span class="ident">StrokeAlignment</span>,
+<span class="attribute">#[cfg(test)]
+</span><span class="kw">mod </span>tests {
+    <span class="kw">use super</span>::<span class="kw-2">*</span>;
+    <span class="kw">use crate</span>::{
+        geometry::{Dimensions, Point, Size},
+        iterator::PixelIteratorExt,
+        mock_display::MockDisplay,
+        pixelcolor::{BinaryColor, Rgb888, RgbColor},
+        primitives::{
+            rectangle::Rectangle, CornerRadii, Primitive, PrimitiveStyleBuilder, StrokeAlignment,
         },
-        <span class="ident">Drawable</span>,
+        Drawable,
     };
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">transparent_style_no_render</span>() {
-        <span class="kw">let</span> <span class="ident">rounded_rect</span> <span class="op">=</span> <span class="ident">RoundedRectangle::with_equal_corners</span>(
-            <span class="ident">Rectangle::new</span>(<span class="ident">Point::zero</span>(), <span class="ident">Size::new</span>(<span class="number">10</span>, <span class="number">20</span>)),
-            <span class="ident">Size::new</span>(<span class="number">4</span>, <span class="number">8</span>),
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>transparent_style_no_render() {
+        <span class="kw">let </span>rounded_rect = RoundedRectangle::with_equal_corners(
+            Rectangle::new(Point::zero(), Size::new(<span class="number">10</span>, <span class="number">20</span>)),
+            Size::new(<span class="number">4</span>, <span class="number">8</span>),
         )
-        .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyleBuilder</span>::<span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span><span class="ident">::new</span>().<span class="ident">build</span>());
+        .into_styled(PrimitiveStyleBuilder::&lt;BinaryColor&gt;::new().build());
 
-        <span class="macro">assert!</span>(<span class="ident">rounded_rect</span>.<span class="ident">pixels</span>().<span class="ident">eq</span>(<span class="ident">core::iter::empty</span>()));
+        <span class="macro">assert!</span>(rounded_rect.pixels().eq(core::iter::empty()));
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">thin_line_zero_radius_equals_rectangle</span>() {
-        <span class="kw">let</span> <span class="ident">style</span> <span class="op">=</span> <span class="ident">PrimitiveStyleBuilder::new</span>()
-            .<span class="ident">stroke_color</span>(<span class="ident">Rgb888::RED</span>)
-            .<span class="ident">stroke_width</span>(<span class="number">1</span>)
-            .<span class="ident">fill_color</span>(<span class="ident">Rgb888::RED</span>)
-            .<span class="ident">build</span>();
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>thin_line_zero_radius_equals_rectangle() {
+        <span class="kw">let </span>style = PrimitiveStyleBuilder::new()
+            .stroke_color(Rgb888::RED)
+            .stroke_width(<span class="number">1</span>)
+            .fill_color(Rgb888::RED)
+            .build();
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">expected</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
-        <span class="ident">Rectangle::new</span>(<span class="ident">Point::zero</span>(), <span class="ident">Size::new</span>(<span class="number">20</span>, <span class="number">30</span>))
-            .<span class="ident">into_styled</span>(<span class="ident">style</span>)
-            .<span class="ident">draw</span>(<span class="kw-2">&amp;mut</span> <span class="ident">expected</span>)
-            .<span class="ident">unwrap</span>();
+        <span class="kw">let </span><span class="kw-2">mut </span>expected = MockDisplay::new();
+        Rectangle::new(Point::zero(), Size::new(<span class="number">20</span>, <span class="number">30</span>))
+            .into_styled(style)
+            .draw(<span class="kw-2">&amp;mut </span>expected)
+            .unwrap();
 
-        <span class="kw">let</span> <span class="ident">rounded_rect</span> <span class="op">=</span> <span class="ident">RoundedRectangle::with_equal_corners</span>(
-            <span class="ident">Rectangle::new</span>(<span class="ident">Point::zero</span>(), <span class="ident">Size::new</span>(<span class="number">20</span>, <span class="number">30</span>)),
-            <span class="ident">Size::zero</span>(),
+        <span class="kw">let </span>rounded_rect = RoundedRectangle::with_equal_corners(
+            Rectangle::new(Point::zero(), Size::new(<span class="number">20</span>, <span class="number">30</span>)),
+            Size::zero(),
         )
-        .<span class="ident">into_styled</span>(<span class="ident">style</span>);
+        .into_styled(style);
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">drawable</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
-        <span class="ident">rounded_rect</span>.<span class="ident">draw</span>(<span class="kw-2">&amp;mut</span> <span class="ident">drawable</span>).<span class="ident">unwrap</span>();
-        <span class="ident">drawable</span>.<span class="ident">assert_eq</span>(<span class="kw-2">&amp;</span><span class="ident">expected</span>);
+        <span class="kw">let </span><span class="kw-2">mut </span>drawable = MockDisplay::new();
+        rounded_rect.draw(<span class="kw-2">&amp;mut </span>drawable).unwrap();
+        drawable.assert_eq(<span class="kw-2">&amp;</span>expected);
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">pixels</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
-        <span class="ident">rounded_rect</span>.<span class="ident">pixels</span>().<span class="ident">draw</span>(<span class="kw-2">&amp;mut</span> <span class="ident">pixels</span>).<span class="ident">unwrap</span>();
-        <span class="ident">pixels</span>.<span class="ident">assert_eq</span>(<span class="kw-2">&amp;</span><span class="ident">expected</span>);
+        <span class="kw">let </span><span class="kw-2">mut </span>pixels = MockDisplay::new();
+        rounded_rect.pixels().draw(<span class="kw-2">&amp;mut </span>pixels).unwrap();
+        pixels.assert_eq(<span class="kw-2">&amp;</span>expected);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">styled_unequal_corners</span>() {
-        <span class="kw">let</span> <span class="ident">expected_pattern</span> <span class="op">=</span> <span class="kw-2">&amp;</span>[
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>styled_unequal_corners() {
+        <span class="kw">let </span>expected_pattern = <span class="kw-2">&amp;</span>[
             <span class="string">&quot;   GGGGGGGGGGGGGGGG     &quot;</span>,
             <span class="string">&quot;  GGGGGGGGGGGGGGGGGGG   &quot;</span>,
             <span class="string">&quot; GGGGGGGGGGGGGGGGGGGGG  &quot;</span>,
@@ -730,35 +729,35 @@
             <span class="string">&quot;        GGGGGGGGGG      &quot;</span>,
         ];
 
-        <span class="kw">let</span> <span class="ident">rounded_rect</span> <span class="op">=</span> <span class="ident">RoundedRectangle::new</span>(
-            <span class="ident">Rectangle::new</span>(<span class="ident">Point::new_equal</span>(<span class="number">2</span>), <span class="ident">Size::new</span>(<span class="number">20</span>, <span class="number">20</span>)),
-            <span class="ident">CornerRadii</span> {
-                <span class="ident">top_left</span>: <span class="ident">Size::new</span>(<span class="number">3</span>, <span class="number">4</span>),
-                <span class="ident">top_right</span>: <span class="ident">Size::new</span>(<span class="number">5</span>, <span class="number">6</span>),
-                <span class="ident">bottom_right</span>: <span class="ident">Size::new</span>(<span class="number">7</span>, <span class="number">8</span>),
-                <span class="ident">bottom_left</span>: <span class="ident">Size::new</span>(<span class="number">9</span>, <span class="number">10</span>),
+        <span class="kw">let </span>rounded_rect = RoundedRectangle::new(
+            Rectangle::new(Point::new_equal(<span class="number">2</span>), Size::new(<span class="number">20</span>, <span class="number">20</span>)),
+            CornerRadii {
+                top_left: Size::new(<span class="number">3</span>, <span class="number">4</span>),
+                top_right: Size::new(<span class="number">5</span>, <span class="number">6</span>),
+                bottom_right: Size::new(<span class="number">7</span>, <span class="number">8</span>),
+                bottom_left: Size::new(<span class="number">9</span>, <span class="number">10</span>),
             },
         )
-        .<span class="ident">into_styled</span>(
-            <span class="ident">PrimitiveStyleBuilder::new</span>()
-                .<span class="ident">stroke_width</span>(<span class="number">5</span>)
-                .<span class="ident">fill_color</span>(<span class="ident">Rgb888::RED</span>)
-                .<span class="ident">stroke_color</span>(<span class="ident">Rgb888::GREEN</span>)
-                .<span class="ident">build</span>(),
+        .into_styled(
+            PrimitiveStyleBuilder::new()
+                .stroke_width(<span class="number">5</span>)
+                .fill_color(Rgb888::RED)
+                .stroke_color(Rgb888::GREEN)
+                .build(),
         );
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">drawable</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
-        <span class="ident">rounded_rect</span>.<span class="ident">draw</span>(<span class="kw-2">&amp;mut</span> <span class="ident">drawable</span>).<span class="ident">unwrap</span>();
-        <span class="ident">drawable</span>.<span class="ident">assert_pattern</span>(<span class="ident">expected_pattern</span>);
+        <span class="kw">let </span><span class="kw-2">mut </span>drawable = MockDisplay::new();
+        rounded_rect.draw(<span class="kw-2">&amp;mut </span>drawable).unwrap();
+        drawable.assert_pattern(expected_pattern);
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">pixels</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
-        <span class="ident">rounded_rect</span>.<span class="ident">pixels</span>().<span class="ident">draw</span>(<span class="kw-2">&amp;mut</span> <span class="ident">pixels</span>).<span class="ident">unwrap</span>();
-        <span class="ident">pixels</span>.<span class="ident">assert_pattern</span>(<span class="ident">expected_pattern</span>);
+        <span class="kw">let </span><span class="kw-2">mut </span>pixels = MockDisplay::new();
+        rounded_rect.pixels().draw(<span class="kw-2">&amp;mut </span>pixels).unwrap();
+        pixels.assert_pattern(expected_pattern);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">styled_unfilled</span>() {
-        <span class="kw">let</span> <span class="ident">expected_pattern</span> <span class="op">=</span> <span class="kw-2">&amp;</span>[
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>styled_unfilled() {
+        <span class="kw">let </span>expected_pattern = <span class="kw-2">&amp;</span>[
             <span class="string">&quot;  BBBBBBBBBBBBBBB   &quot;</span>,
             <span class="string">&quot; B               B  &quot;</span>,
             <span class="string">&quot;B                 B &quot;</span>,
@@ -781,34 +780,34 @@
             <span class="string">&quot;      BBBBBBBBB     &quot;</span>,
         ];
 
-        <span class="kw">let</span> <span class="ident">rounded_rect</span> <span class="op">=</span> <span class="ident">RoundedRectangle::new</span>(
-            <span class="ident">Rectangle::new</span>(<span class="ident">Point::zero</span>(), <span class="ident">Size::new</span>(<span class="number">20</span>, <span class="number">20</span>)),
-            <span class="ident">CornerRadii</span> {
-                <span class="ident">top_left</span>: <span class="ident">Size::new</span>(<span class="number">3</span>, <span class="number">4</span>),
-                <span class="ident">top_right</span>: <span class="ident">Size::new</span>(<span class="number">5</span>, <span class="number">6</span>),
-                <span class="ident">bottom_right</span>: <span class="ident">Size::new</span>(<span class="number">7</span>, <span class="number">8</span>),
-                <span class="ident">bottom_left</span>: <span class="ident">Size::new</span>(<span class="number">9</span>, <span class="number">10</span>),
+        <span class="kw">let </span>rounded_rect = RoundedRectangle::new(
+            Rectangle::new(Point::zero(), Size::new(<span class="number">20</span>, <span class="number">20</span>)),
+            CornerRadii {
+                top_left: Size::new(<span class="number">3</span>, <span class="number">4</span>),
+                top_right: Size::new(<span class="number">5</span>, <span class="number">6</span>),
+                bottom_right: Size::new(<span class="number">7</span>, <span class="number">8</span>),
+                bottom_left: Size::new(<span class="number">9</span>, <span class="number">10</span>),
             },
         )
-        .<span class="ident">into_styled</span>(
-            <span class="ident">PrimitiveStyleBuilder::new</span>()
-                .<span class="ident">stroke_width</span>(<span class="number">1</span>)
-                .<span class="ident">stroke_color</span>(<span class="ident">Rgb888::BLUE</span>)
-                .<span class="ident">build</span>(),
+        .into_styled(
+            PrimitiveStyleBuilder::new()
+                .stroke_width(<span class="number">1</span>)
+                .stroke_color(Rgb888::BLUE)
+                .build(),
         );
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">drawable</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
-        <span class="ident">rounded_rect</span>.<span class="ident">draw</span>(<span class="kw-2">&amp;mut</span> <span class="ident">drawable</span>).<span class="ident">unwrap</span>();
-        <span class="ident">drawable</span>.<span class="ident">assert_pattern</span>(<span class="ident">expected_pattern</span>);
+        <span class="kw">let </span><span class="kw-2">mut </span>drawable = MockDisplay::new();
+        rounded_rect.draw(<span class="kw-2">&amp;mut </span>drawable).unwrap();
+        drawable.assert_pattern(expected_pattern);
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">pixels</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
-        <span class="ident">rounded_rect</span>.<span class="ident">pixels</span>().<span class="ident">draw</span>(<span class="kw-2">&amp;mut</span> <span class="ident">pixels</span>).<span class="ident">unwrap</span>();
-        <span class="ident">pixels</span>.<span class="ident">assert_pattern</span>(<span class="ident">expected_pattern</span>);
+        <span class="kw">let </span><span class="kw-2">mut </span>pixels = MockDisplay::new();
+        rounded_rect.pixels().draw(<span class="kw-2">&amp;mut </span>pixels).unwrap();
+        pixels.assert_pattern(expected_pattern);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">full_height_corners</span>() {
-        <span class="kw">let</span> <span class="ident">expected_pattern</span> <span class="op">=</span> <span class="kw-2">&amp;</span>[
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>full_height_corners() {
+        <span class="kw">let </span>expected_pattern = <span class="kw-2">&amp;</span>[
             <span class="string">&quot;                RRRRRRRR                &quot;</span>,
             <span class="string">&quot;            RRRRRRRRRRRRRRRR            &quot;</span>,
             <span class="string">&quot;          RRRRRRRRRRRRRRRRRRRR          &quot;</span>,
@@ -831,82 +830,82 @@
             <span class="string">&quot;RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR&quot;</span>,
         ];
 
-        <span class="kw">let</span> <span class="ident">rounded_rect</span> <span class="op">=</span> <span class="ident">RoundedRectangle::new</span>(
-            <span class="ident">Rectangle::new</span>(<span class="ident">Point::zero</span>(), <span class="ident">Size::new</span>(<span class="number">40</span>, <span class="number">20</span>)),
-            <span class="ident">CornerRadii</span> {
-                <span class="ident">top_left</span>: <span class="ident">Size::new</span>(<span class="number">20</span>, <span class="number">20</span>),
-                <span class="ident">top_right</span>: <span class="ident">Size::new</span>(<span class="number">20</span>, <span class="number">20</span>),
-                <span class="ident">bottom_right</span>: <span class="ident">Size::new</span>(<span class="number">0</span>, <span class="number">0</span>),
-                <span class="ident">bottom_left</span>: <span class="ident">Size::new</span>(<span class="number">0</span>, <span class="number">0</span>),
+        <span class="kw">let </span>rounded_rect = RoundedRectangle::new(
+            Rectangle::new(Point::zero(), Size::new(<span class="number">40</span>, <span class="number">20</span>)),
+            CornerRadii {
+                top_left: Size::new(<span class="number">20</span>, <span class="number">20</span>),
+                top_right: Size::new(<span class="number">20</span>, <span class="number">20</span>),
+                bottom_right: Size::new(<span class="number">0</span>, <span class="number">0</span>),
+                bottom_left: Size::new(<span class="number">0</span>, <span class="number">0</span>),
             },
         )
-        .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyleBuilder::new</span>().<span class="ident">fill_color</span>(<span class="ident">Rgb888::RED</span>).<span class="ident">build</span>());
+        .into_styled(PrimitiveStyleBuilder::new().fill_color(Rgb888::RED).build());
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">drawable</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
-        <span class="ident">rounded_rect</span>.<span class="ident">draw</span>(<span class="kw-2">&amp;mut</span> <span class="ident">drawable</span>).<span class="ident">unwrap</span>();
-        <span class="ident">drawable</span>.<span class="ident">assert_pattern</span>(<span class="ident">expected_pattern</span>);
+        <span class="kw">let </span><span class="kw-2">mut </span>drawable = MockDisplay::new();
+        rounded_rect.draw(<span class="kw-2">&amp;mut </span>drawable).unwrap();
+        drawable.assert_pattern(expected_pattern);
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">pixels</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
-        <span class="ident">rounded_rect</span>.<span class="ident">pixels</span>().<span class="ident">draw</span>(<span class="kw-2">&amp;mut</span> <span class="ident">pixels</span>).<span class="ident">unwrap</span>();
-        <span class="ident">pixels</span>.<span class="ident">assert_pattern</span>(<span class="ident">expected_pattern</span>);
+        <span class="kw">let </span><span class="kw-2">mut </span>pixels = MockDisplay::new();
+        rounded_rect.pixels().draw(<span class="kw-2">&amp;mut </span>pixels).unwrap();
+        pixels.assert_pattern(expected_pattern);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">styled_dimensions</span>() {
-        <span class="kw">let</span> <span class="ident">base</span> <span class="op">=</span> <span class="ident">PrimitiveStyleBuilder::new</span>()
-            .<span class="ident">stroke_width</span>(<span class="number">10</span>)
-            .<span class="ident">stroke_color</span>(<span class="ident">Rgb888::RED</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>styled_dimensions() {
+        <span class="kw">let </span>base = PrimitiveStyleBuilder::new()
+            .stroke_width(<span class="number">10</span>)
+            .stroke_color(Rgb888::RED);
 
-        <span class="kw">let</span> <span class="ident">inside</span> <span class="op">=</span> <span class="ident">base</span>.<span class="ident">stroke_alignment</span>(<span class="ident">StrokeAlignment::Inside</span>).<span class="ident">build</span>();
-        <span class="kw">let</span> <span class="ident">outside</span> <span class="op">=</span> <span class="ident">base</span>.<span class="ident">stroke_alignment</span>(<span class="ident">StrokeAlignment::Outside</span>).<span class="ident">build</span>();
-        <span class="kw">let</span> <span class="ident">center</span> <span class="op">=</span> <span class="ident">base</span>.<span class="ident">stroke_alignment</span>(<span class="ident">StrokeAlignment::Center</span>).<span class="ident">build</span>();
+        <span class="kw">let </span>inside = base.stroke_alignment(StrokeAlignment::Inside).build();
+        <span class="kw">let </span>outside = base.stroke_alignment(StrokeAlignment::Outside).build();
+        <span class="kw">let </span>center = base.stroke_alignment(StrokeAlignment::Center).build();
 
-        <span class="kw">let</span> <span class="ident">item</span> <span class="op">=</span> <span class="ident">RoundedRectangle::new</span>(
-            <span class="ident">Rectangle::new</span>(<span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">10</span>), <span class="ident">Size::new</span>(<span class="number">40</span>, <span class="number">20</span>)),
-            <span class="ident">CornerRadii</span> {
-                <span class="ident">top_left</span>: <span class="ident">Size::new</span>(<span class="number">20</span>, <span class="number">20</span>),
-                <span class="ident">top_right</span>: <span class="ident">Size::new</span>(<span class="number">20</span>, <span class="number">20</span>),
-                <span class="ident">bottom_right</span>: <span class="ident">Size::new</span>(<span class="number">0</span>, <span class="number">0</span>),
-                <span class="ident">bottom_left</span>: <span class="ident">Size::new</span>(<span class="number">0</span>, <span class="number">0</span>),
+        <span class="kw">let </span>item = RoundedRectangle::new(
+            Rectangle::new(Point::new(<span class="number">10</span>, <span class="number">10</span>), Size::new(<span class="number">40</span>, <span class="number">20</span>)),
+            CornerRadii {
+                top_left: Size::new(<span class="number">20</span>, <span class="number">20</span>),
+                top_right: Size::new(<span class="number">20</span>, <span class="number">20</span>),
+                bottom_right: Size::new(<span class="number">0</span>, <span class="number">0</span>),
+                bottom_left: Size::new(<span class="number">0</span>, <span class="number">0</span>),
             },
         );
 
-        <span class="kw">let</span> <span class="ident">center</span> <span class="op">=</span> <span class="ident">item</span>.<span class="ident">into_styled</span>(<span class="ident">center</span>);
-        <span class="kw">let</span> <span class="ident">inside</span> <span class="op">=</span> <span class="ident">item</span>.<span class="ident">into_styled</span>(<span class="ident">inside</span>);
-        <span class="kw">let</span> <span class="ident">outside</span> <span class="op">=</span> <span class="ident">item</span>.<span class="ident">into_styled</span>(<span class="ident">outside</span>);
+        <span class="kw">let </span>center = item.into_styled(center);
+        <span class="kw">let </span>inside = item.into_styled(inside);
+        <span class="kw">let </span>outside = item.into_styled(outside);
 
-        <span class="macro">assert_eq!</span>(<span class="ident">center</span>.<span class="ident">bounding_box</span>(), <span class="ident">item</span>.<span class="ident">bounding_box</span>().<span class="ident">offset</span>(<span class="number">5</span>));
-        <span class="macro">assert_eq!</span>(<span class="ident">inside</span>.<span class="ident">bounding_box</span>(), <span class="ident">item</span>.<span class="ident">bounding_box</span>());
-        <span class="macro">assert_eq!</span>(<span class="ident">outside</span>.<span class="ident">bounding_box</span>(), <span class="ident">item</span>.<span class="ident">bounding_box</span>().<span class="ident">offset</span>(<span class="number">10</span>));
+        <span class="macro">assert_eq!</span>(center.bounding_box(), item.bounding_box().offset(<span class="number">5</span>));
+        <span class="macro">assert_eq!</span>(inside.bounding_box(), item.bounding_box());
+        <span class="macro">assert_eq!</span>(outside.bounding_box(), item.bounding_box().offset(<span class="number">10</span>));
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
-        <span class="ident">center</span>.<span class="ident">draw</span>(<span class="kw-2">&amp;mut</span> <span class="ident">display</span>).<span class="ident">unwrap</span>();
-        <span class="macro">assert_eq!</span>(<span class="ident">display</span>.<span class="ident">affected_area</span>(), <span class="ident">center</span>.<span class="ident">bounding_box</span>());
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
-        <span class="ident">inside</span>.<span class="ident">draw</span>(<span class="kw-2">&amp;mut</span> <span class="ident">display</span>).<span class="ident">unwrap</span>();
-        <span class="macro">assert_eq!</span>(<span class="ident">display</span>.<span class="ident">affected_area</span>(), <span class="ident">inside</span>.<span class="ident">bounding_box</span>());
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
-        <span class="ident">outside</span>.<span class="ident">draw</span>(<span class="kw-2">&amp;mut</span> <span class="ident">display</span>).<span class="ident">unwrap</span>();
-        <span class="macro">assert_eq!</span>(<span class="ident">display</span>.<span class="ident">affected_area</span>(), <span class="ident">outside</span>.<span class="ident">bounding_box</span>());
+        <span class="kw">let </span><span class="kw-2">mut </span>display = MockDisplay::new();
+        center.draw(<span class="kw-2">&amp;mut </span>display).unwrap();
+        <span class="macro">assert_eq!</span>(display.affected_area(), center.bounding_box());
+        <span class="kw">let </span><span class="kw-2">mut </span>display = MockDisplay::new();
+        inside.draw(<span class="kw-2">&amp;mut </span>display).unwrap();
+        <span class="macro">assert_eq!</span>(display.affected_area(), inside.bounding_box());
+        <span class="kw">let </span><span class="kw-2">mut </span>display = MockDisplay::new();
+        outside.draw(<span class="kw-2">&amp;mut </span>display).unwrap();
+        <span class="macro">assert_eq!</span>(display.affected_area(), outside.bounding_box());
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">bounding_box_is_independent_of_colors</span>() {
-        <span class="kw">let</span> <span class="ident">rect</span> <span class="op">=</span> <span class="ident">RoundedRectangle::new</span>(
-            <span class="ident">Rectangle::new</span>(<span class="ident">Point::new</span>(<span class="number">5</span>, <span class="number">5</span>), <span class="ident">Size::new</span>(<span class="number">11</span>, <span class="number">14</span>)),
-            <span class="ident">CornerRadii</span> {
-                <span class="ident">top_left</span>: <span class="ident">Size::new</span>(<span class="number">20</span>, <span class="number">20</span>),
-                <span class="ident">top_right</span>: <span class="ident">Size::new</span>(<span class="number">20</span>, <span class="number">20</span>),
-                <span class="ident">bottom_right</span>: <span class="ident">Size::new</span>(<span class="number">0</span>, <span class="number">0</span>),
-                <span class="ident">bottom_left</span>: <span class="ident">Size::new</span>(<span class="number">0</span>, <span class="number">0</span>),
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>bounding_box_is_independent_of_colors() {
+        <span class="kw">let </span>rect = RoundedRectangle::new(
+            Rectangle::new(Point::new(<span class="number">5</span>, <span class="number">5</span>), Size::new(<span class="number">11</span>, <span class="number">14</span>)),
+            CornerRadii {
+                top_left: Size::new(<span class="number">20</span>, <span class="number">20</span>),
+                top_right: Size::new(<span class="number">20</span>, <span class="number">20</span>),
+                bottom_right: Size::new(<span class="number">0</span>, <span class="number">0</span>),
+                bottom_left: Size::new(<span class="number">0</span>, <span class="number">0</span>),
             },
         );
 
-        <span class="kw">let</span> <span class="ident">transparent_rect</span> <span class="op">=</span> <span class="ident">rect</span>.<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle</span>::<span class="op">&lt;</span><span class="ident">Rgb888</span><span class="op">&gt;</span><span class="ident">::new</span>());
-        <span class="kw">let</span> <span class="ident">filled_rect</span> <span class="op">=</span> <span class="ident">rect</span>.<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle::with_fill</span>(<span class="ident">Rgb888::RED</span>));
+        <span class="kw">let </span>transparent_rect = rect.into_styled(PrimitiveStyle::&lt;Rgb888&gt;::new());
+        <span class="kw">let </span>filled_rect = rect.into_styled(PrimitiveStyle::with_fill(Rgb888::RED));
 
-        <span class="macro">assert_eq!</span>(<span class="ident">transparent_rect</span>.<span class="ident">bounding_box</span>(), <span class="ident">filled_rect</span>.<span class="ident">bounding_box</span>(),);
+        <span class="macro">assert_eq!</span>(transparent_rect.bounding_box(), filled_rect.bounding_box(),);
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../../" data-current-crate="embedded_graphics" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0 (a55dd71d5 2022-09-19)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../../" data-current-crate="embedded_graphics" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0 (69f9c33d7 2022-12-12)" ></div></body></html>

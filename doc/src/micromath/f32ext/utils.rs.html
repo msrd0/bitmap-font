@@ -1,6 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/micromath-1.1.1/src/f32ext/utils.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>utils.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../micromath/index.html"><div class="logo-container"><img src="https://raw.githubusercontent.com/tarcieri/micromath/main/img/micromath-sq.png" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../micromath/index.html"><div class="logo-container">
-                    <img src="https://raw.githubusercontent.com/tarcieri/micromath/main/img/micromath-sq.png" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../micromath/index.html">
-                        <img src="https://raw.githubusercontent.com/tarcieri/micromath/main/img/micromath-sq.png" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/micromath-1.1.1/src/f32ext/utils.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>utils.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../micromath/index.html">
+                        <img src="https://raw.githubusercontent.com/tarcieri/micromath/main/img/micromath-sq.png" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -67,72 +66,72 @@
 <span id="65">65</span>
 <span id="66">66</span>
 <span id="67">67</span>
-</pre><pre class="rust"><code><span class="kw">use</span> <span class="ident">core::f32</span>;
-<span class="kw">use</span> <span class="ident">core::i32</span>;
-<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SIGN_MASK</span>: <span class="ident">u32</span> <span class="op">=</span> <span class="number">0b10000000_00000000_00000000_00000000</span>;
-<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">EXPONENT_MASK</span>: <span class="ident">u32</span> <span class="op">=</span> <span class="number">0b01111111_10000000_00000000_00000000</span>;
-<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">MANTISSA_MASK</span>: <span class="ident">u32</span> <span class="op">=</span> <span class="number">0b00000000_01111111_11111111_11111111</span>;
-<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">EXPONENT_BIAS</span>: <span class="ident">u32</span> <span class="op">=</span> <span class="number">127</span>;
-<span class="comment">// MANTISSA_DIGITS is availible in core::f32, but the actual bits taken up are 24 - 1</span>
-<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">MANTISSA_BITS</span>: <span class="ident">u32</span> <span class="op">=</span> <span class="number">23</span>;
+</pre><pre class="rust"><code><span class="kw">use </span>core::f32;
+<span class="kw">use </span>core::i32;
+<span class="kw">pub const </span>SIGN_MASK: u32 = <span class="number">0b10000000_00000000_00000000_00000000</span>;
+<span class="kw">pub const </span>EXPONENT_MASK: u32 = <span class="number">0b01111111_10000000_00000000_00000000</span>;
+<span class="kw">pub const </span>MANTISSA_MASK: u32 = <span class="number">0b00000000_01111111_11111111_11111111</span>;
+<span class="kw">pub const </span>EXPONENT_BIAS: u32 = <span class="number">127</span>;
+<span class="comment">// MANTISSA_DIGITS is availible in core::f32, but the actual bits taken up are 24 - 1
+</span><span class="kw">pub const </span>MANTISSA_BITS: u32 = <span class="number">23</span>;
 
-<span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">trait</span> <span class="ident">FloatComponents</span><span class="op">&lt;</span><span class="ident">IntType</span> <span class="op">=</span> <span class="ident">i32</span>, <span class="ident">UIntType</span> <span class="op">=</span> <span class="ident">u32</span><span class="op">&gt;</span> {
-    <span class="kw">fn</span> <span class="ident">extract_sign_bit</span>(<span class="self">self</span>) -&gt; <span class="ident">UIntType</span>;
-    <span class="kw">fn</span> <span class="ident">extract_exponent_bits</span>(<span class="self">self</span>) -&gt; <span class="ident">UIntType</span>;
-    <span class="kw">fn</span> <span class="ident">extract_mantissa_bits</span>(<span class="self">self</span>) -&gt; <span class="ident">UIntType</span>;
-    <span class="kw">fn</span> <span class="ident">extract_exponent_value</span>(<span class="self">self</span>) -&gt; <span class="ident">IntType</span>;
-    <span class="kw">fn</span> <span class="ident">without_sign</span>(<span class="self">self</span>) -&gt; <span class="self">Self</span>;
-    <span class="kw">fn</span> <span class="ident">set_exponent</span>(<span class="self">self</span>, <span class="ident">exponent</span>: <span class="ident">IntType</span>) -&gt; <span class="self">Self</span>;
-    <span class="kw">fn</span> <span class="ident">is_integer</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">bool</span>;
-    <span class="kw">fn</span> <span class="ident">is_even</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">bool</span>;
+<span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">trait </span>FloatComponents&lt;IntType = i32, UIntType = u32&gt; {
+    <span class="kw">fn </span>extract_sign_bit(<span class="self">self</span>) -&gt; UIntType;
+    <span class="kw">fn </span>extract_exponent_bits(<span class="self">self</span>) -&gt; UIntType;
+    <span class="kw">fn </span>extract_mantissa_bits(<span class="self">self</span>) -&gt; UIntType;
+    <span class="kw">fn </span>extract_exponent_value(<span class="self">self</span>) -&gt; IntType;
+    <span class="kw">fn </span>without_sign(<span class="self">self</span>) -&gt; <span class="self">Self</span>;
+    <span class="kw">fn </span>set_exponent(<span class="self">self</span>, exponent: IntType) -&gt; <span class="self">Self</span>;
+    <span class="kw">fn </span>is_integer(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
+    <span class="kw">fn </span>is_even(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool;
 }
-<span class="kw">impl</span> <span class="ident">FloatComponents</span> <span class="kw">for</span> <span class="ident">f32</span> {
-    <span class="kw">fn</span> <span class="ident">extract_sign_bit</span>(<span class="self">self</span>) -&gt; <span class="ident">u32</span> {
-        (<span class="self">self</span>.<span class="ident">to_bits</span>() <span class="op">&amp;</span> <span class="ident">SIGN_MASK</span>).<span class="ident">overflowing_shr</span>(<span class="number">32</span> <span class="op">-</span> <span class="number">1</span>).<span class="number">0</span>
+<span class="kw">impl </span>FloatComponents <span class="kw">for </span>f32 {
+    <span class="kw">fn </span>extract_sign_bit(<span class="self">self</span>) -&gt; u32 {
+        (<span class="self">self</span>.to_bits() &amp; SIGN_MASK).overflowing_shr(<span class="number">32 </span>- <span class="number">1</span>).<span class="number">0
+    </span>}
+    <span class="kw">fn </span>extract_exponent_bits(<span class="self">self</span>) -&gt; u32 {
+        (<span class="self">self</span>.to_bits() &amp; EXPONENT_MASK)
+            .overflowing_shr(MANTISSA_BITS)
+            .<span class="number">0
+    </span>}
+    <span class="kw">fn </span>extract_mantissa_bits(<span class="self">self</span>) -&gt; u32 {
+        <span class="self">self</span>.to_bits() &amp; MANTISSA_MASK
     }
-    <span class="kw">fn</span> <span class="ident">extract_exponent_bits</span>(<span class="self">self</span>) -&gt; <span class="ident">u32</span> {
-        (<span class="self">self</span>.<span class="ident">to_bits</span>() <span class="op">&amp;</span> <span class="ident">EXPONENT_MASK</span>)
-            .<span class="ident">overflowing_shr</span>(<span class="ident">MANTISSA_BITS</span>)
-            .<span class="number">0</span>
+    <span class="kw">fn </span>extract_exponent_value(<span class="self">self</span>) -&gt; i32 {
+        (<span class="self">self</span>.extract_exponent_bits() <span class="kw">as </span>i32) - EXPONENT_BIAS <span class="kw">as </span>i32
     }
-    <span class="kw">fn</span> <span class="ident">extract_mantissa_bits</span>(<span class="self">self</span>) -&gt; <span class="ident">u32</span> {
-        <span class="self">self</span>.<span class="ident">to_bits</span>() <span class="op">&amp;</span> <span class="ident">MANTISSA_MASK</span>
+    <span class="kw">fn </span>without_sign(<span class="self">self</span>) -&gt; f32 {
+        f32::from_bits(<span class="self">self</span>.to_bits() &amp; !SIGN_MASK)
     }
-    <span class="kw">fn</span> <span class="ident">extract_exponent_value</span>(<span class="self">self</span>) -&gt; <span class="ident">i32</span> {
-        (<span class="self">self</span>.<span class="ident">extract_exponent_bits</span>() <span class="kw">as</span> <span class="ident">i32</span>) <span class="op">-</span> <span class="ident">EXPONENT_BIAS</span> <span class="kw">as</span> <span class="ident">i32</span>
-    }
-    <span class="kw">fn</span> <span class="ident">without_sign</span>(<span class="self">self</span>) -&gt; <span class="ident">f32</span> {
-        <span class="ident">f32::from_bits</span>(<span class="self">self</span>.<span class="ident">to_bits</span>() <span class="op">&amp;</span> <span class="op">!</span><span class="ident">SIGN_MASK</span>)
-    }
-    <span class="kw">fn</span> <span class="ident">set_exponent</span>(<span class="self">self</span>, <span class="ident">exponent</span>: <span class="ident">i32</span>) -&gt; <span class="ident">f32</span> {
-        <span class="macro">debug_assert!</span>(<span class="ident">exponent</span> <span class="op">&lt;</span><span class="op">=</span> <span class="number">127</span> <span class="op">&amp;&amp;</span> <span class="ident">exponent</span> <span class="op">&gt;</span><span class="op">=</span> <span class="op">-</span><span class="number">128</span>);
-        <span class="kw">let</span> <span class="ident">without_exponent</span>: <span class="ident">u32</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">to_bits</span>() <span class="op">&amp;</span> <span class="op">!</span><span class="ident">EXPONENT_MASK</span>;
-        <span class="kw">let</span> <span class="ident">only_exponent</span>: <span class="ident">u32</span> <span class="op">=</span> ((<span class="ident">exponent</span> <span class="op">+</span> <span class="ident">EXPONENT_BIAS</span> <span class="kw">as</span> <span class="ident">i32</span>) <span class="kw">as</span> <span class="ident">u32</span>)
-            .<span class="ident">overflowing_shl</span>(<span class="ident">MANTISSA_BITS</span>)
+    <span class="kw">fn </span>set_exponent(<span class="self">self</span>, exponent: i32) -&gt; f32 {
+        <span class="macro">debug_assert!</span>(exponent &lt;= <span class="number">127 </span>&amp;&amp; exponent &gt;= -<span class="number">128</span>);
+        <span class="kw">let </span>without_exponent: u32 = <span class="self">self</span>.to_bits() &amp; !EXPONENT_MASK;
+        <span class="kw">let </span>only_exponent: u32 = ((exponent + EXPONENT_BIAS <span class="kw">as </span>i32) <span class="kw">as </span>u32)
+            .overflowing_shl(MANTISSA_BITS)
             .<span class="number">0</span>;
-        <span class="ident">f32::from_bits</span>(<span class="ident">without_exponent</span> <span class="op">|</span> <span class="ident">only_exponent</span>)
+        f32::from_bits(without_exponent | only_exponent)
     }
-    <span class="kw">fn</span> <span class="ident">is_integer</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">bool</span> {
-        <span class="kw">let</span> <span class="ident">exponent</span>: <span class="ident">i32</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">extract_exponent_value</span>();
-        <span class="kw">let</span> <span class="ident">self_bits</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">to_bits</span>();
-        <span class="comment">//if exponent is negative we shouldn&#39;t remove anything, this stops an opposite shift.</span>
-        <span class="kw">let</span> <span class="ident">exponent_clamped</span> <span class="op">=</span> <span class="ident">i32::max</span>(<span class="ident">exponent</span>, <span class="number">0_i32</span>) <span class="kw">as</span> <span class="ident">u32</span>;
-        <span class="comment">// find the part of the fraction that would be left over</span>
-        <span class="kw">let</span> <span class="ident">fractional_part</span>: <span class="ident">u32</span> <span class="op">=</span> (<span class="ident">self_bits</span>).<span class="ident">overflowing_shl</span>(<span class="ident">exponent_clamped</span>).<span class="number">0</span> <span class="op">&amp;</span> <span class="ident">MANTISSA_MASK</span>;
-        <span class="comment">// if fractional part contains anything, we know it *isn&#39;t* an integer.</span>
-        <span class="comment">// if zero there will be nothing in the fractional part</span>
-        <span class="comment">// if it is whole, there will be nothing in the fractional part</span>
-        <span class="ident">fractional_part</span> <span class="op">==</span> <span class="number">0_u32</span>
-    }
-    <span class="kw">fn</span> <span class="ident">is_even</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">bool</span> {
-        <span class="comment">// any floating point value that doesn&#39;t fit in an i32 range is even,</span>
-        <span class="comment">// and will loose 1&#39;s digit precision at exp values of 23+</span>
-        <span class="kw">if</span> <span class="self">self</span>.<span class="ident">extract_exponent_value</span>() <span class="op">&gt;</span><span class="op">=</span> <span class="number">31</span> {
-            <span class="bool-val">true</span>
-        } <span class="kw">else</span> {
-            (<span class="kw-2">*</span><span class="self">self</span> <span class="kw">as</span> <span class="ident">i32</span>) <span class="op">%</span> <span class="number">2</span> <span class="op">==</span> <span class="number">0</span>
-        }
+    <span class="kw">fn </span>is_integer(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
+        <span class="kw">let </span>exponent: i32 = <span class="self">self</span>.extract_exponent_value();
+        <span class="kw">let </span>self_bits = <span class="self">self</span>.to_bits();
+        <span class="comment">//if exponent is negative we shouldn&#39;t remove anything, this stops an opposite shift.
+        </span><span class="kw">let </span>exponent_clamped = i32::max(exponent, <span class="number">0_i32</span>) <span class="kw">as </span>u32;
+        <span class="comment">// find the part of the fraction that would be left over
+        </span><span class="kw">let </span>fractional_part: u32 = (self_bits).overflowing_shl(exponent_clamped).<span class="number">0 </span>&amp; MANTISSA_MASK;
+        <span class="comment">// if fractional part contains anything, we know it *isn&#39;t* an integer.
+        // if zero there will be nothing in the fractional part
+        // if it is whole, there will be nothing in the fractional part
+        </span>fractional_part == <span class="number">0_u32
+    </span>}
+    <span class="kw">fn </span>is_even(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
+        <span class="comment">// any floating point value that doesn&#39;t fit in an i32 range is even,
+        // and will loose 1&#39;s digit precision at exp values of 23+
+        </span><span class="kw">if </span><span class="self">self</span>.extract_exponent_value() &gt;= <span class="number">31 </span>{
+            <span class="bool-val">true
+        </span>} <span class="kw">else </span>{
+            (<span class="kw-2">*</span><span class="self">self </span><span class="kw">as </span>i32) % <span class="number">2 </span>== <span class="number">0
+        </span>}
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="micromath" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0 (a55dd71d5 2022-09-19)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="micromath" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0 (69f9c33d7 2022-12-12)" ></div></body></html>

@@ -1,6 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-core-0.3.3/src/geometry/mod.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../embedded_graphics_core/index.html"><div class="logo-container"><img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/b225511f390c0ed9bc065eb67d05125845312148/assets/logo_core.svg?sanitize=true" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../embedded_graphics_core/index.html"><div class="logo-container">
-                    <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/b225511f390c0ed9bc065eb67d05125845312148/assets/logo_core.svg?sanitize=true" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../embedded_graphics_core/index.html">
-                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/b225511f390c0ed9bc065eb67d05125845312148/assets/logo_core.svg?sanitize=true" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-core-0.3.3/src/geometry/mod.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../embedded_graphics_core/index.html">
+                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/b225511f390c0ed9bc065eb67d05125845312148/assets/logo_core.svg?sanitize=true" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -116,121 +115,121 @@
 <span id="114">114</span>
 <span id="115">115</span>
 <span id="116">116</span>
-</pre><pre class="rust"><code><span class="doccomment">//! Geometry module.</span>
+</pre><pre class="rust"><code><span class="doccomment">//! Geometry module.
 
-<span class="kw">mod</span> <span class="ident">point</span>;
-<span class="kw">mod</span> <span class="ident">size</span>;
+</span><span class="kw">mod </span>point;
+<span class="kw">mod </span>size;
 
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">point::Point</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">size::Size</span>;
+<span class="kw">pub use </span>point::Point;
+<span class="kw">pub use </span>size::Size;
 
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::primitives::Rectangle</span>;
+<span class="kw">use </span><span class="kw">crate</span>::primitives::Rectangle;
 
-<span class="doccomment">/// Adds the ability to get the bounding box of an item.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// The exact definition of the bounding box depends on the item:</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// * Primitives ([`Rectangle`], [`Circle`], ...)</span>
-<span class="doccomment">///</span>
-<span class="doccomment">///    For unstyled [primitives] the bounding box is defined as the smallest rectangle that surrounds the entire primitive.</span>
-<span class="doccomment">/// * Styled primitives and other [`Drawable`]s ([`Image`], [`Text`], ...)</span>
-<span class="doccomment">///</span>
-<span class="doccomment">///    The bounding box of a drawable is defined as the smallest rectangle that contains all drawn pixels.</span>
-<span class="doccomment">///    While all builtin [`Drawable`]s in embedded-graphics provide an implementation of this trait, this might</span>
-<span class="doccomment">///    not be true for third party drawables.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">///    Note that a styled primitive can have a different bounding box than the underlying unstyled primitive;</span>
-<span class="doccomment">///    depending on the stroke width and alignment the bounding box of the styled primitive may be larger.</span>
-<span class="doccomment">/// * [`DrawTarget`]s (displays, simulator, ...)</span>
-<span class="doccomment">///</span>
-<span class="doccomment">///    The bounding box of a draw target is defined as the area that should be used for drawing operations.</span>
-<span class="doccomment">///    For most display drivers the top left corner of the bounding box will be at the origin but other draw targets</span>
-<span class="doccomment">///    can have different positions of the top left corner.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// The bounding box will be returned as a [`Rectangle`]. The methods provided by [`Rectangle`] make</span>
-<span class="doccomment">/// it easy to implement additional functions like hit testing (by using [`contains`]) or drawing a focus</span>
-<span class="doccomment">/// rectangle around a drawable (by converting the rectangle into a [`Styled`]).</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Implementation notes</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// `Dimensions` should be implemented for `Drawable`s if the bounding box is known before [`Drawable::draw`] is</span>
-<span class="doccomment">/// executed. The implementation must return a rectangle that contains all drawn pixels.</span>
-<span class="doccomment">/// [`MockDisplay::affected_area`] can be a used in unit tests to make sure a drawable returns a bounding box with</span>
-<span class="doccomment">/// the correct dimensions.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// [`DrawTarget`]s  (display drivers, etc) are required to implement `Dimensions`. The</span>
-<span class="doccomment">/// implementation must return a rectangle representing the drawing area. For display</span>
-<span class="doccomment">/// drivers it is recommended to implement [`OriginDimensions`] instead of implementing `Dimensions` directly,</span>
-<span class="doccomment">/// if the top left corner of the display area is at the origin `(0, 0)`.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// The bounding box of [`ImageDrawable`]s must always start at the origin, therefore [`OriginDimensions`] must be implemented instead of this trait.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// [`Drawable`]: ../trait.Drawable.html</span>
-<span class="doccomment">/// [`Drawable::draw`]: ../trait.Drawable.html#tymethod.draw</span>
-<span class="doccomment">/// [`DrawTarget`]: ../draw_target/trait.DrawTarget.html</span>
-<span class="doccomment">/// [`ImageDrawable`]: ../image/trait.ImageDrawable.html</span>
-<span class="doccomment">/// [`OriginDimensions`]: trait.OriginDimensions.html</span>
-<span class="doccomment">/// [`Rectangle`]: ../primitives/rectangle/struct.Rectangle.html</span>
-<span class="doccomment">/// [`points`]: ../primitives/trait.PointsIter.html</span>
-<span class="doccomment">/// [`MockDisplay::affected_area`]: https://docs.rs/embedded-graphics/latest/embedded_graphics/mock_display/struct.MockDisplay.html#method.affected_area</span>
-<span class="doccomment">/// [`contains`]: https://docs.rs/embedded-graphics/latest/embedded_graphics/primitives/trait.ContainsPoint.html#tymethod.contains</span>
-<span class="doccomment">/// [primitives]: https://docs.rs/embedded-graphics/latest/embedded_graphics/primitives/index.html</span>
-<span class="doccomment">/// [`Circle`]: https://docs.rs/embedded-graphics/latest/embedded_graphics/primitives/circle/struct.Circle.html</span>
-<span class="doccomment">/// [`Image`]: https://docs.rs/embedded-graphics/latest/embedded_graphics/image/struct.Image.html</span>
-<span class="doccomment">/// [`Text`]: https://docs.rs/embedded-graphics/latest/embedded_graphics/fonts/struct.Text.html</span>
-<span class="doccomment">/// [`Styled`]: https://docs.rs/embedded-graphics/latest/embedded_graphics/style/styled/struct.Styled.html</span>
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">Dimensions</span> {
-    <span class="doccomment">/// Returns the bounding box.</span>
-    <span class="kw">fn</span> <span class="ident">bounding_box</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Rectangle</span>;
+<span class="doccomment">/// Adds the ability to get the bounding box of an item.
+///
+/// The exact definition of the bounding box depends on the item:
+///
+/// * Primitives ([`Rectangle`], [`Circle`], ...)
+///
+///    For unstyled [primitives] the bounding box is defined as the smallest rectangle that surrounds the entire primitive.
+/// * Styled primitives and other [`Drawable`]s ([`Image`], [`Text`], ...)
+///
+///    The bounding box of a drawable is defined as the smallest rectangle that contains all drawn pixels.
+///    While all builtin [`Drawable`]s in embedded-graphics provide an implementation of this trait, this might
+///    not be true for third party drawables.
+///
+///    Note that a styled primitive can have a different bounding box than the underlying unstyled primitive;
+///    depending on the stroke width and alignment the bounding box of the styled primitive may be larger.
+/// * [`DrawTarget`]s (displays, simulator, ...)
+///
+///    The bounding box of a draw target is defined as the area that should be used for drawing operations.
+///    For most display drivers the top left corner of the bounding box will be at the origin but other draw targets
+///    can have different positions of the top left corner.
+///
+/// The bounding box will be returned as a [`Rectangle`]. The methods provided by [`Rectangle`] make
+/// it easy to implement additional functions like hit testing (by using [`contains`]) or drawing a focus
+/// rectangle around a drawable (by converting the rectangle into a [`Styled`]).
+///
+/// # Implementation notes
+///
+/// `Dimensions` should be implemented for `Drawable`s if the bounding box is known before [`Drawable::draw`] is
+/// executed. The implementation must return a rectangle that contains all drawn pixels.
+/// [`MockDisplay::affected_area`] can be a used in unit tests to make sure a drawable returns a bounding box with
+/// the correct dimensions.
+///
+/// [`DrawTarget`]s  (display drivers, etc) are required to implement `Dimensions`. The
+/// implementation must return a rectangle representing the drawing area. For display
+/// drivers it is recommended to implement [`OriginDimensions`] instead of implementing `Dimensions` directly,
+/// if the top left corner of the display area is at the origin `(0, 0)`.
+///
+/// The bounding box of [`ImageDrawable`]s must always start at the origin, therefore [`OriginDimensions`] must be implemented instead of this trait.
+///
+/// [`Drawable`]: ../trait.Drawable.html
+/// [`Drawable::draw`]: ../trait.Drawable.html#tymethod.draw
+/// [`DrawTarget`]: ../draw_target/trait.DrawTarget.html
+/// [`ImageDrawable`]: ../image/trait.ImageDrawable.html
+/// [`OriginDimensions`]: trait.OriginDimensions.html
+/// [`Rectangle`]: ../primitives/rectangle/struct.Rectangle.html
+/// [`points`]: ../primitives/trait.PointsIter.html
+/// [`MockDisplay::affected_area`]: https://docs.rs/embedded-graphics/latest/embedded_graphics/mock_display/struct.MockDisplay.html#method.affected_area
+/// [`contains`]: https://docs.rs/embedded-graphics/latest/embedded_graphics/primitives/trait.ContainsPoint.html#tymethod.contains
+/// [primitives]: https://docs.rs/embedded-graphics/latest/embedded_graphics/primitives/index.html
+/// [`Circle`]: https://docs.rs/embedded-graphics/latest/embedded_graphics/primitives/circle/struct.Circle.html
+/// [`Image`]: https://docs.rs/embedded-graphics/latest/embedded_graphics/image/struct.Image.html
+/// [`Text`]: https://docs.rs/embedded-graphics/latest/embedded_graphics/fonts/struct.Text.html
+/// [`Styled`]: https://docs.rs/embedded-graphics/latest/embedded_graphics/style/styled/struct.Styled.html
+</span><span class="kw">pub trait </span>Dimensions {
+    <span class="doccomment">/// Returns the bounding box.
+    </span><span class="kw">fn </span>bounding_box(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Rectangle;
 }
 
-<span class="doccomment">/// Dimensions with `top_left` of the bounding box at `(0, 0)`.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// A blanket implementation of `Dimensions` is provided for all types that implement this trait.</span>
-<span class="doccomment">/// See the [`Dimensions`] trait documentation for more information about bounding boxes.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Implementation notes</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// This trait should be implemented instead of [`Dimensions`] if the top left corner of the bounding box</span>
-<span class="doccomment">/// will always be at the origin, which will be the case for most display drivers. Some types, like [`ImageDrawable`],</span>
-<span class="doccomment">/// require a bounding box that starts at the origin and can only be used if [`OriginDimensions`] is implemented.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// [`ImageDrawable`]: ../image/trait.ImageDrawable.html</span>
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">OriginDimensions</span> {
-    <span class="doccomment">/// Returns the size of the bounding box.</span>
-    <span class="kw">fn</span> <span class="ident">size</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Size</span>;
+<span class="doccomment">/// Dimensions with `top_left` of the bounding box at `(0, 0)`.
+///
+/// A blanket implementation of `Dimensions` is provided for all types that implement this trait.
+/// See the [`Dimensions`] trait documentation for more information about bounding boxes.
+///
+/// # Implementation notes
+///
+/// This trait should be implemented instead of [`Dimensions`] if the top left corner of the bounding box
+/// will always be at the origin, which will be the case for most display drivers. Some types, like [`ImageDrawable`],
+/// require a bounding box that starts at the origin and can only be used if [`OriginDimensions`] is implemented.
+///
+/// [`ImageDrawable`]: ../image/trait.ImageDrawable.html
+</span><span class="kw">pub trait </span>OriginDimensions {
+    <span class="doccomment">/// Returns the size of the bounding box.
+    </span><span class="kw">fn </span>size(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Size;
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="ident">Dimensions</span> <span class="kw">for</span> <span class="ident">T</span>
-<span class="kw">where</span>
-    <span class="ident">T</span>: <span class="ident">OriginDimensions</span>,
+<span class="kw">impl</span>&lt;T&gt; Dimensions <span class="kw">for </span>T
+<span class="kw">where
+    </span>T: OriginDimensions,
 {
-    <span class="kw">fn</span> <span class="ident">bounding_box</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Rectangle</span> {
-        <span class="ident">Rectangle::new</span>(<span class="ident">Point::zero</span>(), <span class="self">self</span>.<span class="ident">size</span>())
+    <span class="kw">fn </span>bounding_box(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Rectangle {
+        Rectangle::new(Point::zero(), <span class="self">self</span>.size())
     }
 }
 
-<span class="doccomment">/// Anchor point.</span>
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>, <span class="ident">Ord</span>, <span class="ident">PartialOrd</span>, <span class="ident">Eq</span>, <span class="ident">PartialEq</span>, <span class="ident">Hash</span>, <span class="ident">Copy</span>, <span class="ident">Clone</span>)]</span>
-<span class="kw">pub</span> <span class="kw">enum</span> <span class="ident">AnchorPoint</span> {
-    <span class="doccomment">/// Top left.</span>
-    <span class="ident">TopLeft</span>,
-    <span class="doccomment">/// Top center.</span>
-    <span class="ident">TopCenter</span>,
-    <span class="doccomment">/// Top right.</span>
-    <span class="ident">TopRight</span>,
-    <span class="doccomment">/// Center left.</span>
-    <span class="ident">CenterLeft</span>,
-    <span class="doccomment">/// Center.</span>
-    <span class="ident">Center</span>,
-    <span class="doccomment">/// Center right.</span>
-    <span class="ident">CenterRight</span>,
-    <span class="doccomment">/// Bottom left.</span>
-    <span class="ident">BottomLeft</span>,
-    <span class="doccomment">/// Bottom center.</span>
-    <span class="ident">BottomCenter</span>,
-    <span class="doccomment">/// Bottom right.</span>
-    <span class="ident">BottomRight</span>,
+<span class="doccomment">/// Anchor point.
+</span><span class="attribute">#[derive(Debug, Ord, PartialOrd, Eq, PartialEq, Hash, Copy, Clone)]
+</span><span class="kw">pub enum </span>AnchorPoint {
+    <span class="doccomment">/// Top left.
+    </span>TopLeft,
+    <span class="doccomment">/// Top center.
+    </span>TopCenter,
+    <span class="doccomment">/// Top right.
+    </span>TopRight,
+    <span class="doccomment">/// Center left.
+    </span>CenterLeft,
+    <span class="doccomment">/// Center.
+    </span>Center,
+    <span class="doccomment">/// Center right.
+    </span>CenterRight,
+    <span class="doccomment">/// Bottom left.
+    </span>BottomLeft,
+    <span class="doccomment">/// Bottom center.
+    </span>BottomCenter,
+    <span class="doccomment">/// Bottom right.
+    </span>BottomRight,
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="embedded_graphics_core" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0 (a55dd71d5 2022-09-19)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="embedded_graphics_core" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0 (69f9c33d7 2022-12-12)" ></div></body></html>

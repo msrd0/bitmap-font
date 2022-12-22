@@ -1,6 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.1/src/primitives/triangle/scanline_intersections.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>scanline_intersections.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../../storage.js"></script><script defer src="../../../../source-script.js"></script><script defer src="../../../../source-files.js"></script><script defer src="../../../../main.js"></script><noscript><link rel="stylesheet" href="../../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../../embedded_graphics/index.html"><div class="logo-container"><img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../../embedded_graphics/index.html"><div class="logo-container">
-                    <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../../embedded_graphics/index.html">
-                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.1/src/primitives/triangle/scanline_intersections.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>scanline_intersections.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../../normalize.css"><link rel="stylesheet" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../../ayu.css" disabled><link rel="stylesheet" href="../../../../dark.css" disabled><link rel="stylesheet" href="../../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../../storage.js"></script><script defer src="../../../../source-script.js"></script><script defer src="../../../../source-files.js"></script><script defer src="../../../../main.js"></script><noscript><link rel="stylesheet" href="../../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../../embedded_graphics/index.html">
+                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../wheel.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -205,210 +204,210 @@
 <span id="203">203</span>
 <span id="204">204</span>
 <span id="205">205</span>
-</pre><pre class="rust"><code><span class="doccomment">//! Triangle scanline intersections iterator.</span>
+</pre><pre class="rust"><code><span class="doccomment">//! Triangle scanline intersections iterator.
 
-<span class="kw">use</span> <span class="kw">crate</span>::{
-    <span class="ident">geometry::Point</span>,
-    <span class="ident">primitives</span>::{
-        <span class="ident">common</span>::{<span class="ident">LineJoin</span>, <span class="ident">PointType</span>, <span class="ident">Scanline</span>, <span class="ident">StrokeOffset</span>, <span class="ident">ThickSegment</span>},
-        <span class="ident">Triangle</span>,
+</span><span class="kw">use crate</span>::{
+    geometry::Point,
+    primitives::{
+        common::{LineJoin, PointType, Scanline, StrokeOffset, ThickSegment},
+        Triangle,
     },
 };
 
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Clone</span>, <span class="ident">Eq</span>, <span class="ident">PartialEq</span>, <span class="ident">Hash</span>, <span class="ident">Debug</span>)]</span>
-<span class="kw">struct</span> <span class="ident">LineConfig</span> {
-    <span class="ident">first</span>: <span class="ident">Scanline</span>,
-    <span class="ident">second</span>: <span class="ident">Scanline</span>,
-    <span class="ident">internal</span>: <span class="ident">Scanline</span>,
-    <span class="ident">internal_type</span>: <span class="ident">PointType</span>,
+<span class="attribute">#[derive(Clone, Eq, PartialEq, Hash, Debug)]
+</span><span class="kw">struct </span>LineConfig {
+    first: Scanline,
+    second: Scanline,
+    internal: Scanline,
+    internal_type: PointType,
 }
 
-<span class="doccomment">/// Triangle scanline intersections iterator.</span>
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Clone</span>, <span class="ident">Eq</span>, <span class="ident">PartialEq</span>, <span class="ident">Hash</span>, <span class="ident">Debug</span>)]</span>
-<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">ScanlineIntersections</span> {
-    <span class="ident">lines</span>: <span class="ident">LineConfig</span>,
-    <span class="ident">triangle</span>: <span class="ident">Triangle</span>,
-    <span class="ident">stroke_width</span>: <span class="ident">u32</span>,
-    <span class="ident">stroke_offset</span>: <span class="ident">StrokeOffset</span>,
-    <span class="ident">has_fill</span>: <span class="ident">bool</span>,
-    <span class="ident">is_collapsed</span>: <span class="ident">bool</span>,
+<span class="doccomment">/// Triangle scanline intersections iterator.
+</span><span class="attribute">#[derive(Clone, Eq, PartialEq, Hash, Debug)]
+</span><span class="kw">pub struct </span>ScanlineIntersections {
+    lines: LineConfig,
+    triangle: Triangle,
+    stroke_width: u32,
+    stroke_offset: StrokeOffset,
+    has_fill: bool,
+    is_collapsed: bool,
 }
 
-<span class="kw">impl</span> <span class="ident">ScanlineIntersections</span> {
-    <span class="doccomment">/// Create a new thick segments iterator.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>(
-        <span class="ident">triangle</span>: <span class="kw-2">&amp;</span><span class="ident">Triangle</span>,
-        <span class="ident">stroke_width</span>: <span class="ident">u32</span>,
-        <span class="ident">stroke_offset</span>: <span class="ident">StrokeOffset</span>,
-        <span class="ident">has_fill</span>: <span class="ident">bool</span>,
-        <span class="ident">scanline_y</span>: <span class="ident">i32</span>,
-    ) -&gt; <span class="self">Self</span> {
-        <span class="comment">// Special case: If thick strokes completely fill the triangle interior and the stroke is</span>
-        <span class="comment">// inside the triangle, the normal triangle shape can be used to detect the intersection,</span>
-        <span class="comment">// with the line type being marked as Border so, when rendered, the correct color is used.</span>
-        <span class="kw">let</span> <span class="ident">is_collapsed</span> <span class="op">=</span> <span class="ident">triangle</span>.<span class="ident">is_collapsed</span>(<span class="ident">stroke_width</span>, <span class="ident">stroke_offset</span>)
-            <span class="op">&amp;&amp;</span> <span class="ident">stroke_offset</span> <span class="op">==</span> <span class="ident">StrokeOffset::Right</span>;
+<span class="kw">impl </span>ScanlineIntersections {
+    <span class="doccomment">/// Create a new thick segments iterator.
+    </span><span class="kw">pub fn </span>new(
+        triangle: <span class="kw-2">&amp;</span>Triangle,
+        stroke_width: u32,
+        stroke_offset: StrokeOffset,
+        has_fill: bool,
+        scanline_y: i32,
+    ) -&gt; <span class="self">Self </span>{
+        <span class="comment">// Special case: If thick strokes completely fill the triangle interior and the stroke is
+        // inside the triangle, the normal triangle shape can be used to detect the intersection,
+        // with the line type being marked as Border so, when rendered, the correct color is used.
+        </span><span class="kw">let </span>is_collapsed = triangle.is_collapsed(stroke_width, stroke_offset)
+            &amp;&amp; stroke_offset == StrokeOffset::Right;
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">self_</span> <span class="op">=</span> <span class="self">Self</span> {
-            <span class="ident">has_fill</span>,
-            <span class="ident">triangle</span>: <span class="kw-2">*</span><span class="ident">triangle</span>,
-            <span class="ident">stroke_offset</span>,
-            <span class="ident">stroke_width</span>,
-            <span class="ident">is_collapsed</span>,
-            ..<span class="ident"><span class="self">Self</span>::empty</span>()
+        <span class="kw">let </span><span class="kw-2">mut </span>self_ = <span class="self">Self </span>{
+            has_fill,
+            triangle: <span class="kw-2">*</span>triangle,
+            stroke_offset,
+            stroke_width,
+            is_collapsed,
+            ..<span class="self">Self</span>::empty()
         };
 
-        <span class="ident">self_</span>.<span class="ident">reset_with_new_scanline</span>(<span class="ident">scanline_y</span>);
+        self_.reset_with_new_scanline(scanline_y);
 
-        <span class="ident">self_</span>
+        self_
     }
 
-    <span class="doccomment">/// Empty.</span>
-    <span class="kw">pub</span> <span class="kw">const</span> <span class="kw">fn</span> <span class="ident">empty</span>() -&gt; <span class="self">Self</span> {
-        <span class="self">Self</span> {
-            <span class="ident">lines</span>: <span class="ident">LineConfig</span> {
-                <span class="ident">first</span>: <span class="ident">Scanline::new_empty</span>(<span class="number">0</span>),
-                <span class="ident">second</span>: <span class="ident">Scanline::new_empty</span>(<span class="number">0</span>),
-                <span class="ident">internal</span>: <span class="ident">Scanline::new_empty</span>(<span class="number">0</span>),
-                <span class="ident">internal_type</span>: <span class="ident">PointType::Fill</span>,
+    <span class="doccomment">/// Empty.
+    </span><span class="kw">pub const fn </span>empty() -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{
+            lines: LineConfig {
+                first: Scanline::new_empty(<span class="number">0</span>),
+                second: Scanline::new_empty(<span class="number">0</span>),
+                internal: Scanline::new_empty(<span class="number">0</span>),
+                internal_type: PointType::Fill,
             },
-            <span class="ident">has_fill</span>: <span class="bool-val">false</span>,
-            <span class="ident">triangle</span>: <span class="ident">Triangle::new</span>(<span class="ident">Point::zero</span>(), <span class="ident">Point::zero</span>(), <span class="ident">Point::zero</span>()),
-            <span class="ident">stroke_width</span>: <span class="number">0</span>,
-            <span class="ident">stroke_offset</span>: <span class="ident">StrokeOffset::None</span>,
-            <span class="ident">is_collapsed</span>: <span class="bool-val">false</span>,
+            has_fill: <span class="bool-val">false</span>,
+            triangle: Triangle::new(Point::zero(), Point::zero(), Point::zero()),
+            stroke_width: <span class="number">0</span>,
+            stroke_offset: StrokeOffset::None,
+            is_collapsed: <span class="bool-val">false</span>,
         }
     }
 
-    <span class="doccomment">/// Reset with a new scanline.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">reset_with_new_scanline</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>, <span class="ident">scanline_y</span>: <span class="ident">i32</span>) {
-        <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">lines</span>) <span class="op">=</span> <span class="self">self</span>.<span class="ident">generate_lines</span>(<span class="ident">scanline_y</span>) {
-            <span class="self">self</span>.<span class="ident">lines</span> <span class="op">=</span> <span class="ident">lines</span>
+    <span class="doccomment">/// Reset with a new scanline.
+    </span><span class="kw">pub fn </span>reset_with_new_scanline(<span class="kw-2">&amp;mut </span><span class="self">self</span>, scanline_y: i32) {
+        <span class="kw">if let </span><span class="prelude-val">Some</span>(lines) = <span class="self">self</span>.generate_lines(scanline_y) {
+            <span class="self">self</span>.lines = lines
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">edge_intersections</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">scanline_y</span>: <span class="ident">i32</span>) -&gt; <span class="kw">impl</span> <span class="ident">Iterator</span><span class="op">&lt;</span><span class="ident">Item</span> <span class="op">=</span> <span class="ident">Scanline</span><span class="op">&gt;</span> <span class="op">+</span> <span class="lifetime">&#39;_</span> {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">idx</span> <span class="op">=</span> <span class="number">0</span>;
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">left</span> <span class="op">=</span> <span class="ident">Scanline::new_empty</span>(<span class="ident">scanline_y</span>);
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">right</span> <span class="op">=</span> <span class="ident">Scanline::new_empty</span>(<span class="ident">scanline_y</span>);
+    <span class="kw">fn </span>edge_intersections(<span class="kw-2">&amp;</span><span class="self">self</span>, scanline_y: i32) -&gt; <span class="kw">impl </span>Iterator&lt;Item = Scanline&gt; + <span class="lifetime">&#39;_ </span>{
+        <span class="kw">let </span><span class="kw-2">mut </span>idx = <span class="number">0</span>;
+        <span class="kw">let </span><span class="kw-2">mut </span>left = Scanline::new_empty(scanline_y);
+        <span class="kw">let </span><span class="kw-2">mut </span>right = Scanline::new_empty(scanline_y);
 
-        <span class="ident">core::iter::from_fn</span>(<span class="kw">move</span> <span class="op">|</span><span class="op">|</span> {
-            <span class="kw">if</span> <span class="self">self</span>.<span class="ident">stroke_width</span> <span class="op">==</span> <span class="number">0</span> {
-                <span class="kw">return</span> <span class="prelude-val">None</span>;
+        core::iter::from_fn(<span class="kw">move </span>|| {
+            <span class="kw">if </span><span class="self">self</span>.stroke_width == <span class="number">0 </span>{
+                <span class="kw">return </span><span class="prelude-val">None</span>;
             }
 
-            <span class="kw">while</span> <span class="ident">idx</span> <span class="op">&lt;</span> <span class="number">3</span> {
-                <span class="kw">let</span> <span class="ident">start</span> <span class="op">=</span> <span class="ident">LineJoin::from_points</span>(
-                    <span class="self">self</span>.<span class="ident">triangle</span>.<span class="ident">vertices</span>[<span class="ident">idx</span> <span class="op">%</span> <span class="number">3</span>],
-                    <span class="self">self</span>.<span class="ident">triangle</span>.<span class="ident">vertices</span>[(<span class="ident">idx</span> <span class="op">+</span> <span class="number">1</span>) <span class="op">%</span> <span class="number">3</span>],
-                    <span class="self">self</span>.<span class="ident">triangle</span>.<span class="ident">vertices</span>[(<span class="ident">idx</span> <span class="op">+</span> <span class="number">2</span>) <span class="op">%</span> <span class="number">3</span>],
-                    <span class="self">self</span>.<span class="ident">stroke_width</span>,
-                    <span class="self">self</span>.<span class="ident">stroke_offset</span>,
+            <span class="kw">while </span>idx &lt; <span class="number">3 </span>{
+                <span class="kw">let </span>start = LineJoin::from_points(
+                    <span class="self">self</span>.triangle.vertices[idx % <span class="number">3</span>],
+                    <span class="self">self</span>.triangle.vertices[(idx + <span class="number">1</span>) % <span class="number">3</span>],
+                    <span class="self">self</span>.triangle.vertices[(idx + <span class="number">2</span>) % <span class="number">3</span>],
+                    <span class="self">self</span>.stroke_width,
+                    <span class="self">self</span>.stroke_offset,
                 );
-                <span class="kw">let</span> <span class="ident">end</span> <span class="op">=</span> <span class="ident">LineJoin::from_points</span>(
-                    <span class="self">self</span>.<span class="ident">triangle</span>.<span class="ident">vertices</span>[(<span class="ident">idx</span> <span class="op">+</span> <span class="number">1</span>) <span class="op">%</span> <span class="number">3</span>],
-                    <span class="self">self</span>.<span class="ident">triangle</span>.<span class="ident">vertices</span>[(<span class="ident">idx</span> <span class="op">+</span> <span class="number">2</span>) <span class="op">%</span> <span class="number">3</span>],
-                    <span class="self">self</span>.<span class="ident">triangle</span>.<span class="ident">vertices</span>[(<span class="ident">idx</span> <span class="op">+</span> <span class="number">3</span>) <span class="op">%</span> <span class="number">3</span>],
-                    <span class="self">self</span>.<span class="ident">stroke_width</span>,
-                    <span class="self">self</span>.<span class="ident">stroke_offset</span>,
+                <span class="kw">let </span>end = LineJoin::from_points(
+                    <span class="self">self</span>.triangle.vertices[(idx + <span class="number">1</span>) % <span class="number">3</span>],
+                    <span class="self">self</span>.triangle.vertices[(idx + <span class="number">2</span>) % <span class="number">3</span>],
+                    <span class="self">self</span>.triangle.vertices[(idx + <span class="number">3</span>) % <span class="number">3</span>],
+                    <span class="self">self</span>.stroke_width,
+                    <span class="self">self</span>.stroke_offset,
                 );
 
-                <span class="ident">idx</span> <span class="op">+</span><span class="op">=</span> <span class="number">1</span>;
+                idx += <span class="number">1</span>;
 
-                <span class="kw">let</span> <span class="ident">scanline</span> <span class="op">=</span> <span class="ident">ThickSegment::new</span>(<span class="ident">start</span>, <span class="ident">end</span>).<span class="ident">intersection</span>(<span class="ident">scanline_y</span>);
+                <span class="kw">let </span>scanline = ThickSegment::new(start, end).intersection(scanline_y);
 
-                <span class="kw">if</span> <span class="op">!</span><span class="ident">left</span>.<span class="ident">is_empty</span>() {
-                    <span class="kw">if</span> <span class="ident">left</span>.<span class="ident">try_extend</span>(<span class="kw-2">&amp;</span><span class="ident">scanline</span>) {
+                <span class="kw">if </span>!left.is_empty() {
+                    <span class="kw">if </span>left.try_extend(<span class="kw-2">&amp;</span>scanline) {
                         <span class="kw">continue</span>;
                     }
-                } <span class="kw">else</span> {
-                    <span class="ident">left</span> <span class="op">=</span> <span class="ident">scanline</span>;
+                } <span class="kw">else </span>{
+                    left = scanline;
                     <span class="kw">continue</span>;
                 }
 
-                <span class="kw">if</span> <span class="op">!</span><span class="ident">right</span>.<span class="ident">is_empty</span>() {
-                    <span class="ident">right</span>.<span class="ident">try_extend</span>(<span class="kw-2">&amp;</span><span class="ident">scanline</span>);
-                } <span class="kw">else</span> {
-                    <span class="ident">right</span> <span class="op">=</span> <span class="ident">scanline</span>;
+                <span class="kw">if </span>!right.is_empty() {
+                    right.try_extend(<span class="kw-2">&amp;</span>scanline);
+                } <span class="kw">else </span>{
+                    right = scanline;
                 }
             }
 
-            <span class="comment">// Merge any overlap between final left/right results</span>
-            <span class="kw">if</span> <span class="ident">left</span>.<span class="ident">try_extend</span>(<span class="kw-2">&amp;</span><span class="ident">right</span>) {
-                <span class="ident">right</span> <span class="op">=</span> <span class="ident">Scanline::new_empty</span>(<span class="ident">scanline_y</span>);
+            <span class="comment">// Merge any overlap between final left/right results
+            </span><span class="kw">if </span>left.try_extend(<span class="kw-2">&amp;</span>right) {
+                right = Scanline::new_empty(scanline_y);
             }
 
-            <span class="ident">left</span>.<span class="ident">try_take</span>().<span class="ident">or_else</span>(<span class="op">|</span><span class="op">|</span> <span class="ident">right</span>.<span class="ident">try_take</span>())
+            left.try_take().or_else(|| right.try_take())
         })
     }
 
-    <span class="kw">fn</span> <span class="ident">generate_lines</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">scanline_y</span>: <span class="ident">i32</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">LineConfig</span><span class="op">&gt;</span> {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">edge_intersections</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">edge_intersections</span>(<span class="ident">scanline_y</span>);
+    <span class="kw">fn </span>generate_lines(<span class="kw-2">&amp;</span><span class="self">self</span>, scanline_y: i32) -&gt; <span class="prelude-ty">Option</span>&lt;LineConfig&gt; {
+        <span class="kw">let </span><span class="kw-2">mut </span>edge_intersections = <span class="self">self</span>.edge_intersections(scanline_y);
 
-        <span class="kw">if</span> <span class="self">self</span>.<span class="ident">is_collapsed</span> {
-            <span class="prelude-val">Some</span>(<span class="ident">LineConfig</span> {
-                <span class="ident">internal</span>: <span class="self">self</span>.<span class="ident">triangle</span>.<span class="ident">scanline_intersection</span>(<span class="ident">scanline_y</span>),
-                <span class="ident">internal_type</span>: <span class="ident">PointType::Stroke</span>,
-                <span class="ident">first</span>: <span class="ident">Scanline::new_empty</span>(<span class="number">0</span>),
-                <span class="ident">second</span>: <span class="ident">Scanline::new_empty</span>(<span class="number">0</span>),
+        <span class="kw">if </span><span class="self">self</span>.is_collapsed {
+            <span class="prelude-val">Some</span>(LineConfig {
+                internal: <span class="self">self</span>.triangle.scanline_intersection(scanline_y),
+                internal_type: PointType::Stroke,
+                first: Scanline::new_empty(<span class="number">0</span>),
+                second: Scanline::new_empty(<span class="number">0</span>),
             })
-        } <span class="kw">else</span> {
-            <span class="kw">let</span> <span class="ident">first</span> <span class="op">=</span> <span class="ident">edge_intersections</span>.<span class="ident">next</span>();
+        } <span class="kw">else </span>{
+            <span class="kw">let </span>first = edge_intersections.next();
 
-            <span class="comment">// For scanlines that are parallel with and are inside one edge, this should be None.</span>
-            <span class="kw">let</span> <span class="ident">second</span> <span class="op">=</span> <span class="ident">edge_intersections</span>.<span class="ident">next</span>();
+            <span class="comment">// For scanlines that are parallel with and are inside one edge, this should be None.
+            </span><span class="kw">let </span>second = edge_intersections.next();
 
-            <span class="comment">// If there are two intersections, this must mean we&#39;ve traversed across the center of the</span>
-            <span class="comment">// triangle (assuming the edge line merging logic is correct). In this case, we need a</span>
-            <span class="comment">// scanline between the two edge intersections.</span>
-            <span class="kw">let</span> <span class="ident">internal</span> <span class="op">=</span> <span class="kw">if</span> <span class="self">self</span>.<span class="ident">has_fill</span> {
-                <span class="kw">match</span> (<span class="kw-2">&amp;</span><span class="ident">first</span>, <span class="kw-2">&amp;</span><span class="ident">second</span>) {
-                    <span class="comment">// Triangle stroke is non-zero, so the fill line is between the insides of each</span>
-                    <span class="comment">// stroke.</span>
-                    (<span class="prelude-val">Some</span>(<span class="ident">first</span>), <span class="prelude-val">Some</span>(<span class="ident">second</span>)) =&gt; {
-                        <span class="kw">let</span> <span class="ident">start_x</span> <span class="op">=</span> <span class="ident">first</span>.<span class="ident">x</span>.<span class="ident">end</span>.<span class="ident">min</span>(<span class="ident">second</span>.<span class="ident">x</span>.<span class="ident">end</span>);
-                        <span class="kw">let</span> <span class="ident">end_x</span> <span class="op">=</span> <span class="ident">first</span>.<span class="ident">x</span>.<span class="ident">start</span>.<span class="ident">max</span>(<span class="ident">second</span>.<span class="ident">x</span>.<span class="ident">start</span>);
+            <span class="comment">// If there are two intersections, this must mean we&#39;ve traversed across the center of the
+            // triangle (assuming the edge line merging logic is correct). In this case, we need a
+            // scanline between the two edge intersections.
+            </span><span class="kw">let </span>internal = <span class="kw">if </span><span class="self">self</span>.has_fill {
+                <span class="kw">match </span>(<span class="kw-2">&amp;</span>first, <span class="kw-2">&amp;</span>second) {
+                    <span class="comment">// Triangle stroke is non-zero, so the fill line is between the insides of each
+                    // stroke.
+                    </span>(<span class="prelude-val">Some</span>(first), <span class="prelude-val">Some</span>(second)) =&gt; {
+                        <span class="kw">let </span>start_x = first.x.end.min(second.x.end);
+                        <span class="kw">let </span>end_x = first.x.start.max(second.x.start);
 
-                        <span class="ident">Scanline</span> {
-                            <span class="ident">x</span>: <span class="ident">start_x</span>..<span class="ident">end_x</span>,
-                            <span class="ident">y</span>: <span class="ident">scanline_y</span>,
+                        Scanline {
+                            x: start_x..end_x,
+                            y: scanline_y,
                         }
                     }
-                    <span class="comment">// Triangles with no stroke intersections and a fill color.</span>
-                    (<span class="prelude-val">None</span>, <span class="prelude-val">None</span>) =&gt; <span class="self">self</span>.<span class="ident">triangle</span>.<span class="ident">scanline_intersection</span>(<span class="ident">scanline_y</span>),
-                    <span class="comment">// Because a triangle is a closed shape, a single intersection here likely means</span>
-                    <span class="comment">// we&#39;re inside one of the borders, so no fill should be returned for this</span>
-                    <span class="comment">// scanline.</span>
-                    <span class="kw">_</span> =&gt; <span class="ident">Scanline::new_empty</span>(<span class="ident">scanline_y</span>),
+                    <span class="comment">// Triangles with no stroke intersections and a fill color.
+                    </span>(<span class="prelude-val">None</span>, <span class="prelude-val">None</span>) =&gt; <span class="self">self</span>.triangle.scanline_intersection(scanline_y),
+                    <span class="comment">// Because a triangle is a closed shape, a single intersection here likely means
+                    // we&#39;re inside one of the borders, so no fill should be returned for this
+                    // scanline.
+                    </span><span class="kw">_ </span>=&gt; Scanline::new_empty(scanline_y),
                 }
-            } <span class="kw">else</span> {
-                <span class="ident">Scanline::new_empty</span>(<span class="ident">scanline_y</span>)
+            } <span class="kw">else </span>{
+                Scanline::new_empty(scanline_y)
             };
 
-            <span class="prelude-val">Some</span>(<span class="ident">LineConfig</span> {
-                <span class="ident">first</span>: <span class="ident">first</span>.<span class="ident">unwrap_or</span>(<span class="ident">Scanline::new_empty</span>(<span class="ident">scanline_y</span>)),
-                <span class="ident">second</span>: <span class="ident">second</span>.<span class="ident">unwrap_or</span>(<span class="ident">Scanline::new_empty</span>(<span class="ident">scanline_y</span>)),
-                <span class="ident">internal</span>,
-                <span class="ident">internal_type</span>: <span class="ident">PointType::Fill</span>,
+            <span class="prelude-val">Some</span>(LineConfig {
+                first: first.unwrap_or(Scanline::new_empty(scanline_y)),
+                second: second.unwrap_or(Scanline::new_empty(scanline_y)),
+                internal,
+                internal_type: PointType::Fill,
             })
         }
     }
 }
 
-<span class="kw">impl</span> <span class="ident">Iterator</span> <span class="kw">for</span> <span class="ident">ScanlineIntersections</span> {
-    <span class="kw">type</span> <span class="ident">Item</span> <span class="op">=</span> (<span class="ident">Scanline</span>, <span class="ident">PointType</span>);
+<span class="kw">impl </span>Iterator <span class="kw">for </span>ScanlineIntersections {
+    <span class="kw">type </span>Item = (Scanline, PointType);
 
-    <span class="kw">fn</span> <span class="ident">next</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Item</span><span class="op">&gt;</span> {
-        <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">internal</span>) <span class="op">=</span> <span class="self">self</span>.<span class="ident">lines</span>.<span class="ident">internal</span>.<span class="ident">try_take</span>() {
-            <span class="prelude-val">Some</span>((<span class="ident">internal</span>, <span class="self">self</span>.<span class="ident">lines</span>.<span class="ident">internal_type</span>))
-        } <span class="kw">else</span> <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">first</span>) <span class="op">=</span> <span class="self">self</span>.<span class="ident">lines</span>.<span class="ident">first</span>.<span class="ident">try_take</span>() {
-            <span class="prelude-val">Some</span>((<span class="ident">first</span>, <span class="ident">PointType::Stroke</span>))
-        } <span class="kw">else</span> <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">second</span>) <span class="op">=</span> <span class="self">self</span>.<span class="ident">lines</span>.<span class="ident">second</span>.<span class="ident">try_take</span>() {
-            <span class="prelude-val">Some</span>((<span class="ident">second</span>, <span class="ident">PointType::Stroke</span>))
-        } <span class="kw">else</span> {
-            <span class="prelude-val">None</span>
-        }
+    <span class="kw">fn </span>next(<span class="kw-2">&amp;mut </span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="self">Self</span>::Item&gt; {
+        <span class="kw">if let </span><span class="prelude-val">Some</span>(internal) = <span class="self">self</span>.lines.internal.try_take() {
+            <span class="prelude-val">Some</span>((internal, <span class="self">self</span>.lines.internal_type))
+        } <span class="kw">else if let </span><span class="prelude-val">Some</span>(first) = <span class="self">self</span>.lines.first.try_take() {
+            <span class="prelude-val">Some</span>((first, PointType::Stroke))
+        } <span class="kw">else if let </span><span class="prelude-val">Some</span>(second) = <span class="self">self</span>.lines.second.try_take() {
+            <span class="prelude-val">Some</span>((second, PointType::Stroke))
+        } <span class="kw">else </span>{
+            <span class="prelude-val">None
+        </span>}
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../../" data-current-crate="embedded_graphics" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0 (a55dd71d5 2022-09-19)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../../" data-current-crate="embedded_graphics" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0 (69f9c33d7 2022-12-12)" ></div></body></html>

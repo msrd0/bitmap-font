@@ -1,6 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.1/src/primitives/line/points.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>points.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../../storage.js"></script><script defer src="../../../../source-script.js"></script><script defer src="../../../../source-files.js"></script><script defer src="../../../../main.js"></script><noscript><link rel="stylesheet" href="../../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../../embedded_graphics/index.html"><div class="logo-container"><img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../../embedded_graphics/index.html"><div class="logo-container">
-                    <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../../embedded_graphics/index.html">
-                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.1/src/primitives/line/points.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>points.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../../normalize.css"><link rel="stylesheet" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../../ayu.css" disabled><link rel="stylesheet" href="../../../../dark.css" disabled><link rel="stylesheet" href="../../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../../storage.js"></script><script defer src="../../../../source-script.js"></script><script defer src="../../../../source-files.js"></script><script defer src="../../../../main.js"></script><noscript><link rel="stylesheet" href="../../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../../embedded_graphics/index.html">
+                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../wheel.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -245,110 +244,110 @@
 <span id="243">243</span>
 <span id="244">244</span>
 <span id="245">245</span>
-</pre><pre class="rust"><code><span class="kw">use</span> <span class="kw">crate</span>::{
-    <span class="ident">geometry::Point</span>,
-    <span class="ident">primitives::line</span>::{
-        <span class="ident">bresenham</span>::{<span class="self">self</span>, <span class="ident">Bresenham</span>, <span class="ident">BresenhamParameters</span>},
-        <span class="ident">Line</span>,
+</pre><pre class="rust"><code><span class="kw">use crate</span>::{
+    geometry::Point,
+    primitives::line::{
+        bresenham::{<span class="self">self</span>, Bresenham, BresenhamParameters},
+        Line,
     },
 };
 
-<span class="doccomment">/// Iterator over all points on the line.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// See the [`points`] method documentation for more details.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// [`points`]: struct.Line.html#method.points</span>
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Copy</span>, <span class="ident">Clone</span>, <span class="ident">Eq</span>, <span class="ident">PartialEq</span>, <span class="ident">Ord</span>, <span class="ident">PartialOrd</span>, <span class="ident">Hash</span>, <span class="ident">Debug</span>)]</span>
-<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Points</span> {
-    <span class="ident">parameters</span>: <span class="ident">BresenhamParameters</span>,
-    <span class="ident">bresenham</span>: <span class="ident">Bresenham</span>,
-    <span class="ident">points_remaining</span>: <span class="ident">u32</span>,
+<span class="doccomment">/// Iterator over all points on the line.
+///
+/// See the [`points`] method documentation for more details.
+///
+/// [`points`]: struct.Line.html#method.points
+</span><span class="attribute">#[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Hash, Debug)]
+</span><span class="kw">pub struct </span>Points {
+    parameters: BresenhamParameters,
+    bresenham: Bresenham,
+    points_remaining: u32,
 }
 
-<span class="kw">impl</span> <span class="ident">Points</span> {
-    <span class="doccomment">/// Creates an iterator over all points on the given line.</span>
-    <span class="kw">pub</span>(<span class="kw">in</span> <span class="ident"><span class="kw">crate</span>::primitives</span>) <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">line</span>: <span class="kw-2">&amp;</span><span class="ident">Line</span>) -&gt; <span class="self">Self</span> {
-        <span class="kw">let</span> <span class="ident">length</span> <span class="op">=</span> <span class="ident">bresenham::major_length</span>(<span class="ident">line</span>);
-        <span class="kw">let</span> <span class="ident">parameters</span> <span class="op">=</span> <span class="ident">BresenhamParameters::new</span>(<span class="ident">line</span>);
-        <span class="kw">let</span> <span class="ident">bresenham</span> <span class="op">=</span> <span class="ident">Bresenham::new</span>(<span class="ident">line</span>.<span class="ident">start</span>);
+<span class="kw">impl </span>Points {
+    <span class="doccomment">/// Creates an iterator over all points on the given line.
+    </span><span class="kw">pub</span>(<span class="kw">in </span><span class="kw">crate</span>::primitives) <span class="kw">fn </span>new(line: <span class="kw-2">&amp;</span>Line) -&gt; <span class="self">Self </span>{
+        <span class="kw">let </span>length = bresenham::major_length(line);
+        <span class="kw">let </span>parameters = BresenhamParameters::new(line);
+        <span class="kw">let </span>bresenham = Bresenham::new(line.start);
 
-        <span class="self">Self</span> {
-            <span class="ident">parameters</span>,
-            <span class="ident">bresenham</span>,
-            <span class="ident">points_remaining</span>: <span class="ident">length</span>,
+        <span class="self">Self </span>{
+            parameters,
+            bresenham,
+            points_remaining: length,
         }
     }
 
-    <span class="doccomment">/// Creates an empty iterator.</span>
-    <span class="kw">pub</span>(<span class="kw">in</span> <span class="ident"><span class="kw">crate</span>::primitives</span>) <span class="kw">fn</span> <span class="ident">empty</span>() -&gt; <span class="self">Self</span> {
-        <span class="kw">let</span> <span class="ident">dummy</span> <span class="op">=</span> <span class="ident">Line::new</span>(<span class="ident">Point::zero</span>(), <span class="ident">Point::zero</span>());
+    <span class="doccomment">/// Creates an empty iterator.
+    </span><span class="kw">pub</span>(<span class="kw">in </span><span class="kw">crate</span>::primitives) <span class="kw">fn </span>empty() -&gt; <span class="self">Self </span>{
+        <span class="kw">let </span>dummy = Line::new(Point::zero(), Point::zero());
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">self_</span> <span class="op">=</span> <span class="ident"><span class="self">Self</span>::new</span>(<span class="kw-2">&amp;</span><span class="ident">dummy</span>);
-        <span class="ident">self_</span>.<span class="ident">points_remaining</span> <span class="op">=</span> <span class="number">0</span>;
+        <span class="kw">let </span><span class="kw-2">mut </span>self_ = <span class="self">Self</span>::new(<span class="kw-2">&amp;</span>dummy);
+        self_.points_remaining = <span class="number">0</span>;
 
-        <span class="ident">self_</span>
+        self_
     }
 }
 
-<span class="kw">impl</span> <span class="ident">Iterator</span> <span class="kw">for</span> <span class="ident">Points</span> {
-    <span class="kw">type</span> <span class="ident">Item</span> <span class="op">=</span> <span class="ident">Point</span>;
+<span class="kw">impl </span>Iterator <span class="kw">for </span>Points {
+    <span class="kw">type </span>Item = Point;
 
-    <span class="kw">fn</span> <span class="ident">next</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Item</span><span class="op">&gt;</span> {
-        <span class="kw">if</span> <span class="self">self</span>.<span class="ident">points_remaining</span> <span class="op">&gt;</span> <span class="number">0</span> {
-            <span class="self">self</span>.<span class="ident">points_remaining</span> <span class="op">-</span><span class="op">=</span> <span class="number">1</span>;
+    <span class="kw">fn </span>next(<span class="kw-2">&amp;mut </span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="self">Self</span>::Item&gt; {
+        <span class="kw">if </span><span class="self">self</span>.points_remaining &gt; <span class="number">0 </span>{
+            <span class="self">self</span>.points_remaining -= <span class="number">1</span>;
 
-            <span class="prelude-val">Some</span>(<span class="self">self</span>.<span class="ident">bresenham</span>.<span class="ident">next</span>(<span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">parameters</span>))
-        } <span class="kw">else</span> {
-            <span class="prelude-val">None</span>
-        }
+            <span class="prelude-val">Some</span>(<span class="self">self</span>.bresenham.next(<span class="kw-2">&amp;</span><span class="self">self</span>.parameters))
+        } <span class="kw">else </span>{
+            <span class="prelude-val">None
+        </span>}
     }
 }
 
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
-<span class="kw">mod</span> <span class="ident">tests</span> {
+<span class="attribute">#[cfg(test)]
+</span><span class="kw">mod </span>tests {
 
-    <span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
-    <span class="kw">use</span> <span class="kw">crate</span>::{
-        <span class="ident">iterator::PixelIteratorExt</span>, <span class="ident">mock_display::MockDisplay</span>, <span class="ident">pixelcolor::BinaryColor</span>,
-        <span class="ident">primitives::PointsIter</span>, <span class="ident">Pixel</span>,
+    <span class="kw">use super</span>::<span class="kw-2">*</span>;
+    <span class="kw">use crate</span>::{
+        iterator::PixelIteratorExt, mock_display::MockDisplay, pixelcolor::BinaryColor,
+        primitives::PointsIter, Pixel,
     };
 
-    <span class="kw">fn</span> <span class="ident">test_points</span>(<span class="ident">start</span>: <span class="ident">Point</span>, <span class="ident">end</span>: <span class="ident">Point</span>, <span class="ident">expected</span>: <span class="kw-2">&amp;</span>[(<span class="ident">i32</span>, <span class="ident">i32</span>)]) {
-        <span class="kw">let</span> <span class="ident">expected</span> <span class="op">=</span> <span class="ident">expected</span>.<span class="ident">iter</span>().<span class="ident">copied</span>().<span class="ident">map</span>(<span class="ident">Point::from</span>);
+    <span class="kw">fn </span>test_points(start: Point, end: Point, expected: <span class="kw-2">&amp;</span>[(i32, i32)]) {
+        <span class="kw">let </span>expected = expected.iter().copied().map(Point::from);
 
-        <span class="kw">let</span> <span class="ident">points</span> <span class="op">=</span> <span class="ident">Line::new</span>(<span class="ident">start</span>, <span class="ident">end</span>).<span class="ident">points</span>();
-        <span class="macro">assert!</span>(<span class="ident">points</span>.<span class="ident">eq</span>(<span class="ident">expected</span>));
+        <span class="kw">let </span>points = Line::new(start, end).points();
+        <span class="macro">assert!</span>(points.eq(expected));
     }
 
-    <span class="kw">fn</span> <span class="ident">draw_lines</span>(<span class="ident">delta</span>: <span class="ident">Point</span>) -&gt; <span class="ident">MockDisplay</span><span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span> {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
+    <span class="kw">fn </span>draw_lines(delta: Point) -&gt; MockDisplay&lt;BinaryColor&gt; {
+        <span class="kw">let </span><span class="kw-2">mut </span>display = MockDisplay::new();
 
-        <span class="kw">for</span> <span class="kw-2">&amp;</span><span class="ident">quadrant</span> <span class="kw">in</span> <span class="kw-2">&amp;</span>[
-            <span class="ident">Point::new</span>(<span class="op">-</span><span class="number">1</span>, <span class="op">-</span><span class="number">1</span>),
-            <span class="ident">Point::new</span>(<span class="number">1</span>, <span class="op">-</span><span class="number">1</span>),
-            <span class="ident">Point::new</span>(<span class="op">-</span><span class="number">1</span>, <span class="number">1</span>),
-            <span class="ident">Point::new</span>(<span class="number">1</span>, <span class="number">1</span>),
+        <span class="kw">for </span><span class="kw-2">&amp;</span>quadrant <span class="kw">in </span><span class="kw-2">&amp;</span>[
+            Point::new(-<span class="number">1</span>, -<span class="number">1</span>),
+            Point::new(<span class="number">1</span>, -<span class="number">1</span>),
+            Point::new(-<span class="number">1</span>, <span class="number">1</span>),
+            Point::new(<span class="number">1</span>, <span class="number">1</span>),
         ] {
-            <span class="kw">let</span> <span class="ident">center</span> <span class="op">=</span> <span class="ident">delta</span> <span class="op">+</span> <span class="ident">Point::new_equal</span>(<span class="number">1</span>);
-            <span class="kw">let</span> <span class="ident">start</span> <span class="op">=</span> <span class="ident">center</span> <span class="op">+</span> <span class="ident">quadrant</span>;
-            <span class="kw">let</span> <span class="ident">end</span> <span class="op">=</span> <span class="ident">start</span> <span class="op">+</span> <span class="ident">Point::new</span>(<span class="ident">delta</span>.<span class="ident">x</span> <span class="op">*</span> <span class="ident">quadrant</span>.<span class="ident">x</span>, <span class="ident">delta</span>.<span class="ident">y</span> <span class="op">*</span> <span class="ident">quadrant</span>.<span class="ident">y</span>);
+            <span class="kw">let </span>center = delta + Point::new_equal(<span class="number">1</span>);
+            <span class="kw">let </span>start = center + quadrant;
+            <span class="kw">let </span>end = start + Point::new(delta.x * quadrant.x, delta.y * quadrant.y);
 
-            <span class="kw">let</span> <span class="ident">line</span> <span class="op">=</span> <span class="ident">Line::new</span>(<span class="ident">start</span>, <span class="ident">end</span>);
+            <span class="kw">let </span>line = Line::new(start, end);
 
-            <span class="ident">line</span>.<span class="ident">points</span>()
-                .<span class="ident">map</span>(<span class="op">|</span><span class="ident">point</span><span class="op">|</span> <span class="ident">Pixel</span>(<span class="ident">point</span>, <span class="ident">BinaryColor::On</span>))
-                .<span class="ident">draw</span>(<span class="kw-2">&amp;mut</span> <span class="ident">display</span>)
-                .<span class="ident">unwrap</span>();
+            line.points()
+                .map(|point| Pixel(point, BinaryColor::On))
+                .draw(<span class="kw-2">&amp;mut </span>display)
+                .unwrap();
         }
 
-        <span class="ident">display</span>
+        display
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">lines_1</span>() {
-        <span class="kw">let</span> <span class="ident">delta</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="number">6</span>, <span class="number">3</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>lines_1() {
+        <span class="kw">let </span>delta = Point::new(<span class="number">6</span>, <span class="number">3</span>);
 
-        <span class="kw">let</span> <span class="ident">expected</span> <span class="op">=</span> <span class="ident">MockDisplay::from_pattern</span>(<span class="kw-2">&amp;</span>[
+        <span class="kw">let </span>expected = MockDisplay::from_pattern(<span class="kw-2">&amp;</span>[
             <span class="string">&quot;#             #&quot;</span>,
             <span class="string">&quot; ##         ## &quot;</span>,
             <span class="string">&quot;   ##     ##   &quot;</span>,
@@ -360,18 +359,18 @@
             <span class="string">&quot;#             #&quot;</span>,
         ]);
 
-        <span class="ident">draw_lines</span>(<span class="ident">delta</span>).<span class="ident">assert_eq</span>(<span class="kw-2">&amp;</span><span class="ident">expected</span>);
+        draw_lines(delta).assert_eq(<span class="kw-2">&amp;</span>expected);
 
-        <span class="kw">let</span> <span class="ident">expected</span> <span class="op">=</span> <span class="ident">expected</span>.<span class="ident">swap_xy</span>();
-        <span class="kw">let</span> <span class="ident">delta</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="ident">delta</span>.<span class="ident">y</span>, <span class="ident">delta</span>.<span class="ident">x</span>);
-        <span class="ident">draw_lines</span>(<span class="ident">delta</span>).<span class="ident">assert_eq</span>(<span class="kw-2">&amp;</span><span class="ident">expected</span>);
+        <span class="kw">let </span>expected = expected.swap_xy();
+        <span class="kw">let </span>delta = Point::new(delta.y, delta.x);
+        draw_lines(delta).assert_eq(<span class="kw-2">&amp;</span>expected);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">lines_2</span>() {
-        <span class="kw">let</span> <span class="ident">delta</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="number">9</span>, <span class="number">3</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>lines_2() {
+        <span class="kw">let </span>delta = Point::new(<span class="number">9</span>, <span class="number">3</span>);
 
-        <span class="kw">let</span> <span class="ident">expected</span> <span class="op">=</span> <span class="ident">MockDisplay::from_pattern</span>(<span class="kw-2">&amp;</span>[
+        <span class="kw">let </span>expected = MockDisplay::from_pattern(<span class="kw-2">&amp;</span>[
             <span class="string">&quot;##                 ##&quot;</span>,
             <span class="string">&quot;  ###           ###  &quot;</span>,
             <span class="string">&quot;     ###     ###     &quot;</span>,
@@ -382,113 +381,113 @@
             <span class="string">&quot;  ###           ###  &quot;</span>,
             <span class="string">&quot;##                 ##&quot;</span>,
         ]);
-        <span class="ident">draw_lines</span>(<span class="ident">delta</span>).<span class="ident">assert_eq</span>(<span class="kw-2">&amp;</span><span class="ident">expected</span>);
+        draw_lines(delta).assert_eq(<span class="kw-2">&amp;</span>expected);
 
-        <span class="kw">let</span> <span class="ident">expected</span> <span class="op">=</span> <span class="ident">expected</span>.<span class="ident">swap_xy</span>();
-        <span class="kw">let</span> <span class="ident">delta</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="ident">delta</span>.<span class="ident">y</span>, <span class="ident">delta</span>.<span class="ident">x</span>);
-        <span class="ident">draw_lines</span>(<span class="ident">delta</span>).<span class="ident">assert_eq</span>(<span class="kw-2">&amp;</span><span class="ident">expected</span>);
+        <span class="kw">let </span>expected = expected.swap_xy();
+        <span class="kw">let </span>delta = Point::new(delta.y, delta.x);
+        draw_lines(delta).assert_eq(<span class="kw-2">&amp;</span>expected);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">single_pixel</span>() {
-        <span class="kw">let</span> <span class="ident">start</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">10</span>);
-        <span class="kw">let</span> <span class="ident">end</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">10</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>single_pixel() {
+        <span class="kw">let </span>start = Point::new(<span class="number">10</span>, <span class="number">10</span>);
+        <span class="kw">let </span>end = Point::new(<span class="number">10</span>, <span class="number">10</span>);
 
-        <span class="kw">let</span> <span class="ident">expected</span> <span class="op">=</span> [(<span class="number">10</span>, <span class="number">10</span>)];
-        <span class="ident">test_points</span>(<span class="ident">start</span>, <span class="ident">end</span>, <span class="kw-2">&amp;</span><span class="ident">expected</span>);
+        <span class="kw">let </span>expected = [(<span class="number">10</span>, <span class="number">10</span>)];
+        test_points(start, end, <span class="kw-2">&amp;</span>expected);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">short_correctly</span>() {
-        <span class="kw">let</span> <span class="ident">start</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="number">2</span>, <span class="number">3</span>);
-        <span class="kw">let</span> <span class="ident">end</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="number">3</span>, <span class="number">2</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>short_correctly() {
+        <span class="kw">let </span>start = Point::new(<span class="number">2</span>, <span class="number">3</span>);
+        <span class="kw">let </span>end = Point::new(<span class="number">3</span>, <span class="number">2</span>);
 
-        <span class="kw">let</span> <span class="ident">expected</span> <span class="op">=</span> [(<span class="number">2</span>, <span class="number">3</span>), (<span class="number">3</span>, <span class="number">2</span>)];
-        <span class="ident">test_points</span>(<span class="ident">start</span>, <span class="ident">end</span>, <span class="kw-2">&amp;</span><span class="ident">expected</span>);
+        <span class="kw">let </span>expected = [(<span class="number">2</span>, <span class="number">3</span>), (<span class="number">3</span>, <span class="number">2</span>)];
+        test_points(start, end, <span class="kw-2">&amp;</span>expected);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">octant_1_correctly</span>() {
-        <span class="kw">let</span> <span class="ident">start</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">10</span>);
-        <span class="kw">let</span> <span class="ident">end</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="number">15</span>, <span class="number">13</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>octant_1_correctly() {
+        <span class="kw">let </span>start = Point::new(<span class="number">10</span>, <span class="number">10</span>);
+        <span class="kw">let </span>end = Point::new(<span class="number">15</span>, <span class="number">13</span>);
 
-        <span class="kw">let</span> <span class="ident">expected</span> <span class="op">=</span> [(<span class="number">10</span>, <span class="number">10</span>), (<span class="number">11</span>, <span class="number">11</span>), (<span class="number">12</span>, <span class="number">11</span>), (<span class="number">13</span>, <span class="number">12</span>), (<span class="number">14</span>, <span class="number">12</span>), (<span class="number">15</span>, <span class="number">13</span>)];
-        <span class="ident">test_points</span>(<span class="ident">start</span>, <span class="ident">end</span>, <span class="kw-2">&amp;</span><span class="ident">expected</span>);
+        <span class="kw">let </span>expected = [(<span class="number">10</span>, <span class="number">10</span>), (<span class="number">11</span>, <span class="number">11</span>), (<span class="number">12</span>, <span class="number">11</span>), (<span class="number">13</span>, <span class="number">12</span>), (<span class="number">14</span>, <span class="number">12</span>), (<span class="number">15</span>, <span class="number">13</span>)];
+        test_points(start, end, <span class="kw-2">&amp;</span>expected);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">octant_2_correctly</span>() {
-        <span class="kw">let</span> <span class="ident">start</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">10</span>);
-        <span class="kw">let</span> <span class="ident">end</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="number">13</span>, <span class="number">15</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>octant_2_correctly() {
+        <span class="kw">let </span>start = Point::new(<span class="number">10</span>, <span class="number">10</span>);
+        <span class="kw">let </span>end = Point::new(<span class="number">13</span>, <span class="number">15</span>);
 
-        <span class="kw">let</span> <span class="ident">expected</span> <span class="op">=</span> [(<span class="number">10</span>, <span class="number">10</span>), (<span class="number">11</span>, <span class="number">11</span>), (<span class="number">11</span>, <span class="number">12</span>), (<span class="number">12</span>, <span class="number">13</span>), (<span class="number">12</span>, <span class="number">14</span>), (<span class="number">13</span>, <span class="number">15</span>)];
-        <span class="ident">test_points</span>(<span class="ident">start</span>, <span class="ident">end</span>, <span class="kw-2">&amp;</span><span class="ident">expected</span>);
+        <span class="kw">let </span>expected = [(<span class="number">10</span>, <span class="number">10</span>), (<span class="number">11</span>, <span class="number">11</span>), (<span class="number">11</span>, <span class="number">12</span>), (<span class="number">12</span>, <span class="number">13</span>), (<span class="number">12</span>, <span class="number">14</span>), (<span class="number">13</span>, <span class="number">15</span>)];
+        test_points(start, end, <span class="kw-2">&amp;</span>expected);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">octant_3_correctly</span>() {
-        <span class="kw">let</span> <span class="ident">start</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">10</span>);
-        <span class="kw">let</span> <span class="ident">end</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="number">7</span>, <span class="number">15</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>octant_3_correctly() {
+        <span class="kw">let </span>start = Point::new(<span class="number">10</span>, <span class="number">10</span>);
+        <span class="kw">let </span>end = Point::new(<span class="number">7</span>, <span class="number">15</span>);
 
-        <span class="kw">let</span> <span class="ident">expected</span> <span class="op">=</span> [(<span class="number">10</span>, <span class="number">10</span>), (<span class="number">9</span>, <span class="number">11</span>), (<span class="number">9</span>, <span class="number">12</span>), (<span class="number">8</span>, <span class="number">13</span>), (<span class="number">8</span>, <span class="number">14</span>), (<span class="number">7</span>, <span class="number">15</span>)];
-        <span class="ident">test_points</span>(<span class="ident">start</span>, <span class="ident">end</span>, <span class="kw-2">&amp;</span><span class="ident">expected</span>);
+        <span class="kw">let </span>expected = [(<span class="number">10</span>, <span class="number">10</span>), (<span class="number">9</span>, <span class="number">11</span>), (<span class="number">9</span>, <span class="number">12</span>), (<span class="number">8</span>, <span class="number">13</span>), (<span class="number">8</span>, <span class="number">14</span>), (<span class="number">7</span>, <span class="number">15</span>)];
+        test_points(start, end, <span class="kw-2">&amp;</span>expected);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">octant_4_correctly</span>() {
-        <span class="kw">let</span> <span class="ident">start</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">10</span>);
-        <span class="kw">let</span> <span class="ident">end</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="number">5</span>, <span class="number">13</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>octant_4_correctly() {
+        <span class="kw">let </span>start = Point::new(<span class="number">10</span>, <span class="number">10</span>);
+        <span class="kw">let </span>end = Point::new(<span class="number">5</span>, <span class="number">13</span>);
 
-        <span class="kw">let</span> <span class="ident">expected</span> <span class="op">=</span> [(<span class="number">10</span>, <span class="number">10</span>), (<span class="number">9</span>, <span class="number">11</span>), (<span class="number">8</span>, <span class="number">11</span>), (<span class="number">7</span>, <span class="number">12</span>), (<span class="number">6</span>, <span class="number">12</span>), (<span class="number">5</span>, <span class="number">13</span>)];
-        <span class="ident">test_points</span>(<span class="ident">start</span>, <span class="ident">end</span>, <span class="kw-2">&amp;</span><span class="ident">expected</span>);
+        <span class="kw">let </span>expected = [(<span class="number">10</span>, <span class="number">10</span>), (<span class="number">9</span>, <span class="number">11</span>), (<span class="number">8</span>, <span class="number">11</span>), (<span class="number">7</span>, <span class="number">12</span>), (<span class="number">6</span>, <span class="number">12</span>), (<span class="number">5</span>, <span class="number">13</span>)];
+        test_points(start, end, <span class="kw-2">&amp;</span>expected);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">octant_5_correctly</span>() {
-        <span class="kw">let</span> <span class="ident">start</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">10</span>);
-        <span class="kw">let</span> <span class="ident">end</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="number">5</span>, <span class="number">7</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>octant_5_correctly() {
+        <span class="kw">let </span>start = Point::new(<span class="number">10</span>, <span class="number">10</span>);
+        <span class="kw">let </span>end = Point::new(<span class="number">5</span>, <span class="number">7</span>);
 
-        <span class="kw">let</span> <span class="ident">expected</span> <span class="op">=</span> [(<span class="number">10</span>, <span class="number">10</span>), (<span class="number">9</span>, <span class="number">9</span>), (<span class="number">8</span>, <span class="number">9</span>), (<span class="number">7</span>, <span class="number">8</span>), (<span class="number">6</span>, <span class="number">8</span>), (<span class="number">5</span>, <span class="number">7</span>)];
-        <span class="ident">test_points</span>(<span class="ident">start</span>, <span class="ident">end</span>, <span class="kw-2">&amp;</span><span class="ident">expected</span>);
+        <span class="kw">let </span>expected = [(<span class="number">10</span>, <span class="number">10</span>), (<span class="number">9</span>, <span class="number">9</span>), (<span class="number">8</span>, <span class="number">9</span>), (<span class="number">7</span>, <span class="number">8</span>), (<span class="number">6</span>, <span class="number">8</span>), (<span class="number">5</span>, <span class="number">7</span>)];
+        test_points(start, end, <span class="kw-2">&amp;</span>expected);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">octant_6_correctly</span>() {
-        <span class="kw">let</span> <span class="ident">start</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">10</span>);
-        <span class="kw">let</span> <span class="ident">end</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="number">7</span>, <span class="number">5</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>octant_6_correctly() {
+        <span class="kw">let </span>start = Point::new(<span class="number">10</span>, <span class="number">10</span>);
+        <span class="kw">let </span>end = Point::new(<span class="number">7</span>, <span class="number">5</span>);
 
-        <span class="kw">let</span> <span class="ident">expected</span> <span class="op">=</span> [(<span class="number">10</span>, <span class="number">10</span>), (<span class="number">9</span>, <span class="number">9</span>), (<span class="number">9</span>, <span class="number">8</span>), (<span class="number">8</span>, <span class="number">7</span>), (<span class="number">8</span>, <span class="number">6</span>), (<span class="number">7</span>, <span class="number">5</span>)];
-        <span class="ident">test_points</span>(<span class="ident">start</span>, <span class="ident">end</span>, <span class="kw-2">&amp;</span><span class="ident">expected</span>);
+        <span class="kw">let </span>expected = [(<span class="number">10</span>, <span class="number">10</span>), (<span class="number">9</span>, <span class="number">9</span>), (<span class="number">9</span>, <span class="number">8</span>), (<span class="number">8</span>, <span class="number">7</span>), (<span class="number">8</span>, <span class="number">6</span>), (<span class="number">7</span>, <span class="number">5</span>)];
+        test_points(start, end, <span class="kw-2">&amp;</span>expected);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">octant_7_correctly</span>() {
-        <span class="kw">let</span> <span class="ident">start</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">10</span>);
-        <span class="kw">let</span> <span class="ident">end</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="number">13</span>, <span class="number">5</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>octant_7_correctly() {
+        <span class="kw">let </span>start = Point::new(<span class="number">10</span>, <span class="number">10</span>);
+        <span class="kw">let </span>end = Point::new(<span class="number">13</span>, <span class="number">5</span>);
 
-        <span class="kw">let</span> <span class="ident">expected</span> <span class="op">=</span> [(<span class="number">10</span>, <span class="number">10</span>), (<span class="number">11</span>, <span class="number">9</span>), (<span class="number">11</span>, <span class="number">8</span>), (<span class="number">12</span>, <span class="number">7</span>), (<span class="number">12</span>, <span class="number">6</span>), (<span class="number">13</span>, <span class="number">5</span>)];
-        <span class="ident">test_points</span>(<span class="ident">start</span>, <span class="ident">end</span>, <span class="kw-2">&amp;</span><span class="ident">expected</span>);
+        <span class="kw">let </span>expected = [(<span class="number">10</span>, <span class="number">10</span>), (<span class="number">11</span>, <span class="number">9</span>), (<span class="number">11</span>, <span class="number">8</span>), (<span class="number">12</span>, <span class="number">7</span>), (<span class="number">12</span>, <span class="number">6</span>), (<span class="number">13</span>, <span class="number">5</span>)];
+        test_points(start, end, <span class="kw-2">&amp;</span>expected);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">octant_8_correctly</span>() {
-        <span class="kw">let</span> <span class="ident">start</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">10</span>);
-        <span class="kw">let</span> <span class="ident">end</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="number">15</span>, <span class="number">7</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>octant_8_correctly() {
+        <span class="kw">let </span>start = Point::new(<span class="number">10</span>, <span class="number">10</span>);
+        <span class="kw">let </span>end = Point::new(<span class="number">15</span>, <span class="number">7</span>);
 
-        <span class="kw">let</span> <span class="ident">expected</span> <span class="op">=</span> [(<span class="number">10</span>, <span class="number">10</span>), (<span class="number">11</span>, <span class="number">9</span>), (<span class="number">12</span>, <span class="number">9</span>), (<span class="number">13</span>, <span class="number">8</span>), (<span class="number">14</span>, <span class="number">8</span>), (<span class="number">15</span>, <span class="number">7</span>)];
-        <span class="ident">test_points</span>(<span class="ident">start</span>, <span class="ident">end</span>, <span class="kw-2">&amp;</span><span class="ident">expected</span>);
+        <span class="kw">let </span>expected = [(<span class="number">10</span>, <span class="number">10</span>), (<span class="number">11</span>, <span class="number">9</span>), (<span class="number">12</span>, <span class="number">9</span>), (<span class="number">13</span>, <span class="number">8</span>), (<span class="number">14</span>, <span class="number">8</span>), (<span class="number">15</span>, <span class="number">7</span>)];
+        test_points(start, end, <span class="kw-2">&amp;</span>expected);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">one_pixel_line</span>() {
-        <span class="kw">let</span> <span class="ident">p</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="number">5</span>, <span class="number">6</span>);
-        <span class="macro">assert!</span>(<span class="ident">Line::new</span>(<span class="ident">p</span>, <span class="ident">p</span>).<span class="ident">points</span>().<span class="ident">eq</span>(<span class="ident">core::iter::once</span>(<span class="ident">p</span>)));
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>one_pixel_line() {
+        <span class="kw">let </span>p = Point::new(<span class="number">5</span>, <span class="number">6</span>);
+        <span class="macro">assert!</span>(Line::new(p, p).points().eq(core::iter::once(p)));
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">empty</span>() {
-        <span class="macro">assert!</span>(<span class="ident">Points::empty</span>().<span class="ident">eq</span>(<span class="ident">core::iter::empty</span>()));
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>empty() {
+        <span class="macro">assert!</span>(Points::empty().eq(core::iter::empty()));
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../../" data-current-crate="embedded_graphics" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0 (a55dd71d5 2022-09-19)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../../" data-current-crate="embedded_graphics" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0 (69f9c33d7 2022-12-12)" ></div></body></html>

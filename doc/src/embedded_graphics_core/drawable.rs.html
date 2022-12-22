@@ -1,6 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-core-0.3.3/src/drawable.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>drawable.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script><script defer src="../../main.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../embedded_graphics_core/index.html"><div class="logo-container"><img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/b225511f390c0ed9bc065eb67d05125845312148/assets/logo_core.svg?sanitize=true" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../embedded_graphics_core/index.html"><div class="logo-container">
-                    <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/b225511f390c0ed9bc065eb67d05125845312148/assets/logo_core.svg?sanitize=true" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../embedded_graphics_core/index.html">
-                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/b225511f390c0ed9bc065eb67d05125845312148/assets/logo_core.svg?sanitize=true" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-core-0.3.3/src/drawable.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>drawable.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../normalize.css"><link rel="stylesheet" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../ayu.css" disabled><link rel="stylesheet" href="../../dark.css" disabled><link rel="stylesheet" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script><script defer src="../../main.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../embedded_graphics_core/index.html">
+                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/b225511f390c0ed9bc065eb67d05125845312148/assets/logo_core.svg?sanitize=true" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -187,192 +186,192 @@
 <span id="185">185</span>
 <span id="186">186</span>
 <span id="187">187</span>
-</pre><pre class="rust"><code><span class="doccomment">//! `Drawable` trait and helpers</span>
-<span class="kw">use</span> <span class="kw">crate</span>::{<span class="ident">draw_target::DrawTarget</span>, <span class="ident">geometry::Point</span>, <span class="ident">pixelcolor::PixelColor</span>};
+</pre><pre class="rust"><code><span class="doccomment">//! `Drawable` trait and helpers
+</span><span class="kw">use crate</span>::{draw_target::DrawTarget, geometry::Point, pixelcolor::PixelColor};
 
-<span class="doccomment">/// Marks an object as &quot;drawable&quot;. Must be implemented for all graphics objects</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// The `Drawable` trait describes how a particular graphical object is drawn. A `Drawable` object</span>
-<span class="doccomment">/// can define its `draw` method as a collection of graphical primitives or as an iterator</span>
-<span class="doccomment">/// over pixels being rendered with [`DrawTarget`]&#39;s [`draw_iter`] method.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// ```rust</span>
-<span class="doccomment">/// use embedded_graphics::{</span>
-<span class="doccomment">///     mono_font::{ascii::FONT_6X9, MonoTextStyle},</span>
-<span class="doccomment">///     pixelcolor::{BinaryColor, PixelColor, Rgb888},</span>
-<span class="doccomment">///     prelude::*,</span>
-<span class="doccomment">///     primitives::{Rectangle, PrimitiveStyle},</span>
-<span class="doccomment">///     text::Text,</span>
-<span class="doccomment">/// };</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// struct Button&lt;&#39;a, C: PixelColor&gt; {</span>
-<span class="doccomment">///     top_left: Point,</span>
-<span class="doccomment">///     size: Size,</span>
-<span class="doccomment">///     bg_color: C,</span>
-<span class="doccomment">///     fg_color: C,</span>
-<span class="doccomment">///     text: &amp;&#39;a str,</span>
-<span class="doccomment">/// }</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// impl&lt;C&gt; Drawable for Button&lt;&#39;_, C&gt;</span>
-<span class="doccomment">/// where</span>
-<span class="doccomment">///     C: PixelColor + From&lt;BinaryColor&gt;,</span>
-<span class="doccomment">/// {</span>
-<span class="doccomment">///     type Color = C;</span>
-<span class="doccomment">///     type Output = ();</span>
-<span class="doccomment">///</span>
-<span class="doccomment">///     fn draw&lt;D&gt;(&amp;self, target: &amp;mut D) -&gt; Result&lt;Self::Output, D::Error&gt;</span>
-<span class="doccomment">///     where</span>
-<span class="doccomment">///         D: DrawTarget&lt;Color = C&gt;,</span>
-<span class="doccomment">///     {</span>
-<span class="doccomment">///         Rectangle::new(self.top_left, self.size)</span>
-<span class="doccomment">///             .into_styled(PrimitiveStyle::with_fill(self.bg_color))</span>
-<span class="doccomment">///             .draw(target)?;</span>
-<span class="doccomment">///</span>
-<span class="doccomment">///         let style = MonoTextStyle::new(&amp;FONT_6X9, self.fg_color);</span>
-<span class="doccomment">///</span>
-<span class="doccomment">///         Text::new(self.text, Point::new(6, 13), style).draw(target)?;</span>
-<span class="doccomment">///</span>
-<span class="doccomment">///         Ok(())</span>
-<span class="doccomment">///     }</span>
-<span class="doccomment">/// }</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// let mut button = Button {</span>
-<span class="doccomment">///     top_left: Point::zero(),</span>
-<span class="doccomment">///     size: Size::new(60, 20),</span>
-<span class="doccomment">///     bg_color: Rgb888::RED,</span>
-<span class="doccomment">///     fg_color: Rgb888::BLUE,</span>
-<span class="doccomment">///     text: &quot;Click me!&quot;,</span>
-<span class="doccomment">/// };</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # use embedded_graphics::mock_display::MockDisplay;</span>
-<span class="doccomment">/// # let mut display = MockDisplay::default();</span>
-<span class="doccomment">/// # display.set_allow_overdraw(true);</span>
-<span class="doccomment">/// button.draw(&amp;mut display)?;</span>
-<span class="doccomment">/// # Ok::&lt;(), core::convert::Infallible&gt;(())</span>
-<span class="doccomment">/// ```</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// [`DrawTarget`]: draw_target/trait.DrawTarget.html</span>
-<span class="doccomment">/// [`draw_iter`]: draw_target/trait.DrawTarget.html#tymethod.draw_iter</span>
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">Drawable</span> {
-    <span class="doccomment">/// The pixel color type.</span>
-    <span class="kw">type</span> <span class="ident">Color</span>: <span class="ident">PixelColor</span>;
+<span class="doccomment">/// Marks an object as &quot;drawable&quot;. Must be implemented for all graphics objects
+///
+/// The `Drawable` trait describes how a particular graphical object is drawn. A `Drawable` object
+/// can define its `draw` method as a collection of graphical primitives or as an iterator
+/// over pixels being rendered with [`DrawTarget`]&#39;s [`draw_iter`] method.
+///
+/// ```rust
+/// use embedded_graphics::{
+///     mono_font::{ascii::FONT_6X9, MonoTextStyle},
+///     pixelcolor::{BinaryColor, PixelColor, Rgb888},
+///     prelude::*,
+///     primitives::{Rectangle, PrimitiveStyle},
+///     text::Text,
+/// };
+///
+/// struct Button&lt;&#39;a, C: PixelColor&gt; {
+///     top_left: Point,
+///     size: Size,
+///     bg_color: C,
+///     fg_color: C,
+///     text: &amp;&#39;a str,
+/// }
+///
+/// impl&lt;C&gt; Drawable for Button&lt;&#39;_, C&gt;
+/// where
+///     C: PixelColor + From&lt;BinaryColor&gt;,
+/// {
+///     type Color = C;
+///     type Output = ();
+///
+///     fn draw&lt;D&gt;(&amp;self, target: &amp;mut D) -&gt; Result&lt;Self::Output, D::Error&gt;
+///     where
+///         D: DrawTarget&lt;Color = C&gt;,
+///     {
+///         Rectangle::new(self.top_left, self.size)
+///             .into_styled(PrimitiveStyle::with_fill(self.bg_color))
+///             .draw(target)?;
+///
+///         let style = MonoTextStyle::new(&amp;FONT_6X9, self.fg_color);
+///
+///         Text::new(self.text, Point::new(6, 13), style).draw(target)?;
+///
+///         Ok(())
+///     }
+/// }
+///
+/// let mut button = Button {
+///     top_left: Point::zero(),
+///     size: Size::new(60, 20),
+///     bg_color: Rgb888::RED,
+///     fg_color: Rgb888::BLUE,
+///     text: &quot;Click me!&quot;,
+/// };
+///
+/// # use embedded_graphics::mock_display::MockDisplay;
+/// # let mut display = MockDisplay::default();
+/// # display.set_allow_overdraw(true);
+/// button.draw(&amp;mut display)?;
+/// # Ok::&lt;(), core::convert::Infallible&gt;(())
+/// ```
+///
+/// [`DrawTarget`]: draw_target/trait.DrawTarget.html
+/// [`draw_iter`]: draw_target/trait.DrawTarget.html#tymethod.draw_iter
+</span><span class="kw">pub trait </span>Drawable {
+    <span class="doccomment">/// The pixel color type.
+    </span><span class="kw">type </span>Color: PixelColor;
 
-    <span class="doccomment">/// The return type of the `draw` method.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The `Output` type can be used to return results and values produced from the drawing of the</span>
-    <span class="doccomment">/// current item. For example, rendering two differently styled text items next to each other</span>
-    <span class="doccomment">/// can make use of a returned value, allowing the next text to be positioned after the first:</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ```</span>
-    <span class="doccomment">/// use embedded_graphics::{</span>
-    <span class="doccomment">///     mono_font::{</span>
-    <span class="doccomment">///         ascii::{FONT_10X20, FONT_6X10},</span>
-    <span class="doccomment">///         MonoTextStyle,</span>
-    <span class="doccomment">///     },</span>
-    <span class="doccomment">///     pixelcolor::BinaryColor,</span>
-    <span class="doccomment">///     prelude::*,</span>
-    <span class="doccomment">///     text::Text,</span>
-    <span class="doccomment">/// };</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # let mut display = embedded_graphics::mock_display::MockDisplay::new();</span>
-    <span class="doccomment">/// # display.set_allow_out_of_bounds_drawing(true);</span>
-    <span class="doccomment">/// let label_style = MonoTextStyle::new(&amp;FONT_6X10, BinaryColor::On);</span>
-    <span class="doccomment">/// let value_style = MonoTextStyle::new(&amp;FONT_10X20, BinaryColor::On);</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// let next_point = Text::new(&quot;Label &quot;, Point::new(10, 20), label_style)</span>
-    <span class="doccomment">///     .draw(&amp;mut display)?;</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Text::new(&quot;1234&quot;, next_point, value_style).draw(&amp;mut display)?;</span>
-    <span class="doccomment">/// # Ok::&lt;(), core::convert::Infallible&gt;(())</span>
-    <span class="doccomment">/// ```</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Use `()` if no value should be returned.</span>
-    <span class="kw">type</span> <span class="ident">Output</span>;
+    <span class="doccomment">/// The return type of the `draw` method.
+    ///
+    /// The `Output` type can be used to return results and values produced from the drawing of the
+    /// current item. For example, rendering two differently styled text items next to each other
+    /// can make use of a returned value, allowing the next text to be positioned after the first:
+    ///
+    /// ```
+    /// use embedded_graphics::{
+    ///     mono_font::{
+    ///         ascii::{FONT_10X20, FONT_6X10},
+    ///         MonoTextStyle,
+    ///     },
+    ///     pixelcolor::BinaryColor,
+    ///     prelude::*,
+    ///     text::Text,
+    /// };
+    ///
+    /// # let mut display = embedded_graphics::mock_display::MockDisplay::new();
+    /// # display.set_allow_out_of_bounds_drawing(true);
+    /// let label_style = MonoTextStyle::new(&amp;FONT_6X10, BinaryColor::On);
+    /// let value_style = MonoTextStyle::new(&amp;FONT_10X20, BinaryColor::On);
+    ///
+    /// let next_point = Text::new(&quot;Label &quot;, Point::new(10, 20), label_style)
+    ///     .draw(&amp;mut display)?;
+    ///
+    /// Text::new(&quot;1234&quot;, next_point, value_style).draw(&amp;mut display)?;
+    /// # Ok::&lt;(), core::convert::Infallible&gt;(())
+    /// ```
+    ///
+    /// Use `()` if no value should be returned.
+    </span><span class="kw">type </span>Output;
 
-    <span class="doccomment">/// Draw the graphics object using the supplied DrawTarget.</span>
-    <span class="kw">fn</span> <span class="ident">draw</span><span class="op">&lt;</span><span class="ident">D</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">target</span>: <span class="kw-2">&amp;mut</span> <span class="ident">D</span>) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Output</span>, <span class="ident">D::Error</span><span class="op">&gt;</span>
-    <span class="kw">where</span>
-        <span class="ident">D</span>: <span class="ident">DrawTarget</span><span class="op">&lt;</span><span class="ident">Color</span> <span class="op">=</span> <span class="ident"><span class="self">Self</span>::Color</span><span class="op">&gt;</span>;
+    <span class="doccomment">/// Draw the graphics object using the supplied DrawTarget.
+    </span><span class="kw">fn </span>draw&lt;D&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, target: <span class="kw-2">&amp;mut </span>D) -&gt; <span class="prelude-ty">Result</span>&lt;<span class="self">Self</span>::Output, D::Error&gt;
+    <span class="kw">where
+        </span>D: DrawTarget&lt;Color = <span class="self">Self</span>::Color&gt;;
 }
 
-<span class="doccomment">/// A single pixel.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// `Pixel` objects are used to specify the position and color of drawn pixels.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Examples</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// The [`Drawable`] trait is implemented for `Pixel` which allows single pixels</span>
-<span class="doccomment">/// to be drawn to a [`DrawTarget`]:</span>
-<span class="doccomment">/// ```</span>
-<span class="doccomment">/// use embedded_graphics::{pixelcolor::BinaryColor, prelude::*};</span>
-<span class="doccomment">/// # use embedded_graphics::mock_display::MockDisplay;</span>
-<span class="doccomment">/// # let mut display = MockDisplay::new();</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// Pixel(Point::new(1, 2), BinaryColor::On).draw(&amp;mut display)?;</span>
-<span class="doccomment">/// # Ok::&lt;(), core::convert::Infallible&gt;(())</span>
-<span class="doccomment">/// ```</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// Iterators with `Pixel` items can also be drawn:</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// ```</span>
-<span class="doccomment">/// use embedded_graphics::{pixelcolor::BinaryColor, prelude::*};</span>
-<span class="doccomment">/// # use embedded_graphics::mock_display::MockDisplay;</span>
-<span class="doccomment">/// # let mut display = MockDisplay::new();</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// (0..32)</span>
-<span class="doccomment">///     .map(|i| Pixel(Point::new(i, i * 2), BinaryColor::On))</span>
-<span class="doccomment">///     .draw(&amp;mut display)?;</span>
-<span class="doccomment">/// # Ok::&lt;(), core::convert::Infallible&gt;(())</span>
-<span class="doccomment">/// ```</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// [`Drawable`]: trait.Drawable.html</span>
-<span class="doccomment">/// [`DrawTarget`]: draw_target/trait.DrawTarget.html</span>
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Copy</span>, <span class="ident">Clone</span>, <span class="ident">Eq</span>, <span class="ident">PartialEq</span>, <span class="ident">Ord</span>, <span class="ident">PartialOrd</span>, <span class="ident">Hash</span>, <span class="ident">Debug</span>, <span class="ident">Default</span>)]</span>
-<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Pixel</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>(<span class="kw">pub</span> <span class="ident">Point</span>, <span class="kw">pub</span> <span class="ident">C</span>)
-<span class="kw">where</span>
-    <span class="ident">C</span>: <span class="ident">PixelColor</span>;
+<span class="doccomment">/// A single pixel.
+///
+/// `Pixel` objects are used to specify the position and color of drawn pixels.
+///
+/// # Examples
+///
+/// The [`Drawable`] trait is implemented for `Pixel` which allows single pixels
+/// to be drawn to a [`DrawTarget`]:
+/// ```
+/// use embedded_graphics::{pixelcolor::BinaryColor, prelude::*};
+/// # use embedded_graphics::mock_display::MockDisplay;
+/// # let mut display = MockDisplay::new();
+///
+/// Pixel(Point::new(1, 2), BinaryColor::On).draw(&amp;mut display)?;
+/// # Ok::&lt;(), core::convert::Infallible&gt;(())
+/// ```
+///
+/// Iterators with `Pixel` items can also be drawn:
+///
+/// ```
+/// use embedded_graphics::{pixelcolor::BinaryColor, prelude::*};
+/// # use embedded_graphics::mock_display::MockDisplay;
+/// # let mut display = MockDisplay::new();
+///
+/// (0..32)
+///     .map(|i| Pixel(Point::new(i, i * 2), BinaryColor::On))
+///     .draw(&amp;mut display)?;
+/// # Ok::&lt;(), core::convert::Infallible&gt;(())
+/// ```
+///
+/// [`Drawable`]: trait.Drawable.html
+/// [`DrawTarget`]: draw_target/trait.DrawTarget.html
+</span><span class="attribute">#[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Hash, Debug, Default)]
+</span><span class="kw">pub struct </span>Pixel&lt;C&gt;(<span class="kw">pub </span>Point, <span class="kw">pub </span>C)
+<span class="kw">where
+    </span>C: PixelColor;
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span> <span class="ident">Drawable</span> <span class="kw">for</span> <span class="ident">Pixel</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>
-<span class="kw">where</span>
-    <span class="ident">C</span>: <span class="ident">PixelColor</span>,
+<span class="kw">impl</span>&lt;C&gt; Drawable <span class="kw">for </span>Pixel&lt;C&gt;
+<span class="kw">where
+    </span>C: PixelColor,
 {
-    <span class="kw">type</span> <span class="ident">Color</span> <span class="op">=</span> <span class="ident">C</span>;
-    <span class="kw">type</span> <span class="ident">Output</span> <span class="op">=</span> ();
+    <span class="kw">type </span>Color = C;
+    <span class="kw">type </span>Output = ();
 
-    <span class="kw">fn</span> <span class="ident">draw</span><span class="op">&lt;</span><span class="ident">D</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">target</span>: <span class="kw-2">&amp;mut</span> <span class="ident">D</span>) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Output</span>, <span class="ident">D::Error</span><span class="op">&gt;</span>
-    <span class="kw">where</span>
-        <span class="ident">D</span>: <span class="ident">DrawTarget</span><span class="op">&lt;</span><span class="ident">Color</span> <span class="op">=</span> <span class="ident">C</span><span class="op">&gt;</span>,
+    <span class="kw">fn </span>draw&lt;D&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, target: <span class="kw-2">&amp;mut </span>D) -&gt; <span class="prelude-ty">Result</span>&lt;<span class="self">Self</span>::Output, D::Error&gt;
+    <span class="kw">where
+        </span>D: DrawTarget&lt;Color = C&gt;,
     {
-        <span class="ident">target</span>.<span class="ident">draw_iter</span>(<span class="ident">core::iter::once</span>(<span class="kw-2">*</span><span class="self">self</span>))
+        target.draw_iter(core::iter::once(<span class="kw-2">*</span><span class="self">self</span>))
     }
 }
 
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
-<span class="kw">mod</span> <span class="ident">tests</span> {
-    <span class="comment">// NOTE: `crate` cannot be used here due to circular dependency resolution behavior.</span>
-    <span class="kw">use</span> <span class="ident">embedded_graphics</span>::{
-        <span class="ident">geometry::Point</span>, <span class="ident">mock_display::MockDisplay</span>, <span class="ident">pixelcolor::BinaryColor</span>, <span class="ident">Drawable</span>, <span class="ident">Pixel</span>,
+<span class="attribute">#[cfg(test)]
+</span><span class="kw">mod </span>tests {
+    <span class="comment">// NOTE: `crate` cannot be used here due to circular dependency resolution behavior.
+    </span><span class="kw">use </span>embedded_graphics::{
+        geometry::Point, mock_display::MockDisplay, pixelcolor::BinaryColor, Drawable, Pixel,
     };
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">draw_pixel</span>() {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
-        <span class="ident">Pixel</span>(<span class="ident">Point::new</span>(<span class="number">0</span>, <span class="number">0</span>), <span class="ident">BinaryColor::On</span>)
-            .<span class="ident">draw</span>(<span class="kw-2">&amp;mut</span> <span class="ident">display</span>)
-            .<span class="ident">unwrap</span>();
-        <span class="ident">Pixel</span>(<span class="ident">Point::new</span>(<span class="number">2</span>, <span class="number">1</span>), <span class="ident">BinaryColor::On</span>)
-            .<span class="ident">draw</span>(<span class="kw-2">&amp;mut</span> <span class="ident">display</span>)
-            .<span class="ident">unwrap</span>();
-        <span class="ident">Pixel</span>(<span class="ident">Point::new</span>(<span class="number">1</span>, <span class="number">2</span>), <span class="ident">BinaryColor::On</span>)
-            .<span class="ident">draw</span>(<span class="kw-2">&amp;mut</span> <span class="ident">display</span>)
-            .<span class="ident">unwrap</span>();
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>draw_pixel() {
+        <span class="kw">let </span><span class="kw-2">mut </span>display = MockDisplay::new();
+        Pixel(Point::new(<span class="number">0</span>, <span class="number">0</span>), BinaryColor::On)
+            .draw(<span class="kw-2">&amp;mut </span>display)
+            .unwrap();
+        Pixel(Point::new(<span class="number">2</span>, <span class="number">1</span>), BinaryColor::On)
+            .draw(<span class="kw-2">&amp;mut </span>display)
+            .unwrap();
+        Pixel(Point::new(<span class="number">1</span>, <span class="number">2</span>), BinaryColor::On)
+            .draw(<span class="kw-2">&amp;mut </span>display)
+            .unwrap();
 
-        <span class="ident">display</span>.<span class="ident">assert_pattern</span>(<span class="kw-2">&amp;</span>[
-            <span class="string">&quot;#  &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;  #&quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot; # &quot;</span>, <span class="comment">//</span>
-        ]);
+        display.assert_pattern(<span class="kw-2">&amp;</span>[
+            <span class="string">&quot;#  &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;  #&quot;</span>, <span class="comment">//
+            </span><span class="string">&quot; # &quot;</span>, <span class="comment">//
+        </span>]);
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="embedded_graphics_core" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0 (a55dd71d5 2022-09-19)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="embedded_graphics_core" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0 (69f9c33d7 2022-12-12)" ></div></body></html>

@@ -1,6 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/micromath-1.1.1/src/f32ext/exp.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>exp.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../micromath/index.html"><div class="logo-container"><img src="https://raw.githubusercontent.com/tarcieri/micromath/main/img/micromath-sq.png" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../micromath/index.html"><div class="logo-container">
-                    <img src="https://raw.githubusercontent.com/tarcieri/micromath/main/img/micromath-sq.png" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../micromath/index.html">
-                        <img src="https://raw.githubusercontent.com/tarcieri/micromath/main/img/micromath-sq.png" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/micromath-1.1.1/src/f32ext/exp.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>exp.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../micromath/index.html">
+                        <img src="https://raw.githubusercontent.com/tarcieri/micromath/main/img/micromath-sq.png" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -103,70 +102,70 @@
 <span id="101">101</span>
 <span id="102">102</span>
 <span id="103">103</span>
-</pre><pre class="rust"><code><span class="doccomment">/// Exp approximation for f32</span>
-<span class="kw">use</span> <span class="ident"><span class="kw">super</span>::abs</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">super</span>::fract</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">super</span>::trunc</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">super</span>::utils</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::f32ext::utils::FloatComponents</span>;
-<span class="kw">use</span> <span class="ident">core::f32</span>;
-<span class="kw">use</span> <span class="ident">core::i32</span>;
-<span class="kw">use</span> <span class="ident">core::u32</span>;
+</pre><pre class="rust"><code><span class="doccomment">/// Exp approximation for f32
+</span><span class="kw">use </span><span class="kw">super</span>::abs;
+<span class="kw">use </span><span class="kw">super</span>::fract;
+<span class="kw">use </span><span class="kw">super</span>::trunc;
+<span class="kw">use </span><span class="kw">super</span>::utils;
+<span class="kw">use </span><span class="kw">crate</span>::f32ext::utils::FloatComponents;
+<span class="kw">use </span>core::f32;
+<span class="kw">use </span>core::i32;
+<span class="kw">use </span>core::u32;
 
-<span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn</span> <span class="ident">exp_smallx</span>(<span class="ident">x</span>: <span class="ident">f32</span>, <span class="ident">iter</span>: <span class="ident">u32</span>) -&gt; <span class="ident">f32</span> {
-    <span class="comment">// if x is between 0.0 and 1.0, we can approximate it with the a series</span>
-    <span class="comment">// series from here: https://stackoverflow.com/a/6984495, e^x ~= 1 + x(1 + x/2(1 + (x?</span>
-    <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">total</span>: <span class="ident">f32</span> <span class="op">=</span> <span class="number">1.0_f32</span>;
-    <span class="kw">for</span> <span class="ident">i</span> <span class="kw">in</span> (<span class="number">1</span>..<span class="op">=</span><span class="ident">iter</span>).<span class="ident">rev</span>() {
-        <span class="ident">total</span> <span class="op">=</span> <span class="number">1.0_f32</span> <span class="op">+</span> ((<span class="ident">x</span> <span class="op">/</span> (<span class="ident">i</span> <span class="kw">as</span> <span class="ident">f32</span>)) <span class="op">*</span> <span class="ident">total</span>);
+<span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn </span>exp_smallx(x: f32, iter: u32) -&gt; f32 {
+    <span class="comment">// if x is between 0.0 and 1.0, we can approximate it with the a series
+    // series from here: https://stackoverflow.com/a/6984495, e^x ~= 1 + x(1 + x/2(1 + (x?
+    </span><span class="kw">let </span><span class="kw-2">mut </span>total: f32 = <span class="number">1.0_f32</span>;
+    <span class="kw">for </span>i <span class="kw">in </span>(<span class="number">1</span>..=iter).rev() {
+        total = <span class="number">1.0_f32 </span>+ ((x / (i <span class="kw">as </span>f32)) * total);
     }
-    <span class="ident">total</span>
+    total
 }
 
-<span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">exp_ln2_approximation</span>(<span class="ident">x</span>: <span class="ident">f32</span>, <span class="ident">partial_iter</span>: <span class="ident">u32</span>) -&gt; <span class="ident">f32</span> {
-    <span class="comment">// idea from# https://stackoverflow.com/a/6985769/2036035</span>
-    <span class="kw">if</span> <span class="ident">x</span> <span class="op">==</span> <span class="number">0.0_f32</span> {
-        <span class="kw">return</span> <span class="number">1.0</span>;
+<span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn </span>exp_ln2_approximation(x: f32, partial_iter: u32) -&gt; f32 {
+    <span class="comment">// idea from# https://stackoverflow.com/a/6985769/2036035
+    </span><span class="kw">if </span>x == <span class="number">0.0_f32 </span>{
+        <span class="kw">return </span><span class="number">1.0</span>;
     }
-    <span class="kw">if</span> <span class="ident">abs::abs</span>(<span class="ident">x</span> <span class="op">-</span> <span class="number">1.0_f32</span>) <span class="op">&lt;</span> <span class="ident">f32::EPSILON</span> {
-        <span class="kw">return</span> <span class="ident">f32::consts::E</span>;
+    <span class="kw">if </span>abs::abs(x - <span class="number">1.0_f32</span>) &lt; f32::EPSILON {
+        <span class="kw">return </span>f32::consts::E;
     }
-    <span class="kw">if</span> <span class="ident">abs::abs</span>(<span class="ident">x</span> <span class="op">-</span> (<span class="op">-</span><span class="number">1.0_f32</span>)) <span class="op">&lt;</span> <span class="ident">f32::EPSILON</span> {
-        <span class="kw">return</span> <span class="number">1.0</span> <span class="op">/</span> <span class="ident">f32::consts::E</span>;
+    <span class="kw">if </span>abs::abs(x - (-<span class="number">1.0_f32</span>)) &lt; f32::EPSILON {
+        <span class="kw">return </span><span class="number">1.0 </span>/ f32::consts::E;
     }
-    <span class="comment">// log base 2(E) == 1/ln(2)</span>
-    <span class="kw">let</span> <span class="ident">ln2_recip</span>: <span class="ident">f32</span> <span class="op">=</span> <span class="ident">f32::consts::LOG2_E</span>;
-    <span class="comment">//x_fract + x_whole = x/ln2_recip</span>
-    <span class="comment">//ln2*(x_fract + x_whole) = x</span>
-    <span class="kw">let</span> <span class="ident">x_fract</span> <span class="op">=</span> <span class="ident">fract::fract_sign</span>(<span class="ident">x</span> <span class="op">*</span> <span class="ident">ln2_recip</span>);
-    <span class="kw">let</span> <span class="ident">x_trunc</span> <span class="op">=</span> <span class="ident">trunc::trunc_sign</span>(<span class="ident">x</span> <span class="op">*</span> <span class="ident">ln2_recip</span>);
-    <span class="comment">//guaranteed to be 0 &lt; x &lt; 1.0</span>
-    <span class="kw">let</span> <span class="ident">x_fract</span> <span class="op">=</span> <span class="ident">x_fract</span> <span class="op">*</span> <span class="ident">f32::consts::LN_2</span>;
+    <span class="comment">// log base 2(E) == 1/ln(2)
+    </span><span class="kw">let </span>ln2_recip: f32 = f32::consts::LOG2_E;
+    <span class="comment">//x_fract + x_whole = x/ln2_recip
+    //ln2*(x_fract + x_whole) = x
+    </span><span class="kw">let </span>x_fract = fract::fract_sign(x * ln2_recip);
+    <span class="kw">let </span>x_trunc = trunc::trunc_sign(x * ln2_recip);
+    <span class="comment">//guaranteed to be 0 &lt; x &lt; 1.0
+    </span><span class="kw">let </span>x_fract = x_fract * f32::consts::LN_2;
 
-    <span class="kw">let</span> <span class="ident">fract_exp</span> <span class="op">=</span> <span class="ident">exp_smallx</span>(<span class="ident">x_fract</span>, <span class="ident">partial_iter</span>);
+    <span class="kw">let </span>fract_exp = exp_smallx(x_fract, partial_iter);
 
-    <span class="comment">//need the 2^n portion, we can just extract that from the whole number exp portion</span>
-    <span class="kw">let</span> <span class="ident">fract_exponent</span>: <span class="ident">i32</span> <span class="op">=</span> <span class="ident">fract_exp</span>
-        .<span class="ident">extract_exponent_value</span>()
-        .<span class="ident">saturating_add</span>(<span class="ident">x_trunc</span> <span class="kw">as</span> <span class="ident">i32</span>);
+    <span class="comment">//need the 2^n portion, we can just extract that from the whole number exp portion
+    </span><span class="kw">let </span>fract_exponent: i32 = fract_exp
+        .extract_exponent_value()
+        .saturating_add(x_trunc <span class="kw">as </span>i32);
 
-    <span class="kw">if</span> <span class="ident">fract_exponent</span> <span class="op">&lt;</span> <span class="op">-</span>(<span class="ident">utils::EXPONENT_BIAS</span> <span class="kw">as</span> <span class="ident">i32</span>) {
-        <span class="kw">return</span> <span class="number">0.0_f32</span>;
+    <span class="kw">if </span>fract_exponent &lt; -(utils::EXPONENT_BIAS <span class="kw">as </span>i32) {
+        <span class="kw">return </span><span class="number">0.0_f32</span>;
     }
-    <span class="kw">if</span> <span class="ident">fract_exponent</span> <span class="op">&gt;</span> ((<span class="ident">utils::EXPONENT_BIAS</span> <span class="op">+</span> <span class="number">1_u32</span>) <span class="kw">as</span> <span class="ident">i32</span>) {
-        <span class="kw">return</span> <span class="ident">f32::INFINITY</span>;
+    <span class="kw">if </span>fract_exponent &gt; ((utils::EXPONENT_BIAS + <span class="number">1_u32</span>) <span class="kw">as </span>i32) {
+        <span class="kw">return </span>f32::INFINITY;
     }
-    <span class="kw">let</span> <span class="ident">exp_approx</span>: <span class="ident">f32</span> <span class="op">=</span> <span class="ident">fract_exp</span>.<span class="ident">set_exponent</span>(<span class="ident">fract_exponent</span>);
-    <span class="ident">exp_approx</span>
+    <span class="kw">let </span>exp_approx: f32 = fract_exp.set_exponent(fract_exponent);
+    exp_approx
 }
 
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
-<span class="kw">mod</span> <span class="ident">tests</span> {
-    <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::<span class="kw">super</span>::abs</span>;
-    <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::exp_ln2_approximation</span>;
-    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">const</span> <span class="ident">MAX_ERROR</span>: <span class="ident">f32</span> <span class="op">=</span> <span class="number">0.001</span>;
-    <span class="doccomment">/// exp test vectors - `(input, output)`</span>
-    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">const</span> <span class="ident">TEST_VECTORS</span>: <span class="kw-2">&amp;</span>[(<span class="ident">f32</span>, <span class="ident">f32</span>)] <span class="op">=</span> <span class="kw-2">&amp;</span>[
+<span class="attribute">#[cfg(test)]
+</span><span class="kw">mod </span>tests {
+    <span class="kw">use </span><span class="kw">super</span>::<span class="kw">super</span>::abs;
+    <span class="kw">use </span><span class="kw">super</span>::exp_ln2_approximation;
+    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">const </span>MAX_ERROR: f32 = <span class="number">0.001</span>;
+    <span class="doccomment">/// exp test vectors - `(input, output)`
+    </span><span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">const </span>TEST_VECTORS: <span class="kw-2">&amp;</span>[(f32, f32)] = <span class="kw-2">&amp;</span>[
         (<span class="number">1e-07</span>, <span class="number">1.0000001</span>),
         (<span class="number">1e-06</span>, <span class="number">1.000001</span>),
         (<span class="number">1e-05</span>, <span class="number">1.00001</span>),
@@ -176,35 +175,35 @@
         (<span class="number">0.1</span>, <span class="number">1.105171</span>),
         (<span class="number">1.0</span>, <span class="number">2.7182817</span>),
         (<span class="number">10.0</span>, <span class="number">22026.465</span>),
-        (<span class="op">-</span><span class="number">1e-08</span>, <span class="number">1.0</span>),
-        (<span class="op">-</span><span class="number">1e-07</span>, <span class="number">0.9999999</span>),
-        (<span class="op">-</span><span class="number">1e-06</span>, <span class="number">0.999999</span>),
-        (<span class="op">-</span><span class="number">1e-05</span>, <span class="number">0.99999</span>),
-        (<span class="op">-</span><span class="number">1e-04</span>, <span class="number">0.9999</span>),
-        (<span class="op">-</span><span class="number">0.001</span>, <span class="number">0.9990005</span>),
-        (<span class="op">-</span><span class="number">0.01</span>, <span class="number">0.99004984</span>),
-        (<span class="op">-</span><span class="number">0.1</span>, <span class="number">0.9048374</span>),
-        (<span class="op">-</span><span class="number">1.0</span>, <span class="number">0.36787945</span>),
-        (<span class="op">-</span><span class="number">10.0</span>, <span class="number">4.539993e-05</span>),
+        (-<span class="number">1e-08</span>, <span class="number">1.0</span>),
+        (-<span class="number">1e-07</span>, <span class="number">0.9999999</span>),
+        (-<span class="number">1e-06</span>, <span class="number">0.999999</span>),
+        (-<span class="number">1e-05</span>, <span class="number">0.99999</span>),
+        (-<span class="number">1e-04</span>, <span class="number">0.9999</span>),
+        (-<span class="number">0.001</span>, <span class="number">0.9990005</span>),
+        (-<span class="number">0.01</span>, <span class="number">0.99004984</span>),
+        (-<span class="number">0.1</span>, <span class="number">0.9048374</span>),
+        (-<span class="number">1.0</span>, <span class="number">0.36787945</span>),
+        (-<span class="number">10.0</span>, <span class="number">4.539993e-05</span>),
     ];
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">sanity_check</span>() {
-        <span class="macro">assert_eq!</span>(<span class="ident">exp_ln2_approximation</span>(<span class="op">-</span><span class="number">1000000.0</span>, <span class="number">4</span>), <span class="number">0_f32</span>);
-        <span class="kw">for</span> (<span class="ident">x</span>, <span class="ident">expected</span>) <span class="kw">in</span> <span class="ident">TEST_VECTORS</span> {
-            <span class="kw">let</span> <span class="ident">exp_x</span> <span class="op">=</span> <span class="ident">exp_ln2_approximation</span>(<span class="kw-2">*</span><span class="ident">x</span>, <span class="number">4</span>);
-            <span class="kw">let</span> <span class="ident">relative_error</span> <span class="op">=</span> <span class="ident">abs::abs</span>(<span class="ident">exp_x</span> <span class="op">-</span> <span class="kw-2">*</span><span class="ident">expected</span>) <span class="op">/</span> <span class="kw-2">*</span><span class="ident">expected</span>;
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>sanity_check() {
+        <span class="macro">assert_eq!</span>(exp_ln2_approximation(-<span class="number">1000000.0</span>, <span class="number">4</span>), <span class="number">0_f32</span>);
+        <span class="kw">for </span>(x, expected) <span class="kw">in </span>TEST_VECTORS {
+            <span class="kw">let </span>exp_x = exp_ln2_approximation(<span class="kw-2">*</span>x, <span class="number">4</span>);
+            <span class="kw">let </span>relative_error = abs::abs(exp_x - <span class="kw-2">*</span>expected) / <span class="kw-2">*</span>expected;
 
             <span class="macro">assert!</span>(
-                <span class="ident">relative_error</span> <span class="op">&lt;</span><span class="op">=</span> <span class="ident">MAX_ERROR</span>,
+                relative_error &lt;= MAX_ERROR,
                 <span class="string">&quot;relative_error {} too large for input {} : {} vs {}&quot;</span>,
-                <span class="ident">relative_error</span>,
-                <span class="kw-2">*</span><span class="ident">x</span>,
-                <span class="ident">exp_x</span>,
-                <span class="ident">expected</span>
+                relative_error,
+                <span class="kw-2">*</span>x,
+                exp_x,
+                expected
             );
         }
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="micromath" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0 (a55dd71d5 2022-09-19)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="micromath" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0 (69f9c33d7 2022-12-12)" ></div></body></html>

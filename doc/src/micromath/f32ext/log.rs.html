@@ -1,6 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/micromath-1.1.1/src/f32ext/log.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>log.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../micromath/index.html"><div class="logo-container"><img src="https://raw.githubusercontent.com/tarcieri/micromath/main/img/micromath-sq.png" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../micromath/index.html"><div class="logo-container">
-                    <img src="https://raw.githubusercontent.com/tarcieri/micromath/main/img/micromath-sq.png" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../micromath/index.html">
-                        <img src="https://raw.githubusercontent.com/tarcieri/micromath/main/img/micromath-sq.png" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/micromath-1.1.1/src/f32ext/log.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>log.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../micromath/index.html">
+                        <img src="https://raw.githubusercontent.com/tarcieri/micromath/main/img/micromath-sq.png" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -188,43 +187,43 @@
 <span id="186">186</span>
 <span id="187">187</span>
 <span id="188">188</span>
-</pre><pre class="rust"><code><span class="doccomment">/// log_b(a) approximation for f32</span>
-<span class="kw">use</span> <span class="ident"><span class="kw">super</span>::ln</span>;
+</pre><pre class="rust"><code><span class="doccomment">/// log_b(a) approximation for f32
+</span><span class="kw">use </span><span class="kw">super</span>::ln;
 
-<span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">log_ln_approx</span>(<span class="ident">x</span>: <span class="ident">f32</span>, <span class="ident">base</span>: <span class="ident">f32</span>) -&gt; <span class="ident">f32</span> {
-    <span class="comment">//using change of base log_base(x) = ln(x)/ln(base)</span>
-    <span class="kw">let</span> <span class="ident">fract_base_ln</span> <span class="op">=</span> <span class="number">1.0</span> <span class="op">/</span> <span class="ident">ln::ln_1to2_series_approximation</span>(<span class="ident">base</span>);
-    <span class="kw">let</span> <span class="ident">value_ln</span> <span class="op">=</span> <span class="ident">ln::ln_1to2_series_approximation</span>(<span class="ident">x</span>);
-    <span class="ident">value_ln</span> <span class="op">*</span> <span class="ident">fract_base_ln</span>
+<span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn </span>log_ln_approx(x: f32, base: f32) -&gt; f32 {
+    <span class="comment">//using change of base log_base(x) = ln(x)/ln(base)
+    </span><span class="kw">let </span>fract_base_ln = <span class="number">1.0 </span>/ ln::ln_1to2_series_approximation(base);
+    <span class="kw">let </span>value_ln = ln::ln_1to2_series_approximation(x);
+    value_ln * fract_base_ln
 }
 
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
-<span class="kw">mod</span> <span class="ident">tests</span> {
-    <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::<span class="kw">super</span>::abs</span>;
-    <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::log_ln_approx</span>;
-    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">const</span> <span class="ident">MAX_ERROR</span>: <span class="ident">f32</span> <span class="op">=</span> <span class="number">0.001</span>;
-    <span class="doccomment">/// log3(x) test vectors - `(input, output)`</span>
-    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">const</span> <span class="ident">TEST_VECTORS_BASE3</span>: <span class="kw-2">&amp;</span>[(<span class="ident">f32</span>, <span class="ident">f32</span>)] <span class="op">=</span> <span class="kw-2">&amp;</span>[
-        (<span class="number">1e-20</span>, <span class="op">-</span><span class="number">41.91806433175008</span>),
-        (<span class="number">1e-19</span>, <span class="op">-</span><span class="number">39.82216059431951</span>),
-        (<span class="number">1e-18</span>, <span class="op">-</span><span class="number">37.726260329176036</span>),
-        (<span class="number">1e-17</span>, <span class="op">-</span><span class="number">35.63035659174547</span>),
-        (<span class="number">1e-16</span>, <span class="op">-</span><span class="number">33.5344528543149</span>),
-        (<span class="number">1e-15</span>, <span class="op">-</span><span class="number">31.43854911688433</span>),
-        (<span class="number">1e-14</span>, <span class="op">-</span><span class="number">29.342645379453764</span>),
-        (<span class="number">1e-13</span>, <span class="op">-</span><span class="number">27.24674337816674</span>),
-        (<span class="number">1e-12</span>, <span class="op">-</span><span class="number">25.150839640736177</span>),
-        (<span class="number">1e-11</span>, <span class="op">-</span><span class="number">23.05493590330561</span>),
-        (<span class="number">1e-10</span>, <span class="op">-</span><span class="number">20.95903216587504</span>),
-        (<span class="number">1e-09</span>, <span class="op">-</span><span class="number">18.863130164588018</span>),
-        (<span class="number">1e-08</span>, <span class="op">-</span><span class="number">16.76722642715745</span>),
-        (<span class="number">1e-07</span>, <span class="op">-</span><span class="number">14.671322689726882</span>),
-        (<span class="number">1e-06</span>, <span class="op">-</span><span class="number">12.575419820368088</span>),
-        (<span class="number">1e-05</span>, <span class="op">-</span><span class="number">10.47951608293752</span>),
-        (<span class="number">1e-04</span>, <span class="op">-</span><span class="number">8.383613213578725</span>),
-        (<span class="number">0.001</span>, <span class="op">-</span><span class="number">6.287709910184044</span>),
-        (<span class="number">0.01</span>, <span class="op">-</span><span class="number">4.1918066067893625</span>),
-        (<span class="number">0.1</span>, <span class="op">-</span><span class="number">2.0959033033946812</span>),
+<span class="attribute">#[cfg(test)]
+</span><span class="kw">mod </span>tests {
+    <span class="kw">use </span><span class="kw">super</span>::<span class="kw">super</span>::abs;
+    <span class="kw">use </span><span class="kw">super</span>::log_ln_approx;
+    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">const </span>MAX_ERROR: f32 = <span class="number">0.001</span>;
+    <span class="doccomment">/// log3(x) test vectors - `(input, output)`
+    </span><span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">const </span>TEST_VECTORS_BASE3: <span class="kw-2">&amp;</span>[(f32, f32)] = <span class="kw-2">&amp;</span>[
+        (<span class="number">1e-20</span>, -<span class="number">41.91806433175008</span>),
+        (<span class="number">1e-19</span>, -<span class="number">39.82216059431951</span>),
+        (<span class="number">1e-18</span>, -<span class="number">37.726260329176036</span>),
+        (<span class="number">1e-17</span>, -<span class="number">35.63035659174547</span>),
+        (<span class="number">1e-16</span>, -<span class="number">33.5344528543149</span>),
+        (<span class="number">1e-15</span>, -<span class="number">31.43854911688433</span>),
+        (<span class="number">1e-14</span>, -<span class="number">29.342645379453764</span>),
+        (<span class="number">1e-13</span>, -<span class="number">27.24674337816674</span>),
+        (<span class="number">1e-12</span>, -<span class="number">25.150839640736177</span>),
+        (<span class="number">1e-11</span>, -<span class="number">23.05493590330561</span>),
+        (<span class="number">1e-10</span>, -<span class="number">20.95903216587504</span>),
+        (<span class="number">1e-09</span>, -<span class="number">18.863130164588018</span>),
+        (<span class="number">1e-08</span>, -<span class="number">16.76722642715745</span>),
+        (<span class="number">1e-07</span>, -<span class="number">14.671322689726882</span>),
+        (<span class="number">1e-06</span>, -<span class="number">12.575419820368088</span>),
+        (<span class="number">1e-05</span>, -<span class="number">10.47951608293752</span>),
+        (<span class="number">1e-04</span>, -<span class="number">8.383613213578725</span>),
+        (<span class="number">0.001</span>, -<span class="number">6.287709910184044</span>),
+        (<span class="number">0.01</span>, -<span class="number">4.1918066067893625</span>),
+        (<span class="number">0.1</span>, -<span class="number">2.0959033033946812</span>),
         (<span class="number">10.0</span>, <span class="number">2.0959033033946812</span>),
         (<span class="number">100.0</span>, <span class="number">4.1918066067893625</span>),
         (<span class="number">1000.0</span>, <span class="number">6.287709910184044</span>),
@@ -246,28 +245,28 @@
         (<span class="number">1e+19</span>, <span class="number">39.82216059431951</span>),
     ];
 
-    <span class="doccomment">/// log5.5(x) test vectors - `(input, output)`</span>
-    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">const</span> <span class="ident">TEST_VECTORS_BASE5_5</span>: <span class="kw-2">&amp;</span>[(<span class="ident">f32</span>, <span class="ident">f32</span>)] <span class="op">=</span> <span class="kw-2">&amp;</span>[
-        (<span class="number">1e-20</span>, <span class="op">-</span><span class="number">27.013786260685983</span>),
-        (<span class="number">1e-19</span>, <span class="op">-</span><span class="number">25.663096611998228</span>),
-        (<span class="number">1e-18</span>, <span class="op">-</span><span class="number">24.312409201000182</span>),
-        (<span class="number">1e-17</span>, <span class="op">-</span><span class="number">22.961719552312427</span>),
-        (<span class="number">1e-16</span>, <span class="op">-</span><span class="number">21.611029903624672</span>),
-        (<span class="number">1e-15</span>, <span class="op">-</span><span class="number">20.260340254936917</span>),
-        (<span class="number">1e-14</span>, <span class="op">-</span><span class="number">18.90965060624916</span>),
-        (<span class="number">1e-13</span>, <span class="op">-</span><span class="number">17.55896207640626</span>),
-        (<span class="number">1e-12</span>, <span class="op">-</span><span class="number">16.208272427718505</span>),
-        (<span class="number">1e-11</span>, <span class="op">-</span><span class="number">14.857582779030748</span>),
-        (<span class="number">1e-10</span>, <span class="op">-</span><span class="number">13.506893130342991</span>),
-        (<span class="number">1e-09</span>, <span class="op">-</span><span class="number">12.156204600500091</span>),
-        (<span class="number">1e-08</span>, <span class="op">-</span><span class="number">10.805514951812336</span>),
-        (<span class="number">1e-07</span>, <span class="op">-</span><span class="number">9.45482530312458</span>),
-        (<span class="number">1e-06</span>, <span class="op">-</span><span class="number">8.104136213859253</span>),
-        (<span class="number">1e-05</span>, <span class="op">-</span><span class="number">6.753446565171496</span>),
-        (<span class="number">1e-04</span>, <span class="op">-</span><span class="number">5.402757475906168</span>),
-        (<span class="number">0.001</span>, <span class="op">-</span><span class="number">4.052068106929626</span>),
-        (<span class="number">0.01</span>, <span class="op">-</span><span class="number">2.701378737953084</span>),
-        (<span class="number">0.1</span>, <span class="op">-</span><span class="number">1.350689368976542</span>),
+    <span class="doccomment">/// log5.5(x) test vectors - `(input, output)`
+    </span><span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">const </span>TEST_VECTORS_BASE5_5: <span class="kw-2">&amp;</span>[(f32, f32)] = <span class="kw-2">&amp;</span>[
+        (<span class="number">1e-20</span>, -<span class="number">27.013786260685983</span>),
+        (<span class="number">1e-19</span>, -<span class="number">25.663096611998228</span>),
+        (<span class="number">1e-18</span>, -<span class="number">24.312409201000182</span>),
+        (<span class="number">1e-17</span>, -<span class="number">22.961719552312427</span>),
+        (<span class="number">1e-16</span>, -<span class="number">21.611029903624672</span>),
+        (<span class="number">1e-15</span>, -<span class="number">20.260340254936917</span>),
+        (<span class="number">1e-14</span>, -<span class="number">18.90965060624916</span>),
+        (<span class="number">1e-13</span>, -<span class="number">17.55896207640626</span>),
+        (<span class="number">1e-12</span>, -<span class="number">16.208272427718505</span>),
+        (<span class="number">1e-11</span>, -<span class="number">14.857582779030748</span>),
+        (<span class="number">1e-10</span>, -<span class="number">13.506893130342991</span>),
+        (<span class="number">1e-09</span>, -<span class="number">12.156204600500091</span>),
+        (<span class="number">1e-08</span>, -<span class="number">10.805514951812336</span>),
+        (<span class="number">1e-07</span>, -<span class="number">9.45482530312458</span>),
+        (<span class="number">1e-06</span>, -<span class="number">8.104136213859253</span>),
+        (<span class="number">1e-05</span>, -<span class="number">6.753446565171496</span>),
+        (<span class="number">1e-04</span>, -<span class="number">5.402757475906168</span>),
+        (<span class="number">0.001</span>, -<span class="number">4.052068106929626</span>),
+        (<span class="number">0.01</span>, -<span class="number">2.701378737953084</span>),
+        (<span class="number">0.1</span>, -<span class="number">1.350689368976542</span>),
         (<span class="number">10.0</span>, <span class="number">1.350689368976542</span>),
         (<span class="number">100.0</span>, <span class="number">2.701378737953084</span>),
         (<span class="number">1000.0</span>, <span class="number">4.052068106929626</span>),
@@ -288,28 +287,28 @@
         (<span class="number">1e+18</span>, <span class="number">24.312409201000182</span>),
         (<span class="number">1e+19</span>, <span class="number">25.663096611998228</span>),
     ];
-    <span class="doccomment">/// log12.7(x) test vectors - `(input, output)`</span>
-    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">const</span> <span class="ident">TEST_VECTORS_BASE12_7</span>: <span class="kw-2">&amp;</span>[(<span class="ident">f32</span>, <span class="ident">f32</span>)] <span class="op">=</span> <span class="kw-2">&amp;</span>[
-        (<span class="number">1e-20</span>, <span class="op">-</span><span class="number">18.119162917899015</span>),
-        (<span class="number">1e-19</span>, <span class="op">-</span><span class="number">17.213204546868663</span>),
-        (<span class="number">1e-18</span>, <span class="op">-</span><span class="number">16.307247676740996</span>),
-        (<span class="number">1e-17</span>, <span class="op">-</span><span class="number">15.401289305710643</span>),
-        (<span class="number">1e-16</span>, <span class="op">-</span><span class="number">14.495330934680288</span>),
-        (<span class="number">1e-15</span>, <span class="op">-</span><span class="number">13.589372563649935</span>),
-        (<span class="number">1e-14</span>, <span class="op">-</span><span class="number">12.68341419261958</span>),
-        (<span class="number">1e-13</span>, <span class="op">-</span><span class="number">11.77745657204057</span>),
-        (<span class="number">1e-12</span>, <span class="op">-</span><span class="number">10.871498201010217</span>),
-        (<span class="number">1e-11</span>, <span class="op">-</span><span class="number">9.965539829979862</span>),
-        (<span class="number">1e-10</span>, <span class="op">-</span><span class="number">9.059581458949507</span>),
-        (<span class="number">1e-09</span>, <span class="op">-</span><span class="number">8.153623838370498</span>),
-        (<span class="number">1e-08</span>, <span class="op">-</span><span class="number">7.247665467340144</span>),
-        (<span class="number">1e-07</span>, <span class="op">-</span><span class="number">6.34170709630979</span>),
-        (<span class="number">1e-06</span>, <span class="op">-</span><span class="number">5.435749100505109</span>),
-        (<span class="number">1e-05</span>, <span class="op">-</span><span class="number">4.529790729474754</span>),
-        (<span class="number">1e-04</span>, <span class="op">-</span><span class="number">3.623832733670072</span>),
-        (<span class="number">0.001</span>, <span class="op">-</span><span class="number">2.7178745502525543</span>),
-        (<span class="number">0.01</span>, <span class="op">-</span><span class="number">1.811916366835036</span>),
-        (<span class="number">0.1</span>, <span class="op">-</span><span class="number">0.905958183417518</span>),
+    <span class="doccomment">/// log12.7(x) test vectors - `(input, output)`
+    </span><span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">const </span>TEST_VECTORS_BASE12_7: <span class="kw-2">&amp;</span>[(f32, f32)] = <span class="kw-2">&amp;</span>[
+        (<span class="number">1e-20</span>, -<span class="number">18.119162917899015</span>),
+        (<span class="number">1e-19</span>, -<span class="number">17.213204546868663</span>),
+        (<span class="number">1e-18</span>, -<span class="number">16.307247676740996</span>),
+        (<span class="number">1e-17</span>, -<span class="number">15.401289305710643</span>),
+        (<span class="number">1e-16</span>, -<span class="number">14.495330934680288</span>),
+        (<span class="number">1e-15</span>, -<span class="number">13.589372563649935</span>),
+        (<span class="number">1e-14</span>, -<span class="number">12.68341419261958</span>),
+        (<span class="number">1e-13</span>, -<span class="number">11.77745657204057</span>),
+        (<span class="number">1e-12</span>, -<span class="number">10.871498201010217</span>),
+        (<span class="number">1e-11</span>, -<span class="number">9.965539829979862</span>),
+        (<span class="number">1e-10</span>, -<span class="number">9.059581458949507</span>),
+        (<span class="number">1e-09</span>, -<span class="number">8.153623838370498</span>),
+        (<span class="number">1e-08</span>, -<span class="number">7.247665467340144</span>),
+        (<span class="number">1e-07</span>, -<span class="number">6.34170709630979</span>),
+        (<span class="number">1e-06</span>, -<span class="number">5.435749100505109</span>),
+        (<span class="number">1e-05</span>, -<span class="number">4.529790729474754</span>),
+        (<span class="number">1e-04</span>, -<span class="number">3.623832733670072</span>),
+        (<span class="number">0.001</span>, -<span class="number">2.7178745502525543</span>),
+        (<span class="number">0.01</span>, -<span class="number">1.811916366835036</span>),
+        (<span class="number">0.1</span>, -<span class="number">0.905958183417518</span>),
         (<span class="number">10.0</span>, <span class="number">0.905958183417518</span>),
         (<span class="number">100.0</span>, <span class="number">1.811916366835036</span>),
         (<span class="number">1000.0</span>, <span class="number">2.7178745502525543</span>),
@@ -331,50 +330,50 @@
         (<span class="number">1e+19</span>, <span class="number">17.213204546868663</span>),
     ];
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">sanity_check</span>() {
-        <span class="macro">assert_eq!</span>(<span class="ident">log_ln_approx</span>(<span class="number">1_f32</span>, <span class="number">3.0</span>), <span class="number">0_f32</span>);
-        <span class="macro">assert_eq!</span>(<span class="ident">log_ln_approx</span>(<span class="number">1_f32</span>, <span class="number">5.5</span>), <span class="number">0_f32</span>);
-        <span class="macro">assert_eq!</span>(<span class="ident">log_ln_approx</span>(<span class="number">1_f32</span>, <span class="number">12.7</span>), <span class="number">0_f32</span>);
-        <span class="kw">for</span> (<span class="ident">x</span>, <span class="ident">expected</span>) <span class="kw">in</span> <span class="ident">TEST_VECTORS_BASE3</span> {
-            <span class="kw">let</span> <span class="ident">log_x</span> <span class="op">=</span> <span class="ident">log_ln_approx</span>(<span class="kw-2">*</span><span class="ident">x</span>, <span class="number">3.0</span>);
-            <span class="kw">let</span> <span class="ident">relative_error</span> <span class="op">=</span> <span class="ident">abs::abs</span>(<span class="ident">log_x</span> <span class="op">-</span> <span class="kw-2">*</span><span class="ident">expected</span>) <span class="op">/</span> <span class="kw-2">*</span><span class="ident">expected</span>;
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>sanity_check() {
+        <span class="macro">assert_eq!</span>(log_ln_approx(<span class="number">1_f32</span>, <span class="number">3.0</span>), <span class="number">0_f32</span>);
+        <span class="macro">assert_eq!</span>(log_ln_approx(<span class="number">1_f32</span>, <span class="number">5.5</span>), <span class="number">0_f32</span>);
+        <span class="macro">assert_eq!</span>(log_ln_approx(<span class="number">1_f32</span>, <span class="number">12.7</span>), <span class="number">0_f32</span>);
+        <span class="kw">for </span>(x, expected) <span class="kw">in </span>TEST_VECTORS_BASE3 {
+            <span class="kw">let </span>log_x = log_ln_approx(<span class="kw-2">*</span>x, <span class="number">3.0</span>);
+            <span class="kw">let </span>relative_error = abs::abs(log_x - <span class="kw-2">*</span>expected) / <span class="kw-2">*</span>expected;
 
             <span class="macro">assert!</span>(
-                <span class="ident">relative_error</span> <span class="op">&lt;</span><span class="op">=</span> <span class="ident">MAX_ERROR</span>,
+                relative_error &lt;= MAX_ERROR,
                 <span class="string">&quot;relative_error {} too large: {} vs {}&quot;</span>,
-                <span class="ident">relative_error</span>,
-                <span class="ident">log_x</span>,
-                <span class="ident">expected</span>
+                relative_error,
+                log_x,
+                expected
             );
         }
 
-        <span class="kw">for</span> (<span class="ident">x</span>, <span class="ident">expected</span>) <span class="kw">in</span> <span class="ident">TEST_VECTORS_BASE5_5</span> {
-            <span class="kw">let</span> <span class="ident">log_x</span> <span class="op">=</span> <span class="ident">log_ln_approx</span>(<span class="kw-2">*</span><span class="ident">x</span>, <span class="number">5.5</span>);
-            <span class="kw">let</span> <span class="ident">relative_error</span> <span class="op">=</span> <span class="ident">abs::abs</span>(<span class="ident">log_x</span> <span class="op">-</span> <span class="kw-2">*</span><span class="ident">expected</span>) <span class="op">/</span> <span class="kw-2">*</span><span class="ident">expected</span>;
+        <span class="kw">for </span>(x, expected) <span class="kw">in </span>TEST_VECTORS_BASE5_5 {
+            <span class="kw">let </span>log_x = log_ln_approx(<span class="kw-2">*</span>x, <span class="number">5.5</span>);
+            <span class="kw">let </span>relative_error = abs::abs(log_x - <span class="kw-2">*</span>expected) / <span class="kw-2">*</span>expected;
 
             <span class="macro">assert!</span>(
-                <span class="ident">relative_error</span> <span class="op">&lt;</span><span class="op">=</span> <span class="ident">MAX_ERROR</span>,
+                relative_error &lt;= MAX_ERROR,
                 <span class="string">&quot;relative_error {} too large: {} vs {}&quot;</span>,
-                <span class="ident">relative_error</span>,
-                <span class="ident">log_x</span>,
-                <span class="ident">expected</span>
+                relative_error,
+                log_x,
+                expected
             );
         }
 
-        <span class="kw">for</span> (<span class="ident">x</span>, <span class="ident">expected</span>) <span class="kw">in</span> <span class="ident">TEST_VECTORS_BASE12_7</span> {
-            <span class="kw">let</span> <span class="ident">log_x</span> <span class="op">=</span> <span class="ident">log_ln_approx</span>(<span class="kw-2">*</span><span class="ident">x</span>, <span class="number">12.7</span>);
-            <span class="kw">let</span> <span class="ident">relative_error</span> <span class="op">=</span> <span class="ident">abs::abs</span>(<span class="ident">log_x</span> <span class="op">-</span> <span class="kw-2">*</span><span class="ident">expected</span>) <span class="op">/</span> <span class="kw-2">*</span><span class="ident">expected</span>;
+        <span class="kw">for </span>(x, expected) <span class="kw">in </span>TEST_VECTORS_BASE12_7 {
+            <span class="kw">let </span>log_x = log_ln_approx(<span class="kw-2">*</span>x, <span class="number">12.7</span>);
+            <span class="kw">let </span>relative_error = abs::abs(log_x - <span class="kw-2">*</span>expected) / <span class="kw-2">*</span>expected;
 
             <span class="macro">assert!</span>(
-                <span class="ident">relative_error</span> <span class="op">&lt;</span><span class="op">=</span> <span class="ident">MAX_ERROR</span>,
+                relative_error &lt;= MAX_ERROR,
                 <span class="string">&quot;relative_error {} too large: {} vs {}&quot;</span>,
-                <span class="ident">relative_error</span>,
-                <span class="ident">log_x</span>,
-                <span class="ident">expected</span>
+                relative_error,
+                log_x,
+                expected
             );
         }
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="micromath" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0 (a55dd71d5 2022-09-19)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="micromath" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0 (69f9c33d7 2022-12-12)" ></div></body></html>

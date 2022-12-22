@@ -1,6 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.1/src/mock_display/mod.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../embedded_graphics/index.html"><div class="logo-container"><img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../embedded_graphics/index.html"><div class="logo-container">
-                    <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../embedded_graphics/index.html">
-                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.1/src/mock_display/mod.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../embedded_graphics/index.html">
+                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -810,815 +809,815 @@
 <span id="808">808</span>
 <span id="809">809</span>
 <span id="810">810</span>
-</pre><pre class="rust"><code><span class="doccomment">//! Mock display for use in tests.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! [`MockDisplay`] can be used to replace a real display in tests. The internal</span>
-<span class="doccomment">//! framebuffer wraps the color values in `Option` to be able to test which</span>
-<span class="doccomment">//! pixels were modified by drawing operations.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! The [`from_pattern`] method provides a convenient way of creating expected</span>
-<span class="doccomment">//! test results. The same patterns are used by the implementation of `Debug`</span>
-<span class="doccomment">//! and will be shown in failing tests.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! The display is internally capped at 64x64px.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! # Assertions</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! [`MockDisplay`] provides the [`assert_eq`] and [`assert_pattern`] methods to check if the</span>
-<span class="doccomment">//! display is in the correct state after some drawing operations were executed. It&#39;s recommended</span>
-<span class="doccomment">//! to use these methods instead of the standard `assert_eq!` macro, because they provide an</span>
-<span class="doccomment">//! optional improved debug output for failing tests. If the `EG_FANCY_PANIC` environment variable</span>
-<span class="doccomment">//! is set to `1` at compile time a graphic representation of the display content and a diff of the</span>
-<span class="doccomment">//! display and the expected output will be shown:</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ```bash</span>
-<span class="doccomment">//! EG_FANCY_PANIC=1 cargo test</span>
-<span class="doccomment">//! ```</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! Enabling the advanced test output requires a terminal that supports 24 BPP colors and a font</span>
-<span class="doccomment">//! that includes the upper half block character `&#39;\u{2580}&#39;`.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! The color code used to show the difference between the display and the expected output is shown</span>
-<span class="doccomment">//! in the documentation of the [`diff`] method.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! # Additional out of bounds and overdraw checks</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! [`MockDisplay`] implements additional checks during drawing operations that will cause a panic if</span>
-<span class="doccomment">//! any pixel is drawn outside the framebuffer or if a pixel is drawn more than once. These</span>
-<span class="doccomment">//! stricter checks were added to help with testing and shouldn&#39;t be implemented by normal</span>
-<span class="doccomment">//! [`DrawTarget`]s.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! If a test relies on out of bounds drawing or overdrawing the additional checks can explicitly</span>
-<span class="doccomment">//! be disabled  by using [`set_allow_out_of_bounds_drawing`] and [`set_allow_overdraw`].</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! # Characters used in `BinaryColor` patterns</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! The following mappings are available for [`BinaryColor`]:</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! | Character | Color                    | Description                             |</span>
-<span class="doccomment">//! |-----------|--------------------------|-----------------------------------------|</span>
-<span class="doccomment">//! | `&#39; &#39;`     | `None`                   | No drawing operation changed the pixel  |</span>
-<span class="doccomment">//! | `&#39;.&#39;`     | `Some(BinaryColor::Off)` | Pixel was changed to `BinaryColor::Off` |</span>
-<span class="doccomment">//! | `&#39;#&#39;`     | `Some(BinaryColor::On)`  | Pixel was changed to `BinaryColor::On`  |</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! # Characters used in [`Gray2`] patterns</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! The following mappings are available for [`Gray2`]:</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! | Character | Color                    | Description                             |</span>
-<span class="doccomment">//! |-----------|--------------------------|-----------------------------------------|</span>
-<span class="doccomment">//! | `&#39; &#39;`     | `None`                   | No drawing operation changed the pixel  |</span>
-<span class="doccomment">//! | `&#39;0&#39;`     | `Some(Gray2::new(0x0))`  | Pixel was changed to `Gray2::new(0x0)`  |</span>
-<span class="doccomment">//! | `&#39;1&#39;`     | `Some(Gray2::new(0x1))`  | Pixel was changed to `Gray2::new(0x1)`  |</span>
-<span class="doccomment">//! | `&#39;2&#39;`     | `Some(Gray2::new(0x2))`  | Pixel was changed to `Gray2::new(0x2)`  |</span>
-<span class="doccomment">//! | `&#39;3&#39;`     | `Some(Gray2::new(0x3))`  | Pixel was changed to `Gray2::new(0x3)`  |</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! # Characters used in [`Gray4`] patterns</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! The following mappings are available for [`Gray4`]:</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! | Character | Color                    | Description                             |</span>
-<span class="doccomment">//! |-----------|--------------------------|-----------------------------------------|</span>
-<span class="doccomment">//! | `&#39; &#39;`     | `None`                   | No drawing operation changed the pixel  |</span>
-<span class="doccomment">//! | `&#39;0&#39;`     | `Some(Gray4::new(0x0))`  | Pixel was changed to `Gray4::new(0x0)`  |</span>
-<span class="doccomment">//! | `&#39;1&#39;`     | `Some(Gray4::new(0x1))`  | Pixel was changed to `Gray4::new(0x1)`  |</span>
-<span class="doccomment">//! | ⋮         | ⋮                        | ⋮                                      |</span>
-<span class="doccomment">//! | `&#39;E&#39;`     | `Some(Gray4::new(0xE))`  | Pixel was changed to `Gray4::new(0xE)`  |</span>
-<span class="doccomment">//! | `&#39;F&#39;`     | `Some(Gray4::new(0xF))`  | Pixel was changed to `Gray4::new(0xF)`  |</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! # Characters used in [`Gray8`] patterns</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! The following mappings are available for [`Gray8`]:</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! | Character | Color                    | Description                             |</span>
-<span class="doccomment">//! |-----------|--------------------------|-----------------------------------------|</span>
-<span class="doccomment">//! | `&#39; &#39;`     | `None`                   | No drawing operation changed the pixel  |</span>
-<span class="doccomment">//! | `&#39;0&#39;`     | `Some(Gray8::new(0x00))` | Pixel was changed to `Gray8::new(0x00)` |</span>
-<span class="doccomment">//! | `&#39;1&#39;`     | `Some(Gray8::new(0x11))` | Pixel was changed to `Gray8::new(0x11)` |</span>
-<span class="doccomment">//! | ⋮         | ⋮                        | ⋮                                      |</span>
-<span class="doccomment">//! | `&#39;E&#39;`     | `Some(Gray8::new(0xEE))` | Pixel was changed to `Gray8::new(0xEE)` |</span>
-<span class="doccomment">//! | `&#39;F&#39;`     | `Some(Gray8::new(0xFF))` | Pixel was changed to `Gray8::new(0xFF)` |</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! Note: `Gray8` uses a different mapping than `Gray2` and `Gray4`, by duplicating the pattern</span>
-<span class="doccomment">//! value into the high and low nibble. This allows using a single digit to test luma values ranging</span>
-<span class="doccomment">//! from 0 to 255.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! # Characters used in RGB color patterns</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! The following mappings are available for all RGB color types in the [`pixelcolor`] module,</span>
-<span class="doccomment">//! like [`Rgb565`] or [`Rgb888`]:</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! | Character | Color                    | Description                             |</span>
-<span class="doccomment">//! |-----------|--------------------------|-----------------------------------------|</span>
-<span class="doccomment">//! | `&#39; &#39;`     | `None`                   | No drawing operation changed the pixel  |</span>
-<span class="doccomment">//! | `&#39;K&#39;`     | `Some(C::BLACK)`         | Pixel was changed to `C::BLACK`         |</span>
-<span class="doccomment">//! | `&#39;R&#39;`     | `Some(C::RED)`           | Pixel was changed to `C::RED`           |</span>
-<span class="doccomment">//! | `&#39;G&#39;`     | `Some(C::GREEN)`         | Pixel was changed to `C::GREEN`         |</span>
-<span class="doccomment">//! | `&#39;B&#39;`     | `Some(C::BLUE)`          | Pixel was changed to `C::BLUE`          |</span>
-<span class="doccomment">//! | `&#39;Y&#39;`     | `Some(C::YELLOW)`        | Pixel was changed to `C::YELLOW`        |</span>
-<span class="doccomment">//! | `&#39;M&#39;`     | `Some(C::MAGENTA)`       | Pixel was changed to `C::MAGENTA`       |</span>
-<span class="doccomment">//! | `&#39;C&#39;`     | `Some(C::CYAN)`          | Pixel was changed to `C::CYAN`          |</span>
-<span class="doccomment">//! | `&#39;W&#39;`     | `Some(C::WHITE)`         | Pixel was changed to `C::WHITE`         |</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! Note: The table used `C` as a placeholder for the actual color type, like `Rgb565::BLACK`.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! # Examples</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ## Assert that a modified display matches the expected value</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! This example sets three pixels on the display and checks that they&#39;re turned on.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ```rust</span>
-<span class="doccomment">//! use embedded_graphics::{mock_display::MockDisplay, pixelcolor::BinaryColor, prelude::*};</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! let mut display = MockDisplay::new();</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! Pixel(Point::new(0, 0), BinaryColor::On).draw(&amp;mut display);</span>
-<span class="doccomment">//! Pixel(Point::new(2, 1), BinaryColor::On).draw(&amp;mut display);</span>
-<span class="doccomment">//! Pixel(Point::new(1, 2), BinaryColor::On).draw(&amp;mut display);</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! display.assert_pattern(&amp;[</span>
-<span class="doccomment">//!     &quot;#  &quot;, //</span>
-<span class="doccomment">//!     &quot;  #&quot;, //</span>
-<span class="doccomment">//!     &quot; # &quot;, //</span>
-<span class="doccomment">//! ]);</span>
-<span class="doccomment">//! ```</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ## Load and validate a 16BPP image</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! This example loads the following test image (scaled 10x to make it visible) and tests the</span>
-<span class="doccomment">//! returned pixels against an expected pattern.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ![Test image, scaled 1000%](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAUCAIAAABwJOjsAAAAMUlEQVRIx2NkwAv+45Vl/E++XiaGAQKjFo9aPGrx0LeYhVAJMxrUoxaPWjxq8aCzGAAVwwQnmlfSgwAAAABJRU5ErkJggg==)</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ```rust</span>
-<span class="doccomment">//! use embedded_graphics::{</span>
-<span class="doccomment">//!     image::{Image, ImageRaw, ImageRawBE},</span>
-<span class="doccomment">//!     mock_display::MockDisplay,</span>
-<span class="doccomment">//!     pixelcolor::{Rgb565, RgbColor},</span>
-<span class="doccomment">//!     prelude::*,</span>
-<span class="doccomment">//! };</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! let data = [</span>
-<span class="doccomment">//!     0x00, 0x00, 0xF8, 0x00, 0x07, 0xE0, 0xFF, 0xE0, //</span>
-<span class="doccomment">//!     0x00, 0x1F, 0x07, 0xFF, 0xF8, 0x1F, 0xFF, 0xFF, //</span>
-<span class="doccomment">//! ];</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! let raw: ImageRawBE&lt;Rgb565&gt; = ImageRaw::new(&amp;data, 4);</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! let image = Image::new(&amp;raw, Point::zero());</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! let mut display: MockDisplay&lt;Rgb565&gt; = MockDisplay::new();</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! image.draw(&amp;mut display);</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! display.assert_pattern(&amp;[</span>
-<span class="doccomment">//!     &quot;KRGY&quot;, //</span>
-<span class="doccomment">//!     &quot;BCMW&quot;, //</span>
-<span class="doccomment">//! ]);</span>
-<span class="doccomment">//! ```</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! [`pixelcolor`]: ../pixelcolor/index.html#structs</span>
-<span class="doccomment">//! [`BinaryColor`]: ../pixelcolor/enum.BinaryColor.html</span>
-<span class="doccomment">//! [`Gray2`]: ../pixelcolor/struct.Gray2.html</span>
-<span class="doccomment">//! [`Gray4`]: ../pixelcolor/struct.Gray4.html</span>
-<span class="doccomment">//! [`Gray8`]: ../pixelcolor/struct.Gray8.html</span>
-<span class="doccomment">//! [`Rgb565`]: ../pixelcolor/struct.Rgb565.html</span>
-<span class="doccomment">//! [`Rgb888`]: ../pixelcolor/struct.Rgb888.html</span>
-<span class="doccomment">//! [`DrawTarget`]: ../draw_target/trait.DrawTarget.html</span>
-<span class="doccomment">//! [`MockDisplay`]: struct.MockDisplay.html</span>
-<span class="doccomment">//! [`assert_eq`]: struct.MockDisplay.html#method.assert_eq</span>
-<span class="doccomment">//! [`assert_pattern`]: struct.MockDisplay.html#method.assert_pattern</span>
-<span class="doccomment">//! [`diff`]: struct.MockDisplay.html#method.diff</span>
-<span class="doccomment">//! [`from_pattern`]: struct.MockDisplay.html#method.from_pattern</span>
-<span class="doccomment">//! [`set_allow_overdraw`]: struct.MockDisplay.html#method.set_allow_overdraw</span>
-<span class="doccomment">//! [`set_allow_out_of_bounds_drawing`]: struct.MockDisplay.html#method.set_allow_out_of_bounds_drawing</span>
+</pre><pre class="rust"><code><span class="doccomment">//! Mock display for use in tests.
+//!
+//! [`MockDisplay`] can be used to replace a real display in tests. The internal
+//! framebuffer wraps the color values in `Option` to be able to test which
+//! pixels were modified by drawing operations.
+//!
+//! The [`from_pattern`] method provides a convenient way of creating expected
+//! test results. The same patterns are used by the implementation of `Debug`
+//! and will be shown in failing tests.
+//!
+//! The display is internally capped at 64x64px.
+//!
+//! # Assertions
+//!
+//! [`MockDisplay`] provides the [`assert_eq`] and [`assert_pattern`] methods to check if the
+//! display is in the correct state after some drawing operations were executed. It&#39;s recommended
+//! to use these methods instead of the standard `assert_eq!` macro, because they provide an
+//! optional improved debug output for failing tests. If the `EG_FANCY_PANIC` environment variable
+//! is set to `1` at compile time a graphic representation of the display content and a diff of the
+//! display and the expected output will be shown:
+//!
+//! ```bash
+//! EG_FANCY_PANIC=1 cargo test
+//! ```
+//!
+//! Enabling the advanced test output requires a terminal that supports 24 BPP colors and a font
+//! that includes the upper half block character `&#39;\u{2580}&#39;`.
+//!
+//! The color code used to show the difference between the display and the expected output is shown
+//! in the documentation of the [`diff`] method.
+//!
+//! # Additional out of bounds and overdraw checks
+//!
+//! [`MockDisplay`] implements additional checks during drawing operations that will cause a panic if
+//! any pixel is drawn outside the framebuffer or if a pixel is drawn more than once. These
+//! stricter checks were added to help with testing and shouldn&#39;t be implemented by normal
+//! [`DrawTarget`]s.
+//!
+//! If a test relies on out of bounds drawing or overdrawing the additional checks can explicitly
+//! be disabled  by using [`set_allow_out_of_bounds_drawing`] and [`set_allow_overdraw`].
+//!
+//! # Characters used in `BinaryColor` patterns
+//!
+//! The following mappings are available for [`BinaryColor`]:
+//!
+//! | Character | Color                    | Description                             |
+//! |-----------|--------------------------|-----------------------------------------|
+//! | `&#39; &#39;`     | `None`                   | No drawing operation changed the pixel  |
+//! | `&#39;.&#39;`     | `Some(BinaryColor::Off)` | Pixel was changed to `BinaryColor::Off` |
+//! | `&#39;#&#39;`     | `Some(BinaryColor::On)`  | Pixel was changed to `BinaryColor::On`  |
+//!
+//! # Characters used in [`Gray2`] patterns
+//!
+//! The following mappings are available for [`Gray2`]:
+//!
+//! | Character | Color                    | Description                             |
+//! |-----------|--------------------------|-----------------------------------------|
+//! | `&#39; &#39;`     | `None`                   | No drawing operation changed the pixel  |
+//! | `&#39;0&#39;`     | `Some(Gray2::new(0x0))`  | Pixel was changed to `Gray2::new(0x0)`  |
+//! | `&#39;1&#39;`     | `Some(Gray2::new(0x1))`  | Pixel was changed to `Gray2::new(0x1)`  |
+//! | `&#39;2&#39;`     | `Some(Gray2::new(0x2))`  | Pixel was changed to `Gray2::new(0x2)`  |
+//! | `&#39;3&#39;`     | `Some(Gray2::new(0x3))`  | Pixel was changed to `Gray2::new(0x3)`  |
+//!
+//! # Characters used in [`Gray4`] patterns
+//!
+//! The following mappings are available for [`Gray4`]:
+//!
+//! | Character | Color                    | Description                             |
+//! |-----------|--------------------------|-----------------------------------------|
+//! | `&#39; &#39;`     | `None`                   | No drawing operation changed the pixel  |
+//! | `&#39;0&#39;`     | `Some(Gray4::new(0x0))`  | Pixel was changed to `Gray4::new(0x0)`  |
+//! | `&#39;1&#39;`     | `Some(Gray4::new(0x1))`  | Pixel was changed to `Gray4::new(0x1)`  |
+//! | ⋮         | ⋮                        | ⋮                                      |
+//! | `&#39;E&#39;`     | `Some(Gray4::new(0xE))`  | Pixel was changed to `Gray4::new(0xE)`  |
+//! | `&#39;F&#39;`     | `Some(Gray4::new(0xF))`  | Pixel was changed to `Gray4::new(0xF)`  |
+//!
+//! # Characters used in [`Gray8`] patterns
+//!
+//! The following mappings are available for [`Gray8`]:
+//!
+//! | Character | Color                    | Description                             |
+//! |-----------|--------------------------|-----------------------------------------|
+//! | `&#39; &#39;`     | `None`                   | No drawing operation changed the pixel  |
+//! | `&#39;0&#39;`     | `Some(Gray8::new(0x00))` | Pixel was changed to `Gray8::new(0x00)` |
+//! | `&#39;1&#39;`     | `Some(Gray8::new(0x11))` | Pixel was changed to `Gray8::new(0x11)` |
+//! | ⋮         | ⋮                        | ⋮                                      |
+//! | `&#39;E&#39;`     | `Some(Gray8::new(0xEE))` | Pixel was changed to `Gray8::new(0xEE)` |
+//! | `&#39;F&#39;`     | `Some(Gray8::new(0xFF))` | Pixel was changed to `Gray8::new(0xFF)` |
+//!
+//! Note: `Gray8` uses a different mapping than `Gray2` and `Gray4`, by duplicating the pattern
+//! value into the high and low nibble. This allows using a single digit to test luma values ranging
+//! from 0 to 255.
+//!
+//! # Characters used in RGB color patterns
+//!
+//! The following mappings are available for all RGB color types in the [`pixelcolor`] module,
+//! like [`Rgb565`] or [`Rgb888`]:
+//!
+//! | Character | Color                    | Description                             |
+//! |-----------|--------------------------|-----------------------------------------|
+//! | `&#39; &#39;`     | `None`                   | No drawing operation changed the pixel  |
+//! | `&#39;K&#39;`     | `Some(C::BLACK)`         | Pixel was changed to `C::BLACK`         |
+//! | `&#39;R&#39;`     | `Some(C::RED)`           | Pixel was changed to `C::RED`           |
+//! | `&#39;G&#39;`     | `Some(C::GREEN)`         | Pixel was changed to `C::GREEN`         |
+//! | `&#39;B&#39;`     | `Some(C::BLUE)`          | Pixel was changed to `C::BLUE`          |
+//! | `&#39;Y&#39;`     | `Some(C::YELLOW)`        | Pixel was changed to `C::YELLOW`        |
+//! | `&#39;M&#39;`     | `Some(C::MAGENTA)`       | Pixel was changed to `C::MAGENTA`       |
+//! | `&#39;C&#39;`     | `Some(C::CYAN)`          | Pixel was changed to `C::CYAN`          |
+//! | `&#39;W&#39;`     | `Some(C::WHITE)`         | Pixel was changed to `C::WHITE`         |
+//!
+//! Note: The table used `C` as a placeholder for the actual color type, like `Rgb565::BLACK`.
+//!
+//! # Examples
+//!
+//! ## Assert that a modified display matches the expected value
+//!
+//! This example sets three pixels on the display and checks that they&#39;re turned on.
+//!
+//! ```rust
+//! use embedded_graphics::{mock_display::MockDisplay, pixelcolor::BinaryColor, prelude::*};
+//!
+//! let mut display = MockDisplay::new();
+//!
+//! Pixel(Point::new(0, 0), BinaryColor::On).draw(&amp;mut display);
+//! Pixel(Point::new(2, 1), BinaryColor::On).draw(&amp;mut display);
+//! Pixel(Point::new(1, 2), BinaryColor::On).draw(&amp;mut display);
+//!
+//! display.assert_pattern(&amp;[
+//!     &quot;#  &quot;, //
+//!     &quot;  #&quot;, //
+//!     &quot; # &quot;, //
+//! ]);
+//! ```
+//!
+//! ## Load and validate a 16BPP image
+//!
+//! This example loads the following test image (scaled 10x to make it visible) and tests the
+//! returned pixels against an expected pattern.
+//!
+//! ![Test image, scaled 1000%](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAUCAIAAABwJOjsAAAAMUlEQVRIx2NkwAv+45Vl/E++XiaGAQKjFo9aPGrx0LeYhVAJMxrUoxaPWjxq8aCzGAAVwwQnmlfSgwAAAABJRU5ErkJggg==)
+//!
+//! ```rust
+//! use embedded_graphics::{
+//!     image::{Image, ImageRaw, ImageRawBE},
+//!     mock_display::MockDisplay,
+//!     pixelcolor::{Rgb565, RgbColor},
+//!     prelude::*,
+//! };
+//!
+//! let data = [
+//!     0x00, 0x00, 0xF8, 0x00, 0x07, 0xE0, 0xFF, 0xE0, //
+//!     0x00, 0x1F, 0x07, 0xFF, 0xF8, 0x1F, 0xFF, 0xFF, //
+//! ];
+//!
+//! let raw: ImageRawBE&lt;Rgb565&gt; = ImageRaw::new(&amp;data, 4);
+//!
+//! let image = Image::new(&amp;raw, Point::zero());
+//!
+//! let mut display: MockDisplay&lt;Rgb565&gt; = MockDisplay::new();
+//!
+//! image.draw(&amp;mut display);
+//!
+//! display.assert_pattern(&amp;[
+//!     &quot;KRGY&quot;, //
+//!     &quot;BCMW&quot;, //
+//! ]);
+//! ```
+//!
+//! [`pixelcolor`]: ../pixelcolor/index.html#structs
+//! [`BinaryColor`]: ../pixelcolor/enum.BinaryColor.html
+//! [`Gray2`]: ../pixelcolor/struct.Gray2.html
+//! [`Gray4`]: ../pixelcolor/struct.Gray4.html
+//! [`Gray8`]: ../pixelcolor/struct.Gray8.html
+//! [`Rgb565`]: ../pixelcolor/struct.Rgb565.html
+//! [`Rgb888`]: ../pixelcolor/struct.Rgb888.html
+//! [`DrawTarget`]: ../draw_target/trait.DrawTarget.html
+//! [`MockDisplay`]: struct.MockDisplay.html
+//! [`assert_eq`]: struct.MockDisplay.html#method.assert_eq
+//! [`assert_pattern`]: struct.MockDisplay.html#method.assert_pattern
+//! [`diff`]: struct.MockDisplay.html#method.diff
+//! [`from_pattern`]: struct.MockDisplay.html#method.from_pattern
+//! [`set_allow_overdraw`]: struct.MockDisplay.html#method.set_allow_overdraw
+//! [`set_allow_out_of_bounds_drawing`]: struct.MockDisplay.html#method.set_allow_out_of_bounds_drawing
 
-<span class="kw">mod</span> <span class="ident">color_mapping</span>;
-<span class="kw">mod</span> <span class="ident">fancy_panic</span>;
+</span><span class="kw">mod </span>color_mapping;
+<span class="kw">mod </span>fancy_panic;
 
-<span class="kw">use</span> <span class="kw">crate</span>::{
-    <span class="ident">draw_target::DrawTarget</span>,
-    <span class="ident">geometry</span>::{<span class="ident">Dimensions</span>, <span class="ident">OriginDimensions</span>, <span class="ident">Point</span>, <span class="ident">Size</span>},
-    <span class="ident">pixelcolor</span>::{<span class="ident">PixelColor</span>, <span class="ident">Rgb888</span>, <span class="ident">RgbColor</span>},
-    <span class="ident">primitives</span>::{<span class="ident">PointsIter</span>, <span class="ident">Rectangle</span>},
-    <span class="ident">Pixel</span>,
+<span class="kw">use crate</span>::{
+    draw_target::DrawTarget,
+    geometry::{Dimensions, OriginDimensions, Point, Size},
+    pixelcolor::{PixelColor, Rgb888, RgbColor},
+    primitives::{PointsIter, Rectangle},
+    Pixel,
 };
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">color_mapping::ColorMapping</span>;
-<span class="kw">use</span> <span class="ident">core</span>::{
-    <span class="ident">fmt</span>::{<span class="self">self</span>, <span class="ident">Write</span>},
-    <span class="ident">iter</span>,
+<span class="kw">pub use </span>color_mapping::ColorMapping;
+<span class="kw">use </span>core::{
+    fmt::{<span class="self">self</span>, Write},
+    iter,
 };
-<span class="kw">use</span> <span class="ident">fancy_panic::FancyPanic</span>;
+<span class="kw">use </span>fancy_panic::FancyPanic;
 
-<span class="kw">const</span> <span class="ident">SIZE</span>: <span class="ident">usize</span> <span class="op">=</span> <span class="number">64</span>;
-<span class="kw">const</span> <span class="ident">DISPLAY_AREA</span>: <span class="ident">Rectangle</span> <span class="op">=</span> <span class="ident">Rectangle::new</span>(<span class="ident">Point::zero</span>(), <span class="ident">Size::new_equal</span>(<span class="ident">SIZE</span> <span class="kw">as</span> <span class="ident">u32</span>));
+<span class="kw">const </span>SIZE: usize = <span class="number">64</span>;
+<span class="kw">const </span>DISPLAY_AREA: Rectangle = Rectangle::new(Point::zero(), Size::new_equal(SIZE <span class="kw">as </span>u32));
 
-<span class="doccomment">/// Mock display struct</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// See the [module documentation](./index.html) for usage and examples.</span>
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Clone</span>)]</span>
-<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">MockDisplay</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>
-<span class="kw">where</span>
-    <span class="ident">C</span>: <span class="ident">PixelColor</span>,
+<span class="doccomment">/// Mock display struct
+///
+/// See the [module documentation](./index.html) for usage and examples.
+</span><span class="attribute">#[derive(Clone)]
+</span><span class="kw">pub struct </span>MockDisplay&lt;C&gt;
+<span class="kw">where
+    </span>C: PixelColor,
 {
-    <span class="ident">pixels</span>: [<span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>; <span class="ident">SIZE</span> <span class="op">*</span> <span class="ident">SIZE</span>],
-    <span class="ident">allow_overdraw</span>: <span class="ident">bool</span>,
-    <span class="ident">allow_out_of_bounds_drawing</span>: <span class="ident">bool</span>,
+    pixels: [<span class="prelude-ty">Option</span>&lt;C&gt;; SIZE * SIZE],
+    allow_overdraw: bool,
+    allow_out_of_bounds_drawing: bool,
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span> <span class="ident">MockDisplay</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>
-<span class="kw">where</span>
-    <span class="ident">C</span>: <span class="ident">PixelColor</span>,
+<span class="kw">impl</span>&lt;C&gt; MockDisplay&lt;C&gt;
+<span class="kw">where
+    </span>C: PixelColor,
 {
-    <span class="doccomment">/// Creates a new empty mock display.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>() -&gt; <span class="self">Self</span> {
-        <span class="ident"><span class="self">Self</span>::default</span>()
+    <span class="doccomment">/// Creates a new empty mock display.
+    </span><span class="kw">pub fn </span>new() -&gt; <span class="self">Self </span>{
+        <span class="self">Self</span>::default()
     }
 
-    <span class="doccomment">/// Create a mock display from an iterator of [`Point`]s.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// This method can be used to create a mock display from the iterator produced by the</span>
-    <span class="doccomment">/// [`PointsIter::points`] method.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Panics</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// This method will panic if the iterator returns a point that is outside the display bounding</span>
-    <span class="doccomment">/// box.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Examples</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ```rust</span>
-    <span class="doccomment">/// use embedded_graphics::{prelude::*, pixelcolor::BinaryColor, primitives::Circle, mock_display::MockDisplay};</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// let circle = Circle::new(Point::new(0, 0), 4);</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// let mut display = MockDisplay::from_points(circle.points(), BinaryColor::On);</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// display.assert_pattern(&amp;[</span>
-    <span class="doccomment">///     &quot; ## &quot;,</span>
-    <span class="doccomment">///     &quot;####&quot;,</span>
-    <span class="doccomment">///     &quot;####&quot;,</span>
-    <span class="doccomment">///     &quot; ## &quot;,</span>
-    <span class="doccomment">/// ]);</span>
-    <span class="doccomment">/// ```</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [`Point`]: ../geometry/struct.Point.html</span>
-    <span class="doccomment">/// [`PointsIter::points`]: ../primitives/trait.PointsIter.html#tymethod.points</span>
-    <span class="doccomment">/// [`map`]: #method.map</span>
-    <span class="doccomment">/// [`BinaryColor`]: ../pixelcolor/enum.BinaryColor.html</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">from_points</span><span class="op">&lt;</span><span class="ident">I</span><span class="op">&gt;</span>(<span class="ident">points</span>: <span class="ident">I</span>, <span class="ident">color</span>: <span class="ident">C</span>) -&gt; <span class="self">Self</span>
-    <span class="kw">where</span>
-        <span class="ident">I</span>: <span class="ident">IntoIterator</span><span class="op">&lt;</span><span class="ident">Item</span> <span class="op">=</span> <span class="ident">Point</span><span class="op">&gt;</span>,
+    <span class="doccomment">/// Create a mock display from an iterator of [`Point`]s.
+    ///
+    /// This method can be used to create a mock display from the iterator produced by the
+    /// [`PointsIter::points`] method.
+    ///
+    /// # Panics
+    ///
+    /// This method will panic if the iterator returns a point that is outside the display bounding
+    /// box.
+    ///
+    /// # Examples
+    ///
+    /// ```rust
+    /// use embedded_graphics::{prelude::*, pixelcolor::BinaryColor, primitives::Circle, mock_display::MockDisplay};
+    ///
+    /// let circle = Circle::new(Point::new(0, 0), 4);
+    ///
+    /// let mut display = MockDisplay::from_points(circle.points(), BinaryColor::On);
+    ///
+    /// display.assert_pattern(&amp;[
+    ///     &quot; ## &quot;,
+    ///     &quot;####&quot;,
+    ///     &quot;####&quot;,
+    ///     &quot; ## &quot;,
+    /// ]);
+    /// ```
+    ///
+    /// [`Point`]: ../geometry/struct.Point.html
+    /// [`PointsIter::points`]: ../primitives/trait.PointsIter.html#tymethod.points
+    /// [`map`]: #method.map
+    /// [`BinaryColor`]: ../pixelcolor/enum.BinaryColor.html
+    </span><span class="kw">pub fn </span>from_points&lt;I&gt;(points: I, color: C) -&gt; <span class="self">Self
+    </span><span class="kw">where
+        </span>I: IntoIterator&lt;Item = Point&gt;,
     {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident"><span class="self">Self</span>::new</span>();
-        <span class="ident">display</span>.<span class="ident">set_pixels</span>(<span class="ident">points</span>, <span class="prelude-val">Some</span>(<span class="ident">color</span>));
+        <span class="kw">let </span><span class="kw-2">mut </span>display = <span class="self">Self</span>::new();
+        display.set_pixels(points, <span class="prelude-val">Some</span>(color));
 
-        <span class="ident">display</span>
+        display
     }
 
-    <span class="doccomment">/// Sets if out of bounds drawing is allowed.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// If this is set to `true` the bounds checks during drawing are disabled.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_allow_out_of_bounds_drawing</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>, <span class="ident">value</span>: <span class="ident">bool</span>) {
-        <span class="self">self</span>.<span class="ident">allow_out_of_bounds_drawing</span> <span class="op">=</span> <span class="ident">value</span>;
+    <span class="doccomment">/// Sets if out of bounds drawing is allowed.
+    ///
+    /// If this is set to `true` the bounds checks during drawing are disabled.
+    </span><span class="kw">pub fn </span>set_allow_out_of_bounds_drawing(<span class="kw-2">&amp;mut </span><span class="self">self</span>, value: bool) {
+        <span class="self">self</span>.allow_out_of_bounds_drawing = value;
     }
 
-    <span class="doccomment">/// Sets if overdrawing is allowed.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// If this is set to `true` the overdrawing is allowed.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_allow_overdraw</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>, <span class="ident">value</span>: <span class="ident">bool</span>) {
-        <span class="self">self</span>.<span class="ident">allow_overdraw</span> <span class="op">=</span> <span class="ident">value</span>;
+    <span class="doccomment">/// Sets if overdrawing is allowed.
+    ///
+    /// If this is set to `true` the overdrawing is allowed.
+    </span><span class="kw">pub fn </span>set_allow_overdraw(<span class="kw-2">&amp;mut </span><span class="self">self</span>, value: bool) {
+        <span class="self">self</span>.allow_overdraw = value;
     }
 
-    <span class="doccomment">/// Returns the color of a pixel.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_pixel</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">p</span>: <span class="ident">Point</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span> {
-        <span class="kw">let</span> <span class="ident">Point</span> { <span class="ident">x</span>, <span class="ident">y</span> } <span class="op">=</span> <span class="ident">p</span>;
+    <span class="doccomment">/// Returns the color of a pixel.
+    </span><span class="kw">pub fn </span>get_pixel(<span class="kw-2">&amp;</span><span class="self">self</span>, p: Point) -&gt; <span class="prelude-ty">Option</span>&lt;C&gt; {
+        <span class="kw">let </span>Point { x, y } = p;
 
-        <span class="self">self</span>.<span class="ident">pixels</span>[<span class="ident">x</span> <span class="kw">as</span> <span class="ident">usize</span> <span class="op">+</span> <span class="ident">y</span> <span class="kw">as</span> <span class="ident">usize</span> <span class="op">*</span> <span class="ident">SIZE</span>]
+        <span class="self">self</span>.pixels[x <span class="kw">as </span>usize + y <span class="kw">as </span>usize * SIZE]
     }
 
-    <span class="doccomment">/// Changes the value of a pixel without bounds checking.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Panics</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// This method will panic if `point` is outside the display bounding box.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_pixel</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>, <span class="ident">point</span>: <span class="ident">Point</span>, <span class="ident">color</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>) {
+    <span class="doccomment">/// Changes the value of a pixel without bounds checking.
+    ///
+    /// # Panics
+    ///
+    /// This method will panic if `point` is outside the display bounding box.
+    </span><span class="kw">pub fn </span>set_pixel(<span class="kw-2">&amp;mut </span><span class="self">self</span>, point: Point, color: <span class="prelude-ty">Option</span>&lt;C&gt;) {
         <span class="macro">assert!</span>(
-            <span class="ident">point</span>.<span class="ident">x</span> <span class="op">&gt;</span><span class="op">=</span> <span class="number">0</span> <span class="op">&amp;&amp;</span> <span class="ident">point</span>.<span class="ident">y</span> <span class="op">&gt;</span><span class="op">=</span> <span class="number">0</span> <span class="op">&amp;&amp;</span> <span class="ident">point</span>.<span class="ident">x</span> <span class="op">&lt;</span> <span class="ident">SIZE</span> <span class="kw">as</span> <span class="ident">i32</span> <span class="op">&amp;&amp;</span> <span class="ident">point</span>.<span class="ident">y</span> <span class="op">&lt;</span> <span class="ident">SIZE</span> <span class="kw">as</span> <span class="ident">i32</span>,
+            point.x &gt;= <span class="number">0 </span>&amp;&amp; point.y &gt;= <span class="number">0 </span>&amp;&amp; point.x &lt; SIZE <span class="kw">as </span>i32 &amp;&amp; point.y &lt; SIZE <span class="kw">as </span>i32,
             <span class="string">&quot;point must be inside display bounding box: {:?}&quot;</span>,
-            <span class="ident">point</span>
+            point
         );
 
-        <span class="kw">let</span> <span class="ident">i</span> <span class="op">=</span> <span class="ident">point</span>.<span class="ident">x</span> <span class="op">+</span> <span class="ident">point</span>.<span class="ident">y</span> <span class="op">*</span> <span class="ident">SIZE</span> <span class="kw">as</span> <span class="ident">i32</span>;
-        <span class="self">self</span>.<span class="ident">pixels</span>[<span class="ident">i</span> <span class="kw">as</span> <span class="ident">usize</span>] <span class="op">=</span> <span class="ident">color</span>;
+        <span class="kw">let </span>i = point.x + point.y * SIZE <span class="kw">as </span>i32;
+        <span class="self">self</span>.pixels[i <span class="kw">as </span>usize] = color;
     }
 
-    <span class="doccomment">/// Changes the value of a pixel without bounds checking.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Panics</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// This method will panic if `point` is outside the display bounding box.</span>
-    <span class="kw">fn</span> <span class="ident">set_pixel_unchecked</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>, <span class="ident">point</span>: <span class="ident">Point</span>, <span class="ident">color</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>) {
-        <span class="kw">let</span> <span class="ident">i</span> <span class="op">=</span> <span class="ident">point</span>.<span class="ident">x</span> <span class="op">+</span> <span class="ident">point</span>.<span class="ident">y</span> <span class="op">*</span> <span class="ident">SIZE</span> <span class="kw">as</span> <span class="ident">i32</span>;
-        <span class="self">self</span>.<span class="ident">pixels</span>[<span class="ident">i</span> <span class="kw">as</span> <span class="ident">usize</span>] <span class="op">=</span> <span class="ident">color</span>;
+    <span class="doccomment">/// Changes the value of a pixel without bounds checking.
+    ///
+    /// # Panics
+    ///
+    /// This method will panic if `point` is outside the display bounding box.
+    </span><span class="kw">fn </span>set_pixel_unchecked(<span class="kw-2">&amp;mut </span><span class="self">self</span>, point: Point, color: <span class="prelude-ty">Option</span>&lt;C&gt;) {
+        <span class="kw">let </span>i = point.x + point.y * SIZE <span class="kw">as </span>i32;
+        <span class="self">self</span>.pixels[i <span class="kw">as </span>usize] = color;
     }
 
-    <span class="doccomment">/// Sets the points in an iterator to the given color.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Panics</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// This method will panic if the iterator returns points outside the display bounding box.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_pixels</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>, <span class="ident">points</span>: <span class="kw">impl</span> <span class="ident">IntoIterator</span><span class="op">&lt;</span><span class="ident">Item</span> <span class="op">=</span> <span class="ident">Point</span><span class="op">&gt;</span>, <span class="ident">color</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>) {
-        <span class="kw">for</span> <span class="ident">point</span> <span class="kw">in</span> <span class="ident">points</span> {
-            <span class="self">self</span>.<span class="ident">set_pixel</span>(<span class="ident">point</span>, <span class="ident">color</span>);
+    <span class="doccomment">/// Sets the points in an iterator to the given color.
+    ///
+    /// # Panics
+    ///
+    /// This method will panic if the iterator returns points outside the display bounding box.
+    </span><span class="kw">pub fn </span>set_pixels(<span class="kw-2">&amp;mut </span><span class="self">self</span>, points: <span class="kw">impl </span>IntoIterator&lt;Item = Point&gt;, color: <span class="prelude-ty">Option</span>&lt;C&gt;) {
+        <span class="kw">for </span>point <span class="kw">in </span>points {
+            <span class="self">self</span>.set_pixel(point, color);
         }
     }
 
-    <span class="doccomment">/// Returns the area that was affected by drawing operations.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">affected_area</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Rectangle</span> {
-        <span class="kw">let</span> (<span class="ident">tl</span>, <span class="ident">br</span>) <span class="op">=</span> <span class="self">self</span>
-            .<span class="ident">bounding_box</span>()
-            .<span class="ident">points</span>()
-            .<span class="ident">zip</span>(<span class="self">self</span>.<span class="ident">pixels</span>.<span class="ident">iter</span>())
-            .<span class="ident">filter_map</span>(<span class="op">|</span>(<span class="ident">point</span>, <span class="ident">color</span>)<span class="op">|</span> <span class="ident">color</span>.<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">point</span>))
-            .<span class="ident">fold</span>(
+    <span class="doccomment">/// Returns the area that was affected by drawing operations.
+    </span><span class="kw">pub fn </span>affected_area(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Rectangle {
+        <span class="kw">let </span>(tl, br) = <span class="self">self
+            </span>.bounding_box()
+            .points()
+            .zip(<span class="self">self</span>.pixels.iter())
+            .filter_map(|(point, color)| color.map(|<span class="kw">_</span>| point))
+            .fold(
                 (<span class="prelude-val">None</span>, <span class="prelude-val">None</span>),
-                <span class="op">|</span>(<span class="ident">tl</span>, <span class="ident">br</span>): (<span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Point</span><span class="op">&gt;</span>, <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Point</span><span class="op">&gt;</span>), <span class="ident">point</span><span class="op">|</span> {
+                |(tl, br): (<span class="prelude-ty">Option</span>&lt;Point&gt;, <span class="prelude-ty">Option</span>&lt;Point&gt;), point| {
                     (
-                        <span class="ident">tl</span>.<span class="ident">map</span>(<span class="op">|</span><span class="ident">tl</span><span class="op">|</span> <span class="ident">tl</span>.<span class="ident">component_min</span>(<span class="ident">point</span>)).<span class="ident">or</span>(<span class="prelude-val">Some</span>(<span class="ident">point</span>)),
-                        <span class="ident">br</span>.<span class="ident">map</span>(<span class="op">|</span><span class="ident">br</span><span class="op">|</span> <span class="ident">br</span>.<span class="ident">component_max</span>(<span class="ident">point</span>)).<span class="ident">or</span>(<span class="prelude-val">Some</span>(<span class="ident">point</span>)),
+                        tl.map(|tl| tl.component_min(point)).or(<span class="prelude-val">Some</span>(point)),
+                        br.map(|br| br.component_max(point)).or(<span class="prelude-val">Some</span>(point)),
                     )
                 },
             );
 
-        <span class="kw">if</span> <span class="kw">let</span> (<span class="prelude-val">Some</span>(<span class="ident">tl</span>), <span class="prelude-val">Some</span>(<span class="ident">br</span>)) <span class="op">=</span> (<span class="ident">tl</span>, <span class="ident">br</span>) {
-            <span class="ident">Rectangle::with_corners</span>(<span class="ident">tl</span>, <span class="ident">br</span>)
-        } <span class="kw">else</span> {
-            <span class="ident">Rectangle::zero</span>()
+        <span class="kw">if let </span>(<span class="prelude-val">Some</span>(tl), <span class="prelude-val">Some</span>(br)) = (tl, br) {
+            Rectangle::with_corners(tl, br)
+        } <span class="kw">else </span>{
+            Rectangle::zero()
         }
     }
 
-    <span class="doccomment">/// Returns the `affected_area` with the top left corner extended to `(0, 0)`.</span>
-    <span class="kw">fn</span> <span class="ident">affected_area_origin</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Rectangle</span> {
-        <span class="self">self</span>.<span class="ident">affected_area</span>()
-            .<span class="ident">bottom_right</span>()
-            .<span class="ident">map</span>(<span class="op">|</span><span class="ident">bottom_right</span><span class="op">|</span> <span class="ident">Rectangle::with_corners</span>(<span class="ident">Point::zero</span>(), <span class="ident">bottom_right</span>))
-            .<span class="ident">unwrap_or_default</span>()
+    <span class="doccomment">/// Returns the `affected_area` with the top left corner extended to `(0, 0)`.
+    </span><span class="kw">fn </span>affected_area_origin(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Rectangle {
+        <span class="self">self</span>.affected_area()
+            .bottom_right()
+            .map(|bottom_right| Rectangle::with_corners(Point::zero(), bottom_right))
+            .unwrap_or_default()
     }
 
-    <span class="doccomment">/// Changes the color of a pixel.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Panics</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// If out of bounds draw checking is enabled (default), this method will panic if the point</span>
-    <span class="doccomment">/// lies outside the display area. This behavior can be disabled by calling</span>
-    <span class="doccomment">/// [`set_allow_out_of_bounds_drawing(true)`].</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Similarly, overdraw is checked by default and will panic if a point is drawn to the same</span>
-    <span class="doccomment">/// coordinate twice. This behavior can be disabled by calling [`set_allow_overdraw(true)`].</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [`set_allow_out_of_bounds_drawing(true)`]: #method.set_allow_out_of_bounds_drawing</span>
-    <span class="doccomment">/// [`set_allow_overdraw(true)`]: #method.set_allow_overdraw</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">draw_pixel</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>, <span class="ident">point</span>: <span class="ident">Point</span>, <span class="ident">color</span>: <span class="ident">C</span>) {
-        <span class="kw">if</span> <span class="op">!</span><span class="ident">DISPLAY_AREA</span>.<span class="ident">contains</span>(<span class="ident">point</span>) {
-            <span class="kw">if</span> <span class="op">!</span><span class="self">self</span>.<span class="ident">allow_out_of_bounds_drawing</span> {
+    <span class="doccomment">/// Changes the color of a pixel.
+    ///
+    /// # Panics
+    ///
+    /// If out of bounds draw checking is enabled (default), this method will panic if the point
+    /// lies outside the display area. This behavior can be disabled by calling
+    /// [`set_allow_out_of_bounds_drawing(true)`].
+    ///
+    /// Similarly, overdraw is checked by default and will panic if a point is drawn to the same
+    /// coordinate twice. This behavior can be disabled by calling [`set_allow_overdraw(true)`].
+    ///
+    /// [`set_allow_out_of_bounds_drawing(true)`]: #method.set_allow_out_of_bounds_drawing
+    /// [`set_allow_overdraw(true)`]: #method.set_allow_overdraw
+    </span><span class="kw">pub fn </span>draw_pixel(<span class="kw-2">&amp;mut </span><span class="self">self</span>, point: Point, color: C) {
+        <span class="kw">if </span>!DISPLAY_AREA.contains(point) {
+            <span class="kw">if </span>!<span class="self">self</span>.allow_out_of_bounds_drawing {
                 <span class="macro">panic!</span>(
                     <span class="string">&quot;tried to draw pixel outside the display area (x: {}, y: {})&quot;</span>,
-                    <span class="ident">point</span>.<span class="ident">x</span>, <span class="ident">point</span>.<span class="ident">y</span>
+                    point.x, point.y
                 );
-            } <span class="kw">else</span> {
+            } <span class="kw">else </span>{
                 <span class="kw">return</span>;
             }
         }
 
-        <span class="kw">if</span> <span class="op">!</span><span class="self">self</span>.<span class="ident">allow_overdraw</span> <span class="op">&amp;&amp;</span> <span class="self">self</span>.<span class="ident">get_pixel</span>(<span class="ident">point</span>).<span class="ident">is_some</span>() {
-            <span class="macro">panic!</span>(<span class="string">&quot;tried to draw pixel twice (x: {}, y: {})&quot;</span>, <span class="ident">point</span>.<span class="ident">x</span>, <span class="ident">point</span>.<span class="ident">y</span>);
+        <span class="kw">if </span>!<span class="self">self</span>.allow_overdraw &amp;&amp; <span class="self">self</span>.get_pixel(point).is_some() {
+            <span class="macro">panic!</span>(<span class="string">&quot;tried to draw pixel twice (x: {}, y: {})&quot;</span>, point.x, point.y);
         }
 
-        <span class="self">self</span>.<span class="ident">set_pixel_unchecked</span>(<span class="ident">point</span>, <span class="prelude-val">Some</span>(<span class="ident">color</span>));
+        <span class="self">self</span>.set_pixel_unchecked(point, <span class="prelude-val">Some</span>(color));
     }
 
-    <span class="doccomment">/// Returns a copy of with the content mirrored by swapping x and y.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Examples</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ```</span>
-    <span class="doccomment">/// use embedded_graphics::{mock_display::MockDisplay, pixelcolor::BinaryColor};</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// let display: MockDisplay&lt;BinaryColor&gt; = MockDisplay::from_pattern(&amp;[</span>
-    <span class="doccomment">///     &quot;#### ####&quot;,</span>
-    <span class="doccomment">///     &quot;#    #   &quot;,</span>
-    <span class="doccomment">///     &quot;###  # ##&quot;,</span>
-    <span class="doccomment">///     &quot;#    #  #&quot;,</span>
-    <span class="doccomment">///     &quot;#### ####&quot;,</span>
-    <span class="doccomment">/// ]);</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// let mirrored = display.swap_xy();</span>
-    <span class="doccomment">/// mirrored.assert_pattern(&amp;[</span>
-    <span class="doccomment">///     &quot;#####&quot;,</span>
-    <span class="doccomment">///     &quot;# # #&quot;,</span>
-    <span class="doccomment">///     &quot;# # #&quot;,</span>
-    <span class="doccomment">///     &quot;#   #&quot;,</span>
-    <span class="doccomment">///     &quot;     &quot;,</span>
-    <span class="doccomment">///     &quot;#####&quot;,</span>
-    <span class="doccomment">///     &quot;#   #&quot;,</span>
-    <span class="doccomment">///     &quot;# # #&quot;,</span>
-    <span class="doccomment">///     &quot;# ###&quot;,</span>
-    <span class="doccomment">/// ]);</span>
-    <span class="doccomment">/// ```</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">swap_xy</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">MockDisplay</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span> {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">mirrored</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
+    <span class="doccomment">/// Returns a copy of with the content mirrored by swapping x and y.
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// use embedded_graphics::{mock_display::MockDisplay, pixelcolor::BinaryColor};
+    ///
+    /// let display: MockDisplay&lt;BinaryColor&gt; = MockDisplay::from_pattern(&amp;[
+    ///     &quot;#### ####&quot;,
+    ///     &quot;#    #   &quot;,
+    ///     &quot;###  # ##&quot;,
+    ///     &quot;#    #  #&quot;,
+    ///     &quot;#### ####&quot;,
+    /// ]);
+    ///
+    /// let mirrored = display.swap_xy();
+    /// mirrored.assert_pattern(&amp;[
+    ///     &quot;#####&quot;,
+    ///     &quot;# # #&quot;,
+    ///     &quot;# # #&quot;,
+    ///     &quot;#   #&quot;,
+    ///     &quot;     &quot;,
+    ///     &quot;#####&quot;,
+    ///     &quot;#   #&quot;,
+    ///     &quot;# # #&quot;,
+    ///     &quot;# ###&quot;,
+    /// ]);
+    /// ```
+    </span><span class="kw">pub fn </span>swap_xy(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; MockDisplay&lt;C&gt; {
+        <span class="kw">let </span><span class="kw-2">mut </span>mirrored = MockDisplay::new();
 
-        <span class="kw">for</span> <span class="ident">point</span> <span class="kw">in</span> <span class="self">self</span>.<span class="ident">bounding_box</span>().<span class="ident">points</span>() {
-            <span class="ident">mirrored</span>.<span class="ident">set_pixel_unchecked</span>(<span class="ident">point</span>, <span class="self">self</span>.<span class="ident">get_pixel</span>(<span class="ident">Point::new</span>(<span class="ident">point</span>.<span class="ident">y</span>, <span class="ident">point</span>.<span class="ident">x</span>)));
+        <span class="kw">for </span>point <span class="kw">in </span><span class="self">self</span>.bounding_box().points() {
+            mirrored.set_pixel_unchecked(point, <span class="self">self</span>.get_pixel(Point::new(point.y, point.x)));
         }
 
-        <span class="ident">mirrored</span>
+        mirrored
     }
 
-    <span class="doccomment">/// Maps a `MockDisplay&lt;C&gt;&#39; to a `MockDisplay&lt;CT&gt;` by applying a function</span>
-    <span class="doccomment">/// to each pixel.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Examples</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Invert a `MockDisplay` by applying [`BinaryColor::invert`] to the color of each pixel.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [`BinaryColor::invert`]: ../pixelcolor/enum.BinaryColor.html#method.invert</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ```</span>
-    <span class="doccomment">/// use embedded_graphics::{mock_display::MockDisplay, pixelcolor::BinaryColor};</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// let display: MockDisplay&lt;BinaryColor&gt; = MockDisplay::from_pattern(&amp;[</span>
-    <span class="doccomment">///     &quot;####&quot;,</span>
-    <span class="doccomment">///     &quot;#  .&quot;,</span>
-    <span class="doccomment">///     &quot;....&quot;,</span>
-    <span class="doccomment">/// ]);</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// let inverted = display.map(|c| c.invert());</span>
-    <span class="doccomment">/// inverted.assert_pattern(&amp;[</span>
-    <span class="doccomment">///     &quot;....&quot;,</span>
-    <span class="doccomment">///     &quot;.  #&quot;,</span>
-    <span class="doccomment">///     &quot;####&quot;,</span>
-    <span class="doccomment">/// ]);</span>
-    <span class="doccomment">/// ```</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">map</span><span class="op">&lt;</span><span class="ident">CT</span>, <span class="ident">F</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) -&gt; <span class="ident">MockDisplay</span><span class="op">&lt;</span><span class="ident">CT</span><span class="op">&gt;</span>
-    <span class="kw">where</span>
-        <span class="ident">CT</span>: <span class="ident">PixelColor</span>,
-        <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="ident">C</span>) -&gt; <span class="ident">CT</span> <span class="op">+</span> <span class="ident">Copy</span>,
+    <span class="doccomment">/// Maps a `MockDisplay&lt;C&gt;&#39; to a `MockDisplay&lt;CT&gt;` by applying a function
+    /// to each pixel.
+    ///
+    /// # Examples
+    ///
+    /// Invert a `MockDisplay` by applying [`BinaryColor::invert`] to the color of each pixel.
+    ///
+    /// [`BinaryColor::invert`]: ../pixelcolor/enum.BinaryColor.html#method.invert
+    ///
+    /// ```
+    /// use embedded_graphics::{mock_display::MockDisplay, pixelcolor::BinaryColor};
+    ///
+    /// let display: MockDisplay&lt;BinaryColor&gt; = MockDisplay::from_pattern(&amp;[
+    ///     &quot;####&quot;,
+    ///     &quot;#  .&quot;,
+    ///     &quot;....&quot;,
+    /// ]);
+    ///
+    /// let inverted = display.map(|c| c.invert());
+    /// inverted.assert_pattern(&amp;[
+    ///     &quot;....&quot;,
+    ///     &quot;.  #&quot;,
+    ///     &quot;####&quot;,
+    /// ]);
+    /// ```
+    </span><span class="kw">pub fn </span>map&lt;CT, F&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; MockDisplay&lt;CT&gt;
+    <span class="kw">where
+        </span>CT: PixelColor,
+        F: Fn(C) -&gt; CT + Copy,
     {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">target</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
+        <span class="kw">let </span><span class="kw-2">mut </span>target = MockDisplay::new();
 
-        <span class="kw">for</span> <span class="ident">point</span> <span class="kw">in</span> <span class="self">self</span>.<span class="ident">bounding_box</span>().<span class="ident">points</span>() {
-            <span class="ident">target</span>.<span class="ident">set_pixel_unchecked</span>(<span class="ident">point</span>, <span class="self">self</span>.<span class="ident">get_pixel</span>(<span class="ident">point</span>).<span class="ident">map</span>(<span class="ident">f</span>))
+        <span class="kw">for </span>point <span class="kw">in </span><span class="self">self</span>.bounding_box().points() {
+            target.set_pixel_unchecked(point, <span class="self">self</span>.get_pixel(point).map(f))
         }
 
-        <span class="ident">target</span>
+        target
     }
 
-    <span class="doccomment">/// Compares the display to another display.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The following color code is used to show the difference between the displays:</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// | Color               | Description                                                   |</span>
-    <span class="doccomment">/// |---------------------|---------------------------------------------------------------|</span>
-    <span class="doccomment">/// | None                | The color of the pixel is equal in both displays.             |</span>
-    <span class="doccomment">/// | Some(Rgb888::GREEN) | The pixel was only set in `self`                              |</span>
-    <span class="doccomment">/// | Some(Rgb888::RED)   | The pixel was only set in `other`                             |</span>
-    <span class="doccomment">/// | Some(Rgb888::BLUE)  | The pixel was set to a different colors in `self` and `other` |</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">diff</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">other</span>: <span class="kw-2">&amp;</span><span class="ident">MockDisplay</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>) -&gt; <span class="ident">MockDisplay</span><span class="op">&lt;</span><span class="ident">Rgb888</span><span class="op">&gt;</span> {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
+    <span class="doccomment">/// Compares the display to another display.
+    ///
+    /// The following color code is used to show the difference between the displays:
+    ///
+    /// | Color               | Description                                                   |
+    /// |---------------------|---------------------------------------------------------------|
+    /// | None                | The color of the pixel is equal in both displays.             |
+    /// | Some(Rgb888::GREEN) | The pixel was only set in `self`                              |
+    /// | Some(Rgb888::RED)   | The pixel was only set in `other`                             |
+    /// | Some(Rgb888::BLUE)  | The pixel was set to a different colors in `self` and `other` |
+    </span><span class="kw">pub fn </span>diff(<span class="kw-2">&amp;</span><span class="self">self</span>, other: <span class="kw-2">&amp;</span>MockDisplay&lt;C&gt;) -&gt; MockDisplay&lt;Rgb888&gt; {
+        <span class="kw">let </span><span class="kw-2">mut </span>display = MockDisplay::new();
 
-        <span class="kw">for</span> <span class="ident">point</span> <span class="kw">in</span> <span class="ident">display</span>.<span class="ident">bounding_box</span>().<span class="ident">points</span>() {
-            <span class="kw">let</span> <span class="ident">self_color</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">get_pixel</span>(<span class="ident">point</span>);
-            <span class="kw">let</span> <span class="ident">other_color</span> <span class="op">=</span> <span class="ident">other</span>.<span class="ident">get_pixel</span>(<span class="ident">point</span>);
+        <span class="kw">for </span>point <span class="kw">in </span>display.bounding_box().points() {
+            <span class="kw">let </span>self_color = <span class="self">self</span>.get_pixel(point);
+            <span class="kw">let </span>other_color = other.get_pixel(point);
 
-            <span class="kw">let</span> <span class="ident">diff_color</span> <span class="op">=</span> <span class="kw">match</span> (<span class="ident">self_color</span>, <span class="ident">other_color</span>) {
-                (<span class="prelude-val">Some</span>(<span class="kw">_</span>), <span class="prelude-val">None</span>) =&gt; <span class="prelude-val">Some</span>(<span class="ident">Rgb888::GREEN</span>),
-                (<span class="prelude-val">None</span>, <span class="prelude-val">Some</span>(<span class="kw">_</span>)) =&gt; <span class="prelude-val">Some</span>(<span class="ident">Rgb888::RED</span>),
-                (<span class="prelude-val">Some</span>(<span class="ident">s</span>), <span class="prelude-val">Some</span>(<span class="ident">o</span>)) <span class="kw">if</span> <span class="ident">s</span> <span class="op">!</span><span class="op">=</span> <span class="ident">o</span> =&gt; <span class="prelude-val">Some</span>(<span class="ident">Rgb888::BLUE</span>),
-                <span class="kw">_</span> =&gt; <span class="prelude-val">None</span>,
+            <span class="kw">let </span>diff_color = <span class="kw">match </span>(self_color, other_color) {
+                (<span class="prelude-val">Some</span>(<span class="kw">_</span>), <span class="prelude-val">None</span>) =&gt; <span class="prelude-val">Some</span>(Rgb888::GREEN),
+                (<span class="prelude-val">None</span>, <span class="prelude-val">Some</span>(<span class="kw">_</span>)) =&gt; <span class="prelude-val">Some</span>(Rgb888::RED),
+                (<span class="prelude-val">Some</span>(s), <span class="prelude-val">Some</span>(o)) <span class="kw">if </span>s != o =&gt; <span class="prelude-val">Some</span>(Rgb888::BLUE),
+                <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             };
 
-            <span class="ident">display</span>.<span class="ident">set_pixel_unchecked</span>(<span class="ident">point</span>, <span class="ident">diff_color</span>);
+            display.set_pixel_unchecked(point, diff_color);
         }
 
-        <span class="ident">display</span>
+        display
     }
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">C</span>: <span class="ident">PixelColor</span><span class="op">&gt;</span> <span class="ident">PartialEq</span> <span class="kw">for</span> <span class="ident">MockDisplay</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span> {
-    <span class="kw">fn</span> <span class="ident">eq</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">other</span>: <span class="kw-2">&amp;</span><span class="self">Self</span>) -&gt; <span class="ident">bool</span> {
-        <span class="self">self</span>.<span class="ident">pixels</span>.<span class="ident">iter</span>().<span class="ident">eq</span>(<span class="ident">other</span>.<span class="ident">pixels</span>.<span class="ident">iter</span>())
+<span class="kw">impl</span>&lt;C: PixelColor&gt; PartialEq <span class="kw">for </span>MockDisplay&lt;C&gt; {
+    <span class="kw">fn </span>eq(<span class="kw-2">&amp;</span><span class="self">self</span>, other: <span class="kw-2">&amp;</span><span class="self">Self</span>) -&gt; bool {
+        <span class="self">self</span>.pixels.iter().eq(other.pixels.iter())
     }
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span> <span class="ident">MockDisplay</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>
-<span class="kw">where</span>
-    <span class="ident">C</span>: <span class="ident">PixelColor</span> <span class="op">+</span> <span class="ident">ColorMapping</span>,
+<span class="kw">impl</span>&lt;C&gt; MockDisplay&lt;C&gt;
+<span class="kw">where
+    </span>C: PixelColor + ColorMapping,
 {
-    <span class="doccomment">/// Creates a new mock display from a character pattern.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The color pattern is specified by a slice of string slices. Each string</span>
-    <span class="doccomment">/// slice represents a row of pixels and every character a single pixel.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// A space character in the pattern represents a pixel which wasn&#39;t</span>
-    <span class="doccomment">/// modified by any drawing routine and is left in the default state.</span>
-    <span class="doccomment">/// All other characters are converted by implementations of the</span>
-    <span class="doccomment">/// [`ColorMapping`] trait.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [`ColorMapping`]: trait.ColorMapping.html</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">from_pattern</span>(<span class="ident">pattern</span>: <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span><span class="ident">str</span>]) -&gt; <span class="ident">MockDisplay</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span> {
-        <span class="comment">// Check pattern dimensions.</span>
-        <span class="kw">let</span> <span class="ident">pattern_width</span> <span class="op">=</span> <span class="ident">pattern</span>.<span class="ident">first</span>().<span class="ident">map_or</span>(<span class="number">0</span>, <span class="op">|</span><span class="ident">row</span><span class="op">|</span> <span class="ident">row</span>.<span class="ident">len</span>());
-        <span class="kw">let</span> <span class="ident">pattern_height</span> <span class="op">=</span> <span class="ident">pattern</span>.<span class="ident">len</span>();
+    <span class="doccomment">/// Creates a new mock display from a character pattern.
+    ///
+    /// The color pattern is specified by a slice of string slices. Each string
+    /// slice represents a row of pixels and every character a single pixel.
+    ///
+    /// A space character in the pattern represents a pixel which wasn&#39;t
+    /// modified by any drawing routine and is left in the default state.
+    /// All other characters are converted by implementations of the
+    /// [`ColorMapping`] trait.
+    ///
+    /// [`ColorMapping`]: trait.ColorMapping.html
+    </span><span class="kw">pub fn </span>from_pattern(pattern: <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span>str]) -&gt; MockDisplay&lt;C&gt; {
+        <span class="comment">// Check pattern dimensions.
+        </span><span class="kw">let </span>pattern_width = pattern.first().map_or(<span class="number">0</span>, |row| row.len());
+        <span class="kw">let </span>pattern_height = pattern.len();
         <span class="macro">assert!</span>(
-            <span class="ident">pattern_width</span> <span class="op">&lt;</span><span class="op">=</span> <span class="ident">SIZE</span>,
+            pattern_width &lt;= SIZE,
             <span class="string">&quot;Test pattern must not be wider than {} columns&quot;</span>,
-            <span class="ident">SIZE</span>
+            SIZE
         );
         <span class="macro">assert!</span>(
-            <span class="ident">pattern_height</span> <span class="op">&lt;</span><span class="op">=</span> <span class="ident">SIZE</span>,
+            pattern_height &lt;= SIZE,
             <span class="string">&quot;Test pattern must not be taller than {} rows&quot;</span>,
-            <span class="ident">SIZE</span>
+            SIZE
         );
-        <span class="kw">for</span> (<span class="ident">row_idx</span>, <span class="ident">row</span>) <span class="kw">in</span> <span class="ident">pattern</span>.<span class="ident">iter</span>().<span class="ident">enumerate</span>() {
+        <span class="kw">for </span>(row_idx, row) <span class="kw">in </span>pattern.iter().enumerate() {
             <span class="macro">assert_eq!</span>(
-                <span class="ident">row</span>.<span class="ident">len</span>(),
-                <span class="ident">pattern_width</span>,
+                row.len(),
+                pattern_width,
                 <span class="string">&quot;Row #{} is {} characters wide (must be {} characters to match previous rows)&quot;</span>,
-                <span class="ident">row_idx</span> <span class="op">+</span> <span class="number">1</span>,
-                <span class="ident">row</span>.<span class="ident">len</span>(),
-                <span class="ident">pattern_width</span>
+                row_idx + <span class="number">1</span>,
+                row.len(),
+                pattern_width
             );
         }
 
-        <span class="comment">// Convert pattern to colors and pad pattern with None.</span>
-        <span class="kw">let</span> <span class="ident">pattern_colors</span> <span class="op">=</span> <span class="ident">pattern</span>
-            .<span class="ident">iter</span>()
-            .<span class="ident">flat_map</span>(<span class="op">|</span><span class="ident">row</span><span class="op">|</span> {
-                <span class="ident">row</span>.<span class="ident">chars</span>()
-                    .<span class="ident">map</span>(<span class="op">|</span><span class="ident">c</span><span class="op">|</span> <span class="kw">match</span> <span class="ident">c</span> {
-                        <span class="string">&#39; &#39;</span> =&gt; <span class="prelude-val">None</span>,
-                        <span class="kw">_</span> =&gt; <span class="prelude-val">Some</span>(<span class="ident">C::char_to_color</span>(<span class="ident">c</span>)),
+        <span class="comment">// Convert pattern to colors and pad pattern with None.
+        </span><span class="kw">let </span>pattern_colors = pattern
+            .iter()
+            .flat_map(|row| {
+                row.chars()
+                    .map(|c| <span class="kw">match </span>c {
+                        <span class="string">&#39; &#39; </span>=&gt; <span class="prelude-val">None</span>,
+                        <span class="kw">_ </span>=&gt; <span class="prelude-val">Some</span>(C::char_to_color(c)),
                     })
-                    .<span class="ident">chain</span>(<span class="ident">iter::repeat</span>(<span class="prelude-val">None</span>))
-                    .<span class="ident">take</span>(<span class="ident">SIZE</span>)
+                    .chain(iter::repeat(<span class="prelude-val">None</span>))
+                    .take(SIZE)
             })
-            .<span class="ident">chain</span>(<span class="ident">iter::repeat</span>(<span class="prelude-val">None</span>))
-            .<span class="ident">take</span>(<span class="ident">SIZE</span> <span class="op">*</span> <span class="ident">SIZE</span>);
+            .chain(iter::repeat(<span class="prelude-val">None</span>))
+            .take(SIZE * SIZE);
 
-        <span class="comment">// Copy pattern to display.</span>
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
-        <span class="kw">for</span> (<span class="ident">i</span>, <span class="ident">color</span>) <span class="kw">in</span> <span class="ident">pattern_colors</span>.<span class="ident">enumerate</span>() {
-            <span class="ident">display</span>.<span class="ident">pixels</span>[<span class="ident">i</span>] <span class="op">=</span> <span class="ident">color</span>;
+        <span class="comment">// Copy pattern to display.
+        </span><span class="kw">let </span><span class="kw-2">mut </span>display = MockDisplay::new();
+        <span class="kw">for </span>(i, color) <span class="kw">in </span>pattern_colors.enumerate() {
+            display.pixels[i] = color;
         }
 
-        <span class="ident">display</span>
+        display
     }
 
-    <span class="doccomment">/// Checks if the displays are equal.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// An advanced output for failing tests can be enabled by setting the environment variable</span>
-    <span class="doccomment">/// `EG_FANCY_PANIC=1`. See the [module-level documentation] for more details.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Panics</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Panics if the displays aren&#39;t equal.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [module-level documentation]: index.html#assertions</span>
-    <span class="comment">// MSRV: add track_caller attribute to get better error messages for rust &gt;= 1.46.0</span>
-    <span class="comment">// #[track_caller]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">assert_eq</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">other</span>: <span class="kw-2">&amp;</span><span class="ident">MockDisplay</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>) {
-        <span class="kw">if</span> <span class="op">!</span><span class="self">self</span>.<span class="ident">eq</span>(<span class="ident">other</span>) {
-            <span class="kw">if</span> <span class="macro">option_env!</span>(<span class="string">&quot;EG_FANCY_PANIC&quot;</span>) <span class="op">==</span> <span class="prelude-val">Some</span>(<span class="string">&quot;1&quot;</span>) {
-                <span class="kw">let</span> <span class="ident">fancy_panic</span> <span class="op">=</span> <span class="ident">FancyPanic::new</span>(<span class="self">self</span>, <span class="ident">other</span>, <span class="number">30</span>);
-                <span class="macro">panic!</span>(<span class="string">&quot;\n{}&quot;</span>, <span class="ident">fancy_panic</span>);
-            } <span class="kw">else</span> {
-                <span class="macro">panic!</span>(<span class="string">&quot;\ndisplay\n{:?}\nexpected\n{:?}&quot;</span>, <span class="self">self</span>, <span class="ident">other</span>);
+    <span class="doccomment">/// Checks if the displays are equal.
+    ///
+    /// An advanced output for failing tests can be enabled by setting the environment variable
+    /// `EG_FANCY_PANIC=1`. See the [module-level documentation] for more details.
+    ///
+    /// # Panics
+    ///
+    /// Panics if the displays aren&#39;t equal.
+    ///
+    /// [module-level documentation]: index.html#assertions
+    </span><span class="comment">// MSRV: add track_caller attribute to get better error messages for rust &gt;= 1.46.0
+    // #[track_caller]
+    </span><span class="kw">pub fn </span>assert_eq(<span class="kw-2">&amp;</span><span class="self">self</span>, other: <span class="kw-2">&amp;</span>MockDisplay&lt;C&gt;) {
+        <span class="kw">if </span>!<span class="self">self</span>.eq(other) {
+            <span class="kw">if </span><span class="macro">option_env!</span>(<span class="string">&quot;EG_FANCY_PANIC&quot;</span>) == <span class="prelude-val">Some</span>(<span class="string">&quot;1&quot;</span>) {
+                <span class="kw">let </span>fancy_panic = FancyPanic::new(<span class="self">self</span>, other, <span class="number">30</span>);
+                <span class="macro">panic!</span>(<span class="string">&quot;\n{}&quot;</span>, fancy_panic);
+            } <span class="kw">else </span>{
+                <span class="macro">panic!</span>(<span class="string">&quot;\ndisplay\n{:?}\nexpected\n{:?}&quot;</span>, <span class="self">self</span>, other);
             }
         }
     }
 
-    <span class="doccomment">/// Checks if the displays are equal.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// An advanced output for failing tests can be enabled by setting the environment variable</span>
-    <span class="doccomment">/// `EG_FANCY_PANIC=1`. See the [module-level documentation] for more details.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The output of the `msg` function will be prepended to the output if the assertion fails.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Panics</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Panics if the displays aren&#39;t equal.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [module-level documentation]: index.html#assertions</span>
-    <span class="comment">// MSRV: add track_caller attribute to get better error messages for rust &gt;= 1.46.0</span>
-    <span class="comment">// #[track_caller]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">assert_eq_with_message</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">other</span>: <span class="kw-2">&amp;</span><span class="ident">MockDisplay</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>, <span class="ident">msg</span>: <span class="ident">F</span>)
-    <span class="kw">where</span>
-        <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;mut</span> <span class="ident">fmt::Formatter</span><span class="op">&lt;</span><span class="lifetime">&#39;_</span><span class="op">&gt;</span>) -&gt; <span class="ident">fmt::Result</span>,
+    <span class="doccomment">/// Checks if the displays are equal.
+    ///
+    /// An advanced output for failing tests can be enabled by setting the environment variable
+    /// `EG_FANCY_PANIC=1`. See the [module-level documentation] for more details.
+    ///
+    /// The output of the `msg` function will be prepended to the output if the assertion fails.
+    ///
+    /// # Panics
+    ///
+    /// Panics if the displays aren&#39;t equal.
+    ///
+    /// [module-level documentation]: index.html#assertions
+    </span><span class="comment">// MSRV: add track_caller attribute to get better error messages for rust &gt;= 1.46.0
+    // #[track_caller]
+    </span><span class="kw">pub fn </span>assert_eq_with_message&lt;F&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, other: <span class="kw-2">&amp;</span>MockDisplay&lt;C&gt;, msg: F)
+    <span class="kw">where
+        </span>F: Fn(<span class="kw-2">&amp;mut </span>fmt::Formatter&lt;<span class="lifetime">&#39;_</span>&gt;) -&gt; fmt::Result,
     {
-        <span class="kw">if</span> <span class="op">!</span><span class="self">self</span>.<span class="ident">eq</span>(<span class="ident">other</span>) {
-            <span class="kw">if</span> <span class="macro">option_env!</span>(<span class="string">&quot;EG_FANCY_PANIC&quot;</span>) <span class="op">==</span> <span class="prelude-val">Some</span>(<span class="string">&quot;1&quot;</span>) {
-                <span class="kw">let</span> <span class="ident">fancy_panic</span> <span class="op">=</span> <span class="ident">FancyPanic::new</span>(<span class="self">self</span>, <span class="ident">other</span>, <span class="number">30</span>);
-                <span class="macro">panic!</span>(<span class="string">&quot;\n{}\n\n{}&quot;</span>, <span class="ident">MessageWrapper</span>(<span class="ident">msg</span>), <span class="ident">fancy_panic</span>);
-            } <span class="kw">else</span> {
+        <span class="kw">if </span>!<span class="self">self</span>.eq(other) {
+            <span class="kw">if </span><span class="macro">option_env!</span>(<span class="string">&quot;EG_FANCY_PANIC&quot;</span>) == <span class="prelude-val">Some</span>(<span class="string">&quot;1&quot;</span>) {
+                <span class="kw">let </span>fancy_panic = FancyPanic::new(<span class="self">self</span>, other, <span class="number">30</span>);
+                <span class="macro">panic!</span>(<span class="string">&quot;\n{}\n\n{}&quot;</span>, MessageWrapper(msg), fancy_panic);
+            } <span class="kw">else </span>{
                 <span class="macro">panic!</span>(
                     <span class="string">&quot;\n{}\n\ndisplay:\n{:?}\nexpected:\n{:?}&quot;</span>,
-                    <span class="ident">MessageWrapper</span>(<span class="ident">msg</span>),
+                    MessageWrapper(msg),
                     <span class="self">self</span>,
-                    <span class="ident">other</span>
+                    other
                 );
             }
         }
     }
 
-    <span class="doccomment">/// Checks if the display is equal to the given pattern.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// An advanced output for failing tests can be enabled, see the [module-level documentation]</span>
-    <span class="doccomment">/// for more details.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Panics</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Panics if the display content isn&#39;t equal to the pattern.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [module-level documentation]: index.html#assertions</span>
-    <span class="comment">// MSRV: add track_caller attribute to get better error messages for rust &gt;= 1.46.0</span>
-    <span class="comment">// #[track_caller]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">assert_pattern</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">pattern</span>: <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span><span class="ident">str</span>]) {
-        <span class="kw">let</span> <span class="ident">other</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span><span class="ident">::from_pattern</span>(<span class="ident">pattern</span>);
+    <span class="doccomment">/// Checks if the display is equal to the given pattern.
+    ///
+    /// An advanced output for failing tests can be enabled, see the [module-level documentation]
+    /// for more details.
+    ///
+    /// # Panics
+    ///
+    /// Panics if the display content isn&#39;t equal to the pattern.
+    ///
+    /// [module-level documentation]: index.html#assertions
+    </span><span class="comment">// MSRV: add track_caller attribute to get better error messages for rust &gt;= 1.46.0
+    // #[track_caller]
+    </span><span class="kw">pub fn </span>assert_pattern(<span class="kw-2">&amp;</span><span class="self">self</span>, pattern: <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span>str]) {
+        <span class="kw">let </span>other = MockDisplay::&lt;C&gt;::from_pattern(pattern);
 
-        <span class="self">self</span>.<span class="ident">assert_eq</span>(<span class="kw-2">&amp;</span><span class="ident">other</span>);
+        <span class="self">self</span>.assert_eq(<span class="kw-2">&amp;</span>other);
     }
 
-    <span class="doccomment">/// Checks if the display is equal to the given pattern.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// An advanced output for failing tests can be enabled, see the [module-level documentation]</span>
-    <span class="doccomment">/// for more details.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The output of the `msg` function will be prepended to the output if the assertion fails.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Panics</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Panics if the display content isn&#39;t equal to the pattern.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [module-level documentation]: index.html#assertions</span>
-    <span class="comment">// MSRV: add track_caller attribute to get better error messages for rust &gt;= 1.46.0</span>
-    <span class="comment">// #[track_caller]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">assert_pattern_with_message</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">pattern</span>: <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span><span class="ident">str</span>], <span class="ident">msg</span>: <span class="ident">F</span>)
-    <span class="kw">where</span>
-        <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;mut</span> <span class="ident">fmt::Formatter</span><span class="op">&lt;</span><span class="lifetime">&#39;_</span><span class="op">&gt;</span>) -&gt; <span class="ident">fmt::Result</span>,
+    <span class="doccomment">/// Checks if the display is equal to the given pattern.
+    ///
+    /// An advanced output for failing tests can be enabled, see the [module-level documentation]
+    /// for more details.
+    ///
+    /// The output of the `msg` function will be prepended to the output if the assertion fails.
+    ///
+    /// # Panics
+    ///
+    /// Panics if the display content isn&#39;t equal to the pattern.
+    ///
+    /// [module-level documentation]: index.html#assertions
+    </span><span class="comment">// MSRV: add track_caller attribute to get better error messages for rust &gt;= 1.46.0
+    // #[track_caller]
+    </span><span class="kw">pub fn </span>assert_pattern_with_message&lt;F&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, pattern: <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span>str], msg: F)
+    <span class="kw">where
+        </span>F: Fn(<span class="kw-2">&amp;mut </span>fmt::Formatter&lt;<span class="lifetime">&#39;_</span>&gt;) -&gt; fmt::Result,
     {
-        <span class="kw">let</span> <span class="ident">other</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span><span class="ident">::from_pattern</span>(<span class="ident">pattern</span>);
+        <span class="kw">let </span>other = MockDisplay::&lt;C&gt;::from_pattern(pattern);
 
-        <span class="self">self</span>.<span class="ident">assert_eq_with_message</span>(<span class="kw-2">&amp;</span><span class="ident">other</span>, <span class="ident">msg</span>);
+        <span class="self">self</span>.assert_eq_with_message(<span class="kw-2">&amp;</span>other, msg);
     }
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span> <span class="ident">Default</span> <span class="kw">for</span> <span class="ident">MockDisplay</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>
-<span class="kw">where</span>
-    <span class="ident">C</span>: <span class="ident">PixelColor</span>,
+<span class="kw">impl</span>&lt;C&gt; Default <span class="kw">for </span>MockDisplay&lt;C&gt;
+<span class="kw">where
+    </span>C: PixelColor,
 {
-    <span class="kw">fn</span> <span class="ident">default</span>() -&gt; <span class="self">Self</span> {
-        <span class="self">Self</span> {
-            <span class="ident">pixels</span>: [<span class="prelude-val">None</span>; <span class="ident">SIZE</span> <span class="op">*</span> <span class="ident">SIZE</span>],
-            <span class="ident">allow_overdraw</span>: <span class="bool-val">false</span>,
-            <span class="ident">allow_out_of_bounds_drawing</span>: <span class="bool-val">false</span>,
+    <span class="kw">fn </span>default() -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{
+            pixels: [<span class="prelude-val">None</span>; SIZE * SIZE],
+            allow_overdraw: <span class="bool-val">false</span>,
+            allow_out_of_bounds_drawing: <span class="bool-val">false</span>,
         }
     }
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span> <span class="ident">fmt::Debug</span> <span class="kw">for</span> <span class="ident">MockDisplay</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>
-<span class="kw">where</span>
-    <span class="ident">C</span>: <span class="ident">PixelColor</span> <span class="op">+</span> <span class="ident">ColorMapping</span>,
+<span class="kw">impl</span>&lt;C&gt; fmt::Debug <span class="kw">for </span>MockDisplay&lt;C&gt;
+<span class="kw">where
+    </span>C: PixelColor + ColorMapping,
 {
-    <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="kw-2">&amp;mut</span> <span class="ident">fmt::Formatter</span>) -&gt; <span class="ident">fmt::Result</span> {
-        <span class="kw">let</span> <span class="ident">empty_rows</span> <span class="op">=</span> <span class="self">self</span>
-            .<span class="ident">pixels</span>
-            .<span class="ident">rchunks</span>(<span class="ident">SIZE</span>)
-            .<span class="ident">take_while</span>(<span class="op">|</span><span class="ident">row</span><span class="op">|</span> <span class="ident">row</span>.<span class="ident">iter</span>().<span class="ident">all</span>(<span class="ident">Option::is_none</span>))
-            .<span class="ident">count</span>();
+    <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span>fmt::Formatter) -&gt; fmt::Result {
+        <span class="kw">let </span>empty_rows = <span class="self">self
+            </span>.pixels
+            .rchunks(SIZE)
+            .take_while(|row| row.iter().all(Option::is_none))
+            .count();
 
-        <span class="macro">writeln!</span>(<span class="ident">f</span>, <span class="string">&quot;MockDisplay[&quot;</span>)<span class="question-mark">?</span>;
-        <span class="kw">for</span> <span class="ident">row</span> <span class="kw">in</span> <span class="self">self</span>.<span class="ident">pixels</span>.<span class="ident">chunks</span>(<span class="ident">SIZE</span>).<span class="ident">take</span>(<span class="ident">SIZE</span> <span class="op">-</span> <span class="ident">empty_rows</span>) {
-            <span class="kw">for</span> <span class="ident">color</span> <span class="kw">in</span> <span class="ident">row</span> {
-                <span class="ident">f</span>.<span class="ident">write_char</span>(<span class="ident">color</span>.<span class="ident">map_or</span>(<span class="string">&#39; &#39;</span>, <span class="ident">C::color_to_char</span>))<span class="question-mark">?</span>;
+        <span class="macro">writeln!</span>(f, <span class="string">&quot;MockDisplay[&quot;</span>)<span class="question-mark">?</span>;
+        <span class="kw">for </span>row <span class="kw">in </span><span class="self">self</span>.pixels.chunks(SIZE).take(SIZE - empty_rows) {
+            <span class="kw">for </span>color <span class="kw">in </span>row {
+                f.write_char(color.map_or(<span class="string">&#39; &#39;</span>, C::color_to_char))<span class="question-mark">?</span>;
             }
-            <span class="macro">writeln!</span>(<span class="ident">f</span>)<span class="question-mark">?</span>;
+            <span class="macro">writeln!</span>(f)<span class="question-mark">?</span>;
         }
-        <span class="kw">if</span> <span class="ident">empty_rows</span> <span class="op">&gt;</span> <span class="number">0</span> {
-            <span class="macro">writeln!</span>(<span class="ident">f</span>, <span class="string">&quot;({} empty rows skipped)&quot;</span>, <span class="ident">empty_rows</span>)<span class="question-mark">?</span>;
+        <span class="kw">if </span>empty_rows &gt; <span class="number">0 </span>{
+            <span class="macro">writeln!</span>(f, <span class="string">&quot;({} empty rows skipped)&quot;</span>, empty_rows)<span class="question-mark">?</span>;
         }
-        <span class="macro">writeln!</span>(<span class="ident">f</span>, <span class="string">&quot;]&quot;</span>)<span class="question-mark">?</span>;
+        <span class="macro">writeln!</span>(f, <span class="string">&quot;]&quot;</span>)<span class="question-mark">?</span>;
 
         <span class="prelude-val">Ok</span>(())
     }
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span> <span class="ident">DrawTarget</span> <span class="kw">for</span> <span class="ident">MockDisplay</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>
-<span class="kw">where</span>
-    <span class="ident">C</span>: <span class="ident">PixelColor</span>,
+<span class="kw">impl</span>&lt;C&gt; DrawTarget <span class="kw">for </span>MockDisplay&lt;C&gt;
+<span class="kw">where
+    </span>C: PixelColor,
 {
-    <span class="kw">type</span> <span class="ident">Color</span> <span class="op">=</span> <span class="ident">C</span>;
-    <span class="kw">type</span> <span class="ident">Error</span> <span class="op">=</span> <span class="ident">core::convert::Infallible</span>;
+    <span class="kw">type </span>Color = C;
+    <span class="kw">type </span>Error = core::convert::Infallible;
 
-    <span class="kw">fn</span> <span class="ident">draw_iter</span><span class="op">&lt;</span><span class="ident">I</span><span class="op">&gt;</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>, <span class="ident">pixels</span>: <span class="ident">I</span>) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident"><span class="self">Self</span>::Error</span><span class="op">&gt;</span>
-    <span class="kw">where</span>
-        <span class="ident">I</span>: <span class="ident">IntoIterator</span><span class="op">&lt;</span><span class="ident">Item</span> <span class="op">=</span> <span class="ident">Pixel</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Color</span><span class="op">&gt;</span><span class="op">&gt;</span>,
+    <span class="kw">fn </span>draw_iter&lt;I&gt;(<span class="kw-2">&amp;mut </span><span class="self">self</span>, pixels: I) -&gt; <span class="prelude-ty">Result</span>&lt;(), <span class="self">Self</span>::Error&gt;
+    <span class="kw">where
+        </span>I: IntoIterator&lt;Item = Pixel&lt;<span class="self">Self</span>::Color&gt;&gt;,
     {
-        <span class="kw">for</span> <span class="ident">pixel</span> <span class="kw">in</span> <span class="ident">pixels</span>.<span class="ident">into_iter</span>() {
-            <span class="kw">let</span> <span class="ident">Pixel</span>(<span class="ident">point</span>, <span class="ident">color</span>) <span class="op">=</span> <span class="ident">pixel</span>;
+        <span class="kw">for </span>pixel <span class="kw">in </span>pixels.into_iter() {
+            <span class="kw">let </span>Pixel(point, color) = pixel;
 
-            <span class="self">self</span>.<span class="ident">draw_pixel</span>(<span class="ident">point</span>, <span class="ident">color</span>);
+            <span class="self">self</span>.draw_pixel(point, color);
         }
 
         <span class="prelude-val">Ok</span>(())
     }
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span> <span class="ident">OriginDimensions</span> <span class="kw">for</span> <span class="ident">MockDisplay</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>
-<span class="kw">where</span>
-    <span class="ident">C</span>: <span class="ident">PixelColor</span>,
+<span class="kw">impl</span>&lt;C&gt; OriginDimensions <span class="kw">for </span>MockDisplay&lt;C&gt;
+<span class="kw">where
+    </span>C: PixelColor,
 {
-    <span class="kw">fn</span> <span class="ident">size</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Size</span> {
-        <span class="ident">DISPLAY_AREA</span>.<span class="ident">size</span>
+    <span class="kw">fn </span>size(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Size {
+        DISPLAY_AREA.size
     }
 }
 
-<span class="doccomment">/// Wrapper to implement `Display` for formatting function.</span>
-<span class="kw">struct</span> <span class="ident">MessageWrapper</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(<span class="ident">F</span>);
+<span class="doccomment">/// Wrapper to implement `Display` for formatting function.
+</span><span class="kw">struct </span>MessageWrapper&lt;F&gt;(F);
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> <span class="ident">fmt::Display</span> <span class="kw">for</span> <span class="ident">MessageWrapper</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>
-<span class="kw">where</span>
-    <span class="ident">F</span>: <span class="ident">Fn</span>(<span class="kw-2">&amp;mut</span> <span class="ident">fmt::Formatter</span><span class="op">&lt;</span><span class="lifetime">&#39;_</span><span class="op">&gt;</span>) -&gt; <span class="ident">fmt::Result</span>,
+<span class="kw">impl</span>&lt;F&gt; fmt::Display <span class="kw">for </span>MessageWrapper&lt;F&gt;
+<span class="kw">where
+    </span>F: Fn(<span class="kw-2">&amp;mut </span>fmt::Formatter&lt;<span class="lifetime">&#39;_</span>&gt;) -&gt; fmt::Result,
 {
-    <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="kw-2">&amp;mut</span> <span class="ident">fmt::Formatter</span><span class="op">&lt;</span><span class="lifetime">&#39;_</span><span class="op">&gt;</span>) -&gt; <span class="ident">fmt::Result</span> {
-        <span class="self">self</span>.<span class="number">0</span>(<span class="ident">f</span>)
+    <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span>fmt::Formatter&lt;<span class="lifetime">&#39;_</span>&gt;) -&gt; fmt::Result {
+        <span class="self">self</span>.<span class="number">0</span>(f)
     }
 }
 
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
-<span class="kw">mod</span> <span class="ident">tests</span> {
-    <span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
-    <span class="kw">use</span> <span class="kw">crate</span>::{
-        <span class="ident">pixelcolor</span>::{<span class="ident">BinaryColor</span>, <span class="ident">Rgb565</span>},
-        <span class="ident">Drawable</span>,
+<span class="attribute">#[cfg(test)]
+</span><span class="kw">mod </span>tests {
+    <span class="kw">use super</span>::<span class="kw-2">*</span>;
+    <span class="kw">use crate</span>::{
+        pixelcolor::{BinaryColor, Rgb565},
+        Drawable,
     };
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="attribute">#[<span class="ident">should_panic</span>(<span class="ident">expected</span> <span class="op">=</span> <span class="string">&quot;tried to draw pixel outside the display area (x: 65, y: 0)&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">panic_on_out_of_bounds_drawing</span>() {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
+    <span class="attribute">#[test]
+    #[should_panic(expected = <span class="string">&quot;tried to draw pixel outside the display area (x: 65, y: 0)&quot;</span>)]
+    </span><span class="kw">fn </span>panic_on_out_of_bounds_drawing() {
+        <span class="kw">let </span><span class="kw-2">mut </span>display = MockDisplay::new();
 
-        <span class="ident">Pixel</span>(<span class="ident">Point::new</span>(<span class="number">65</span>, <span class="number">0</span>), <span class="ident">BinaryColor::On</span>)
-            .<span class="ident">draw</span>(<span class="kw-2">&amp;mut</span> <span class="ident">display</span>)
-            .<span class="ident">unwrap</span>();
+        Pixel(Point::new(<span class="number">65</span>, <span class="number">0</span>), BinaryColor::On)
+            .draw(<span class="kw-2">&amp;mut </span>display)
+            .unwrap();
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">allow_out_of_bounds_drawing</span>() {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
-        <span class="ident">display</span>.<span class="ident">set_allow_out_of_bounds_drawing</span>(<span class="bool-val">true</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>allow_out_of_bounds_drawing() {
+        <span class="kw">let </span><span class="kw-2">mut </span>display = MockDisplay::new();
+        display.set_allow_out_of_bounds_drawing(<span class="bool-val">true</span>);
 
-        <span class="ident">Pixel</span>(<span class="ident">Point::new</span>(<span class="number">65</span>, <span class="number">0</span>), <span class="ident">BinaryColor::On</span>)
-            .<span class="ident">draw</span>(<span class="kw-2">&amp;mut</span> <span class="ident">display</span>)
-            .<span class="ident">unwrap</span>();
+        Pixel(Point::new(<span class="number">65</span>, <span class="number">0</span>), BinaryColor::On)
+            .draw(<span class="kw-2">&amp;mut </span>display)
+            .unwrap();
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="attribute">#[<span class="ident">should_panic</span>(<span class="ident">expected</span> <span class="op">=</span> <span class="string">&quot;tried to draw pixel twice (x: 1, y: 2)&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">panic_on_overdraw</span>() {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
+    <span class="attribute">#[test]
+    #[should_panic(expected = <span class="string">&quot;tried to draw pixel twice (x: 1, y: 2)&quot;</span>)]
+    </span><span class="kw">fn </span>panic_on_overdraw() {
+        <span class="kw">let </span><span class="kw-2">mut </span>display = MockDisplay::new();
 
-        <span class="kw">let</span> <span class="ident">p</span> <span class="op">=</span> <span class="ident">Pixel</span>(<span class="ident">Point::new</span>(<span class="number">1</span>, <span class="number">2</span>), <span class="ident">BinaryColor::On</span>);
-        <span class="ident">p</span>.<span class="ident">draw</span>(<span class="kw-2">&amp;mut</span> <span class="ident">display</span>).<span class="ident">unwrap</span>();
-        <span class="ident">p</span>.<span class="ident">draw</span>(<span class="kw-2">&amp;mut</span> <span class="ident">display</span>).<span class="ident">unwrap</span>();
+        <span class="kw">let </span>p = Pixel(Point::new(<span class="number">1</span>, <span class="number">2</span>), BinaryColor::On);
+        p.draw(<span class="kw-2">&amp;mut </span>display).unwrap();
+        p.draw(<span class="kw-2">&amp;mut </span>display).unwrap();
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">allow_overdraw</span>() {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
-        <span class="ident">display</span>.<span class="ident">set_allow_overdraw</span>(<span class="bool-val">true</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>allow_overdraw() {
+        <span class="kw">let </span><span class="kw-2">mut </span>display = MockDisplay::new();
+        display.set_allow_overdraw(<span class="bool-val">true</span>);
 
-        <span class="kw">let</span> <span class="ident">p</span> <span class="op">=</span> <span class="ident">Pixel</span>(<span class="ident">Point::new</span>(<span class="number">1</span>, <span class="number">2</span>), <span class="ident">BinaryColor::On</span>);
-        <span class="ident">p</span>.<span class="ident">draw</span>(<span class="kw-2">&amp;mut</span> <span class="ident">display</span>).<span class="ident">unwrap</span>();
-        <span class="ident">p</span>.<span class="ident">draw</span>(<span class="kw-2">&amp;mut</span> <span class="ident">display</span>).<span class="ident">unwrap</span>();
+        <span class="kw">let </span>p = Pixel(Point::new(<span class="number">1</span>, <span class="number">2</span>), BinaryColor::On);
+        p.draw(<span class="kw-2">&amp;mut </span>display).unwrap();
+        p.draw(<span class="kw-2">&amp;mut </span>display).unwrap();
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">zero_sized_affected_area</span>() {
-        <span class="kw">let</span> <span class="ident">disp</span>: <span class="ident">MockDisplay</span><span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
-        <span class="macro">assert!</span>(<span class="ident">disp</span>.<span class="ident">affected_area</span>().<span class="ident">is_zero_sized</span>(),);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>zero_sized_affected_area() {
+        <span class="kw">let </span>disp: MockDisplay&lt;BinaryColor&gt; = MockDisplay::new();
+        <span class="macro">assert!</span>(disp.affected_area().is_zero_sized(),);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">diff</span>() {
-        <span class="kw">let</span> <span class="ident">display1</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="op">&lt;</span><span class="ident">Rgb565</span><span class="op">&gt;</span><span class="ident">::from_pattern</span>(<span class="kw-2">&amp;</span>[<span class="string">&quot; R RR&quot;</span>]);
-        <span class="kw">let</span> <span class="ident">display2</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="op">&lt;</span><span class="ident">Rgb565</span><span class="op">&gt;</span><span class="ident">::from_pattern</span>(<span class="kw-2">&amp;</span>[<span class="string">&quot; RR B&quot;</span>]);
-        <span class="kw">let</span> <span class="ident">expected</span> <span class="op">=</span> <span class="ident">MockDisplay</span>::<span class="op">&lt;</span><span class="ident">Rgb888</span><span class="op">&gt;</span><span class="ident">::from_pattern</span>(<span class="kw-2">&amp;</span>[<span class="string">&quot;  RGB&quot;</span>]);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>diff() {
+        <span class="kw">let </span>display1 = MockDisplay::&lt;Rgb565&gt;::from_pattern(<span class="kw-2">&amp;</span>[<span class="string">&quot; R RR&quot;</span>]);
+        <span class="kw">let </span>display2 = MockDisplay::&lt;Rgb565&gt;::from_pattern(<span class="kw-2">&amp;</span>[<span class="string">&quot; RR B&quot;</span>]);
+        <span class="kw">let </span>expected = MockDisplay::&lt;Rgb888&gt;::from_pattern(<span class="kw-2">&amp;</span>[<span class="string">&quot;  RGB&quot;</span>]);
 
-        <span class="ident">display1</span>.<span class="ident">diff</span>(<span class="kw-2">&amp;</span><span class="ident">display2</span>).<span class="ident">assert_eq</span>(<span class="kw-2">&amp;</span><span class="ident">expected</span>);
+        display1.diff(<span class="kw-2">&amp;</span>display2).assert_eq(<span class="kw-2">&amp;</span>expected);
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="embedded_graphics" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0 (a55dd71d5 2022-09-19)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="embedded_graphics" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0 (69f9c33d7 2022-12-12)" ></div></body></html>

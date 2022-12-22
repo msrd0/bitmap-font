@@ -1,6 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.1/src/primitives/circle/points.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>points.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../../storage.js"></script><script defer src="../../../../source-script.js"></script><script defer src="../../../../source-files.js"></script><script defer src="../../../../main.js"></script><noscript><link rel="stylesheet" href="../../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../../embedded_graphics/index.html"><div class="logo-container"><img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../../embedded_graphics/index.html"><div class="logo-container">
-                    <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../../embedded_graphics/index.html">
-                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.1/src/primitives/circle/points.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>points.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../../normalize.css"><link rel="stylesheet" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../../ayu.css" disabled><link rel="stylesheet" href="../../../../dark.css" disabled><link rel="stylesheet" href="../../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../../storage.js"></script><script defer src="../../../../source-script.js"></script><script defer src="../../../../source-files.js"></script><script defer src="../../../../main.js"></script><noscript><link rel="stylesheet" href="../../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../../embedded_graphics/index.html">
+                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../wheel.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -197,126 +196,126 @@
 <span id="195">195</span>
 <span id="196">196</span>
 <span id="197">197</span>
-</pre><pre class="rust"><code><span class="kw">use</span> <span class="ident">core::ops::Range</span>;
+</pre><pre class="rust"><code><span class="kw">use </span>core::ops::Range;
 
-<span class="kw">use</span> <span class="kw">crate</span>::{
-    <span class="ident">geometry</span>::{<span class="ident">Dimensions</span>, <span class="ident">Point</span>, <span class="ident">PointExt</span>},
-    <span class="ident">primitives</span>::{<span class="ident">circle::Circle</span>, <span class="ident">common::Scanline</span>},
+<span class="kw">use crate</span>::{
+    geometry::{Dimensions, Point, PointExt},
+    primitives::{circle::Circle, common::Scanline},
 };
 
-<span class="doccomment">/// Iterator over all points inside the circle.</span>
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Clone</span>, <span class="ident">Eq</span>, <span class="ident">PartialEq</span>, <span class="ident">Hash</span>, <span class="ident">Debug</span>)]</span>
-<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Points</span> {
-    <span class="ident">scanlines</span>: <span class="ident">Scanlines</span>,
-    <span class="ident">current_scanline</span>: <span class="ident">Scanline</span>,
+<span class="doccomment">/// Iterator over all points inside the circle.
+</span><span class="attribute">#[derive(Clone, Eq, PartialEq, Hash, Debug)]
+</span><span class="kw">pub struct </span>Points {
+    scanlines: Scanlines,
+    current_scanline: Scanline,
 }
 
-<span class="kw">impl</span> <span class="ident">Points</span> {
-    <span class="kw">pub</span>(<span class="kw">in</span> <span class="ident"><span class="kw">crate</span>::primitives</span>) <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">circle</span>: <span class="kw-2">&amp;</span><span class="ident">Circle</span>) -&gt; <span class="self">Self</span> {
-        <span class="self">Self</span> {
-            <span class="ident">scanlines</span>: <span class="ident">Scanlines::new</span>(<span class="ident">circle</span>),
-            <span class="ident">current_scanline</span>: <span class="ident">Scanline::new_empty</span>(<span class="number">0</span>),
+<span class="kw">impl </span>Points {
+    <span class="kw">pub</span>(<span class="kw">in </span><span class="kw">crate</span>::primitives) <span class="kw">fn </span>new(circle: <span class="kw-2">&amp;</span>Circle) -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{
+            scanlines: Scanlines::new(circle),
+            current_scanline: Scanline::new_empty(<span class="number">0</span>),
         }
     }
 }
 
-<span class="kw">impl</span> <span class="ident">Iterator</span> <span class="kw">for</span> <span class="ident">Points</span> {
-    <span class="kw">type</span> <span class="ident">Item</span> <span class="op">=</span> <span class="ident">Point</span>;
+<span class="kw">impl </span>Iterator <span class="kw">for </span>Points {
+    <span class="kw">type </span>Item = Point;
 
-    <span class="kw">fn</span> <span class="ident">next</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Item</span><span class="op">&gt;</span> {
-        <span class="self">self</span>.<span class="ident">current_scanline</span>.<span class="ident">next</span>().<span class="ident">or_else</span>(<span class="op">|</span><span class="op">|</span> {
-            <span class="self">self</span>.<span class="ident">current_scanline</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">scanlines</span>.<span class="ident">next</span>()<span class="question-mark">?</span>;
-            <span class="self">self</span>.<span class="ident">current_scanline</span>.<span class="ident">next</span>()
+    <span class="kw">fn </span>next(<span class="kw-2">&amp;mut </span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="self">Self</span>::Item&gt; {
+        <span class="self">self</span>.current_scanline.next().or_else(|| {
+            <span class="self">self</span>.current_scanline = <span class="self">self</span>.scanlines.next()<span class="question-mark">?</span>;
+            <span class="self">self</span>.current_scanline.next()
         })
     }
 }
 
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Clone</span>, <span class="ident">Eq</span>, <span class="ident">PartialEq</span>, <span class="ident">Hash</span>, <span class="ident">Debug</span>)]</span>
-<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Scanlines</span> {
-    <span class="ident">rows</span>: <span class="ident">Range</span><span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span>,
-    <span class="ident">columns</span>: <span class="ident">Range</span><span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span>,
-    <span class="kw">pub</span>(<span class="kw">super</span>) <span class="ident">center_2x</span>: <span class="ident">Point</span>,
-    <span class="ident">threshold</span>: <span class="ident">u32</span>,
+<span class="attribute">#[derive(Clone, Eq, PartialEq, Hash, Debug)]
+</span><span class="kw">pub struct </span>Scanlines {
+    rows: Range&lt;i32&gt;,
+    columns: Range&lt;i32&gt;,
+    <span class="kw">pub</span>(<span class="kw">super</span>) center_2x: Point,
+    threshold: u32,
 }
 
-<span class="kw">impl</span> <span class="ident">Scanlines</span> {
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">circle</span>: <span class="kw-2">&amp;</span><span class="ident">Circle</span>) -&gt; <span class="self">Self</span> {
-        <span class="kw">let</span> <span class="ident">bounding_box</span> <span class="op">=</span> <span class="ident">circle</span>.<span class="ident">bounding_box</span>();
+<span class="kw">impl </span>Scanlines {
+    <span class="kw">pub fn </span>new(circle: <span class="kw-2">&amp;</span>Circle) -&gt; <span class="self">Self </span>{
+        <span class="kw">let </span>bounding_box = circle.bounding_box();
 
-        <span class="self">Self</span> {
-            <span class="ident">rows</span>: <span class="ident">bounding_box</span>.<span class="ident">rows</span>(),
-            <span class="ident">columns</span>: <span class="ident">bounding_box</span>.<span class="ident">columns</span>(),
-            <span class="ident">center_2x</span>: <span class="ident">circle</span>.<span class="ident">center_2x</span>(),
-            <span class="ident">threshold</span>: <span class="ident">circle</span>.<span class="ident">threshold</span>(),
+        <span class="self">Self </span>{
+            rows: bounding_box.rows(),
+            columns: bounding_box.columns(),
+            center_2x: circle.center_2x(),
+            threshold: circle.threshold(),
         }
     }
 }
 
-<span class="kw">impl</span> <span class="ident">Iterator</span> <span class="kw">for</span> <span class="ident">Scanlines</span> {
-    <span class="kw">type</span> <span class="ident">Item</span> <span class="op">=</span> <span class="ident">Scanline</span>;
+<span class="kw">impl </span>Iterator <span class="kw">for </span>Scanlines {
+    <span class="kw">type </span>Item = Scanline;
 
-    <span class="kw">fn</span> <span class="ident">next</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Item</span><span class="op">&gt;</span> {
-        <span class="kw">let</span> <span class="ident">y</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">rows</span>.<span class="ident">next</span>()<span class="question-mark">?</span>;
+    <span class="kw">fn </span>next(<span class="kw-2">&amp;mut </span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="self">Self</span>::Item&gt; {
+        <span class="kw">let </span>y = <span class="self">self</span>.rows.next()<span class="question-mark">?</span>;
 
-        <span class="self">self</span>.<span class="ident">columns</span>
-            .<span class="ident">clone</span>()
-            <span class="comment">// find first pixel that is inside the threshold</span>
-            .<span class="ident">find</span>(<span class="op">|</span><span class="ident">x</span><span class="op">|</span> {
-                <span class="kw">let</span> <span class="ident">delta</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="kw-2">*</span><span class="ident">x</span>, <span class="ident">y</span>) <span class="op">*</span> <span class="number">2</span> <span class="op">-</span> <span class="self">self</span>.<span class="ident">center_2x</span>;
-                (<span class="ident">delta</span>.<span class="ident">length_squared</span>() <span class="kw">as</span> <span class="ident">u32</span>) <span class="op">&lt;</span> <span class="self">self</span>.<span class="ident">threshold</span>
+        <span class="self">self</span>.columns
+            .clone()
+            <span class="comment">// find first pixel that is inside the threshold
+            </span>.find(|x| {
+                <span class="kw">let </span>delta = Point::new(<span class="kw-2">*</span>x, y) * <span class="number">2 </span>- <span class="self">self</span>.center_2x;
+                (delta.length_squared() <span class="kw">as </span>u32) &lt; <span class="self">self</span>.threshold
             })
-            <span class="comment">// shorten the scanline by right side of the same amount as the left side</span>
-            .<span class="ident">map</span>(<span class="op">|</span><span class="ident">x</span><span class="op">|</span> <span class="ident">Scanline::new</span>(<span class="ident">y</span>, <span class="ident">x</span>..<span class="self">self</span>.<span class="ident">columns</span>.<span class="ident">end</span> <span class="op">-</span> (<span class="ident">x</span> <span class="op">-</span> <span class="self">self</span>.<span class="ident">columns</span>.<span class="ident">start</span>)))
+            <span class="comment">// shorten the scanline by right side of the same amount as the left side
+            </span>.map(|x| Scanline::new(y, x..<span class="self">self</span>.columns.end - (x - <span class="self">self</span>.columns.start)))
     }
 }
 
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
-<span class="kw">mod</span> <span class="ident">tests</span> {
-    <span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
-    <span class="kw">use</span> <span class="kw">crate</span>::{
-        <span class="ident">geometry::Point</span>, <span class="ident">mock_display::MockDisplay</span>, <span class="ident">pixelcolor::BinaryColor</span>, <span class="ident">primitives::PointsIter</span>,
+<span class="attribute">#[cfg(test)]
+</span><span class="kw">mod </span>tests {
+    <span class="kw">use super</span>::<span class="kw-2">*</span>;
+    <span class="kw">use crate</span>::{
+        geometry::Point, mock_display::MockDisplay, pixelcolor::BinaryColor, primitives::PointsIter,
     };
 
-    <span class="kw">fn</span> <span class="ident">test_circle</span>(<span class="ident">diameter</span>: <span class="ident">u32</span>, <span class="ident">pattern</span>: <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span><span class="ident">str</span>]) {
-        <span class="kw">let</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::from_points</span>(
-            <span class="ident">Circle::new</span>(<span class="ident">Point::new</span>(<span class="number">0</span>, <span class="number">0</span>), <span class="ident">diameter</span>).<span class="ident">points</span>(),
-            <span class="ident">BinaryColor::On</span>,
+    <span class="kw">fn </span>test_circle(diameter: u32, pattern: <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span>str]) {
+        <span class="kw">let </span>display = MockDisplay::from_points(
+            Circle::new(Point::new(<span class="number">0</span>, <span class="number">0</span>), diameter).points(),
+            BinaryColor::On,
         );
 
-        <span class="ident">display</span>.<span class="ident">assert_pattern</span>(<span class="ident">pattern</span>);
+        display.assert_pattern(pattern);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">circle_1</span>() {
-        <span class="attribute">#[<span class="ident">rustfmt::skip</span>]</span>
-        <span class="ident">test_circle</span>(<span class="number">1</span>, <span class="kw-2">&amp;</span>[
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>circle_1() {
+        <span class="attribute">#[rustfmt::skip]
+        </span>test_circle(<span class="number">1</span>, <span class="kw-2">&amp;</span>[
             <span class="string">&quot;#&quot;</span>,
         ],);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">circle_2</span>() {
-        <span class="attribute">#[<span class="ident">rustfmt::skip</span>]</span>
-        <span class="ident">test_circle</span>(<span class="number">2</span>, <span class="kw-2">&amp;</span>[
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>circle_2() {
+        <span class="attribute">#[rustfmt::skip]
+        </span>test_circle(<span class="number">2</span>, <span class="kw-2">&amp;</span>[
             <span class="string">&quot;##&quot;</span>,
             <span class="string">&quot;##&quot;</span>,
         ],);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">circle_3</span>() {
-        <span class="attribute">#[<span class="ident">rustfmt::skip</span>]</span>
-        <span class="ident">test_circle</span>(<span class="number">3</span>, <span class="kw-2">&amp;</span>[
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>circle_3() {
+        <span class="attribute">#[rustfmt::skip]
+        </span>test_circle(<span class="number">3</span>, <span class="kw-2">&amp;</span>[
             <span class="string">&quot; # &quot;</span>,
             <span class="string">&quot;###&quot;</span>,
             <span class="string">&quot; # &quot;</span>,
         ],);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">circle_4</span>() {
-        <span class="attribute">#[<span class="ident">rustfmt::skip</span>]</span>
-        <span class="ident">test_circle</span>(<span class="number">4</span>, <span class="kw-2">&amp;</span>[
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>circle_4() {
+        <span class="attribute">#[rustfmt::skip]
+        </span>test_circle(<span class="number">4</span>, <span class="kw-2">&amp;</span>[
             <span class="string">&quot; ## &quot;</span>,
             <span class="string">&quot;####&quot;</span>,
             <span class="string">&quot;####&quot;</span>,
@@ -324,10 +323,10 @@
         ],);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">circle_5</span>() {
-        <span class="attribute">#[<span class="ident">rustfmt::skip</span>]</span>
-        <span class="ident">test_circle</span>(<span class="number">5</span>, <span class="kw-2">&amp;</span>[
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>circle_5() {
+        <span class="attribute">#[rustfmt::skip]
+        </span>test_circle(<span class="number">5</span>, <span class="kw-2">&amp;</span>[
             <span class="string">&quot; ### &quot;</span>,
             <span class="string">&quot;#####&quot;</span>,
             <span class="string">&quot;#####&quot;</span>,
@@ -336,10 +335,10 @@
         ],);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">circle_6</span>() {
-        <span class="attribute">#[<span class="ident">rustfmt::skip</span>]</span>
-        <span class="ident">test_circle</span>(<span class="number">6</span>, <span class="kw-2">&amp;</span>[
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>circle_6() {
+        <span class="attribute">#[rustfmt::skip]
+        </span>test_circle(<span class="number">6</span>, <span class="kw-2">&amp;</span>[
             <span class="string">&quot; #### &quot;</span>,
             <span class="string">&quot;######&quot;</span>,
             <span class="string">&quot;######&quot;</span>,
@@ -349,10 +348,10 @@
         ],);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">circle_7</span>() {
-        <span class="attribute">#[<span class="ident">rustfmt::skip</span>]</span>
-        <span class="ident">test_circle</span>(<span class="number">7</span>, <span class="kw-2">&amp;</span>[
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>circle_7() {
+        <span class="attribute">#[rustfmt::skip]
+        </span>test_circle(<span class="number">7</span>, <span class="kw-2">&amp;</span>[
             <span class="string">&quot;  ###  &quot;</span>,
             <span class="string">&quot; ##### &quot;</span>,
             <span class="string">&quot;#######&quot;</span>,
@@ -363,10 +362,10 @@
         ],);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">circle_8</span>() {
-        <span class="attribute">#[<span class="ident">rustfmt::skip</span>]</span>
-        <span class="ident">test_circle</span>(<span class="number">8</span>, <span class="kw-2">&amp;</span>[
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>circle_8() {
+        <span class="attribute">#[rustfmt::skip]
+        </span>test_circle(<span class="number">8</span>, <span class="kw-2">&amp;</span>[
             <span class="string">&quot;  ####  &quot;</span>,
             <span class="string">&quot; ###### &quot;</span>,
             <span class="string">&quot;########&quot;</span>,
@@ -378,10 +377,10 @@
         ],);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">circle_9</span>() {
-        <span class="attribute">#[<span class="ident">rustfmt::skip</span>]</span>
-        <span class="ident">test_circle</span>(<span class="number">9</span>, <span class="kw-2">&amp;</span>[
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>circle_9() {
+        <span class="attribute">#[rustfmt::skip]
+        </span>test_circle(<span class="number">9</span>, <span class="kw-2">&amp;</span>[
             <span class="string">&quot;  #####  &quot;</span>,
             <span class="string">&quot; ####### &quot;</span>,
             <span class="string">&quot;#########&quot;</span>,
@@ -395,4 +394,4 @@
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../../" data-current-crate="embedded_graphics" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0 (a55dd71d5 2022-09-19)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../../" data-current-crate="embedded_graphics" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0 (69f9c33d7 2022-12-12)" ></div></body></html>

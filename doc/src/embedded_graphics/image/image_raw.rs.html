@@ -1,6 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.1/src/image/image_raw.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>image_raw.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../embedded_graphics/index.html"><div class="logo-container"><img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../embedded_graphics/index.html"><div class="logo-container">
-                    <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../embedded_graphics/index.html">
-                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.1/src/image/image_raw.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>image_raw.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../embedded_graphics/index.html">
+                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -676,681 +675,681 @@
 <span id="674">674</span>
 <span id="675">675</span>
 <span id="676">676</span>
-</pre><pre class="rust"><code><span class="kw">use</span> <span class="ident">core::marker::PhantomData</span>;
+</pre><pre class="rust"><code><span class="kw">use </span>core::marker::PhantomData;
 
-<span class="kw">use</span> <span class="ident">embedded_graphics_core</span>::{<span class="ident">pixelcolor::BinaryColor</span>, <span class="ident">primitives::Rectangle</span>};
+<span class="kw">use </span>embedded_graphics_core::{pixelcolor::BinaryColor, primitives::Rectangle};
 
-<span class="kw">use</span> <span class="kw">crate</span>::{
-    <span class="ident">draw_target::DrawTarget</span>,
-    <span class="ident">geometry</span>::{<span class="ident">Dimensions</span>, <span class="ident">OriginDimensions</span>, <span class="ident">Point</span>, <span class="ident">Size</span>},
-    <span class="ident">image::ImageDrawable</span>,
-    <span class="ident">iterator::raw::RawDataSlice</span>,
-    <span class="ident">pixelcolor</span>::{
-        <span class="ident">raw</span>::{<span class="ident">BigEndian</span>, <span class="ident">ByteOrder</span>, <span class="ident">LittleEndian</span>, <span class="ident">RawData</span>},
-        <span class="ident">PixelColor</span>,
+<span class="kw">use crate</span>::{
+    draw_target::DrawTarget,
+    geometry::{Dimensions, OriginDimensions, Point, Size},
+    image::ImageDrawable,
+    iterator::raw::RawDataSlice,
+    pixelcolor::{
+        raw::{BigEndian, ByteOrder, LittleEndian, RawData},
+        PixelColor,
     },
 };
 
-<span class="doccomment">/// Image with little endian data.</span>
-<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">ImageRawLE</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">C</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">ImageRaw</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">C</span>, <span class="ident">LittleEndian</span><span class="op">&gt;</span>;
+<span class="doccomment">/// Image with little endian data.
+</span><span class="kw">pub type </span>ImageRawLE&lt;<span class="lifetime">&#39;a</span>, C&gt; = ImageRaw&lt;<span class="lifetime">&#39;a</span>, C, LittleEndian&gt;;
 
-<span class="doccomment">/// Image with big endian data.</span>
-<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">ImageRawBE</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">C</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">ImageRaw</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">C</span>, <span class="ident">BigEndian</span><span class="op">&gt;</span>;
+<span class="doccomment">/// Image with big endian data.
+</span><span class="kw">pub type </span>ImageRawBE&lt;<span class="lifetime">&#39;a</span>, C&gt; = ImageRaw&lt;<span class="lifetime">&#39;a</span>, C, BigEndian&gt;;
 
-<span class="doccomment">/// An image constructed from a slice of raw pixel data.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// The `ImageRaw` struct can be used to construct an image from a slice</span>
-<span class="doccomment">/// of raw image data. The storage format is determined by the [`PixelColor`]</span>
-<span class="doccomment">/// type `C` and the [`ByteOrder`] `BO`. The byteorder doesn&#39;t need to be</span>
-<span class="doccomment">/// specified for colors which aren&#39;t stored in multiple bytes.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// For color types with less than 8 bits per pixels the start of each row is</span>
-<span class="doccomment">/// aligned to the next whole byte.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// Details about the conversion of raw data to color types are explained in the</span>
-<span class="doccomment">/// [`raw` module documentation].</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// To draw an `ImageRaw` object it needs to be wrapped in an [`Image`] object.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Examples</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// ## Draw a 1BPP image</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// This example creates an image from 1 bit per pixel data.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// ```</span>
-<span class="doccomment">/// use embedded_graphics::{</span>
-<span class="doccomment">///     image::{Image, ImageRaw},</span>
-<span class="doccomment">///     pixelcolor::BinaryColor,</span>
-<span class="doccomment">///     prelude::*,</span>
-<span class="doccomment">/// };</span>
-<span class="doccomment">/// # use embedded_graphics::mock_display::MockDisplay as Display;</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// /// 12 x 5 pixel image with 1 bit per pixel.</span>
-<span class="doccomment">/// /// The data for each row is 12 bits long and is padded with zeros on the</span>
-<span class="doccomment">/// /// end because each row needs to contain a whole number of bytes.</span>
-<span class="doccomment">/// #[rustfmt::skip]</span>
-<span class="doccomment">/// const DATA: &amp;[u8] = &amp;[</span>
-<span class="doccomment">///     0b11101111, 0b0101_0000,</span>
-<span class="doccomment">///     0b10001000, 0b0101_0000,</span>
-<span class="doccomment">///     0b11101011, 0b0101_0000,</span>
-<span class="doccomment">///     0b10001001, 0b0101_0000,</span>
-<span class="doccomment">///     0b11101111, 0b0101_0000,</span>
-<span class="doccomment">/// ];</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// // The image dimensions and the format of the stored raw data must be specified</span>
-<span class="doccomment">/// // when the `new` function is called. The data format can, for example, be specified</span>
-<span class="doccomment">/// // by using the turbofish syntax. For the image dimensions only the width must be</span>
-<span class="doccomment">/// // passed to the `new` function. The image height will be calculated based on the</span>
-<span class="doccomment">/// // length of the image data and the data format.</span>
-<span class="doccomment">/// let raw_image = ImageRaw::&lt;BinaryColor&gt;::new(DATA, 12);</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// let image = Image::new(&amp;raw_image, Point::zero());</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// let mut display = Display::default();</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// image.draw(&amp;mut display)?;</span>
-<span class="doccomment">/// # Ok::&lt;(), core::convert::Infallible&gt;(())</span>
-<span class="doccomment">/// ```</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// ## Draw an image that uses multibyte pixel encoding</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// Colors with more than one byte per pixel need an additional type annotation for the byte order.</span>
-<span class="doccomment">/// For convenience, the [`ImageRawBE`] and [`ImageRawLE`] type aliases can be used to abbreviate</span>
-<span class="doccomment">/// the type.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// ```</span>
-<span class="doccomment">/// use embedded_graphics::{</span>
-<span class="doccomment">///     image::{Image, ImageRaw, ImageRawBE, ImageRawLE},</span>
-<span class="doccomment">///     pixelcolor::{</span>
-<span class="doccomment">///         raw::{BigEndian, LittleEndian},</span>
-<span class="doccomment">///         Rgb565, Rgb888,</span>
-<span class="doccomment">///     },</span>
-<span class="doccomment">///     prelude::*,</span>
-<span class="doccomment">/// };</span>
-<span class="doccomment">/// # const DATA: &amp;[u8] = &amp;[0x55; 8 * 8 * 3];</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// // Rgb888 image with 24 bits per pixel and big endian byte order</span>
-<span class="doccomment">/// let image1 = ImageRawBE::&lt;Rgb888&gt;::new(DATA, 8);</span>
-<span class="doccomment">/// // or:</span>
-<span class="doccomment">/// let image2 = ImageRaw::&lt;Rgb888, BigEndian&gt;::new(DATA, 8);</span>
-<span class="doccomment">/// # assert_eq!(image1, image2);</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// // Rgb565 image with 16 bits per pixel and little endian byte order</span>
-<span class="doccomment">/// let image1 = ImageRawLE::&lt;Rgb565&gt;::new(DATA, 16);</span>
-<span class="doccomment">/// // or:</span>
-<span class="doccomment">/// let image2 = ImageRaw::&lt;Rgb565, LittleEndian&gt;::new(DATA, 16);</span>
-<span class="doccomment">/// # assert_eq!(image1, image2);</span>
-<span class="doccomment">/// ```</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// [`raw` module documentation]: ../pixelcolor/raw/index.html</span>
-<span class="doccomment">/// [`Drawable`]: ../drawable/trait.Drawable.html</span>
-<span class="doccomment">/// [`ImageRawBE`]: type.ImageRawBE.html</span>
-<span class="doccomment">/// [`ImageRawLE`]: type.ImageRawLE.html</span>
-<span class="doccomment">/// [`Image`]: struct.Image.html</span>
-<span class="doccomment">/// [`PixelColor`]: ../pixelcolor/trait.PixelColor.html</span>
-<span class="doccomment">/// [`ByteOrder`]: ../pixelcolor/raw/trait.ByteOrder.html</span>
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Copy</span>, <span class="ident">Clone</span>, <span class="ident">Eq</span>, <span class="ident">PartialEq</span>, <span class="ident">Ord</span>, <span class="ident">PartialOrd</span>, <span class="ident">Hash</span>, <span class="ident">Debug</span>)]</span>
-<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">ImageRaw</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">C</span>, <span class="ident">BO</span> <span class="op">=</span> <span class="ident">BigEndian</span><span class="op">&gt;</span>
-<span class="kw">where</span>
-    <span class="ident">C</span>: <span class="ident">PixelColor</span> <span class="op">+</span> <span class="ident">From</span><span class="op">&lt;</span><span class="op">&lt;</span><span class="ident">C</span> <span class="kw">as</span> <span class="ident">PixelColor</span><span class="op">&gt;</span><span class="ident">::Raw</span><span class="op">&gt;</span>,
-    <span class="ident">BO</span>: <span class="ident">ByteOrder</span>,
+<span class="doccomment">/// An image constructed from a slice of raw pixel data.
+///
+/// The `ImageRaw` struct can be used to construct an image from a slice
+/// of raw image data. The storage format is determined by the [`PixelColor`]
+/// type `C` and the [`ByteOrder`] `BO`. The byteorder doesn&#39;t need to be
+/// specified for colors which aren&#39;t stored in multiple bytes.
+///
+/// For color types with less than 8 bits per pixels the start of each row is
+/// aligned to the next whole byte.
+///
+/// Details about the conversion of raw data to color types are explained in the
+/// [`raw` module documentation].
+///
+/// To draw an `ImageRaw` object it needs to be wrapped in an [`Image`] object.
+///
+/// # Examples
+///
+/// ## Draw a 1BPP image
+///
+/// This example creates an image from 1 bit per pixel data.
+///
+/// ```
+/// use embedded_graphics::{
+///     image::{Image, ImageRaw},
+///     pixelcolor::BinaryColor,
+///     prelude::*,
+/// };
+/// # use embedded_graphics::mock_display::MockDisplay as Display;
+///
+/// /// 12 x 5 pixel image with 1 bit per pixel.
+/// /// The data for each row is 12 bits long and is padded with zeros on the
+/// /// end because each row needs to contain a whole number of bytes.
+/// #[rustfmt::skip]
+/// const DATA: &amp;[u8] = &amp;[
+///     0b11101111, 0b0101_0000,
+///     0b10001000, 0b0101_0000,
+///     0b11101011, 0b0101_0000,
+///     0b10001001, 0b0101_0000,
+///     0b11101111, 0b0101_0000,
+/// ];
+///
+/// // The image dimensions and the format of the stored raw data must be specified
+/// // when the `new` function is called. The data format can, for example, be specified
+/// // by using the turbofish syntax. For the image dimensions only the width must be
+/// // passed to the `new` function. The image height will be calculated based on the
+/// // length of the image data and the data format.
+/// let raw_image = ImageRaw::&lt;BinaryColor&gt;::new(DATA, 12);
+///
+/// let image = Image::new(&amp;raw_image, Point::zero());
+///
+/// let mut display = Display::default();
+///
+/// image.draw(&amp;mut display)?;
+/// # Ok::&lt;(), core::convert::Infallible&gt;(())
+/// ```
+///
+/// ## Draw an image that uses multibyte pixel encoding
+///
+/// Colors with more than one byte per pixel need an additional type annotation for the byte order.
+/// For convenience, the [`ImageRawBE`] and [`ImageRawLE`] type aliases can be used to abbreviate
+/// the type.
+///
+/// ```
+/// use embedded_graphics::{
+///     image::{Image, ImageRaw, ImageRawBE, ImageRawLE},
+///     pixelcolor::{
+///         raw::{BigEndian, LittleEndian},
+///         Rgb565, Rgb888,
+///     },
+///     prelude::*,
+/// };
+/// # const DATA: &amp;[u8] = &amp;[0x55; 8 * 8 * 3];
+///
+/// // Rgb888 image with 24 bits per pixel and big endian byte order
+/// let image1 = ImageRawBE::&lt;Rgb888&gt;::new(DATA, 8);
+/// // or:
+/// let image2 = ImageRaw::&lt;Rgb888, BigEndian&gt;::new(DATA, 8);
+/// # assert_eq!(image1, image2);
+///
+/// // Rgb565 image with 16 bits per pixel and little endian byte order
+/// let image1 = ImageRawLE::&lt;Rgb565&gt;::new(DATA, 16);
+/// // or:
+/// let image2 = ImageRaw::&lt;Rgb565, LittleEndian&gt;::new(DATA, 16);
+/// # assert_eq!(image1, image2);
+/// ```
+///
+/// [`raw` module documentation]: ../pixelcolor/raw/index.html
+/// [`Drawable`]: ../drawable/trait.Drawable.html
+/// [`ImageRawBE`]: type.ImageRawBE.html
+/// [`ImageRawLE`]: type.ImageRawLE.html
+/// [`Image`]: struct.Image.html
+/// [`PixelColor`]: ../pixelcolor/trait.PixelColor.html
+/// [`ByteOrder`]: ../pixelcolor/raw/trait.ByteOrder.html
+</span><span class="attribute">#[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Hash, Debug)]
+</span><span class="kw">pub struct </span>ImageRaw&lt;<span class="lifetime">&#39;a</span>, C, BO = BigEndian&gt;
+<span class="kw">where
+    </span>C: PixelColor + From&lt;&lt;C <span class="kw">as </span>PixelColor&gt;::Raw&gt;,
+    BO: ByteOrder,
 {
-    <span class="doccomment">/// Image data, packed as dictated by raw data type `C::Raw`</span>
-    <span class="ident">data</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> [<span class="ident">u8</span>],
+    <span class="doccomment">/// Image data, packed as dictated by raw data type `C::Raw`
+    </span>data: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>[u8],
 
-    <span class="doccomment">/// Image size in pixels</span>
-    <span class="ident">size</span>: <span class="ident">Size</span>,
+    <span class="doccomment">/// Image size in pixels
+    </span>size: Size,
 
-    <span class="ident">pixel_type</span>: <span class="ident">PhantomData</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>,
-    <span class="ident">byte_order</span>: <span class="ident">PhantomData</span><span class="op">&lt;</span><span class="ident">BO</span><span class="op">&gt;</span>,
+    pixel_type: PhantomData&lt;C&gt;,
+    byte_order: PhantomData&lt;BO&gt;,
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">C</span>, <span class="ident">BO</span><span class="op">&gt;</span> <span class="ident">ImageRaw</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">C</span>, <span class="ident">BO</span><span class="op">&gt;</span>
-<span class="kw">where</span>
-    <span class="ident">C</span>: <span class="ident">PixelColor</span> <span class="op">+</span> <span class="ident">From</span><span class="op">&lt;</span><span class="op">&lt;</span><span class="ident">C</span> <span class="kw">as</span> <span class="ident">PixelColor</span><span class="op">&gt;</span><span class="ident">::Raw</span><span class="op">&gt;</span>,
-    <span class="ident">BO</span>: <span class="ident">ByteOrder</span>,
+<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>, C, BO&gt; ImageRaw&lt;<span class="lifetime">&#39;a</span>, C, BO&gt;
+<span class="kw">where
+    </span>C: PixelColor + From&lt;&lt;C <span class="kw">as </span>PixelColor&gt;::Raw&gt;,
+    BO: ByteOrder,
 {
-    <span class="doccomment">/// Creates a new image.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Only the width of the image needs to be specified. The height of the image will be</span>
-    <span class="doccomment">/// calculated based on the length of the given image data. If the length of the image data</span>
-    <span class="doccomment">/// isn&#39;t an integer multiple of the data length for a single row the last partial row will</span>
-    <span class="doccomment">/// be ignored.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">data</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> [<span class="ident">u8</span>], <span class="ident">width</span>: <span class="ident">u32</span>) -&gt; <span class="self">Self</span> {
-        <span class="comment">// Prevent panic for `width == 0` by returning a zero sized image.</span>
-        <span class="kw">if</span> <span class="ident">width</span> <span class="op">==</span> <span class="number">0</span> {
-            <span class="kw">return</span> <span class="self">Self</span> {
-                <span class="ident">data</span>: <span class="kw-2">&amp;</span>[],
-                <span class="ident">size</span>: <span class="ident">Size::zero</span>(),
-                <span class="ident">pixel_type</span>: <span class="ident">PhantomData</span>,
-                <span class="ident">byte_order</span>: <span class="ident">PhantomData</span>,
+    <span class="doccomment">/// Creates a new image.
+    ///
+    /// Only the width of the image needs to be specified. The height of the image will be
+    /// calculated based on the length of the given image data. If the length of the image data
+    /// isn&#39;t an integer multiple of the data length for a single row the last partial row will
+    /// be ignored.
+    </span><span class="kw">pub fn </span>new(data: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>[u8], width: u32) -&gt; <span class="self">Self </span>{
+        <span class="comment">// Prevent panic for `width == 0` by returning a zero sized image.
+        </span><span class="kw">if </span>width == <span class="number">0 </span>{
+            <span class="kw">return </span><span class="self">Self </span>{
+                data: <span class="kw-2">&amp;</span>[],
+                size: Size::zero(),
+                pixel_type: PhantomData,
+                byte_order: PhantomData,
             };
         }
 
-        <span class="kw">let</span> <span class="ident">height</span> <span class="op">=</span> <span class="ident">data</span>.<span class="ident">len</span>() <span class="op">/</span> <span class="ident">bytes_per_row</span>(<span class="ident">width</span>, <span class="ident">C::Raw::BITS_PER_PIXEL</span>);
+        <span class="kw">let </span>height = data.len() / bytes_per_row(width, C::Raw::BITS_PER_PIXEL);
 
-        <span class="self">Self</span> {
-            <span class="ident">data</span>,
-            <span class="ident">size</span>: <span class="ident">Size::new</span>(<span class="ident">width</span>, <span class="ident">height</span> <span class="kw">as</span> <span class="ident">u32</span>),
-            <span class="ident">pixel_type</span>: <span class="ident">PhantomData</span>,
-            <span class="ident">byte_order</span>: <span class="ident">PhantomData</span>,
+        <span class="self">Self </span>{
+            data,
+            size: Size::new(width, height <span class="kw">as </span>u32),
+            pixel_type: PhantomData,
+            byte_order: PhantomData,
         }
     }
 
-    <span class="doccomment">/// Returns the actual row width in pixels.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// For images with less than 8 bits per pixel each row is padded to contain an integer number</span>
-    <span class="doccomment">/// of bytes. This method returns the width of each row including the padding pixels.</span>
-    <span class="kw">fn</span> <span class="ident">data_width</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">u32</span> {
-        <span class="kw">if</span> <span class="ident">C::Raw::BITS_PER_PIXEL</span> <span class="op">&lt;</span> <span class="number">8</span> {
-            <span class="kw">let</span> <span class="ident">pixels_per_byte</span> <span class="op">=</span> <span class="number">8</span> <span class="op">/</span> <span class="ident">C::Raw::BITS_PER_PIXEL</span> <span class="kw">as</span> <span class="ident">u32</span>;
+    <span class="doccomment">/// Returns the actual row width in pixels.
+    ///
+    /// For images with less than 8 bits per pixel each row is padded to contain an integer number
+    /// of bytes. This method returns the width of each row including the padding pixels.
+    </span><span class="kw">fn </span>data_width(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; u32 {
+        <span class="kw">if </span>C::Raw::BITS_PER_PIXEL &lt; <span class="number">8 </span>{
+            <span class="kw">let </span>pixels_per_byte = <span class="number">8 </span>/ C::Raw::BITS_PER_PIXEL <span class="kw">as </span>u32;
 
-            <span class="ident">bytes_per_row</span>(<span class="self">self</span>.<span class="ident">size</span>.<span class="ident">width</span>, <span class="ident">C::Raw::BITS_PER_PIXEL</span>) <span class="kw">as</span> <span class="ident">u32</span> <span class="op">*</span> <span class="ident">pixels_per_byte</span>
-        } <span class="kw">else</span> {
-            <span class="self">self</span>.<span class="ident">size</span>.<span class="ident">width</span>
-        }
-    }
-}
-
-<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="ident">ImageRaw</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">BinaryColor</span><span class="op">&gt;</span> {
-    <span class="doccomment">/// Creates a new binary image.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Due to `const fn` limitations the `new` method cannot be used in `const` contexts. This</span>
-    <span class="doccomment">/// method provides a workaround to create `ImageRaw`s with `BinaryColor` images.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Only the width of the image needs to be specified. The height of the image will be</span>
-    <span class="doccomment">/// calculated based on the length of the given image data.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Panics</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// This function panics if `width == 0`.</span>
-    <span class="comment">// MSRV: return a zero sized image instead of a panic for Rust &gt;= 1.46.0</span>
-    <span class="comment">//       (requires if in const function)</span>
-    <span class="comment">// MSRV: remove this function when const functions with trait bounds are supported</span>
-    <span class="kw">pub</span> <span class="kw">const</span> <span class="kw">fn</span> <span class="ident">new_binary</span>(<span class="ident">data</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> [<span class="ident">u8</span>], <span class="ident">width</span>: <span class="ident">u32</span>) -&gt; <span class="self">Self</span> {
-        <span class="kw">let</span> <span class="ident">height</span> <span class="op">=</span> <span class="ident">data</span>.<span class="ident">len</span>() <span class="op">/</span> <span class="ident">bytes_per_row</span>(<span class="ident">width</span>, <span class="number">1</span>);
-
-        <span class="self">Self</span> {
-            <span class="ident">data</span>,
-            <span class="ident">size</span>: <span class="ident">Size::new</span>(<span class="ident">width</span>, <span class="ident">height</span> <span class="kw">as</span> <span class="ident">u32</span>),
-            <span class="ident">pixel_type</span>: <span class="ident">PhantomData</span>,
-            <span class="ident">byte_order</span>: <span class="ident">PhantomData</span>,
+            bytes_per_row(<span class="self">self</span>.size.width, C::Raw::BITS_PER_PIXEL) <span class="kw">as </span>u32 * pixels_per_byte
+        } <span class="kw">else </span>{
+            <span class="self">self</span>.size.width
         }
     }
 }
 
-<span class="doccomment">/// Returns the length of each row in bytes.</span>
-<span class="kw">const</span> <span class="kw">fn</span> <span class="ident">bytes_per_row</span>(<span class="ident">width</span>: <span class="ident">u32</span>, <span class="ident">bits_per_pixel</span>: <span class="ident">usize</span>) -&gt; <span class="ident">usize</span> {
-    (<span class="ident">width</span> <span class="kw">as</span> <span class="ident">usize</span> <span class="op">*</span> <span class="ident">bits_per_pixel</span> <span class="op">+</span> <span class="number">7</span>) <span class="op">/</span> <span class="number">8</span>
+<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>&gt; ImageRaw&lt;<span class="lifetime">&#39;a</span>, BinaryColor&gt; {
+    <span class="doccomment">/// Creates a new binary image.
+    ///
+    /// Due to `const fn` limitations the `new` method cannot be used in `const` contexts. This
+    /// method provides a workaround to create `ImageRaw`s with `BinaryColor` images.
+    ///
+    /// Only the width of the image needs to be specified. The height of the image will be
+    /// calculated based on the length of the given image data.
+    ///
+    /// # Panics
+    ///
+    /// This function panics if `width == 0`.
+    </span><span class="comment">// MSRV: return a zero sized image instead of a panic for Rust &gt;= 1.46.0
+    //       (requires if in const function)
+    // MSRV: remove this function when const functions with trait bounds are supported
+    </span><span class="kw">pub const fn </span>new_binary(data: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>[u8], width: u32) -&gt; <span class="self">Self </span>{
+        <span class="kw">let </span>height = data.len() / bytes_per_row(width, <span class="number">1</span>);
+
+        <span class="self">Self </span>{
+            data,
+            size: Size::new(width, height <span class="kw">as </span>u32),
+            pixel_type: PhantomData,
+            byte_order: PhantomData,
+        }
+    }
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">C</span>, <span class="ident">BO</span><span class="op">&gt;</span> <span class="ident">ImageDrawable</span> <span class="kw">for</span> <span class="ident">ImageRaw</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">C</span>, <span class="ident">BO</span><span class="op">&gt;</span>
-<span class="kw">where</span>
-    <span class="ident">C</span>: <span class="ident">PixelColor</span> <span class="op">+</span> <span class="ident">From</span><span class="op">&lt;</span><span class="op">&lt;</span><span class="ident">C</span> <span class="kw">as</span> <span class="ident">PixelColor</span><span class="op">&gt;</span><span class="ident">::Raw</span><span class="op">&gt;</span>,
-    <span class="ident">BO</span>: <span class="ident">ByteOrder</span>,
-    <span class="ident">RawDataSlice</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">C::Raw</span>, <span class="ident">BO</span><span class="op">&gt;</span>: <span class="ident">IntoIterator</span><span class="op">&lt;</span><span class="ident">Item</span> <span class="op">=</span> <span class="ident">C::Raw</span><span class="op">&gt;</span>,
+<span class="doccomment">/// Returns the length of each row in bytes.
+</span><span class="kw">const fn </span>bytes_per_row(width: u32, bits_per_pixel: usize) -&gt; usize {
+    (width <span class="kw">as </span>usize * bits_per_pixel + <span class="number">7</span>) / <span class="number">8
+</span>}
+
+<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>, C, BO&gt; ImageDrawable <span class="kw">for </span>ImageRaw&lt;<span class="lifetime">&#39;a</span>, C, BO&gt;
+<span class="kw">where
+    </span>C: PixelColor + From&lt;&lt;C <span class="kw">as </span>PixelColor&gt;::Raw&gt;,
+    BO: ByteOrder,
+    RawDataSlice&lt;<span class="lifetime">&#39;a</span>, C::Raw, BO&gt;: IntoIterator&lt;Item = C::Raw&gt;,
 {
-    <span class="kw">type</span> <span class="ident">Color</span> <span class="op">=</span> <span class="ident">C</span>;
+    <span class="kw">type </span>Color = C;
 
-    <span class="kw">fn</span> <span class="ident">draw</span><span class="op">&lt;</span><span class="ident">D</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">target</span>: <span class="kw-2">&amp;mut</span> <span class="ident">D</span>) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">D::Error</span><span class="op">&gt;</span>
-    <span class="kw">where</span>
-        <span class="ident">D</span>: <span class="ident">DrawTarget</span><span class="op">&lt;</span><span class="ident">Color</span> <span class="op">=</span> <span class="ident">C</span><span class="op">&gt;</span>,
+    <span class="kw">fn </span>draw&lt;D&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, target: <span class="kw-2">&amp;mut </span>D) -&gt; <span class="prelude-ty">Result</span>&lt;(), D::Error&gt;
+    <span class="kw">where
+        </span>D: DrawTarget&lt;Color = C&gt;,
     {
-        <span class="kw">let</span> <span class="ident">row_skip</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">data_width</span>() <span class="op">-</span> <span class="self">self</span>.<span class="ident">size</span>.<span class="ident">width</span>;
+        <span class="kw">let </span>row_skip = <span class="self">self</span>.data_width() - <span class="self">self</span>.size.width;
 
-        <span class="ident">target</span>.<span class="ident">fill_contiguous</span>(
-            <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">bounding_box</span>(),
-            <span class="ident">ContiguousPixels::new</span>(<span class="self">self</span>, <span class="self">self</span>.<span class="ident">size</span>, <span class="number">0</span>, <span class="ident">row_skip</span> <span class="kw">as</span> <span class="ident">usize</span>),
+        target.fill_contiguous(
+            <span class="kw-2">&amp;</span><span class="self">self</span>.bounding_box(),
+            ContiguousPixels::new(<span class="self">self</span>, <span class="self">self</span>.size, <span class="number">0</span>, row_skip <span class="kw">as </span>usize),
         )
     }
 
-    <span class="kw">fn</span> <span class="ident">draw_sub_image</span><span class="op">&lt;</span><span class="ident">D</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">target</span>: <span class="kw-2">&amp;mut</span> <span class="ident">D</span>, <span class="ident">area</span>: <span class="kw-2">&amp;</span><span class="ident">Rectangle</span>) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">D::Error</span><span class="op">&gt;</span>
-    <span class="kw">where</span>
-        <span class="ident">D</span>: <span class="ident">DrawTarget</span><span class="op">&lt;</span><span class="ident">Color</span> <span class="op">=</span> <span class="ident"><span class="self">Self</span>::Color</span><span class="op">&gt;</span>,
+    <span class="kw">fn </span>draw_sub_image&lt;D&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, target: <span class="kw-2">&amp;mut </span>D, area: <span class="kw-2">&amp;</span>Rectangle) -&gt; <span class="prelude-ty">Result</span>&lt;(), D::Error&gt;
+    <span class="kw">where
+        </span>D: DrawTarget&lt;Color = <span class="self">Self</span>::Color&gt;,
     {
-        <span class="comment">// Don&#39;t draw anything if `area` is zero sized or partially outside the image.</span>
-        <span class="kw">if</span> <span class="ident">area</span>.<span class="ident">is_zero_sized</span>()
-            <span class="op">|</span><span class="op">|</span> <span class="ident">area</span>.<span class="ident">top_left</span>.<span class="ident">x</span> <span class="op">&lt;</span> <span class="number">0</span>
-            <span class="op">|</span><span class="op">|</span> <span class="ident">area</span>.<span class="ident">top_left</span>.<span class="ident">y</span> <span class="op">&lt;</span> <span class="number">0</span>
-            <span class="op">|</span><span class="op">|</span> <span class="ident">area</span>.<span class="ident">top_left</span>.<span class="ident">x</span> <span class="kw">as</span> <span class="ident">u32</span> <span class="op">+</span> <span class="ident">area</span>.<span class="ident">size</span>.<span class="ident">width</span> <span class="op">&gt;</span> <span class="self">self</span>.<span class="ident">size</span>.<span class="ident">width</span>
-            <span class="op">|</span><span class="op">|</span> <span class="ident">area</span>.<span class="ident">top_left</span>.<span class="ident">y</span> <span class="kw">as</span> <span class="ident">u32</span> <span class="op">+</span> <span class="ident">area</span>.<span class="ident">size</span>.<span class="ident">height</span> <span class="op">&gt;</span> <span class="self">self</span>.<span class="ident">size</span>.<span class="ident">height</span>
+        <span class="comment">// Don&#39;t draw anything if `area` is zero sized or partially outside the image.
+        </span><span class="kw">if </span>area.is_zero_sized()
+            || area.top_left.x &lt; <span class="number">0
+            </span>|| area.top_left.y &lt; <span class="number">0
+            </span>|| area.top_left.x <span class="kw">as </span>u32 + area.size.width &gt; <span class="self">self</span>.size.width
+            || area.top_left.y <span class="kw">as </span>u32 + area.size.height &gt; <span class="self">self</span>.size.height
         {
-            <span class="kw">return</span> <span class="prelude-val">Ok</span>(());
+            <span class="kw">return </span><span class="prelude-val">Ok</span>(());
         }
 
-        <span class="kw">let</span> <span class="ident">data_width</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">data_width</span>() <span class="kw">as</span> <span class="ident">usize</span>;
+        <span class="kw">let </span>data_width = <span class="self">self</span>.data_width() <span class="kw">as </span>usize;
 
-        <span class="kw">let</span> <span class="ident">initial_skip</span> <span class="op">=</span> <span class="ident">area</span>.<span class="ident">top_left</span>.<span class="ident">y</span> <span class="kw">as</span> <span class="ident">usize</span> <span class="op">*</span> <span class="ident">data_width</span> <span class="op">+</span> <span class="ident">area</span>.<span class="ident">top_left</span>.<span class="ident">x</span> <span class="kw">as</span> <span class="ident">usize</span>;
-        <span class="kw">let</span> <span class="ident">row_skip</span> <span class="op">=</span> <span class="ident">data_width</span> <span class="op">-</span> <span class="ident">area</span>.<span class="ident">size</span>.<span class="ident">width</span> <span class="kw">as</span> <span class="ident">usize</span>;
+        <span class="kw">let </span>initial_skip = area.top_left.y <span class="kw">as </span>usize * data_width + area.top_left.x <span class="kw">as </span>usize;
+        <span class="kw">let </span>row_skip = data_width - area.size.width <span class="kw">as </span>usize;
 
-        <span class="ident">target</span>.<span class="ident">fill_contiguous</span>(
-            <span class="kw-2">&amp;</span><span class="ident">Rectangle::new</span>(<span class="ident">Point::zero</span>(), <span class="ident">area</span>.<span class="ident">size</span>),
-            <span class="ident">ContiguousPixels::new</span>(<span class="self">self</span>, <span class="ident">area</span>.<span class="ident">size</span>, <span class="ident">initial_skip</span>, <span class="ident">row_skip</span>),
+        target.fill_contiguous(
+            <span class="kw-2">&amp;</span>Rectangle::new(Point::zero(), area.size),
+            ContiguousPixels::new(<span class="self">self</span>, area.size, initial_skip, row_skip),
         )
     }
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">C</span>, <span class="ident">BO</span><span class="op">&gt;</span> <span class="ident">OriginDimensions</span> <span class="kw">for</span> <span class="ident">ImageRaw</span><span class="op">&lt;</span><span class="lifetime">&#39;_</span>, <span class="ident">C</span>, <span class="ident">BO</span><span class="op">&gt;</span>
-<span class="kw">where</span>
-    <span class="ident">C</span>: <span class="ident">PixelColor</span> <span class="op">+</span> <span class="ident">From</span><span class="op">&lt;</span><span class="op">&lt;</span><span class="ident">C</span> <span class="kw">as</span> <span class="ident">PixelColor</span><span class="op">&gt;</span><span class="ident">::Raw</span><span class="op">&gt;</span>,
-    <span class="ident">BO</span>: <span class="ident">ByteOrder</span>,
+<span class="kw">impl</span>&lt;C, BO&gt; OriginDimensions <span class="kw">for </span>ImageRaw&lt;<span class="lifetime">&#39;_</span>, C, BO&gt;
+<span class="kw">where
+    </span>C: PixelColor + From&lt;&lt;C <span class="kw">as </span>PixelColor&gt;::Raw&gt;,
+    BO: ByteOrder,
 {
-    <span class="kw">fn</span> <span class="ident">size</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Size</span> {
-        <span class="self">self</span>.<span class="ident">size</span>
+    <span class="kw">fn </span>size(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Size {
+        <span class="self">self</span>.size
     }
 }
 
-<span class="kw">struct</span> <span class="ident">ContiguousPixels</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">C</span>, <span class="ident">BO</span><span class="op">&gt;</span>
-<span class="kw">where</span>
-    <span class="ident">C</span>: <span class="ident">PixelColor</span> <span class="op">+</span> <span class="ident">From</span><span class="op">&lt;</span><span class="op">&lt;</span><span class="ident">C</span> <span class="kw">as</span> <span class="ident">PixelColor</span><span class="op">&gt;</span><span class="ident">::Raw</span><span class="op">&gt;</span>,
-    <span class="ident">BO</span>: <span class="ident">ByteOrder</span>,
-    <span class="ident">RawDataSlice</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">C::Raw</span>, <span class="ident">BO</span><span class="op">&gt;</span>: <span class="ident">IntoIterator</span><span class="op">&lt;</span><span class="ident">Item</span> <span class="op">=</span> <span class="ident">C::Raw</span><span class="op">&gt;</span>,
+<span class="kw">struct </span>ContiguousPixels&lt;<span class="lifetime">&#39;a</span>, C, BO&gt;
+<span class="kw">where
+    </span>C: PixelColor + From&lt;&lt;C <span class="kw">as </span>PixelColor&gt;::Raw&gt;,
+    BO: ByteOrder,
+    RawDataSlice&lt;<span class="lifetime">&#39;a</span>, C::Raw, BO&gt;: IntoIterator&lt;Item = C::Raw&gt;,
 {
-    <span class="ident">iter</span>: <span class="op">&lt;</span><span class="ident">RawDataSlice</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">C::Raw</span>, <span class="ident">BO</span><span class="op">&gt;</span> <span class="kw">as</span> <span class="ident">IntoIterator</span><span class="op">&gt;</span><span class="ident">::IntoIter</span>,
+    iter: &lt;RawDataSlice&lt;<span class="lifetime">&#39;a</span>, C::Raw, BO&gt; <span class="kw">as </span>IntoIterator&gt;::IntoIter,
 
-    <span class="ident">remaining_x</span>: <span class="ident">u32</span>,
-    <span class="ident">width</span>: <span class="ident">u32</span>,
+    remaining_x: u32,
+    width: u32,
 
-    <span class="ident">remaining_y</span>: <span class="ident">u32</span>,
-    <span class="ident">row_skip</span>: <span class="ident">usize</span>,
+    remaining_y: u32,
+    row_skip: usize,
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">C</span>, <span class="ident">BO</span><span class="op">&gt;</span> <span class="ident">ContiguousPixels</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">C</span>, <span class="ident">BO</span><span class="op">&gt;</span>
-<span class="kw">where</span>
-    <span class="ident">C</span>: <span class="ident">PixelColor</span> <span class="op">+</span> <span class="ident">From</span><span class="op">&lt;</span><span class="op">&lt;</span><span class="ident">C</span> <span class="kw">as</span> <span class="ident">PixelColor</span><span class="op">&gt;</span><span class="ident">::Raw</span><span class="op">&gt;</span>,
-    <span class="ident">BO</span>: <span class="ident">ByteOrder</span>,
-    <span class="ident">RawDataSlice</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">C::Raw</span>, <span class="ident">BO</span><span class="op">&gt;</span>: <span class="ident">IntoIterator</span><span class="op">&lt;</span><span class="ident">Item</span> <span class="op">=</span> <span class="ident">C::Raw</span><span class="op">&gt;</span>,
+<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>, C, BO&gt; ContiguousPixels&lt;<span class="lifetime">&#39;a</span>, C, BO&gt;
+<span class="kw">where
+    </span>C: PixelColor + From&lt;&lt;C <span class="kw">as </span>PixelColor&gt;::Raw&gt;,
+    BO: ByteOrder,
+    RawDataSlice&lt;<span class="lifetime">&#39;a</span>, C::Raw, BO&gt;: IntoIterator&lt;Item = C::Raw&gt;,
 {
-    <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">image</span>: <span class="kw-2">&amp;</span><span class="ident">ImageRaw</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">C</span>, <span class="ident">BO</span><span class="op">&gt;</span>, <span class="ident">size</span>: <span class="ident">Size</span>, <span class="ident">initial_skip</span>: <span class="ident">usize</span>, <span class="ident">row_skip</span>: <span class="ident">usize</span>) -&gt; <span class="self">Self</span> {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">iter</span> <span class="op">=</span> <span class="ident">RawDataSlice::new</span>(<span class="ident">image</span>.<span class="ident">data</span>).<span class="ident">into_iter</span>();
+    <span class="kw">fn </span>new(image: <span class="kw-2">&amp;</span>ImageRaw&lt;<span class="lifetime">&#39;a</span>, C, BO&gt;, size: Size, initial_skip: usize, row_skip: usize) -&gt; <span class="self">Self </span>{
+        <span class="kw">let </span><span class="kw-2">mut </span>iter = RawDataSlice::new(image.data).into_iter();
 
-        <span class="kw">if</span> <span class="ident">initial_skip</span> <span class="op">&gt;</span> <span class="number">0</span> {
-            <span class="ident">iter</span>.<span class="ident">nth</span>(<span class="ident">initial_skip</span> <span class="op">-</span> <span class="number">1</span>);
+        <span class="kw">if </span>initial_skip &gt; <span class="number">0 </span>{
+            iter.nth(initial_skip - <span class="number">1</span>);
         }
 
-        <span class="comment">// Set `remaining_y` to `0` if `width == 0` to prevent integer underflow in `next`.</span>
-        <span class="kw">let</span> <span class="ident">remaining_y</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">size</span>.<span class="ident">width</span> <span class="op">&gt;</span> <span class="number">0</span> { <span class="ident">size</span>.<span class="ident">height</span> } <span class="kw">else</span> { <span class="number">0</span> };
+        <span class="comment">// Set `remaining_y` to `0` if `width == 0` to prevent integer underflow in `next`.
+        </span><span class="kw">let </span>remaining_y = <span class="kw">if </span>size.width &gt; <span class="number">0 </span>{ size.height } <span class="kw">else </span>{ <span class="number">0 </span>};
 
-        <span class="self">Self</span> {
-            <span class="ident">iter</span>,
-            <span class="ident">remaining_x</span>: <span class="ident">size</span>.<span class="ident">width</span>,
-            <span class="ident">width</span>: <span class="ident">size</span>.<span class="ident">width</span>,
-            <span class="ident">remaining_y</span>,
-            <span class="ident">row_skip</span>,
+        <span class="self">Self </span>{
+            iter,
+            remaining_x: size.width,
+            width: size.width,
+            remaining_y,
+            row_skip,
         }
     }
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">C</span>, <span class="ident">BO</span><span class="op">&gt;</span> <span class="ident">Iterator</span> <span class="kw">for</span> <span class="ident">ContiguousPixels</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">C</span>, <span class="ident">BO</span><span class="op">&gt;</span>
-<span class="kw">where</span>
-    <span class="ident">C</span>: <span class="ident">PixelColor</span> <span class="op">+</span> <span class="ident">From</span><span class="op">&lt;</span><span class="op">&lt;</span><span class="ident">C</span> <span class="kw">as</span> <span class="ident">PixelColor</span><span class="op">&gt;</span><span class="ident">::Raw</span><span class="op">&gt;</span>,
-    <span class="ident">BO</span>: <span class="ident">ByteOrder</span>,
-    <span class="ident">RawDataSlice</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">C::Raw</span>, <span class="ident">BO</span><span class="op">&gt;</span>: <span class="ident">IntoIterator</span><span class="op">&lt;</span><span class="ident">Item</span> <span class="op">=</span> <span class="ident">C::Raw</span><span class="op">&gt;</span>,
+<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>, C, BO&gt; Iterator <span class="kw">for </span>ContiguousPixels&lt;<span class="lifetime">&#39;a</span>, C, BO&gt;
+<span class="kw">where
+    </span>C: PixelColor + From&lt;&lt;C <span class="kw">as </span>PixelColor&gt;::Raw&gt;,
+    BO: ByteOrder,
+    RawDataSlice&lt;<span class="lifetime">&#39;a</span>, C::Raw, BO&gt;: IntoIterator&lt;Item = C::Raw&gt;,
 {
-    <span class="kw">type</span> <span class="ident">Item</span> <span class="op">=</span> <span class="ident">C</span>;
+    <span class="kw">type </span>Item = C;
 
-    <span class="kw">fn</span> <span class="ident">next</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Item</span><span class="op">&gt;</span> {
-        <span class="kw">if</span> <span class="self">self</span>.<span class="ident">remaining_x</span> <span class="op">&gt;</span> <span class="number">0</span> {
-            <span class="self">self</span>.<span class="ident">remaining_x</span> <span class="op">-</span><span class="op">=</span> <span class="number">1</span>;
+    <span class="kw">fn </span>next(<span class="kw-2">&amp;mut </span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="self">Self</span>::Item&gt; {
+        <span class="kw">if </span><span class="self">self</span>.remaining_x &gt; <span class="number">0 </span>{
+            <span class="self">self</span>.remaining_x -= <span class="number">1</span>;
 
-            <span class="self">self</span>.<span class="ident">iter</span>.<span class="ident">next</span>()
-        } <span class="kw">else</span> {
-            <span class="kw">if</span> <span class="self">self</span>.<span class="ident">remaining_y</span> <span class="op">==</span> <span class="number">0</span> {
-                <span class="kw">return</span> <span class="prelude-val">None</span>;
+            <span class="self">self</span>.iter.next()
+        } <span class="kw">else </span>{
+            <span class="kw">if </span><span class="self">self</span>.remaining_y == <span class="number">0 </span>{
+                <span class="kw">return </span><span class="prelude-val">None</span>;
             }
 
-            <span class="self">self</span>.<span class="ident">remaining_y</span> <span class="op">-</span><span class="op">=</span> <span class="number">1</span>;
-            <span class="self">self</span>.<span class="ident">remaining_x</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">width</span> <span class="op">-</span> <span class="number">1</span>;
+            <span class="self">self</span>.remaining_y -= <span class="number">1</span>;
+            <span class="self">self</span>.remaining_x = <span class="self">self</span>.width - <span class="number">1</span>;
 
-            <span class="self">self</span>.<span class="ident">iter</span>.<span class="ident">nth</span>(<span class="self">self</span>.<span class="ident">row_skip</span>)
+            <span class="self">self</span>.iter.nth(<span class="self">self</span>.row_skip)
         }
-        .<span class="ident">map</span>(<span class="op">|</span><span class="ident">c</span><span class="op">|</span> <span class="ident">c</span>.<span class="ident">into</span>())
+        .map(|c| c.into())
     }
 }
 
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
-<span class="kw">mod</span> <span class="ident">tests</span> {
-    <span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
-    <span class="kw">use</span> <span class="kw">crate</span>::{
-        <span class="ident">draw_target::DrawTarget</span>,
-        <span class="ident">geometry::Point</span>,
-        <span class="ident">image::Image</span>,
-        <span class="ident">iterator::PixelIteratorExt</span>,
-        <span class="ident">mock_display</span>::{<span class="ident">ColorMapping</span>, <span class="ident">MockDisplay</span>},
-        <span class="ident">pixelcolor</span>::{<span class="ident">raw::RawU32</span>, <span class="kw-2">*</span>},
-        <span class="ident">Drawable</span>, <span class="ident">Pixel</span>,
+<span class="attribute">#[cfg(test)]
+</span><span class="kw">mod </span>tests {
+    <span class="kw">use super</span>::<span class="kw-2">*</span>;
+    <span class="kw">use crate</span>::{
+        draw_target::DrawTarget,
+        geometry::Point,
+        image::Image,
+        iterator::PixelIteratorExt,
+        mock_display::{ColorMapping, MockDisplay},
+        pixelcolor::{raw::RawU32, <span class="kw-2">*</span>},
+        Drawable, Pixel,
     };
 
-    <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Copy</span>, <span class="ident">Clone</span>, <span class="ident">Eq</span>, <span class="ident">PartialEq</span>, <span class="ident">Ord</span>, <span class="ident">PartialOrd</span>, <span class="ident">Hash</span>, <span class="ident">Debug</span>, <span class="ident">Default</span>)]</span>
-    <span class="kw">struct</span> <span class="ident">TestColorU32</span>(<span class="ident">RawU32</span>);
+    <span class="attribute">#[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Hash, Debug, Default)]
+    </span><span class="kw">struct </span>TestColorU32(RawU32);
 
-    <span class="kw">impl</span> <span class="ident">PixelColor</span> <span class="kw">for</span> <span class="ident">TestColorU32</span> {
-        <span class="kw">type</span> <span class="ident">Raw</span> <span class="op">=</span> <span class="ident">RawU32</span>;
+    <span class="kw">impl </span>PixelColor <span class="kw">for </span>TestColorU32 {
+        <span class="kw">type </span>Raw = RawU32;
     }
 
-    <span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span><span class="ident">RawU32</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">TestColorU32</span> {
-        <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">data</span>: <span class="ident">RawU32</span>) -&gt; <span class="self">Self</span> {
-            <span class="self">Self</span>(<span class="ident">data</span>)
+    <span class="kw">impl </span>From&lt;RawU32&gt; <span class="kw">for </span>TestColorU32 {
+        <span class="kw">fn </span>from(data: RawU32) -&gt; <span class="self">Self </span>{
+            <span class="self">Self</span>(data)
         }
     }
 
-    <span class="doccomment">/// Tests if the given image data matches an excepted `MockDisplay` pattern.</span>
-    <span class="kw">fn</span> <span class="ident">assert_pattern</span><span class="op">&lt;</span><span class="ident">C</span>, <span class="ident">BO</span><span class="op">&gt;</span>(<span class="ident">image_data</span>: <span class="ident">ImageRaw</span><span class="op">&lt;</span><span class="ident">C</span>, <span class="ident">BO</span><span class="op">&gt;</span>, <span class="ident">expected_pattern</span>: <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span><span class="ident">str</span>])
-    <span class="kw">where</span>
-        <span class="ident">C</span>: <span class="ident">PixelColor</span> <span class="op">+</span> <span class="ident">From</span><span class="op">&lt;</span><span class="op">&lt;</span><span class="ident">C</span> <span class="kw">as</span> <span class="ident">PixelColor</span><span class="op">&gt;</span><span class="ident">::Raw</span><span class="op">&gt;</span> <span class="op">+</span> <span class="ident">ColorMapping</span>,
-        <span class="ident">BO</span>: <span class="ident">ByteOrder</span>,
-        <span class="kw">for</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="ident">RawDataSlice</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">C::Raw</span>, <span class="ident">BO</span><span class="op">&gt;</span>: <span class="ident">IntoIterator</span><span class="op">&lt;</span><span class="ident">Item</span> <span class="op">=</span> <span class="ident">C::Raw</span><span class="op">&gt;</span>,
+    <span class="doccomment">/// Tests if the given image data matches an excepted `MockDisplay` pattern.
+    </span><span class="kw">fn </span>assert_pattern&lt;C, BO&gt;(image_data: ImageRaw&lt;C, BO&gt;, expected_pattern: <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span>str])
+    <span class="kw">where
+        </span>C: PixelColor + From&lt;&lt;C <span class="kw">as </span>PixelColor&gt;::Raw&gt; + ColorMapping,
+        BO: ByteOrder,
+        <span class="kw">for</span>&lt;<span class="lifetime">&#39;a</span>&gt; RawDataSlice&lt;<span class="lifetime">&#39;a</span>, C::Raw, BO&gt;: IntoIterator&lt;Item = C::Raw&gt;,
     {
-        <span class="kw">let</span> <span class="ident">image</span> <span class="op">=</span> <span class="ident">Image::new</span>(<span class="kw-2">&amp;</span><span class="ident">image_data</span>, <span class="ident">Point::zero</span>());
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
-        <span class="ident">image</span>.<span class="ident">draw</span>(<span class="kw-2">&amp;mut</span> <span class="ident">display</span>).<span class="ident">unwrap</span>();
+        <span class="kw">let </span>image = Image::new(<span class="kw-2">&amp;</span>image_data, Point::zero());
+        <span class="kw">let </span><span class="kw-2">mut </span>display = MockDisplay::new();
+        image.draw(<span class="kw-2">&amp;mut </span>display).unwrap();
 
-        <span class="ident">display</span>.<span class="ident">assert_pattern</span>(<span class="ident">expected_pattern</span>);
+        display.assert_pattern(expected_pattern);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">image_dimensions</span>() {
-        <span class="kw">let</span> <span class="ident">data</span> <span class="op">=</span> [
-            <span class="number">0xAA</span>, <span class="number">0x00</span>, <span class="comment">//</span>
-            <span class="number">0x55</span>, <span class="number">0xFF</span>, <span class="comment">//</span>
-            <span class="number">0xAA</span>, <span class="number">0x80</span>, <span class="comment">//</span>
-        ];
-        <span class="kw">let</span> <span class="ident">image_data</span>: <span class="ident">ImageRaw</span><span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">ImageRaw::new</span>(<span class="kw-2">&amp;</span><span class="ident">data</span>, <span class="number">9</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>image_dimensions() {
+        <span class="kw">let </span>data = [
+            <span class="number">0xAA</span>, <span class="number">0x00</span>, <span class="comment">//
+            </span><span class="number">0x55</span>, <span class="number">0xFF</span>, <span class="comment">//
+            </span><span class="number">0xAA</span>, <span class="number">0x80</span>, <span class="comment">//
+        </span>];
+        <span class="kw">let </span>image_data: ImageRaw&lt;BinaryColor&gt; = ImageRaw::new(<span class="kw-2">&amp;</span>data, <span class="number">9</span>);
 
-        <span class="macro">assert_eq!</span>(<span class="ident">image_data</span>.<span class="ident">size</span>(), <span class="ident">Size::new</span>(<span class="number">9</span>, <span class="number">3</span>));
+        <span class="macro">assert_eq!</span>(image_data.size(), Size::new(<span class="number">9</span>, <span class="number">3</span>));
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">truncated_data</span>() {
-        <span class="kw">let</span> <span class="ident">data</span> <span class="op">=</span> [
-            <span class="number">0xAA</span>, <span class="number">0x00</span>, <span class="comment">//</span>
-            <span class="number">0x55</span>, <span class="number">0xFF</span>, <span class="comment">//</span>
-            <span class="number">0xAA</span>, <span class="comment">//</span>
-        ];
-        <span class="kw">let</span> <span class="ident">image_data</span>: <span class="ident">ImageRaw</span><span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">ImageRaw::new</span>(<span class="kw-2">&amp;</span><span class="ident">data</span>, <span class="number">9</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>truncated_data() {
+        <span class="kw">let </span>data = [
+            <span class="number">0xAA</span>, <span class="number">0x00</span>, <span class="comment">//
+            </span><span class="number">0x55</span>, <span class="number">0xFF</span>, <span class="comment">//
+            </span><span class="number">0xAA</span>, <span class="comment">//
+        </span>];
+        <span class="kw">let </span>image_data: ImageRaw&lt;BinaryColor&gt; = ImageRaw::new(<span class="kw-2">&amp;</span>data, <span class="number">9</span>);
 
-        <span class="ident">assert_pattern</span>(
-            <span class="ident">image_data</span>,
+        assert_pattern(
+            image_data,
             <span class="kw-2">&amp;</span>[
-                <span class="string">&quot;#.#.#.#..&quot;</span>, <span class="comment">//</span>
-                <span class="string">&quot;.#.#.#.##&quot;</span>, <span class="comment">//</span>
-            ],
+                <span class="string">&quot;#.#.#.#..&quot;</span>, <span class="comment">//
+                </span><span class="string">&quot;.#.#.#.##&quot;</span>, <span class="comment">//
+            </span>],
         );
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">bpp1_new</span>() {
-        <span class="kw">let</span> <span class="ident">data</span> <span class="op">=</span> [
-            <span class="number">0xAA</span>, <span class="number">0x00</span>, <span class="comment">//</span>
-            <span class="number">0x55</span>, <span class="number">0xFF</span>, <span class="comment">//</span>
-            <span class="number">0xAA</span>, <span class="number">0x80</span>, <span class="comment">//</span>
-        ];
-        <span class="kw">let</span> <span class="ident">image_data</span>: <span class="ident">ImageRaw</span><span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">ImageRaw::new</span>(<span class="kw-2">&amp;</span><span class="ident">data</span>, <span class="number">9</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>bpp1_new() {
+        <span class="kw">let </span>data = [
+            <span class="number">0xAA</span>, <span class="number">0x00</span>, <span class="comment">//
+            </span><span class="number">0x55</span>, <span class="number">0xFF</span>, <span class="comment">//
+            </span><span class="number">0xAA</span>, <span class="number">0x80</span>, <span class="comment">//
+        </span>];
+        <span class="kw">let </span>image_data: ImageRaw&lt;BinaryColor&gt; = ImageRaw::new(<span class="kw-2">&amp;</span>data, <span class="number">9</span>);
 
-        <span class="ident">assert_pattern</span>(
-            <span class="ident">image_data</span>,
+        assert_pattern(
+            image_data,
             <span class="kw-2">&amp;</span>[
-                <span class="string">&quot;#.#.#.#..&quot;</span>, <span class="comment">//</span>
-                <span class="string">&quot;.#.#.#.##&quot;</span>, <span class="comment">//</span>
-                <span class="string">&quot;#.#.#.#.#&quot;</span>, <span class="comment">//</span>
-            ],
+                <span class="string">&quot;#.#.#.#..&quot;</span>, <span class="comment">//
+                </span><span class="string">&quot;.#.#.#.##&quot;</span>, <span class="comment">//
+                </span><span class="string">&quot;#.#.#.#.#&quot;</span>, <span class="comment">//
+            </span>],
         );
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">bpp1_new_binary</span>() {
-        <span class="kw">let</span> <span class="ident">data</span> <span class="op">=</span> [
-            <span class="number">0xAA</span>, <span class="number">0x00</span>, <span class="comment">//</span>
-            <span class="number">0x55</span>, <span class="number">0xFF</span>, <span class="comment">//</span>
-            <span class="number">0xAA</span>, <span class="number">0x80</span>, <span class="comment">//</span>
-        ];
-        <span class="kw">let</span> <span class="ident">image_data</span> <span class="op">=</span> <span class="ident">ImageRaw::new_binary</span>(<span class="kw-2">&amp;</span><span class="ident">data</span>, <span class="number">9</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>bpp1_new_binary() {
+        <span class="kw">let </span>data = [
+            <span class="number">0xAA</span>, <span class="number">0x00</span>, <span class="comment">//
+            </span><span class="number">0x55</span>, <span class="number">0xFF</span>, <span class="comment">//
+            </span><span class="number">0xAA</span>, <span class="number">0x80</span>, <span class="comment">//
+        </span>];
+        <span class="kw">let </span>image_data = ImageRaw::new_binary(<span class="kw-2">&amp;</span>data, <span class="number">9</span>);
 
-        <span class="ident">assert_pattern</span>(
-            <span class="ident">image_data</span>,
+        assert_pattern(
+            image_data,
             <span class="kw-2">&amp;</span>[
-                <span class="string">&quot;#.#.#.#..&quot;</span>, <span class="comment">//</span>
-                <span class="string">&quot;.#.#.#.##&quot;</span>, <span class="comment">//</span>
-                <span class="string">&quot;#.#.#.#.#&quot;</span>, <span class="comment">//</span>
-            ],
+                <span class="string">&quot;#.#.#.#..&quot;</span>, <span class="comment">//
+                </span><span class="string">&quot;.#.#.#.##&quot;</span>, <span class="comment">//
+                </span><span class="string">&quot;#.#.#.#.#&quot;</span>, <span class="comment">//
+            </span>],
         );
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">bpp2</span>() {
-        <span class="kw">let</span> <span class="ident">data</span> <span class="op">=</span> [
-            <span class="number">0b00_01_10_11</span>, <span class="comment">//</span>
-            <span class="number">0b00_00_00_00</span>, <span class="comment">//</span>
-            <span class="number">0b11_10_01_00</span>, <span class="comment">//</span>
-            <span class="number">0b11_11_11_11</span>, <span class="comment">//</span>
-        ];
-        <span class="kw">let</span> <span class="ident">image_data</span>: <span class="ident">ImageRaw</span><span class="op">&lt;</span><span class="ident">Gray2</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">ImageRaw::new</span>(<span class="kw-2">&amp;</span><span class="ident">data</span>, <span class="number">5</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>bpp2() {
+        <span class="kw">let </span>data = [
+            <span class="number">0b00_01_10_11</span>, <span class="comment">//
+            </span><span class="number">0b00_00_00_00</span>, <span class="comment">//
+            </span><span class="number">0b11_10_01_00</span>, <span class="comment">//
+            </span><span class="number">0b11_11_11_11</span>, <span class="comment">//
+        </span>];
+        <span class="kw">let </span>image_data: ImageRaw&lt;Gray2&gt; = ImageRaw::new(<span class="kw-2">&amp;</span>data, <span class="number">5</span>);
 
-        <span class="ident">assert_pattern</span>(
-            <span class="ident">image_data</span>,
+        assert_pattern(
+            image_data,
             <span class="kw-2">&amp;</span>[
-                <span class="string">&quot;01230&quot;</span>, <span class="comment">//</span>
-                <span class="string">&quot;32103&quot;</span>, <span class="comment">//</span>
-            ],
+                <span class="string">&quot;01230&quot;</span>, <span class="comment">//
+                </span><span class="string">&quot;32103&quot;</span>, <span class="comment">//
+            </span>],
         );
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">bpp4</span>() {
-        <span class="kw">let</span> <span class="ident">data</span> <span class="op">=</span> [
-            <span class="number">0b0001_1000</span>, <span class="comment">//</span>
-            <span class="number">0b1111_0000</span>, <span class="comment">//</span>
-            <span class="number">0b0101_1010</span>, <span class="comment">//</span>
-            <span class="number">0b0000_0000</span>, <span class="comment">//</span>
-        ];
-        <span class="kw">let</span> <span class="ident">image_data</span>: <span class="ident">ImageRaw</span><span class="op">&lt;</span><span class="ident">Gray4</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">ImageRaw::new</span>(<span class="kw-2">&amp;</span><span class="ident">data</span>, <span class="number">3</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>bpp4() {
+        <span class="kw">let </span>data = [
+            <span class="number">0b0001_1000</span>, <span class="comment">//
+            </span><span class="number">0b1111_0000</span>, <span class="comment">//
+            </span><span class="number">0b0101_1010</span>, <span class="comment">//
+            </span><span class="number">0b0000_0000</span>, <span class="comment">//
+        </span>];
+        <span class="kw">let </span>image_data: ImageRaw&lt;Gray4&gt; = ImageRaw::new(<span class="kw-2">&amp;</span>data, <span class="number">3</span>);
 
-        <span class="ident">assert_pattern</span>(
-            <span class="ident">image_data</span>,
+        assert_pattern(
+            image_data,
             <span class="kw-2">&amp;</span>[
-                <span class="string">&quot;18F&quot;</span>, <span class="comment">//</span>
-                <span class="string">&quot;5A0&quot;</span>, <span class="comment">//</span>
-            ],
+                <span class="string">&quot;18F&quot;</span>, <span class="comment">//
+                </span><span class="string">&quot;5A0&quot;</span>, <span class="comment">//
+            </span>],
         );
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">bpp8_1</span>() {
-        <span class="kw">let</span> <span class="ident">data</span> <span class="op">=</span> [
-            <span class="number">0x11</span>, <span class="number">0x22</span>, <span class="comment">//</span>
-            <span class="number">0x33</span>, <span class="number">0x44</span>, <span class="comment">//</span>
-            <span class="number">0x55</span>, <span class="number">0x66</span>, <span class="comment">//</span>
-        ];
-        <span class="kw">let</span> <span class="ident">image_data</span>: <span class="ident">ImageRaw</span><span class="op">&lt;</span><span class="ident">Gray8</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">ImageRaw::new</span>(<span class="kw-2">&amp;</span><span class="ident">data</span>, <span class="number">2</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>bpp8_1() {
+        <span class="kw">let </span>data = [
+            <span class="number">0x11</span>, <span class="number">0x22</span>, <span class="comment">//
+            </span><span class="number">0x33</span>, <span class="number">0x44</span>, <span class="comment">//
+            </span><span class="number">0x55</span>, <span class="number">0x66</span>, <span class="comment">//
+        </span>];
+        <span class="kw">let </span>image_data: ImageRaw&lt;Gray8&gt; = ImageRaw::new(<span class="kw-2">&amp;</span>data, <span class="number">2</span>);
 
-        <span class="ident">assert_pattern</span>(
-            <span class="ident">image_data</span>,
+        assert_pattern(
+            image_data,
             <span class="kw-2">&amp;</span>[
-                <span class="string">&quot;12&quot;</span>, <span class="comment">//</span>
-                <span class="string">&quot;34&quot;</span>, <span class="comment">//</span>
-                <span class="string">&quot;56&quot;</span>, <span class="comment">//</span>
-            ],
+                <span class="string">&quot;12&quot;</span>, <span class="comment">//
+                </span><span class="string">&quot;34&quot;</span>, <span class="comment">//
+                </span><span class="string">&quot;56&quot;</span>, <span class="comment">//
+            </span>],
         );
     }
 
-    <span class="doccomment">/// Additional test for luma values with different low and high nibbles,</span>
-    <span class="doccomment">/// which are not supported by `MockDisplay` patterns.</span>
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">bpp8_2</span>() {
-        <span class="kw">let</span> <span class="ident">data</span> <span class="op">=</span> [<span class="number">0x01</span>, <span class="number">0x08</span>, <span class="number">0x10</span>, <span class="number">0x80</span>];
-        <span class="kw">let</span> <span class="ident">image_data</span>: <span class="ident">ImageRaw</span><span class="op">&lt;</span><span class="ident">Gray8</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">ImageRaw::new</span>(<span class="kw-2">&amp;</span><span class="ident">data</span>, <span class="number">4</span>);
+    <span class="doccomment">/// Additional test for luma values with different low and high nibbles,
+    /// which are not supported by `MockDisplay` patterns.
+    </span><span class="attribute">#[test]
+    </span><span class="kw">fn </span>bpp8_2() {
+        <span class="kw">let </span>data = [<span class="number">0x01</span>, <span class="number">0x08</span>, <span class="number">0x10</span>, <span class="number">0x80</span>];
+        <span class="kw">let </span>image_data: ImageRaw&lt;Gray8&gt; = ImageRaw::new(<span class="kw-2">&amp;</span>data, <span class="number">4</span>);
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
-        <span class="ident">Image::new</span>(<span class="kw-2">&amp;</span><span class="ident">image_data</span>, <span class="ident">Point::zero</span>())
-            .<span class="ident">draw</span>(<span class="kw-2">&amp;mut</span> <span class="ident">display</span>)
-            .<span class="ident">unwrap</span>();
+        <span class="kw">let </span><span class="kw-2">mut </span>display = MockDisplay::new();
+        Image::new(<span class="kw-2">&amp;</span>image_data, Point::zero())
+            .draw(<span class="kw-2">&amp;mut </span>display)
+            .unwrap();
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">expected</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
-        <span class="ident">expected</span>
-            .<span class="ident">fill_contiguous</span>(
-                <span class="kw-2">&amp;</span><span class="ident">expected</span>.<span class="ident">bounding_box</span>(),
-                <span class="ident">data</span>.<span class="ident">iter</span>().<span class="ident">copied</span>().<span class="ident">map</span>(<span class="ident">Gray8::new</span>),
+        <span class="kw">let </span><span class="kw-2">mut </span>expected = MockDisplay::new();
+        expected
+            .fill_contiguous(
+                <span class="kw-2">&amp;</span>expected.bounding_box(),
+                data.iter().copied().map(Gray8::new),
             )
-            .<span class="ident">unwrap</span>();
+            .unwrap();
 
-        <span class="ident">display</span>.<span class="ident">assert_eq</span>(<span class="kw-2">&amp;</span><span class="ident">expected</span>);
+        display.assert_eq(<span class="kw-2">&amp;</span>expected);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">bpp16_little_endian</span>() {
-        <span class="kw">let</span> <span class="ident">data</span> <span class="op">=</span> [
-            <span class="number">0x00</span>, <span class="number">0xF8</span>, <span class="comment">//</span>
-            <span class="number">0xE0</span>, <span class="number">0x07</span>, <span class="comment">//</span>
-            <span class="number">0x1F</span>, <span class="number">0x00</span>, <span class="comment">//</span>
-            <span class="number">0x00</span>, <span class="number">0x00</span>, <span class="comment">//</span>
-        ];
-        <span class="kw">let</span> <span class="ident">image_data</span>: <span class="ident">ImageRawLE</span><span class="op">&lt;</span><span class="ident">Rgb565</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">ImageRaw::new</span>(<span class="kw-2">&amp;</span><span class="ident">data</span>, <span class="number">1</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>bpp16_little_endian() {
+        <span class="kw">let </span>data = [
+            <span class="number">0x00</span>, <span class="number">0xF8</span>, <span class="comment">//
+            </span><span class="number">0xE0</span>, <span class="number">0x07</span>, <span class="comment">//
+            </span><span class="number">0x1F</span>, <span class="number">0x00</span>, <span class="comment">//
+            </span><span class="number">0x00</span>, <span class="number">0x00</span>, <span class="comment">//
+        </span>];
+        <span class="kw">let </span>image_data: ImageRawLE&lt;Rgb565&gt; = ImageRaw::new(<span class="kw-2">&amp;</span>data, <span class="number">1</span>);
 
-        <span class="ident">assert_pattern</span>(
-            <span class="ident">image_data</span>,
+        assert_pattern(
+            image_data,
             <span class="kw-2">&amp;</span>[
-                <span class="string">&quot;R&quot;</span>, <span class="comment">//</span>
-                <span class="string">&quot;G&quot;</span>, <span class="comment">//</span>
-                <span class="string">&quot;B&quot;</span>, <span class="comment">//</span>
-                <span class="string">&quot;K&quot;</span>, <span class="comment">//</span>
-            ],
+                <span class="string">&quot;R&quot;</span>, <span class="comment">//
+                </span><span class="string">&quot;G&quot;</span>, <span class="comment">//
+                </span><span class="string">&quot;B&quot;</span>, <span class="comment">//
+                </span><span class="string">&quot;K&quot;</span>, <span class="comment">//
+            </span>],
         );
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">bpp16_big_endian</span>() {
-        <span class="kw">let</span> <span class="ident">data</span> <span class="op">=</span> [
-            <span class="number">0xF8</span>, <span class="number">0x00</span>, <span class="comment">//</span>
-            <span class="number">0x07</span>, <span class="number">0xE0</span>, <span class="comment">//</span>
-            <span class="number">0x00</span>, <span class="number">0x1F</span>, <span class="comment">//</span>
-            <span class="number">0x00</span>, <span class="number">0x00</span>, <span class="comment">//</span>
-        ];
-        <span class="kw">let</span> <span class="ident">image_data</span>: <span class="ident">ImageRawBE</span><span class="op">&lt;</span><span class="ident">Rgb565</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">ImageRaw::new</span>(<span class="kw-2">&amp;</span><span class="ident">data</span>, <span class="number">2</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>bpp16_big_endian() {
+        <span class="kw">let </span>data = [
+            <span class="number">0xF8</span>, <span class="number">0x00</span>, <span class="comment">//
+            </span><span class="number">0x07</span>, <span class="number">0xE0</span>, <span class="comment">//
+            </span><span class="number">0x00</span>, <span class="number">0x1F</span>, <span class="comment">//
+            </span><span class="number">0x00</span>, <span class="number">0x00</span>, <span class="comment">//
+        </span>];
+        <span class="kw">let </span>image_data: ImageRawBE&lt;Rgb565&gt; = ImageRaw::new(<span class="kw-2">&amp;</span>data, <span class="number">2</span>);
 
-        <span class="ident">assert_pattern</span>(
-            <span class="ident">image_data</span>,
+        assert_pattern(
+            image_data,
             <span class="kw-2">&amp;</span>[
-                <span class="string">&quot;RG&quot;</span>, <span class="comment">//</span>
-                <span class="string">&quot;BK&quot;</span>, <span class="comment">//</span>
-            ],
+                <span class="string">&quot;RG&quot;</span>, <span class="comment">//
+                </span><span class="string">&quot;BK&quot;</span>, <span class="comment">//
+            </span>],
         );
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">bpp24_little_endian</span>() {
-        <span class="kw">let</span> <span class="ident">data</span> <span class="op">=</span> [
-            <span class="number">0xFF</span>, <span class="number">0x00</span>, <span class="number">0x00</span>, <span class="comment">//</span>
-            <span class="number">0x00</span>, <span class="number">0xFF</span>, <span class="number">0x00</span>, <span class="comment">//</span>
-            <span class="number">0x00</span>, <span class="number">0x00</span>, <span class="number">0xFF</span>, <span class="comment">//</span>
-            <span class="number">0x00</span>, <span class="number">0x00</span>, <span class="number">0x00</span>, <span class="comment">//</span>
-        ];
-        <span class="kw">let</span> <span class="ident">image_data</span>: <span class="ident">ImageRawLE</span><span class="op">&lt;</span><span class="ident">Bgr888</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">ImageRaw::new</span>(<span class="kw-2">&amp;</span><span class="ident">data</span>, <span class="number">1</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>bpp24_little_endian() {
+        <span class="kw">let </span>data = [
+            <span class="number">0xFF</span>, <span class="number">0x00</span>, <span class="number">0x00</span>, <span class="comment">//
+            </span><span class="number">0x00</span>, <span class="number">0xFF</span>, <span class="number">0x00</span>, <span class="comment">//
+            </span><span class="number">0x00</span>, <span class="number">0x00</span>, <span class="number">0xFF</span>, <span class="comment">//
+            </span><span class="number">0x00</span>, <span class="number">0x00</span>, <span class="number">0x00</span>, <span class="comment">//
+        </span>];
+        <span class="kw">let </span>image_data: ImageRawLE&lt;Bgr888&gt; = ImageRaw::new(<span class="kw-2">&amp;</span>data, <span class="number">1</span>);
 
-        <span class="ident">assert_pattern</span>(
-            <span class="ident">image_data</span>,
+        assert_pattern(
+            image_data,
             <span class="kw-2">&amp;</span>[
-                <span class="string">&quot;R&quot;</span>, <span class="comment">//</span>
-                <span class="string">&quot;G&quot;</span>, <span class="comment">//</span>
-                <span class="string">&quot;B&quot;</span>, <span class="comment">//</span>
-                <span class="string">&quot;K&quot;</span>, <span class="comment">//</span>
-            ],
+                <span class="string">&quot;R&quot;</span>, <span class="comment">//
+                </span><span class="string">&quot;G&quot;</span>, <span class="comment">//
+                </span><span class="string">&quot;B&quot;</span>, <span class="comment">//
+                </span><span class="string">&quot;K&quot;</span>, <span class="comment">//
+            </span>],
         );
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">bpp24_big_endian</span>() {
-        <span class="kw">let</span> <span class="ident">data</span> <span class="op">=</span> [
-            <span class="number">0xFF</span>, <span class="number">0x00</span>, <span class="number">0x00</span>, <span class="comment">//</span>
-            <span class="number">0x00</span>, <span class="number">0xFF</span>, <span class="number">0x00</span>, <span class="comment">//</span>
-            <span class="number">0x00</span>, <span class="number">0x00</span>, <span class="number">0xFF</span>, <span class="comment">//</span>
-            <span class="number">0x00</span>, <span class="number">0x00</span>, <span class="number">0x00</span>, <span class="comment">//</span>
-        ];
-        <span class="kw">let</span> <span class="ident">image_data</span>: <span class="ident">ImageRawBE</span><span class="op">&lt;</span><span class="ident">Rgb888</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">ImageRaw::new</span>(<span class="kw-2">&amp;</span><span class="ident">data</span>, <span class="number">4</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>bpp24_big_endian() {
+        <span class="kw">let </span>data = [
+            <span class="number">0xFF</span>, <span class="number">0x00</span>, <span class="number">0x00</span>, <span class="comment">//
+            </span><span class="number">0x00</span>, <span class="number">0xFF</span>, <span class="number">0x00</span>, <span class="comment">//
+            </span><span class="number">0x00</span>, <span class="number">0x00</span>, <span class="number">0xFF</span>, <span class="comment">//
+            </span><span class="number">0x00</span>, <span class="number">0x00</span>, <span class="number">0x00</span>, <span class="comment">//
+        </span>];
+        <span class="kw">let </span>image_data: ImageRawBE&lt;Rgb888&gt; = ImageRaw::new(<span class="kw-2">&amp;</span>data, <span class="number">4</span>);
 
-        <span class="ident">assert_pattern</span>(<span class="ident">image_data</span>, <span class="kw-2">&amp;</span>[<span class="string">&quot;RGBK&quot;</span>]);
+        assert_pattern(image_data, <span class="kw-2">&amp;</span>[<span class="string">&quot;RGBK&quot;</span>]);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">bpp32_little_endian</span>() {
-        <span class="kw">let</span> <span class="ident">data</span> <span class="op">=</span> [
-            <span class="number">0x12</span>, <span class="number">0x34</span>, <span class="number">0x56</span>, <span class="number">0x78</span>, <span class="comment">//</span>
-            <span class="number">0x9A</span>, <span class="number">0xBC</span>, <span class="number">0xDE</span>, <span class="number">0xF0</span>, <span class="comment">//</span>
-            <span class="number">0x00</span>, <span class="number">0x00</span>, <span class="number">0x00</span>, <span class="number">0x00</span>, <span class="comment">//</span>
-            <span class="number">0xFF</span>, <span class="number">0xFF</span>, <span class="number">0xFF</span>, <span class="number">0xFF</span>, <span class="comment">//</span>
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>bpp32_little_endian() {
+        <span class="kw">let </span>data = [
+            <span class="number">0x12</span>, <span class="number">0x34</span>, <span class="number">0x56</span>, <span class="number">0x78</span>, <span class="comment">//
+            </span><span class="number">0x9A</span>, <span class="number">0xBC</span>, <span class="number">0xDE</span>, <span class="number">0xF0</span>, <span class="comment">//
+            </span><span class="number">0x00</span>, <span class="number">0x00</span>, <span class="number">0x00</span>, <span class="number">0x00</span>, <span class="comment">//
+            </span><span class="number">0xFF</span>, <span class="number">0xFF</span>, <span class="number">0xFF</span>, <span class="number">0xFF</span>, <span class="comment">//
+        </span>];
+        <span class="kw">let </span>image_data: ImageRawLE&lt;TestColorU32&gt; = ImageRaw::new(<span class="kw-2">&amp;</span>data, <span class="number">2</span>);
+
+        <span class="kw">let </span><span class="kw-2">mut </span>display = MockDisplay::new();
+        Image::new(<span class="kw-2">&amp;</span>image_data, Point::zero())
+            .draw(<span class="kw-2">&amp;mut </span>display)
+            .unwrap();
+
+        <span class="kw">let </span>expected = [
+            Pixel(Point::new(<span class="number">0</span>, <span class="number">0</span>), TestColorU32(RawU32::new(<span class="number">0x78563412</span>))),
+            Pixel(Point::new(<span class="number">1</span>, <span class="number">0</span>), TestColorU32(RawU32::new(<span class="number">0xF0DEBC9A</span>))),
+            Pixel(Point::new(<span class="number">0</span>, <span class="number">1</span>), TestColorU32(RawU32::new(<span class="number">0x00000000</span>))),
+            Pixel(Point::new(<span class="number">1</span>, <span class="number">1</span>), TestColorU32(RawU32::new(<span class="number">0xFFFFFFFF</span>))),
         ];
-        <span class="kw">let</span> <span class="ident">image_data</span>: <span class="ident">ImageRawLE</span><span class="op">&lt;</span><span class="ident">TestColorU32</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">ImageRaw::new</span>(<span class="kw-2">&amp;</span><span class="ident">data</span>, <span class="number">2</span>);
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
-        <span class="ident">Image::new</span>(<span class="kw-2">&amp;</span><span class="ident">image_data</span>, <span class="ident">Point::zero</span>())
-            .<span class="ident">draw</span>(<span class="kw-2">&amp;mut</span> <span class="ident">display</span>)
-            .<span class="ident">unwrap</span>();
+        <span class="kw">let </span><span class="kw-2">mut </span>expected_display = MockDisplay::new();
+        expected
+            .iter()
+            .copied()
+            .draw(<span class="kw-2">&amp;mut </span>expected_display)
+            .unwrap();
 
-        <span class="kw">let</span> <span class="ident">expected</span> <span class="op">=</span> [
-            <span class="ident">Pixel</span>(<span class="ident">Point::new</span>(<span class="number">0</span>, <span class="number">0</span>), <span class="ident">TestColorU32</span>(<span class="ident">RawU32::new</span>(<span class="number">0x78563412</span>))),
-            <span class="ident">Pixel</span>(<span class="ident">Point::new</span>(<span class="number">1</span>, <span class="number">0</span>), <span class="ident">TestColorU32</span>(<span class="ident">RawU32::new</span>(<span class="number">0xF0DEBC9A</span>))),
-            <span class="ident">Pixel</span>(<span class="ident">Point::new</span>(<span class="number">0</span>, <span class="number">1</span>), <span class="ident">TestColorU32</span>(<span class="ident">RawU32::new</span>(<span class="number">0x00000000</span>))),
-            <span class="ident">Pixel</span>(<span class="ident">Point::new</span>(<span class="number">1</span>, <span class="number">1</span>), <span class="ident">TestColorU32</span>(<span class="ident">RawU32::new</span>(<span class="number">0xFFFFFFFF</span>))),
-        ];
-
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">expected_display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
-        <span class="ident">expected</span>
-            .<span class="ident">iter</span>()
-            .<span class="ident">copied</span>()
-            .<span class="ident">draw</span>(<span class="kw-2">&amp;mut</span> <span class="ident">expected_display</span>)
-            .<span class="ident">unwrap</span>();
-
-        <span class="comment">// assert_eq can&#39;t be used here because ColorMapping isn&#39;t implemented for TestColorU32</span>
-        <span class="macro">assert!</span>(<span class="ident">display</span>.<span class="ident">eq</span>(<span class="kw-2">&amp;</span><span class="ident">expected_display</span>));
+        <span class="comment">// assert_eq can&#39;t be used here because ColorMapping isn&#39;t implemented for TestColorU32
+        </span><span class="macro">assert!</span>(display.eq(<span class="kw-2">&amp;</span>expected_display));
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">bpp32_big_endian</span>() {
-        <span class="kw">let</span> <span class="ident">data</span> <span class="op">=</span> [
-            <span class="number">0x12</span>, <span class="number">0x34</span>, <span class="number">0x56</span>, <span class="number">0x78</span>, <span class="comment">//</span>
-            <span class="number">0x9A</span>, <span class="number">0xBC</span>, <span class="number">0xDE</span>, <span class="number">0xF0</span>, <span class="comment">//</span>
-            <span class="number">0x00</span>, <span class="number">0x00</span>, <span class="number">0x00</span>, <span class="number">0x00</span>, <span class="comment">//</span>
-            <span class="number">0xFF</span>, <span class="number">0xFF</span>, <span class="number">0xFF</span>, <span class="number">0xFF</span>, <span class="comment">//</span>
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>bpp32_big_endian() {
+        <span class="kw">let </span>data = [
+            <span class="number">0x12</span>, <span class="number">0x34</span>, <span class="number">0x56</span>, <span class="number">0x78</span>, <span class="comment">//
+            </span><span class="number">0x9A</span>, <span class="number">0xBC</span>, <span class="number">0xDE</span>, <span class="number">0xF0</span>, <span class="comment">//
+            </span><span class="number">0x00</span>, <span class="number">0x00</span>, <span class="number">0x00</span>, <span class="number">0x00</span>, <span class="comment">//
+            </span><span class="number">0xFF</span>, <span class="number">0xFF</span>, <span class="number">0xFF</span>, <span class="number">0xFF</span>, <span class="comment">//
+        </span>];
+        <span class="kw">let </span>image_data: ImageRawBE&lt;TestColorU32&gt; = ImageRaw::new(<span class="kw-2">&amp;</span>data, <span class="number">4</span>);
+
+        <span class="kw">let </span><span class="kw-2">mut </span>display = MockDisplay::new();
+        Image::new(<span class="kw-2">&amp;</span>image_data, Point::zero())
+            .draw(<span class="kw-2">&amp;mut </span>display)
+            .unwrap();
+
+        <span class="kw">let </span>expected = [
+            Pixel(Point::new(<span class="number">0</span>, <span class="number">0</span>), TestColorU32(RawU32::new(<span class="number">0x12345678</span>))),
+            Pixel(Point::new(<span class="number">1</span>, <span class="number">0</span>), TestColorU32(RawU32::new(<span class="number">0x9ABCDEF0</span>))),
+            Pixel(Point::new(<span class="number">2</span>, <span class="number">0</span>), TestColorU32(RawU32::new(<span class="number">0x00000000</span>))),
+            Pixel(Point::new(<span class="number">3</span>, <span class="number">0</span>), TestColorU32(RawU32::new(<span class="number">0xFFFFFFFF</span>))),
         ];
-        <span class="kw">let</span> <span class="ident">image_data</span>: <span class="ident">ImageRawBE</span><span class="op">&lt;</span><span class="ident">TestColorU32</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">ImageRaw::new</span>(<span class="kw-2">&amp;</span><span class="ident">data</span>, <span class="number">4</span>);
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
-        <span class="ident">Image::new</span>(<span class="kw-2">&amp;</span><span class="ident">image_data</span>, <span class="ident">Point::zero</span>())
-            .<span class="ident">draw</span>(<span class="kw-2">&amp;mut</span> <span class="ident">display</span>)
-            .<span class="ident">unwrap</span>();
+        <span class="kw">let </span><span class="kw-2">mut </span>expected_display = MockDisplay::new();
+        expected
+            .iter()
+            .copied()
+            .draw(<span class="kw-2">&amp;mut </span>expected_display)
+            .unwrap();
 
-        <span class="kw">let</span> <span class="ident">expected</span> <span class="op">=</span> [
-            <span class="ident">Pixel</span>(<span class="ident">Point::new</span>(<span class="number">0</span>, <span class="number">0</span>), <span class="ident">TestColorU32</span>(<span class="ident">RawU32::new</span>(<span class="number">0x12345678</span>))),
-            <span class="ident">Pixel</span>(<span class="ident">Point::new</span>(<span class="number">1</span>, <span class="number">0</span>), <span class="ident">TestColorU32</span>(<span class="ident">RawU32::new</span>(<span class="number">0x9ABCDEF0</span>))),
-            <span class="ident">Pixel</span>(<span class="ident">Point::new</span>(<span class="number">2</span>, <span class="number">0</span>), <span class="ident">TestColorU32</span>(<span class="ident">RawU32::new</span>(<span class="number">0x00000000</span>))),
-            <span class="ident">Pixel</span>(<span class="ident">Point::new</span>(<span class="number">3</span>, <span class="number">0</span>), <span class="ident">TestColorU32</span>(<span class="ident">RawU32::new</span>(<span class="number">0xFFFFFFFF</span>))),
-        ];
-
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">expected_display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
-        <span class="ident">expected</span>
-            .<span class="ident">iter</span>()
-            .<span class="ident">copied</span>()
-            .<span class="ident">draw</span>(<span class="kw-2">&amp;mut</span> <span class="ident">expected_display</span>)
-            .<span class="ident">unwrap</span>();
-
-        <span class="comment">// assert_eq can&#39;t be used here because ColorMapping isn&#39;t implemented for TestColorU32</span>
-        <span class="macro">assert!</span>(<span class="ident">display</span>.<span class="ident">eq</span>(<span class="kw-2">&amp;</span><span class="ident">expected_display</span>));
+        <span class="comment">// assert_eq can&#39;t be used here because ColorMapping isn&#39;t implemented for TestColorU32
+        </span><span class="macro">assert!</span>(display.eq(<span class="kw-2">&amp;</span>expected_display));
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">calculated_height</span>() {
-        <span class="kw">let</span> <span class="ident">data</span> <span class="op">=</span> [<span class="number">0u8</span>; <span class="number">1</span>];
-        <span class="macro">assert_eq!</span>(<span class="ident">ImageRaw</span>::<span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span><span class="ident">::new</span>(<span class="kw-2">&amp;</span><span class="ident">data</span>, <span class="number">12</span>).<span class="ident">size</span>().<span class="ident">height</span>, <span class="number">0</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>calculated_height() {
+        <span class="kw">let </span>data = [<span class="number">0u8</span>; <span class="number">1</span>];
+        <span class="macro">assert_eq!</span>(ImageRaw::&lt;BinaryColor&gt;::new(<span class="kw-2">&amp;</span>data, <span class="number">12</span>).size().height, <span class="number">0</span>);
 
-        <span class="kw">let</span> <span class="ident">data</span> <span class="op">=</span> [<span class="number">0u8</span>; <span class="number">2</span>];
-        <span class="macro">assert_eq!</span>(<span class="ident">ImageRaw</span>::<span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span><span class="ident">::new</span>(<span class="kw-2">&amp;</span><span class="ident">data</span>, <span class="number">12</span>).<span class="ident">size</span>().<span class="ident">height</span>, <span class="number">1</span>);
+        <span class="kw">let </span>data = [<span class="number">0u8</span>; <span class="number">2</span>];
+        <span class="macro">assert_eq!</span>(ImageRaw::&lt;BinaryColor&gt;::new(<span class="kw-2">&amp;</span>data, <span class="number">12</span>).size().height, <span class="number">1</span>);
 
-        <span class="kw">let</span> <span class="ident">data</span> <span class="op">=</span> [<span class="number">0u8</span>; <span class="number">3</span>];
-        <span class="macro">assert_eq!</span>(<span class="ident">ImageRaw</span>::<span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span><span class="ident">::new</span>(<span class="kw-2">&amp;</span><span class="ident">data</span>, <span class="number">12</span>).<span class="ident">size</span>().<span class="ident">height</span>, <span class="number">1</span>);
+        <span class="kw">let </span>data = [<span class="number">0u8</span>; <span class="number">3</span>];
+        <span class="macro">assert_eq!</span>(ImageRaw::&lt;BinaryColor&gt;::new(<span class="kw-2">&amp;</span>data, <span class="number">12</span>).size().height, <span class="number">1</span>);
 
-        <span class="kw">let</span> <span class="ident">data</span> <span class="op">=</span> [<span class="number">0u8</span>; <span class="number">4</span>];
-        <span class="macro">assert_eq!</span>(<span class="ident">ImageRaw</span>::<span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span><span class="ident">::new</span>(<span class="kw-2">&amp;</span><span class="ident">data</span>, <span class="number">12</span>).<span class="ident">size</span>().<span class="ident">height</span>, <span class="number">2</span>);
+        <span class="kw">let </span>data = [<span class="number">0u8</span>; <span class="number">4</span>];
+        <span class="macro">assert_eq!</span>(ImageRaw::&lt;BinaryColor&gt;::new(<span class="kw-2">&amp;</span>data, <span class="number">12</span>).size().height, <span class="number">2</span>);
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="embedded_graphics" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0 (a55dd71d5 2022-09-19)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="embedded_graphics" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0 (69f9c33d7 2022-12-12)" ></div></body></html>

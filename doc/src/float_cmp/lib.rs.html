@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/float-cmp-0.8.0/src/lib.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>lib.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script><script defer src="../../main.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../float_cmp/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../float_cmp/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../float_cmp/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/float-cmp-0.8.0/src/lib.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>lib.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../normalize.css"><link rel="stylesheet" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../ayu.css" disabled><link rel="stylesheet" href="../../dark.css" disabled><link rel="stylesheet" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script><script defer src="../../main.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../float_cmp/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -193,200 +193,200 @@
 <span id="193">193</span>
 <span id="194">194</span>
 <span id="195">195</span>
-</pre><pre class="rust"><code><span class="comment">// Copyright 2014-2020 Optimal Computing (NZ) Ltd.</span>
-<span class="comment">// Licensed under the MIT license.  See LICENSE for details.</span>
+</pre><pre class="rust"><code><span class="comment">// Copyright 2014-2020 Optimal Computing (NZ) Ltd.
+// Licensed under the MIT license.  See LICENSE for details.
 
-<span class="doccomment">//! # float-cmp</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! float-cmp defines and implements traits for approximate comparison of floating point types</span>
-<span class="doccomment">//! which have fallen away from exact equality due to the limited precision available within</span>
-<span class="doccomment">//! floating point representations. Implementations of these traits are provided for `f32`</span>
-<span class="doccomment">//! and `f64` types.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! When I was a kid in the &#39;80s, the programming rule was &quot;Never compare floating point</span>
-<span class="doccomment">//! numbers&quot;. If you can follow that rule and still get the outcome you desire, then more</span>
-<span class="doccomment">//! power to you. However, if you really do need to compare them, this crate provides a</span>
-<span class="doccomment">//! reasonable way to do so.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! Another crate `efloat` offers another solution by providing a floating point type that</span>
-<span class="doccomment">//! tracks its error bounds as operations are performed on it, and thus can implement the</span>
-<span class="doccomment">//! `ApproxEq` trait in this crate more accurately, without specifying a `Margin`.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! The recommended go-to solution (although it may not be appropriate in all cases) is the</span>
-<span class="doccomment">//! `approx_eq()` function in the `ApproxEq` trait (or better yet, the macros).  For `f32`</span>
-<span class="doccomment">//! and `f64`, the `F32Margin` and `F64Margin` types are provided for specifying margins as</span>
-<span class="doccomment">//! both an epsilon value and an ULPs value, and defaults are provided via `Default`</span>
-<span class="doccomment">//! (although there is no perfect default value that is always appropriate, so beware).</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! Several other traits are provided including `Ulps`, `ApproxEqUlps`, `ApproxOrdUlps`, and</span>
-<span class="doccomment">//! `ApproxEqRatio`.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ## The problem</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! Floating point operations must round answers to the nearest representable number. Multiple</span>
-<span class="doccomment">//! operations may result in an answer different from what you expect. In the following example,</span>
-<span class="doccomment">//! the assert will fail, even though the printed output says &quot;0.45 == 0.45&quot;:</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ```should_panic</span>
-<span class="doccomment">//!   # extern crate float_cmp;</span>
-<span class="doccomment">//!   # use float_cmp::ApproxEq;</span>
-<span class="doccomment">//!   # fn main() {</span>
-<span class="doccomment">//!   let a: f32 = 0.15 + 0.15 + 0.15;</span>
-<span class="doccomment">//!   let b: f32 = 0.1 + 0.1 + 0.25;</span>
-<span class="doccomment">//!   println!(&quot;{} == {}&quot;, a, b);</span>
-<span class="doccomment">//!   assert!(a==b)  // Fails, because they are not exactly equal</span>
-<span class="doccomment">//!   # }</span>
-<span class="doccomment">//! ```</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! This fails because the correct answer to most operations isn&#39;t exactly representable, and so</span>
-<span class="doccomment">//! your computer&#39;s processor chooses to represent the answer with the closest value it has</span>
-<span class="doccomment">//! available. This introduces error, and this error can accumulate as multiple operations are</span>
-<span class="doccomment">//! performed.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ## The solution</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! With `ApproxEq`, we can get the answer we intend:</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ```</span>
-<span class="doccomment">//!   # #[macro_use]</span>
-<span class="doccomment">//!   # extern crate float_cmp;</span>
-<span class="doccomment">//!   # use float_cmp::{ApproxEq, F32Margin};</span>
-<span class="doccomment">//!   # fn main() {</span>
-<span class="doccomment">//!   let a: f32 = 0.15 + 0.15 + 0.15;</span>
-<span class="doccomment">//!   let b: f32 = 0.1 + 0.1 + 0.25;</span>
-<span class="doccomment">//!   println!(&quot;{} == {}&quot;, a, b);</span>
-<span class="doccomment">//!   // They are equal, within 2 ulps</span>
-<span class="doccomment">//!   assert!( approx_eq!(f32, a, b, ulps = 2) );</span>
-<span class="doccomment">//!   # }</span>
-<span class="doccomment">//! ```</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ## Some explanation</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! We use the term ULP (units of least precision, or units in the last place) to mean the</span>
-<span class="doccomment">//! difference between two adjacent floating point representations (adjacent meaning that there is</span>
-<span class="doccomment">//! no floating point number between them). This term is borrowed from prior work (personally I</span>
-<span class="doccomment">//! would have chosen &quot;quanta&quot;). The size of an ULP (measured as a float) varies</span>
-<span class="doccomment">//! depending on the exponents of the floating point numbers in question. That is a good thing,</span>
-<span class="doccomment">//! because as numbers fall away from equality due to the imprecise nature of their representation,</span>
-<span class="doccomment">//! they fall away in ULPs terms, not in absolute terms.  Pure epsilon-based comparisons are</span>
-<span class="doccomment">//! absolute and thus don&#39;t map well to the nature of the additive error issue. They work fine</span>
-<span class="doccomment">//! for many ranges of numbers, but not for others (consider comparing -0.0000000028</span>
-<span class="doccomment">//! to +0.00000097).</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ## Using this crate</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! By default this crate enables the `ratio` module providing the `ApproxEqRatio` trait.  This</span>
-<span class="doccomment">//! feature pulls in `num-traits`.  If you disable this feature, you&#39;ll need to either enable</span>
-<span class="doccomment">//! `num-traits` directly or else enable the `std` feature; otherwise it won&#39;t compile. This crate</span>
-<span class="doccomment">//! is `#![no_std]` unless you enable the `std` feature.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! You can use the `ApproxEq` trait directly like so:</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ```</span>
-<span class="doccomment">//!   # extern crate float_cmp;</span>
-<span class="doccomment">//!   # use float_cmp::{ApproxEq, F32Margin};</span>
-<span class="doccomment">//!   # fn main() {</span>
-<span class="doccomment">//!   # let a: f32 = 0.15 + 0.15 + 0.15;</span>
-<span class="doccomment">//!   # let b: f32 = 0.1 + 0.1 + 0.25;</span>
-<span class="doccomment">//!     assert!( a.approx_eq(b, F32Margin { ulps: 2, epsilon: 0.0 }) );</span>
-<span class="doccomment">//!   # }</span>
-<span class="doccomment">//! ```</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! We have implemented `From&lt;(f32,i32)&gt;` for `F32Margin` (and similarly for `F64Margin`)</span>
-<span class="doccomment">//! so you can use this shorthand:</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ```</span>
-<span class="doccomment">//!   # extern crate float_cmp;</span>
-<span class="doccomment">//!   # use float_cmp::{ApproxEq, F32Margin};</span>
-<span class="doccomment">//!   # fn main() {</span>
-<span class="doccomment">//!   # let a: f32 = 0.15 + 0.15 + 0.15;</span>
-<span class="doccomment">//!   # let b: f32 = 0.1 + 0.1 + 0.25;</span>
-<span class="doccomment">//!     assert!( a.approx_eq(b, (0.0, 2)) );</span>
-<span class="doccomment">//!   # }</span>
-<span class="doccomment">//! ```</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! With macros, it is easier to be explicit about which type of margin you wish to set,</span>
-<span class="doccomment">//! without mentioning the other one (the other one will be zero). But the downside is</span>
-<span class="doccomment">//! that you have to specify the type you are dealing with:</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ```</span>
-<span class="doccomment">//!   # #[macro_use]</span>
-<span class="doccomment">//!   # extern crate float_cmp;</span>
-<span class="doccomment">//!   # use float_cmp::{ApproxEq, F32Margin};</span>
-<span class="doccomment">//!   # fn main() {</span>
-<span class="doccomment">//!   # let a: f32 = 0.15 + 0.15 + 0.15;</span>
-<span class="doccomment">//!   # let b: f32 = 0.1 + 0.1 + 0.25;</span>
-<span class="doccomment">//!     assert!( approx_eq!(f32, a, b, ulps = 2) );</span>
-<span class="doccomment">//!     assert!( approx_eq!(f32, a, b, epsilon = 0.00000003) );</span>
-<span class="doccomment">//!     assert!( approx_eq!(f32, a, b, epsilon = 0.00000003, ulps = 2) );</span>
-<span class="doccomment">//!     assert!( approx_eq!(f32, a, b, (0.0, 2)) );</span>
-<span class="doccomment">//!     assert!( approx_eq!(f32, a, b, F32Margin { epsilon: 0.0, ulps: 2 }) );</span>
-<span class="doccomment">//!     assert!( approx_eq!(f32, a, b, F32Margin::default()) );</span>
-<span class="doccomment">//!     assert!( approx_eq!(f32, a, b) ); // uses the default</span>
-<span class="doccomment">//!   # }</span>
-<span class="doccomment">//! ```</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! For most cases, I recommend you use a smallish integer for the `ulps` parameter (1 to 5</span>
-<span class="doccomment">//! or so), and a similar small multiple of the floating point&#39;s EPSILON constant (1.0 to 5.0</span>
-<span class="doccomment">//! or so), but there are *plenty* of cases where this is insufficient.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ## Implementing these traits</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! You can implement `ApproxEq` for your own complex types like shown below.</span>
-<span class="doccomment">//! The floating point type `F` must be `Copy`, but for large types you can implement</span>
-<span class="doccomment">//! it for references to your type as shown.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ```</span>
-<span class="doccomment">//! use float_cmp::ApproxEq;</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! pub struct Vec2&lt;F&gt; {</span>
-<span class="doccomment">//!   pub x: F,</span>
-<span class="doccomment">//!   pub y: F,</span>
-<span class="doccomment">//! }</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! impl&lt;&#39;a, M: Copy + Default, F: Copy + ApproxEq&lt;Margin=M&gt;&gt; ApproxEq for &amp;&#39;a Vec2&lt;F&gt; {</span>
-<span class="doccomment">//!   type Margin = M;</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//!   fn approx_eq&lt;T: Into&lt;Self::Margin&gt;&gt;(self, other: Self, margin: T) -&gt; bool {</span>
-<span class="doccomment">//!     let margin = margin.into();</span>
-<span class="doccomment">//!     self.x.approx_eq(other.x, margin)</span>
-<span class="doccomment">//!       &amp;&amp; self.y.approx_eq(other.y, margin)</span>
-<span class="doccomment">//!   }</span>
-<span class="doccomment">//! }</span>
-<span class="doccomment">//! ```</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ## Non floating-point types</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! `ApproxEq` can be implemented for non floating-point types as well, since `Margin` is</span>
-<span class="doccomment">//! an associated type.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! The `efloat` crate implements (or soon will implement) `ApproxEq` for a compound type</span>
-<span class="doccomment">//! that tracks floating point error bounds by checking if the error bounds overlap.</span>
-<span class="doccomment">//! In that case `type Margin = ()`.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ## Inspiration</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! This crate was inspired by this Random ASCII blog post:</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! [https://randomascii.wordpress.com/2012/02/25/comparing-floating-point-numbers-2012-edition/](https://randomascii.wordpress.com/2012/02/25/comparing-floating-point-numbers-2012-edition/)</span>
+</span><span class="doccomment">//! # float-cmp
+//!
+//! float-cmp defines and implements traits for approximate comparison of floating point types
+//! which have fallen away from exact equality due to the limited precision available within
+//! floating point representations. Implementations of these traits are provided for `f32`
+//! and `f64` types.
+//!
+//! When I was a kid in the &#39;80s, the programming rule was &quot;Never compare floating point
+//! numbers&quot;. If you can follow that rule and still get the outcome you desire, then more
+//! power to you. However, if you really do need to compare them, this crate provides a
+//! reasonable way to do so.
+//!
+//! Another crate `efloat` offers another solution by providing a floating point type that
+//! tracks its error bounds as operations are performed on it, and thus can implement the
+//! `ApproxEq` trait in this crate more accurately, without specifying a `Margin`.
+//!
+//! The recommended go-to solution (although it may not be appropriate in all cases) is the
+//! `approx_eq()` function in the `ApproxEq` trait (or better yet, the macros).  For `f32`
+//! and `f64`, the `F32Margin` and `F64Margin` types are provided for specifying margins as
+//! both an epsilon value and an ULPs value, and defaults are provided via `Default`
+//! (although there is no perfect default value that is always appropriate, so beware).
+//!
+//! Several other traits are provided including `Ulps`, `ApproxEqUlps`, `ApproxOrdUlps`, and
+//! `ApproxEqRatio`.
+//!
+//! ## The problem
+//!
+//! Floating point operations must round answers to the nearest representable number. Multiple
+//! operations may result in an answer different from what you expect. In the following example,
+//! the assert will fail, even though the printed output says &quot;0.45 == 0.45&quot;:
+//!
+//! ```should_panic
+//!   # extern crate float_cmp;
+//!   # use float_cmp::ApproxEq;
+//!   # fn main() {
+//!   let a: f32 = 0.15 + 0.15 + 0.15;
+//!   let b: f32 = 0.1 + 0.1 + 0.25;
+//!   println!(&quot;{} == {}&quot;, a, b);
+//!   assert!(a==b)  // Fails, because they are not exactly equal
+//!   # }
+//! ```
+//!
+//! This fails because the correct answer to most operations isn&#39;t exactly representable, and so
+//! your computer&#39;s processor chooses to represent the answer with the closest value it has
+//! available. This introduces error, and this error can accumulate as multiple operations are
+//! performed.
+//!
+//! ## The solution
+//!
+//! With `ApproxEq`, we can get the answer we intend:
+//!
+//! ```
+//!   # #[macro_use]
+//!   # extern crate float_cmp;
+//!   # use float_cmp::{ApproxEq, F32Margin};
+//!   # fn main() {
+//!   let a: f32 = 0.15 + 0.15 + 0.15;
+//!   let b: f32 = 0.1 + 0.1 + 0.25;
+//!   println!(&quot;{} == {}&quot;, a, b);
+//!   // They are equal, within 2 ulps
+//!   assert!( approx_eq!(f32, a, b, ulps = 2) );
+//!   # }
+//! ```
+//!
+//! ## Some explanation
+//!
+//! We use the term ULP (units of least precision, or units in the last place) to mean the
+//! difference between two adjacent floating point representations (adjacent meaning that there is
+//! no floating point number between them). This term is borrowed from prior work (personally I
+//! would have chosen &quot;quanta&quot;). The size of an ULP (measured as a float) varies
+//! depending on the exponents of the floating point numbers in question. That is a good thing,
+//! because as numbers fall away from equality due to the imprecise nature of their representation,
+//! they fall away in ULPs terms, not in absolute terms.  Pure epsilon-based comparisons are
+//! absolute and thus don&#39;t map well to the nature of the additive error issue. They work fine
+//! for many ranges of numbers, but not for others (consider comparing -0.0000000028
+//! to +0.00000097).
+//!
+//! ## Using this crate
+//!
+//! By default this crate enables the `ratio` module providing the `ApproxEqRatio` trait.  This
+//! feature pulls in `num-traits`.  If you disable this feature, you&#39;ll need to either enable
+//! `num-traits` directly or else enable the `std` feature; otherwise it won&#39;t compile. This crate
+//! is `#![no_std]` unless you enable the `std` feature.
+//!
+//! You can use the `ApproxEq` trait directly like so:
+//!
+//! ```
+//!   # extern crate float_cmp;
+//!   # use float_cmp::{ApproxEq, F32Margin};
+//!   # fn main() {
+//!   # let a: f32 = 0.15 + 0.15 + 0.15;
+//!   # let b: f32 = 0.1 + 0.1 + 0.25;
+//!     assert!( a.approx_eq(b, F32Margin { ulps: 2, epsilon: 0.0 }) );
+//!   # }
+//! ```
+//!
+//! We have implemented `From&lt;(f32,i32)&gt;` for `F32Margin` (and similarly for `F64Margin`)
+//! so you can use this shorthand:
+//!
+//! ```
+//!   # extern crate float_cmp;
+//!   # use float_cmp::{ApproxEq, F32Margin};
+//!   # fn main() {
+//!   # let a: f32 = 0.15 + 0.15 + 0.15;
+//!   # let b: f32 = 0.1 + 0.1 + 0.25;
+//!     assert!( a.approx_eq(b, (0.0, 2)) );
+//!   # }
+//! ```
+//!
+//! With macros, it is easier to be explicit about which type of margin you wish to set,
+//! without mentioning the other one (the other one will be zero). But the downside is
+//! that you have to specify the type you are dealing with:
+//!
+//! ```
+//!   # #[macro_use]
+//!   # extern crate float_cmp;
+//!   # use float_cmp::{ApproxEq, F32Margin};
+//!   # fn main() {
+//!   # let a: f32 = 0.15 + 0.15 + 0.15;
+//!   # let b: f32 = 0.1 + 0.1 + 0.25;
+//!     assert!( approx_eq!(f32, a, b, ulps = 2) );
+//!     assert!( approx_eq!(f32, a, b, epsilon = 0.00000003) );
+//!     assert!( approx_eq!(f32, a, b, epsilon = 0.00000003, ulps = 2) );
+//!     assert!( approx_eq!(f32, a, b, (0.0, 2)) );
+//!     assert!( approx_eq!(f32, a, b, F32Margin { epsilon: 0.0, ulps: 2 }) );
+//!     assert!( approx_eq!(f32, a, b, F32Margin::default()) );
+//!     assert!( approx_eq!(f32, a, b) ); // uses the default
+//!   # }
+//! ```
+//!
+//! For most cases, I recommend you use a smallish integer for the `ulps` parameter (1 to 5
+//! or so), and a similar small multiple of the floating point&#39;s EPSILON constant (1.0 to 5.0
+//! or so), but there are *plenty* of cases where this is insufficient.
+//!
+//! ## Implementing these traits
+//!
+//! You can implement `ApproxEq` for your own complex types like shown below.
+//! The floating point type `F` must be `Copy`, but for large types you can implement
+//! it for references to your type as shown.
+//!
+//! ```
+//! use float_cmp::ApproxEq;
+//!
+//! pub struct Vec2&lt;F&gt; {
+//!   pub x: F,
+//!   pub y: F,
+//! }
+//!
+//! impl&lt;&#39;a, M: Copy + Default, F: Copy + ApproxEq&lt;Margin=M&gt;&gt; ApproxEq for &amp;&#39;a Vec2&lt;F&gt; {
+//!   type Margin = M;
+//!
+//!   fn approx_eq&lt;T: Into&lt;Self::Margin&gt;&gt;(self, other: Self, margin: T) -&gt; bool {
+//!     let margin = margin.into();
+//!     self.x.approx_eq(other.x, margin)
+//!       &amp;&amp; self.y.approx_eq(other.y, margin)
+//!   }
+//! }
+//! ```
+//!
+//! ## Non floating-point types
+//!
+//! `ApproxEq` can be implemented for non floating-point types as well, since `Margin` is
+//! an associated type.
+//!
+//! The `efloat` crate implements (or soon will implement) `ApproxEq` for a compound type
+//! that tracks floating point error bounds by checking if the error bounds overlap.
+//! In that case `type Margin = ()`.
+//!
+//! ## Inspiration
+//!
+//! This crate was inspired by this Random ASCII blog post:
+//!
+//! [https://randomascii.wordpress.com/2012/02/25/comparing-floating-point-numbers-2012-edition/](https://randomascii.wordpress.com/2012/02/25/comparing-floating-point-numbers-2012-edition/)
 
-<span class="attribute">#![<span class="ident">cfg_attr</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;std&quot;</span>), <span class="ident">no_std</span>)]</span>
+</span><span class="attribute">#![cfg_attr(not(feature = <span class="string">&quot;std&quot;</span>), no_std)]
 
-<span class="attribute">#[<span class="ident">macro_use</span>]</span>
-<span class="kw">mod</span> <span class="ident">macros</span>;
+#[macro_use]
+</span><span class="kw">mod </span>macros;
 
-<span class="kw">mod</span> <span class="ident">ulps</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::ulps::Ulps</span>;
+<span class="kw">mod </span>ulps;
+<span class="kw">pub use </span><span class="self">self</span>::ulps::Ulps;
 
-<span class="kw">mod</span> <span class="ident">ulps_eq</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::ulps_eq::ApproxEqUlps</span>;
+<span class="kw">mod </span>ulps_eq;
+<span class="kw">pub use </span><span class="self">self</span>::ulps_eq::ApproxEqUlps;
 
-<span class="kw">mod</span> <span class="ident">eq</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::eq</span>::{<span class="ident">ApproxEq</span>, <span class="ident">F32Margin</span>, <span class="ident">F64Margin</span>};
+<span class="kw">mod </span>eq;
+<span class="kw">pub use </span><span class="self">self</span>::eq::{ApproxEq, F32Margin, F64Margin};
 
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span><span class="op">=</span><span class="string">&quot;ratio&quot;</span>)]</span>
-<span class="kw">mod</span> <span class="ident">ratio</span>;
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span><span class="op">=</span><span class="string">&quot;ratio&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident"><span class="self">self</span>::ratio::ApproxEqRatio</span>;
+<span class="attribute">#[cfg(feature=<span class="string">&quot;ratio&quot;</span>)]
+</span><span class="kw">mod </span>ratio;
+<span class="attribute">#[cfg(feature=<span class="string">&quot;ratio&quot;</span>)]
+</span><span class="kw">pub use </span><span class="self">self</span>::ratio::ApproxEqRatio;
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="float_cmp" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0 (a55dd71d5 2022-09-19)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="float_cmp" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0 (69f9c33d7 2022-12-12)" ></div></body></html>

@@ -1,6 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-core-0.3.3/src/pixelcolor/conversion.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>conversion.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../embedded_graphics_core/index.html"><div class="logo-container"><img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/b225511f390c0ed9bc065eb67d05125845312148/assets/logo_core.svg?sanitize=true" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../embedded_graphics_core/index.html"><div class="logo-container">
-                    <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/b225511f390c0ed9bc065eb67d05125845312148/assets/logo_core.svg?sanitize=true" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../embedded_graphics_core/index.html">
-                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/b225511f390c0ed9bc065eb67d05125845312148/assets/logo_core.svg?sanitize=true" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-core-0.3.3/src/pixelcolor/conversion.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>conversion.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../embedded_graphics_core/index.html">
+                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/b225511f390c0ed9bc065eb67d05125845312148/assets/logo_core.svg?sanitize=true" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -292,297 +291,297 @@
 <span id="290">290</span>
 <span id="291">291</span>
 <span id="292">292</span>
-</pre><pre class="rust"><code><span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::pixelcolor</span>::{<span class="ident">binary_color</span>::<span class="kw-2">*</span>, <span class="ident">gray_color</span>::<span class="kw-2">*</span>, <span class="ident">rgb_color</span>::<span class="kw-2">*</span>};
+</pre><pre class="rust"><code><span class="kw">use </span><span class="kw">crate</span>::pixelcolor::{binary_color::<span class="kw-2">*</span>, gray_color::<span class="kw-2">*</span>, rgb_color::<span class="kw-2">*</span>};
 
-<span class="doccomment">/// Convert color channel values from one bit depth to another.</span>
-<span class="kw">const</span> <span class="kw">fn</span> <span class="ident">convert_channel</span>(<span class="ident">value</span>: <span class="ident">u8</span>, <span class="ident">from_max</span>: <span class="ident">u8</span>, <span class="ident">to_max</span>: <span class="ident">u8</span>) -&gt; <span class="ident">u8</span> {
-    ((<span class="ident">value</span> <span class="kw">as</span> <span class="ident">u16</span> <span class="op">*</span> <span class="ident">to_max</span> <span class="kw">as</span> <span class="ident">u16</span> <span class="op">+</span> <span class="ident">from_max</span> <span class="kw">as</span> <span class="ident">u16</span> <span class="op">/</span> <span class="number">2</span>) <span class="op">/</span> <span class="ident">from_max</span> <span class="kw">as</span> <span class="ident">u16</span>) <span class="kw">as</span> <span class="ident">u8</span>
+<span class="doccomment">/// Convert color channel values from one bit depth to another.
+</span><span class="kw">const fn </span>convert_channel(value: u8, from_max: u8, to_max: u8) -&gt; u8 {
+    ((value <span class="kw">as </span>u16 * to_max <span class="kw">as </span>u16 + from_max <span class="kw">as </span>u16 / <span class="number">2</span>) / from_max <span class="kw">as </span>u16) <span class="kw">as </span>u8
 }
 
-<span class="doccomment">/// Calculates the luma value based on ITU-R BT.601.</span>
-<span class="kw">fn</span> <span class="ident">luma</span>(<span class="ident">color</span>: <span class="ident">Rgb888</span>) -&gt; <span class="ident">u8</span> {
-    <span class="kw">let</span> <span class="ident">r</span> <span class="op">=</span> <span class="ident">u16::from</span>(<span class="ident">color</span>.<span class="ident">r</span>());
-    <span class="kw">let</span> <span class="ident">g</span> <span class="op">=</span> <span class="ident">u16::from</span>(<span class="ident">color</span>.<span class="ident">g</span>());
-    <span class="kw">let</span> <span class="ident">b</span> <span class="op">=</span> <span class="ident">u16::from</span>(<span class="ident">color</span>.<span class="ident">b</span>());
+<span class="doccomment">/// Calculates the luma value based on ITU-R BT.601.
+</span><span class="kw">fn </span>luma(color: Rgb888) -&gt; u8 {
+    <span class="kw">let </span>r = u16::from(color.r());
+    <span class="kw">let </span>g = u16::from(color.g());
+    <span class="kw">let </span>b = u16::from(color.b());
 
-    <span class="comment">// Original formula: 0.299 * R + 0.587 * G + 0.144 * B</span>
-    ((<span class="ident">r</span> <span class="op">*</span> <span class="number">77</span> <span class="op">+</span> <span class="ident">g</span> <span class="op">*</span> <span class="number">150</span> <span class="op">+</span> <span class="ident">b</span> <span class="op">*</span> <span class="number">29</span> <span class="op">+</span> <span class="number">128</span>) <span class="op">/</span> <span class="number">256</span>) <span class="kw">as</span> <span class="ident">u8</span>
+    <span class="comment">// Original formula: 0.299 * R + 0.587 * G + 0.144 * B
+    </span>((r * <span class="number">77 </span>+ g * <span class="number">150 </span>+ b * <span class="number">29 </span>+ <span class="number">128</span>) / <span class="number">256</span>) <span class="kw">as </span>u8
 }
 
-<span class="doccomment">/// Macro to implement conversion between RGB color types.</span>
-<span class="macro">macro_rules!</span> <span class="ident">impl_rgb_conversion</span> {
-    (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">from_type</span>:<span class="ident">ident</span> =&gt; $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">to_type</span>:<span class="ident">ident</span>),<span class="op">+</span>) =&gt; {
-        $(<span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">from_type</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">to_type</span> {
-            <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">other</span>: <span class="macro-nonterminal">$</span><span class="macro-nonterminal">from_type</span>) -&gt; <span class="self">Self</span> {
-                <span class="ident"><span class="self">Self</span>::new</span>(
-                    <span class="ident">convert_channel</span>(<span class="ident">other</span>.<span class="ident">r</span>(), <span class="macro-nonterminal">$</span><span class="macro-nonterminal">from_type::MAX_R</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">to_type::MAX_R</span>),
-                    <span class="ident">convert_channel</span>(<span class="ident">other</span>.<span class="ident">g</span>(), <span class="macro-nonterminal">$</span><span class="macro-nonterminal">from_type::MAX_G</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">to_type::MAX_G</span>),
-                    <span class="ident">convert_channel</span>(<span class="ident">other</span>.<span class="ident">b</span>(), <span class="macro-nonterminal">$</span><span class="macro-nonterminal">from_type::MAX_B</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">to_type::MAX_B</span>),
+<span class="doccomment">/// Macro to implement conversion between RGB color types.
+</span><span class="macro">macro_rules! </span>impl_rgb_conversion {
+    (<span class="macro-nonterminal">$from_type</span>:ident =&gt; $(<span class="macro-nonterminal">$to_type</span>:ident),+) =&gt; {
+        $(<span class="kw">impl </span>From&lt;<span class="macro-nonterminal">$from_type</span>&gt; <span class="kw">for </span><span class="macro-nonterminal">$to_type </span>{
+            <span class="kw">fn </span>from(other: <span class="macro-nonterminal">$from_type</span>) -&gt; <span class="self">Self </span>{
+                <span class="self">Self</span>::new(
+                    convert_channel(other.r(), <span class="macro-nonterminal">$from_type::MAX_R</span>, <span class="macro-nonterminal">$to_type::MAX_R</span>),
+                    convert_channel(other.g(), <span class="macro-nonterminal">$from_type::MAX_G</span>, <span class="macro-nonterminal">$to_type::MAX_G</span>),
+                    convert_channel(other.b(), <span class="macro-nonterminal">$from_type::MAX_B</span>, <span class="macro-nonterminal">$to_type::MAX_B</span>),
                 )
             }
-        })<span class="op">*</span>
+        })*
 
-        <span class="kw">impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">from_type</span> {
-            <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">const</span> <span class="kw">fn</span> <span class="ident">with_rgb888</span>(<span class="ident">r</span>: <span class="ident">u8</span>, <span class="ident">g</span>: <span class="ident">u8</span>, <span class="ident">b</span>: <span class="ident">u8</span>) -&gt; <span class="self">Self</span> {
-                <span class="ident"><span class="self">Self</span>::new</span>(
-                    <span class="ident">convert_channel</span>(<span class="ident">r</span>, <span class="ident">Rgb888::MAX_R</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">from_type::MAX_R</span>),
-                    <span class="ident">convert_channel</span>(<span class="ident">g</span>, <span class="ident">Rgb888::MAX_G</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">from_type::MAX_G</span>),
-                    <span class="ident">convert_channel</span>(<span class="ident">b</span>, <span class="ident">Rgb888::MAX_B</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">from_type::MAX_B</span>),
+        <span class="kw">impl </span><span class="macro-nonterminal">$from_type </span>{
+            <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">const fn </span>with_rgb888(r: u8, g: u8, b: u8) -&gt; <span class="self">Self </span>{
+                <span class="self">Self</span>::new(
+                    convert_channel(r, Rgb888::MAX_R, <span class="macro-nonterminal">$from_type::MAX_R</span>),
+                    convert_channel(g, Rgb888::MAX_G, <span class="macro-nonterminal">$from_type::MAX_G</span>),
+                    convert_channel(b, Rgb888::MAX_B, <span class="macro-nonterminal">$from_type::MAX_B</span>),
                 )
             }
         }
     };
 }
 
-<span class="macro">impl_rgb_conversion!</span>(<span class="ident">Rgb555</span> =&gt; <span class="ident">Bgr555</span>, <span class="ident">Rgb565</span>, <span class="ident">Bgr565</span>, <span class="ident">Rgb888</span>, <span class="ident">Bgr888</span>);
-<span class="macro">impl_rgb_conversion!</span>(<span class="ident">Bgr555</span> =&gt; <span class="ident">Rgb555</span>, <span class="ident">Rgb565</span>, <span class="ident">Bgr565</span>, <span class="ident">Rgb888</span>, <span class="ident">Bgr888</span>);
-<span class="macro">impl_rgb_conversion!</span>(<span class="ident">Rgb565</span> =&gt; <span class="ident">Rgb555</span>, <span class="ident">Bgr555</span>, <span class="ident">Bgr565</span>, <span class="ident">Rgb888</span>, <span class="ident">Bgr888</span>);
-<span class="macro">impl_rgb_conversion!</span>(<span class="ident">Bgr565</span> =&gt; <span class="ident">Rgb555</span>, <span class="ident">Bgr555</span>, <span class="ident">Rgb565</span>, <span class="ident">Rgb888</span>, <span class="ident">Bgr888</span>);
-<span class="macro">impl_rgb_conversion!</span>(<span class="ident">Rgb888</span> =&gt; <span class="ident">Rgb555</span>, <span class="ident">Bgr555</span>, <span class="ident">Rgb565</span>, <span class="ident">Bgr565</span>, <span class="ident">Bgr888</span>);
-<span class="macro">impl_rgb_conversion!</span>(<span class="ident">Bgr888</span> =&gt; <span class="ident">Rgb555</span>, <span class="ident">Bgr555</span>, <span class="ident">Rgb565</span>, <span class="ident">Bgr565</span>, <span class="ident">Rgb888</span>);
+<span class="macro">impl_rgb_conversion!</span>(Rgb555 =&gt; Bgr555, Rgb565, Bgr565, Rgb888, Bgr888);
+<span class="macro">impl_rgb_conversion!</span>(Bgr555 =&gt; Rgb555, Rgb565, Bgr565, Rgb888, Bgr888);
+<span class="macro">impl_rgb_conversion!</span>(Rgb565 =&gt; Rgb555, Bgr555, Bgr565, Rgb888, Bgr888);
+<span class="macro">impl_rgb_conversion!</span>(Bgr565 =&gt; Rgb555, Bgr555, Rgb565, Rgb888, Bgr888);
+<span class="macro">impl_rgb_conversion!</span>(Rgb888 =&gt; Rgb555, Bgr555, Rgb565, Bgr565, Bgr888);
+<span class="macro">impl_rgb_conversion!</span>(Bgr888 =&gt; Rgb555, Bgr555, Rgb565, Bgr565, Rgb888);
 
-<span class="doccomment">/// Macro to implement conversion between grayscale color types.</span>
-<span class="macro">macro_rules!</span> <span class="ident">impl_gray_conversion</span> {
-    (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">from_type</span>:<span class="ident">ident</span> =&gt; $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">to_type</span>:<span class="ident">ident</span>),<span class="op">+</span>) =&gt; {
-        $(<span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">from_type</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">to_type</span> {
-            <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">other</span>: <span class="macro-nonterminal">$</span><span class="macro-nonterminal">from_type</span>) -&gt; <span class="self">Self</span> {
-                <span class="ident"><span class="self">Self</span>::new</span>(<span class="ident">convert_channel</span>(<span class="ident">other</span>.<span class="ident">luma</span>(), <span class="macro-nonterminal">$</span><span class="macro-nonterminal">from_type::WHITE</span>.<span class="ident">luma</span>(), <span class="macro-nonterminal">$</span><span class="macro-nonterminal">to_type::WHITE</span>.<span class="ident">luma</span>()))
+<span class="doccomment">/// Macro to implement conversion between grayscale color types.
+</span><span class="macro">macro_rules! </span>impl_gray_conversion {
+    (<span class="macro-nonterminal">$from_type</span>:ident =&gt; $(<span class="macro-nonterminal">$to_type</span>:ident),+) =&gt; {
+        $(<span class="kw">impl </span>From&lt;<span class="macro-nonterminal">$from_type</span>&gt; <span class="kw">for </span><span class="macro-nonterminal">$to_type </span>{
+            <span class="kw">fn </span>from(other: <span class="macro-nonterminal">$from_type</span>) -&gt; <span class="self">Self </span>{
+                <span class="self">Self</span>::new(convert_channel(other.luma(), <span class="macro-nonterminal">$from_type::WHITE</span>.luma(), <span class="macro-nonterminal">$to_type::WHITE</span>.luma()))
             }
-        })<span class="op">*</span>
+        })*
     };
 }
 
-<span class="macro">impl_gray_conversion!</span>(<span class="ident">Gray2</span> =&gt; <span class="ident">Gray4</span>, <span class="ident">Gray8</span>);
-<span class="macro">impl_gray_conversion!</span>(<span class="ident">Gray4</span> =&gt; <span class="ident">Gray2</span>, <span class="ident">Gray8</span>);
-<span class="macro">impl_gray_conversion!</span>(<span class="ident">Gray8</span> =&gt; <span class="ident">Gray2</span>, <span class="ident">Gray4</span>);
+<span class="macro">impl_gray_conversion!</span>(Gray2 =&gt; Gray4, Gray8);
+<span class="macro">impl_gray_conversion!</span>(Gray4 =&gt; Gray2, Gray8);
+<span class="macro">impl_gray_conversion!</span>(Gray8 =&gt; Gray2, Gray4);
 
-<span class="doccomment">/// Macro to implement conversions between grayscale and RGB color types.</span>
-<span class="macro">macro_rules!</span> <span class="ident">impl_rgb_to_and_from_gray</span> {
-    ($(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">gray_type</span>:<span class="ident">ident</span>),<span class="op">+</span> =&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">rgb_type</span>:<span class="ident">ident</span>) =&gt; {
-        $(<span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">gray_type</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">rgb_type</span> {
-            <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">other</span>: <span class="macro-nonterminal">$</span><span class="macro-nonterminal">gray_type</span>) -&gt; <span class="self">Self</span> {
-                <span class="ident"><span class="self">Self</span>::new</span>(
-                    <span class="ident">convert_channel</span>(<span class="ident">other</span>.<span class="ident">luma</span>(), <span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">gray_type</span><span class="op">&gt;</span><span class="ident">::WHITE</span>.<span class="ident">luma</span>(), <span class="macro-nonterminal">$</span><span class="macro-nonterminal">rgb_type::MAX_R</span>),
-                    <span class="ident">convert_channel</span>(<span class="ident">other</span>.<span class="ident">luma</span>(), <span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">gray_type</span><span class="op">&gt;</span><span class="ident">::WHITE</span>.<span class="ident">luma</span>(), <span class="macro-nonterminal">$</span><span class="macro-nonterminal">rgb_type::MAX_G</span>),
-                    <span class="ident">convert_channel</span>(<span class="ident">other</span>.<span class="ident">luma</span>(), <span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">gray_type</span><span class="op">&gt;</span><span class="ident">::WHITE</span>.<span class="ident">luma</span>(), <span class="macro-nonterminal">$</span><span class="macro-nonterminal">rgb_type::MAX_B</span>),
+<span class="doccomment">/// Macro to implement conversions between grayscale and RGB color types.
+</span><span class="macro">macro_rules! </span>impl_rgb_to_and_from_gray {
+    ($(<span class="macro-nonterminal">$gray_type</span>:ident),+ =&gt; <span class="macro-nonterminal">$rgb_type</span>:ident) =&gt; {
+        $(<span class="kw">impl </span>From&lt;<span class="macro-nonterminal">$gray_type</span>&gt; <span class="kw">for </span><span class="macro-nonterminal">$rgb_type </span>{
+            <span class="kw">fn </span>from(other: <span class="macro-nonterminal">$gray_type</span>) -&gt; <span class="self">Self </span>{
+                <span class="self">Self</span>::new(
+                    convert_channel(other.luma(), &lt;<span class="macro-nonterminal">$gray_type</span>&gt;::WHITE.luma(), <span class="macro-nonterminal">$rgb_type::MAX_R</span>),
+                    convert_channel(other.luma(), &lt;<span class="macro-nonterminal">$gray_type</span>&gt;::WHITE.luma(), <span class="macro-nonterminal">$rgb_type::MAX_G</span>),
+                    convert_channel(other.luma(), &lt;<span class="macro-nonterminal">$gray_type</span>&gt;::WHITE.luma(), <span class="macro-nonterminal">$rgb_type::MAX_B</span>),
                 )
             }
-        })<span class="op">+</span>
+        })+
 
-        $(<span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">rgb_type</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">gray_type</span> {
-            <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">other</span>: <span class="macro-nonterminal">$</span><span class="macro-nonterminal">rgb_type</span>) -&gt; <span class="self">Self</span> {
-                <span class="kw">let</span> <span class="ident">intensity</span> <span class="op">=</span> <span class="ident">luma</span>(<span class="ident">Rgb888::from</span>(<span class="ident">other</span>));
-                <span class="ident">Gray8::new</span>(<span class="ident">intensity</span>).<span class="ident">into</span>()
+        $(<span class="kw">impl </span>From&lt;<span class="macro-nonterminal">$rgb_type</span>&gt; <span class="kw">for </span><span class="macro-nonterminal">$gray_type </span>{
+            <span class="kw">fn </span>from(other: <span class="macro-nonterminal">$rgb_type</span>) -&gt; <span class="self">Self </span>{
+                <span class="kw">let </span>intensity = luma(Rgb888::from(other));
+                Gray8::new(intensity).into()
             }
-        })<span class="op">+</span>
+        })+
     };
 
-    ($(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">gray_type</span>:<span class="ident">ident</span>),<span class="op">+</span> =&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">rgb_type</span>:<span class="ident">ident</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">rest</span>:<span class="ident">ident</span>),<span class="op">+</span>) =&gt; {
-        <span class="macro">impl_rgb_to_and_from_gray!</span>($(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">gray_type</span>),<span class="op">+</span> =&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">rgb_type</span>);
-        <span class="macro">impl_rgb_to_and_from_gray!</span>($(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">gray_type</span>),<span class="op">+</span> =&gt; $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">rest</span>),<span class="kw-2">*</span>);
+    ($(<span class="macro-nonterminal">$gray_type</span>:ident),+ =&gt; <span class="macro-nonterminal">$rgb_type</span>:ident, $(<span class="macro-nonterminal">$rest</span>:ident),+) =&gt; {
+        <span class="macro">impl_rgb_to_and_from_gray!</span>($(<span class="macro-nonterminal">$gray_type</span>),+ =&gt; <span class="macro-nonterminal">$rgb_type</span>);
+        <span class="macro">impl_rgb_to_and_from_gray!</span>($(<span class="macro-nonterminal">$gray_type</span>),+ =&gt; $(<span class="macro-nonterminal">$rest</span>),<span class="kw-2">*</span>);
     }
 }
 
-<span class="macro">impl_rgb_to_and_from_gray!</span>(<span class="ident">Gray2</span>, <span class="ident">Gray4</span>, <span class="ident">Gray8</span> =&gt; <span class="ident">Rgb555</span>, <span class="ident">Bgr555</span>, <span class="ident">Rgb565</span>, <span class="ident">Bgr565</span>, <span class="ident">Rgb888</span>, <span class="ident">Bgr888</span>);
+<span class="macro">impl_rgb_to_and_from_gray!</span>(Gray2, Gray4, Gray8 =&gt; Rgb555, Bgr555, Rgb565, Bgr565, Rgb888, Bgr888);
 
-<span class="doccomment">/// Macro to implement conversion from `BinaryColor` to RGB and grayscale types.</span>
-<span class="macro">macro_rules!</span> <span class="ident">impl_from_binary</span> {
+<span class="doccomment">/// Macro to implement conversion from `BinaryColor` to RGB and grayscale types.
+</span><span class="macro">macro_rules! </span>impl_from_binary {
     ($(<span class="macro-nonterminal">$</span><span class="kw">type</span>:<span class="macro-nonterminal">ident</span>),<span class="kw-2">*</span>) =&gt; {
-        $(<span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="macro-nonterminal">$</span><span class="kw">type</span> {
-            <span class="kw">fn</span> <span class="macro-nonterminal">from</span>(<span class="ident">color</span>: <span class="ident">BinaryColor</span>) -&gt; <span class="self">Self</span> {
-                <span class="ident">color</span>.<span class="ident">map_color</span>(<span class="ident"><span class="self">Self</span>::BLACK</span>, <span class="ident"><span class="self">Self</span>::WHITE</span>)
+        $(<span class="kw">impl </span>From&lt;BinaryColor&gt; <span class="kw">for </span><span class="macro-nonterminal">$</span><span class="kw">type </span>{
+            <span class="kw">fn </span><span class="macro-nonterminal">from</span>(color: BinaryColor) -&gt; <span class="self">Self </span>{
+                color.map_color(<span class="self">Self</span>::BLACK, <span class="self">Self</span>::WHITE)
             }
-        })<span class="op">*</span>
+        })*
     };
 }
 
-<span class="macro">impl_from_binary!</span>(<span class="ident">Rgb555</span>, <span class="ident">Bgr555</span>, <span class="ident">Rgb565</span>, <span class="ident">Bgr565</span>, <span class="ident">Rgb888</span>, <span class="ident">Bgr888</span>, <span class="ident">Gray2</span>, <span class="ident">Gray4</span>, <span class="ident">Gray8</span>);
+<span class="macro">impl_from_binary!</span>(Rgb555, Bgr555, Rgb565, Bgr565, Rgb888, Bgr888, Gray2, Gray4, Gray8);
 
-<span class="doccomment">/// Macro to implement conversion from grayscale types to `BinaryColor`.</span>
-<span class="macro">macro_rules!</span> <span class="ident">impl_gray_to_binary</span> {
-    ($(<span class="macro-nonterminal">$</span><span class="kw">type</span>:<span class="macro-nonterminal">ident</span>),<span class="op">*</span> ) =&gt; {
-        $(<span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="kw">type</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="macro-nonterminal">BinaryColor</span> {
-            <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">color</span>: <span class="macro-nonterminal">$</span><span class="kw">type</span>) -&gt; <span class="macro-nonterminal">Self</span> {
-                (<span class="ident">color</span>.<span class="ident">luma</span>() <span class="op">&gt;</span><span class="op">=</span> <span class="macro-nonterminal">$</span><span class="kw">type</span><span class="macro-nonterminal">::GRAY_50</span>.<span class="ident">luma</span>()).<span class="ident">into</span>()
+<span class="doccomment">/// Macro to implement conversion from grayscale types to `BinaryColor`.
+</span><span class="macro">macro_rules! </span>impl_gray_to_binary {
+    ($(<span class="macro-nonterminal">$</span><span class="kw">type</span>:<span class="macro-nonterminal">ident</span>),* ) =&gt; {
+        $(<span class="kw">impl </span>From&lt;<span class="macro-nonterminal">$</span><span class="kw">type</span>&gt; <span class="kw">for </span><span class="macro-nonterminal">BinaryColor </span>{
+            <span class="kw">fn </span>from(color: <span class="macro-nonterminal">$</span><span class="kw">type</span>) -&gt; <span class="macro-nonterminal">Self </span>{
+                (color.luma() &gt;= <span class="macro-nonterminal">$</span><span class="kw">type</span><span class="macro-nonterminal">::GRAY_50</span>.luma()).into()
             }
-        })<span class="op">*</span>
+        })*
     };
 }
 
-<span class="macro">impl_gray_to_binary!</span>(<span class="ident">Gray2</span>, <span class="ident">Gray4</span>, <span class="ident">Gray8</span>);
+<span class="macro">impl_gray_to_binary!</span>(Gray2, Gray4, Gray8);
 
-<span class="doccomment">/// Macro to implement conversion from RGB types to `BinaryColor`.</span>
-<span class="macro">macro_rules!</span> <span class="ident">impl_rgb_to_binary</span> {
+<span class="doccomment">/// Macro to implement conversion from RGB types to `BinaryColor`.
+</span><span class="macro">macro_rules! </span>impl_rgb_to_binary {
     ($(<span class="macro-nonterminal">$</span><span class="kw">type</span>:<span class="macro-nonterminal">ident</span>),<span class="kw-2">*</span>) =&gt; {
-        $(<span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="kw">type</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="macro-nonterminal">BinaryColor</span> {
-            <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">color</span>: <span class="macro-nonterminal">$</span><span class="kw">type</span>) -&gt; <span class="macro-nonterminal">Self</span> {
-                (<span class="ident">luma</span>(<span class="ident">Rgb888::from</span>(<span class="ident">color</span>)) <span class="op">&gt;</span><span class="op">=</span> <span class="number">128</span>).<span class="ident">into</span>()
+        $(<span class="kw">impl </span>From&lt;<span class="macro-nonterminal">$</span><span class="kw">type</span>&gt; <span class="kw">for </span><span class="macro-nonterminal">BinaryColor </span>{
+            <span class="kw">fn </span>from(color: <span class="macro-nonterminal">$</span><span class="kw">type</span>) -&gt; <span class="macro-nonterminal">Self </span>{
+                (luma(Rgb888::from(color)) &gt;= <span class="number">128</span>).into()
             }
-        })<span class="op">*</span>
+        })*
     };
 }
 
-<span class="macro">impl_rgb_to_binary!</span>(<span class="ident">Rgb555</span>, <span class="ident">Bgr555</span>, <span class="ident">Rgb565</span>, <span class="ident">Bgr565</span>, <span class="ident">Rgb888</span>, <span class="ident">Bgr888</span>);
+<span class="macro">impl_rgb_to_binary!</span>(Rgb555, Bgr555, Rgb565, Bgr565, Rgb888, Bgr888);
 
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
-<span class="kw">mod</span> <span class="ident">tests</span> {
-    <span class="kw">use</span> <span class="ident">core::fmt::Debug</span>;
+<span class="attribute">#[cfg(test)]
+</span><span class="kw">mod </span>tests {
+    <span class="kw">use </span>core::fmt::Debug;
 
-    <span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
+    <span class="kw">use super</span>::<span class="kw-2">*</span>;
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">convert_rgb565_to_rgb888_and_back</span>() {
-        <span class="kw">for</span> <span class="ident">r</span> <span class="kw">in</span> <span class="number">0</span>..<span class="op">=</span><span class="ident">Rgb565::MAX_R</span> {
-            <span class="kw">let</span> <span class="ident">c</span> <span class="op">=</span> <span class="ident">Rgb565::new</span>(<span class="ident">r</span>, <span class="number">0</span>, <span class="number">0</span>);
-            <span class="kw">let</span> <span class="ident">c2</span> <span class="op">=</span> <span class="ident">Rgb888::from</span>(<span class="ident">c</span>);
-            <span class="kw">let</span> <span class="ident">c3</span> <span class="op">=</span> <span class="ident">Rgb565::from</span>(<span class="ident">c2</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>convert_rgb565_to_rgb888_and_back() {
+        <span class="kw">for </span>r <span class="kw">in </span><span class="number">0</span>..=Rgb565::MAX_R {
+            <span class="kw">let </span>c = Rgb565::new(r, <span class="number">0</span>, <span class="number">0</span>);
+            <span class="kw">let </span>c2 = Rgb888::from(c);
+            <span class="kw">let </span>c3 = Rgb565::from(c2);
 
-            <span class="macro">assert_eq!</span>(<span class="ident">c</span>, <span class="ident">c3</span>);
+            <span class="macro">assert_eq!</span>(c, c3);
         }
 
-        <span class="kw">for</span> <span class="ident">g</span> <span class="kw">in</span> <span class="number">0</span>..<span class="op">=</span><span class="ident">Rgb565::MAX_G</span> {
-            <span class="kw">let</span> <span class="ident">c</span> <span class="op">=</span> <span class="ident">Rgb565::new</span>(<span class="number">0</span>, <span class="ident">g</span>, <span class="number">0</span>);
-            <span class="kw">let</span> <span class="ident">c2</span> <span class="op">=</span> <span class="ident">Rgb888::from</span>(<span class="ident">c</span>);
-            <span class="kw">let</span> <span class="ident">c3</span> <span class="op">=</span> <span class="ident">Rgb565::from</span>(<span class="ident">c2</span>);
+        <span class="kw">for </span>g <span class="kw">in </span><span class="number">0</span>..=Rgb565::MAX_G {
+            <span class="kw">let </span>c = Rgb565::new(<span class="number">0</span>, g, <span class="number">0</span>);
+            <span class="kw">let </span>c2 = Rgb888::from(c);
+            <span class="kw">let </span>c3 = Rgb565::from(c2);
 
-            <span class="macro">assert_eq!</span>(<span class="ident">c</span>, <span class="ident">c3</span>);
+            <span class="macro">assert_eq!</span>(c, c3);
         }
 
-        <span class="kw">for</span> <span class="ident">b</span> <span class="kw">in</span> <span class="number">0</span>..<span class="op">=</span><span class="ident">Rgb565::MAX_B</span> {
-            <span class="kw">let</span> <span class="ident">c</span> <span class="op">=</span> <span class="ident">Rgb565::new</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="ident">b</span>);
-            <span class="kw">let</span> <span class="ident">c2</span> <span class="op">=</span> <span class="ident">Rgb888::from</span>(<span class="ident">c</span>);
-            <span class="kw">let</span> <span class="ident">c3</span> <span class="op">=</span> <span class="ident">Rgb565::from</span>(<span class="ident">c2</span>);
+        <span class="kw">for </span>b <span class="kw">in </span><span class="number">0</span>..=Rgb565::MAX_B {
+            <span class="kw">let </span>c = Rgb565::new(<span class="number">0</span>, <span class="number">0</span>, b);
+            <span class="kw">let </span>c2 = Rgb888::from(c);
+            <span class="kw">let </span>c3 = Rgb565::from(c2);
 
-            <span class="macro">assert_eq!</span>(<span class="ident">c</span>, <span class="ident">c3</span>);
+            <span class="macro">assert_eq!</span>(c, c3);
         }
     }
 
-    <span class="doccomment">/// Calls the given function with every combination of two sets of types.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// If only one set of types is given the same types will be used for both sets.</span>
-    <span class="macro">macro_rules!</span> <span class="ident">type_matrix</span> {
-        (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">function</span>:<span class="ident">ident</span>; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">from_type</span>:<span class="ident">ident</span> =&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">to_type</span>:<span class="ident">ident</span>) =&gt; {
-            <span class="macro-nonterminal">$</span><span class="macro-nonterminal">function</span>::<span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">from_type</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">to_type</span><span class="op">&gt;</span>();
+    <span class="doccomment">/// Calls the given function with every combination of two sets of types.
+    ///
+    /// If only one set of types is given the same types will be used for both sets.
+    </span><span class="macro">macro_rules! </span>type_matrix {
+        (<span class="macro-nonterminal">$function</span>:ident; <span class="macro-nonterminal">$from_type</span>:ident =&gt; <span class="macro-nonterminal">$to_type</span>:ident) =&gt; {
+            <span class="macro-nonterminal">$function</span>::&lt;<span class="macro-nonterminal">$from_type</span>, <span class="macro-nonterminal">$to_type</span>&gt;();
         };
 
-        (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">function</span>:<span class="ident">ident</span>; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">from_type</span>:<span class="ident">ident</span> =&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">to_type</span>:<span class="ident">ident</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">to_types</span>:<span class="ident">ident</span>),<span class="op">+</span> ) =&gt; {
-            <span class="macro">type_matrix!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">function</span>; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">from_type</span> =&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">to_type</span>);
-            <span class="macro">type_matrix!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">function</span>; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">from_type</span> =&gt; $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">to_types</span>),<span class="kw-2">*</span>);
+        (<span class="macro-nonterminal">$function</span>:ident; <span class="macro-nonterminal">$from_type</span>:ident =&gt; <span class="macro-nonterminal">$to_type</span>:ident, $(<span class="macro-nonterminal">$to_types</span>:ident),+ ) =&gt; {
+            <span class="macro">type_matrix!</span>(<span class="macro-nonterminal">$function</span>; <span class="macro-nonterminal">$from_type </span>=&gt; <span class="macro-nonterminal">$to_type</span>);
+            <span class="macro">type_matrix!</span>(<span class="macro-nonterminal">$function</span>; <span class="macro-nonterminal">$from_type </span>=&gt; $(<span class="macro-nonterminal">$to_types</span>),<span class="kw-2">*</span>);
         };
 
-        (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">function</span>:<span class="ident">ident</span>; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">from_type</span>:<span class="ident">ident</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">from_types</span>:<span class="ident">ident</span>),<span class="op">+</span> =&gt; $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">to_types</span>:<span class="ident">ident</span>),<span class="op">+</span> ) =&gt; {
-            <span class="macro">type_matrix!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">function</span>; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">from_type</span> =&gt; $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">to_types</span>),<span class="kw-2">*</span>);
-            <span class="macro">type_matrix!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">function</span>; $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">from_types</span>),<span class="op">*</span> =&gt; $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">to_types</span>),<span class="kw-2">*</span>);
+        (<span class="macro-nonterminal">$function</span>:ident; <span class="macro-nonterminal">$from_type</span>:ident, $(<span class="macro-nonterminal">$from_types</span>:ident),+ =&gt; $(<span class="macro-nonterminal">$to_types</span>:ident),+ ) =&gt; {
+            <span class="macro">type_matrix!</span>(<span class="macro-nonterminal">$function</span>; <span class="macro-nonterminal">$from_type </span>=&gt; $(<span class="macro-nonterminal">$to_types</span>),<span class="kw-2">*</span>);
+            <span class="macro">type_matrix!</span>(<span class="macro-nonterminal">$function</span>; $(<span class="macro-nonterminal">$from_types</span>),* =&gt; $(<span class="macro-nonterminal">$to_types</span>),<span class="kw-2">*</span>);
         };
 
-        (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">function</span>:<span class="ident">ident</span>; $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">types</span>:<span class="ident">ident</span>),<span class="op">+</span>) =&gt; {
-            <span class="macro">type_matrix!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">function</span>; $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">types</span>),<span class="op">*</span> =&gt; $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">types</span>),<span class="kw-2">*</span>);
+        (<span class="macro-nonterminal">$function</span>:ident; $(<span class="macro-nonterminal">$types</span>:ident),+) =&gt; {
+            <span class="macro">type_matrix!</span>(<span class="macro-nonterminal">$function</span>; $(<span class="macro-nonterminal">$types</span>),* =&gt; $(<span class="macro-nonterminal">$types</span>),<span class="kw-2">*</span>);
         };
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">rgb_to_rgb</span>() {
-        <span class="kw">fn</span> <span class="ident">test_rgb_to_rgb</span><span class="op">&lt;</span><span class="ident">FromC</span>: <span class="ident">RgbColor</span> <span class="op">+</span> <span class="ident">Debug</span>, <span class="ident">ToC</span>: <span class="ident">RgbColor</span> <span class="op">+</span> <span class="ident">From</span><span class="op">&lt;</span><span class="ident">FromC</span><span class="op">&gt;</span> <span class="op">+</span> <span class="ident">Debug</span><span class="op">&gt;</span>() {
-            <span class="macro">assert_eq!</span>(<span class="ident">ToC::from</span>(<span class="ident">FromC::BLACK</span>), <span class="ident">ToC::BLACK</span>);
-            <span class="macro">assert_eq!</span>(<span class="ident">ToC::from</span>(<span class="ident">FromC::RED</span>), <span class="ident">ToC::RED</span>);
-            <span class="macro">assert_eq!</span>(<span class="ident">ToC::from</span>(<span class="ident">FromC::GREEN</span>), <span class="ident">ToC::GREEN</span>);
-            <span class="macro">assert_eq!</span>(<span class="ident">ToC::from</span>(<span class="ident">FromC::BLUE</span>), <span class="ident">ToC::BLUE</span>);
-            <span class="macro">assert_eq!</span>(<span class="ident">ToC::from</span>(<span class="ident">FromC::YELLOW</span>), <span class="ident">ToC::YELLOW</span>);
-            <span class="macro">assert_eq!</span>(<span class="ident">ToC::from</span>(<span class="ident">FromC::MAGENTA</span>), <span class="ident">ToC::MAGENTA</span>);
-            <span class="macro">assert_eq!</span>(<span class="ident">ToC::from</span>(<span class="ident">FromC::CYAN</span>), <span class="ident">ToC::CYAN</span>);
-            <span class="macro">assert_eq!</span>(<span class="ident">ToC::from</span>(<span class="ident">FromC::WHITE</span>), <span class="ident">ToC::WHITE</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>rgb_to_rgb() {
+        <span class="kw">fn </span>test_rgb_to_rgb&lt;FromC: RgbColor + Debug, ToC: RgbColor + From&lt;FromC&gt; + Debug&gt;() {
+            <span class="macro">assert_eq!</span>(ToC::from(FromC::BLACK), ToC::BLACK);
+            <span class="macro">assert_eq!</span>(ToC::from(FromC::RED), ToC::RED);
+            <span class="macro">assert_eq!</span>(ToC::from(FromC::GREEN), ToC::GREEN);
+            <span class="macro">assert_eq!</span>(ToC::from(FromC::BLUE), ToC::BLUE);
+            <span class="macro">assert_eq!</span>(ToC::from(FromC::YELLOW), ToC::YELLOW);
+            <span class="macro">assert_eq!</span>(ToC::from(FromC::MAGENTA), ToC::MAGENTA);
+            <span class="macro">assert_eq!</span>(ToC::from(FromC::CYAN), ToC::CYAN);
+            <span class="macro">assert_eq!</span>(ToC::from(FromC::WHITE), ToC::WHITE);
         }
 
-        <span class="macro">type_matrix!</span>(<span class="ident">test_rgb_to_rgb</span>; <span class="ident">Rgb555</span>, <span class="ident">Bgr555</span>, <span class="ident">Rgb565</span>, <span class="ident">Bgr565</span>, <span class="ident">Rgb888</span>, <span class="ident">Bgr888</span>);
+        <span class="macro">type_matrix!</span>(test_rgb_to_rgb; Rgb555, Bgr555, Rgb565, Bgr565, Rgb888, Bgr888);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">rgb_to_gray</span>() {
-        <span class="kw">fn</span> <span class="ident">test_rgb_to_gray</span><span class="op">&lt;</span><span class="ident">FromC</span>: <span class="ident">RgbColor</span> <span class="op">+</span> <span class="ident">Debug</span>, <span class="ident">ToC</span>: <span class="ident">GrayColor</span> <span class="op">+</span> <span class="ident">From</span><span class="op">&lt;</span><span class="ident">FromC</span><span class="op">&gt;</span> <span class="op">+</span> <span class="ident">Debug</span><span class="op">&gt;</span>() {
-            <span class="macro">assert_eq!</span>(<span class="ident">ToC::from</span>(<span class="ident">FromC::BLACK</span>), <span class="ident">ToC::BLACK</span>);
-            <span class="macro">assert_eq!</span>(<span class="ident">ToC::from</span>(<span class="ident">FromC::WHITE</span>), <span class="ident">ToC::WHITE</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>rgb_to_gray() {
+        <span class="kw">fn </span>test_rgb_to_gray&lt;FromC: RgbColor + Debug, ToC: GrayColor + From&lt;FromC&gt; + Debug&gt;() {
+            <span class="macro">assert_eq!</span>(ToC::from(FromC::BLACK), ToC::BLACK);
+            <span class="macro">assert_eq!</span>(ToC::from(FromC::WHITE), ToC::WHITE);
         }
 
-        <span class="macro">type_matrix!</span>(<span class="ident">test_rgb_to_gray</span>; <span class="ident">Rgb555</span>, <span class="ident">Bgr555</span>, <span class="ident">Rgb565</span>, <span class="ident">Bgr565</span>, <span class="ident">Rgb888</span>, <span class="ident">Bgr888</span> =&gt; <span class="ident">Gray2</span>, <span class="ident">Gray4</span>, <span class="ident">Gray8</span>);
+        <span class="macro">type_matrix!</span>(test_rgb_to_gray; Rgb555, Bgr555, Rgb565, Bgr565, Rgb888, Bgr888 =&gt; Gray2, Gray4, Gray8);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">rgb_to_binary</span>() {
-        <span class="kw">fn</span> <span class="ident">test_rgb_to_binary</span><span class="op">&lt;</span><span class="ident">FromC</span>: <span class="ident">RgbColor</span> <span class="op">+</span> <span class="ident">Debug</span>, <span class="ident">ToC</span><span class="op">&gt;</span>()
-        <span class="kw">where</span>
-            <span class="ident">BinaryColor</span>: <span class="ident">From</span><span class="op">&lt;</span><span class="ident">FromC</span><span class="op">&gt;</span>,
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>rgb_to_binary() {
+        <span class="kw">fn </span>test_rgb_to_binary&lt;FromC: RgbColor + Debug, ToC&gt;()
+        <span class="kw">where
+            </span>BinaryColor: From&lt;FromC&gt;,
         {
-            <span class="macro">assert_eq!</span>(<span class="ident">BinaryColor::from</span>(<span class="ident">FromC::BLACK</span>), <span class="ident">BinaryColor::Off</span>);
-            <span class="macro">assert_eq!</span>(<span class="ident">BinaryColor::from</span>(<span class="ident">FromC::WHITE</span>), <span class="ident">BinaryColor::On</span>);
+            <span class="macro">assert_eq!</span>(BinaryColor::from(FromC::BLACK), BinaryColor::Off);
+            <span class="macro">assert_eq!</span>(BinaryColor::from(FromC::WHITE), BinaryColor::On);
         }
 
-        <span class="macro">type_matrix!</span>(<span class="ident">test_rgb_to_binary</span>; <span class="ident">Rgb555</span>, <span class="ident">Bgr555</span>, <span class="ident">Rgb565</span>, <span class="ident">Bgr565</span>, <span class="ident">Rgb888</span>, <span class="ident">Bgr888</span> =&gt; <span class="ident">BinaryColor</span>);
+        <span class="macro">type_matrix!</span>(test_rgb_to_binary; Rgb555, Bgr555, Rgb565, Bgr565, Rgb888, Bgr888 =&gt; BinaryColor);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">gray_to_gray</span>() {
-        <span class="kw">fn</span> <span class="ident">test_gray_to_gray</span><span class="op">&lt;</span><span class="ident">FromC</span>: <span class="ident">GrayColor</span> <span class="op">+</span> <span class="ident">Debug</span>, <span class="ident">ToC</span>: <span class="ident">GrayColor</span> <span class="op">+</span> <span class="ident">From</span><span class="op">&lt;</span><span class="ident">FromC</span><span class="op">&gt;</span> <span class="op">+</span> <span class="ident">Debug</span><span class="op">&gt;</span>() {
-            <span class="macro">assert_eq!</span>(<span class="ident">ToC::from</span>(<span class="ident">FromC::BLACK</span>), <span class="ident">ToC::BLACK</span>);
-            <span class="macro">assert_eq!</span>(<span class="ident">ToC::from</span>(<span class="ident">FromC::WHITE</span>), <span class="ident">ToC::WHITE</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>gray_to_gray() {
+        <span class="kw">fn </span>test_gray_to_gray&lt;FromC: GrayColor + Debug, ToC: GrayColor + From&lt;FromC&gt; + Debug&gt;() {
+            <span class="macro">assert_eq!</span>(ToC::from(FromC::BLACK), ToC::BLACK);
+            <span class="macro">assert_eq!</span>(ToC::from(FromC::WHITE), ToC::WHITE);
         }
 
-        <span class="macro">type_matrix!</span>(<span class="ident">test_gray_to_gray</span>; <span class="ident">Gray2</span>, <span class="ident">Gray4</span>, <span class="ident">Gray8</span>);
+        <span class="macro">type_matrix!</span>(test_gray_to_gray; Gray2, Gray4, Gray8);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">gray_to_rgb</span>() {
-        <span class="kw">fn</span> <span class="ident">test_gray_to_rgb</span><span class="op">&lt;</span><span class="ident">FromC</span>: <span class="ident">GrayColor</span> <span class="op">+</span> <span class="ident">Debug</span>, <span class="ident">ToC</span>: <span class="ident">RgbColor</span> <span class="op">+</span> <span class="ident">From</span><span class="op">&lt;</span><span class="ident">FromC</span><span class="op">&gt;</span> <span class="op">+</span> <span class="ident">Debug</span><span class="op">&gt;</span>() {
-            <span class="macro">assert_eq!</span>(<span class="ident">ToC::from</span>(<span class="ident">FromC::BLACK</span>), <span class="ident">ToC::BLACK</span>);
-            <span class="macro">assert_eq!</span>(<span class="ident">ToC::from</span>(<span class="ident">FromC::WHITE</span>), <span class="ident">ToC::WHITE</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>gray_to_rgb() {
+        <span class="kw">fn </span>test_gray_to_rgb&lt;FromC: GrayColor + Debug, ToC: RgbColor + From&lt;FromC&gt; + Debug&gt;() {
+            <span class="macro">assert_eq!</span>(ToC::from(FromC::BLACK), ToC::BLACK);
+            <span class="macro">assert_eq!</span>(ToC::from(FromC::WHITE), ToC::WHITE);
         }
 
-        <span class="macro">type_matrix!</span>(<span class="ident">test_gray_to_rgb</span>; <span class="ident">Gray2</span>, <span class="ident">Gray4</span>, <span class="ident">Gray8</span> =&gt; <span class="ident">Rgb555</span>, <span class="ident">Bgr555</span>, <span class="ident">Rgb565</span>, <span class="ident">Bgr565</span>, <span class="ident">Rgb888</span>, <span class="ident">Bgr888</span>);
+        <span class="macro">type_matrix!</span>(test_gray_to_rgb; Gray2, Gray4, Gray8 =&gt; Rgb555, Bgr555, Rgb565, Bgr565, Rgb888, Bgr888);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">gray_to_binary</span>() {
-        <span class="kw">fn</span> <span class="ident">test_gray_to_binary</span><span class="op">&lt;</span><span class="ident">FromC</span>: <span class="ident">GrayColor</span> <span class="op">+</span> <span class="ident">Debug</span>, <span class="ident">ToC</span><span class="op">&gt;</span>()
-        <span class="kw">where</span>
-            <span class="ident">BinaryColor</span>: <span class="ident">From</span><span class="op">&lt;</span><span class="ident">FromC</span><span class="op">&gt;</span>,
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>gray_to_binary() {
+        <span class="kw">fn </span>test_gray_to_binary&lt;FromC: GrayColor + Debug, ToC&gt;()
+        <span class="kw">where
+            </span>BinaryColor: From&lt;FromC&gt;,
         {
-            <span class="macro">assert_eq!</span>(<span class="ident">BinaryColor::from</span>(<span class="ident">FromC::BLACK</span>), <span class="ident">BinaryColor::Off</span>);
-            <span class="macro">assert_eq!</span>(<span class="ident">BinaryColor::from</span>(<span class="ident">FromC::WHITE</span>), <span class="ident">BinaryColor::On</span>);
+            <span class="macro">assert_eq!</span>(BinaryColor::from(FromC::BLACK), BinaryColor::Off);
+            <span class="macro">assert_eq!</span>(BinaryColor::from(FromC::WHITE), BinaryColor::On);
         }
 
-        <span class="macro">type_matrix!</span>(<span class="ident">test_gray_to_binary</span>; <span class="ident">Gray2</span>, <span class="ident">Gray4</span>, <span class="ident">Gray8</span> =&gt; <span class="ident">BinaryColor</span>);
+        <span class="macro">type_matrix!</span>(test_gray_to_binary; Gray2, Gray4, Gray8 =&gt; BinaryColor);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">binary_to_rgb</span>() {
-        <span class="kw">fn</span> <span class="ident">test_binary_to_rgb</span><span class="op">&lt;</span><span class="ident">FromC</span>, <span class="ident">ToC</span>: <span class="ident">RgbColor</span> <span class="op">+</span> <span class="ident">From</span><span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span> <span class="op">+</span> <span class="ident">Debug</span><span class="op">&gt;</span>() {
-            <span class="macro">assert_eq!</span>(<span class="ident">ToC::from</span>(<span class="ident">BinaryColor::Off</span>), <span class="ident">ToC::BLACK</span>);
-            <span class="macro">assert_eq!</span>(<span class="ident">ToC::from</span>(<span class="ident">BinaryColor::On</span>), <span class="ident">ToC::WHITE</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>binary_to_rgb() {
+        <span class="kw">fn </span>test_binary_to_rgb&lt;FromC, ToC: RgbColor + From&lt;BinaryColor&gt; + Debug&gt;() {
+            <span class="macro">assert_eq!</span>(ToC::from(BinaryColor::Off), ToC::BLACK);
+            <span class="macro">assert_eq!</span>(ToC::from(BinaryColor::On), ToC::WHITE);
         }
 
-        <span class="macro">type_matrix!</span>(<span class="ident">test_binary_to_rgb</span>; <span class="ident">BinaryColor</span> =&gt; <span class="ident">Rgb555</span>, <span class="ident">Bgr555</span>, <span class="ident">Rgb565</span>, <span class="ident">Bgr565</span>, <span class="ident">Rgb888</span>, <span class="ident">Bgr888</span>);
+        <span class="macro">type_matrix!</span>(test_binary_to_rgb; BinaryColor =&gt; Rgb555, Bgr555, Rgb565, Bgr565, Rgb888, Bgr888);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">binary_to_gray</span>() {
-        <span class="kw">fn</span> <span class="ident">test_binary_to_gray</span><span class="op">&lt;</span><span class="ident">FromC</span>, <span class="ident">ToC</span>: <span class="ident">GrayColor</span> <span class="op">+</span> <span class="ident">From</span><span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span> <span class="op">+</span> <span class="ident">Debug</span><span class="op">&gt;</span>() {
-            <span class="macro">assert_eq!</span>(<span class="ident">ToC::from</span>(<span class="ident">BinaryColor::Off</span>), <span class="ident">ToC::BLACK</span>);
-            <span class="macro">assert_eq!</span>(<span class="ident">ToC::from</span>(<span class="ident">BinaryColor::On</span>), <span class="ident">ToC::WHITE</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>binary_to_gray() {
+        <span class="kw">fn </span>test_binary_to_gray&lt;FromC, ToC: GrayColor + From&lt;BinaryColor&gt; + Debug&gt;() {
+            <span class="macro">assert_eq!</span>(ToC::from(BinaryColor::Off), ToC::BLACK);
+            <span class="macro">assert_eq!</span>(ToC::from(BinaryColor::On), ToC::WHITE);
         }
 
-        <span class="macro">type_matrix!</span>(<span class="ident">test_binary_to_gray</span>; <span class="ident">BinaryColor</span> =&gt; <span class="ident">Gray2</span>, <span class="ident">Gray4</span>, <span class="ident">Gray8</span>);
+        <span class="macro">type_matrix!</span>(test_binary_to_gray; BinaryColor =&gt; Gray2, Gray4, Gray8);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">test_luma</span>() {
-        <span class="macro">assert_eq!</span>(<span class="ident">luma</span>(<span class="ident">Rgb888::BLACK</span>), <span class="number">0</span>);
-        <span class="macro">assert_eq!</span>(<span class="ident">luma</span>(<span class="ident">Rgb888::WHITE</span>), <span class="number">255</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>test_luma() {
+        <span class="macro">assert_eq!</span>(luma(Rgb888::BLACK), <span class="number">0</span>);
+        <span class="macro">assert_eq!</span>(luma(Rgb888::WHITE), <span class="number">255</span>);
 
         <span class="macro">assert_eq!</span>(
-            <span class="ident">luma</span>(<span class="ident">Rgb888::new</span>(<span class="number">255</span>, <span class="number">255</span>, <span class="number">254</span>)),
+            luma(Rgb888::new(<span class="number">255</span>, <span class="number">255</span>, <span class="number">254</span>)),
             <span class="number">255</span>,
-            <span class="string">&quot;should be rounded upward&quot;</span>
-        );
+            <span class="string">&quot;should be rounded upward&quot;
+        </span>);
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="embedded_graphics_core" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0 (a55dd71d5 2022-09-19)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="embedded_graphics_core" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0 (69f9c33d7 2022-12-12)" ></div></body></html>

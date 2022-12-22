@@ -1,6 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/micromath-1.1.1/src/f32ext/ln.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>ln.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../micromath/index.html"><div class="logo-container"><img src="https://raw.githubusercontent.com/tarcieri/micromath/main/img/micromath-sq.png" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../micromath/index.html"><div class="logo-container">
-                    <img src="https://raw.githubusercontent.com/tarcieri/micromath/main/img/micromath-sq.png" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../micromath/index.html">
-                        <img src="https://raw.githubusercontent.com/tarcieri/micromath/main/img/micromath-sq.png" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/micromath-1.1.1/src/f32ext/ln.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>ln.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../micromath/index.html">
+                        <img src="https://raw.githubusercontent.com/tarcieri/micromath/main/img/micromath-sq.png" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -112,80 +111,80 @@
 <span id="110">110</span>
 <span id="111">111</span>
 <span id="112">112</span>
-</pre><pre class="rust"><code><span class="doccomment">/// natural log (ln) approximation for f32</span>
-<span class="kw">use</span> <span class="ident"><span class="kw">super</span>::abs</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">super</span>::utils</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">super</span>::utils::FloatComponents</span>;
-<span class="kw">use</span> <span class="ident">core::f32</span>;
-<span class="kw">use</span> <span class="ident">core::u32</span>;
+</pre><pre class="rust"><code><span class="doccomment">/// natural log (ln) approximation for f32
+</span><span class="kw">use </span><span class="kw">super</span>::abs;
+<span class="kw">use </span><span class="kw">super</span>::utils;
+<span class="kw">use </span><span class="kw">super</span>::utils::FloatComponents;
+<span class="kw">use </span>core::f32;
+<span class="kw">use </span>core::u32;
 
-<span class="comment">//excessive precision ignored because it hides the origin of the numbers used for the ln(1.0-&gt;2.0)</span>
-<span class="comment">// polynomial</span>
-<span class="attribute">#[<span class="ident">allow</span>(<span class="ident">clippy::excessive_precision</span>)]</span>
-<span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">ln_1to2_series_approximation</span>(<span class="ident">x</span>: <span class="ident">f32</span>) -&gt; <span class="ident">f32</span> {
-    <span class="comment">// idea from https://stackoverflow.com/a/44232045/</span>
-    <span class="comment">// modified to not be restricted to int range and only values of x above 1.0.</span>
-    <span class="comment">// and got rid of most of the slow conversions,</span>
-    <span class="comment">// should work for all positive values of x.</span>
+<span class="comment">//excessive precision ignored because it hides the origin of the numbers used for the ln(1.0-&gt;2.0)
+// polynomial
+</span><span class="attribute">#[allow(clippy::excessive_precision)]
+</span><span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn </span>ln_1to2_series_approximation(x: f32) -&gt; f32 {
+    <span class="comment">// idea from https://stackoverflow.com/a/44232045/
+    // modified to not be restricted to int range and only values of x above 1.0.
+    // and got rid of most of the slow conversions,
+    // should work for all positive values of x.
 
-    <span class="comment">//x may essentially be 1.0 but, as clippy notes, these kinds of</span>
-    <span class="comment">//floating point comparisons can fail when the bit pattern is not the sames</span>
-    <span class="kw">if</span> <span class="ident">abs::abs</span>(<span class="ident">x</span> <span class="op">-</span> <span class="number">1.0_f32</span>) <span class="op">&lt;</span> <span class="ident">f32::EPSILON</span> {
-        <span class="kw">return</span> <span class="number">0.0_f32</span>;
+    //x may essentially be 1.0 but, as clippy notes, these kinds of
+    //floating point comparisons can fail when the bit pattern is not the sames
+    </span><span class="kw">if </span>abs::abs(x - <span class="number">1.0_f32</span>) &lt; f32::EPSILON {
+        <span class="kw">return </span><span class="number">0.0_f32</span>;
     }
-    <span class="kw">let</span> <span class="ident">x_less_than_1</span>: <span class="ident">bool</span> <span class="op">=</span> <span class="ident">x</span> <span class="op">&lt;</span> <span class="number">1.0</span>;
-    <span class="comment">// Note: we could use the fast inverse approximation here found in super::inv::inv_approx, but</span>
-    <span class="comment">// the precision of such an approximation is assumed not good enough.</span>
-    <span class="kw">let</span> <span class="ident">x_working</span>: <span class="ident">f32</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">x_less_than_1</span> { <span class="number">1.0</span> <span class="op">/</span> <span class="ident">x</span> } <span class="kw">else</span> { <span class="ident">x</span> };
-    <span class="comment">//according to the SO post ln(x) = ln((2^n)*y)= ln(2^n) + ln(y) = ln(2) * n + ln(y)</span>
-    <span class="comment">//get exponent value</span>
-    <span class="kw">let</span> <span class="ident">base2_exponent</span>: <span class="ident">u32</span> <span class="op">=</span> <span class="ident">x_working</span>.<span class="ident">extract_exponent_value</span>() <span class="kw">as</span> <span class="ident">u32</span>;
-    <span class="kw">let</span> <span class="ident">divisor</span>: <span class="ident">f32</span> <span class="op">=</span> <span class="ident">f32::from_bits</span>(<span class="ident">x_working</span>.<span class="ident">to_bits</span>() <span class="op">&amp;</span> <span class="ident">utils::EXPONENT_MASK</span>);
-    <span class="comment">//supposedly normalizing between 1.0 and 2.0</span>
-    <span class="kw">let</span> <span class="ident">x_working</span>: <span class="ident">f32</span> <span class="op">=</span> <span class="ident">x_working</span> <span class="op">/</span> <span class="ident">divisor</span>;
-    <span class="comment">//approximate polynomial generated from maple in the post using Remez Algorithm:</span>
-    <span class="comment">//https://en.wikipedia.org/wiki/Remez_algorithm</span>
-    <span class="kw">let</span> <span class="ident">ln_1to2_polynomial</span>: <span class="ident">f32</span> <span class="op">=</span> <span class="op">-</span><span class="number">1.741_793_9_f32</span>
-        <span class="op">+</span> (<span class="number">2.821_202_6_f32</span>
-            <span class="op">+</span> (<span class="op">-</span><span class="number">1.469_956_8_f32</span> <span class="op">+</span> (<span class="number">0.447_179_55_f32</span> <span class="op">-</span> <span class="number">0.056_570_851_f32</span> <span class="op">*</span> <span class="ident">x_working</span>) <span class="op">*</span> <span class="ident">x_working</span>)
-                <span class="op">*</span> <span class="ident">x_working</span>)
-            <span class="op">*</span> <span class="ident">x_working</span>;
-    <span class="comment">// ln(2) * n + ln(y)</span>
-    <span class="kw">let</span> <span class="ident">result</span>: <span class="ident">f32</span> <span class="op">=</span> (<span class="ident">base2_exponent</span> <span class="kw">as</span> <span class="ident">f32</span>) <span class="op">*</span> <span class="ident">f32::consts::LN_2</span> <span class="op">+</span> <span class="ident">ln_1to2_polynomial</span>;
-    <span class="kw">if</span> <span class="ident">x_less_than_1</span> {
-        <span class="op">-</span><span class="ident">result</span>
-    } <span class="kw">else</span> {
-        <span class="ident">result</span>
+    <span class="kw">let </span>x_less_than_1: bool = x &lt; <span class="number">1.0</span>;
+    <span class="comment">// Note: we could use the fast inverse approximation here found in super::inv::inv_approx, but
+    // the precision of such an approximation is assumed not good enough.
+    </span><span class="kw">let </span>x_working: f32 = <span class="kw">if </span>x_less_than_1 { <span class="number">1.0 </span>/ x } <span class="kw">else </span>{ x };
+    <span class="comment">//according to the SO post ln(x) = ln((2^n)*y)= ln(2^n) + ln(y) = ln(2) * n + ln(y)
+    //get exponent value
+    </span><span class="kw">let </span>base2_exponent: u32 = x_working.extract_exponent_value() <span class="kw">as </span>u32;
+    <span class="kw">let </span>divisor: f32 = f32::from_bits(x_working.to_bits() &amp; utils::EXPONENT_MASK);
+    <span class="comment">//supposedly normalizing between 1.0 and 2.0
+    </span><span class="kw">let </span>x_working: f32 = x_working / divisor;
+    <span class="comment">//approximate polynomial generated from maple in the post using Remez Algorithm:
+    //https://en.wikipedia.org/wiki/Remez_algorithm
+    </span><span class="kw">let </span>ln_1to2_polynomial: f32 = -<span class="number">1.741_793_9_f32
+        </span>+ (<span class="number">2.821_202_6_f32
+            </span>+ (-<span class="number">1.469_956_8_f32 </span>+ (<span class="number">0.447_179_55_f32 </span>- <span class="number">0.056_570_851_f32 </span>* x_working) * x_working)
+                * x_working)
+            * x_working;
+    <span class="comment">// ln(2) * n + ln(y)
+    </span><span class="kw">let </span>result: f32 = (base2_exponent <span class="kw">as </span>f32) * f32::consts::LN_2 + ln_1to2_polynomial;
+    <span class="kw">if </span>x_less_than_1 {
+        -result
+    } <span class="kw">else </span>{
+        result
     }
 }
 
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
-<span class="kw">mod</span> <span class="ident">tests</span> {
-    <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::<span class="kw">super</span>::abs</span>;
-    <span class="kw">use</span> <span class="ident"><span class="kw">super</span>::ln_1to2_series_approximation</span>;
-    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">const</span> <span class="ident">MAX_ERROR</span>: <span class="ident">f32</span> <span class="op">=</span> <span class="number">0.001</span>;
-    <span class="doccomment">/// ln(x) test vectors - `(input, output)`</span>
-    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">const</span> <span class="ident">TEST_VECTORS</span>: <span class="kw-2">&amp;</span>[(<span class="ident">f32</span>, <span class="ident">f32</span>)] <span class="op">=</span> <span class="kw-2">&amp;</span>[
-        (<span class="number">1e-20</span>, <span class="op">-</span><span class="number">46.0517</span>),
-        (<span class="number">1e-19</span>, <span class="op">-</span><span class="number">43.749115</span>),
-        (<span class="number">1e-18</span>, <span class="op">-</span><span class="number">41.446533</span>),
-        (<span class="number">1e-17</span>, <span class="op">-</span><span class="number">39.143948</span>),
-        (<span class="number">1e-16</span>, <span class="op">-</span><span class="number">36.841362</span>),
-        (<span class="number">1e-15</span>, <span class="op">-</span><span class="number">34.538776</span>),
-        (<span class="number">1e-14</span>, <span class="op">-</span><span class="number">32.23619</span>),
-        (<span class="number">1e-13</span>, <span class="op">-</span><span class="number">29.933607</span>),
-        (<span class="number">1e-12</span>, <span class="op">-</span><span class="number">27.631021</span>),
-        (<span class="number">1e-11</span>, <span class="op">-</span><span class="number">25.328436</span>),
-        (<span class="number">1e-10</span>, <span class="op">-</span><span class="number">23.02585</span>),
-        (<span class="number">1e-09</span>, <span class="op">-</span><span class="number">20.723267</span>),
-        (<span class="number">1e-08</span>, <span class="op">-</span><span class="number">18.420681</span>),
-        (<span class="number">1e-07</span>, <span class="op">-</span><span class="number">16.118095</span>),
-        (<span class="number">1e-06</span>, <span class="op">-</span><span class="number">13.815511</span>),
-        (<span class="number">1e-05</span>, <span class="op">-</span><span class="number">11.512925</span>),
-        (<span class="number">1e-04</span>, <span class="op">-</span><span class="number">9.2103405</span>),
-        (<span class="number">0.001</span>, <span class="op">-</span><span class="number">6.9077554</span>),
-        (<span class="number">0.01</span>, <span class="op">-</span><span class="number">4.6051702</span>),
-        (<span class="number">0.1</span>, <span class="op">-</span><span class="number">2.3025851</span>),
+<span class="attribute">#[cfg(test)]
+</span><span class="kw">mod </span>tests {
+    <span class="kw">use </span><span class="kw">super</span>::<span class="kw">super</span>::abs;
+    <span class="kw">use </span><span class="kw">super</span>::ln_1to2_series_approximation;
+    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">const </span>MAX_ERROR: f32 = <span class="number">0.001</span>;
+    <span class="doccomment">/// ln(x) test vectors - `(input, output)`
+    </span><span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">const </span>TEST_VECTORS: <span class="kw-2">&amp;</span>[(f32, f32)] = <span class="kw-2">&amp;</span>[
+        (<span class="number">1e-20</span>, -<span class="number">46.0517</span>),
+        (<span class="number">1e-19</span>, -<span class="number">43.749115</span>),
+        (<span class="number">1e-18</span>, -<span class="number">41.446533</span>),
+        (<span class="number">1e-17</span>, -<span class="number">39.143948</span>),
+        (<span class="number">1e-16</span>, -<span class="number">36.841362</span>),
+        (<span class="number">1e-15</span>, -<span class="number">34.538776</span>),
+        (<span class="number">1e-14</span>, -<span class="number">32.23619</span>),
+        (<span class="number">1e-13</span>, -<span class="number">29.933607</span>),
+        (<span class="number">1e-12</span>, -<span class="number">27.631021</span>),
+        (<span class="number">1e-11</span>, -<span class="number">25.328436</span>),
+        (<span class="number">1e-10</span>, -<span class="number">23.02585</span>),
+        (<span class="number">1e-09</span>, -<span class="number">20.723267</span>),
+        (<span class="number">1e-08</span>, -<span class="number">18.420681</span>),
+        (<span class="number">1e-07</span>, -<span class="number">16.118095</span>),
+        (<span class="number">1e-06</span>, -<span class="number">13.815511</span>),
+        (<span class="number">1e-05</span>, -<span class="number">11.512925</span>),
+        (<span class="number">1e-04</span>, -<span class="number">9.2103405</span>),
+        (<span class="number">0.001</span>, -<span class="number">6.9077554</span>),
+        (<span class="number">0.01</span>, -<span class="number">4.6051702</span>),
+        (<span class="number">0.1</span>, -<span class="number">2.3025851</span>),
         (<span class="number">10.0</span>, <span class="number">2.3025851</span>),
         (<span class="number">100.0</span>, <span class="number">4.6051702</span>),
         (<span class="number">1000.0</span>, <span class="number">6.9077554</span>),
@@ -207,22 +206,22 @@
         (<span class="number">1e+19</span>, <span class="number">43.749115</span>),
     ];
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">sanity_check</span>() {
-        <span class="macro">assert_eq!</span>(<span class="ident">ln_1to2_series_approximation</span>(<span class="number">1_f32</span>), <span class="number">0_f32</span>);
-        <span class="kw">for</span> (<span class="ident">x</span>, <span class="ident">expected</span>) <span class="kw">in</span> <span class="ident">TEST_VECTORS</span> {
-            <span class="kw">let</span> <span class="ident">ln_x</span> <span class="op">=</span> <span class="ident">ln_1to2_series_approximation</span>(<span class="kw-2">*</span><span class="ident">x</span>);
-            <span class="kw">let</span> <span class="ident">relative_error</span> <span class="op">=</span> <span class="ident">abs::abs</span>(<span class="ident">ln_x</span> <span class="op">-</span> <span class="kw-2">*</span><span class="ident">expected</span>) <span class="op">/</span> <span class="kw-2">*</span><span class="ident">expected</span>;
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>sanity_check() {
+        <span class="macro">assert_eq!</span>(ln_1to2_series_approximation(<span class="number">1_f32</span>), <span class="number">0_f32</span>);
+        <span class="kw">for </span>(x, expected) <span class="kw">in </span>TEST_VECTORS {
+            <span class="kw">let </span>ln_x = ln_1to2_series_approximation(<span class="kw-2">*</span>x);
+            <span class="kw">let </span>relative_error = abs::abs(ln_x - <span class="kw-2">*</span>expected) / <span class="kw-2">*</span>expected;
 
             <span class="macro">assert!</span>(
-                <span class="ident">relative_error</span> <span class="op">&lt;</span><span class="op">=</span> <span class="ident">MAX_ERROR</span>,
+                relative_error &lt;= MAX_ERROR,
                 <span class="string">&quot;relative_error {} too large: {} vs {}&quot;</span>,
-                <span class="ident">relative_error</span>,
-                <span class="ident">ln_x</span>,
-                <span class="ident">expected</span>
+                relative_error,
+                ln_x,
+                expected
             );
         }
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="micromath" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0 (a55dd71d5 2022-09-19)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="micromath" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0 (69f9c33d7 2022-12-12)" ></div></body></html>

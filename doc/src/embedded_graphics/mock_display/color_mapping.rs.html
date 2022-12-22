@@ -1,6 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.1/src/mock_display/color_mapping.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>color_mapping.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../embedded_graphics/index.html"><div class="logo-container"><img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../embedded_graphics/index.html"><div class="logo-container">
-                    <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../embedded_graphics/index.html">
-                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.1/src/mock_display/color_mapping.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>color_mapping.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../embedded_graphics/index.html">
+                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -188,193 +187,193 @@
 <span id="186">186</span>
 <span id="187">187</span>
 <span id="188">188</span>
-</pre><pre class="rust"><code><span class="kw">use</span> <span class="ident">embedded_graphics_core::pixelcolor</span>::{
-    <span class="ident">Bgr555</span>, <span class="ident">Bgr565</span>, <span class="ident">Bgr888</span>, <span class="ident">BinaryColor</span>, <span class="ident">Gray2</span>, <span class="ident">Gray4</span>, <span class="ident">Gray8</span>, <span class="ident">GrayColor</span>, <span class="ident">Rgb555</span>, <span class="ident">Rgb565</span>, <span class="ident">Rgb888</span>,
-    <span class="ident">RgbColor</span>, <span class="ident">WebColors</span>,
+</pre><pre class="rust"><code><span class="kw">use </span>embedded_graphics_core::pixelcolor::{
+    Bgr555, Bgr565, Bgr888, BinaryColor, Gray2, Gray4, Gray8, GrayColor, Rgb555, Rgb565, Rgb888,
+    RgbColor, WebColors,
 };
 
-<span class="doccomment">/// Mapping between `char`s and colors.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// See the [module-level documentation] for a table of implemented mappings.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// [module-level documentation]: index.html</span>
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">ColorMapping</span>: <span class="ident">Into</span><span class="op">&lt;</span><span class="ident">Rgb888</span><span class="op">&gt;</span> {
-    <span class="doccomment">/// Color used to display `None` values when `EG_FANCY_PANIC` is enabled.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// This color must be set to a color that isn&#39;t available in normal patterns to make it</span>
-    <span class="doccomment">/// distinguishable in the output. For non grayscale colors the default value should be used.</span>
-    <span class="kw">const</span> <span class="ident">NONE_COLOR</span>: <span class="ident">Rgb888</span> <span class="op">=</span> <span class="ident">Rgb888::new</span>(<span class="number">128</span>, <span class="number">128</span>, <span class="number">128</span>);
+<span class="doccomment">/// Mapping between `char`s and colors.
+///
+/// See the [module-level documentation] for a table of implemented mappings.
+///
+/// [module-level documentation]: index.html
+</span><span class="kw">pub trait </span>ColorMapping: Into&lt;Rgb888&gt; {
+    <span class="doccomment">/// Color used to display `None` values when `EG_FANCY_PANIC` is enabled.
+    ///
+    /// This color must be set to a color that isn&#39;t available in normal patterns to make it
+    /// distinguishable in the output. For non grayscale colors the default value should be used.
+    </span><span class="kw">const </span>NONE_COLOR: Rgb888 = Rgb888::new(<span class="number">128</span>, <span class="number">128</span>, <span class="number">128</span>);
 
-    <span class="doccomment">/// Converts a char into a color of type `C`.</span>
-    <span class="kw">fn</span> <span class="ident">char_to_color</span>(<span class="ident">c</span>: <span class="ident">char</span>) -&gt; <span class="self">Self</span>;
+    <span class="doccomment">/// Converts a char into a color of type `C`.
+    </span><span class="kw">fn </span>char_to_color(c: char) -&gt; <span class="self">Self</span>;
 
-    <span class="doccomment">/// Converts a color of type `C` into a char.</span>
-    <span class="kw">fn</span> <span class="ident">color_to_char</span>(<span class="ident">color</span>: <span class="self">Self</span>) -&gt; <span class="ident">char</span>;
+    <span class="doccomment">/// Converts a color of type `C` into a char.
+    </span><span class="kw">fn </span>color_to_char(color: <span class="self">Self</span>) -&gt; char;
 }
 
-<span class="kw">impl</span> <span class="ident">ColorMapping</span> <span class="kw">for</span> <span class="ident">BinaryColor</span> {
-    <span class="kw">fn</span> <span class="ident">char_to_color</span>(<span class="ident">c</span>: <span class="ident">char</span>) -&gt; <span class="self">Self</span> {
-        <span class="kw">match</span> <span class="ident">c</span> {
-            <span class="string">&#39;.&#39;</span> =&gt; <span class="ident">BinaryColor::Off</span>,
-            <span class="string">&#39;#&#39;</span> =&gt; <span class="ident">BinaryColor::On</span>,
-            <span class="kw">_</span> =&gt; <span class="macro">panic!</span>(<span class="string">&quot;Invalid char in pattern: &#39;{}&#39;&quot;</span>, <span class="ident">c</span>),
+<span class="kw">impl </span>ColorMapping <span class="kw">for </span>BinaryColor {
+    <span class="kw">fn </span>char_to_color(c: char) -&gt; <span class="self">Self </span>{
+        <span class="kw">match </span>c {
+            <span class="string">&#39;.&#39; </span>=&gt; BinaryColor::Off,
+            <span class="string">&#39;#&#39; </span>=&gt; BinaryColor::On,
+            <span class="kw">_ </span>=&gt; <span class="macro">panic!</span>(<span class="string">&quot;Invalid char in pattern: &#39;{}&#39;&quot;</span>, c),
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">color_to_char</span>(<span class="ident">color</span>: <span class="self">Self</span>) -&gt; <span class="ident">char</span> {
-        <span class="kw">match</span> <span class="ident">color</span> {
-            <span class="ident">BinaryColor::Off</span> =&gt; <span class="string">&#39;.&#39;</span>,
-            <span class="ident">BinaryColor::On</span> =&gt; <span class="string">&#39;#&#39;</span>,
+    <span class="kw">fn </span>color_to_char(color: <span class="self">Self</span>) -&gt; char {
+        <span class="kw">match </span>color {
+            BinaryColor::Off =&gt; <span class="string">&#39;.&#39;</span>,
+            BinaryColor::On =&gt; <span class="string">&#39;#&#39;</span>,
         }
     }
 }
 
-<span class="macro">macro_rules!</span> <span class="ident">impl_gray_color_mapping</span> {
-    (<span class="macro-nonterminal">$</span><span class="kw">type</span>:<span class="macro-nonterminal">ident</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">radix</span>:<span class="ident">expr</span>) =&gt; {
-        <span class="kw">impl</span> <span class="ident">ColorMapping</span> <span class="kw">for</span> <span class="macro-nonterminal">$</span><span class="kw">type</span> {
-            <span class="kw">const</span> <span class="macro-nonterminal">NONE_COLOR</span>: <span class="ident">Rgb888</span> <span class="op">=</span> <span class="ident">Rgb888::CSS_STEEL_BLUE</span>;
+<span class="macro">macro_rules! </span>impl_gray_color_mapping {
+    (<span class="macro-nonterminal">$</span><span class="kw">type</span>:<span class="macro-nonterminal">ident</span>, <span class="macro-nonterminal">$radix</span>:expr) =&gt; {
+        <span class="kw">impl </span>ColorMapping <span class="kw">for </span><span class="macro-nonterminal">$</span><span class="kw">type </span>{
+            <span class="kw">const </span><span class="macro-nonterminal">NONE_COLOR</span>: Rgb888 = Rgb888::CSS_STEEL_BLUE;
 
-            <span class="kw">fn</span> <span class="ident">char_to_color</span>(<span class="ident">c</span>: <span class="ident">char</span>) -&gt; <span class="self">Self</span> {
-                <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">digit</span>) <span class="op">=</span> <span class="ident">c</span>.<span class="ident">to_digit</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">radix</span>) {
-                    <span class="ident"><span class="self">Self</span>::new</span>(<span class="ident">digit</span> <span class="kw">as</span> <span class="ident">u8</span>)
-                } <span class="kw">else</span> {
-                    <span class="macro">panic!</span>(<span class="string">&quot;invalid char in pattern: &#39;{}&#39;&quot;</span>, <span class="ident">c</span>)
+            <span class="kw">fn </span>char_to_color(c: char) -&gt; <span class="self">Self </span>{
+                <span class="kw">if let </span><span class="prelude-val">Some</span>(digit) = c.to_digit(<span class="macro-nonterminal">$radix</span>) {
+                    <span class="self">Self</span>::new(digit <span class="kw">as </span>u8)
+                } <span class="kw">else </span>{
+                    <span class="macro">panic!</span>(<span class="string">&quot;invalid char in pattern: &#39;{}&#39;&quot;</span>, c)
                 }
             }
 
-            <span class="kw">fn</span> <span class="ident">color_to_char</span>(<span class="ident">color</span>: <span class="self">Self</span>) -&gt; <span class="ident">char</span> {
-                <span class="ident">core::char::from_digit</span>(<span class="ident">color</span>.<span class="ident">luma</span>() <span class="kw">as</span> <span class="ident">u32</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">radix</span>)
-                    .<span class="ident">unwrap</span>()
-                    .<span class="ident">to_ascii_uppercase</span>()
+            <span class="kw">fn </span>color_to_char(color: <span class="self">Self</span>) -&gt; char {
+                core::char::from_digit(color.luma() <span class="kw">as </span>u32, <span class="macro-nonterminal">$radix</span>)
+                    .unwrap()
+                    .to_ascii_uppercase()
             }
         }
     };
 }
 
-<span class="macro">impl_gray_color_mapping!</span>(<span class="ident">Gray2</span>, <span class="number">4</span>);
-<span class="macro">impl_gray_color_mapping!</span>(<span class="ident">Gray4</span>, <span class="number">16</span>);
+<span class="macro">impl_gray_color_mapping!</span>(Gray2, <span class="number">4</span>);
+<span class="macro">impl_gray_color_mapping!</span>(Gray4, <span class="number">16</span>);
 
-<span class="kw">impl</span> <span class="ident">ColorMapping</span> <span class="kw">for</span> <span class="ident">Gray8</span> {
-    <span class="kw">const</span> <span class="ident">NONE_COLOR</span>: <span class="ident">Rgb888</span> <span class="op">=</span> <span class="ident">Rgb888::CSS_STEEL_BLUE</span>;
+<span class="kw">impl </span>ColorMapping <span class="kw">for </span>Gray8 {
+    <span class="kw">const </span>NONE_COLOR: Rgb888 = Rgb888::CSS_STEEL_BLUE;
 
-    <span class="kw">fn</span> <span class="ident">char_to_color</span>(<span class="ident">c</span>: <span class="ident">char</span>) -&gt; <span class="self">Self</span> {
-        <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">digit</span>) <span class="op">=</span> <span class="ident">c</span>.<span class="ident">to_digit</span>(<span class="number">16</span>) {
-            <span class="ident"><span class="self">Self</span>::new</span>(<span class="ident">digit</span> <span class="kw">as</span> <span class="ident">u8</span> <span class="op">*</span> <span class="number">0x11</span>)
-        } <span class="kw">else</span> {
-            <span class="macro">panic!</span>(<span class="string">&quot;invalid char in pattern: &#39;{}&#39;&quot;</span>, <span class="ident">c</span>);
+    <span class="kw">fn </span>char_to_color(c: char) -&gt; <span class="self">Self </span>{
+        <span class="kw">if let </span><span class="prelude-val">Some</span>(digit) = c.to_digit(<span class="number">16</span>) {
+            <span class="self">Self</span>::new(digit <span class="kw">as </span>u8 * <span class="number">0x11</span>)
+        } <span class="kw">else </span>{
+            <span class="macro">panic!</span>(<span class="string">&quot;invalid char in pattern: &#39;{}&#39;&quot;</span>, c);
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">color_to_char</span>(<span class="ident">color</span>: <span class="self">Self</span>) -&gt; <span class="ident">char</span> {
-        <span class="kw">let</span> <span class="ident">luma</span> <span class="op">=</span> <span class="ident">color</span>.<span class="ident">luma</span>();
-        <span class="kw">let</span> <span class="ident">lower</span> <span class="op">=</span> <span class="ident">luma</span> <span class="op">&amp;</span> <span class="number">0xF</span>;
-        <span class="kw">let</span> <span class="ident">upper</span> <span class="op">=</span> <span class="ident">luma</span> <span class="op">&gt;</span><span class="op">&gt;</span> <span class="number">4</span>;
+    <span class="kw">fn </span>color_to_char(color: <span class="self">Self</span>) -&gt; char {
+        <span class="kw">let </span>luma = color.luma();
+        <span class="kw">let </span>lower = luma &amp; <span class="number">0xF</span>;
+        <span class="kw">let </span>upper = luma &gt;&gt; <span class="number">4</span>;
 
-        <span class="kw">if</span> <span class="ident">lower</span> <span class="op">!</span><span class="op">=</span> <span class="ident">upper</span> {
-            <span class="string">&#39;?&#39;</span>
-        } <span class="kw">else</span> {
-            <span class="ident">core::char::from_digit</span>(<span class="ident">lower</span> <span class="kw">as</span> <span class="ident">u32</span>, <span class="number">16</span>)
-                .<span class="ident">unwrap</span>()
-                .<span class="ident">to_ascii_uppercase</span>()
+        <span class="kw">if </span>lower != upper {
+            <span class="string">&#39;?&#39;
+        </span>} <span class="kw">else </span>{
+            core::char::from_digit(lower <span class="kw">as </span>u32, <span class="number">16</span>)
+                .unwrap()
+                .to_ascii_uppercase()
         }
     }
 }
 
-<span class="macro">macro_rules!</span> <span class="ident">impl_rgb_color_mapping</span> {
+<span class="macro">macro_rules! </span>impl_rgb_color_mapping {
     (<span class="macro-nonterminal">$</span><span class="kw">type</span>:<span class="macro-nonterminal">ident</span>) =&gt; {
-        <span class="kw">impl</span> <span class="ident">ColorMapping</span> <span class="kw">for</span> <span class="macro-nonterminal">$</span><span class="kw">type</span> {
-            <span class="kw">fn</span> <span class="macro-nonterminal">char_to_color</span>(<span class="ident">c</span>: <span class="ident">char</span>) -&gt; <span class="self">Self</span> {
-                <span class="kw">match</span> <span class="ident">c</span> {
-                    <span class="string">&#39;K&#39;</span> =&gt; <span class="ident"><span class="self">Self</span>::BLACK</span>,
-                    <span class="string">&#39;R&#39;</span> =&gt; <span class="ident"><span class="self">Self</span>::RED</span>,
-                    <span class="string">&#39;G&#39;</span> =&gt; <span class="ident"><span class="self">Self</span>::GREEN</span>,
-                    <span class="string">&#39;B&#39;</span> =&gt; <span class="ident"><span class="self">Self</span>::BLUE</span>,
-                    <span class="string">&#39;Y&#39;</span> =&gt; <span class="ident"><span class="self">Self</span>::YELLOW</span>,
-                    <span class="string">&#39;M&#39;</span> =&gt; <span class="ident"><span class="self">Self</span>::MAGENTA</span>,
-                    <span class="string">&#39;C&#39;</span> =&gt; <span class="ident"><span class="self">Self</span>::CYAN</span>,
-                    <span class="string">&#39;W&#39;</span> =&gt; <span class="ident"><span class="self">Self</span>::WHITE</span>,
-                    <span class="kw">_</span> =&gt; <span class="macro">panic!</span>(<span class="string">&quot;Invalid char in pattern: &#39;{}&#39;&quot;</span>, <span class="ident">c</span>),
+        <span class="kw">impl </span>ColorMapping <span class="kw">for </span><span class="macro-nonterminal">$</span><span class="kw">type </span>{
+            <span class="kw">fn </span><span class="macro-nonterminal">char_to_color</span>(c: char) -&gt; <span class="self">Self </span>{
+                <span class="kw">match </span>c {
+                    <span class="string">&#39;K&#39; </span>=&gt; <span class="self">Self</span>::BLACK,
+                    <span class="string">&#39;R&#39; </span>=&gt; <span class="self">Self</span>::RED,
+                    <span class="string">&#39;G&#39; </span>=&gt; <span class="self">Self</span>::GREEN,
+                    <span class="string">&#39;B&#39; </span>=&gt; <span class="self">Self</span>::BLUE,
+                    <span class="string">&#39;Y&#39; </span>=&gt; <span class="self">Self</span>::YELLOW,
+                    <span class="string">&#39;M&#39; </span>=&gt; <span class="self">Self</span>::MAGENTA,
+                    <span class="string">&#39;C&#39; </span>=&gt; <span class="self">Self</span>::CYAN,
+                    <span class="string">&#39;W&#39; </span>=&gt; <span class="self">Self</span>::WHITE,
+                    <span class="kw">_ </span>=&gt; <span class="macro">panic!</span>(<span class="string">&quot;Invalid char in pattern: &#39;{}&#39;&quot;</span>, c),
                 }
             }
 
-            <span class="kw">fn</span> <span class="ident">color_to_char</span>(<span class="ident">color</span>: <span class="self">Self</span>) -&gt; <span class="ident">char</span> {
-                <span class="kw">match</span> <span class="ident">color</span> {
-                    <span class="ident"><span class="self">Self</span>::BLACK</span> =&gt; <span class="string">&#39;K&#39;</span>,
-                    <span class="ident"><span class="self">Self</span>::RED</span> =&gt; <span class="string">&#39;R&#39;</span>,
-                    <span class="ident"><span class="self">Self</span>::GREEN</span> =&gt; <span class="string">&#39;G&#39;</span>,
-                    <span class="ident"><span class="self">Self</span>::BLUE</span> =&gt; <span class="string">&#39;B&#39;</span>,
-                    <span class="ident"><span class="self">Self</span>::YELLOW</span> =&gt; <span class="string">&#39;Y&#39;</span>,
-                    <span class="ident"><span class="self">Self</span>::MAGENTA</span> =&gt; <span class="string">&#39;M&#39;</span>,
-                    <span class="ident"><span class="self">Self</span>::CYAN</span> =&gt; <span class="string">&#39;C&#39;</span>,
-                    <span class="ident"><span class="self">Self</span>::WHITE</span> =&gt; <span class="string">&#39;W&#39;</span>,
-                    <span class="kw">_</span> =&gt; <span class="string">&#39;?&#39;</span>,
+            <span class="kw">fn </span>color_to_char(color: <span class="self">Self</span>) -&gt; char {
+                <span class="kw">match </span>color {
+                    <span class="self">Self</span>::BLACK =&gt; <span class="string">&#39;K&#39;</span>,
+                    <span class="self">Self</span>::RED =&gt; <span class="string">&#39;R&#39;</span>,
+                    <span class="self">Self</span>::GREEN =&gt; <span class="string">&#39;G&#39;</span>,
+                    <span class="self">Self</span>::BLUE =&gt; <span class="string">&#39;B&#39;</span>,
+                    <span class="self">Self</span>::YELLOW =&gt; <span class="string">&#39;Y&#39;</span>,
+                    <span class="self">Self</span>::MAGENTA =&gt; <span class="string">&#39;M&#39;</span>,
+                    <span class="self">Self</span>::CYAN =&gt; <span class="string">&#39;C&#39;</span>,
+                    <span class="self">Self</span>::WHITE =&gt; <span class="string">&#39;W&#39;</span>,
+                    <span class="kw">_ </span>=&gt; <span class="string">&#39;?&#39;</span>,
                 }
             }
         }
     };
 }
 
-<span class="macro">impl_rgb_color_mapping!</span>(<span class="ident">Rgb555</span>);
-<span class="macro">impl_rgb_color_mapping!</span>(<span class="ident">Bgr555</span>);
-<span class="macro">impl_rgb_color_mapping!</span>(<span class="ident">Rgb565</span>);
-<span class="macro">impl_rgb_color_mapping!</span>(<span class="ident">Bgr565</span>);
-<span class="macro">impl_rgb_color_mapping!</span>(<span class="ident">Rgb888</span>);
-<span class="macro">impl_rgb_color_mapping!</span>(<span class="ident">Bgr888</span>);
+<span class="macro">impl_rgb_color_mapping!</span>(Rgb555);
+<span class="macro">impl_rgb_color_mapping!</span>(Bgr555);
+<span class="macro">impl_rgb_color_mapping!</span>(Rgb565);
+<span class="macro">impl_rgb_color_mapping!</span>(Bgr565);
+<span class="macro">impl_rgb_color_mapping!</span>(Rgb888);
+<span class="macro">impl_rgb_color_mapping!</span>(Bgr888);
 
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
-<span class="kw">mod</span> <span class="ident">tests</span> {
-    <span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
+<span class="attribute">#[cfg(test)]
+</span><span class="kw">mod </span>tests {
+    <span class="kw">use super</span>::<span class="kw-2">*</span>;
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">gray2_mapping</span>() {
-        <span class="kw">for</span> <span class="ident">luma</span> <span class="kw">in</span> <span class="number">0</span>..<span class="number">4</span> {
-            <span class="kw">let</span> <span class="ident">color</span> <span class="op">=</span> <span class="ident">Gray2::new</span>(<span class="ident">luma</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>gray2_mapping() {
+        <span class="kw">for </span>luma <span class="kw">in </span><span class="number">0</span>..<span class="number">4 </span>{
+            <span class="kw">let </span>color = Gray2::new(luma);
 
-            <span class="macro">assert_eq!</span>(<span class="ident">color</span>, <span class="ident">Gray2::char_to_color</span>(<span class="ident">Gray2::color_to_char</span>(<span class="ident">color</span>)));
+            <span class="macro">assert_eq!</span>(color, Gray2::char_to_color(Gray2::color_to_char(color)));
         }
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">gray4_mapping</span>() {
-        <span class="kw">for</span> <span class="ident">luma</span> <span class="kw">in</span> <span class="number">0</span>..<span class="number">16</span> {
-            <span class="kw">let</span> <span class="ident">color</span> <span class="op">=</span> <span class="ident">Gray4::new</span>(<span class="ident">luma</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>gray4_mapping() {
+        <span class="kw">for </span>luma <span class="kw">in </span><span class="number">0</span>..<span class="number">16 </span>{
+            <span class="kw">let </span>color = Gray4::new(luma);
 
-            <span class="macro">assert_eq!</span>(<span class="ident">color</span>, <span class="ident">Gray4::char_to_color</span>(<span class="ident">Gray4::color_to_char</span>(<span class="ident">color</span>)));
+            <span class="macro">assert_eq!</span>(color, Gray4::char_to_color(Gray4::color_to_char(color)));
         }
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">gray8_mapping</span>() {
-        <span class="kw">for</span> <span class="ident">luma</span> <span class="kw">in</span> <span class="number">0</span>..<span class="number">16</span> {
-            <span class="kw">let</span> <span class="ident">color</span> <span class="op">=</span> <span class="ident">Gray8::new</span>(<span class="ident">luma</span> <span class="op">*</span> <span class="number">0x11</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>gray8_mapping() {
+        <span class="kw">for </span>luma <span class="kw">in </span><span class="number">0</span>..<span class="number">16 </span>{
+            <span class="kw">let </span>color = Gray8::new(luma * <span class="number">0x11</span>);
 
-            <span class="macro">assert_eq!</span>(<span class="ident">color</span>, <span class="ident">Gray8::char_to_color</span>(<span class="ident">Gray8::color_to_char</span>(<span class="ident">color</span>)));
+            <span class="macro">assert_eq!</span>(color, Gray8::char_to_color(Gray8::color_to_char(color)));
         }
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="attribute">#[<span class="ident">should_panic</span>(<span class="ident">expected</span> <span class="op">=</span> <span class="string">&quot;invalid char in pattern: &#39;4&#39;&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">invalid_gray2_char_4</span>() {
-        <span class="ident">Gray2::char_to_color</span>(<span class="string">&#39;4&#39;</span>);
+    <span class="attribute">#[test]
+    #[should_panic(expected = <span class="string">&quot;invalid char in pattern: &#39;4&#39;&quot;</span>)]
+    </span><span class="kw">fn </span>invalid_gray2_char_4() {
+        Gray2::char_to_color(<span class="string">&#39;4&#39;</span>);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="attribute">#[<span class="ident">should_panic</span>(<span class="ident">expected</span> <span class="op">=</span> <span class="string">&quot;invalid char in pattern: &#39;A&#39;&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">invalid_gray2_char_a</span>() {
-        <span class="ident">Gray2::char_to_color</span>(<span class="string">&#39;A&#39;</span>);
+    <span class="attribute">#[test]
+    #[should_panic(expected = <span class="string">&quot;invalid char in pattern: &#39;A&#39;&quot;</span>)]
+    </span><span class="kw">fn </span>invalid_gray2_char_a() {
+        Gray2::char_to_color(<span class="string">&#39;A&#39;</span>);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="attribute">#[<span class="ident">should_panic</span>(<span class="ident">expected</span> <span class="op">=</span> <span class="string">&quot;invalid char in pattern: &#39;G&#39;&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">invalid_gray4_char_g</span>() {
-        <span class="ident">Gray2::char_to_color</span>(<span class="string">&#39;G&#39;</span>);
+    <span class="attribute">#[test]
+    #[should_panic(expected = <span class="string">&quot;invalid char in pattern: &#39;G&#39;&quot;</span>)]
+    </span><span class="kw">fn </span>invalid_gray4_char_g() {
+        Gray2::char_to_color(<span class="string">&#39;G&#39;</span>);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="attribute">#[<span class="ident">should_panic</span>(<span class="ident">expected</span> <span class="op">=</span> <span class="string">&quot;invalid char in pattern: &#39;G&#39;&quot;</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">invalid_gray8_char_g</span>() {
-        <span class="ident">Gray8::char_to_color</span>(<span class="string">&#39;G&#39;</span>);
+    <span class="attribute">#[test]
+    #[should_panic(expected = <span class="string">&quot;invalid char in pattern: &#39;G&#39;&quot;</span>)]
+    </span><span class="kw">fn </span>invalid_gray8_char_g() {
+        Gray8::char_to_color(<span class="string">&#39;G&#39;</span>);
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="embedded_graphics" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0 (a55dd71d5 2022-09-19)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="embedded_graphics" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0 (69f9c33d7 2022-12-12)" ></div></body></html>

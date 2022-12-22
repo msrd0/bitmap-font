@@ -1,6 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.1/src/text/mod.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../embedded_graphics/index.html"><div class="logo-container"><img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../embedded_graphics/index.html"><div class="logo-container">
-                    <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../embedded_graphics/index.html">
-                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.1/src/text/mod.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../embedded_graphics/index.html">
+                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -317,322 +316,322 @@
 <span id="315">315</span>
 <span id="316">316</span>
 <span id="317">317</span>
-</pre><pre class="rust"><code><span class="doccomment">//! Text drawing.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! The [`Text`] drawable can be used to draw text on a draw target. To construct a [`Text`] object</span>
-<span class="doccomment">//! at least a text string, position and character style are required. For advanced formatting</span>
-<span class="doccomment">//! options an additional [`TextStyle`] object might be required.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! Text rendering in embedded-graphics is designed to be extendable by text renderers for different</span>
-<span class="doccomment">//! font formats. To use a text renderer in an embedded-graphics project each renderer provides a</span>
-<span class="doccomment">//! character style object. This object is used to set the appearance of characters, like the text</span>
-<span class="doccomment">//! color or the used font. The available settings vary between different text renderer and are</span>
-<span class="doccomment">//! documented in the text renderer documentation.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! See the [`renderer` module] docs for more information about implementing custom text renderers.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! Embedded-graphics includes a text renderer for monospaced fonts in the [`mono_font`] module.</span>
-<span class="doccomment">//! Most examples will use this renderer and the associated [`MonoTextStyle`] character style.</span>
-<span class="doccomment">//! But they should be easily adaptable to any external renderer listed in the</span>
-<span class="doccomment">//! [external crates list].</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! # Text style</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! In addition to styling the individual characters the [`Text`] drawable also contains a</span>
-<span class="doccomment">//! [`TextStyle`] setting. The text style is used to set the alignment and line spacing of text</span>
-<span class="doccomment">//! objects.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! The [`alignment`] setting sets the horizontal alignment of the text. With the default value</span>
-<span class="doccomment">//! `Left` the text will be rendered to the right of the given text position. Analogously `Right`</span>
-<span class="doccomment">//! aligned text will be rendered to the left of the given position. `Center`ed text will extend</span>
-<span class="doccomment">//! equally to the left and right of the text position.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! The [`baseline`] setting defines the vertical alignment of the first line of text. With the default</span>
-<span class="doccomment">//! setting of `Alphabetic` the glyphs will be drawn with their descenders below the given position.</span>
-<span class="doccomment">//! This means that the bottom of glyphs without descender (like &#39;A&#39;) will be on the same Y</span>
-<span class="doccomment">//! coordinate as the given position. The other baseline settings will position the glyphs relative</span>
-<span class="doccomment">//! to the EM box, without considering the baseline.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! If the text contains multiple lines only the first line will be vertically aligned based on the</span>
-<span class="doccomment">//! baseline setting. All following lines will be spaced relative to the first line, according to the [`line_height`] setting.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! # Examples</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ## Draw basic text</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ```</span>
-<span class="doccomment">//! use embedded_graphics::{</span>
-<span class="doccomment">//!     mono_font::{ascii::FONT_6X10, MonoTextStyle},</span>
-<span class="doccomment">//!     pixelcolor::Rgb565,</span>
-<span class="doccomment">//!     prelude::*,</span>
-<span class="doccomment">//!     text::Text,</span>
-<span class="doccomment">//! };</span>
-<span class="doccomment">//! # use embedded_graphics::mock_display::MockDisplay;</span>
-<span class="doccomment">//! # let mut display: MockDisplay&lt;Rgb565&gt; = MockDisplay::default();</span>
-<span class="doccomment">//! # display.set_allow_out_of_bounds_drawing(true);</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! // Create a new character style</span>
-<span class="doccomment">//! let style = MonoTextStyle::new(&amp;FONT_6X10, Rgb565::WHITE);</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! // Create a text at position (20, 30) and draw it using the previously defined style</span>
-<span class="doccomment">//! Text::new(&quot;Hello Rust!&quot;, Point::new(20, 30), style).draw(&amp;mut display)?;</span>
-<span class="doccomment">//! # Ok::&lt;(), core::convert::Infallible&gt;(())</span>
-<span class="doccomment">//! ```</span>
-<span class="doccomment">//! ## Draw centered text</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! [`Text`] provides the [`with_alignment`] and [`with_baseline`] constructors to easily set</span>
-<span class="doccomment">//! these commonly used settings without having to build a [`TextStyle`] object first.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ```</span>
-<span class="doccomment">//! use embedded_graphics::{</span>
-<span class="doccomment">//!     mono_font::{ascii::FONT_6X10, MonoTextStyle},</span>
-<span class="doccomment">//!     pixelcolor::Rgb565,</span>
-<span class="doccomment">//!     prelude::*,</span>
-<span class="doccomment">//!     text::{Text, Alignment},</span>
-<span class="doccomment">//! };</span>
-<span class="doccomment">//! # use embedded_graphics::mock_display::MockDisplay;</span>
-<span class="doccomment">//! # let mut display: MockDisplay&lt;Rgb565&gt; = MockDisplay::default();</span>
-<span class="doccomment">//! # display.set_allow_out_of_bounds_drawing(true);</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! // Create a new character style</span>
-<span class="doccomment">//! let style = MonoTextStyle::new(&amp;FONT_6X10, Rgb565::WHITE);</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! // Create a text at position (20, 30) and draw it using the previously defined style</span>
-<span class="doccomment">//! Text::with_alignment(</span>
-<span class="doccomment">//!     &quot;First line\nSecond line&quot;,</span>
-<span class="doccomment">//!     Point::new(20, 30),</span>
-<span class="doccomment">//!     style,</span>
-<span class="doccomment">//!     Alignment::Center,</span>
-<span class="doccomment">//! )</span>
-<span class="doccomment">//! .draw(&amp;mut display)?;</span>
-<span class="doccomment">//! # Ok::&lt;(), core::convert::Infallible&gt;(())</span>
-<span class="doccomment">//! ```</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ## Draw text with `TextStyle`</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! For more advanced text styles a [`TextStyle`] object can be build using the</span>
-<span class="doccomment">//! [`TextStyleBuilder`] and then passed to the [`with_text_style`] constructor.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ```</span>
-<span class="doccomment">//! use embedded_graphics::{</span>
-<span class="doccomment">//!     mono_font::{ascii::FONT_6X10, MonoTextStyle},</span>
-<span class="doccomment">//!     pixelcolor::Rgb565,</span>
-<span class="doccomment">//!     prelude::*,</span>
-<span class="doccomment">//!     text::{Alignment, LineHeight, Text, TextStyleBuilder},</span>
-<span class="doccomment">//! };</span>
-<span class="doccomment">//! # use embedded_graphics::mock_display::MockDisplay;</span>
-<span class="doccomment">//! # let mut display: MockDisplay&lt;Rgb565&gt; = MockDisplay::default();</span>
-<span class="doccomment">//! # display.set_allow_out_of_bounds_drawing(true);</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! // Create a new character style.</span>
-<span class="doccomment">//! let character_style = MonoTextStyle::new(&amp;FONT_6X10, Rgb565::WHITE);</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! // Create a new text style.</span>
-<span class="doccomment">//! let text_style = TextStyleBuilder::new()</span>
-<span class="doccomment">//!     .alignment(Alignment::Center)</span>
-<span class="doccomment">//!     .line_height(LineHeight::Percent(150))</span>
-<span class="doccomment">//!     .build();</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! // Create a text at position (20, 30) and draw it using the previously defined style.</span>
-<span class="doccomment">//! Text::with_text_style(</span>
-<span class="doccomment">//!     &quot;First line\nSecond line&quot;,</span>
-<span class="doccomment">//!     Point::new(20, 30),</span>
-<span class="doccomment">//!     character_style,</span>
-<span class="doccomment">//!     text_style,</span>
-<span class="doccomment">//! )</span>
-<span class="doccomment">//! .draw(&amp;mut display)?;</span>
-<span class="doccomment">//! # Ok::&lt;(), core::convert::Infallible&gt;(())</span>
-<span class="doccomment">//! ```</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ## Combine different character styles</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! The `draw` method for text drawables returns the position of the next character. This can be</span>
-<span class="doccomment">//! used to combine text with different character styles on a single line of text.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ```</span>
-<span class="doccomment">//! use embedded_graphics::{</span>
-<span class="doccomment">//!     mono_font::{ascii::{FONT_6X10, FONT_10X20}, MonoTextStyle},</span>
-<span class="doccomment">//!     pixelcolor::Rgb565,</span>
-<span class="doccomment">//!     prelude::*,</span>
-<span class="doccomment">//!     text::{Alignment, LineHeight, Text, TextStyleBuilder},</span>
-<span class="doccomment">//! };</span>
-<span class="doccomment">//! # use embedded_graphics::mock_display::MockDisplay;</span>
-<span class="doccomment">//! # let mut display: MockDisplay&lt;Rgb565&gt; = MockDisplay::default();</span>
-<span class="doccomment">//! # display.set_allow_out_of_bounds_drawing(true);</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! // Create a small and a large character style.</span>
-<span class="doccomment">//! let small_style = MonoTextStyle::new(&amp;FONT_6X10, Rgb565::WHITE);</span>
-<span class="doccomment">//! let large_style = MonoTextStyle::new(&amp;FONT_10X20, Rgb565::WHITE);</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! // Draw the first text at (20, 30) using the small character style.</span>
-<span class="doccomment">//! let next = Text::new(&quot;small &quot;, Point::new(20, 30), small_style).draw(&amp;mut display)?;</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! // Draw the second text after the first text using the large character style.</span>
-<span class="doccomment">//! let next = Text::new(&quot;large&quot;, next, large_style).draw(&amp;mut display)?;</span>
-<span class="doccomment">//! # Ok::&lt;(), core::convert::Infallible&gt;(())</span>
-<span class="doccomment">//! ```</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! [`Text`]: struct.Text.html</span>
-<span class="doccomment">//! [`Text::new`]: struct.TextStyle.html#method.new</span>
-<span class="doccomment">//! [`with_alignment`]: struct.Text.html#method.with_alignment</span>
-<span class="doccomment">//! [`with_baseline`]: struct.Text.html#method.with_baseline</span>
-<span class="doccomment">//! [`with_text_style`]: struct.Text.html#method.with_text_style</span>
-<span class="doccomment">//! [`TextStyle`]: struct.TextStyle.html</span>
-<span class="doccomment">//! [`alignment`]: struct.TextStyle.html#structfield.alignment</span>
-<span class="doccomment">//! [`baseline`]: struct.TextStyle.html#structfield.baseline</span>
-<span class="doccomment">//! [`line_height`]: struct.TextStyle.html#structfield.line_height</span>
-<span class="doccomment">//! [`TextStyleBuilder`]: struct.TextStyleBuilder.html</span>
-<span class="doccomment">//! [`mono_font`]: ../mono_font/index.html</span>
-<span class="doccomment">//! [`MonoTextStyle`]: ../mono_font/struct.MonoTextStyle.html</span>
-<span class="doccomment">//! [`renderer` module]: renderer/index.html</span>
-<span class="doccomment">//! [external crates list]: ../index.html#additional-functions-provided-by-external-crates</span>
+</pre><pre class="rust"><code><span class="doccomment">//! Text drawing.
+//!
+//! The [`Text`] drawable can be used to draw text on a draw target. To construct a [`Text`] object
+//! at least a text string, position and character style are required. For advanced formatting
+//! options an additional [`TextStyle`] object might be required.
+//!
+//! Text rendering in embedded-graphics is designed to be extendable by text renderers for different
+//! font formats. To use a text renderer in an embedded-graphics project each renderer provides a
+//! character style object. This object is used to set the appearance of characters, like the text
+//! color or the used font. The available settings vary between different text renderer and are
+//! documented in the text renderer documentation.
+//!
+//! See the [`renderer` module] docs for more information about implementing custom text renderers.
+//!
+//! Embedded-graphics includes a text renderer for monospaced fonts in the [`mono_font`] module.
+//! Most examples will use this renderer and the associated [`MonoTextStyle`] character style.
+//! But they should be easily adaptable to any external renderer listed in the
+//! [external crates list].
+//!
+//! # Text style
+//!
+//! In addition to styling the individual characters the [`Text`] drawable also contains a
+//! [`TextStyle`] setting. The text style is used to set the alignment and line spacing of text
+//! objects.
+//!
+//! The [`alignment`] setting sets the horizontal alignment of the text. With the default value
+//! `Left` the text will be rendered to the right of the given text position. Analogously `Right`
+//! aligned text will be rendered to the left of the given position. `Center`ed text will extend
+//! equally to the left and right of the text position.
+//!
+//! The [`baseline`] setting defines the vertical alignment of the first line of text. With the default
+//! setting of `Alphabetic` the glyphs will be drawn with their descenders below the given position.
+//! This means that the bottom of glyphs without descender (like &#39;A&#39;) will be on the same Y
+//! coordinate as the given position. The other baseline settings will position the glyphs relative
+//! to the EM box, without considering the baseline.
+//!
+//! If the text contains multiple lines only the first line will be vertically aligned based on the
+//! baseline setting. All following lines will be spaced relative to the first line, according to the [`line_height`] setting.
+//!
+//! # Examples
+//!
+//! ## Draw basic text
+//!
+//! ```
+//! use embedded_graphics::{
+//!     mono_font::{ascii::FONT_6X10, MonoTextStyle},
+//!     pixelcolor::Rgb565,
+//!     prelude::*,
+//!     text::Text,
+//! };
+//! # use embedded_graphics::mock_display::MockDisplay;
+//! # let mut display: MockDisplay&lt;Rgb565&gt; = MockDisplay::default();
+//! # display.set_allow_out_of_bounds_drawing(true);
+//!
+//! // Create a new character style
+//! let style = MonoTextStyle::new(&amp;FONT_6X10, Rgb565::WHITE);
+//!
+//! // Create a text at position (20, 30) and draw it using the previously defined style
+//! Text::new(&quot;Hello Rust!&quot;, Point::new(20, 30), style).draw(&amp;mut display)?;
+//! # Ok::&lt;(), core::convert::Infallible&gt;(())
+//! ```
+//! ## Draw centered text
+//!
+//! [`Text`] provides the [`with_alignment`] and [`with_baseline`] constructors to easily set
+//! these commonly used settings without having to build a [`TextStyle`] object first.
+//!
+//! ```
+//! use embedded_graphics::{
+//!     mono_font::{ascii::FONT_6X10, MonoTextStyle},
+//!     pixelcolor::Rgb565,
+//!     prelude::*,
+//!     text::{Text, Alignment},
+//! };
+//! # use embedded_graphics::mock_display::MockDisplay;
+//! # let mut display: MockDisplay&lt;Rgb565&gt; = MockDisplay::default();
+//! # display.set_allow_out_of_bounds_drawing(true);
+//!
+//! // Create a new character style
+//! let style = MonoTextStyle::new(&amp;FONT_6X10, Rgb565::WHITE);
+//!
+//! // Create a text at position (20, 30) and draw it using the previously defined style
+//! Text::with_alignment(
+//!     &quot;First line\nSecond line&quot;,
+//!     Point::new(20, 30),
+//!     style,
+//!     Alignment::Center,
+//! )
+//! .draw(&amp;mut display)?;
+//! # Ok::&lt;(), core::convert::Infallible&gt;(())
+//! ```
+//!
+//! ## Draw text with `TextStyle`
+//!
+//! For more advanced text styles a [`TextStyle`] object can be build using the
+//! [`TextStyleBuilder`] and then passed to the [`with_text_style`] constructor.
+//!
+//! ```
+//! use embedded_graphics::{
+//!     mono_font::{ascii::FONT_6X10, MonoTextStyle},
+//!     pixelcolor::Rgb565,
+//!     prelude::*,
+//!     text::{Alignment, LineHeight, Text, TextStyleBuilder},
+//! };
+//! # use embedded_graphics::mock_display::MockDisplay;
+//! # let mut display: MockDisplay&lt;Rgb565&gt; = MockDisplay::default();
+//! # display.set_allow_out_of_bounds_drawing(true);
+//!
+//! // Create a new character style.
+//! let character_style = MonoTextStyle::new(&amp;FONT_6X10, Rgb565::WHITE);
+//!
+//! // Create a new text style.
+//! let text_style = TextStyleBuilder::new()
+//!     .alignment(Alignment::Center)
+//!     .line_height(LineHeight::Percent(150))
+//!     .build();
+//!
+//! // Create a text at position (20, 30) and draw it using the previously defined style.
+//! Text::with_text_style(
+//!     &quot;First line\nSecond line&quot;,
+//!     Point::new(20, 30),
+//!     character_style,
+//!     text_style,
+//! )
+//! .draw(&amp;mut display)?;
+//! # Ok::&lt;(), core::convert::Infallible&gt;(())
+//! ```
+//!
+//! ## Combine different character styles
+//!
+//! The `draw` method for text drawables returns the position of the next character. This can be
+//! used to combine text with different character styles on a single line of text.
+//!
+//! ```
+//! use embedded_graphics::{
+//!     mono_font::{ascii::{FONT_6X10, FONT_10X20}, MonoTextStyle},
+//!     pixelcolor::Rgb565,
+//!     prelude::*,
+//!     text::{Alignment, LineHeight, Text, TextStyleBuilder},
+//! };
+//! # use embedded_graphics::mock_display::MockDisplay;
+//! # let mut display: MockDisplay&lt;Rgb565&gt; = MockDisplay::default();
+//! # display.set_allow_out_of_bounds_drawing(true);
+//!
+//! // Create a small and a large character style.
+//! let small_style = MonoTextStyle::new(&amp;FONT_6X10, Rgb565::WHITE);
+//! let large_style = MonoTextStyle::new(&amp;FONT_10X20, Rgb565::WHITE);
+//!
+//! // Draw the first text at (20, 30) using the small character style.
+//! let next = Text::new(&quot;small &quot;, Point::new(20, 30), small_style).draw(&amp;mut display)?;
+//!
+//! // Draw the second text after the first text using the large character style.
+//! let next = Text::new(&quot;large&quot;, next, large_style).draw(&amp;mut display)?;
+//! # Ok::&lt;(), core::convert::Infallible&gt;(())
+//! ```
+//!
+//! [`Text`]: struct.Text.html
+//! [`Text::new`]: struct.TextStyle.html#method.new
+//! [`with_alignment`]: struct.Text.html#method.with_alignment
+//! [`with_baseline`]: struct.Text.html#method.with_baseline
+//! [`with_text_style`]: struct.Text.html#method.with_text_style
+//! [`TextStyle`]: struct.TextStyle.html
+//! [`alignment`]: struct.TextStyle.html#structfield.alignment
+//! [`baseline`]: struct.TextStyle.html#structfield.baseline
+//! [`line_height`]: struct.TextStyle.html#structfield.line_height
+//! [`TextStyleBuilder`]: struct.TextStyleBuilder.html
+//! [`mono_font`]: ../mono_font/index.html
+//! [`MonoTextStyle`]: ../mono_font/struct.MonoTextStyle.html
+//! [`renderer` module]: renderer/index.html
+//! [external crates list]: ../index.html#additional-functions-provided-by-external-crates
 
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">renderer</span>;
-<span class="kw">mod</span> <span class="ident">text</span>;
-<span class="kw">mod</span> <span class="ident">text_style</span>;
+</span><span class="kw">pub mod </span>renderer;
+<span class="kw">mod </span>text;
+<span class="kw">mod </span>text_style;
 
-<span class="kw">use</span> <span class="ident">embedded_graphics_core::prelude::PixelColor</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">text::Text</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">text_style</span>::{<span class="ident">TextStyle</span>, <span class="ident">TextStyleBuilder</span>};
+<span class="kw">use </span>embedded_graphics_core::prelude::PixelColor;
+<span class="kw">pub use </span>text::Text;
+<span class="kw">pub use </span>text_style::{TextStyle, TextStyleBuilder};
 
-<span class="doccomment">/// Text baseline.</span>
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>, <span class="ident">Copy</span>, <span class="ident">Clone</span>, <span class="ident">Ord</span>, <span class="ident">PartialOrd</span>, <span class="ident">Eq</span>, <span class="ident">PartialEq</span>, <span class="ident">Hash</span>)]</span>
-<span class="kw">pub</span> <span class="kw">enum</span> <span class="ident">Baseline</span> {
-    <span class="doccomment">/// Top.</span>
-    <span class="ident">Top</span>,
-    <span class="doccomment">/// Bottom.</span>
-    <span class="ident">Bottom</span>,
-    <span class="doccomment">/// Middle.</span>
-    <span class="ident">Middle</span>,
-    <span class="doccomment">/// Alphabetic baseline.</span>
-    <span class="ident">Alphabetic</span>,
+<span class="doccomment">/// Text baseline.
+</span><span class="attribute">#[derive(Debug, Copy, Clone, Ord, PartialOrd, Eq, PartialEq, Hash)]
+</span><span class="kw">pub enum </span>Baseline {
+    <span class="doccomment">/// Top.
+    </span>Top,
+    <span class="doccomment">/// Bottom.
+    </span>Bottom,
+    <span class="doccomment">/// Middle.
+    </span>Middle,
+    <span class="doccomment">/// Alphabetic baseline.
+    </span>Alphabetic,
 }
 
-<span class="doccomment">/// Horizontal text alignment.</span>
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>, <span class="ident">Copy</span>, <span class="ident">Clone</span>, <span class="ident">Ord</span>, <span class="ident">PartialOrd</span>, <span class="ident">Eq</span>, <span class="ident">PartialEq</span>, <span class="ident">Hash</span>)]</span>
-<span class="kw">pub</span> <span class="kw">enum</span> <span class="ident">Alignment</span> {
-    <span class="doccomment">/// Left.</span>
-    <span class="ident">Left</span>,
-    <span class="doccomment">/// Center.</span>
-    <span class="ident">Center</span>,
-    <span class="doccomment">/// Right.</span>
-    <span class="ident">Right</span>,
+<span class="doccomment">/// Horizontal text alignment.
+</span><span class="attribute">#[derive(Debug, Copy, Clone, Ord, PartialOrd, Eq, PartialEq, Hash)]
+</span><span class="kw">pub enum </span>Alignment {
+    <span class="doccomment">/// Left.
+    </span>Left,
+    <span class="doccomment">/// Center.
+    </span>Center,
+    <span class="doccomment">/// Right.
+    </span>Right,
 }
-<span class="doccomment">/// Text decoration color.</span>
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>, <span class="ident">Copy</span>, <span class="ident">Clone</span>, <span class="ident">Ord</span>, <span class="ident">PartialOrd</span>, <span class="ident">Eq</span>, <span class="ident">PartialEq</span>, <span class="ident">Hash</span>)]</span>
-<span class="kw">pub</span> <span class="kw">enum</span> <span class="ident">DecorationColor</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span> {
-    <span class="doccomment">/// No text decoration.</span>
-    <span class="prelude-val">None</span>,
-    <span class="doccomment">/// Text decoration with the same color as the text.</span>
-    <span class="ident">TextColor</span>,
-    <span class="doccomment">/// Text decoration with a custom color.</span>
-    <span class="ident">Custom</span>(<span class="ident">C</span>),
+<span class="doccomment">/// Text decoration color.
+</span><span class="attribute">#[derive(Debug, Copy, Clone, Ord, PartialOrd, Eq, PartialEq, Hash)]
+</span><span class="kw">pub enum </span>DecorationColor&lt;C&gt; {
+    <span class="doccomment">/// No text decoration.
+    </span><span class="prelude-val">None</span>,
+    <span class="doccomment">/// Text decoration with the same color as the text.
+    </span>TextColor,
+    <span class="doccomment">/// Text decoration with a custom color.
+    </span>Custom(C),
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">C</span>: <span class="ident">PixelColor</span><span class="op">&gt;</span> <span class="ident">DecorationColor</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span> {
-    <span class="doccomment">/// Returns `true` if the decoration_color is `None`.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">is_none</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">bool</span> {
-        <span class="comment">// MSRV: replace with matches! for rust &gt;= 1.42.0</span>
-        <span class="kw">match</span> <span class="self">self</span> {
-            <span class="ident"><span class="self">Self</span>::None</span> =&gt; <span class="bool-val">true</span>,
-            <span class="kw">_</span> =&gt; <span class="bool-val">false</span>,
+<span class="kw">impl</span>&lt;C: PixelColor&gt; DecorationColor&lt;C&gt; {
+    <span class="doccomment">/// Returns `true` if the decoration_color is `None`.
+    </span><span class="kw">pub fn </span>is_none(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
+        <span class="comment">// MSRV: replace with matches! for rust &gt;= 1.42.0
+        </span><span class="kw">match </span><span class="self">self </span>{
+            <span class="self">Self</span>::None =&gt; <span class="bool-val">true</span>,
+            <span class="kw">_ </span>=&gt; <span class="bool-val">false</span>,
         }
     }
 
-    <span class="doccomment">/// Returns `true` if the decoration_color is `TextColor`.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">is_text_color</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">bool</span> {
-        <span class="comment">// MSRV: replace with matches! for rust &gt;= 1.42.0</span>
-        <span class="kw">match</span> <span class="self">self</span> {
-            <span class="ident"><span class="self">Self</span>::TextColor</span> =&gt; <span class="bool-val">true</span>,
-            <span class="kw">_</span> =&gt; <span class="bool-val">false</span>,
+    <span class="doccomment">/// Returns `true` if the decoration_color is `TextColor`.
+    </span><span class="kw">pub fn </span>is_text_color(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
+        <span class="comment">// MSRV: replace with matches! for rust &gt;= 1.42.0
+        </span><span class="kw">match </span><span class="self">self </span>{
+            <span class="self">Self</span>::TextColor =&gt; <span class="bool-val">true</span>,
+            <span class="kw">_ </span>=&gt; <span class="bool-val">false</span>,
         }
     }
 
-    <span class="doccomment">/// Returns `true` if the decoration_color is `Custom`.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">is_custom</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">bool</span> {
-        <span class="comment">// MSRV: replace with matches! for rust &gt;= 1.42.0</span>
-        <span class="kw">match</span> <span class="self">self</span> {
-            <span class="ident"><span class="self">Self</span>::Custom</span>(<span class="kw">_</span>) =&gt; <span class="bool-val">true</span>,
-            <span class="kw">_</span> =&gt; <span class="bool-val">false</span>,
+    <span class="doccomment">/// Returns `true` if the decoration_color is `Custom`.
+    </span><span class="kw">pub fn </span>is_custom(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
+        <span class="comment">// MSRV: replace with matches! for rust &gt;= 1.42.0
+        </span><span class="kw">match </span><span class="self">self </span>{
+            <span class="self">Self</span>::Custom(<span class="kw">_</span>) =&gt; <span class="bool-val">true</span>,
+            <span class="kw">_ </span>=&gt; <span class="bool-val">false</span>,
         }
     }
 
-    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn</span> <span class="ident">to_color</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">text_color</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span> {
-        <span class="kw">match</span> <span class="self">self</span> {
-            <span class="ident">DecorationColor::TextColor</span> =&gt; <span class="ident">text_color</span>,
-            <span class="ident">DecorationColor::Custom</span>(<span class="ident">custom_color</span>) =&gt; <span class="prelude-val">Some</span>(<span class="kw-2">*</span><span class="ident">custom_color</span>),
-            <span class="ident">DecorationColor::None</span> =&gt; <span class="prelude-val">None</span>,
-        }
-    }
-}
-
-<span class="doccomment">/// Text line height.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// The line height is defined as the vertical distance between the baseline of two adjacent lines</span>
-<span class="doccomment">/// of text.</span>
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>, <span class="ident">Clone</span>, <span class="ident">Copy</span>, <span class="ident">PartialEq</span>, <span class="ident">Eq</span>, <span class="ident">PartialOrd</span>, <span class="ident">Ord</span>, <span class="ident">Hash</span>)]</span>
-<span class="kw">pub</span> <span class="kw">enum</span> <span class="ident">LineHeight</span> {
-    <span class="doccomment">/// Absolute line height in pixels.</span>
-    <span class="ident">Pixels</span>(<span class="ident">u32</span>),
-
-    <span class="doccomment">/// Relative line height in percent of the default line height.</span>
-    <span class="ident">Percent</span>(<span class="ident">u32</span>),
-}
-
-<span class="kw">impl</span> <span class="ident">LineHeight</span> {
-    <span class="doccomment">/// Converts the line height to an absolute pixel distance.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Examples</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ```</span>
-    <span class="doccomment">/// use embedded_graphics::text::LineHeight;</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// let relative_height = LineHeight::Percent(150);</span>
-    <span class="doccomment">/// assert_eq!(relative_height.to_absolute(20), 30);</span>
-    <span class="doccomment">/// ```</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">to_absolute</span>(<span class="self">self</span>, <span class="ident">base_line_height</span>: <span class="ident">u32</span>) -&gt; <span class="ident">u32</span> {
-        <span class="kw">match</span> <span class="self">self</span> {
-            <span class="ident"><span class="self">Self</span>::Pixels</span>(<span class="ident">px</span>) =&gt; <span class="ident">px</span>,
-            <span class="ident"><span class="self">Self</span>::Percent</span>(<span class="ident">percent</span>) =&gt; <span class="ident">base_line_height</span> <span class="op">*</span> <span class="ident">percent</span> <span class="op">/</span> <span class="number">100</span>,
+    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn </span>to_color(<span class="kw-2">&amp;</span><span class="self">self</span>, text_color: <span class="prelude-ty">Option</span>&lt;C&gt;) -&gt; <span class="prelude-ty">Option</span>&lt;C&gt; {
+        <span class="kw">match </span><span class="self">self </span>{
+            DecorationColor::TextColor =&gt; text_color,
+            DecorationColor::Custom(custom_color) =&gt; <span class="prelude-val">Some</span>(<span class="kw-2">*</span>custom_color),
+            DecorationColor::None =&gt; <span class="prelude-val">None</span>,
         }
     }
 }
 
-<span class="kw">impl</span> <span class="ident">Default</span> <span class="kw">for</span> <span class="ident">LineHeight</span> {
-    <span class="kw">fn</span> <span class="ident">default</span>() -&gt; <span class="self">Self</span> {
-        <span class="ident"><span class="self">Self</span>::Percent</span>(<span class="number">100</span>)
+<span class="doccomment">/// Text line height.
+///
+/// The line height is defined as the vertical distance between the baseline of two adjacent lines
+/// of text.
+</span><span class="attribute">#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
+</span><span class="kw">pub enum </span>LineHeight {
+    <span class="doccomment">/// Absolute line height in pixels.
+    </span>Pixels(u32),
+
+    <span class="doccomment">/// Relative line height in percent of the default line height.
+    </span>Percent(u32),
+}
+
+<span class="kw">impl </span>LineHeight {
+    <span class="doccomment">/// Converts the line height to an absolute pixel distance.
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// use embedded_graphics::text::LineHeight;
+    ///
+    /// let relative_height = LineHeight::Percent(150);
+    /// assert_eq!(relative_height.to_absolute(20), 30);
+    /// ```
+    </span><span class="kw">pub fn </span>to_absolute(<span class="self">self</span>, base_line_height: u32) -&gt; u32 {
+        <span class="kw">match </span><span class="self">self </span>{
+            <span class="self">Self</span>::Pixels(px) =&gt; px,
+            <span class="self">Self</span>::Percent(percent) =&gt; base_line_height * percent / <span class="number">100</span>,
+        }
     }
 }
 
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
-<span class="kw">mod</span> <span class="ident">tests</span> {
-    <span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
-    <span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::pixelcolor::BinaryColor</span>;
+<span class="kw">impl </span>Default <span class="kw">for </span>LineHeight {
+    <span class="kw">fn </span>default() -&gt; <span class="self">Self </span>{
+        <span class="self">Self</span>::Percent(<span class="number">100</span>)
+    }
+}
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">decoration_color_is_methods</span>() {
-        <span class="kw">let</span> <span class="ident">none</span> <span class="op">=</span> <span class="ident">DecorationColor</span>::<span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span><span class="ident">::None</span>;
-        <span class="macro">assert!</span>(<span class="ident">none</span>.<span class="ident">is_none</span>());
-        <span class="macro">assert!</span>(<span class="op">!</span><span class="ident">none</span>.<span class="ident">is_text_color</span>());
-        <span class="macro">assert!</span>(<span class="op">!</span><span class="ident">none</span>.<span class="ident">is_custom</span>());
+<span class="attribute">#[cfg(test)]
+</span><span class="kw">mod </span>tests {
+    <span class="kw">use super</span>::<span class="kw-2">*</span>;
+    <span class="kw">use </span><span class="kw">crate</span>::pixelcolor::BinaryColor;
 
-        <span class="kw">let</span> <span class="ident">text_color</span> <span class="op">=</span> <span class="ident">DecorationColor</span>::<span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span><span class="ident">::TextColor</span>;
-        <span class="macro">assert!</span>(<span class="op">!</span><span class="ident">text_color</span>.<span class="ident">is_none</span>());
-        <span class="macro">assert!</span>(<span class="ident">text_color</span>.<span class="ident">is_text_color</span>());
-        <span class="macro">assert!</span>(<span class="op">!</span><span class="ident">text_color</span>.<span class="ident">is_custom</span>());
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>decoration_color_is_methods() {
+        <span class="kw">let </span>none = DecorationColor::&lt;BinaryColor&gt;::None;
+        <span class="macro">assert!</span>(none.is_none());
+        <span class="macro">assert!</span>(!none.is_text_color());
+        <span class="macro">assert!</span>(!none.is_custom());
 
-        <span class="kw">let</span> <span class="ident">custom</span> <span class="op">=</span> <span class="ident">DecorationColor::Custom</span>(<span class="ident">BinaryColor::On</span>);
-        <span class="macro">assert!</span>(<span class="op">!</span><span class="ident">custom</span>.<span class="ident">is_none</span>());
-        <span class="macro">assert!</span>(<span class="op">!</span><span class="ident">custom</span>.<span class="ident">is_text_color</span>());
-        <span class="macro">assert!</span>(<span class="ident">custom</span>.<span class="ident">is_custom</span>());
+        <span class="kw">let </span>text_color = DecorationColor::&lt;BinaryColor&gt;::TextColor;
+        <span class="macro">assert!</span>(!text_color.is_none());
+        <span class="macro">assert!</span>(text_color.is_text_color());
+        <span class="macro">assert!</span>(!text_color.is_custom());
+
+        <span class="kw">let </span>custom = DecorationColor::Custom(BinaryColor::On);
+        <span class="macro">assert!</span>(!custom.is_none());
+        <span class="macro">assert!</span>(!custom.is_text_color());
+        <span class="macro">assert!</span>(custom.is_custom());
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">line_height_to_absolute</span>() {
-        <span class="macro">assert_eq!</span>(<span class="ident">LineHeight::Pixels</span>(<span class="number">100</span>).<span class="ident">to_absolute</span>(<span class="number">20</span>), <span class="number">100</span>);
-        <span class="macro">assert_eq!</span>(<span class="ident">LineHeight::Percent</span>(<span class="number">100</span>).<span class="ident">to_absolute</span>(<span class="number">20</span>), <span class="number">20</span>);
-        <span class="macro">assert_eq!</span>(<span class="ident">LineHeight::Percent</span>(<span class="number">150</span>).<span class="ident">to_absolute</span>(<span class="number">20</span>), <span class="number">30</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>line_height_to_absolute() {
+        <span class="macro">assert_eq!</span>(LineHeight::Pixels(<span class="number">100</span>).to_absolute(<span class="number">20</span>), <span class="number">100</span>);
+        <span class="macro">assert_eq!</span>(LineHeight::Percent(<span class="number">100</span>).to_absolute(<span class="number">20</span>), <span class="number">20</span>);
+        <span class="macro">assert_eq!</span>(LineHeight::Percent(<span class="number">150</span>).to_absolute(<span class="number">20</span>), <span class="number">30</span>);
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="embedded_graphics" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0 (a55dd71d5 2022-09-19)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="embedded_graphics" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0 (69f9c33d7 2022-12-12)" ></div></body></html>

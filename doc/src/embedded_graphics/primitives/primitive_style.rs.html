@@ -1,6 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.1/src/primitives/primitive_style.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>primitive_style.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../embedded_graphics/index.html"><div class="logo-container"><img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../embedded_graphics/index.html"><div class="logo-container">
-                    <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../embedded_graphics/index.html">
-                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.1/src/primitives/primitive_style.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>primitive_style.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../embedded_graphics/index.html">
+                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -437,442 +436,442 @@
 <span id="435">435</span>
 <span id="436">436</span>
 <span id="437">437</span>
-</pre><pre class="rust"><code><span class="kw">use</span> <span class="kw">crate</span>::{<span class="ident">pixelcolor::PixelColor</span>, <span class="ident">primitives::OffsetOutline</span>};
-<span class="kw">use</span> <span class="ident">az::SaturatingAs</span>;
+</pre><pre class="rust"><code><span class="kw">use crate</span>::{pixelcolor::PixelColor, primitives::OffsetOutline};
+<span class="kw">use </span>az::SaturatingAs;
 
-<span class="doccomment">/// Style properties for primitives.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// `PrimitiveStyle` can be applied to a [primitive] to define how the primitive</span>
-<span class="doccomment">/// is drawn.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// Because `PrimitiveStyle` has the [`non_exhaustive`] attribute, it cannot be created using a</span>
-<span class="doccomment">/// struct literal. To create a `PrimitiveStyle`, the [`with_stroke`](#method.with_stroke) and</span>
-<span class="doccomment">/// [`with_fill`](#method.with_fill) methods can be used for styles that only require a stroke or</span>
-<span class="doccomment">/// fill respectively. For more complex styles, use the [`PrimitiveStyleBuilder`].</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// [primitive]: ../primitives/index.html</span>
-<span class="doccomment">/// [`PrimitiveStyleBuilder`]: struct.PrimitiveStyleBuilder.html</span>
-<span class="doccomment">/// [`non_exhaustive`]: https://blog.rust-lang.org/2019/12/19/Rust-1.40.0.html#[non_exhaustive]-structs,-enums,-and-variants</span>
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Copy</span>, <span class="ident">Clone</span>, <span class="ident">Eq</span>, <span class="ident">PartialEq</span>, <span class="ident">Ord</span>, <span class="ident">PartialOrd</span>, <span class="ident">Hash</span>, <span class="ident">Debug</span>)]</span>
-<span class="attribute">#[<span class="ident">non_exhaustive</span>]</span>
-<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">PrimitiveStyle</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>
-<span class="kw">where</span>
-    <span class="ident">C</span>: <span class="ident">PixelColor</span>,
+<span class="doccomment">/// Style properties for primitives.
+///
+/// `PrimitiveStyle` can be applied to a [primitive] to define how the primitive
+/// is drawn.
+///
+/// Because `PrimitiveStyle` has the [`non_exhaustive`] attribute, it cannot be created using a
+/// struct literal. To create a `PrimitiveStyle`, the [`with_stroke`](#method.with_stroke) and
+/// [`with_fill`](#method.with_fill) methods can be used for styles that only require a stroke or
+/// fill respectively. For more complex styles, use the [`PrimitiveStyleBuilder`].
+///
+/// [primitive]: ../primitives/index.html
+/// [`PrimitiveStyleBuilder`]: struct.PrimitiveStyleBuilder.html
+/// [`non_exhaustive`]: https://blog.rust-lang.org/2019/12/19/Rust-1.40.0.html#[non_exhaustive]-structs,-enums,-and-variants
+</span><span class="attribute">#[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Hash, Debug)]
+#[non_exhaustive]
+</span><span class="kw">pub struct </span>PrimitiveStyle&lt;C&gt;
+<span class="kw">where
+    </span>C: PixelColor,
 {
-    <span class="doccomment">/// Fill color of the primitive.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// If `fill_color` is set to `None` no fill will be drawn.</span>
-    <span class="kw">pub</span> <span class="ident">fill_color</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>,
+    <span class="doccomment">/// Fill color of the primitive.
+    ///
+    /// If `fill_color` is set to `None` no fill will be drawn.
+    </span><span class="kw">pub </span>fill_color: <span class="prelude-ty">Option</span>&lt;C&gt;,
 
-    <span class="doccomment">/// Stroke color of the primitive.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// If `stroke_color` is set to `None` or the `stroke_width` is set to `0` no stroke will be</span>
-    <span class="doccomment">/// drawn.</span>
-    <span class="kw">pub</span> <span class="ident">stroke_color</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>,
+    <span class="doccomment">/// Stroke color of the primitive.
+    ///
+    /// If `stroke_color` is set to `None` or the `stroke_width` is set to `0` no stroke will be
+    /// drawn.
+    </span><span class="kw">pub </span>stroke_color: <span class="prelude-ty">Option</span>&lt;C&gt;,
 
-    <span class="doccomment">/// Stroke width in pixels.</span>
-    <span class="kw">pub</span> <span class="ident">stroke_width</span>: <span class="ident">u32</span>,
+    <span class="doccomment">/// Stroke width in pixels.
+    </span><span class="kw">pub </span>stroke_width: u32,
 
-    <span class="doccomment">/// Stroke alignment.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The stroke alignment sets if the stroke is drawn inside, outside or centered</span>
-    <span class="doccomment">/// on the outline of a shape.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// This property only applies to closed shapes (rectangle, circle, ...) and is</span>
-    <span class="doccomment">/// ignored for open shapes (line, ...).</span>
-    <span class="kw">pub</span> <span class="ident">stroke_alignment</span>: <span class="ident">StrokeAlignment</span>,
+    <span class="doccomment">/// Stroke alignment.
+    ///
+    /// The stroke alignment sets if the stroke is drawn inside, outside or centered
+    /// on the outline of a shape.
+    ///
+    /// This property only applies to closed shapes (rectangle, circle, ...) and is
+    /// ignored for open shapes (line, ...).
+    </span><span class="kw">pub </span>stroke_alignment: StrokeAlignment,
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span> <span class="ident">PrimitiveStyle</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>
-<span class="kw">where</span>
-    <span class="ident">C</span>: <span class="ident">PixelColor</span>,
+<span class="kw">impl</span>&lt;C&gt; PrimitiveStyle&lt;C&gt;
+<span class="kw">where
+    </span>C: PixelColor,
 {
-    <span class="doccomment">/// Creates a primitive style without fill and stroke.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>() -&gt; <span class="self">Self</span> {
-        <span class="ident"><span class="self">Self</span>::default</span>()
+    <span class="doccomment">/// Creates a primitive style without fill and stroke.
+    </span><span class="kw">pub fn </span>new() -&gt; <span class="self">Self </span>{
+        <span class="self">Self</span>::default()
     }
 
-    <span class="doccomment">/// Creates a stroke primitive style.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// If the `stroke_width` is `0` the resulting style won&#39;t draw a stroke.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">with_stroke</span>(<span class="ident">stroke_color</span>: <span class="ident">C</span>, <span class="ident">stroke_width</span>: <span class="ident">u32</span>) -&gt; <span class="self">Self</span> {
-        <span class="self">Self</span> {
-            <span class="ident">stroke_color</span>: <span class="prelude-val">Some</span>(<span class="ident">stroke_color</span>),
-            <span class="ident">stroke_width</span>,
-            ..<span class="ident">PrimitiveStyle::default</span>()
+    <span class="doccomment">/// Creates a stroke primitive style.
+    ///
+    /// If the `stroke_width` is `0` the resulting style won&#39;t draw a stroke.
+    </span><span class="kw">pub fn </span>with_stroke(stroke_color: C, stroke_width: u32) -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{
+            stroke_color: <span class="prelude-val">Some</span>(stroke_color),
+            stroke_width,
+            ..PrimitiveStyle::default()
         }
     }
 
-    <span class="doccomment">/// Creates a fill primitive style.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">with_fill</span>(<span class="ident">fill_color</span>: <span class="ident">C</span>) -&gt; <span class="self">Self</span> {
-        <span class="self">Self</span> {
-            <span class="ident">fill_color</span>: <span class="prelude-val">Some</span>(<span class="ident">fill_color</span>),
-            ..<span class="ident">PrimitiveStyle::default</span>()
+    <span class="doccomment">/// Creates a fill primitive style.
+    </span><span class="kw">pub fn </span>with_fill(fill_color: C) -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{
+            fill_color: <span class="prelude-val">Some</span>(fill_color),
+            ..PrimitiveStyle::default()
         }
     }
 
-    <span class="doccomment">/// Returns the stroke width on the outside of the shape.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The outside stroke width is determined by `stroke_width` and `stroke_alignment`.</span>
-    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn</span> <span class="ident">outside_stroke_width</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">u32</span> {
-        <span class="kw">match</span> <span class="self">self</span>.<span class="ident">stroke_alignment</span> {
-            <span class="ident">StrokeAlignment::Inside</span> =&gt; <span class="number">0</span>,
-            <span class="ident">StrokeAlignment::Center</span> =&gt; <span class="self">self</span>.<span class="ident">stroke_width</span> <span class="op">/</span> <span class="number">2</span>,
-            <span class="ident">StrokeAlignment::Outside</span> =&gt; <span class="self">self</span>.<span class="ident">stroke_width</span>,
+    <span class="doccomment">/// Returns the stroke width on the outside of the shape.
+    ///
+    /// The outside stroke width is determined by `stroke_width` and `stroke_alignment`.
+    </span><span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn </span>outside_stroke_width(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; u32 {
+        <span class="kw">match </span><span class="self">self</span>.stroke_alignment {
+            StrokeAlignment::Inside =&gt; <span class="number">0</span>,
+            StrokeAlignment::Center =&gt; <span class="self">self</span>.stroke_width / <span class="number">2</span>,
+            StrokeAlignment::Outside =&gt; <span class="self">self</span>.stroke_width,
         }
     }
 
-    <span class="doccomment">/// Returns the stroke width on the inside of the shape.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The inside stroke width is determined by `stroke_width` and `stroke_alignment`.</span>
-    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn</span> <span class="ident">inside_stroke_width</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">u32</span> {
-        <span class="kw">match</span> <span class="self">self</span>.<span class="ident">stroke_alignment</span> {
-            <span class="ident">StrokeAlignment::Inside</span> =&gt; <span class="self">self</span>.<span class="ident">stroke_width</span>,
-            <span class="ident">StrokeAlignment::Center</span> =&gt; <span class="self">self</span>.<span class="ident">stroke_width</span>.<span class="ident">saturating_add</span>(<span class="number">1</span>) <span class="op">/</span> <span class="number">2</span>,
-            <span class="ident">StrokeAlignment::Outside</span> =&gt; <span class="number">0</span>,
+    <span class="doccomment">/// Returns the stroke width on the inside of the shape.
+    ///
+    /// The inside stroke width is determined by `stroke_width` and `stroke_alignment`.
+    </span><span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn </span>inside_stroke_width(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; u32 {
+        <span class="kw">match </span><span class="self">self</span>.stroke_alignment {
+            StrokeAlignment::Inside =&gt; <span class="self">self</span>.stroke_width,
+            StrokeAlignment::Center =&gt; <span class="self">self</span>.stroke_width.saturating_add(<span class="number">1</span>) / <span class="number">2</span>,
+            StrokeAlignment::Outside =&gt; <span class="number">0</span>,
         }
     }
 
-    <span class="doccomment">/// Returns if a primitive drawn with this style is completely transparent.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">is_transparent</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">bool</span> {
-        (<span class="self">self</span>.<span class="ident">stroke_color</span>.<span class="ident">is_none</span>() <span class="op">|</span><span class="op">|</span> <span class="self">self</span>.<span class="ident">stroke_width</span> <span class="op">==</span> <span class="number">0</span>) <span class="op">&amp;&amp;</span> <span class="self">self</span>.<span class="ident">fill_color</span>.<span class="ident">is_none</span>()
+    <span class="doccomment">/// Returns if a primitive drawn with this style is completely transparent.
+    </span><span class="kw">pub fn </span>is_transparent(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
+        (<span class="self">self</span>.stroke_color.is_none() || <span class="self">self</span>.stroke_width == <span class="number">0</span>) &amp;&amp; <span class="self">self</span>.fill_color.is_none()
     }
 
-    <span class="doccomment">/// Returns the effective stroke color of the style.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// If the stroke width is 0, this method will return `None` regardless of the value in</span>
-    <span class="doccomment">/// `stroke_color`.</span>
-    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn</span> <span class="ident">effective_stroke_color</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span> {
-        <span class="self">self</span>.<span class="ident">stroke_color</span>.<span class="ident">filter</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="self">self</span>.<span class="ident">stroke_width</span> <span class="op">&gt;</span> <span class="number">0</span>)
+    <span class="doccomment">/// Returns the effective stroke color of the style.
+    ///
+    /// If the stroke width is 0, this method will return `None` regardless of the value in
+    /// `stroke_color`.
+    </span><span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn </span>effective_stroke_color(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;C&gt; {
+        <span class="self">self</span>.stroke_color.filter(|<span class="kw">_</span>| <span class="self">self</span>.stroke_width &gt; <span class="number">0</span>)
     }
 
-    <span class="doccomment">/// Returns the stroke area.</span>
-    <span class="kw">pub</span>(<span class="kw">in</span> <span class="ident"><span class="kw">crate</span>::primitives</span>) <span class="kw">fn</span> <span class="ident">stroke_area</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">OffsetOutline</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">primitive</span>: <span class="kw-2">&amp;</span><span class="ident">P</span>) -&gt; <span class="ident">P</span> {
-        <span class="comment">// saturate offset at i32::max_value() if stroke width is to large</span>
-        <span class="kw">let</span> <span class="ident">offset</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">outside_stroke_width</span>().<span class="ident">saturating_as</span>();
+    <span class="doccomment">/// Returns the stroke area.
+    </span><span class="kw">pub</span>(<span class="kw">in </span><span class="kw">crate</span>::primitives) <span class="kw">fn </span>stroke_area&lt;P: OffsetOutline&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, primitive: <span class="kw-2">&amp;</span>P) -&gt; P {
+        <span class="comment">// saturate offset at i32::max_value() if stroke width is to large
+        </span><span class="kw">let </span>offset = <span class="self">self</span>.outside_stroke_width().saturating_as();
 
-        <span class="ident">primitive</span>.<span class="ident">offset</span>(<span class="ident">offset</span>)
+        primitive.offset(offset)
     }
 
-    <span class="doccomment">/// Returns the fill area.</span>
-    <span class="kw">pub</span>(<span class="kw">in</span> <span class="ident"><span class="kw">crate</span>::primitives</span>) <span class="kw">fn</span> <span class="ident">fill_area</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">OffsetOutline</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">primitive</span>: <span class="kw-2">&amp;</span><span class="ident">P</span>) -&gt; <span class="ident">P</span> {
-        <span class="comment">// saturate offset at i32::min_value() if stroke width is to large</span>
-        <span class="kw">let</span> <span class="ident">offset</span> <span class="op">=</span> <span class="op">-</span><span class="self">self</span>.<span class="ident">inside_stroke_width</span>().<span class="ident">saturating_as</span>::<span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span>();
+    <span class="doccomment">/// Returns the fill area.
+    </span><span class="kw">pub</span>(<span class="kw">in </span><span class="kw">crate</span>::primitives) <span class="kw">fn </span>fill_area&lt;P: OffsetOutline&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, primitive: <span class="kw-2">&amp;</span>P) -&gt; P {
+        <span class="comment">// saturate offset at i32::min_value() if stroke width is to large
+        </span><span class="kw">let </span>offset = -<span class="self">self</span>.inside_stroke_width().saturating_as::&lt;i32&gt;();
 
-        <span class="ident">primitive</span>.<span class="ident">offset</span>(<span class="ident">offset</span>)
+        primitive.offset(offset)
     }
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span> <span class="ident">Default</span> <span class="kw">for</span> <span class="ident">PrimitiveStyle</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>
-<span class="kw">where</span>
-    <span class="ident">C</span>: <span class="ident">PixelColor</span>,
+<span class="kw">impl</span>&lt;C&gt; Default <span class="kw">for </span>PrimitiveStyle&lt;C&gt;
+<span class="kw">where
+    </span>C: PixelColor,
 {
-    <span class="kw">fn</span> <span class="ident">default</span>() -&gt; <span class="self">Self</span> {
-        <span class="self">Self</span> {
-            <span class="ident">fill_color</span>: <span class="prelude-val">None</span>,
-            <span class="ident">stroke_color</span>: <span class="prelude-val">None</span>,
-            <span class="ident">stroke_width</span>: <span class="number">0</span>,
-            <span class="ident">stroke_alignment</span>: <span class="ident">StrokeAlignment::Center</span>,
+    <span class="kw">fn </span>default() -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{
+            fill_color: <span class="prelude-val">None</span>,
+            stroke_color: <span class="prelude-val">None</span>,
+            stroke_width: <span class="number">0</span>,
+            stroke_alignment: StrokeAlignment::Center,
         }
     }
 }
 
-<span class="doccomment">/// Primitive style builder.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// Use this builder to create [`PrimitiveStyle`]s. If any properties on the builder are omitted,</span>
-<span class="doccomment">/// the value will remain at its default value.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Examples</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// ## Build a style with configured stroke and fill</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// This example builds a style for a circle with a 3px red stroke and a solid green fill. The</span>
-<span class="doccomment">/// circle has its top-left at (10, 10) with a diameter of 20px.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// ```rust</span>
-<span class="doccomment">/// use embedded_graphics::{</span>
-<span class="doccomment">///     pixelcolor::Rgb565,</span>
-<span class="doccomment">///     prelude::*,</span>
-<span class="doccomment">///     primitives::{Circle, PrimitiveStyle, PrimitiveStyleBuilder},</span>
-<span class="doccomment">/// };</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// let style: PrimitiveStyle&lt;Rgb565&gt; = PrimitiveStyleBuilder::new()</span>
-<span class="doccomment">///     .stroke_color(Rgb565::RED)</span>
-<span class="doccomment">///     .stroke_width(3)</span>
-<span class="doccomment">///     .fill_color(Rgb565::GREEN)</span>
-<span class="doccomment">///     .build();</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// let circle = Circle::new(Point::new(10, 10), 20).into_styled(style);</span>
-<span class="doccomment">/// ```</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// ## Build a style with stroke and no fill</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// This example builds a style for a rectangle with a 1px red stroke. Because `.fill_color()` is</span>
-<span class="doccomment">/// not called, the fill color remains the default value of `None` (i.e. transparent).</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// ```rust</span>
-<span class="doccomment">/// use embedded_graphics::{</span>
-<span class="doccomment">///     pixelcolor::Rgb565,</span>
-<span class="doccomment">///     prelude::*,</span>
-<span class="doccomment">///     primitives::{Rectangle, PrimitiveStyle, PrimitiveStyleBuilder},</span>
-<span class="doccomment">/// };</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// let style: PrimitiveStyle&lt;Rgb565&gt; = PrimitiveStyleBuilder::new()</span>
-<span class="doccomment">///     .stroke_color(Rgb565::RED)</span>
-<span class="doccomment">///     .stroke_width(1)</span>
-<span class="doccomment">///     .build();</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// let rectangle = Rectangle::new(Point::new(20, 20), Size::new(20, 10)).into_styled(style);</span>
-<span class="doccomment">/// ```</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// [`PrimitiveStyle`]: ./struct.PrimitiveStyle.html</span>
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Copy</span>, <span class="ident">Clone</span>, <span class="ident">Eq</span>, <span class="ident">PartialEq</span>, <span class="ident">Ord</span>, <span class="ident">PartialOrd</span>, <span class="ident">Hash</span>, <span class="ident">Debug</span>, <span class="ident">Default</span>)]</span>
-<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">PrimitiveStyleBuilder</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>
-<span class="kw">where</span>
-    <span class="ident">C</span>: <span class="ident">PixelColor</span>,
+<span class="doccomment">/// Primitive style builder.
+///
+/// Use this builder to create [`PrimitiveStyle`]s. If any properties on the builder are omitted,
+/// the value will remain at its default value.
+///
+/// # Examples
+///
+/// ## Build a style with configured stroke and fill
+///
+/// This example builds a style for a circle with a 3px red stroke and a solid green fill. The
+/// circle has its top-left at (10, 10) with a diameter of 20px.
+///
+/// ```rust
+/// use embedded_graphics::{
+///     pixelcolor::Rgb565,
+///     prelude::*,
+///     primitives::{Circle, PrimitiveStyle, PrimitiveStyleBuilder},
+/// };
+///
+/// let style: PrimitiveStyle&lt;Rgb565&gt; = PrimitiveStyleBuilder::new()
+///     .stroke_color(Rgb565::RED)
+///     .stroke_width(3)
+///     .fill_color(Rgb565::GREEN)
+///     .build();
+///
+/// let circle = Circle::new(Point::new(10, 10), 20).into_styled(style);
+/// ```
+///
+/// ## Build a style with stroke and no fill
+///
+/// This example builds a style for a rectangle with a 1px red stroke. Because `.fill_color()` is
+/// not called, the fill color remains the default value of `None` (i.e. transparent).
+///
+/// ```rust
+/// use embedded_graphics::{
+///     pixelcolor::Rgb565,
+///     prelude::*,
+///     primitives::{Rectangle, PrimitiveStyle, PrimitiveStyleBuilder},
+/// };
+///
+/// let style: PrimitiveStyle&lt;Rgb565&gt; = PrimitiveStyleBuilder::new()
+///     .stroke_color(Rgb565::RED)
+///     .stroke_width(1)
+///     .build();
+///
+/// let rectangle = Rectangle::new(Point::new(20, 20), Size::new(20, 10)).into_styled(style);
+/// ```
+///
+/// [`PrimitiveStyle`]: ./struct.PrimitiveStyle.html
+</span><span class="attribute">#[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Hash, Debug, Default)]
+</span><span class="kw">pub struct </span>PrimitiveStyleBuilder&lt;C&gt;
+<span class="kw">where
+    </span>C: PixelColor,
 {
-    <span class="ident">style</span>: <span class="ident">PrimitiveStyle</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>,
+    style: PrimitiveStyle&lt;C&gt;,
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span> <span class="ident">PrimitiveStyleBuilder</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>
-<span class="kw">where</span>
-    <span class="ident">C</span>: <span class="ident">PixelColor</span>,
+<span class="kw">impl</span>&lt;C&gt; PrimitiveStyleBuilder&lt;C&gt;
+<span class="kw">where
+    </span>C: PixelColor,
 {
-    <span class="doccomment">/// Creates a new primitive style builder.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>() -&gt; <span class="self">Self</span> {
-        <span class="self">Self</span> {
-            <span class="ident">style</span>: <span class="ident">PrimitiveStyle::default</span>(),
+    <span class="doccomment">/// Creates a new primitive style builder.
+    </span><span class="kw">pub fn </span>new() -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{
+            style: PrimitiveStyle::default(),
         }
     }
 
-    <span class="doccomment">/// Sets the fill color.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">fill_color</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">fill_color</span>: <span class="ident">C</span>) -&gt; <span class="self">Self</span> {
-        <span class="self">self</span>.<span class="ident">style</span>.<span class="ident">fill_color</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">fill_color</span>);
+    <span class="doccomment">/// Sets the fill color.
+    </span><span class="kw">pub fn </span>fill_color(<span class="kw-2">mut </span><span class="self">self</span>, fill_color: C) -&gt; <span class="self">Self </span>{
+        <span class="self">self</span>.style.fill_color = <span class="prelude-val">Some</span>(fill_color);
 
-        <span class="self">self</span>
-    }
+        <span class="self">self
+    </span>}
 
-    <span class="doccomment">/// Resets the fill color to transparent.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">reset_fill_color</span>(<span class="kw-2">mut</span> <span class="self">self</span>) -&gt; <span class="self">Self</span> {
-        <span class="self">self</span>.<span class="ident">style</span>.<span class="ident">fill_color</span> <span class="op">=</span> <span class="prelude-val">None</span>;
+    <span class="doccomment">/// Resets the fill color to transparent.
+    </span><span class="kw">pub fn </span>reset_fill_color(<span class="kw-2">mut </span><span class="self">self</span>) -&gt; <span class="self">Self </span>{
+        <span class="self">self</span>.style.fill_color = <span class="prelude-val">None</span>;
 
-        <span class="self">self</span>
-    }
+        <span class="self">self
+    </span>}
 
-    <span class="doccomment">/// Sets the stroke color.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">stroke_color</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">stroke_color</span>: <span class="ident">C</span>) -&gt; <span class="self">Self</span> {
-        <span class="self">self</span>.<span class="ident">style</span>.<span class="ident">stroke_color</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">stroke_color</span>);
+    <span class="doccomment">/// Sets the stroke color.
+    </span><span class="kw">pub fn </span>stroke_color(<span class="kw-2">mut </span><span class="self">self</span>, stroke_color: C) -&gt; <span class="self">Self </span>{
+        <span class="self">self</span>.style.stroke_color = <span class="prelude-val">Some</span>(stroke_color);
 
-        <span class="self">self</span>
-    }
+        <span class="self">self
+    </span>}
 
-    <span class="doccomment">/// Resets the stroke color to transparent.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">reset_stroke_color</span>(<span class="kw-2">mut</span> <span class="self">self</span>) -&gt; <span class="self">Self</span> {
-        <span class="self">self</span>.<span class="ident">style</span>.<span class="ident">stroke_color</span> <span class="op">=</span> <span class="prelude-val">None</span>;
+    <span class="doccomment">/// Resets the stroke color to transparent.
+    </span><span class="kw">pub fn </span>reset_stroke_color(<span class="kw-2">mut </span><span class="self">self</span>) -&gt; <span class="self">Self </span>{
+        <span class="self">self</span>.style.stroke_color = <span class="prelude-val">None</span>;
 
-        <span class="self">self</span>
-    }
+        <span class="self">self
+    </span>}
 
-    <span class="doccomment">/// Sets the stroke width.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">stroke_width</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">stroke_width</span>: <span class="ident">u32</span>) -&gt; <span class="self">Self</span> {
-        <span class="self">self</span>.<span class="ident">style</span>.<span class="ident">stroke_width</span> <span class="op">=</span> <span class="ident">stroke_width</span>;
+    <span class="doccomment">/// Sets the stroke width.
+    </span><span class="kw">pub fn </span>stroke_width(<span class="kw-2">mut </span><span class="self">self</span>, stroke_width: u32) -&gt; <span class="self">Self </span>{
+        <span class="self">self</span>.style.stroke_width = stroke_width;
 
-        <span class="self">self</span>
-    }
+        <span class="self">self
+    </span>}
 
-    <span class="doccomment">/// Sets the stroke alignment.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">stroke_alignment</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">stroke_alignment</span>: <span class="ident">StrokeAlignment</span>) -&gt; <span class="self">Self</span> {
-        <span class="self">self</span>.<span class="ident">style</span>.<span class="ident">stroke_alignment</span> <span class="op">=</span> <span class="ident">stroke_alignment</span>;
+    <span class="doccomment">/// Sets the stroke alignment.
+    </span><span class="kw">pub fn </span>stroke_alignment(<span class="kw-2">mut </span><span class="self">self</span>, stroke_alignment: StrokeAlignment) -&gt; <span class="self">Self </span>{
+        <span class="self">self</span>.style.stroke_alignment = stroke_alignment;
 
-        <span class="self">self</span>
-    }
+        <span class="self">self
+    </span>}
 
-    <span class="doccomment">/// Builds the primitive style.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">build</span>(<span class="self">self</span>) -&gt; <span class="ident">PrimitiveStyle</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span> {
-        <span class="self">self</span>.<span class="ident">style</span>
+    <span class="doccomment">/// Builds the primitive style.
+    </span><span class="kw">pub fn </span>build(<span class="self">self</span>) -&gt; PrimitiveStyle&lt;C&gt; {
+        <span class="self">self</span>.style
     }
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span> <span class="ident">From</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">PrimitiveStyle</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">PrimitiveStyleBuilder</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>
-<span class="kw">where</span>
-    <span class="ident">C</span>: <span class="ident">PixelColor</span>,
+<span class="kw">impl</span>&lt;C&gt; From&lt;<span class="kw-2">&amp;</span>PrimitiveStyle&lt;C&gt;&gt; <span class="kw">for </span>PrimitiveStyleBuilder&lt;C&gt;
+<span class="kw">where
+    </span>C: PixelColor,
 {
-    <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">style</span>: <span class="kw-2">&amp;</span><span class="ident">PrimitiveStyle</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>) -&gt; <span class="self">Self</span> {
-        <span class="self">Self</span> { <span class="ident">style</span>: <span class="kw-2">*</span><span class="ident">style</span> }
+    <span class="kw">fn </span>from(style: <span class="kw-2">&amp;</span>PrimitiveStyle&lt;C&gt;) -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{ style: <span class="kw-2">*</span>style }
     }
 }
 
-<span class="doccomment">/// Stroke alignment.</span>
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Copy</span>, <span class="ident">Clone</span>, <span class="ident">Eq</span>, <span class="ident">PartialEq</span>, <span class="ident">Ord</span>, <span class="ident">PartialOrd</span>, <span class="ident">Hash</span>, <span class="ident">Debug</span>)]</span>
-<span class="kw">pub</span> <span class="kw">enum</span> <span class="ident">StrokeAlignment</span> {
-    <span class="doccomment">/// Inside.</span>
-    <span class="ident">Inside</span>,
-    <span class="doccomment">/// Center.</span>
-    <span class="ident">Center</span>,
-    <span class="doccomment">/// Outside.</span>
-    <span class="ident">Outside</span>,
+<span class="doccomment">/// Stroke alignment.
+</span><span class="attribute">#[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Hash, Debug)]
+</span><span class="kw">pub enum </span>StrokeAlignment {
+    <span class="doccomment">/// Inside.
+    </span>Inside,
+    <span class="doccomment">/// Center.
+    </span>Center,
+    <span class="doccomment">/// Outside.
+    </span>Outside,
 }
 
-<span class="kw">impl</span> <span class="ident">Default</span> <span class="kw">for</span> <span class="ident">StrokeAlignment</span> {
-    <span class="kw">fn</span> <span class="ident">default</span>() -&gt; <span class="self">Self</span> {
-        <span class="ident"><span class="self">Self</span>::Center</span>
+<span class="kw">impl </span>Default <span class="kw">for </span>StrokeAlignment {
+    <span class="kw">fn </span>default() -&gt; <span class="self">Self </span>{
+        <span class="self">Self</span>::Center
     }
 }
 
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
-<span class="kw">mod</span> <span class="ident">tests</span> {
-    <span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
-    <span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::pixelcolor</span>::{<span class="ident">BinaryColor</span>, <span class="ident">Rgb888</span>, <span class="ident">RgbColor</span>};
+<span class="attribute">#[cfg(test)]
+</span><span class="kw">mod </span>tests {
+    <span class="kw">use super</span>::<span class="kw-2">*</span>;
+    <span class="kw">use </span><span class="kw">crate</span>::pixelcolor::{BinaryColor, Rgb888, RgbColor};
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">default_style</span>() {
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>default_style() {
         <span class="macro">assert_eq!</span>(
-            <span class="ident">PrimitiveStyle</span>::<span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span><span class="ident">::default</span>(),
-            <span class="ident">PrimitiveStyle</span> {
-                <span class="ident">fill_color</span>: <span class="prelude-val">None</span>,
-                <span class="ident">stroke_color</span>: <span class="prelude-val">None</span>,
-                <span class="ident">stroke_width</span>: <span class="number">0</span>,
-                <span class="ident">stroke_alignment</span>: <span class="ident">StrokeAlignment::Center</span>,
+            PrimitiveStyle::&lt;BinaryColor&gt;::default(),
+            PrimitiveStyle {
+                fill_color: <span class="prelude-val">None</span>,
+                stroke_color: <span class="prelude-val">None</span>,
+                stroke_width: <span class="number">0</span>,
+                stroke_alignment: StrokeAlignment::Center,
             }
         );
 
         <span class="macro">assert_eq!</span>(
-            <span class="ident">PrimitiveStyle</span>::<span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span><span class="ident">::default</span>(),
-            <span class="ident">PrimitiveStyle::new</span>()
+            PrimitiveStyle::&lt;BinaryColor&gt;::default(),
+            PrimitiveStyle::new()
         );
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">constructors</span>() {
-        <span class="kw">let</span> <span class="ident">style</span> <span class="op">=</span> <span class="ident">PrimitiveStyle::with_fill</span>(<span class="ident">Rgb888::RED</span>);
-        <span class="macro">assert_eq!</span>(<span class="ident">style</span>.<span class="ident">fill_color</span>, <span class="prelude-val">Some</span>(<span class="ident">Rgb888::RED</span>));
-        <span class="macro">assert_eq!</span>(<span class="ident">style</span>.<span class="ident">stroke_color</span>, <span class="prelude-val">None</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>constructors() {
+        <span class="kw">let </span>style = PrimitiveStyle::with_fill(Rgb888::RED);
+        <span class="macro">assert_eq!</span>(style.fill_color, <span class="prelude-val">Some</span>(Rgb888::RED));
+        <span class="macro">assert_eq!</span>(style.stroke_color, <span class="prelude-val">None</span>);
 
-        <span class="kw">let</span> <span class="ident">style</span> <span class="op">=</span> <span class="ident">PrimitiveStyle::with_stroke</span>(<span class="ident">Rgb888::GREEN</span>, <span class="number">123</span>);
-        <span class="macro">assert_eq!</span>(<span class="ident">style</span>.<span class="ident">fill_color</span>, <span class="prelude-val">None</span>);
-        <span class="macro">assert_eq!</span>(<span class="ident">style</span>.<span class="ident">stroke_color</span>, <span class="prelude-val">Some</span>(<span class="ident">Rgb888::GREEN</span>));
-        <span class="macro">assert_eq!</span>(<span class="ident">style</span>.<span class="ident">stroke_width</span>, <span class="number">123</span>);
+        <span class="kw">let </span>style = PrimitiveStyle::with_stroke(Rgb888::GREEN, <span class="number">123</span>);
+        <span class="macro">assert_eq!</span>(style.fill_color, <span class="prelude-val">None</span>);
+        <span class="macro">assert_eq!</span>(style.stroke_color, <span class="prelude-val">Some</span>(Rgb888::GREEN));
+        <span class="macro">assert_eq!</span>(style.stroke_width, <span class="number">123</span>);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">stroke_alignment_1px</span>() {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">style</span> <span class="op">=</span> <span class="ident">PrimitiveStyle::with_stroke</span>(<span class="ident">BinaryColor::On</span>, <span class="number">1</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>stroke_alignment_1px() {
+        <span class="kw">let </span><span class="kw-2">mut </span>style = PrimitiveStyle::with_stroke(BinaryColor::On, <span class="number">1</span>);
 
-        <span class="ident">style</span>.<span class="ident">stroke_alignment</span> <span class="op">=</span> <span class="ident">StrokeAlignment::Inside</span>;
-        <span class="macro">assert_eq!</span>(<span class="ident">style</span>.<span class="ident">inside_stroke_width</span>(), <span class="number">1</span>);
-        <span class="macro">assert_eq!</span>(<span class="ident">style</span>.<span class="ident">outside_stroke_width</span>(), <span class="number">0</span>);
+        style.stroke_alignment = StrokeAlignment::Inside;
+        <span class="macro">assert_eq!</span>(style.inside_stroke_width(), <span class="number">1</span>);
+        <span class="macro">assert_eq!</span>(style.outside_stroke_width(), <span class="number">0</span>);
 
-        <span class="ident">style</span>.<span class="ident">stroke_alignment</span> <span class="op">=</span> <span class="ident">StrokeAlignment::Center</span>;
-        <span class="macro">assert_eq!</span>(<span class="ident">style</span>.<span class="ident">inside_stroke_width</span>(), <span class="number">1</span>);
-        <span class="macro">assert_eq!</span>(<span class="ident">style</span>.<span class="ident">outside_stroke_width</span>(), <span class="number">0</span>);
+        style.stroke_alignment = StrokeAlignment::Center;
+        <span class="macro">assert_eq!</span>(style.inside_stroke_width(), <span class="number">1</span>);
+        <span class="macro">assert_eq!</span>(style.outside_stroke_width(), <span class="number">0</span>);
 
-        <span class="ident">style</span>.<span class="ident">stroke_alignment</span> <span class="op">=</span> <span class="ident">StrokeAlignment::Outside</span>;
-        <span class="macro">assert_eq!</span>(<span class="ident">style</span>.<span class="ident">inside_stroke_width</span>(), <span class="number">0</span>);
-        <span class="macro">assert_eq!</span>(<span class="ident">style</span>.<span class="ident">outside_stroke_width</span>(), <span class="number">1</span>);
+        style.stroke_alignment = StrokeAlignment::Outside;
+        <span class="macro">assert_eq!</span>(style.inside_stroke_width(), <span class="number">0</span>);
+        <span class="macro">assert_eq!</span>(style.outside_stroke_width(), <span class="number">1</span>);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">stroke_alignment_2px</span>() {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">style</span> <span class="op">=</span> <span class="ident">PrimitiveStyle::with_stroke</span>(<span class="ident">BinaryColor::On</span>, <span class="number">2</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>stroke_alignment_2px() {
+        <span class="kw">let </span><span class="kw-2">mut </span>style = PrimitiveStyle::with_stroke(BinaryColor::On, <span class="number">2</span>);
 
-        <span class="ident">style</span>.<span class="ident">stroke_alignment</span> <span class="op">=</span> <span class="ident">StrokeAlignment::Inside</span>;
-        <span class="macro">assert_eq!</span>(<span class="ident">style</span>.<span class="ident">inside_stroke_width</span>(), <span class="number">2</span>);
-        <span class="macro">assert_eq!</span>(<span class="ident">style</span>.<span class="ident">outside_stroke_width</span>(), <span class="number">0</span>);
+        style.stroke_alignment = StrokeAlignment::Inside;
+        <span class="macro">assert_eq!</span>(style.inside_stroke_width(), <span class="number">2</span>);
+        <span class="macro">assert_eq!</span>(style.outside_stroke_width(), <span class="number">0</span>);
 
-        <span class="ident">style</span>.<span class="ident">stroke_alignment</span> <span class="op">=</span> <span class="ident">StrokeAlignment::Center</span>;
-        <span class="macro">assert_eq!</span>(<span class="ident">style</span>.<span class="ident">inside_stroke_width</span>(), <span class="number">1</span>);
-        <span class="macro">assert_eq!</span>(<span class="ident">style</span>.<span class="ident">outside_stroke_width</span>(), <span class="number">1</span>);
+        style.stroke_alignment = StrokeAlignment::Center;
+        <span class="macro">assert_eq!</span>(style.inside_stroke_width(), <span class="number">1</span>);
+        <span class="macro">assert_eq!</span>(style.outside_stroke_width(), <span class="number">1</span>);
 
-        <span class="ident">style</span>.<span class="ident">stroke_alignment</span> <span class="op">=</span> <span class="ident">StrokeAlignment::Outside</span>;
-        <span class="macro">assert_eq!</span>(<span class="ident">style</span>.<span class="ident">inside_stroke_width</span>(), <span class="number">0</span>);
-        <span class="macro">assert_eq!</span>(<span class="ident">style</span>.<span class="ident">outside_stroke_width</span>(), <span class="number">2</span>);
+        style.stroke_alignment = StrokeAlignment::Outside;
+        <span class="macro">assert_eq!</span>(style.inside_stroke_width(), <span class="number">0</span>);
+        <span class="macro">assert_eq!</span>(style.outside_stroke_width(), <span class="number">2</span>);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">builder_default</span>() {
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>builder_default() {
         <span class="macro">assert_eq!</span>(
-            <span class="ident">PrimitiveStyleBuilder</span>::<span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span><span class="ident">::new</span>().<span class="ident">build</span>(),
-            <span class="ident">PrimitiveStyle</span>::<span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span><span class="ident">::default</span>()
+            PrimitiveStyleBuilder::&lt;BinaryColor&gt;::new().build(),
+            PrimitiveStyle::&lt;BinaryColor&gt;::default()
         );
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">builder_stroke</span>() {
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>builder_stroke() {
         <span class="macro">assert_eq!</span>(
-            <span class="ident">PrimitiveStyleBuilder::new</span>()
-                .<span class="ident">stroke_color</span>(<span class="ident">BinaryColor::On</span>)
-                .<span class="ident">stroke_width</span>(<span class="number">10</span>)
-                .<span class="ident">build</span>(),
-            <span class="ident">PrimitiveStyle::with_stroke</span>(<span class="ident">BinaryColor::On</span>, <span class="number">10</span>)
+            PrimitiveStyleBuilder::new()
+                .stroke_color(BinaryColor::On)
+                .stroke_width(<span class="number">10</span>)
+                .build(),
+            PrimitiveStyle::with_stroke(BinaryColor::On, <span class="number">10</span>)
         );
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">builder_reset_stroke_color</span>() {
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>builder_reset_stroke_color() {
         <span class="macro">assert_eq!</span>(
-            <span class="ident">PrimitiveStyleBuilder::new</span>()
-                .<span class="ident">stroke_color</span>(<span class="ident">BinaryColor::On</span>)
-                .<span class="ident">stroke_width</span>(<span class="number">10</span>)
-                .<span class="ident">fill_color</span>(<span class="ident">BinaryColor::Off</span>)
-                .<span class="ident">reset_stroke_color</span>()
-                .<span class="ident">build</span>(),
-            <span class="ident">PrimitiveStyleBuilder::new</span>()
-                .<span class="ident">stroke_width</span>(<span class="number">10</span>)
-                .<span class="ident">fill_color</span>(<span class="ident">BinaryColor::Off</span>)
-                .<span class="ident">build</span>()
+            PrimitiveStyleBuilder::new()
+                .stroke_color(BinaryColor::On)
+                .stroke_width(<span class="number">10</span>)
+                .fill_color(BinaryColor::Off)
+                .reset_stroke_color()
+                .build(),
+            PrimitiveStyleBuilder::new()
+                .stroke_width(<span class="number">10</span>)
+                .fill_color(BinaryColor::Off)
+                .build()
         );
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">builder_fill</span>() {
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>builder_fill() {
         <span class="macro">assert_eq!</span>(
-            <span class="ident">PrimitiveStyleBuilder::new</span>()
-                .<span class="ident">fill_color</span>(<span class="ident">BinaryColor::On</span>)
-                .<span class="ident">build</span>(),
-            <span class="ident">PrimitiveStyle::with_fill</span>(<span class="ident">BinaryColor::On</span>)
+            PrimitiveStyleBuilder::new()
+                .fill_color(BinaryColor::On)
+                .build(),
+            PrimitiveStyle::with_fill(BinaryColor::On)
         );
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">builder_reset_fill_color</span>() {
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>builder_reset_fill_color() {
         <span class="macro">assert_eq!</span>(
-            <span class="ident">PrimitiveStyleBuilder::new</span>()
-                .<span class="ident">fill_color</span>(<span class="ident">BinaryColor::On</span>)
-                .<span class="ident">stroke_color</span>(<span class="ident">BinaryColor::Off</span>)
-                .<span class="ident">reset_fill_color</span>()
-                .<span class="ident">build</span>(),
-            <span class="ident">PrimitiveStyleBuilder::new</span>()
-                .<span class="ident">stroke_color</span>(<span class="ident">BinaryColor::Off</span>)
-                .<span class="ident">build</span>(),
+            PrimitiveStyleBuilder::new()
+                .fill_color(BinaryColor::On)
+                .stroke_color(BinaryColor::Off)
+                .reset_fill_color()
+                .build(),
+            PrimitiveStyleBuilder::new()
+                .stroke_color(BinaryColor::Off)
+                .build(),
         );
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">effective_stroke_color</span>() {
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>effective_stroke_color() {
         <span class="macro">assert_eq!</span>(
-            <span class="ident">PrimitiveStyle::with_stroke</span>(<span class="ident">BinaryColor::On</span>, <span class="number">1</span>).<span class="ident">effective_stroke_color</span>(),
-            <span class="prelude-val">Some</span>(<span class="ident">BinaryColor::On</span>)
+            PrimitiveStyle::with_stroke(BinaryColor::On, <span class="number">1</span>).effective_stroke_color(),
+            <span class="prelude-val">Some</span>(BinaryColor::On)
         );
 
         <span class="macro">assert_eq!</span>(
-            <span class="ident">PrimitiveStyle::with_stroke</span>(<span class="ident">BinaryColor::On</span>, <span class="number">0</span>).<span class="ident">effective_stroke_color</span>(),
-            <span class="prelude-val">None</span>
-        );
+            PrimitiveStyle::with_stroke(BinaryColor::On, <span class="number">0</span>).effective_stroke_color(),
+            <span class="prelude-val">None
+        </span>);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">stroke_width_max_value</span>() {
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>stroke_width_max_value() {
         <span class="macro">assert_eq!</span>(
-            <span class="ident">PrimitiveStyleBuilder::from</span>(<span class="kw-2">&amp;</span><span class="ident">PrimitiveStyle::with_stroke</span>(
-                <span class="ident">BinaryColor::On</span>,
-                <span class="ident">core::u32::MAX</span>
+            PrimitiveStyleBuilder::from(<span class="kw-2">&amp;</span>PrimitiveStyle::with_stroke(
+                BinaryColor::On,
+                core::u32::MAX
             ))
-            .<span class="ident">stroke_alignment</span>(<span class="ident">StrokeAlignment::Center</span>)
-            .<span class="ident">build</span>()
-            .<span class="ident">inside_stroke_width</span>(),
-            <span class="ident">core::u32::MAX</span> <span class="op">/</span> <span class="number">2</span>
-        );
+            .stroke_alignment(StrokeAlignment::Center)
+            .build()
+            .inside_stroke_width(),
+            core::u32::MAX / <span class="number">2
+        </span>);
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="embedded_graphics" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0 (a55dd71d5 2022-09-19)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="embedded_graphics" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0 (69f9c33d7 2022-12-12)" ></div></body></html>

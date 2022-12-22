@@ -1,6 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.1/src/primitives/rounded_rectangle/corner_radii.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>corner_radii.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../../storage.js"></script><script defer src="../../../../source-script.js"></script><script defer src="../../../../source-files.js"></script><script defer src="../../../../main.js"></script><noscript><link rel="stylesheet" href="../../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../../embedded_graphics/index.html"><div class="logo-container"><img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../../embedded_graphics/index.html"><div class="logo-container">
-                    <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../../embedded_graphics/index.html">
-                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.1/src/primitives/rounded_rectangle/corner_radii.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>corner_radii.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../../normalize.css"><link rel="stylesheet" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../../ayu.css" disabled><link rel="stylesheet" href="../../../../dark.css" disabled><link rel="stylesheet" href="../../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../../storage.js"></script><script defer src="../../../../source-script.js"></script><script defer src="../../../../source-files.js"></script><script defer src="../../../../main.js"></script><noscript><link rel="stylesheet" href="../../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../../embedded_graphics/index.html">
+                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../wheel.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -496,501 +495,501 @@
 <span id="494">494</span>
 <span id="495">495</span>
 <span id="496">496</span>
-</pre><pre class="rust"><code><span class="doccomment">//! Rounded rectangle corner radii configuration</span>
+</pre><pre class="rust"><code><span class="doccomment">//! Rounded rectangle corner radii configuration
 
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::geometry::Size</span>;
+</span><span class="kw">use </span><span class="kw">crate</span>::geometry::Size;
 
-<span class="doccomment">/// The definition of each corner radius for a rounded rectangle.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Examples</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// ## Create a radii configuration with equal corners</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// This example create a `CornerRadii` instance where each corner has an equal, elliptical radius</span>
-<span class="doccomment">/// of 10px x 8px.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// ```rust</span>
-<span class="doccomment">/// use embedded_graphics::{geometry::Size, primitives::CornerRadii};</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// let radii = CornerRadii::new(Size::new(10, 8));</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// assert_eq!(</span>
-<span class="doccomment">///     radii,</span>
-<span class="doccomment">///     CornerRadii {</span>
-<span class="doccomment">///         top_left: Size::new(10, 8),</span>
-<span class="doccomment">///         top_right: Size::new(10, 8),</span>
-<span class="doccomment">///         bottom_right: Size::new(10, 8),</span>
-<span class="doccomment">///         bottom_left: Size::new(10, 8),</span>
-<span class="doccomment">///     }</span>
-<span class="doccomment">/// );</span>
-<span class="doccomment">/// ```</span>
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Copy</span>, <span class="ident">Clone</span>, <span class="ident">Eq</span>, <span class="ident">PartialEq</span>, <span class="ident">Ord</span>, <span class="ident">PartialOrd</span>, <span class="ident">Hash</span>, <span class="ident">Debug</span>, <span class="ident">Default</span>)]</span>
-<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">CornerRadii</span> {
-    <span class="doccomment">/// Top left corner radius</span>
-    <span class="kw">pub</span> <span class="ident">top_left</span>: <span class="ident">Size</span>,
+<span class="doccomment">/// The definition of each corner radius for a rounded rectangle.
+///
+/// # Examples
+///
+/// ## Create a radii configuration with equal corners
+///
+/// This example create a `CornerRadii` instance where each corner has an equal, elliptical radius
+/// of 10px x 8px.
+///
+/// ```rust
+/// use embedded_graphics::{geometry::Size, primitives::CornerRadii};
+///
+/// let radii = CornerRadii::new(Size::new(10, 8));
+///
+/// assert_eq!(
+///     radii,
+///     CornerRadii {
+///         top_left: Size::new(10, 8),
+///         top_right: Size::new(10, 8),
+///         bottom_right: Size::new(10, 8),
+///         bottom_left: Size::new(10, 8),
+///     }
+/// );
+/// ```
+</span><span class="attribute">#[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Hash, Debug, Default)]
+</span><span class="kw">pub struct </span>CornerRadii {
+    <span class="doccomment">/// Top left corner radius
+    </span><span class="kw">pub </span>top_left: Size,
 
-    <span class="doccomment">/// Top right corner radius</span>
-    <span class="kw">pub</span> <span class="ident">top_right</span>: <span class="ident">Size</span>,
+    <span class="doccomment">/// Top right corner radius
+    </span><span class="kw">pub </span>top_right: Size,
 
-    <span class="doccomment">/// Bottom right corner radius</span>
-    <span class="kw">pub</span> <span class="ident">bottom_right</span>: <span class="ident">Size</span>,
+    <span class="doccomment">/// Bottom right corner radius
+    </span><span class="kw">pub </span>bottom_right: Size,
 
-    <span class="doccomment">/// Bottom left corner radius</span>
-    <span class="kw">pub</span> <span class="ident">bottom_left</span>: <span class="ident">Size</span>,
+    <span class="doccomment">/// Bottom left corner radius
+    </span><span class="kw">pub </span>bottom_left: Size,
 }
 
-<span class="kw">impl</span> <span class="ident">CornerRadii</span> {
-    <span class="doccomment">/// Create a new set of corner radii with all corners having equal values.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// To create a `CornerRadii` instance with different radii for each corner, use the</span>
-    <span class="doccomment">/// [`CornerRadiiBuilder`](./struct.CornerRadiiBuilder.html) builder.</span>
-    <span class="kw">pub</span> <span class="kw">const</span> <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">radius</span>: <span class="ident">Size</span>) -&gt; <span class="self">Self</span> {
-        <span class="self">Self</span> {
-            <span class="ident">top_left</span>: <span class="ident">radius</span>,
-            <span class="ident">top_right</span>: <span class="ident">radius</span>,
-            <span class="ident">bottom_right</span>: <span class="ident">radius</span>,
-            <span class="ident">bottom_left</span>: <span class="ident">radius</span>,
+<span class="kw">impl </span>CornerRadii {
+    <span class="doccomment">/// Create a new set of corner radii with all corners having equal values.
+    ///
+    /// To create a `CornerRadii` instance with different radii for each corner, use the
+    /// [`CornerRadiiBuilder`](./struct.CornerRadiiBuilder.html) builder.
+    </span><span class="kw">pub const fn </span>new(radius: Size) -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{
+            top_left: radius,
+            top_right: radius,
+            bottom_right: radius,
+            bottom_left: radius,
         }
     }
 
-    <span class="doccomment">/// Confine corner radii that are too large to a given bounding rectangle</span>
-    <span class="kw">pub</span>(<span class="kw">in</span> <span class="ident"><span class="kw">crate</span>::primitives</span>) <span class="kw">fn</span> <span class="ident">confine</span>(<span class="self">self</span>, <span class="ident">bounding_box</span>: <span class="ident">Size</span>) -&gt; <span class="self">Self</span> {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">overlap</span> <span class="op">=</span> <span class="number">0</span>;
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">size</span> <span class="op">=</span> <span class="number">0</span>;
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">corner_size</span> <span class="op">=</span> <span class="number">0</span>;
+    <span class="doccomment">/// Confine corner radii that are too large to a given bounding rectangle
+    </span><span class="kw">pub</span>(<span class="kw">in </span><span class="kw">crate</span>::primitives) <span class="kw">fn </span>confine(<span class="self">self</span>, bounding_box: Size) -&gt; <span class="self">Self </span>{
+        <span class="kw">let </span><span class="kw-2">mut </span>overlap = <span class="number">0</span>;
+        <span class="kw">let </span><span class="kw-2">mut </span>size = <span class="number">0</span>;
+        <span class="kw">let </span><span class="kw-2">mut </span>corner_size = <span class="number">0</span>;
 
-        <span class="kw">let</span> <span class="ident">top_radii</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">top_left</span>.<span class="ident">width</span> <span class="op">+</span> <span class="self">self</span>.<span class="ident">top_right</span>.<span class="ident">width</span>;
-        <span class="kw">let</span> <span class="ident">right_radii</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">top_right</span>.<span class="ident">height</span> <span class="op">+</span> <span class="self">self</span>.<span class="ident">bottom_right</span>.<span class="ident">height</span>;
-        <span class="kw">let</span> <span class="ident">bottom_radii</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">bottom_left</span>.<span class="ident">width</span> <span class="op">+</span> <span class="self">self</span>.<span class="ident">bottom_right</span>.<span class="ident">width</span>;
-        <span class="kw">let</span> <span class="ident">left_radii</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">top_left</span>.<span class="ident">height</span> <span class="op">+</span> <span class="self">self</span>.<span class="ident">bottom_left</span>.<span class="ident">height</span>;
+        <span class="kw">let </span>top_radii = <span class="self">self</span>.top_left.width + <span class="self">self</span>.top_right.width;
+        <span class="kw">let </span>right_radii = <span class="self">self</span>.top_right.height + <span class="self">self</span>.bottom_right.height;
+        <span class="kw">let </span>bottom_radii = <span class="self">self</span>.bottom_left.width + <span class="self">self</span>.bottom_right.width;
+        <span class="kw">let </span>left_radii = <span class="self">self</span>.top_left.height + <span class="self">self</span>.bottom_left.height;
 
-        <span class="kw">let</span> <span class="ident">o</span> <span class="op">=</span> <span class="ident">top_radii</span>.<span class="ident">saturating_sub</span>(<span class="ident">bounding_box</span>.<span class="ident">width</span>);
-        <span class="kw">if</span> <span class="ident">o</span> <span class="op">&gt;</span> <span class="ident">overlap</span> {
-            <span class="ident">size</span> <span class="op">=</span> <span class="ident">bounding_box</span>.<span class="ident">width</span>;
-            <span class="ident">corner_size</span> <span class="op">=</span> <span class="ident">top_radii</span>;
-            <span class="ident">overlap</span> <span class="op">=</span> <span class="ident">o</span>;
+        <span class="kw">let </span>o = top_radii.saturating_sub(bounding_box.width);
+        <span class="kw">if </span>o &gt; overlap {
+            size = bounding_box.width;
+            corner_size = top_radii;
+            overlap = o;
         }
 
-        <span class="kw">let</span> <span class="ident">o</span> <span class="op">=</span> <span class="ident">right_radii</span>.<span class="ident">saturating_sub</span>(<span class="ident">bounding_box</span>.<span class="ident">height</span>);
-        <span class="kw">if</span> <span class="ident">o</span> <span class="op">&gt;</span> <span class="ident">overlap</span> {
-            <span class="ident">size</span> <span class="op">=</span> <span class="ident">bounding_box</span>.<span class="ident">height</span>;
-            <span class="ident">corner_size</span> <span class="op">=</span> <span class="ident">right_radii</span>;
-            <span class="ident">overlap</span> <span class="op">=</span> <span class="ident">o</span>;
+        <span class="kw">let </span>o = right_radii.saturating_sub(bounding_box.height);
+        <span class="kw">if </span>o &gt; overlap {
+            size = bounding_box.height;
+            corner_size = right_radii;
+            overlap = o;
         }
 
-        <span class="kw">let</span> <span class="ident">o</span> <span class="op">=</span> <span class="ident">bottom_radii</span>.<span class="ident">saturating_sub</span>(<span class="ident">bounding_box</span>.<span class="ident">width</span>);
-        <span class="kw">if</span> <span class="ident">o</span> <span class="op">&gt;</span> <span class="ident">overlap</span> {
-            <span class="ident">size</span> <span class="op">=</span> <span class="ident">bounding_box</span>.<span class="ident">width</span>;
-            <span class="ident">corner_size</span> <span class="op">=</span> <span class="ident">bottom_radii</span>;
-            <span class="ident">overlap</span> <span class="op">=</span> <span class="ident">o</span>;
+        <span class="kw">let </span>o = bottom_radii.saturating_sub(bounding_box.width);
+        <span class="kw">if </span>o &gt; overlap {
+            size = bounding_box.width;
+            corner_size = bottom_radii;
+            overlap = o;
         }
 
-        <span class="kw">let</span> <span class="ident">o</span> <span class="op">=</span> <span class="ident">left_radii</span>.<span class="ident">saturating_sub</span>(<span class="ident">bounding_box</span>.<span class="ident">height</span>);
-        <span class="kw">if</span> <span class="ident">o</span> <span class="op">&gt;</span> <span class="ident">overlap</span> {
-            <span class="ident">size</span> <span class="op">=</span> <span class="ident">bounding_box</span>.<span class="ident">height</span>;
-            <span class="ident">corner_size</span> <span class="op">=</span> <span class="ident">left_radii</span>;
-            <span class="ident">overlap</span> <span class="op">=</span> <span class="ident">o</span>;
+        <span class="kw">let </span>o = left_radii.saturating_sub(bounding_box.height);
+        <span class="kw">if </span>o &gt; overlap {
+            size = bounding_box.height;
+            corner_size = left_radii;
+            overlap = o;
         }
 
-        <span class="kw">if</span> <span class="ident">overlap</span> <span class="op">&gt;</span> <span class="number">0</span> <span class="op">&amp;&amp;</span> <span class="ident">corner_size</span> <span class="op">&gt;</span> <span class="number">0</span> {
-            <span class="self">Self</span> {
-                <span class="ident">top_left</span>: (<span class="self">self</span>.<span class="ident">top_left</span> <span class="op">*</span> <span class="ident">size</span>) <span class="op">/</span> <span class="ident">corner_size</span>,
-                <span class="ident">top_right</span>: (<span class="self">self</span>.<span class="ident">top_right</span> <span class="op">*</span> <span class="ident">size</span>) <span class="op">/</span> <span class="ident">corner_size</span>,
-                <span class="ident">bottom_right</span>: (<span class="self">self</span>.<span class="ident">bottom_right</span> <span class="op">*</span> <span class="ident">size</span>) <span class="op">/</span> <span class="ident">corner_size</span>,
-                <span class="ident">bottom_left</span>: (<span class="self">self</span>.<span class="ident">bottom_left</span> <span class="op">*</span> <span class="ident">size</span>) <span class="op">/</span> <span class="ident">corner_size</span>,
+        <span class="kw">if </span>overlap &gt; <span class="number">0 </span>&amp;&amp; corner_size &gt; <span class="number">0 </span>{
+            <span class="self">Self </span>{
+                top_left: (<span class="self">self</span>.top_left * size) / corner_size,
+                top_right: (<span class="self">self</span>.top_right * size) / corner_size,
+                bottom_right: (<span class="self">self</span>.bottom_right * size) / corner_size,
+                bottom_left: (<span class="self">self</span>.bottom_left * size) / corner_size,
             }
-        } <span class="kw">else</span> {
-            <span class="self">self</span>
+        } <span class="kw">else </span>{
+            <span class="self">self
+        </span>}
+    }
+}
+
+<span class="doccomment">/// [`CornerRadii`](./struct.CornerRadii.html) builder.
+</span><span class="attribute">#[derive(Copy, Clone, Debug, Default, Eq, PartialEq, Hash, PartialOrd, Ord)]
+</span><span class="kw">pub struct </span>CornerRadiiBuilder {
+    corners: CornerRadii,
+}
+
+<span class="kw">impl </span>CornerRadiiBuilder {
+    <span class="doccomment">/// Create a new corner radii builder.
+    ///
+    /// All radii are defaulted to 0px x 0px.
+    </span><span class="kw">pub const fn </span>new() -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{
+            corners: CornerRadii::new(Size::zero()),
         }
     }
-}
 
-<span class="doccomment">/// [`CornerRadii`](./struct.CornerRadii.html) builder.</span>
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Copy</span>, <span class="ident">Clone</span>, <span class="ident">Debug</span>, <span class="ident">Default</span>, <span class="ident">Eq</span>, <span class="ident">PartialEq</span>, <span class="ident">Hash</span>, <span class="ident">PartialOrd</span>, <span class="ident">Ord</span>)]</span>
-<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">CornerRadiiBuilder</span> {
-    <span class="ident">corners</span>: <span class="ident">CornerRadii</span>,
-}
+    <span class="doccomment">/// Set all corner radii to the same value.
+    ///
+    /// # Examples
+    ///
+    /// ```rust
+    /// use embedded_graphics::{
+    ///     geometry::Size,
+    ///     primitives::{CornerRadii, CornerRadiiBuilder},
+    /// };
+    ///
+    /// let corners = CornerRadiiBuilder::new().all(Size::new(10, 20)).build();
+    ///
+    /// assert_eq!(
+    ///     corners,
+    ///     CornerRadii {
+    ///         top_left: Size::new(10, 20),
+    ///         top_right: Size::new(10, 20),
+    ///         bottom_right: Size::new(10, 20),
+    ///         bottom_left: Size::new(10, 20),
+    ///     }
+    /// );
+    /// ```
+    </span><span class="kw">pub const fn </span>all(<span class="kw-2">mut </span><span class="self">self</span>, radius: Size) -&gt; <span class="self">Self </span>{
+        <span class="self">self</span>.corners = CornerRadii::new(radius);
 
-<span class="kw">impl</span> <span class="ident">CornerRadiiBuilder</span> {
-    <span class="doccomment">/// Create a new corner radii builder.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// All radii are defaulted to 0px x 0px.</span>
-    <span class="kw">pub</span> <span class="kw">const</span> <span class="kw">fn</span> <span class="ident">new</span>() -&gt; <span class="self">Self</span> {
-        <span class="self">Self</span> {
-            <span class="ident">corners</span>: <span class="ident">CornerRadii::new</span>(<span class="ident">Size::zero</span>()),
-        }
-    }
+        <span class="self">self
+    </span>}
 
-    <span class="doccomment">/// Set all corner radii to the same value.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Examples</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ```rust</span>
-    <span class="doccomment">/// use embedded_graphics::{</span>
-    <span class="doccomment">///     geometry::Size,</span>
-    <span class="doccomment">///     primitives::{CornerRadii, CornerRadiiBuilder},</span>
-    <span class="doccomment">/// };</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// let corners = CornerRadiiBuilder::new().all(Size::new(10, 20)).build();</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// assert_eq!(</span>
-    <span class="doccomment">///     corners,</span>
-    <span class="doccomment">///     CornerRadii {</span>
-    <span class="doccomment">///         top_left: Size::new(10, 20),</span>
-    <span class="doccomment">///         top_right: Size::new(10, 20),</span>
-    <span class="doccomment">///         bottom_right: Size::new(10, 20),</span>
-    <span class="doccomment">///         bottom_left: Size::new(10, 20),</span>
-    <span class="doccomment">///     }</span>
-    <span class="doccomment">/// );</span>
-    <span class="doccomment">/// ```</span>
-    <span class="kw">pub</span> <span class="kw">const</span> <span class="kw">fn</span> <span class="ident">all</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">radius</span>: <span class="ident">Size</span>) -&gt; <span class="self">Self</span> {
-        <span class="self">self</span>.<span class="ident">corners</span> <span class="op">=</span> <span class="ident">CornerRadii::new</span>(<span class="ident">radius</span>);
+    <span class="doccomment">/// Set the top left and top right corner radii to the same value.
+    ///
+    /// # Examples
+    ///
+    /// ```rust
+    /// use embedded_graphics::{
+    ///     geometry::Size,
+    ///     primitives::{CornerRadii, CornerRadiiBuilder},
+    /// };
+    ///
+    /// let corners = CornerRadiiBuilder::new().top(Size::new(10, 20)).build();
+    ///
+    /// assert_eq!(
+    ///     corners,
+    ///     CornerRadii {
+    ///         top_left: Size::new(10, 20),
+    ///         top_right: Size::new(10, 20),
+    ///         bottom_right: Size::zero(),
+    ///         bottom_left: Size::zero(),
+    ///     }
+    /// );
+    /// ```
+    </span><span class="kw">pub const fn </span>top(<span class="kw-2">mut </span><span class="self">self</span>, radius: Size) -&gt; <span class="self">Self </span>{
+        <span class="self">self</span>.corners.top_left = radius;
+        <span class="self">self</span>.corners.top_right = radius;
 
-        <span class="self">self</span>
-    }
+        <span class="self">self
+    </span>}
 
-    <span class="doccomment">/// Set the top left and top right corner radii to the same value.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Examples</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ```rust</span>
-    <span class="doccomment">/// use embedded_graphics::{</span>
-    <span class="doccomment">///     geometry::Size,</span>
-    <span class="doccomment">///     primitives::{CornerRadii, CornerRadiiBuilder},</span>
-    <span class="doccomment">/// };</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// let corners = CornerRadiiBuilder::new().top(Size::new(10, 20)).build();</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// assert_eq!(</span>
-    <span class="doccomment">///     corners,</span>
-    <span class="doccomment">///     CornerRadii {</span>
-    <span class="doccomment">///         top_left: Size::new(10, 20),</span>
-    <span class="doccomment">///         top_right: Size::new(10, 20),</span>
-    <span class="doccomment">///         bottom_right: Size::zero(),</span>
-    <span class="doccomment">///         bottom_left: Size::zero(),</span>
-    <span class="doccomment">///     }</span>
-    <span class="doccomment">/// );</span>
-    <span class="doccomment">/// ```</span>
-    <span class="kw">pub</span> <span class="kw">const</span> <span class="kw">fn</span> <span class="ident">top</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">radius</span>: <span class="ident">Size</span>) -&gt; <span class="self">Self</span> {
-        <span class="self">self</span>.<span class="ident">corners</span>.<span class="ident">top_left</span> <span class="op">=</span> <span class="ident">radius</span>;
-        <span class="self">self</span>.<span class="ident">corners</span>.<span class="ident">top_right</span> <span class="op">=</span> <span class="ident">radius</span>;
+    <span class="doccomment">/// Set the top right and bottom right corner radii to the same value.
+    ///
+    /// # Examples
+    ///
+    /// ```rust
+    /// use embedded_graphics::{
+    ///     geometry::Size,
+    ///     primitives::{CornerRadii, CornerRadiiBuilder},
+    /// };
+    ///
+    /// let corners = CornerRadiiBuilder::new().right(Size::new(10, 20)).build();
+    ///
+    /// assert_eq!(
+    ///     corners,
+    ///     CornerRadii {
+    ///         top_left: Size::zero(),
+    ///         top_right: Size::new(10, 20),
+    ///         bottom_right: Size::new(10, 20),
+    ///         bottom_left: Size::zero(),
+    ///     }
+    /// );
+    /// ```
+    </span><span class="kw">pub const fn </span>right(<span class="kw-2">mut </span><span class="self">self</span>, radius: Size) -&gt; <span class="self">Self </span>{
+        <span class="self">self</span>.corners.top_right = radius;
+        <span class="self">self</span>.corners.bottom_right = radius;
 
-        <span class="self">self</span>
-    }
+        <span class="self">self
+    </span>}
 
-    <span class="doccomment">/// Set the top right and bottom right corner radii to the same value.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Examples</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ```rust</span>
-    <span class="doccomment">/// use embedded_graphics::{</span>
-    <span class="doccomment">///     geometry::Size,</span>
-    <span class="doccomment">///     primitives::{CornerRadii, CornerRadiiBuilder},</span>
-    <span class="doccomment">/// };</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// let corners = CornerRadiiBuilder::new().right(Size::new(10, 20)).build();</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// assert_eq!(</span>
-    <span class="doccomment">///     corners,</span>
-    <span class="doccomment">///     CornerRadii {</span>
-    <span class="doccomment">///         top_left: Size::zero(),</span>
-    <span class="doccomment">///         top_right: Size::new(10, 20),</span>
-    <span class="doccomment">///         bottom_right: Size::new(10, 20),</span>
-    <span class="doccomment">///         bottom_left: Size::zero(),</span>
-    <span class="doccomment">///     }</span>
-    <span class="doccomment">/// );</span>
-    <span class="doccomment">/// ```</span>
-    <span class="kw">pub</span> <span class="kw">const</span> <span class="kw">fn</span> <span class="ident">right</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">radius</span>: <span class="ident">Size</span>) -&gt; <span class="self">Self</span> {
-        <span class="self">self</span>.<span class="ident">corners</span>.<span class="ident">top_right</span> <span class="op">=</span> <span class="ident">radius</span>;
-        <span class="self">self</span>.<span class="ident">corners</span>.<span class="ident">bottom_right</span> <span class="op">=</span> <span class="ident">radius</span>;
+    <span class="doccomment">/// Set the bottom left and bottom right corner radii to the same value.
+    ///
+    /// # Examples
+    ///
+    /// ```rust
+    /// use embedded_graphics::{
+    ///     geometry::Size,
+    ///     primitives::{CornerRadii, CornerRadiiBuilder},
+    /// };
+    ///
+    /// let corners = CornerRadiiBuilder::new().bottom(Size::new(10, 20)).build();
+    ///
+    /// assert_eq!(
+    ///     corners,
+    ///     CornerRadii {
+    ///         top_left: Size::zero(),
+    ///         top_right: Size::zero(),
+    ///         bottom_right: Size::new(10, 20),
+    ///         bottom_left: Size::new(10, 20),
+    ///     }
+    /// );
+    /// ```
+    </span><span class="kw">pub const fn </span>bottom(<span class="kw-2">mut </span><span class="self">self</span>, radius: Size) -&gt; <span class="self">Self </span>{
+        <span class="self">self</span>.corners.bottom_left = radius;
+        <span class="self">self</span>.corners.bottom_right = radius;
 
-        <span class="self">self</span>
-    }
+        <span class="self">self
+    </span>}
 
-    <span class="doccomment">/// Set the bottom left and bottom right corner radii to the same value.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Examples</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ```rust</span>
-    <span class="doccomment">/// use embedded_graphics::{</span>
-    <span class="doccomment">///     geometry::Size,</span>
-    <span class="doccomment">///     primitives::{CornerRadii, CornerRadiiBuilder},</span>
-    <span class="doccomment">/// };</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// let corners = CornerRadiiBuilder::new().bottom(Size::new(10, 20)).build();</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// assert_eq!(</span>
-    <span class="doccomment">///     corners,</span>
-    <span class="doccomment">///     CornerRadii {</span>
-    <span class="doccomment">///         top_left: Size::zero(),</span>
-    <span class="doccomment">///         top_right: Size::zero(),</span>
-    <span class="doccomment">///         bottom_right: Size::new(10, 20),</span>
-    <span class="doccomment">///         bottom_left: Size::new(10, 20),</span>
-    <span class="doccomment">///     }</span>
-    <span class="doccomment">/// );</span>
-    <span class="doccomment">/// ```</span>
-    <span class="kw">pub</span> <span class="kw">const</span> <span class="kw">fn</span> <span class="ident">bottom</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">radius</span>: <span class="ident">Size</span>) -&gt; <span class="self">Self</span> {
-        <span class="self">self</span>.<span class="ident">corners</span>.<span class="ident">bottom_left</span> <span class="op">=</span> <span class="ident">radius</span>;
-        <span class="self">self</span>.<span class="ident">corners</span>.<span class="ident">bottom_right</span> <span class="op">=</span> <span class="ident">radius</span>;
+    <span class="doccomment">/// Set the top left and bottom left corner radii to the same value.
+    ///
+    /// # Examples
+    ///
+    /// ```rust
+    /// use embedded_graphics::{
+    ///     geometry::Size,
+    ///     primitives::{CornerRadii, CornerRadiiBuilder},
+    /// };
+    ///
+    /// let corners = CornerRadiiBuilder::new().left(Size::new(10, 20)).build();
+    ///
+    /// assert_eq!(
+    ///     corners,
+    ///     CornerRadii {
+    ///         top_left: Size::new(10, 20),
+    ///         top_right: Size::zero(),
+    ///         bottom_right: Size::zero(),
+    ///         bottom_left: Size::new(10, 20),
+    ///     }
+    /// );
+    /// ```
+    </span><span class="kw">pub const fn </span>left(<span class="kw-2">mut </span><span class="self">self</span>, radius: Size) -&gt; <span class="self">Self </span>{
+        <span class="self">self</span>.corners.top_left = radius;
+        <span class="self">self</span>.corners.bottom_left = radius;
 
-        <span class="self">self</span>
-    }
+        <span class="self">self
+    </span>}
 
-    <span class="doccomment">/// Set the top left and bottom left corner radii to the same value.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Examples</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ```rust</span>
-    <span class="doccomment">/// use embedded_graphics::{</span>
-    <span class="doccomment">///     geometry::Size,</span>
-    <span class="doccomment">///     primitives::{CornerRadii, CornerRadiiBuilder},</span>
-    <span class="doccomment">/// };</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// let corners = CornerRadiiBuilder::new().left(Size::new(10, 20)).build();</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// assert_eq!(</span>
-    <span class="doccomment">///     corners,</span>
-    <span class="doccomment">///     CornerRadii {</span>
-    <span class="doccomment">///         top_left: Size::new(10, 20),</span>
-    <span class="doccomment">///         top_right: Size::zero(),</span>
-    <span class="doccomment">///         bottom_right: Size::zero(),</span>
-    <span class="doccomment">///         bottom_left: Size::new(10, 20),</span>
-    <span class="doccomment">///     }</span>
-    <span class="doccomment">/// );</span>
-    <span class="doccomment">/// ```</span>
-    <span class="kw">pub</span> <span class="kw">const</span> <span class="kw">fn</span> <span class="ident">left</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">radius</span>: <span class="ident">Size</span>) -&gt; <span class="self">Self</span> {
-        <span class="self">self</span>.<span class="ident">corners</span>.<span class="ident">top_left</span> <span class="op">=</span> <span class="ident">radius</span>;
-        <span class="self">self</span>.<span class="ident">corners</span>.<span class="ident">bottom_left</span> <span class="op">=</span> <span class="ident">radius</span>;
+    <span class="doccomment">/// Set the top left corner radius.
+    ///
+    /// # Examples
+    ///
+    /// ```rust
+    /// use embedded_graphics::{
+    ///     geometry::Size,
+    ///     primitives::{CornerRadii, CornerRadiiBuilder},
+    /// };
+    ///
+    /// let corners = CornerRadiiBuilder::new()
+    ///     .top_left(Size::new(10, 20))
+    ///     .build();
+    ///
+    /// assert_eq!(
+    ///     corners,
+    ///     CornerRadii {
+    ///         top_left: Size::new(10, 20),
+    ///         top_right: Size::zero(),
+    ///         bottom_right: Size::zero(),
+    ///         bottom_left: Size::zero(),
+    ///     }
+    /// );
+    /// ```
+    </span><span class="kw">pub const fn </span>top_left(<span class="kw-2">mut </span><span class="self">self</span>, radius: Size) -&gt; <span class="self">Self </span>{
+        <span class="self">self</span>.corners.top_left = radius;
 
-        <span class="self">self</span>
-    }
+        <span class="self">self
+    </span>}
 
-    <span class="doccomment">/// Set the top left corner radius.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Examples</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ```rust</span>
-    <span class="doccomment">/// use embedded_graphics::{</span>
-    <span class="doccomment">///     geometry::Size,</span>
-    <span class="doccomment">///     primitives::{CornerRadii, CornerRadiiBuilder},</span>
-    <span class="doccomment">/// };</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// let corners = CornerRadiiBuilder::new()</span>
-    <span class="doccomment">///     .top_left(Size::new(10, 20))</span>
-    <span class="doccomment">///     .build();</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// assert_eq!(</span>
-    <span class="doccomment">///     corners,</span>
-    <span class="doccomment">///     CornerRadii {</span>
-    <span class="doccomment">///         top_left: Size::new(10, 20),</span>
-    <span class="doccomment">///         top_right: Size::zero(),</span>
-    <span class="doccomment">///         bottom_right: Size::zero(),</span>
-    <span class="doccomment">///         bottom_left: Size::zero(),</span>
-    <span class="doccomment">///     }</span>
-    <span class="doccomment">/// );</span>
-    <span class="doccomment">/// ```</span>
-    <span class="kw">pub</span> <span class="kw">const</span> <span class="kw">fn</span> <span class="ident">top_left</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">radius</span>: <span class="ident">Size</span>) -&gt; <span class="self">Self</span> {
-        <span class="self">self</span>.<span class="ident">corners</span>.<span class="ident">top_left</span> <span class="op">=</span> <span class="ident">radius</span>;
+    <span class="doccomment">/// Set the top right corner radius.
+    ///
+    /// # Examples
+    ///
+    /// ```rust
+    /// use embedded_graphics::{
+    ///     geometry::Size,
+    ///     primitives::{CornerRadii, CornerRadiiBuilder},
+    /// };
+    ///
+    /// let corners = CornerRadiiBuilder::new()
+    ///     .top_right(Size::new(10, 20))
+    ///     .build();
+    ///
+    /// assert_eq!(
+    ///     corners,
+    ///     CornerRadii {
+    ///         top_left: Size::zero(),
+    ///         top_right: Size::new(10, 20),
+    ///         bottom_right: Size::zero(),
+    ///         bottom_left: Size::zero(),
+    ///     }
+    /// );
+    /// ```
+    </span><span class="kw">pub const fn </span>top_right(<span class="kw-2">mut </span><span class="self">self</span>, radius: Size) -&gt; <span class="self">Self </span>{
+        <span class="self">self</span>.corners.top_right = radius;
 
-        <span class="self">self</span>
-    }
+        <span class="self">self
+    </span>}
 
-    <span class="doccomment">/// Set the top right corner radius.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Examples</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ```rust</span>
-    <span class="doccomment">/// use embedded_graphics::{</span>
-    <span class="doccomment">///     geometry::Size,</span>
-    <span class="doccomment">///     primitives::{CornerRadii, CornerRadiiBuilder},</span>
-    <span class="doccomment">/// };</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// let corners = CornerRadiiBuilder::new()</span>
-    <span class="doccomment">///     .top_right(Size::new(10, 20))</span>
-    <span class="doccomment">///     .build();</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// assert_eq!(</span>
-    <span class="doccomment">///     corners,</span>
-    <span class="doccomment">///     CornerRadii {</span>
-    <span class="doccomment">///         top_left: Size::zero(),</span>
-    <span class="doccomment">///         top_right: Size::new(10, 20),</span>
-    <span class="doccomment">///         bottom_right: Size::zero(),</span>
-    <span class="doccomment">///         bottom_left: Size::zero(),</span>
-    <span class="doccomment">///     }</span>
-    <span class="doccomment">/// );</span>
-    <span class="doccomment">/// ```</span>
-    <span class="kw">pub</span> <span class="kw">const</span> <span class="kw">fn</span> <span class="ident">top_right</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">radius</span>: <span class="ident">Size</span>) -&gt; <span class="self">Self</span> {
-        <span class="self">self</span>.<span class="ident">corners</span>.<span class="ident">top_right</span> <span class="op">=</span> <span class="ident">radius</span>;
+    <span class="doccomment">/// Set the bottom right corner radius.
+    ///
+    /// # Examples
+    ///
+    /// ```rust
+    /// use embedded_graphics::{
+    ///     geometry::Size,
+    ///     primitives::{CornerRadii, CornerRadiiBuilder},
+    /// };
+    ///
+    /// let corners = CornerRadiiBuilder::new()
+    ///     .bottom_right(Size::new(10, 20))
+    ///     .build();
+    ///
+    /// assert_eq!(
+    ///     corners,
+    ///     CornerRadii {
+    ///         top_left: Size::zero(),
+    ///         top_right: Size::zero(),
+    ///         bottom_right: Size::new(10, 20),
+    ///         bottom_left: Size::zero(),
+    ///     }
+    /// );
+    /// ```
+    </span><span class="kw">pub const fn </span>bottom_right(<span class="kw-2">mut </span><span class="self">self</span>, radius: Size) -&gt; <span class="self">Self </span>{
+        <span class="self">self</span>.corners.bottom_right = radius;
 
-        <span class="self">self</span>
-    }
+        <span class="self">self
+    </span>}
 
-    <span class="doccomment">/// Set the bottom right corner radius.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Examples</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ```rust</span>
-    <span class="doccomment">/// use embedded_graphics::{</span>
-    <span class="doccomment">///     geometry::Size,</span>
-    <span class="doccomment">///     primitives::{CornerRadii, CornerRadiiBuilder},</span>
-    <span class="doccomment">/// };</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// let corners = CornerRadiiBuilder::new()</span>
-    <span class="doccomment">///     .bottom_right(Size::new(10, 20))</span>
-    <span class="doccomment">///     .build();</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// assert_eq!(</span>
-    <span class="doccomment">///     corners,</span>
-    <span class="doccomment">///     CornerRadii {</span>
-    <span class="doccomment">///         top_left: Size::zero(),</span>
-    <span class="doccomment">///         top_right: Size::zero(),</span>
-    <span class="doccomment">///         bottom_right: Size::new(10, 20),</span>
-    <span class="doccomment">///         bottom_left: Size::zero(),</span>
-    <span class="doccomment">///     }</span>
-    <span class="doccomment">/// );</span>
-    <span class="doccomment">/// ```</span>
-    <span class="kw">pub</span> <span class="kw">const</span> <span class="kw">fn</span> <span class="ident">bottom_right</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">radius</span>: <span class="ident">Size</span>) -&gt; <span class="self">Self</span> {
-        <span class="self">self</span>.<span class="ident">corners</span>.<span class="ident">bottom_right</span> <span class="op">=</span> <span class="ident">radius</span>;
+    <span class="doccomment">/// Set the bottom left corner radius.
+    ///
+    /// # Examples
+    ///
+    /// ```rust
+    /// use embedded_graphics::{
+    ///     geometry::Size,
+    ///     primitives::{CornerRadii, CornerRadiiBuilder},
+    /// };
+    ///
+    /// let corners = CornerRadiiBuilder::new()
+    ///     .bottom_left(Size::new(10, 20))
+    ///     .build();
+    ///
+    /// assert_eq!(
+    ///     corners,
+    ///     CornerRadii {
+    ///         top_left: Size::zero(),
+    ///         top_right: Size::zero(),
+    ///         bottom_right: Size::zero(),
+    ///         bottom_left: Size::new(10, 20),
+    ///     }
+    /// );
+    /// ```
+    </span><span class="kw">pub const fn </span>bottom_left(<span class="kw-2">mut </span><span class="self">self</span>, radius: Size) -&gt; <span class="self">Self </span>{
+        <span class="self">self</span>.corners.bottom_left = radius;
 
-        <span class="self">self</span>
-    }
+        <span class="self">self
+    </span>}
 
-    <span class="doccomment">/// Set the bottom left corner radius.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Examples</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ```rust</span>
-    <span class="doccomment">/// use embedded_graphics::{</span>
-    <span class="doccomment">///     geometry::Size,</span>
-    <span class="doccomment">///     primitives::{CornerRadii, CornerRadiiBuilder},</span>
-    <span class="doccomment">/// };</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// let corners = CornerRadiiBuilder::new()</span>
-    <span class="doccomment">///     .bottom_left(Size::new(10, 20))</span>
-    <span class="doccomment">///     .build();</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// assert_eq!(</span>
-    <span class="doccomment">///     corners,</span>
-    <span class="doccomment">///     CornerRadii {</span>
-    <span class="doccomment">///         top_left: Size::zero(),</span>
-    <span class="doccomment">///         top_right: Size::zero(),</span>
-    <span class="doccomment">///         bottom_right: Size::zero(),</span>
-    <span class="doccomment">///         bottom_left: Size::new(10, 20),</span>
-    <span class="doccomment">///     }</span>
-    <span class="doccomment">/// );</span>
-    <span class="doccomment">/// ```</span>
-    <span class="kw">pub</span> <span class="kw">const</span> <span class="kw">fn</span> <span class="ident">bottom_left</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">radius</span>: <span class="ident">Size</span>) -&gt; <span class="self">Self</span> {
-        <span class="self">self</span>.<span class="ident">corners</span>.<span class="ident">bottom_left</span> <span class="op">=</span> <span class="ident">radius</span>;
-
-        <span class="self">self</span>
-    }
-
-    <span class="doccomment">/// Consume the builder and produce a [`CornerRadii`] configuration.</span>
-    <span class="kw">pub</span> <span class="kw">const</span> <span class="kw">fn</span> <span class="ident">build</span>(<span class="self">self</span>) -&gt; <span class="ident">CornerRadii</span> {
-        <span class="self">self</span>.<span class="ident">corners</span>
+    <span class="doccomment">/// Consume the builder and produce a [`CornerRadii`] configuration.
+    </span><span class="kw">pub const fn </span>build(<span class="self">self</span>) -&gt; CornerRadii {
+        <span class="self">self</span>.corners
     }
 }
 
-<span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">CornerRadii</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">CornerRadiiBuilder</span> {
-    <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">corners</span>: <span class="kw-2">&amp;</span><span class="ident">CornerRadii</span>) -&gt; <span class="self">Self</span> {
-        <span class="self">Self</span> { <span class="ident">corners</span>: <span class="kw-2">*</span><span class="ident">corners</span> }
+<span class="kw">impl </span>From&lt;<span class="kw-2">&amp;</span>CornerRadii&gt; <span class="kw">for </span>CornerRadiiBuilder {
+    <span class="kw">fn </span>from(corners: <span class="kw-2">&amp;</span>CornerRadii) -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{ corners: <span class="kw-2">*</span>corners }
     }
 }
 
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
-<span class="kw">mod</span> <span class="ident">tests</span> {
-    <span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
+<span class="attribute">#[cfg(test)]
+</span><span class="kw">mod </span>tests {
+    <span class="kw">use super</span>::<span class="kw-2">*</span>;
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">from_radii_to_builder</span>() {
-        <span class="kw">let</span> <span class="ident">radii</span> <span class="op">=</span> <span class="ident">CornerRadii</span> {
-            <span class="ident">top_left</span>: <span class="ident">Size::new</span>(<span class="number">1</span>, <span class="number">2</span>),
-            <span class="ident">top_right</span>: <span class="ident">Size::new</span>(<span class="number">3</span>, <span class="number">4</span>),
-            <span class="ident">bottom_right</span>: <span class="ident">Size::new</span>(<span class="number">5</span>, <span class="number">6</span>),
-            <span class="ident">bottom_left</span>: <span class="ident">Size::new</span>(<span class="number">7</span>, <span class="number">8</span>),
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>from_radii_to_builder() {
+        <span class="kw">let </span>radii = CornerRadii {
+            top_left: Size::new(<span class="number">1</span>, <span class="number">2</span>),
+            top_right: Size::new(<span class="number">3</span>, <span class="number">4</span>),
+            bottom_right: Size::new(<span class="number">5</span>, <span class="number">6</span>),
+            bottom_left: Size::new(<span class="number">7</span>, <span class="number">8</span>),
         };
 
-        <span class="kw">let</span> <span class="ident">builder</span>: <span class="ident">CornerRadiiBuilder</span> <span class="op">=</span> (<span class="kw-2">&amp;</span><span class="ident">radii</span>).<span class="ident">into</span>();
+        <span class="kw">let </span>builder: CornerRadiiBuilder = (<span class="kw-2">&amp;</span>radii).into();
 
-        <span class="macro">assert_eq!</span>(<span class="ident">builder</span>.<span class="ident">build</span>(), <span class="ident">radii</span>);
+        <span class="macro">assert_eq!</span>(builder.build(), radii);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">corner_radii_exact_size</span>() {
-        <span class="kw">let</span> <span class="ident">corners</span> <span class="op">=</span> <span class="ident">CornerRadii</span> {
-            <span class="ident">top_left</span>: <span class="ident">Size::new</span>(<span class="number">10</span>, <span class="number">15</span>),
-            <span class="ident">top_right</span>: <span class="ident">Size::new</span>(<span class="number">10</span>, <span class="number">15</span>),
-            <span class="ident">bottom_right</span>: <span class="ident">Size::new</span>(<span class="number">10</span>, <span class="number">15</span>),
-            <span class="ident">bottom_left</span>: <span class="ident">Size::new</span>(<span class="number">10</span>, <span class="number">15</span>),
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>corner_radii_exact_size() {
+        <span class="kw">let </span>corners = CornerRadii {
+            top_left: Size::new(<span class="number">10</span>, <span class="number">15</span>),
+            top_right: Size::new(<span class="number">10</span>, <span class="number">15</span>),
+            bottom_right: Size::new(<span class="number">10</span>, <span class="number">15</span>),
+            bottom_left: Size::new(<span class="number">10</span>, <span class="number">15</span>),
         };
 
-        <span class="macro">assert_eq!</span>(<span class="ident">corners</span>.<span class="ident">confine</span>(<span class="ident">Size::new</span>(<span class="number">20</span>, <span class="number">30</span>)), <span class="ident">corners</span>);
+        <span class="macro">assert_eq!</span>(corners.confine(Size::new(<span class="number">20</span>, <span class="number">30</span>)), corners);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">corner_radii_single_overlap</span>() {
-        <span class="kw">let</span> <span class="ident">corners</span> <span class="op">=</span> <span class="ident">CornerRadii</span> {
-            <span class="comment">// Create an overlap of 5px in the Y direction</span>
-            <span class="ident">top_left</span>: <span class="ident">Size::new</span>(<span class="number">10</span>, <span class="number">20</span>),
-            <span class="ident">top_right</span>: <span class="ident">Size::new</span>(<span class="number">10</span>, <span class="number">15</span>),
-            <span class="ident">bottom_right</span>: <span class="ident">Size::new</span>(<span class="number">10</span>, <span class="number">15</span>),
-            <span class="ident">bottom_left</span>: <span class="ident">Size::new</span>(<span class="number">10</span>, <span class="number">15</span>),
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>corner_radii_single_overlap() {
+        <span class="kw">let </span>corners = CornerRadii {
+            <span class="comment">// Create an overlap of 5px in the Y direction
+            </span>top_left: Size::new(<span class="number">10</span>, <span class="number">20</span>),
+            top_right: Size::new(<span class="number">10</span>, <span class="number">15</span>),
+            bottom_right: Size::new(<span class="number">10</span>, <span class="number">15</span>),
+            bottom_left: Size::new(<span class="number">10</span>, <span class="number">15</span>),
         };
 
         <span class="macro">assert_eq!</span>(
-            <span class="ident">corners</span>.<span class="ident">confine</span>(<span class="ident">Size::new</span>(<span class="number">20</span>, <span class="number">30</span>)),
-            <span class="ident">CornerRadii</span> {
-                <span class="ident">top_left</span>: <span class="ident">Size::new</span>(<span class="number">8</span>, <span class="number">17</span>),
-                <span class="ident">top_right</span>: <span class="ident">Size::new</span>(<span class="number">8</span>, <span class="number">12</span>),
-                <span class="ident">bottom_right</span>: <span class="ident">Size::new</span>(<span class="number">8</span>, <span class="number">12</span>),
-                <span class="ident">bottom_left</span>: <span class="ident">Size::new</span>(<span class="number">8</span>, <span class="number">12</span>)
-            }
-        );
-    }
-
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">corner_radii_1px_overlap</span>() {
-        <span class="kw">let</span> <span class="ident">corners</span> <span class="op">=</span> <span class="ident">CornerRadii</span> {
-            <span class="comment">// 1px overlap in Y</span>
-            <span class="ident">top_left</span>: <span class="ident">Size::new</span>(<span class="number">10</span>, <span class="number">16</span>),
-            <span class="comment">// 1px overlap in X</span>
-            <span class="ident">top_right</span>: <span class="ident">Size::new</span>(<span class="number">11</span>, <span class="number">15</span>),
-            <span class="ident">bottom_right</span>: <span class="ident">Size::new</span>(<span class="number">10</span>, <span class="number">15</span>),
-            <span class="ident">bottom_left</span>: <span class="ident">Size::new</span>(<span class="number">10</span>, <span class="number">15</span>),
-        };
-
-        <span class="macro">assert_eq!</span>(
-            <span class="ident">corners</span>.<span class="ident">confine</span>(<span class="ident">Size::new</span>(<span class="number">20</span>, <span class="number">30</span>)),
-            <span class="ident">CornerRadii</span> {
-                <span class="ident">top_left</span>: <span class="ident">Size::new</span>(<span class="number">9</span>, <span class="number">15</span>),
-                <span class="ident">top_right</span>: <span class="ident">Size::new</span>(<span class="number">10</span>, <span class="number">14</span>),
-                <span class="ident">bottom_right</span>: <span class="ident">Size::new</span>(<span class="number">9</span>, <span class="number">14</span>),
-                <span class="ident">bottom_left</span>: <span class="ident">Size::new</span>(<span class="number">9</span>, <span class="number">14</span>),
+            corners.confine(Size::new(<span class="number">20</span>, <span class="number">30</span>)),
+            CornerRadii {
+                top_left: Size::new(<span class="number">8</span>, <span class="number">17</span>),
+                top_right: Size::new(<span class="number">8</span>, <span class="number">12</span>),
+                bottom_right: Size::new(<span class="number">8</span>, <span class="number">12</span>),
+                bottom_left: Size::new(<span class="number">8</span>, <span class="number">12</span>)
             }
         );
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">corner_radii_multiple_overlap</span>() {
-        <span class="kw">let</span> <span class="ident">corners</span> <span class="op">=</span> <span class="ident">CornerRadii</span> {
-            <span class="comment">// Create an overlap of 5px in the Y direction</span>
-            <span class="ident">top_left</span>: <span class="ident">Size::new</span>(<span class="number">10</span>, <span class="number">20</span>),
-            <span class="ident">top_right</span>: <span class="ident">Size::new</span>(<span class="number">10</span>, <span class="number">15</span>),
-            <span class="comment">// Create an overlap of 8px in the X direction</span>
-            <span class="ident">bottom_right</span>: <span class="ident">Size::new</span>(<span class="number">18</span>, <span class="number">15</span>),
-            <span class="ident">bottom_left</span>: <span class="ident">Size::new</span>(<span class="number">10</span>, <span class="number">15</span>),
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>corner_radii_1px_overlap() {
+        <span class="kw">let </span>corners = CornerRadii {
+            <span class="comment">// 1px overlap in Y
+            </span>top_left: Size::new(<span class="number">10</span>, <span class="number">16</span>),
+            <span class="comment">// 1px overlap in X
+            </span>top_right: Size::new(<span class="number">11</span>, <span class="number">15</span>),
+            bottom_right: Size::new(<span class="number">10</span>, <span class="number">15</span>),
+            bottom_left: Size::new(<span class="number">10</span>, <span class="number">15</span>),
         };
 
         <span class="macro">assert_eq!</span>(
-            <span class="ident">corners</span>.<span class="ident">confine</span>(<span class="ident">Size::new</span>(<span class="number">20</span>, <span class="number">30</span>)),
-            <span class="ident">CornerRadii</span> {
-                <span class="ident">top_left</span>: <span class="ident">Size::new</span>(<span class="number">7</span>, <span class="number">14</span>),
-                <span class="ident">top_right</span>: <span class="ident">Size::new</span>(<span class="number">7</span>, <span class="number">10</span>),
-                <span class="ident">bottom_right</span>: <span class="ident">Size::new</span>(<span class="number">12</span>, <span class="number">10</span>),
-                <span class="ident">bottom_left</span>: <span class="ident">Size::new</span>(<span class="number">7</span>, <span class="number">10</span>),
+            corners.confine(Size::new(<span class="number">20</span>, <span class="number">30</span>)),
+            CornerRadii {
+                top_left: Size::new(<span class="number">9</span>, <span class="number">15</span>),
+                top_right: Size::new(<span class="number">10</span>, <span class="number">14</span>),
+                bottom_right: Size::new(<span class="number">9</span>, <span class="number">14</span>),
+                bottom_left: Size::new(<span class="number">9</span>, <span class="number">14</span>),
+            }
+        );
+    }
+
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>corner_radii_multiple_overlap() {
+        <span class="kw">let </span>corners = CornerRadii {
+            <span class="comment">// Create an overlap of 5px in the Y direction
+            </span>top_left: Size::new(<span class="number">10</span>, <span class="number">20</span>),
+            top_right: Size::new(<span class="number">10</span>, <span class="number">15</span>),
+            <span class="comment">// Create an overlap of 8px in the X direction
+            </span>bottom_right: Size::new(<span class="number">18</span>, <span class="number">15</span>),
+            bottom_left: Size::new(<span class="number">10</span>, <span class="number">15</span>),
+        };
+
+        <span class="macro">assert_eq!</span>(
+            corners.confine(Size::new(<span class="number">20</span>, <span class="number">30</span>)),
+            CornerRadii {
+                top_left: Size::new(<span class="number">7</span>, <span class="number">14</span>),
+                top_right: Size::new(<span class="number">7</span>, <span class="number">10</span>),
+                bottom_right: Size::new(<span class="number">12</span>, <span class="number">10</span>),
+                bottom_left: Size::new(<span class="number">7</span>, <span class="number">10</span>),
             }
         );
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../../" data-current-crate="embedded_graphics" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0 (a55dd71d5 2022-09-19)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../../" data-current-crate="embedded_graphics" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0 (69f9c33d7 2022-12-12)" ></div></body></html>

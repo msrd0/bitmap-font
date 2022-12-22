@@ -1,6 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-core-0.3.3/src/lib.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>lib.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script><script defer src="../../main.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../embedded_graphics_core/index.html"><div class="logo-container"><img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/b225511f390c0ed9bc065eb67d05125845312148/assets/logo_core.svg?sanitize=true" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../embedded_graphics_core/index.html"><div class="logo-container">
-                    <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/b225511f390c0ed9bc065eb67d05125845312148/assets/logo_core.svg?sanitize=true" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../embedded_graphics_core/index.html">
-                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/b225511f390c0ed9bc065eb67d05125845312148/assets/logo_core.svg?sanitize=true" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-core-0.3.3/src/lib.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>lib.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../normalize.css"><link rel="stylesheet" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../ayu.css" disabled><link rel="stylesheet" href="../../dark.css" disabled><link rel="stylesheet" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script><script defer src="../../main.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../embedded_graphics_core/index.html">
+                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/b225511f390c0ed9bc065eb67d05125845312148/assets/logo_core.svg?sanitize=true" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -75,80 +74,80 @@
 <span id="73">73</span>
 <span id="74">74</span>
 <span id="75">75</span>
-</pre><pre class="rust"><code><span class="doccomment">//! embedded-graphics-core contains the core components of [embedded-graphics] that are required to</span>
-<span class="doccomment">//! add embedded-graphics support to display drivers, image libraries, text renderers and other</span>
-<span class="doccomment">//! third party crates.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! This crate should only be used by crates that extend embedded-graphics.</span>
-<span class="doccomment">//! Applications should instead depend on [embedded-graphics] itself.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! Like any other crate, embedded-graphics-core will change over time, however it will change at a</span>
-<span class="doccomment">//! much slower rate than embedded-graphics itself, and will likely release fewer breaking changes.</span>
-<span class="doccomment">//! This will provide more stability and compatability for the weider embedded-graphics ecosystem,</span>
-<span class="doccomment">//! whilst allowing non-core features of embedded-graphics to evolve at a faster pace. The same</span>
-<span class="doccomment">//! version of embedded-graphics-core may be used for multiple major versions of embedded-graphics.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ## Core functionality</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! * [`DrawTarget`] - By implementing a draw target for a display driver, all embedded-graphics drawables can be drawn to that display.</span>
-<span class="doccomment">//! * [`Drawable`] - This trait can be implemented to make an object drawable to any [`DrawTarget`]. Examples include shapes, text, UI elements, etc.</span>
-<span class="doccomment">//! * [`ImageDrawable`]</span>
-<span class="doccomment">//! * Color types - see below.</span>
-<span class="doccomment">//! * Geometry - [`Point`], [`Size`] and [`Rectangle`] provide ways of defining positions, dimensions and rectangular areas respectively.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! # Colors</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! The [`pixelcolor`] module provides various standard color types, from [`BinaryColor`] to</span>
-<span class="doccomment">//! [`Rgb888`]. See the [`pixelcolor`] module documentation for the complete list of color depths</span>
-<span class="doccomment">//! and formats available.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! # Display drivers</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! See the [`DrawTarget`] documentation for examples on how to integrate embedded-graphics with a</span>
-<span class="doccomment">//! display driver using the [`DrawTarget`] trait.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! # Images</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! The [`ImageDrawable`] trait should be implemented for any image or image-like item, for example</span>
-<span class="doccomment">//! a spritemap.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! [embedded-graphics]: https://docs.rs/embedded-graphics</span>
-<span class="doccomment">//! [`Pixel`]: ./drawable/struct.Pixel.html</span>
-<span class="doccomment">//! [`Point`]: ./geometry/struct.Point.html</span>
-<span class="doccomment">//! [`Size`]: ./geometry/struct.Size.html</span>
-<span class="doccomment">//! [`Drawable`]: ./drawable/trait.Drawable.html</span>
-<span class="doccomment">//! [`DrawTarget`]: ./draw_target/trait.DrawTarget.html</span>
-<span class="doccomment">//! [`Rectangle`]: ./primitives/rectangle/struct.Rectangle.html</span>
-<span class="doccomment">//! [`Dimensions`]: ./geometry/trait.Dimensions.html</span>
-<span class="doccomment">//! [`OriginDimensions`]: ./geometry/trait.OriginDimensions.html</span>
-<span class="doccomment">//! [`prelude`]: ./prelude/index.html</span>
-<span class="doccomment">//! [`pixelcolor`]: ./pixelcolor/index.html</span>
-<span class="doccomment">//! [`BinaryColor`]: ./pixelcolor/enum.BinaryColor.html</span>
-<span class="doccomment">//! [`Rgb888`]: ./pixelcolor/struct.Rgb888.html</span>
-<span class="doccomment">//! [`ImageDrawable`]: ./image/image_drawable/trait.ImageDrawable.html</span>
+</pre><pre class="rust"><code><span class="doccomment">//! embedded-graphics-core contains the core components of [embedded-graphics] that are required to
+//! add embedded-graphics support to display drivers, image libraries, text renderers and other
+//! third party crates.
+//!
+//! This crate should only be used by crates that extend embedded-graphics.
+//! Applications should instead depend on [embedded-graphics] itself.
+//!
+//! Like any other crate, embedded-graphics-core will change over time, however it will change at a
+//! much slower rate than embedded-graphics itself, and will likely release fewer breaking changes.
+//! This will provide more stability and compatability for the weider embedded-graphics ecosystem,
+//! whilst allowing non-core features of embedded-graphics to evolve at a faster pace. The same
+//! version of embedded-graphics-core may be used for multiple major versions of embedded-graphics.
+//!
+//! ## Core functionality
+//!
+//! * [`DrawTarget`] - By implementing a draw target for a display driver, all embedded-graphics drawables can be drawn to that display.
+//! * [`Drawable`] - This trait can be implemented to make an object drawable to any [`DrawTarget`]. Examples include shapes, text, UI elements, etc.
+//! * [`ImageDrawable`]
+//! * Color types - see below.
+//! * Geometry - [`Point`], [`Size`] and [`Rectangle`] provide ways of defining positions, dimensions and rectangular areas respectively.
+//!
+//! # Colors
+//!
+//! The [`pixelcolor`] module provides various standard color types, from [`BinaryColor`] to
+//! [`Rgb888`]. See the [`pixelcolor`] module documentation for the complete list of color depths
+//! and formats available.
+//!
+//! # Display drivers
+//!
+//! See the [`DrawTarget`] documentation for examples on how to integrate embedded-graphics with a
+//! display driver using the [`DrawTarget`] trait.
+//!
+//! # Images
+//!
+//! The [`ImageDrawable`] trait should be implemented for any image or image-like item, for example
+//! a spritemap.
+//!
+//! [embedded-graphics]: https://docs.rs/embedded-graphics
+//! [`Pixel`]: ./drawable/struct.Pixel.html
+//! [`Point`]: ./geometry/struct.Point.html
+//! [`Size`]: ./geometry/struct.Size.html
+//! [`Drawable`]: ./drawable/trait.Drawable.html
+//! [`DrawTarget`]: ./draw_target/trait.DrawTarget.html
+//! [`Rectangle`]: ./primitives/rectangle/struct.Rectangle.html
+//! [`Dimensions`]: ./geometry/trait.Dimensions.html
+//! [`OriginDimensions`]: ./geometry/trait.OriginDimensions.html
+//! [`prelude`]: ./prelude/index.html
+//! [`pixelcolor`]: ./pixelcolor/index.html
+//! [`BinaryColor`]: ./pixelcolor/enum.BinaryColor.html
+//! [`Rgb888`]: ./pixelcolor/struct.Rgb888.html
+//! [`ImageDrawable`]: ./image/image_drawable/trait.ImageDrawable.html
 
-<span class="attribute">#![<span class="ident">doc</span>(
-    <span class="ident">html_logo_url</span> <span class="op">=</span> <span class="string">&quot;https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/b225511f390c0ed9bc065eb67d05125845312148/assets/logo_core.svg?sanitize=true&quot;</span>
-)]</span>
-<span class="attribute">#![<span class="ident">no_std</span>]</span>
-<span class="attribute">#![<span class="ident">deny</span>(<span class="ident">missing_docs</span>)]</span>
-<span class="attribute">#![<span class="ident">deny</span>(<span class="ident">missing_debug_implementations</span>)]</span>
-<span class="attribute">#![<span class="ident">deny</span>(<span class="ident">missing_copy_implementations</span>)]</span>
-<span class="attribute">#![<span class="ident">deny</span>(<span class="ident">trivial_casts</span>)]</span>
-<span class="attribute">#![<span class="ident">deny</span>(<span class="ident">trivial_numeric_casts</span>)]</span>
-<span class="attribute">#![<span class="ident">deny</span>(<span class="ident">unsafe_code</span>)]</span>
-<span class="attribute">#![<span class="ident">deny</span>(<span class="ident">unstable_features</span>)]</span>
-<span class="attribute">#![<span class="ident">deny</span>(<span class="ident">unused_import_braces</span>)]</span>
-<span class="attribute">#![<span class="ident">deny</span>(<span class="ident">unused_qualifications</span>)]</span>
+</span><span class="attribute">#![doc(
+    html_logo_url = <span class="string">&quot;https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/b225511f390c0ed9bc065eb67d05125845312148/assets/logo_core.svg?sanitize=true&quot;
+</span>)]
+#![no_std]
+#![deny(missing_docs)]
+#![deny(missing_debug_implementations)]
+#![deny(missing_copy_implementations)]
+#![deny(trivial_casts)]
+#![deny(trivial_numeric_casts)]
+#![deny(unsafe_code)]
+#![deny(unstable_features)]
+#![deny(unused_import_braces)]
+#![deny(unused_qualifications)]
 
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">draw_target</span>;
-<span class="kw">mod</span> <span class="ident">drawable</span>;
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">geometry</span>;
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">image</span>;
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">pixelcolor</span>;
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">prelude</span>;
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">primitives</span>;
+</span><span class="kw">pub mod </span>draw_target;
+<span class="kw">mod </span>drawable;
+<span class="kw">pub mod </span>geometry;
+<span class="kw">pub mod </span>image;
+<span class="kw">pub mod </span>pixelcolor;
+<span class="kw">pub mod </span>prelude;
+<span class="kw">pub mod </span>primitives;
 
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">drawable</span>::{<span class="ident">Drawable</span>, <span class="ident">Pixel</span>};
+<span class="kw">pub use </span>drawable::{Drawable, Pixel};
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="embedded_graphics_core" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0 (a55dd71d5 2022-09-19)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="embedded_graphics_core" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0 (69f9c33d7 2022-12-12)" ></div></body></html>

@@ -1,6 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.1/src/geometry/real.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>real.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../embedded_graphics/index.html"><div class="logo-container"><img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../embedded_graphics/index.html"><div class="logo-container">
-                    <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../embedded_graphics/index.html">
-                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.1/src/geometry/real.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>real.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../embedded_graphics/index.html">
+                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -216,221 +215,221 @@
 <span id="214">214</span>
 <span id="215">215</span>
 <span id="216">216</span>
-</pre><pre class="rust"><code><span class="kw">use</span> <span class="ident">core::ops</span>::{<span class="ident">Add</span>, <span class="ident">AddAssign</span>, <span class="ident">Div</span>, <span class="ident">DivAssign</span>, <span class="ident">Mul</span>, <span class="ident">MulAssign</span>, <span class="ident">Neg</span>, <span class="ident">Sub</span>, <span class="ident">SubAssign</span>};
-<span class="kw">use</span> <span class="ident">float_cmp</span>::{<span class="ident">ApproxEq</span>, <span class="ident">F32Margin</span>};
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;fixed_point&quot;</span>))]</span>
-<span class="attribute">#[<span class="ident">allow</span>(<span class="ident">unused_imports</span>)]</span>
-<span class="kw">use</span> <span class="ident">micromath::F32Ext</span>;
+</pre><pre class="rust"><code><span class="kw">use </span>core::ops::{Add, AddAssign, Div, DivAssign, Mul, MulAssign, Neg, Sub, SubAssign};
+<span class="kw">use </span>float_cmp::{ApproxEq, F32Margin};
+<span class="attribute">#[cfg(not(feature = <span class="string">&quot;fixed_point&quot;</span>))]
+#[allow(unused_imports)]
+</span><span class="kw">use </span>micromath::F32Ext;
 
-<span class="doccomment">/// Real.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// `Real` is used to store real numbers as either floating point or 32 bit fixed point if the</span>
-<span class="doccomment">/// `fixed_point` cargo feature is enabled.</span>
-<span class="doccomment">/// ```</span>
-<span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">use</span> <span class="ident">real_impl</span>::{<span class="ident">Real</span>, <span class="ident">FRAC_PI_2</span>, <span class="ident">PI</span>, <span class="ident">TAU</span>};
+<span class="doccomment">/// Real.
+///
+/// `Real` is used to store real numbers as either floating point or 32 bit fixed point if the
+/// `fixed_point` cargo feature is enabled.
+/// ```
+</span><span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">use </span>real_impl::{Real, FRAC_PI_2, PI, TAU};
 
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;fixed_point&quot;</span>))]</span>
-<span class="kw">mod</span> <span class="ident">real_impl</span> {
-    <span class="kw">use</span> <span class="ident">core::f32</span>;
+<span class="attribute">#[cfg(not(feature = <span class="string">&quot;fixed_point&quot;</span>))]
+</span><span class="kw">mod </span>real_impl {
+    <span class="kw">use </span>core::f32;
 
-    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">dead_code</span>)]</span>
-    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">const</span> <span class="ident">FRAC_PI_2</span>: <span class="ident">Real</span> <span class="op">=</span> <span class="ident">Real</span>(<span class="ident">f32::consts::FRAC_PI_2</span>);
-    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">const</span> <span class="ident">PI</span>: <span class="ident">Real</span> <span class="op">=</span> <span class="ident">Real</span>(<span class="ident">f32::consts::PI</span>);
-    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">const</span> <span class="ident">TAU</span>: <span class="ident">Real</span> <span class="op">=</span> <span class="ident">Real</span>(<span class="number">2.0</span> <span class="op">*</span> <span class="ident">f32::consts::PI</span>);
+    <span class="attribute">#[allow(dead_code)]
+    </span><span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">const </span>FRAC_PI_2: Real = Real(f32::consts::FRAC_PI_2);
+    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">const </span>PI: Real = Real(f32::consts::PI);
+    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">const </span>TAU: Real = Real(<span class="number">2.0 </span>* f32::consts::PI);
 
-    <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Copy</span>, <span class="ident">Clone</span>, <span class="ident">PartialEq</span>, <span class="ident">PartialOrd</span>, <span class="ident">Debug</span>)]</span>
-    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">struct</span> <span class="ident">Real</span>(<span class="kw">pub</span>(<span class="kw">super</span>) <span class="ident">f32</span>);
+    <span class="attribute">#[derive(Copy, Clone, PartialEq, PartialOrd, Debug)]
+    </span><span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">struct </span>Real(<span class="kw">pub</span>(<span class="kw">super</span>) f32);
 
-    <span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span><span class="ident">f32</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Real</span> {
-        <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">src</span>: <span class="ident">f32</span>) -&gt; <span class="self">Self</span> {
-            <span class="self">Self</span>(<span class="ident">src</span>)
+    <span class="kw">impl </span>From&lt;f32&gt; <span class="kw">for </span>Real {
+        <span class="kw">fn </span>from(src: f32) -&gt; <span class="self">Self </span>{
+            <span class="self">Self</span>(src)
         }
     }
 
-    <span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Real</span> {
-        <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">src</span>: <span class="ident">i32</span>) -&gt; <span class="self">Self</span> {
-            <span class="self">Self</span>(<span class="ident">src</span> <span class="kw">as</span> <span class="ident">f32</span>)
+    <span class="kw">impl </span>From&lt;i32&gt; <span class="kw">for </span>Real {
+        <span class="kw">fn </span>from(src: i32) -&gt; <span class="self">Self </span>{
+            <span class="self">Self</span>(src <span class="kw">as </span>f32)
         }
     }
 
-    <span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span><span class="ident">u32</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Real</span> {
-        <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">src</span>: <span class="ident">u32</span>) -&gt; <span class="self">Self</span> {
-            <span class="self">Self</span>(<span class="ident">src</span> <span class="kw">as</span> <span class="ident">f32</span>)
+    <span class="kw">impl </span>From&lt;u32&gt; <span class="kw">for </span>Real {
+        <span class="kw">fn </span>from(src: u32) -&gt; <span class="self">Self </span>{
+            <span class="self">Self</span>(src <span class="kw">as </span>f32)
         }
     }
 
-    <span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span><span class="ident">Real</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">f32</span> {
-        <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">src</span>: <span class="ident">Real</span>) -&gt; <span class="self">Self</span> {
-            <span class="ident">src</span>.<span class="number">0</span>
+    <span class="kw">impl </span>From&lt;Real&gt; <span class="kw">for </span>f32 {
+        <span class="kw">fn </span>from(src: Real) -&gt; <span class="self">Self </span>{
+            src.<span class="number">0
+        </span>}
+    }
+
+    <span class="kw">impl </span>From&lt;Real&gt; <span class="kw">for </span>i32 {
+        <span class="kw">fn </span>from(src: Real) -&gt; <span class="self">Self </span>{
+            src.<span class="number">0 </span><span class="kw">as </span>i32
         }
     }
 
-    <span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span><span class="ident">Real</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">i32</span> {
-        <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">src</span>: <span class="ident">Real</span>) -&gt; <span class="self">Self</span> {
-            <span class="ident">src</span>.<span class="number">0</span> <span class="kw">as</span> <span class="ident">i32</span>
-        }
-    }
-
-    <span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span><span class="ident">Real</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">u32</span> {
-        <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">src</span>: <span class="ident">Real</span>) -&gt; <span class="self">Self</span> {
-            <span class="ident">src</span>.<span class="number">0</span> <span class="kw">as</span> <span class="ident">u32</span>
-        }
-    }
-}
-
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;fixed_point&quot;</span>)]</span>
-<span class="kw">mod</span> <span class="ident">real_impl</span> {
-    <span class="kw">use</span> <span class="ident">fixed::types::I16F16</span>;
-
-    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">dead_code</span>)]</span>
-    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">const</span> <span class="ident">FRAC_PI_2</span>: <span class="ident">Real</span> <span class="op">=</span> <span class="ident">Real</span>(<span class="ident">I16F16::from_bits</span>(<span class="number">102944</span>));
-    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">const</span> <span class="ident">PI</span>: <span class="ident">Real</span> <span class="op">=</span> <span class="ident">Real</span>(<span class="ident">I16F16::from_bits</span>(<span class="number">205887</span>));
-    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">const</span> <span class="ident">TAU</span>: <span class="ident">Real</span> <span class="op">=</span> <span class="ident">Real</span>(<span class="ident">I16F16::from_bits</span>(<span class="number">411775</span>));
-
-    <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Copy</span>, <span class="ident">Clone</span>, <span class="ident">PartialEq</span>, <span class="ident">PartialOrd</span>, <span class="ident">Debug</span>)]</span>
-    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">struct</span> <span class="ident">Real</span>(<span class="kw">pub</span>(<span class="kw">super</span>) <span class="ident">I16F16</span>);
-
-    <span class="kw">impl</span> <span class="ident">Real</span> {
-        <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">const</span> <span class="kw">fn</span> <span class="ident">zero</span>() -&gt; <span class="self">Self</span> {
-            <span class="self">Self</span>(<span class="ident">I16F16::from_bits</span>(<span class="number">0</span>))
-        }
-    }
-
-    <span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span><span class="ident">I16F16</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Real</span> {
-        <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">src</span>: <span class="ident">I16F16</span>) -&gt; <span class="self">Self</span> {
-            <span class="self">Self</span>(<span class="ident">src</span>)
-        }
-    }
-
-    <span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span><span class="ident">f32</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Real</span> {
-        <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">src</span>: <span class="ident">f32</span>) -&gt; <span class="self">Self</span> {
-            <span class="self">Self</span>(<span class="ident">I16F16::from_num</span>(<span class="ident">src</span>))
-        }
-    }
-
-    <span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Real</span> {
-        <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">src</span>: <span class="ident">i32</span>) -&gt; <span class="self">Self</span> {
-            <span class="self">Self</span>(<span class="ident">I16F16::from_num</span>(<span class="ident">src</span>))
-        }
-    }
-
-    <span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span><span class="ident">u32</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Real</span> {
-        <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">src</span>: <span class="ident">u32</span>) -&gt; <span class="self">Self</span> {
-            <span class="self">Self</span>(<span class="ident">I16F16::from_num</span>(<span class="ident">src</span>))
-        }
-    }
-
-    <span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span><span class="ident">Real</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">f32</span> {
-        <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">src</span>: <span class="ident">Real</span>) -&gt; <span class="self">Self</span> {
-            <span class="ident">src</span>.<span class="number">0</span>.<span class="ident">to_num</span>::<span class="op">&lt;</span><span class="ident">f32</span><span class="op">&gt;</span>()
-        }
-    }
-
-    <span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span><span class="ident">Real</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">i32</span> {
-        <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">src</span>: <span class="ident">Real</span>) -&gt; <span class="self">Self</span> {
-            <span class="ident">src</span>.<span class="number">0</span>.<span class="ident">round_to_zero</span>().<span class="ident">to_num</span>::<span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span>()
-        }
-    }
-
-    <span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span><span class="ident">Real</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">u32</span> {
-        <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">src</span>: <span class="ident">Real</span>) -&gt; <span class="self">Self</span> {
-            <span class="ident">src</span>.<span class="number">0</span>.<span class="ident">to_num</span>::<span class="op">&lt;</span><span class="ident">u32</span><span class="op">&gt;</span>()
+    <span class="kw">impl </span>From&lt;Real&gt; <span class="kw">for </span>u32 {
+        <span class="kw">fn </span>from(src: Real) -&gt; <span class="self">Self </span>{
+            src.<span class="number">0 </span><span class="kw">as </span>u32
         }
     }
 }
 
-<span class="kw">impl</span> <span class="ident">Add</span> <span class="kw">for</span> <span class="ident">Real</span> {
-    <span class="kw">type</span> <span class="ident">Output</span> <span class="op">=</span> <span class="ident">Real</span>;
+<span class="attribute">#[cfg(feature = <span class="string">&quot;fixed_point&quot;</span>)]
+</span><span class="kw">mod </span>real_impl {
+    <span class="kw">use </span>fixed::types::I16F16;
 
-    <span class="kw">fn</span> <span class="ident">add</span>(<span class="self">self</span>, <span class="ident">other</span>: <span class="ident">Real</span>) -&gt; <span class="ident">Real</span> {
-        <span class="self">Self</span>(<span class="self">self</span>.<span class="number">0</span> <span class="op">+</span> <span class="ident">other</span>.<span class="number">0</span>)
-    }
-}
+    <span class="attribute">#[allow(dead_code)]
+    </span><span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">const </span>FRAC_PI_2: Real = Real(I16F16::from_bits(<span class="number">102944</span>));
+    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">const </span>PI: Real = Real(I16F16::from_bits(<span class="number">205887</span>));
+    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">const </span>TAU: Real = Real(I16F16::from_bits(<span class="number">411775</span>));
 
-<span class="kw">impl</span> <span class="ident">AddAssign</span> <span class="kw">for</span> <span class="ident">Real</span> {
-    <span class="kw">fn</span> <span class="ident">add_assign</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>, <span class="ident">other</span>: <span class="ident">Real</span>) {
-        <span class="self">self</span>.<span class="number">0</span> <span class="op">+</span><span class="op">=</span> <span class="ident">other</span>.<span class="number">0</span>;
-    }
-}
+    <span class="attribute">#[derive(Copy, Clone, PartialEq, PartialOrd, Debug)]
+    </span><span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">struct </span>Real(<span class="kw">pub</span>(<span class="kw">super</span>) I16F16);
 
-<span class="kw">impl</span> <span class="ident">Sub</span> <span class="kw">for</span> <span class="ident">Real</span> {
-    <span class="kw">type</span> <span class="ident">Output</span> <span class="op">=</span> <span class="ident">Real</span>;
-
-    <span class="kw">fn</span> <span class="ident">sub</span>(<span class="self">self</span>, <span class="ident">other</span>: <span class="ident">Real</span>) -&gt; <span class="ident">Real</span> {
-        <span class="self">Self</span>(<span class="self">self</span>.<span class="number">0</span> <span class="op">-</span> <span class="ident">other</span>.<span class="number">0</span>)
-    }
-}
-
-<span class="kw">impl</span> <span class="ident">SubAssign</span> <span class="kw">for</span> <span class="ident">Real</span> {
-    <span class="kw">fn</span> <span class="ident">sub_assign</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>, <span class="ident">other</span>: <span class="ident">Real</span>) {
-        <span class="self">self</span>.<span class="number">0</span> <span class="op">-</span><span class="op">=</span> <span class="ident">other</span>.<span class="number">0</span>;
-    }
-}
-
-<span class="kw">impl</span> <span class="ident">Neg</span> <span class="kw">for</span> <span class="ident">Real</span> {
-    <span class="kw">type</span> <span class="ident">Output</span> <span class="op">=</span> <span class="ident">Real</span>;
-
-    <span class="kw">fn</span> <span class="ident">neg</span>(<span class="self">self</span>) -&gt; <span class="ident">Real</span> {
-        <span class="self">Self</span>(<span class="op">-</span><span class="self">self</span>.<span class="number">0</span>)
-    }
-}
-
-<span class="kw">impl</span> <span class="ident">Mul</span> <span class="kw">for</span> <span class="ident">Real</span> {
-    <span class="kw">type</span> <span class="ident">Output</span> <span class="op">=</span> <span class="ident">Real</span>;
-
-    <span class="kw">fn</span> <span class="ident">mul</span>(<span class="self">self</span>, <span class="ident">other</span>: <span class="ident">Real</span>) -&gt; <span class="ident">Real</span> {
-        <span class="self">Self</span>(<span class="self">self</span>.<span class="number">0</span> <span class="op">*</span> <span class="ident">other</span>.<span class="number">0</span>)
-    }
-}
-
-<span class="kw">impl</span> <span class="ident">MulAssign</span> <span class="kw">for</span> <span class="ident">Real</span> {
-    <span class="kw">fn</span> <span class="ident">mul_assign</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>, <span class="ident">other</span>: <span class="ident">Real</span>) {
-        <span class="self">self</span>.<span class="number">0</span> <span class="kw-2">*</span><span class="op">=</span> <span class="ident">other</span>.<span class="number">0</span>
-    }
-}
-
-<span class="kw">impl</span> <span class="ident">Div</span> <span class="kw">for</span> <span class="ident">Real</span> {
-    <span class="kw">type</span> <span class="ident">Output</span> <span class="op">=</span> <span class="ident">Real</span>;
-
-    <span class="kw">fn</span> <span class="ident">div</span>(<span class="self">self</span>, <span class="ident">other</span>: <span class="ident">Real</span>) -&gt; <span class="ident">Real</span> {
-        <span class="self">Self</span>(<span class="self">self</span>.<span class="number">0</span> <span class="op">/</span> <span class="ident">other</span>.<span class="number">0</span>)
-    }
-}
-
-<span class="kw">impl</span> <span class="ident">DivAssign</span> <span class="kw">for</span> <span class="ident">Real</span> {
-    <span class="kw">fn</span> <span class="ident">div_assign</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>, <span class="ident">other</span>: <span class="ident">Real</span>) {
-        <span class="self">self</span>.<span class="number">0</span> <span class="op">/</span><span class="op">=</span> <span class="ident">other</span>.<span class="number">0</span>
-    }
-}
-
-<span class="kw">impl</span> <span class="ident">ApproxEq</span> <span class="kw">for</span> <span class="ident">Real</span> {
-    <span class="kw">type</span> <span class="ident">Margin</span> <span class="op">=</span> <span class="ident">F32Margin</span>;
-
-    <span class="kw">fn</span> <span class="ident">approx_eq</span><span class="op">&lt;</span><span class="ident">M</span>: <span class="ident">Into</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Margin</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="self">self</span>, <span class="ident">other</span>: <span class="self">Self</span>, <span class="ident">margin</span>: <span class="ident">M</span>) -&gt; <span class="ident">bool</span> {
-        <span class="kw">let</span> <span class="ident">a</span>: <span class="ident">f32</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">into</span>();
-        <span class="kw">let</span> <span class="ident">b</span>: <span class="ident">f32</span> <span class="op">=</span> <span class="ident">other</span>.<span class="ident">into</span>();
-        <span class="ident">a</span>.<span class="ident">approx_eq</span>(<span class="ident">b</span>, <span class="ident">margin</span>.<span class="ident">into</span>())
-    }
-}
-
-<span class="kw">impl</span> <span class="ident">Real</span> {
-    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn</span> <span class="ident">abs</span>(<span class="self">self</span>) -&gt; <span class="self">Self</span> {
-        <span class="self">Self</span>(<span class="self">self</span>.<span class="number">0</span>.<span class="ident">abs</span>())
-    }
-
-    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn</span> <span class="ident">rem_euclid</span>(<span class="self">self</span>, <span class="ident">rhs</span>: <span class="ident">Real</span>) -&gt; <span class="self">Self</span> {
-        <span class="kw">let</span> <span class="ident">r</span> <span class="op">=</span> <span class="self">self</span>.<span class="number">0</span> <span class="op">%</span> <span class="ident">rhs</span>.<span class="number">0</span>;
-        <span class="kw">if</span> <span class="ident">r</span> <span class="op">&lt;</span> <span class="number">0.0</span> {
-            <span class="ident">Real</span>(<span class="ident">r</span>) <span class="op">+</span> <span class="ident">rhs</span>.<span class="ident">abs</span>()
-        } <span class="kw">else</span> {
-            <span class="ident">Real</span>(<span class="ident">r</span>)
+    <span class="kw">impl </span>Real {
+        <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">const fn </span>zero() -&gt; <span class="self">Self </span>{
+            <span class="self">Self</span>(I16F16::from_bits(<span class="number">0</span>))
         }
     }
 
-    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">unused</span>)]</span>
-    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn</span> <span class="ident">round</span>(<span class="self">self</span>) -&gt; <span class="self">Self</span> {
-        <span class="self">Self</span>(<span class="self">self</span>.<span class="number">0</span>.<span class="ident">round</span>())
+    <span class="kw">impl </span>From&lt;I16F16&gt; <span class="kw">for </span>Real {
+        <span class="kw">fn </span>from(src: I16F16) -&gt; <span class="self">Self </span>{
+            <span class="self">Self</span>(src)
+        }
+    }
+
+    <span class="kw">impl </span>From&lt;f32&gt; <span class="kw">for </span>Real {
+        <span class="kw">fn </span>from(src: f32) -&gt; <span class="self">Self </span>{
+            <span class="self">Self</span>(I16F16::from_num(src))
+        }
+    }
+
+    <span class="kw">impl </span>From&lt;i32&gt; <span class="kw">for </span>Real {
+        <span class="kw">fn </span>from(src: i32) -&gt; <span class="self">Self </span>{
+            <span class="self">Self</span>(I16F16::from_num(src))
+        }
+    }
+
+    <span class="kw">impl </span>From&lt;u32&gt; <span class="kw">for </span>Real {
+        <span class="kw">fn </span>from(src: u32) -&gt; <span class="self">Self </span>{
+            <span class="self">Self</span>(I16F16::from_num(src))
+        }
+    }
+
+    <span class="kw">impl </span>From&lt;Real&gt; <span class="kw">for </span>f32 {
+        <span class="kw">fn </span>from(src: Real) -&gt; <span class="self">Self </span>{
+            src.<span class="number">0</span>.to_num::&lt;f32&gt;()
+        }
+    }
+
+    <span class="kw">impl </span>From&lt;Real&gt; <span class="kw">for </span>i32 {
+        <span class="kw">fn </span>from(src: Real) -&gt; <span class="self">Self </span>{
+            src.<span class="number">0</span>.round_to_zero().to_num::&lt;i32&gt;()
+        }
+    }
+
+    <span class="kw">impl </span>From&lt;Real&gt; <span class="kw">for </span>u32 {
+        <span class="kw">fn </span>from(src: Real) -&gt; <span class="self">Self </span>{
+            src.<span class="number">0</span>.to_num::&lt;u32&gt;()
+        }
+    }
+}
+
+<span class="kw">impl </span>Add <span class="kw">for </span>Real {
+    <span class="kw">type </span>Output = Real;
+
+    <span class="kw">fn </span>add(<span class="self">self</span>, other: Real) -&gt; Real {
+        <span class="self">Self</span>(<span class="self">self</span>.<span class="number">0 </span>+ other.<span class="number">0</span>)
+    }
+}
+
+<span class="kw">impl </span>AddAssign <span class="kw">for </span>Real {
+    <span class="kw">fn </span>add_assign(<span class="kw-2">&amp;mut </span><span class="self">self</span>, other: Real) {
+        <span class="self">self</span>.<span class="number">0 </span>+= other.<span class="number">0</span>;
+    }
+}
+
+<span class="kw">impl </span>Sub <span class="kw">for </span>Real {
+    <span class="kw">type </span>Output = Real;
+
+    <span class="kw">fn </span>sub(<span class="self">self</span>, other: Real) -&gt; Real {
+        <span class="self">Self</span>(<span class="self">self</span>.<span class="number">0 </span>- other.<span class="number">0</span>)
+    }
+}
+
+<span class="kw">impl </span>SubAssign <span class="kw">for </span>Real {
+    <span class="kw">fn </span>sub_assign(<span class="kw-2">&amp;mut </span><span class="self">self</span>, other: Real) {
+        <span class="self">self</span>.<span class="number">0 </span>-= other.<span class="number">0</span>;
+    }
+}
+
+<span class="kw">impl </span>Neg <span class="kw">for </span>Real {
+    <span class="kw">type </span>Output = Real;
+
+    <span class="kw">fn </span>neg(<span class="self">self</span>) -&gt; Real {
+        <span class="self">Self</span>(-<span class="self">self</span>.<span class="number">0</span>)
+    }
+}
+
+<span class="kw">impl </span>Mul <span class="kw">for </span>Real {
+    <span class="kw">type </span>Output = Real;
+
+    <span class="kw">fn </span>mul(<span class="self">self</span>, other: Real) -&gt; Real {
+        <span class="self">Self</span>(<span class="self">self</span>.<span class="number">0 </span>* other.<span class="number">0</span>)
+    }
+}
+
+<span class="kw">impl </span>MulAssign <span class="kw">for </span>Real {
+    <span class="kw">fn </span>mul_assign(<span class="kw-2">&amp;mut </span><span class="self">self</span>, other: Real) {
+        <span class="self">self</span>.<span class="number">0 </span><span class="kw-2">*</span>= other.<span class="number">0
+    </span>}
+}
+
+<span class="kw">impl </span>Div <span class="kw">for </span>Real {
+    <span class="kw">type </span>Output = Real;
+
+    <span class="kw">fn </span>div(<span class="self">self</span>, other: Real) -&gt; Real {
+        <span class="self">Self</span>(<span class="self">self</span>.<span class="number">0 </span>/ other.<span class="number">0</span>)
+    }
+}
+
+<span class="kw">impl </span>DivAssign <span class="kw">for </span>Real {
+    <span class="kw">fn </span>div_assign(<span class="kw-2">&amp;mut </span><span class="self">self</span>, other: Real) {
+        <span class="self">self</span>.<span class="number">0 </span>/= other.<span class="number">0
+    </span>}
+}
+
+<span class="kw">impl </span>ApproxEq <span class="kw">for </span>Real {
+    <span class="kw">type </span>Margin = F32Margin;
+
+    <span class="kw">fn </span>approx_eq&lt;M: Into&lt;<span class="self">Self</span>::Margin&gt;&gt;(<span class="self">self</span>, other: <span class="self">Self</span>, margin: M) -&gt; bool {
+        <span class="kw">let </span>a: f32 = <span class="self">self</span>.into();
+        <span class="kw">let </span>b: f32 = other.into();
+        a.approx_eq(b, margin.into())
+    }
+}
+
+<span class="kw">impl </span>Real {
+    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn </span>abs(<span class="self">self</span>) -&gt; <span class="self">Self </span>{
+        <span class="self">Self</span>(<span class="self">self</span>.<span class="number">0</span>.abs())
+    }
+
+    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn </span>rem_euclid(<span class="self">self</span>, rhs: Real) -&gt; <span class="self">Self </span>{
+        <span class="kw">let </span>r = <span class="self">self</span>.<span class="number">0 </span>% rhs.<span class="number">0</span>;
+        <span class="kw">if </span>r &lt; <span class="number">0.0 </span>{
+            Real(r) + rhs.abs()
+        } <span class="kw">else </span>{
+            Real(r)
+        }
+    }
+
+    <span class="attribute">#[allow(unused)]
+    </span><span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn </span>round(<span class="self">self</span>) -&gt; <span class="self">Self </span>{
+        <span class="self">Self</span>(<span class="self">self</span>.<span class="number">0</span>.round())
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="embedded_graphics" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0 (a55dd71d5 2022-09-19)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="embedded_graphics" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0 (69f9c33d7 2022-12-12)" ></div></body></html>

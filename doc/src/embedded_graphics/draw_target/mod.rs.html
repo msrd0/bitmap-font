@@ -1,6 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.1/src/draw_target/mod.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../embedded_graphics/index.html"><div class="logo-container"><img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../embedded_graphics/index.html"><div class="logo-container">
-                    <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../embedded_graphics/index.html">
-                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.1/src/draw_target/mod.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../embedded_graphics/index.html">
+                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -368,373 +367,373 @@
 <span id="366">366</span>
 <span id="367">367</span>
 <span id="368">368</span>
-</pre><pre class="rust"><code><span class="doccomment">//! A target for embedded-graphics drawing operations.</span>
+</pre><pre class="rust"><code><span class="doccomment">//! A target for embedded-graphics drawing operations.
 
-<span class="kw">mod</span> <span class="ident">clipped</span>;
-<span class="kw">mod</span> <span class="ident">color_converted</span>;
-<span class="kw">mod</span> <span class="ident">cropped</span>;
-<span class="kw">mod</span> <span class="ident">translated</span>;
+</span><span class="kw">mod </span>clipped;
+<span class="kw">mod </span>color_converted;
+<span class="kw">mod </span>cropped;
+<span class="kw">mod </span>translated;
 
-<span class="kw">use</span> <span class="kw">crate</span>::{<span class="ident">geometry::Point</span>, <span class="ident">pixelcolor::PixelColor</span>, <span class="ident">primitives::Rectangle</span>};
+<span class="kw">use crate</span>::{geometry::Point, pixelcolor::PixelColor, primitives::Rectangle};
 
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">clipped::Clipped</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">color_converted::ColorConverted</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">cropped::Cropped</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">translated::Translated</span>;
+<span class="kw">pub use </span>clipped::Clipped;
+<span class="kw">pub use </span>color_converted::ColorConverted;
+<span class="kw">pub use </span>cropped::Cropped;
+<span class="kw">pub use </span>translated::Translated;
 
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">embedded_graphics_core::draw_target::DrawTarget</span>;
+<span class="kw">pub use </span>embedded_graphics_core::draw_target::DrawTarget;
 
-<span class="doccomment">/// Extension trait for `DrawTarget`s.</span>
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">DrawTargetExt</span>: <span class="ident">DrawTarget</span> <span class="op">+</span> <span class="ident">Sized</span> {
-    <span class="doccomment">/// Creates a translated draw target based on this draw target.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// All drawing operations are translated by `offset` pixels, before being passed to the parent</span>
-    <span class="doccomment">/// draw target.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Examples</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ```</span>
-    <span class="doccomment">/// use embedded_graphics::{</span>
-    <span class="doccomment">///     mock_display::MockDisplay,</span>
-    <span class="doccomment">///     mono_font::{ascii::FONT_6X9, MonoTextStyle},</span>
-    <span class="doccomment">///     pixelcolor::BinaryColor,</span>
-    <span class="doccomment">///     prelude::*,</span>
-    <span class="doccomment">///     text::Text,</span>
-    <span class="doccomment">/// };</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// let mut display = MockDisplay::new();</span>
-    <span class="doccomment">/// let mut translated_display = display.translated(Point::new(5, 10));</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// let style = MonoTextStyle::new(&amp;FONT_6X9, BinaryColor::On);</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// // Draws text at position (5, 10) in the display coordinate system</span>
-    <span class="doccomment">/// Text::new(&quot;Text&quot;, Point::zero(), style).draw(&amp;mut translated_display)?;</span>
-    <span class="doccomment">/// #</span>
-    <span class="doccomment">/// # let mut expected = MockDisplay::new();</span>
-    <span class="doccomment">/// #</span>
-    <span class="doccomment">/// # Text::new(&quot;Text&quot;, Point::new(5, 10), style).draw(&amp;mut expected)?;</span>
-    <span class="doccomment">/// #</span>
-    <span class="doccomment">/// # display.assert_eq(&amp;expected);</span>
-    <span class="doccomment">/// #</span>
-    <span class="doccomment">/// # Ok::&lt;(), core::convert::Infallible&gt;(())</span>
-    <span class="doccomment">/// ```</span>
-    <span class="kw">fn</span> <span class="ident">translated</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>, <span class="ident">offset</span>: <span class="ident">Point</span>) -&gt; <span class="ident">Translated</span><span class="op">&lt;</span><span class="lifetime">&#39;_</span>, <span class="self">Self</span><span class="op">&gt;</span>;
+<span class="doccomment">/// Extension trait for `DrawTarget`s.
+</span><span class="kw">pub trait </span>DrawTargetExt: DrawTarget + Sized {
+    <span class="doccomment">/// Creates a translated draw target based on this draw target.
+    ///
+    /// All drawing operations are translated by `offset` pixels, before being passed to the parent
+    /// draw target.
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// use embedded_graphics::{
+    ///     mock_display::MockDisplay,
+    ///     mono_font::{ascii::FONT_6X9, MonoTextStyle},
+    ///     pixelcolor::BinaryColor,
+    ///     prelude::*,
+    ///     text::Text,
+    /// };
+    ///
+    /// let mut display = MockDisplay::new();
+    /// let mut translated_display = display.translated(Point::new(5, 10));
+    ///
+    /// let style = MonoTextStyle::new(&amp;FONT_6X9, BinaryColor::On);
+    ///
+    /// // Draws text at position (5, 10) in the display coordinate system
+    /// Text::new(&quot;Text&quot;, Point::zero(), style).draw(&amp;mut translated_display)?;
+    /// #
+    /// # let mut expected = MockDisplay::new();
+    /// #
+    /// # Text::new(&quot;Text&quot;, Point::new(5, 10), style).draw(&amp;mut expected)?;
+    /// #
+    /// # display.assert_eq(&amp;expected);
+    /// #
+    /// # Ok::&lt;(), core::convert::Infallible&gt;(())
+    /// ```
+    </span><span class="kw">fn </span>translated(<span class="kw-2">&amp;mut </span><span class="self">self</span>, offset: Point) -&gt; Translated&lt;<span class="lifetime">&#39;_</span>, <span class="self">Self</span>&gt;;
 
-    <span class="doccomment">/// Creates a cropped draw target based on this draw target.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// A cropped draw target is a draw target for a rectangular subregion of the parent draw target.</span>
-    <span class="doccomment">/// Its coordinate system is shifted so that the origin coincides with `area.top_left` in the</span>
-    <span class="doccomment">/// parent draw target&#39;s coordinate system.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The bounding box of the returned target will always be contained inside the bounding box</span>
-    <span class="doccomment">/// of the parent target. If any of the requested `area` lies outside the parent target&#39;s bounding</span>
-    <span class="doccomment">/// box the intersection of the parent target&#39;s bounding box and `area` will be used.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Drawing operations outside the bounding box will not be clipped.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Examples</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ```</span>
-    <span class="doccomment">/// use embedded_graphics::{</span>
-    <span class="doccomment">///     mock_display::MockDisplay,</span>
-    <span class="doccomment">///     mono_font::{ascii::FONT_6X9, MonoTextStyle},</span>
-    <span class="doccomment">///     pixelcolor::Rgb565,</span>
-    <span class="doccomment">///     prelude::*,</span>
-    <span class="doccomment">///     primitives::Rectangle,</span>
-    <span class="doccomment">///     text::{Text, Alignment, Baseline, TextStyleBuilder},</span>
-    <span class="doccomment">/// };</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// /// Fills a draw target with a blue background and prints centered yellow text.</span>
-    <span class="doccomment">/// fn draw_text&lt;T&gt;(target: &amp;mut T, text: &amp;str) -&gt; Result&lt;(), T::Error&gt;</span>
-    <span class="doccomment">/// where</span>
-    <span class="doccomment">///     T: DrawTarget&lt;Color = Rgb565&gt;,</span>
-    <span class="doccomment">/// {</span>
-    <span class="doccomment">///     target.clear(Rgb565::BLUE)?;</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///     let text_position = target.bounding_box().center();</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///     let character_style = MonoTextStyle::new(&amp;FONT_6X9, Rgb565::YELLOW);</span>
-    <span class="doccomment">///     let text_style = TextStyleBuilder::new()</span>
-    <span class="doccomment">///         .alignment(Alignment::Center)</span>
-    <span class="doccomment">///         .baseline(Baseline::Middle)</span>
-    <span class="doccomment">///         .build();</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///     Text::with_text_style(text, text_position, character_style, text_style).draw(target)?;</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///     Ok(())</span>
-    <span class="doccomment">/// }</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// let mut display = MockDisplay::new();</span>
-    <span class="doccomment">/// display.set_allow_overdraw(true);</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// let area = Rectangle::new(Point::new(5, 10), Size::new(40, 15));</span>
-    <span class="doccomment">/// let mut cropped_display = display.cropped(&amp;area);</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// draw_text(&amp;mut cropped_display, &quot;Text&quot;)?;</span>
-    <span class="doccomment">/// #</span>
-    <span class="doccomment">/// # Ok::&lt;(), core::convert::Infallible&gt;(())</span>
-    <span class="doccomment">/// ```</span>
-    <span class="kw">fn</span> <span class="ident">cropped</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>, <span class="ident">area</span>: <span class="kw-2">&amp;</span><span class="ident">Rectangle</span>) -&gt; <span class="ident">Cropped</span><span class="op">&lt;</span><span class="lifetime">&#39;_</span>, <span class="self">Self</span><span class="op">&gt;</span>;
+    <span class="doccomment">/// Creates a cropped draw target based on this draw target.
+    ///
+    /// A cropped draw target is a draw target for a rectangular subregion of the parent draw target.
+    /// Its coordinate system is shifted so that the origin coincides with `area.top_left` in the
+    /// parent draw target&#39;s coordinate system.
+    ///
+    /// The bounding box of the returned target will always be contained inside the bounding box
+    /// of the parent target. If any of the requested `area` lies outside the parent target&#39;s bounding
+    /// box the intersection of the parent target&#39;s bounding box and `area` will be used.
+    ///
+    /// Drawing operations outside the bounding box will not be clipped.
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// use embedded_graphics::{
+    ///     mock_display::MockDisplay,
+    ///     mono_font::{ascii::FONT_6X9, MonoTextStyle},
+    ///     pixelcolor::Rgb565,
+    ///     prelude::*,
+    ///     primitives::Rectangle,
+    ///     text::{Text, Alignment, Baseline, TextStyleBuilder},
+    /// };
+    ///
+    /// /// Fills a draw target with a blue background and prints centered yellow text.
+    /// fn draw_text&lt;T&gt;(target: &amp;mut T, text: &amp;str) -&gt; Result&lt;(), T::Error&gt;
+    /// where
+    ///     T: DrawTarget&lt;Color = Rgb565&gt;,
+    /// {
+    ///     target.clear(Rgb565::BLUE)?;
+    ///
+    ///     let text_position = target.bounding_box().center();
+    ///
+    ///     let character_style = MonoTextStyle::new(&amp;FONT_6X9, Rgb565::YELLOW);
+    ///     let text_style = TextStyleBuilder::new()
+    ///         .alignment(Alignment::Center)
+    ///         .baseline(Baseline::Middle)
+    ///         .build();
+    ///
+    ///     Text::with_text_style(text, text_position, character_style, text_style).draw(target)?;
+    ///
+    ///     Ok(())
+    /// }
+    ///
+    /// let mut display = MockDisplay::new();
+    /// display.set_allow_overdraw(true);
+    ///
+    /// let area = Rectangle::new(Point::new(5, 10), Size::new(40, 15));
+    /// let mut cropped_display = display.cropped(&amp;area);
+    ///
+    /// draw_text(&amp;mut cropped_display, &quot;Text&quot;)?;
+    /// #
+    /// # Ok::&lt;(), core::convert::Infallible&gt;(())
+    /// ```
+    </span><span class="kw">fn </span>cropped(<span class="kw-2">&amp;mut </span><span class="self">self</span>, area: <span class="kw-2">&amp;</span>Rectangle) -&gt; Cropped&lt;<span class="lifetime">&#39;_</span>, <span class="self">Self</span>&gt;;
 
-    <span class="doccomment">/// Creates a clipped draw target based on this draw target.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// A clipped draw target is a draw target for a rectangular subregion of the parent draw target.</span>
-    <span class="doccomment">/// The coordinate system of the created draw target is equal to the parent target&#39;s coordinate</span>
-    <span class="doccomment">/// system. All drawing operations outside the bounding box will be clipped.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The bounding box of the returned target will always be contained inside the bounding box</span>
-    <span class="doccomment">/// of the parent target. If any of the requested `area` lies outside the parent target&#39;s bounding</span>
-    <span class="doccomment">/// box the intersection of the parent target&#39;s bounding box and `area` will be used.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Examples</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ```</span>
-    <span class="doccomment">/// use embedded_graphics::{</span>
-    <span class="doccomment">///     mock_display::MockDisplay,</span>
-    <span class="doccomment">///     mono_font::{ascii::FONT_10X20, MonoTextStyle},</span>
-    <span class="doccomment">///     pixelcolor::BinaryColor,</span>
-    <span class="doccomment">///     prelude::*,</span>
-    <span class="doccomment">///     primitives::Rectangle,</span>
-    <span class="doccomment">///     text::Text,</span>
-    <span class="doccomment">/// };</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// let mut display = MockDisplay::new();</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// let area = Rectangle::new(Point::zero(), Size::new(4 * 10, 20));</span>
-    <span class="doccomment">/// let mut clipped_display = display.clipped(&amp;area);</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// let style = MonoTextStyle::new(&amp;FONT_10X20, BinaryColor::On);</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// // Only the first 4 characters will be drawn, because the others are outside</span>
-    <span class="doccomment">/// // the clipping area</span>
-    <span class="doccomment">/// Text::new(&quot;Clipped&quot;, Point::new(0, 15), style).draw(&amp;mut clipped_display)?;</span>
-    <span class="doccomment">/// #</span>
-    <span class="doccomment">/// # let mut expected = MockDisplay::new();</span>
-    <span class="doccomment">/// #</span>
-    <span class="doccomment">/// # Text::new(&quot;Clip&quot;, Point::new(0, 15), style).draw(&amp;mut expected)?;</span>
-    <span class="doccomment">/// #</span>
-    <span class="doccomment">/// # display.assert_eq(&amp;expected);</span>
-    <span class="doccomment">/// #</span>
-    <span class="doccomment">/// # Ok::&lt;(), core::convert::Infallible&gt;(())</span>
-    <span class="doccomment">/// ```</span>
-    <span class="kw">fn</span> <span class="ident">clipped</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>, <span class="ident">area</span>: <span class="kw-2">&amp;</span><span class="ident">Rectangle</span>) -&gt; <span class="ident">Clipped</span><span class="op">&lt;</span><span class="lifetime">&#39;_</span>, <span class="self">Self</span><span class="op">&gt;</span>;
+    <span class="doccomment">/// Creates a clipped draw target based on this draw target.
+    ///
+    /// A clipped draw target is a draw target for a rectangular subregion of the parent draw target.
+    /// The coordinate system of the created draw target is equal to the parent target&#39;s coordinate
+    /// system. All drawing operations outside the bounding box will be clipped.
+    ///
+    /// The bounding box of the returned target will always be contained inside the bounding box
+    /// of the parent target. If any of the requested `area` lies outside the parent target&#39;s bounding
+    /// box the intersection of the parent target&#39;s bounding box and `area` will be used.
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// use embedded_graphics::{
+    ///     mock_display::MockDisplay,
+    ///     mono_font::{ascii::FONT_10X20, MonoTextStyle},
+    ///     pixelcolor::BinaryColor,
+    ///     prelude::*,
+    ///     primitives::Rectangle,
+    ///     text::Text,
+    /// };
+    ///
+    /// let mut display = MockDisplay::new();
+    ///
+    /// let area = Rectangle::new(Point::zero(), Size::new(4 * 10, 20));
+    /// let mut clipped_display = display.clipped(&amp;area);
+    ///
+    /// let style = MonoTextStyle::new(&amp;FONT_10X20, BinaryColor::On);
+    ///
+    /// // Only the first 4 characters will be drawn, because the others are outside
+    /// // the clipping area
+    /// Text::new(&quot;Clipped&quot;, Point::new(0, 15), style).draw(&amp;mut clipped_display)?;
+    /// #
+    /// # let mut expected = MockDisplay::new();
+    /// #
+    /// # Text::new(&quot;Clip&quot;, Point::new(0, 15), style).draw(&amp;mut expected)?;
+    /// #
+    /// # display.assert_eq(&amp;expected);
+    /// #
+    /// # Ok::&lt;(), core::convert::Infallible&gt;(())
+    /// ```
+    </span><span class="kw">fn </span>clipped(<span class="kw-2">&amp;mut </span><span class="self">self</span>, area: <span class="kw-2">&amp;</span>Rectangle) -&gt; Clipped&lt;<span class="lifetime">&#39;_</span>, <span class="self">Self</span>&gt;;
 
-    <span class="doccomment">/// Creates a color conversion draw target.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// A color conversion draw target is used to draw drawables with a different color type to a</span>
-    <span class="doccomment">/// draw target. The drawable color type must implement `Into&lt;C&gt;`, where `C` is the draw</span>
-    <span class="doccomment">/// target color type.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Performance</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Color conversion can be expensive on embedded hardware and should be avoided if possible.</span>
-    <span class="doccomment">/// Using the same color type for drawables and the draw target makes sure that no unnecessary</span>
-    <span class="doccomment">/// color conversion is used. But in some cases color conversion will be required, for example,</span>
-    <span class="doccomment">/// to draw images with a color format only known at runtime.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Examples</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// This example draws a `BinaryColor` image to an `Rgb888` display.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ```</span>
-    <span class="doccomment">/// use embedded_graphics::{</span>
-    <span class="doccomment">///     image::{Image, ImageRaw},</span>
-    <span class="doccomment">///     mock_display::MockDisplay,</span>
-    <span class="doccomment">///     pixelcolor::{BinaryColor, Rgb888},</span>
-    <span class="doccomment">///     prelude::*,</span>
-    <span class="doccomment">/// };</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// /// The image data.</span>
-    <span class="doccomment">/// const DATA: &amp;[u8] = &amp;[</span>
-    <span class="doccomment">///     0b11110000, //</span>
-    <span class="doccomment">///     0b10010000, //</span>
-    <span class="doccomment">///     0b10010000, //</span>
-    <span class="doccomment">///     0b11110000, //</span>
-    <span class="doccomment">/// ];</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// // Create a `BinaryColor` image from the image data.</span>
-    <span class="doccomment">/// let raw_image = ImageRaw::&lt;BinaryColor&gt;::new(DATA, 4);</span>
-    <span class="doccomment">/// let image = Image::new(&amp;raw_image, Point::zero());</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// // Create a `Rgb888` display.</span>
-    <span class="doccomment">/// let mut display = MockDisplay::&lt;Rgb888&gt;::new();</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// // The image can&#39;t directly be drawn to the draw target because they use different</span>
-    <span class="doccomment">/// // color type. This will fail to compile:</span>
-    <span class="doccomment">/// // image.draw(&amp;mut display)?;</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// // To fix this `color_converted` is added to enable color conversion.</span>
-    <span class="doccomment">/// image.draw(&amp;mut display.color_converted())?;</span>
-    <span class="doccomment">/// #</span>
-    <span class="doccomment">/// # let mut expected = MockDisplay::from_pattern(&amp;[</span>
-    <span class="doccomment">/// #     &quot;WWWW&quot;, //</span>
-    <span class="doccomment">/// #     &quot;WKKW&quot;, //</span>
-    <span class="doccomment">/// #     &quot;WKKW&quot;, //</span>
-    <span class="doccomment">/// #     &quot;WWWW&quot;, //</span>
-    <span class="doccomment">/// # ]);</span>
-    <span class="doccomment">/// #</span>
-    <span class="doccomment">/// # display.assert_eq(&amp;expected);</span>
-    <span class="doccomment">/// #</span>
-    <span class="doccomment">/// # Ok::&lt;(), core::convert::Infallible&gt;(())</span>
-    <span class="doccomment">/// ```</span>
-    <span class="kw">fn</span> <span class="ident">color_converted</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>) -&gt; <span class="ident">ColorConverted</span><span class="op">&lt;</span><span class="lifetime">&#39;_</span>, <span class="self">Self</span>, <span class="ident">C</span><span class="op">&gt;</span>
-    <span class="kw">where</span>
-        <span class="ident">C</span>: <span class="ident">PixelColor</span> <span class="op">+</span> <span class="ident">Into</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Color</span><span class="op">&gt;</span>;
+    <span class="doccomment">/// Creates a color conversion draw target.
+    ///
+    /// A color conversion draw target is used to draw drawables with a different color type to a
+    /// draw target. The drawable color type must implement `Into&lt;C&gt;`, where `C` is the draw
+    /// target color type.
+    ///
+    /// # Performance
+    ///
+    /// Color conversion can be expensive on embedded hardware and should be avoided if possible.
+    /// Using the same color type for drawables and the draw target makes sure that no unnecessary
+    /// color conversion is used. But in some cases color conversion will be required, for example,
+    /// to draw images with a color format only known at runtime.
+    ///
+    /// # Examples
+    ///
+    /// This example draws a `BinaryColor` image to an `Rgb888` display.
+    ///
+    /// ```
+    /// use embedded_graphics::{
+    ///     image::{Image, ImageRaw},
+    ///     mock_display::MockDisplay,
+    ///     pixelcolor::{BinaryColor, Rgb888},
+    ///     prelude::*,
+    /// };
+    ///
+    /// /// The image data.
+    /// const DATA: &amp;[u8] = &amp;[
+    ///     0b11110000, //
+    ///     0b10010000, //
+    ///     0b10010000, //
+    ///     0b11110000, //
+    /// ];
+    ///
+    /// // Create a `BinaryColor` image from the image data.
+    /// let raw_image = ImageRaw::&lt;BinaryColor&gt;::new(DATA, 4);
+    /// let image = Image::new(&amp;raw_image, Point::zero());
+    ///
+    /// // Create a `Rgb888` display.
+    /// let mut display = MockDisplay::&lt;Rgb888&gt;::new();
+    ///
+    /// // The image can&#39;t directly be drawn to the draw target because they use different
+    /// // color type. This will fail to compile:
+    /// // image.draw(&amp;mut display)?;
+    ///
+    /// // To fix this `color_converted` is added to enable color conversion.
+    /// image.draw(&amp;mut display.color_converted())?;
+    /// #
+    /// # let mut expected = MockDisplay::from_pattern(&amp;[
+    /// #     &quot;WWWW&quot;, //
+    /// #     &quot;WKKW&quot;, //
+    /// #     &quot;WKKW&quot;, //
+    /// #     &quot;WWWW&quot;, //
+    /// # ]);
+    /// #
+    /// # display.assert_eq(&amp;expected);
+    /// #
+    /// # Ok::&lt;(), core::convert::Infallible&gt;(())
+    /// ```
+    </span><span class="kw">fn </span>color_converted&lt;C&gt;(<span class="kw-2">&amp;mut </span><span class="self">self</span>) -&gt; ColorConverted&lt;<span class="lifetime">&#39;_</span>, <span class="self">Self</span>, C&gt;
+    <span class="kw">where
+        </span>C: PixelColor + Into&lt;<span class="self">Self</span>::Color&gt;;
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="ident">DrawTargetExt</span> <span class="kw">for</span> <span class="ident">T</span>
-<span class="kw">where</span>
-    <span class="ident">T</span>: <span class="ident">DrawTarget</span>,
+<span class="kw">impl</span>&lt;T&gt; DrawTargetExt <span class="kw">for </span>T
+<span class="kw">where
+    </span>T: DrawTarget,
 {
-    <span class="kw">fn</span> <span class="ident">translated</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>, <span class="ident">offset</span>: <span class="ident">Point</span>) -&gt; <span class="ident">Translated</span><span class="op">&lt;</span><span class="lifetime">&#39;_</span>, <span class="self">Self</span><span class="op">&gt;</span> {
-        <span class="ident">Translated::new</span>(<span class="self">self</span>, <span class="ident">offset</span>)
+    <span class="kw">fn </span>translated(<span class="kw-2">&amp;mut </span><span class="self">self</span>, offset: Point) -&gt; Translated&lt;<span class="lifetime">&#39;_</span>, <span class="self">Self</span>&gt; {
+        Translated::new(<span class="self">self</span>, offset)
     }
 
-    <span class="kw">fn</span> <span class="ident">cropped</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>, <span class="ident">area</span>: <span class="kw-2">&amp;</span><span class="ident">Rectangle</span>) -&gt; <span class="ident">Cropped</span><span class="op">&lt;</span><span class="lifetime">&#39;_</span>, <span class="self">Self</span><span class="op">&gt;</span> {
-        <span class="ident">Cropped::new</span>(<span class="self">self</span>, <span class="ident">area</span>)
+    <span class="kw">fn </span>cropped(<span class="kw-2">&amp;mut </span><span class="self">self</span>, area: <span class="kw-2">&amp;</span>Rectangle) -&gt; Cropped&lt;<span class="lifetime">&#39;_</span>, <span class="self">Self</span>&gt; {
+        Cropped::new(<span class="self">self</span>, area)
     }
 
-    <span class="kw">fn</span> <span class="ident">clipped</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>, <span class="ident">area</span>: <span class="kw-2">&amp;</span><span class="ident">Rectangle</span>) -&gt; <span class="ident">Clipped</span><span class="op">&lt;</span><span class="lifetime">&#39;_</span>, <span class="self">Self</span><span class="op">&gt;</span> {
-        <span class="ident">Clipped::new</span>(<span class="self">self</span>, <span class="ident">area</span>)
+    <span class="kw">fn </span>clipped(<span class="kw-2">&amp;mut </span><span class="self">self</span>, area: <span class="kw-2">&amp;</span>Rectangle) -&gt; Clipped&lt;<span class="lifetime">&#39;_</span>, <span class="self">Self</span>&gt; {
+        Clipped::new(<span class="self">self</span>, area)
     }
 
-    <span class="kw">fn</span> <span class="ident">color_converted</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>) -&gt; <span class="ident">ColorConverted</span><span class="op">&lt;</span><span class="lifetime">&#39;_</span>, <span class="self">Self</span>, <span class="ident">C</span><span class="op">&gt;</span>
-    <span class="kw">where</span>
-        <span class="ident">C</span>: <span class="ident">PixelColor</span> <span class="op">+</span> <span class="ident">Into</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Color</span><span class="op">&gt;</span>,
+    <span class="kw">fn </span>color_converted&lt;C&gt;(<span class="kw-2">&amp;mut </span><span class="self">self</span>) -&gt; ColorConverted&lt;<span class="lifetime">&#39;_</span>, <span class="self">Self</span>, C&gt;
+    <span class="kw">where
+        </span>C: PixelColor + Into&lt;<span class="self">Self</span>::Color&gt;,
     {
-        <span class="ident">ColorConverted::new</span>(<span class="self">self</span>)
+        ColorConverted::new(<span class="self">self</span>)
     }
 }
 
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
-<span class="kw">mod</span> <span class="ident">tests</span> {
-    <span class="kw">use</span> <span class="kw">crate</span>::{
-        <span class="ident">draw_target</span>::{<span class="ident">DrawTarget</span>, <span class="ident">DrawTargetExt</span>},
-        <span class="ident">geometry</span>::{<span class="ident">Dimensions</span>, <span class="ident">Point</span>, <span class="ident">Size</span>},
-        <span class="ident">mock_display::MockDisplay</span>,
-        <span class="ident">pixelcolor::BinaryColor</span>,
-        <span class="ident">primitives</span>::{<span class="ident">Primitive</span>, <span class="ident">PrimitiveStyle</span>, <span class="ident">Rectangle</span>},
-        <span class="ident">Drawable</span>, <span class="ident">Pixel</span>,
+<span class="attribute">#[cfg(test)]
+</span><span class="kw">mod </span>tests {
+    <span class="kw">use crate</span>::{
+        draw_target::{DrawTarget, DrawTargetExt},
+        geometry::{Dimensions, Point, Size},
+        mock_display::MockDisplay,
+        pixelcolor::BinaryColor,
+        primitives::{Primitive, PrimitiveStyle, Rectangle},
+        Drawable, Pixel,
     };
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">draw_iter</span>() {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>draw_iter() {
+        <span class="kw">let </span><span class="kw-2">mut </span>display = MockDisplay::new();
 
-        <span class="kw">let</span> <span class="ident">area</span> <span class="op">=</span> <span class="ident">Rectangle::new</span>(<span class="ident">Point::new</span>(<span class="number">2</span>, <span class="number">1</span>), <span class="ident">Size::new</span>(<span class="number">2</span>, <span class="number">4</span>));
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">clipped</span> <span class="op">=</span> <span class="ident">display</span>.<span class="ident">clipped</span>(<span class="kw-2">&amp;</span><span class="ident">area</span>);
+        <span class="kw">let </span>area = Rectangle::new(Point::new(<span class="number">2</span>, <span class="number">1</span>), Size::new(<span class="number">2</span>, <span class="number">4</span>));
+        <span class="kw">let </span><span class="kw-2">mut </span>clipped = display.clipped(<span class="kw-2">&amp;</span>area);
 
-        <span class="kw">let</span> <span class="ident">pixels</span> <span class="op">=</span> [
-            <span class="ident">Pixel</span>(<span class="ident">Point::new</span>(<span class="number">0</span>, <span class="number">1</span>), <span class="ident">BinaryColor::On</span>),
-            <span class="ident">Pixel</span>(<span class="ident">Point::new</span>(<span class="number">1</span>, <span class="number">1</span>), <span class="ident">BinaryColor::On</span>),
-            <span class="ident">Pixel</span>(<span class="ident">Point::new</span>(<span class="number">2</span>, <span class="number">1</span>), <span class="ident">BinaryColor::On</span>),
-            <span class="ident">Pixel</span>(<span class="ident">Point::new</span>(<span class="number">3</span>, <span class="number">1</span>), <span class="ident">BinaryColor::On</span>),
-            <span class="ident">Pixel</span>(<span class="ident">Point::new</span>(<span class="number">4</span>, <span class="number">1</span>), <span class="ident">BinaryColor::On</span>),
-            <span class="ident">Pixel</span>(<span class="ident">Point::new</span>(<span class="number">2</span>, <span class="number">0</span>), <span class="ident">BinaryColor::Off</span>),
-            <span class="ident">Pixel</span>(<span class="ident">Point::new</span>(<span class="number">2</span>, <span class="number">2</span>), <span class="ident">BinaryColor::Off</span>),
-            <span class="ident">Pixel</span>(<span class="ident">Point::new</span>(<span class="number">2</span>, <span class="number">3</span>), <span class="ident">BinaryColor::Off</span>),
-            <span class="ident">Pixel</span>(<span class="ident">Point::new</span>(<span class="number">2</span>, <span class="number">4</span>), <span class="ident">BinaryColor::Off</span>),
-            <span class="ident">Pixel</span>(<span class="ident">Point::new</span>(<span class="number">2</span>, <span class="number">5</span>), <span class="ident">BinaryColor::Off</span>),
+        <span class="kw">let </span>pixels = [
+            Pixel(Point::new(<span class="number">0</span>, <span class="number">1</span>), BinaryColor::On),
+            Pixel(Point::new(<span class="number">1</span>, <span class="number">1</span>), BinaryColor::On),
+            Pixel(Point::new(<span class="number">2</span>, <span class="number">1</span>), BinaryColor::On),
+            Pixel(Point::new(<span class="number">3</span>, <span class="number">1</span>), BinaryColor::On),
+            Pixel(Point::new(<span class="number">4</span>, <span class="number">1</span>), BinaryColor::On),
+            Pixel(Point::new(<span class="number">2</span>, <span class="number">0</span>), BinaryColor::Off),
+            Pixel(Point::new(<span class="number">2</span>, <span class="number">2</span>), BinaryColor::Off),
+            Pixel(Point::new(<span class="number">2</span>, <span class="number">3</span>), BinaryColor::Off),
+            Pixel(Point::new(<span class="number">2</span>, <span class="number">4</span>), BinaryColor::Off),
+            Pixel(Point::new(<span class="number">2</span>, <span class="number">5</span>), BinaryColor::Off),
         ];
-        <span class="ident">clipped</span>.<span class="ident">draw_iter</span>(<span class="ident">pixels</span>.<span class="ident">iter</span>().<span class="ident">copied</span>()).<span class="ident">unwrap</span>();
+        clipped.draw_iter(pixels.iter().copied()).unwrap();
 
-        <span class="ident">display</span>.<span class="ident">assert_pattern</span>(<span class="kw-2">&amp;</span>[
-            <span class="string">&quot;    &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;  ##&quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;  . &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;  . &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;  . &quot;</span>, <span class="comment">//</span>
-        ]);
+        display.assert_pattern(<span class="kw-2">&amp;</span>[
+            <span class="string">&quot;    &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;  ##&quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;  . &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;  . &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;  . &quot;</span>, <span class="comment">//
+        </span>]);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">fill_contiguous</span>() {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>fill_contiguous() {
+        <span class="kw">let </span><span class="kw-2">mut </span>display = MockDisplay::new();
 
-        <span class="kw">let</span> <span class="ident">area</span> <span class="op">=</span> <span class="ident">Rectangle::new</span>(<span class="ident">Point::new</span>(<span class="number">3</span>, <span class="number">2</span>), <span class="ident">Size::new</span>(<span class="number">2</span>, <span class="number">3</span>));
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">clipped</span> <span class="op">=</span> <span class="ident">display</span>.<span class="ident">clipped</span>(<span class="kw-2">&amp;</span><span class="ident">area</span>);
+        <span class="kw">let </span>area = Rectangle::new(Point::new(<span class="number">3</span>, <span class="number">2</span>), Size::new(<span class="number">2</span>, <span class="number">3</span>));
+        <span class="kw">let </span><span class="kw-2">mut </span>clipped = display.clipped(<span class="kw-2">&amp;</span>area);
 
-        <span class="kw">let</span> <span class="ident">colors</span> <span class="op">=</span> [
-            <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="comment">//</span>
-            <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="comment">//</span>
-            <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="comment">//</span>
-            <span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="comment">//</span>
-        ];
-        <span class="kw">let</span> <span class="ident">area</span> <span class="op">=</span> <span class="ident">Rectangle::new</span>(<span class="ident">Point::new</span>(<span class="number">1</span>, <span class="number">2</span>), <span class="ident">Size::new</span>(<span class="number">5</span>, <span class="number">4</span>));
-        <span class="ident">clipped</span>
-            .<span class="ident">fill_contiguous</span>(<span class="kw-2">&amp;</span><span class="ident">area</span>, <span class="ident">colors</span>.<span class="ident">iter</span>().<span class="ident">map</span>(<span class="op">|</span><span class="ident">c</span><span class="op">|</span> <span class="ident">BinaryColor::from</span>(<span class="kw-2">*</span><span class="ident">c</span> <span class="op">!</span><span class="op">=</span> <span class="number">0</span>)))
-            .<span class="ident">unwrap</span>();
+        <span class="kw">let </span>colors = [
+            <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="comment">//
+            </span><span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="comment">//
+            </span><span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="comment">//
+            </span><span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="comment">//
+        </span>];
+        <span class="kw">let </span>area = Rectangle::new(Point::new(<span class="number">1</span>, <span class="number">2</span>), Size::new(<span class="number">5</span>, <span class="number">4</span>));
+        clipped
+            .fill_contiguous(<span class="kw-2">&amp;</span>area, colors.iter().map(|c| BinaryColor::from(<span class="kw-2">*</span>c != <span class="number">0</span>)))
+            .unwrap();
 
-        <span class="ident">display</span>.<span class="ident">assert_pattern</span>(<span class="kw-2">&amp;</span>[
-            <span class="string">&quot;     &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;     &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;   ##&quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;   ..&quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;   .#&quot;</span>, <span class="comment">//</span>
-        ]);
+        display.assert_pattern(<span class="kw-2">&amp;</span>[
+            <span class="string">&quot;     &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;     &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;   ##&quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;   ..&quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;   .#&quot;</span>, <span class="comment">//
+        </span>]);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">fill_solid</span>() {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>fill_solid() {
+        <span class="kw">let </span><span class="kw-2">mut </span>display = MockDisplay::new();
 
-        <span class="kw">let</span> <span class="ident">area</span> <span class="op">=</span> <span class="ident">Rectangle::new</span>(<span class="ident">Point::new</span>(<span class="number">3</span>, <span class="number">2</span>), <span class="ident">Size::new</span>(<span class="number">4</span>, <span class="number">2</span>));
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">clipped</span> <span class="op">=</span> <span class="ident">display</span>.<span class="ident">clipped</span>(<span class="kw-2">&amp;</span><span class="ident">area</span>);
+        <span class="kw">let </span>area = Rectangle::new(Point::new(<span class="number">3</span>, <span class="number">2</span>), Size::new(<span class="number">4</span>, <span class="number">2</span>));
+        <span class="kw">let </span><span class="kw-2">mut </span>clipped = display.clipped(<span class="kw-2">&amp;</span>area);
 
-        <span class="kw">let</span> <span class="ident">area</span> <span class="op">=</span> <span class="ident">Rectangle::new</span>(<span class="ident">Point::new</span>(<span class="number">2</span>, <span class="number">1</span>), <span class="ident">Size::new</span>(<span class="number">6</span>, <span class="number">4</span>));
-        <span class="ident">clipped</span>.<span class="ident">fill_solid</span>(<span class="kw-2">&amp;</span><span class="ident">area</span>, <span class="ident">BinaryColor::On</span>).<span class="ident">unwrap</span>();
+        <span class="kw">let </span>area = Rectangle::new(Point::new(<span class="number">2</span>, <span class="number">1</span>), Size::new(<span class="number">6</span>, <span class="number">4</span>));
+        clipped.fill_solid(<span class="kw-2">&amp;</span>area, BinaryColor::On).unwrap();
 
-        <span class="ident">display</span>.<span class="ident">assert_pattern</span>(<span class="kw-2">&amp;</span>[
-            <span class="string">&quot;       &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;       &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;   ####&quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;   ####&quot;</span>, <span class="comment">//</span>
-        ]);
+        display.assert_pattern(<span class="kw-2">&amp;</span>[
+            <span class="string">&quot;       &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;       &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;   ####&quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;   ####&quot;</span>, <span class="comment">//
+        </span>]);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">clear</span>() {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>clear() {
+        <span class="kw">let </span><span class="kw-2">mut </span>display = MockDisplay::new();
 
-        <span class="kw">let</span> <span class="ident">area</span> <span class="op">=</span> <span class="ident">Rectangle::new</span>(<span class="ident">Point::new</span>(<span class="number">1</span>, <span class="number">3</span>), <span class="ident">Size::new</span>(<span class="number">3</span>, <span class="number">4</span>));
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">clipped</span> <span class="op">=</span> <span class="ident">display</span>.<span class="ident">clipped</span>(<span class="kw-2">&amp;</span><span class="ident">area</span>);
-        <span class="ident">clipped</span>.<span class="ident">clear</span>(<span class="ident">BinaryColor::On</span>).<span class="ident">unwrap</span>();
+        <span class="kw">let </span>area = Rectangle::new(Point::new(<span class="number">1</span>, <span class="number">3</span>), Size::new(<span class="number">3</span>, <span class="number">4</span>));
+        <span class="kw">let </span><span class="kw-2">mut </span>clipped = display.clipped(<span class="kw-2">&amp;</span>area);
+        clipped.clear(BinaryColor::On).unwrap();
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">expected</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
-        <span class="ident">area</span>.<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle::with_fill</span>(<span class="ident">BinaryColor::On</span>))
-            .<span class="ident">draw</span>(<span class="kw-2">&amp;mut</span> <span class="ident">expected</span>)
-            .<span class="ident">unwrap</span>();
+        <span class="kw">let </span><span class="kw-2">mut </span>expected = MockDisplay::new();
+        area.into_styled(PrimitiveStyle::with_fill(BinaryColor::On))
+            .draw(<span class="kw-2">&amp;mut </span>expected)
+            .unwrap();
 
-        <span class="ident">display</span>.<span class="ident">assert_eq</span>(<span class="kw-2">&amp;</span><span class="ident">expected</span>);
+        display.assert_eq(<span class="kw-2">&amp;</span>expected);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">bounding_box</span>() {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span>: <span class="ident">MockDisplay</span><span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>bounding_box() {
+        <span class="kw">let </span><span class="kw-2">mut </span>display: MockDisplay&lt;BinaryColor&gt; = MockDisplay::new();
 
-        <span class="kw">let</span> <span class="ident">area</span> <span class="op">=</span> <span class="ident">Rectangle::new</span>(<span class="ident">Point::new</span>(<span class="number">1</span>, <span class="number">3</span>), <span class="ident">Size::new</span>(<span class="number">2</span>, <span class="number">4</span>));
-        <span class="kw">let</span> <span class="ident">clipped</span> <span class="op">=</span> <span class="ident">display</span>.<span class="ident">clipped</span>(<span class="kw-2">&amp;</span><span class="ident">area</span>);
+        <span class="kw">let </span>area = Rectangle::new(Point::new(<span class="number">1</span>, <span class="number">3</span>), Size::new(<span class="number">2</span>, <span class="number">4</span>));
+        <span class="kw">let </span>clipped = display.clipped(<span class="kw-2">&amp;</span>area);
 
-        <span class="macro">assert_eq!</span>(<span class="ident">clipped</span>.<span class="ident">bounding_box</span>(), <span class="ident">area</span>);
+        <span class="macro">assert_eq!</span>(clipped.bounding_box(), area);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">bounding_box_is_clipped</span>() {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span>: <span class="ident">MockDisplay</span><span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
-        <span class="kw">let</span> <span class="ident">display_bb</span> <span class="op">=</span> <span class="ident">display</span>.<span class="ident">bounding_box</span>();
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>bounding_box_is_clipped() {
+        <span class="kw">let </span><span class="kw-2">mut </span>display: MockDisplay&lt;BinaryColor&gt; = MockDisplay::new();
+        <span class="kw">let </span>display_bb = display.bounding_box();
 
-        <span class="kw">let</span> <span class="ident">top_left</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">20</span>);
-        <span class="kw">let</span> <span class="ident">size</span> <span class="op">=</span> <span class="ident">Size::new</span>(<span class="number">1000</span>, <span class="number">1000</span>);
-        <span class="kw">let</span> <span class="ident">area</span> <span class="op">=</span> <span class="ident">Rectangle::new</span>(<span class="ident">top_left</span>, <span class="ident">size</span>);
-        <span class="kw">let</span> <span class="ident">clipped</span> <span class="op">=</span> <span class="ident">display</span>.<span class="ident">clipped</span>(<span class="kw-2">&amp;</span><span class="ident">area</span>);
+        <span class="kw">let </span>top_left = Point::new(<span class="number">10</span>, <span class="number">20</span>);
+        <span class="kw">let </span>size = Size::new(<span class="number">1000</span>, <span class="number">1000</span>);
+        <span class="kw">let </span>area = Rectangle::new(top_left, size);
+        <span class="kw">let </span>clipped = display.clipped(<span class="kw-2">&amp;</span>area);
 
-        <span class="kw">let</span> <span class="ident">expected_size</span> <span class="op">=</span> <span class="ident">display_bb</span>.<span class="ident">size</span> <span class="op">-</span> <span class="ident">Size::new</span>(<span class="ident">top_left</span>.<span class="ident">x</span> <span class="kw">as</span> <span class="ident">u32</span>, <span class="ident">top_left</span>.<span class="ident">y</span> <span class="kw">as</span> <span class="ident">u32</span>);
+        <span class="kw">let </span>expected_size = display_bb.size - Size::new(top_left.x <span class="kw">as </span>u32, top_left.y <span class="kw">as </span>u32);
 
         <span class="macro">assert_eq!</span>(
-            <span class="ident">clipped</span>.<span class="ident">bounding_box</span>(),
-            <span class="ident">Rectangle::new</span>(<span class="ident">top_left</span>, <span class="ident">expected_size</span>),
+            clipped.bounding_box(),
+            Rectangle::new(top_left, expected_size),
         );
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="embedded_graphics" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0 (a55dd71d5 2022-09-19)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="embedded_graphics" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0 (69f9c33d7 2022-12-12)" ></div></body></html>

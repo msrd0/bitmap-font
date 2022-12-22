@@ -1,6 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.1/src/primitives/polyline/scanline_intersections.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>scanline_intersections.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../../storage.js"></script><script defer src="../../../../source-script.js"></script><script defer src="../../../../source-files.js"></script><script defer src="../../../../main.js"></script><noscript><link rel="stylesheet" href="../../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../../embedded_graphics/index.html"><div class="logo-container"><img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../../embedded_graphics/index.html"><div class="logo-container">
-                    <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../../embedded_graphics/index.html">
-                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.1/src/primitives/polyline/scanline_intersections.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>scanline_intersections.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../../normalize.css"><link rel="stylesheet" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../../ayu.css" disabled><link rel="stylesheet" href="../../../../dark.css" disabled><link rel="stylesheet" href="../../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../../storage.js"></script><script defer src="../../../../source-script.js"></script><script defer src="../../../../source-files.js"></script><script defer src="../../../../main.js"></script><noscript><link rel="stylesheet" href="../../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../../embedded_graphics/index.html">
+                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../wheel.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -144,149 +143,149 @@
 <span id="142">142</span>
 <span id="143">143</span>
 <span id="144">144</span>
-</pre><pre class="rust"><code><span class="doccomment">//! An iterator over all line intersections with a given scanline.</span>
+</pre><pre class="rust"><code><span class="doccomment">//! An iterator over all line intersections with a given scanline.
 
-<span class="kw">use</span> <span class="kw">crate</span>::{
-    <span class="ident">geometry::Point</span>,
-    <span class="ident">primitives::common</span>::{<span class="ident">LineJoin</span>, <span class="ident">Scanline</span>, <span class="ident">StrokeOffset</span>, <span class="ident">ThickSegment</span>},
+</span><span class="kw">use crate</span>::{
+    geometry::Point,
+    primitives::common::{LineJoin, Scanline, StrokeOffset, ThickSegment},
 };
 
-<span class="doccomment">/// Scanline intersections iterator.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// This iterator returns multiple `Line`s corresponding to the filled in areas of a polyline</span>
-<span class="doccomment">/// defined by the `points` parameter.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// The result is one line of a filled polygon.</span>
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Clone</span>, <span class="ident">Debug</span>)]</span>
-<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">ScanlineIntersections</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
-    <span class="ident">points</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> [<span class="ident">Point</span>],
-    <span class="ident">remaining_points</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> [<span class="ident">Point</span>],
-    <span class="ident">next_start_join</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">LineJoin</span><span class="op">&gt;</span>,
-    <span class="ident">width</span>: <span class="ident">u32</span>,
-    <span class="ident">scanline</span>: <span class="ident">Scanline</span>,
+<span class="doccomment">/// Scanline intersections iterator.
+///
+/// This iterator returns multiple `Line`s corresponding to the filled in areas of a polyline
+/// defined by the `points` parameter.
+///
+/// The result is one line of a filled polygon.
+</span><span class="attribute">#[derive(Clone, Debug)]
+</span><span class="kw">pub struct </span>ScanlineIntersections&lt;<span class="lifetime">&#39;a</span>&gt; {
+    points: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>[Point],
+    remaining_points: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>[Point],
+    next_start_join: <span class="prelude-ty">Option</span>&lt;LineJoin&gt;,
+    width: u32,
+    scanline: Scanline,
 }
 
-<span class="kw">const</span> <span class="ident">EMPTY</span>: <span class="kw-2">&amp;</span>[<span class="ident">Point</span>; <span class="number">3</span>] <span class="op">=</span> <span class="kw-2">&amp;</span>[<span class="ident">Point::zero</span>(); <span class="number">3</span>];
+<span class="kw">const </span>EMPTY: <span class="kw-2">&amp;</span>[Point; <span class="number">3</span>] = <span class="kw-2">&amp;</span>[Point::zero(); <span class="number">3</span>];
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="ident">ScanlineIntersections</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
-    <span class="doccomment">/// New</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">points</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> [<span class="ident">Point</span>], <span class="ident">width</span>: <span class="ident">u32</span>, <span class="ident">scanline_y</span>: <span class="ident">i32</span>) -&gt; <span class="self">Self</span> {
-        <span class="comment">// let next_start_join = if let Some([first, second]) = points.get(0..1) {</span>
-        <span class="comment">//     Some(LineJoin::start(*first, *second, width, StrokeOffset::None))</span>
-        <span class="comment">// } else {</span>
-        <span class="comment">//     None</span>
-        <span class="comment">// };</span>
+<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>&gt; ScanlineIntersections&lt;<span class="lifetime">&#39;a</span>&gt; {
+    <span class="doccomment">/// New
+    </span><span class="kw">pub fn </span>new(points: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>[Point], width: u32, scanline_y: i32) -&gt; <span class="self">Self </span>{
+        <span class="comment">// let next_start_join = if let Some([first, second]) = points.get(0..1) {
+        //     Some(LineJoin::start(*first, *second, width, StrokeOffset::None))
+        // } else {
+        //     None
+        // };
 
-        <span class="comment">// MSRV: Use subslice patterns when we bump to at least 1.42.0</span>
-        <span class="kw">let</span> <span class="ident">next_start_join</span> <span class="op">=</span> <span class="kw">match</span> <span class="ident">points</span>.<span class="ident">get</span>(<span class="number">0</span>..<span class="number">2</span>) {
-            <span class="prelude-val">Some</span>([<span class="ident">first</span>, <span class="ident">second</span>]) =&gt; {
-                <span class="prelude-val">Some</span>(<span class="ident">LineJoin::start</span>(<span class="kw-2">*</span><span class="ident">first</span>, <span class="kw-2">*</span><span class="ident">second</span>, <span class="ident">width</span>, <span class="ident">StrokeOffset::None</span>))
+        // MSRV: Use subslice patterns when we bump to at least 1.42.0
+        </span><span class="kw">let </span>next_start_join = <span class="kw">match </span>points.get(<span class="number">0</span>..<span class="number">2</span>) {
+            <span class="prelude-val">Some</span>([first, second]) =&gt; {
+                <span class="prelude-val">Some</span>(LineJoin::start(<span class="kw-2">*</span>first, <span class="kw-2">*</span>second, width, StrokeOffset::None))
             }
-            <span class="kw">_</span> =&gt; <span class="prelude-val">None</span>,
+            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         };
 
-        <span class="self">Self</span> {
-            <span class="ident">next_start_join</span>,
-            <span class="ident">width</span>,
-            <span class="ident">points</span>,
-            <span class="ident">remaining_points</span>: <span class="ident">points</span>,
-            <span class="ident">scanline</span>: <span class="ident">Scanline::new_empty</span>(<span class="ident">scanline_y</span>),
+        <span class="self">Self </span>{
+            next_start_join,
+            width,
+            points,
+            remaining_points: points,
+            scanline: Scanline::new_empty(scanline_y),
         }
     }
 
-    <span class="doccomment">/// Empty scanline iterator.</span>
-    <span class="kw">pub</span>(<span class="kw">in</span> <span class="ident"><span class="kw">crate</span>::primitives</span>) <span class="kw">fn</span> <span class="ident">empty</span>() -&gt; <span class="self">Self</span> {
-        <span class="self">Self</span> {
-            <span class="ident">next_start_join</span>: <span class="prelude-val">None</span>,
-            <span class="ident">width</span>: <span class="number">0</span>,
-            <span class="ident">points</span>: <span class="ident">EMPTY</span>,
-            <span class="ident">remaining_points</span>: <span class="ident">EMPTY</span>,
-            <span class="ident">scanline</span>: <span class="ident">Scanline::new_empty</span>(<span class="number">0</span>),
+    <span class="doccomment">/// Empty scanline iterator.
+    </span><span class="kw">pub</span>(<span class="kw">in </span><span class="kw">crate</span>::primitives) <span class="kw">fn </span>empty() -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{
+            next_start_join: <span class="prelude-val">None</span>,
+            width: <span class="number">0</span>,
+            points: EMPTY,
+            remaining_points: EMPTY,
+            scanline: Scanline::new_empty(<span class="number">0</span>),
         }
     }
 
-    <span class="doccomment">/// Reset scanline iterator with a new scanline.</span>
-    <span class="kw">pub</span>(<span class="kw">in</span> <span class="ident"><span class="kw">crate</span>::primitives</span>) <span class="kw">fn</span> <span class="ident">reset_with_new_scanline</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>, <span class="ident">scanline_y</span>: <span class="ident">i32</span>) {
-        <span class="kw-2">*</span><span class="self">self</span> <span class="op">=</span> <span class="ident"><span class="self">Self</span>::new</span>(<span class="self">self</span>.<span class="ident">points</span>, <span class="self">self</span>.<span class="ident">width</span>, <span class="ident">scanline_y</span>);
+    <span class="doccomment">/// Reset scanline iterator with a new scanline.
+    </span><span class="kw">pub</span>(<span class="kw">in </span><span class="kw">crate</span>::primitives) <span class="kw">fn </span>reset_with_new_scanline(<span class="kw-2">&amp;mut </span><span class="self">self</span>, scanline_y: i32) {
+        <span class="kw-2">*</span><span class="self">self </span>= <span class="self">Self</span>::new(<span class="self">self</span>.points, <span class="self">self</span>.width, scanline_y);
     }
 
-    <span class="kw">fn</span> <span class="ident">next_segment</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">ThickSegment</span><span class="op">&gt;</span> {
-        <span class="kw">let</span> <span class="ident">start_join</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">next_start_join</span><span class="question-mark">?</span>;
+    <span class="kw">fn </span>next_segment(<span class="kw-2">&amp;mut </span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;ThickSegment&gt; {
+        <span class="kw">let </span>start_join = <span class="self">self</span>.next_start_join<span class="question-mark">?</span>;
 
-        <span class="comment">// let end_join = match self.remaining_points {</span>
-        <span class="comment">//     [start, mid, end, ..] =&gt; {</span>
-        <span class="comment">//         LineJoin::from_points(*start, *mid, *end, self.width, StrokeOffset::None)</span>
-        <span class="comment">//     }</span>
-        <span class="comment">//     [start, end] =&gt; LineJoin::end(*start, *end, self.width, StrokeOffset::None),</span>
-        <span class="comment">//     _ =&gt; return None,</span>
-        <span class="comment">// };</span>
+        <span class="comment">// let end_join = match self.remaining_points {
+        //     [start, mid, end, ..] =&gt; {
+        //         LineJoin::from_points(*start, *mid, *end, self.width, StrokeOffset::None)
+        //     }
+        //     [start, end] =&gt; LineJoin::end(*start, *end, self.width, StrokeOffset::None),
+        //     _ =&gt; return None,
+        // };
 
-        <span class="comment">// MSRV: Use subslice patterns when we bump to at least 1.42.0</span>
-        <span class="kw">let</span> <span class="ident">end_join</span> <span class="op">=</span> <span class="self">self</span>
-            .<span class="ident">remaining_points</span>
-            .<span class="ident">get</span>(<span class="number">0</span>..<span class="number">3</span>)
-            .<span class="ident">or_else</span>(<span class="op">|</span><span class="op">|</span> <span class="self">self</span>.<span class="ident">remaining_points</span>.<span class="ident">get</span>(<span class="number">0</span>..<span class="number">2</span>))<span class="question-mark">?</span>;
+        // MSRV: Use subslice patterns when we bump to at least 1.42.0
+        </span><span class="kw">let </span>end_join = <span class="self">self
+            </span>.remaining_points
+            .get(<span class="number">0</span>..<span class="number">3</span>)
+            .or_else(|| <span class="self">self</span>.remaining_points.get(<span class="number">0</span>..<span class="number">2</span>))<span class="question-mark">?</span>;
 
-        <span class="kw">let</span> <span class="ident">end_join</span> <span class="op">=</span> <span class="kw">match</span> <span class="ident">end_join</span> {
-            [<span class="ident">start</span>, <span class="ident">mid</span>, <span class="ident">end</span>] =&gt; {
-                <span class="ident">LineJoin::from_points</span>(<span class="kw-2">*</span><span class="ident">start</span>, <span class="kw-2">*</span><span class="ident">mid</span>, <span class="kw-2">*</span><span class="ident">end</span>, <span class="self">self</span>.<span class="ident">width</span>, <span class="ident">StrokeOffset::None</span>)
+        <span class="kw">let </span>end_join = <span class="kw">match </span>end_join {
+            [start, mid, end] =&gt; {
+                LineJoin::from_points(<span class="kw-2">*</span>start, <span class="kw-2">*</span>mid, <span class="kw-2">*</span>end, <span class="self">self</span>.width, StrokeOffset::None)
             }
-            [<span class="ident">mid</span>, <span class="ident">end</span>] =&gt; <span class="ident">LineJoin::end</span>(<span class="kw-2">*</span><span class="ident">mid</span>, <span class="kw-2">*</span><span class="ident">end</span>, <span class="self">self</span>.<span class="ident">width</span>, <span class="ident">StrokeOffset::None</span>),
-            <span class="kw">_</span> =&gt; <span class="kw">return</span> <span class="prelude-val">None</span>,
+            [mid, end] =&gt; LineJoin::end(<span class="kw-2">*</span>mid, <span class="kw-2">*</span>end, <span class="self">self</span>.width, StrokeOffset::None),
+            <span class="kw">_ </span>=&gt; <span class="kw">return </span><span class="prelude-val">None</span>,
         };
 
-        <span class="self">self</span>.<span class="ident">remaining_points</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">remaining_points</span>.<span class="ident">get</span>(<span class="number">1</span>..)<span class="question-mark">?</span>;
+        <span class="self">self</span>.remaining_points = <span class="self">self</span>.remaining_points.get(<span class="number">1</span>..)<span class="question-mark">?</span>;
 
-        <span class="kw">let</span> <span class="ident">segment</span> <span class="op">=</span> <span class="ident">ThickSegment::new</span>(<span class="ident">start_join</span>, <span class="ident">end_join</span>);
+        <span class="kw">let </span>segment = ThickSegment::new(start_join, end_join);
 
-        <span class="self">self</span>.<span class="ident">next_start_join</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">end_join</span>);
+        <span class="self">self</span>.next_start_join = <span class="prelude-val">Some</span>(end_join);
 
-        <span class="prelude-val">Some</span>(<span class="ident">segment</span>)
+        <span class="prelude-val">Some</span>(segment)
     }
 }
 
-<span class="doccomment">/// This iterator loops through all scanline intersections for all segments. If two intersections</span>
-<span class="doccomment">/// are adjacent or overlapping, an accumulator line is extended. This repeats until the next</span>
-<span class="doccomment">/// intersection does not touch the current accumulator. At this point, the accumulated line</span>
-<span class="doccomment">/// segment is returned, and is reset to the next segment.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// This process reduces the number of draw calls for adjacent scanlines, whilst preventing overdraw</span>
-<span class="doccomment">/// from overlapping scanline segments.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// ```text</span>
-<span class="doccomment">/// # Adjacent - merge</span>
-<span class="doccomment">/// A---AB+++B</span>
-<span class="doccomment">///     ⇓</span>
-<span class="doccomment">/// A--------A</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Overlapping - merge</span>
-<span class="doccomment">/// A---B+++A+++B</span>
-<span class="doccomment">///      ⇓</span>
-<span class="doccomment">/// A-----------A</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Separate - leave alone</span>
-<span class="doccomment">/// A---A B---B</span>
-<span class="doccomment">///      ⇓</span>
-<span class="doccomment">/// A---A B---B</span>
-<span class="doccomment">/// ```</span>
-<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="ident">Iterator</span> <span class="kw">for</span> <span class="ident">ScanlineIntersections</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
-    <span class="kw">type</span> <span class="ident">Item</span> <span class="op">=</span> <span class="ident">Scanline</span>;
+<span class="doccomment">/// This iterator loops through all scanline intersections for all segments. If two intersections
+/// are adjacent or overlapping, an accumulator line is extended. This repeats until the next
+/// intersection does not touch the current accumulator. At this point, the accumulated line
+/// segment is returned, and is reset to the next segment.
+///
+/// This process reduces the number of draw calls for adjacent scanlines, whilst preventing overdraw
+/// from overlapping scanline segments.
+///
+/// ```text
+/// # Adjacent - merge
+/// A---AB+++B
+///     ⇓
+/// A--------A
+///
+/// # Overlapping - merge
+/// A---B+++A+++B
+///      ⇓
+/// A-----------A
+///
+/// # Separate - leave alone
+/// A---A B---B
+///      ⇓
+/// A---A B---B
+/// ```
+</span><span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>&gt; Iterator <span class="kw">for </span>ScanlineIntersections&lt;<span class="lifetime">&#39;a</span>&gt; {
+    <span class="kw">type </span>Item = Scanline;
 
-    <span class="kw">fn</span> <span class="ident">next</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Item</span><span class="op">&gt;</span> {
-        <span class="kw">while</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">segment</span>) <span class="op">=</span> <span class="self">self</span>.<span class="ident">next_segment</span>() {
-            <span class="kw">let</span> <span class="ident">next_scanline</span> <span class="op">=</span> <span class="ident">segment</span>.<span class="ident">intersection</span>(<span class="self">self</span>.<span class="ident">scanline</span>.<span class="ident">y</span>);
+    <span class="kw">fn </span>next(<span class="kw-2">&amp;mut </span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="self">Self</span>::Item&gt; {
+        <span class="kw">while let </span><span class="prelude-val">Some</span>(segment) = <span class="self">self</span>.next_segment() {
+            <span class="kw">let </span>next_scanline = segment.intersection(<span class="self">self</span>.scanline.y);
 
-            <span class="kw">if</span> <span class="op">!</span><span class="self">self</span>.<span class="ident">scanline</span>.<span class="ident">try_extend</span>(<span class="kw-2">&amp;</span><span class="ident">next_scanline</span>) {
-                <span class="kw">let</span> <span class="ident">ret</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">scanline</span>.<span class="ident">clone</span>();
-                <span class="self">self</span>.<span class="ident">scanline</span> <span class="op">=</span> <span class="ident">next_scanline</span>;
+            <span class="kw">if </span>!<span class="self">self</span>.scanline.try_extend(<span class="kw-2">&amp;</span>next_scanline) {
+                <span class="kw">let </span>ret = <span class="self">self</span>.scanline.clone();
+                <span class="self">self</span>.scanline = next_scanline;
 
-                <span class="kw">return</span> <span class="prelude-val">Some</span>(<span class="ident">ret</span>);
+                <span class="kw">return </span><span class="prelude-val">Some</span>(ret);
             }
         }
 
-        <span class="comment">// No more segments - return the final accumulated line.</span>
-        <span class="self">self</span>.<span class="ident">scanline</span>.<span class="ident">try_take</span>()
+        <span class="comment">// No more segments - return the final accumulated line.
+        </span><span class="self">self</span>.scanline.try_take()
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../../" data-current-crate="embedded_graphics" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0 (a55dd71d5 2022-09-19)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../../" data-current-crate="embedded_graphics" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0 (69f9c33d7 2022-12-12)" ></div></body></html>

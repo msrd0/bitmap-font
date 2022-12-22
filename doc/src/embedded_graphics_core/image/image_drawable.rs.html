@@ -1,6 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-core-0.3.3/src/image/image_drawable.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>image_drawable.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../embedded_graphics_core/index.html"><div class="logo-container"><img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/b225511f390c0ed9bc065eb67d05125845312148/assets/logo_core.svg?sanitize=true" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../embedded_graphics_core/index.html"><div class="logo-container">
-                    <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/b225511f390c0ed9bc065eb67d05125845312148/assets/logo_core.svg?sanitize=true" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../embedded_graphics_core/index.html">
-                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/b225511f390c0ed9bc065eb67d05125845312148/assets/logo_core.svg?sanitize=true" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-core-0.3.3/src/image/image_drawable.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>image_drawable.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../embedded_graphics_core/index.html">
+                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/b225511f390c0ed9bc065eb67d05125845312148/assets/logo_core.svg?sanitize=true" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -57,62 +56,62 @@
 <span id="55">55</span>
 <span id="56">56</span>
 <span id="57">57</span>
-</pre><pre class="rust"><code><span class="doccomment">//! Image drawable.</span>
+</pre><pre class="rust"><code><span class="doccomment">//! Image drawable.
 
-<span class="kw">use</span> <span class="kw">crate</span>::{
-    <span class="ident">draw_target::DrawTarget</span>, <span class="ident">geometry::OriginDimensions</span>, <span class="ident">pixelcolor::PixelColor</span>,
-    <span class="ident">primitives::Rectangle</span>,
+</span><span class="kw">use crate</span>::{
+    draw_target::DrawTarget, geometry::OriginDimensions, pixelcolor::PixelColor,
+    primitives::Rectangle,
 };
 
-<span class="doccomment">/// Image drawable.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// `ImageDrawable` is implemented for types that contains image information, which makes them</span>
-<span class="doccomment">/// usable with the [`Image`] object.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// The methods in this trait shouldn&#39;t be called directly by user code. Instead the object</span>
-<span class="doccomment">/// that implements `ImageDrawable` should be wrapped in an [`Image`] object.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Implementing `ImageDrawable`</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// All image drawables are positioned at the origin and need to implement [`OriginDimensions`], in</span>
-<span class="doccomment">/// addition to this trait, to define their dimensions.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// [`Image`]: https://docs.rs/embedded-graphics/latest/embedded_graphics/image/struct.Image.html</span>
-<span class="doccomment">/// [`OriginDimensions`]: ../geometry/trait.OriginDimensions.html</span>
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">ImageDrawable</span>: <span class="ident">OriginDimensions</span> {
-    <span class="doccomment">/// The color type.</span>
-    <span class="kw">type</span> <span class="ident">Color</span>: <span class="ident">PixelColor</span>;
+<span class="doccomment">/// Image drawable.
+///
+/// `ImageDrawable` is implemented for types that contains image information, which makes them
+/// usable with the [`Image`] object.
+///
+/// The methods in this trait shouldn&#39;t be called directly by user code. Instead the object
+/// that implements `ImageDrawable` should be wrapped in an [`Image`] object.
+///
+/// # Implementing `ImageDrawable`
+///
+/// All image drawables are positioned at the origin and need to implement [`OriginDimensions`], in
+/// addition to this trait, to define their dimensions.
+///
+/// [`Image`]: https://docs.rs/embedded-graphics/latest/embedded_graphics/image/struct.Image.html
+/// [`OriginDimensions`]: ../geometry/trait.OriginDimensions.html
+</span><span class="kw">pub trait </span>ImageDrawable: OriginDimensions {
+    <span class="doccomment">/// The color type.
+    </span><span class="kw">type </span>Color: PixelColor;
 
-    <span class="doccomment">/// Draws the entire image to the target.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// This method shouldn&#39;t be called directly by user code. Use an [`Image`] object instead.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Implementation notes</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The implementation of this method must draw the image inside the bounding box defined by</span>
-    <span class="doccomment">/// the [`OriginDimensions`] trait implementation. This means that the top left corner is at the</span>
-    <span class="doccomment">/// origin and no drawing operations outside the bounding box are allowed.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [`Image`]: https://docs.rs/embedded-graphics/latest/embedded_graphics/image/struct.Image.html</span>
-    <span class="doccomment">/// [`OriginDimensions`]: ../geometry/trait.OriginDimensions.html</span>
-    <span class="kw">fn</span> <span class="ident">draw</span><span class="op">&lt;</span><span class="ident">D</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">target</span>: <span class="kw-2">&amp;mut</span> <span class="ident">D</span>) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">D::Error</span><span class="op">&gt;</span>
-    <span class="kw">where</span>
-        <span class="ident">D</span>: <span class="ident">DrawTarget</span><span class="op">&lt;</span><span class="ident">Color</span> <span class="op">=</span> <span class="ident"><span class="self">Self</span>::Color</span><span class="op">&gt;</span>;
+    <span class="doccomment">/// Draws the entire image to the target.
+    ///
+    /// This method shouldn&#39;t be called directly by user code. Use an [`Image`] object instead.
+    ///
+    /// # Implementation notes
+    ///
+    /// The implementation of this method must draw the image inside the bounding box defined by
+    /// the [`OriginDimensions`] trait implementation. This means that the top left corner is at the
+    /// origin and no drawing operations outside the bounding box are allowed.
+    ///
+    /// [`Image`]: https://docs.rs/embedded-graphics/latest/embedded_graphics/image/struct.Image.html
+    /// [`OriginDimensions`]: ../geometry/trait.OriginDimensions.html
+    </span><span class="kw">fn </span>draw&lt;D&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, target: <span class="kw-2">&amp;mut </span>D) -&gt; <span class="prelude-ty">Result</span>&lt;(), D::Error&gt;
+    <span class="kw">where
+        </span>D: DrawTarget&lt;Color = <span class="self">Self</span>::Color&gt;;
 
-    <span class="doccomment">/// Draws a part of the image to the target.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// This method shouldn&#39;t be called directly by user code. Use a [`SubImage`] object instead.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Implementation notes</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The implementation of this method must draw the image inside the given `area`.</span>
-    <span class="doccomment">/// It must be ensured that no drawing operation outside this [`Rectangle`] occur.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [`SubImage`]: https://docs.rs/embedded-graphics/latest/embedded_graphics/image/struct.SubImage.html</span>
-    <span class="doccomment">/// [`Rectangle`]: ../primitives/rectangle/struct.Rectangle.html</span>
-    <span class="kw">fn</span> <span class="ident">draw_sub_image</span><span class="op">&lt;</span><span class="ident">D</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">target</span>: <span class="kw-2">&amp;mut</span> <span class="ident">D</span>, <span class="ident">area</span>: <span class="kw-2">&amp;</span><span class="ident">Rectangle</span>) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">D::Error</span><span class="op">&gt;</span>
-    <span class="kw">where</span>
-        <span class="ident">D</span>: <span class="ident">DrawTarget</span><span class="op">&lt;</span><span class="ident">Color</span> <span class="op">=</span> <span class="ident"><span class="self">Self</span>::Color</span><span class="op">&gt;</span>;
+    <span class="doccomment">/// Draws a part of the image to the target.
+    ///
+    /// This method shouldn&#39;t be called directly by user code. Use a [`SubImage`] object instead.
+    ///
+    /// # Implementation notes
+    ///
+    /// The implementation of this method must draw the image inside the given `area`.
+    /// It must be ensured that no drawing operation outside this [`Rectangle`] occur.
+    ///
+    /// [`SubImage`]: https://docs.rs/embedded-graphics/latest/embedded_graphics/image/struct.SubImage.html
+    /// [`Rectangle`]: ../primitives/rectangle/struct.Rectangle.html
+    </span><span class="kw">fn </span>draw_sub_image&lt;D&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, target: <span class="kw-2">&amp;mut </span>D, area: <span class="kw-2">&amp;</span>Rectangle) -&gt; <span class="prelude-ty">Result</span>&lt;(), D::Error&gt;
+    <span class="kw">where
+        </span>D: DrawTarget&lt;Color = <span class="self">Self</span>::Color&gt;;
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="embedded_graphics_core" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0 (a55dd71d5 2022-09-19)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="embedded_graphics_core" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0 (69f9c33d7 2022-12-12)" ></div></body></html>

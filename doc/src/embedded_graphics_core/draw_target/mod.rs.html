@@ -1,6 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-core-0.3.3/src/draw_target/mod.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../embedded_graphics_core/index.html"><div class="logo-container"><img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/b225511f390c0ed9bc065eb67d05125845312148/assets/logo_core.svg?sanitize=true" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../embedded_graphics_core/index.html"><div class="logo-container">
-                    <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/b225511f390c0ed9bc065eb67d05125845312148/assets/logo_core.svg?sanitize=true" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../embedded_graphics_core/index.html">
-                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/b225511f390c0ed9bc065eb67d05125845312148/assets/logo_core.svg?sanitize=true" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-core-0.3.3/src/draw_target/mod.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../embedded_graphics_core/index.html">
+                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/b225511f390c0ed9bc065eb67d05125845312148/assets/logo_core.svg?sanitize=true" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -425,430 +424,430 @@
 <span id="423">423</span>
 <span id="424">424</span>
 <span id="425">425</span>
-</pre><pre class="rust"><code><span class="doccomment">//! A target for embedded-graphics drawing operations.</span>
+</pre><pre class="rust"><code><span class="doccomment">//! A target for embedded-graphics drawing operations.
 
-<span class="kw">use</span> <span class="kw">crate</span>::{
-    <span class="ident">geometry::Dimensions</span>,
-    <span class="ident">pixelcolor::PixelColor</span>,
-    <span class="ident">primitives</span>::{<span class="ident">PointsIter</span>, <span class="ident">Rectangle</span>},
-    <span class="ident">Pixel</span>,
+</span><span class="kw">use crate</span>::{
+    geometry::Dimensions,
+    pixelcolor::PixelColor,
+    primitives::{PointsIter, Rectangle},
+    Pixel,
 };
 
-<span class="doccomment">/// A target for embedded-graphics drawing operations.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// The `DrawTarget` trait is used to add embedded-graphics support to a display</span>
-<span class="doccomment">/// driver or similar targets like framebuffers or image files.</span>
-<span class="doccomment">/// Targets are required to at least implement the [`draw_iter`] method and the [`Dimensions`]</span>
-<span class="doccomment">/// trait. All other methods provide default implementations which use these methods internally.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// Because the default implementations cannot use features specific to the target hardware they</span>
-<span class="doccomment">/// can be overridden to improve performance. These target specific implementations might, for</span>
-<span class="doccomment">/// example, use hardware accelerated drawing operations provided by a display controller or</span>
-<span class="doccomment">/// specialized hardware modules in a microcontroller.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// Note that some displays require a &quot;flush&quot; operation to write changes from a framebuffer to the</span>
-<span class="doccomment">/// display. See docs associated with the chosen display driver for details on how to update the</span>
-<span class="doccomment">/// display.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Examples</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// ## Minimum implementation</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// In this example `DrawTarget` is implemented for an an imaginary 64px x 64px 8-bit grayscale display</span>
-<span class="doccomment">/// that is connected using a simplified SPI interface. Because the hardware doesn&#39;t support any</span>
-<span class="doccomment">/// acceleration only the [`draw_iter`] method and [`OriginDimensions`] trait need to be implemented.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// To reduce the overhead caused by communicating with the display for each drawing operation</span>
-<span class="doccomment">/// the display driver uses and framebuffer to store the pixel data in memory. This way all drawing</span>
-<span class="doccomment">/// operations can be executed in local memory and the actual display is only updated on demand</span>
-<span class="doccomment">/// by calling the `flush` method.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// Because all drawing operations are using a local framebuffer no communication error can occur</span>
-<span class="doccomment">/// while they are executed and the [`Error` type] can be set to `core::convert::Infallible`.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// ```rust</span>
-<span class="doccomment">/// use core::convert::TryInto;</span>
-<span class="doccomment">/// use embedded_graphics::{</span>
-<span class="doccomment">///     pixelcolor::{Gray8, GrayColor},</span>
-<span class="doccomment">///     prelude::*,</span>
-<span class="doccomment">///     primitives::{Circle, PrimitiveStyle},</span>
-<span class="doccomment">/// };</span>
-<span class="doccomment">/// #</span>
-<span class="doccomment">/// # struct SPI1;</span>
-<span class="doccomment">/// #</span>
-<span class="doccomment">/// # impl SPI1 {</span>
-<span class="doccomment">/// #     pub fn send_bytes(&amp;self, buf: &amp;[u8]) -&gt; Result&lt;(), CommError&gt; {</span>
-<span class="doccomment">/// #         Ok(())</span>
-<span class="doccomment">/// #     }</span>
-<span class="doccomment">/// # }</span>
-<span class="doccomment">/// #</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// /// SPI communication error</span>
-<span class="doccomment">/// #[derive(Debug)]</span>
-<span class="doccomment">/// struct CommError;</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// /// A fake 64px x 64px display.</span>
-<span class="doccomment">/// struct ExampleDisplay {</span>
-<span class="doccomment">///     /// The framebuffer with one `u8` value per pixel.</span>
-<span class="doccomment">///     framebuffer: [u8; 64 * 64],</span>
-<span class="doccomment">///</span>
-<span class="doccomment">///     /// The interface to the display controller.</span>
-<span class="doccomment">///     iface: SPI1,</span>
-<span class="doccomment">/// }</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// impl ExampleDisplay {</span>
-<span class="doccomment">///     /// Updates the display from the framebuffer.</span>
-<span class="doccomment">///     pub fn flush(&amp;self) -&gt; Result&lt;(), CommError&gt; {</span>
-<span class="doccomment">///         self.iface.send_bytes(&amp;self.framebuffer)</span>
-<span class="doccomment">///     }</span>
-<span class="doccomment">/// }</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// impl DrawTarget for ExampleDisplay {</span>
-<span class="doccomment">///     type Color = Gray8;</span>
-<span class="doccomment">///     // `ExampleDisplay` uses a framebuffer and doesn&#39;t need to communicate with the display</span>
-<span class="doccomment">///     // controller to draw pixel, which means that drawing operations can never fail. To reflect</span>
-<span class="doccomment">///     // this the type `Infallible` was chosen as the `Error` type.</span>
-<span class="doccomment">///     type Error = core::convert::Infallible;</span>
-<span class="doccomment">///</span>
-<span class="doccomment">///     fn draw_iter&lt;I&gt;(&amp;mut self, pixels: I) -&gt; Result&lt;(), Self::Error&gt;</span>
-<span class="doccomment">///     where</span>
-<span class="doccomment">///         I: IntoIterator&lt;Item = Pixel&lt;Self::Color&gt;&gt;,</span>
-<span class="doccomment">///     {</span>
-<span class="doccomment">///         for Pixel(coord, color) in pixels.into_iter() {</span>
-<span class="doccomment">///             // Check if the pixel coordinates are out of bounds (negative or greater than</span>
-<span class="doccomment">///             // (63,63)). `DrawTarget` implementation are required to discard any out of bounds</span>
-<span class="doccomment">///             // pixels without returning an error or causing a panic.</span>
-<span class="doccomment">///             if let Ok((x @ 0..=63, y @ 0..=63)) = coord.try_into() {</span>
-<span class="doccomment">///                 // Calculate the index in the framebuffer.</span>
-<span class="doccomment">///                 let index: u32 = x + y * 64;</span>
-<span class="doccomment">///                 self.framebuffer[index as usize] = color.luma();</span>
-<span class="doccomment">///             }</span>
-<span class="doccomment">///         }</span>
-<span class="doccomment">///</span>
-<span class="doccomment">///         Ok(())</span>
-<span class="doccomment">///     }</span>
-<span class="doccomment">/// }</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// impl OriginDimensions for ExampleDisplay {</span>
-<span class="doccomment">///     fn size(&amp;self) -&gt; Size {</span>
-<span class="doccomment">///         Size::new(64, 64)</span>
-<span class="doccomment">///     }</span>
-<span class="doccomment">/// }</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// let mut display = ExampleDisplay {</span>
-<span class="doccomment">///     framebuffer: [0; 4096],</span>
-<span class="doccomment">///     iface: SPI1,</span>
-<span class="doccomment">/// };</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// // Draw a circle with top-left at `(22, 22)` with a diameter of `20` and a white stroke</span>
-<span class="doccomment">/// let circle = Circle::new(Point::new(22, 22), 20)</span>
-<span class="doccomment">///     .into_styled(PrimitiveStyle::with_stroke(Gray8::WHITE, 1));</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// circle.draw(&amp;mut display)?;</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// // Update the display</span>
-<span class="doccomment">/// display.flush().unwrap();</span>
-<span class="doccomment">/// # Ok::&lt;(), core::convert::Infallible&gt;(())</span>
-<span class="doccomment">/// ```</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Hardware acceleration - solid rectangular fill</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// This example uses an imaginary display with 16bpp RGB565 colors and hardware support for</span>
-<span class="doccomment">/// filling of rectangular areas with a solid color. A real display controller that supports this</span>
-<span class="doccomment">/// operation is the SSD1331 with it&#39;s &quot;Draw Rectangle&quot; (`22h`) command which this example</span>
-<span class="doccomment">/// is loosely based on.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// To leverage this feature in a `DrawTarget`, the default implementation of [`fill_solid`] can be</span>
-<span class="doccomment">/// overridden by a custom implementation. Instead of drawing individual pixels, this target</span>
-<span class="doccomment">/// specific version will only send a single command to the display controller in one transaction.</span>
-<span class="doccomment">/// Because the command size is independent of the filled area, all [`fill_solid`] calls will only</span>
-<span class="doccomment">/// transmit 8 bytes to the display, which is far less then what is required to transmit each pixel</span>
-<span class="doccomment">/// color inside the filled area.</span>
-<span class="doccomment">/// ```rust</span>
-<span class="doccomment">/// use core::convert::TryInto;</span>
-<span class="doccomment">/// use embedded_graphics::{</span>
-<span class="doccomment">///     pixelcolor::{raw::RawU16, Rgb565, RgbColor},</span>
-<span class="doccomment">///     prelude::*,</span>
-<span class="doccomment">///     primitives::{Circle, Rectangle, PrimitiveStyle, PrimitiveStyleBuilder},</span>
-<span class="doccomment">/// };</span>
-<span class="doccomment">/// #</span>
-<span class="doccomment">/// # struct SPI1;</span>
-<span class="doccomment">/// #</span>
-<span class="doccomment">/// # impl SPI1 {</span>
-<span class="doccomment">/// #     pub fn send_bytes(&amp;self, buf: &amp;[u16]) -&gt; Result&lt;(), ()&gt; {</span>
-<span class="doccomment">/// #         Ok(())</span>
-<span class="doccomment">/// #     }</span>
-<span class="doccomment">/// # }</span>
-<span class="doccomment">/// #</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// /// SPI communication error</span>
-<span class="doccomment">/// #[derive(Debug)]</span>
-<span class="doccomment">/// struct CommError;</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// /// An example display connected over SPI.</span>
-<span class="doccomment">/// struct ExampleDisplay {</span>
-<span class="doccomment">///     iface: SPI1,</span>
-<span class="doccomment">/// }</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// impl ExampleDisplay {</span>
-<span class="doccomment">///     /// Send a single pixel to the display</span>
-<span class="doccomment">///     pub fn set_pixel(&amp;self, x: u32, y: u32, color: u16) -&gt; Result&lt;(), CommError&gt; {</span>
-<span class="doccomment">///         // ...</span>
-<span class="doccomment">///</span>
-<span class="doccomment">///         Ok(())</span>
-<span class="doccomment">///     }</span>
-<span class="doccomment">///</span>
-<span class="doccomment">///     /// Send commands to the display</span>
-<span class="doccomment">///     pub fn send_commands(&amp;self, commands: &amp;[u8]) -&gt; Result&lt;(), CommError&gt; {</span>
-<span class="doccomment">///         // Send data marked as commands to the display.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">///         Ok(())</span>
-<span class="doccomment">///     }</span>
-<span class="doccomment">/// }</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// impl DrawTarget for ExampleDisplay {</span>
-<span class="doccomment">///     type Color = Rgb565;</span>
-<span class="doccomment">///     type Error = CommError;</span>
-<span class="doccomment">///</span>
-<span class="doccomment">///     fn draw_iter&lt;I&gt;(&amp;mut self, pixels: I) -&gt; Result&lt;(), Self::Error&gt;</span>
-<span class="doccomment">///     where</span>
-<span class="doccomment">///         I: IntoIterator&lt;Item = Pixel&lt;Self::Color&gt;&gt;,</span>
-<span class="doccomment">///     {</span>
-<span class="doccomment">///         for Pixel(coord, color) in pixels.into_iter() {</span>
-<span class="doccomment">///             // Check if the pixel coordinates are out of bounds (negative or greater than</span>
-<span class="doccomment">///             // (63,63)). `DrawTarget` implementation are required to discard any out of bounds</span>
-<span class="doccomment">///             // pixels without returning an error or causing a panic.</span>
-<span class="doccomment">///             if let Ok((x @ 0..=63, y @ 0..=63)) = coord.try_into() {</span>
-<span class="doccomment">///                 self.set_pixel(x, y, RawU16::from(color).into_inner())?;</span>
-<span class="doccomment">///             }</span>
-<span class="doccomment">///         }</span>
-<span class="doccomment">///</span>
-<span class="doccomment">///         Ok(())</span>
-<span class="doccomment">///     }</span>
-<span class="doccomment">///</span>
-<span class="doccomment">///     fn fill_solid(&amp;mut self, area: &amp;Rectangle, color: Self::Color) -&gt; Result&lt;(), Self::Error&gt; {</span>
-<span class="doccomment">///         // Clamp the rectangle coordinates to the valid range by determining</span>
-<span class="doccomment">///         // the intersection of the fill area and the visible display area</span>
-<span class="doccomment">///         // by using Rectangle::intersection.</span>
-<span class="doccomment">///         let area = area.intersection(&amp;self.bounding_box());</span>
-<span class="doccomment">///</span>
-<span class="doccomment">///         // Do not send a draw rectangle command if the intersection size if zero.</span>
-<span class="doccomment">///         // The size is checked by using `Rectangle::bottom_right`, which returns `None`</span>
-<span class="doccomment">///         // if the size is zero.</span>
-<span class="doccomment">///         let bottom_right = if let Some(bottom_right) = area.bottom_right() {</span>
-<span class="doccomment">///             bottom_right</span>
-<span class="doccomment">///         } else {</span>
-<span class="doccomment">///             return Ok(());</span>
-<span class="doccomment">///         };</span>
-<span class="doccomment">///</span>
-<span class="doccomment">///         self.send_commands(&amp;[</span>
-<span class="doccomment">///             // Draw rectangle command</span>
-<span class="doccomment">///             0x22,</span>
-<span class="doccomment">///             // Top left X coordinate</span>
-<span class="doccomment">///             area.top_left.x as u8,</span>
-<span class="doccomment">///             // Top left Y coordinate</span>
-<span class="doccomment">///             area.top_left.y as u8,</span>
-<span class="doccomment">///             // Bottom right X coordinate</span>
-<span class="doccomment">///             bottom_right.x as u8,</span>
-<span class="doccomment">///             // Bottom right Y coordinate</span>
-<span class="doccomment">///             bottom_right.y as u8,</span>
-<span class="doccomment">///             // Fill color red channel</span>
-<span class="doccomment">///             color.r(),</span>
-<span class="doccomment">///             // Fill color green channel</span>
-<span class="doccomment">///             color.g(),</span>
-<span class="doccomment">///             // Fill color blue channel</span>
-<span class="doccomment">///             color.b(),</span>
-<span class="doccomment">///         ])</span>
-<span class="doccomment">///     }</span>
-<span class="doccomment">/// }</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// impl OriginDimensions for ExampleDisplay {</span>
-<span class="doccomment">///     fn size(&amp;self) -&gt; Size {</span>
-<span class="doccomment">///         Size::new(64, 64)</span>
-<span class="doccomment">///     }</span>
-<span class="doccomment">/// }</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// let mut display = ExampleDisplay { iface: SPI1 };</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// // Draw a rectangle with 5px red stroke and green fill.</span>
-<span class="doccomment">/// // The stroke and fill can be broken down into multiple individual rectangles,</span>
-<span class="doccomment">/// // so this uses `fill_solid` internally.</span>
-<span class="doccomment">/// Rectangle::new(Point::new(20, 20), Size::new(50, 40))</span>
-<span class="doccomment">///     .into_styled(</span>
-<span class="doccomment">///         PrimitiveStyleBuilder::new()</span>
-<span class="doccomment">///             .stroke_color(Rgb565::RED)</span>
-<span class="doccomment">///             .stroke_width(5)</span>
-<span class="doccomment">///             .fill_color(Rgb565::GREEN)</span>
-<span class="doccomment">///             .build(),</span>
-<span class="doccomment">///     )</span>
-<span class="doccomment">///     .draw(&amp;mut display)?;</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// // Draw a circle with top-left at `(5, 5)` with a diameter of `10` and a magenta stroke with</span>
-<span class="doccomment">/// // cyan fill. This shape cannot be optimized by calls to `fill_solid` as it contains transparent</span>
-<span class="doccomment">/// // pixels as well as pixels of different colors. It will instead delegate to `draw_iter`</span>
-<span class="doccomment">/// // internally.</span>
-<span class="doccomment">/// Circle::new(Point::new(5, 5), 10)</span>
-<span class="doccomment">///     .into_styled(</span>
-<span class="doccomment">///         PrimitiveStyleBuilder::new()</span>
-<span class="doccomment">///             .stroke_color(Rgb565::MAGENTA)</span>
-<span class="doccomment">///             .stroke_width(1)</span>
-<span class="doccomment">///             .fill_color(Rgb565::CYAN)</span>
-<span class="doccomment">///             .build(),</span>
-<span class="doccomment">///     )</span>
-<span class="doccomment">///     .draw(&amp;mut display)?;</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Ok::&lt;(), CommError&gt;(())</span>
-<span class="doccomment">/// ```</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// [`fill_solid`]: #method.fill_solid</span>
-<span class="doccomment">/// [`draw_iter`]: #tymethod.draw_iter</span>
-<span class="doccomment">/// [`Dimensions`]: ../geometry/trait.Dimensions.html</span>
-<span class="doccomment">/// [`OriginDimensions`]: ../geometry/trait.OriginDimensions.html</span>
-<span class="doccomment">/// [`Error` type]: #associatedtype.Error</span>
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">DrawTarget</span>: <span class="ident">Dimensions</span> {
-    <span class="doccomment">/// The pixel color type the targetted display supports.</span>
-    <span class="kw">type</span> <span class="ident">Color</span>: <span class="ident">PixelColor</span>;
+<span class="doccomment">/// A target for embedded-graphics drawing operations.
+///
+/// The `DrawTarget` trait is used to add embedded-graphics support to a display
+/// driver or similar targets like framebuffers or image files.
+/// Targets are required to at least implement the [`draw_iter`] method and the [`Dimensions`]
+/// trait. All other methods provide default implementations which use these methods internally.
+///
+/// Because the default implementations cannot use features specific to the target hardware they
+/// can be overridden to improve performance. These target specific implementations might, for
+/// example, use hardware accelerated drawing operations provided by a display controller or
+/// specialized hardware modules in a microcontroller.
+///
+/// Note that some displays require a &quot;flush&quot; operation to write changes from a framebuffer to the
+/// display. See docs associated with the chosen display driver for details on how to update the
+/// display.
+///
+/// # Examples
+///
+/// ## Minimum implementation
+///
+/// In this example `DrawTarget` is implemented for an an imaginary 64px x 64px 8-bit grayscale display
+/// that is connected using a simplified SPI interface. Because the hardware doesn&#39;t support any
+/// acceleration only the [`draw_iter`] method and [`OriginDimensions`] trait need to be implemented.
+///
+/// To reduce the overhead caused by communicating with the display for each drawing operation
+/// the display driver uses and framebuffer to store the pixel data in memory. This way all drawing
+/// operations can be executed in local memory and the actual display is only updated on demand
+/// by calling the `flush` method.
+///
+/// Because all drawing operations are using a local framebuffer no communication error can occur
+/// while they are executed and the [`Error` type] can be set to `core::convert::Infallible`.
+///
+/// ```rust
+/// use core::convert::TryInto;
+/// use embedded_graphics::{
+///     pixelcolor::{Gray8, GrayColor},
+///     prelude::*,
+///     primitives::{Circle, PrimitiveStyle},
+/// };
+/// #
+/// # struct SPI1;
+/// #
+/// # impl SPI1 {
+/// #     pub fn send_bytes(&amp;self, buf: &amp;[u8]) -&gt; Result&lt;(), CommError&gt; {
+/// #         Ok(())
+/// #     }
+/// # }
+/// #
+///
+/// /// SPI communication error
+/// #[derive(Debug)]
+/// struct CommError;
+///
+/// /// A fake 64px x 64px display.
+/// struct ExampleDisplay {
+///     /// The framebuffer with one `u8` value per pixel.
+///     framebuffer: [u8; 64 * 64],
+///
+///     /// The interface to the display controller.
+///     iface: SPI1,
+/// }
+///
+/// impl ExampleDisplay {
+///     /// Updates the display from the framebuffer.
+///     pub fn flush(&amp;self) -&gt; Result&lt;(), CommError&gt; {
+///         self.iface.send_bytes(&amp;self.framebuffer)
+///     }
+/// }
+///
+/// impl DrawTarget for ExampleDisplay {
+///     type Color = Gray8;
+///     // `ExampleDisplay` uses a framebuffer and doesn&#39;t need to communicate with the display
+///     // controller to draw pixel, which means that drawing operations can never fail. To reflect
+///     // this the type `Infallible` was chosen as the `Error` type.
+///     type Error = core::convert::Infallible;
+///
+///     fn draw_iter&lt;I&gt;(&amp;mut self, pixels: I) -&gt; Result&lt;(), Self::Error&gt;
+///     where
+///         I: IntoIterator&lt;Item = Pixel&lt;Self::Color&gt;&gt;,
+///     {
+///         for Pixel(coord, color) in pixels.into_iter() {
+///             // Check if the pixel coordinates are out of bounds (negative or greater than
+///             // (63,63)). `DrawTarget` implementation are required to discard any out of bounds
+///             // pixels without returning an error or causing a panic.
+///             if let Ok((x @ 0..=63, y @ 0..=63)) = coord.try_into() {
+///                 // Calculate the index in the framebuffer.
+///                 let index: u32 = x + y * 64;
+///                 self.framebuffer[index as usize] = color.luma();
+///             }
+///         }
+///
+///         Ok(())
+///     }
+/// }
+///
+/// impl OriginDimensions for ExampleDisplay {
+///     fn size(&amp;self) -&gt; Size {
+///         Size::new(64, 64)
+///     }
+/// }
+///
+/// let mut display = ExampleDisplay {
+///     framebuffer: [0; 4096],
+///     iface: SPI1,
+/// };
+///
+/// // Draw a circle with top-left at `(22, 22)` with a diameter of `20` and a white stroke
+/// let circle = Circle::new(Point::new(22, 22), 20)
+///     .into_styled(PrimitiveStyle::with_stroke(Gray8::WHITE, 1));
+///
+/// circle.draw(&amp;mut display)?;
+///
+/// // Update the display
+/// display.flush().unwrap();
+/// # Ok::&lt;(), core::convert::Infallible&gt;(())
+/// ```
+///
+/// # Hardware acceleration - solid rectangular fill
+///
+/// This example uses an imaginary display with 16bpp RGB565 colors and hardware support for
+/// filling of rectangular areas with a solid color. A real display controller that supports this
+/// operation is the SSD1331 with it&#39;s &quot;Draw Rectangle&quot; (`22h`) command which this example
+/// is loosely based on.
+///
+/// To leverage this feature in a `DrawTarget`, the default implementation of [`fill_solid`] can be
+/// overridden by a custom implementation. Instead of drawing individual pixels, this target
+/// specific version will only send a single command to the display controller in one transaction.
+/// Because the command size is independent of the filled area, all [`fill_solid`] calls will only
+/// transmit 8 bytes to the display, which is far less then what is required to transmit each pixel
+/// color inside the filled area.
+/// ```rust
+/// use core::convert::TryInto;
+/// use embedded_graphics::{
+///     pixelcolor::{raw::RawU16, Rgb565, RgbColor},
+///     prelude::*,
+///     primitives::{Circle, Rectangle, PrimitiveStyle, PrimitiveStyleBuilder},
+/// };
+/// #
+/// # struct SPI1;
+/// #
+/// # impl SPI1 {
+/// #     pub fn send_bytes(&amp;self, buf: &amp;[u16]) -&gt; Result&lt;(), ()&gt; {
+/// #         Ok(())
+/// #     }
+/// # }
+/// #
+///
+/// /// SPI communication error
+/// #[derive(Debug)]
+/// struct CommError;
+///
+/// /// An example display connected over SPI.
+/// struct ExampleDisplay {
+///     iface: SPI1,
+/// }
+///
+/// impl ExampleDisplay {
+///     /// Send a single pixel to the display
+///     pub fn set_pixel(&amp;self, x: u32, y: u32, color: u16) -&gt; Result&lt;(), CommError&gt; {
+///         // ...
+///
+///         Ok(())
+///     }
+///
+///     /// Send commands to the display
+///     pub fn send_commands(&amp;self, commands: &amp;[u8]) -&gt; Result&lt;(), CommError&gt; {
+///         // Send data marked as commands to the display.
+///
+///         Ok(())
+///     }
+/// }
+///
+/// impl DrawTarget for ExampleDisplay {
+///     type Color = Rgb565;
+///     type Error = CommError;
+///
+///     fn draw_iter&lt;I&gt;(&amp;mut self, pixels: I) -&gt; Result&lt;(), Self::Error&gt;
+///     where
+///         I: IntoIterator&lt;Item = Pixel&lt;Self::Color&gt;&gt;,
+///     {
+///         for Pixel(coord, color) in pixels.into_iter() {
+///             // Check if the pixel coordinates are out of bounds (negative or greater than
+///             // (63,63)). `DrawTarget` implementation are required to discard any out of bounds
+///             // pixels without returning an error or causing a panic.
+///             if let Ok((x @ 0..=63, y @ 0..=63)) = coord.try_into() {
+///                 self.set_pixel(x, y, RawU16::from(color).into_inner())?;
+///             }
+///         }
+///
+///         Ok(())
+///     }
+///
+///     fn fill_solid(&amp;mut self, area: &amp;Rectangle, color: Self::Color) -&gt; Result&lt;(), Self::Error&gt; {
+///         // Clamp the rectangle coordinates to the valid range by determining
+///         // the intersection of the fill area and the visible display area
+///         // by using Rectangle::intersection.
+///         let area = area.intersection(&amp;self.bounding_box());
+///
+///         // Do not send a draw rectangle command if the intersection size if zero.
+///         // The size is checked by using `Rectangle::bottom_right`, which returns `None`
+///         // if the size is zero.
+///         let bottom_right = if let Some(bottom_right) = area.bottom_right() {
+///             bottom_right
+///         } else {
+///             return Ok(());
+///         };
+///
+///         self.send_commands(&amp;[
+///             // Draw rectangle command
+///             0x22,
+///             // Top left X coordinate
+///             area.top_left.x as u8,
+///             // Top left Y coordinate
+///             area.top_left.y as u8,
+///             // Bottom right X coordinate
+///             bottom_right.x as u8,
+///             // Bottom right Y coordinate
+///             bottom_right.y as u8,
+///             // Fill color red channel
+///             color.r(),
+///             // Fill color green channel
+///             color.g(),
+///             // Fill color blue channel
+///             color.b(),
+///         ])
+///     }
+/// }
+///
+/// impl OriginDimensions for ExampleDisplay {
+///     fn size(&amp;self) -&gt; Size {
+///         Size::new(64, 64)
+///     }
+/// }
+///
+/// let mut display = ExampleDisplay { iface: SPI1 };
+///
+/// // Draw a rectangle with 5px red stroke and green fill.
+/// // The stroke and fill can be broken down into multiple individual rectangles,
+/// // so this uses `fill_solid` internally.
+/// Rectangle::new(Point::new(20, 20), Size::new(50, 40))
+///     .into_styled(
+///         PrimitiveStyleBuilder::new()
+///             .stroke_color(Rgb565::RED)
+///             .stroke_width(5)
+///             .fill_color(Rgb565::GREEN)
+///             .build(),
+///     )
+///     .draw(&amp;mut display)?;
+///
+/// // Draw a circle with top-left at `(5, 5)` with a diameter of `10` and a magenta stroke with
+/// // cyan fill. This shape cannot be optimized by calls to `fill_solid` as it contains transparent
+/// // pixels as well as pixels of different colors. It will instead delegate to `draw_iter`
+/// // internally.
+/// Circle::new(Point::new(5, 5), 10)
+///     .into_styled(
+///         PrimitiveStyleBuilder::new()
+///             .stroke_color(Rgb565::MAGENTA)
+///             .stroke_width(1)
+///             .fill_color(Rgb565::CYAN)
+///             .build(),
+///     )
+///     .draw(&amp;mut display)?;
+///
+/// # Ok::&lt;(), CommError&gt;(())
+/// ```
+///
+/// [`fill_solid`]: #method.fill_solid
+/// [`draw_iter`]: #tymethod.draw_iter
+/// [`Dimensions`]: ../geometry/trait.Dimensions.html
+/// [`OriginDimensions`]: ../geometry/trait.OriginDimensions.html
+/// [`Error` type]: #associatedtype.Error
+</span><span class="kw">pub trait </span>DrawTarget: Dimensions {
+    <span class="doccomment">/// The pixel color type the targetted display supports.
+    </span><span class="kw">type </span>Color: PixelColor;
 
-    <span class="doccomment">/// Error type to return when a drawing operation fails.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// This error is returned if an error occurred during a drawing operation. This mainly applies</span>
-    <span class="doccomment">/// to drivers that need to communicate with the display for each drawing operation, where a</span>
-    <span class="doccomment">/// communication error can occur. For drivers that use an internal framebuffer where drawing</span>
-    <span class="doccomment">/// operations can never fail, [`core::convert::Infallible`] can instead be used as the `Error`</span>
-    <span class="doccomment">/// type.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [`core::convert::Infallible`]: https://doc.rust-lang.org/stable/core/convert/enum.Infallible.html</span>
-    <span class="kw">type</span> <span class="ident">Error</span>;
+    <span class="doccomment">/// Error type to return when a drawing operation fails.
+    ///
+    /// This error is returned if an error occurred during a drawing operation. This mainly applies
+    /// to drivers that need to communicate with the display for each drawing operation, where a
+    /// communication error can occur. For drivers that use an internal framebuffer where drawing
+    /// operations can never fail, [`core::convert::Infallible`] can instead be used as the `Error`
+    /// type.
+    ///
+    /// [`core::convert::Infallible`]: https://doc.rust-lang.org/stable/core/convert/enum.Infallible.html
+    </span><span class="kw">type </span>Error;
 
-    <span class="doccomment">/// Draw individual pixels to the display without a defined order.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Due to the unordered nature of the pixel iterator, this method is likely to be the slowest</span>
-    <span class="doccomment">/// drawing method for a display that writes data to the hardware immediately. If possible, the</span>
-    <span class="doccomment">/// other methods in this trait should be implemented to improve performance when rendering</span>
-    <span class="doccomment">/// more contiguous pixel patterns.</span>
-    <span class="kw">fn</span> <span class="ident">draw_iter</span><span class="op">&lt;</span><span class="ident">I</span><span class="op">&gt;</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>, <span class="ident">pixels</span>: <span class="ident">I</span>) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident"><span class="self">Self</span>::Error</span><span class="op">&gt;</span>
-    <span class="kw">where</span>
-        <span class="ident">I</span>: <span class="ident">IntoIterator</span><span class="op">&lt;</span><span class="ident">Item</span> <span class="op">=</span> <span class="ident">Pixel</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Color</span><span class="op">&gt;</span><span class="op">&gt;</span>;
+    <span class="doccomment">/// Draw individual pixels to the display without a defined order.
+    ///
+    /// Due to the unordered nature of the pixel iterator, this method is likely to be the slowest
+    /// drawing method for a display that writes data to the hardware immediately. If possible, the
+    /// other methods in this trait should be implemented to improve performance when rendering
+    /// more contiguous pixel patterns.
+    </span><span class="kw">fn </span>draw_iter&lt;I&gt;(<span class="kw-2">&amp;mut </span><span class="self">self</span>, pixels: I) -&gt; <span class="prelude-ty">Result</span>&lt;(), <span class="self">Self</span>::Error&gt;
+    <span class="kw">where
+        </span>I: IntoIterator&lt;Item = Pixel&lt;<span class="self">Self</span>::Color&gt;&gt;;
 
-    <span class="doccomment">/// Fill a given area with an iterator providing a contiguous stream of pixel colors.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Use this method to fill an area with contiguous, non-transparent pixel colors. Pixel</span>
-    <span class="doccomment">/// coordinates are iterated over from the top left to the bottom right corner of the area in</span>
-    <span class="doccomment">/// row-first order. The provided iterator must provide pixel color values based on this</span>
-    <span class="doccomment">/// ordering to produce correct output.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// As seen in the example below, the [`PointsIter::points`] method can be used to get an</span>
-    <span class="doccomment">/// iterator over all points in the provided area.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The provided iterator is not required to provide `width * height` pixels to completely fill</span>
-    <span class="doccomment">/// the area. In this case, `fill_contiguous` should return without error.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// This method should not attempt to draw any pixels that fall outside the drawable area of the</span>
-    <span class="doccomment">/// target display. The `area` argument can be clipped to the drawable area using the</span>
-    <span class="doccomment">/// [`Rectangle::intersection`] method.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The default implementation of this method delegates to [`draw_iter`](#tymethod.draw_iter).</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Examples</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// This is an example implementation of `fill_contiguous` that delegates to [`draw_iter`]. This</span>
-    <span class="doccomment">/// delegation behaviour is undesirable in a real application as it will be as slow as the</span>
-    <span class="doccomment">/// default trait implementation, however is shown here for demonstration purposes.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The example demonstrates the usage of [`Rectangle::intersection`] on the passed `area`</span>
-    <span class="doccomment">/// argument to only draw visible pixels. If there is no intersection between `area` and the</span>
-    <span class="doccomment">/// display area, no pixels will be drawn.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ```rust</span>
-    <span class="doccomment">/// use embedded_graphics::{</span>
-    <span class="doccomment">///     pixelcolor::{Gray8, GrayColor},</span>
-    <span class="doccomment">///     prelude::*,</span>
-    <span class="doccomment">///     primitives::{ContainsPoint, Rectangle},</span>
-    <span class="doccomment">/// };</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// struct ExampleDisplay;</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// impl DrawTarget for ExampleDisplay {</span>
-    <span class="doccomment">///     type Color = Gray8;</span>
-    <span class="doccomment">///     type Error = core::convert::Infallible;</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///     fn draw_iter&lt;I&gt;(&amp;mut self, pixels: I) -&gt; Result&lt;(), Self::Error&gt;</span>
-    <span class="doccomment">///     where</span>
-    <span class="doccomment">///         I: IntoIterator&lt;Item = Pixel&lt;Self::Color&gt;&gt;,</span>
-    <span class="doccomment">///     {</span>
-    <span class="doccomment">///         // Draw pixels to the display</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///         Ok(())</span>
-    <span class="doccomment">///     }</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///     fn fill_contiguous&lt;I&gt;(&amp;mut self, area: &amp;Rectangle, colors: I) -&gt; Result&lt;(), Self::Error&gt;</span>
-    <span class="doccomment">///     where</span>
-    <span class="doccomment">///         I: IntoIterator&lt;Item = Self::Color&gt;,</span>
-    <span class="doccomment">///     {</span>
-    <span class="doccomment">///         // Clamp area to drawable part of the display target</span>
-    <span class="doccomment">///         let drawable_area = area.intersection(&amp;self.bounding_box());</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">///         // Check that there are visible pixels to be drawn</span>
-    <span class="doccomment">///         if drawable_area.size != Size::zero() {</span>
-    <span class="doccomment">///             self.draw_iter(</span>
-    <span class="doccomment">///                 area.points()</span>
-    <span class="doccomment">///                     .zip(colors)</span>
-    <span class="doccomment">///                     .filter(|(pos, _color)| drawable_area.contains(*pos))</span>
-    <span class="doccomment">///                     .map(|(pos, color)| Pixel(pos, color)),</span>
-    <span class="doccomment">///             )</span>
-    <span class="doccomment">///         } else {</span>
-    <span class="doccomment">///             Ok(())</span>
-    <span class="doccomment">///         }</span>
-    <span class="doccomment">///     }</span>
-    <span class="doccomment">/// }</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// impl OriginDimensions for ExampleDisplay {</span>
-    <span class="doccomment">///     fn size(&amp;self) -&gt; Size {</span>
-    <span class="doccomment">///         Size::new(64, 64)</span>
-    <span class="doccomment">///     }</span>
-    <span class="doccomment">/// }</span>
-    <span class="doccomment">/// ```</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [`draw_iter`]: #tymethod.draw_iter</span>
-    <span class="doccomment">/// [`Rectangle::intersection`]: ../primitives/rectangle/struct.Rectangle.html#method.intersection</span>
-    <span class="doccomment">/// [`PointsIter::points`]: ../primitives/trait.PointsIter.html#tymethod.points</span>
-    <span class="kw">fn</span> <span class="ident">fill_contiguous</span><span class="op">&lt;</span><span class="ident">I</span><span class="op">&gt;</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>, <span class="ident">area</span>: <span class="kw-2">&amp;</span><span class="ident">Rectangle</span>, <span class="ident">colors</span>: <span class="ident">I</span>) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident"><span class="self">Self</span>::Error</span><span class="op">&gt;</span>
-    <span class="kw">where</span>
-        <span class="ident">I</span>: <span class="ident">IntoIterator</span><span class="op">&lt;</span><span class="ident">Item</span> <span class="op">=</span> <span class="ident"><span class="self">Self</span>::Color</span><span class="op">&gt;</span>,
+    <span class="doccomment">/// Fill a given area with an iterator providing a contiguous stream of pixel colors.
+    ///
+    /// Use this method to fill an area with contiguous, non-transparent pixel colors. Pixel
+    /// coordinates are iterated over from the top left to the bottom right corner of the area in
+    /// row-first order. The provided iterator must provide pixel color values based on this
+    /// ordering to produce correct output.
+    ///
+    /// As seen in the example below, the [`PointsIter::points`] method can be used to get an
+    /// iterator over all points in the provided area.
+    ///
+    /// The provided iterator is not required to provide `width * height` pixels to completely fill
+    /// the area. In this case, `fill_contiguous` should return without error.
+    ///
+    /// This method should not attempt to draw any pixels that fall outside the drawable area of the
+    /// target display. The `area` argument can be clipped to the drawable area using the
+    /// [`Rectangle::intersection`] method.
+    ///
+    /// The default implementation of this method delegates to [`draw_iter`](#tymethod.draw_iter).
+    ///
+    /// # Examples
+    ///
+    /// This is an example implementation of `fill_contiguous` that delegates to [`draw_iter`]. This
+    /// delegation behaviour is undesirable in a real application as it will be as slow as the
+    /// default trait implementation, however is shown here for demonstration purposes.
+    ///
+    /// The example demonstrates the usage of [`Rectangle::intersection`] on the passed `area`
+    /// argument to only draw visible pixels. If there is no intersection between `area` and the
+    /// display area, no pixels will be drawn.
+    ///
+    /// ```rust
+    /// use embedded_graphics::{
+    ///     pixelcolor::{Gray8, GrayColor},
+    ///     prelude::*,
+    ///     primitives::{ContainsPoint, Rectangle},
+    /// };
+    ///
+    /// struct ExampleDisplay;
+    ///
+    /// impl DrawTarget for ExampleDisplay {
+    ///     type Color = Gray8;
+    ///     type Error = core::convert::Infallible;
+    ///
+    ///     fn draw_iter&lt;I&gt;(&amp;mut self, pixels: I) -&gt; Result&lt;(), Self::Error&gt;
+    ///     where
+    ///         I: IntoIterator&lt;Item = Pixel&lt;Self::Color&gt;&gt;,
+    ///     {
+    ///         // Draw pixels to the display
+    ///
+    ///         Ok(())
+    ///     }
+    ///
+    ///     fn fill_contiguous&lt;I&gt;(&amp;mut self, area: &amp;Rectangle, colors: I) -&gt; Result&lt;(), Self::Error&gt;
+    ///     where
+    ///         I: IntoIterator&lt;Item = Self::Color&gt;,
+    ///     {
+    ///         // Clamp area to drawable part of the display target
+    ///         let drawable_area = area.intersection(&amp;self.bounding_box());
+    ///
+    ///         // Check that there are visible pixels to be drawn
+    ///         if drawable_area.size != Size::zero() {
+    ///             self.draw_iter(
+    ///                 area.points()
+    ///                     .zip(colors)
+    ///                     .filter(|(pos, _color)| drawable_area.contains(*pos))
+    ///                     .map(|(pos, color)| Pixel(pos, color)),
+    ///             )
+    ///         } else {
+    ///             Ok(())
+    ///         }
+    ///     }
+    /// }
+    ///
+    /// impl OriginDimensions for ExampleDisplay {
+    ///     fn size(&amp;self) -&gt; Size {
+    ///         Size::new(64, 64)
+    ///     }
+    /// }
+    /// ```
+    ///
+    /// [`draw_iter`]: #tymethod.draw_iter
+    /// [`Rectangle::intersection`]: ../primitives/rectangle/struct.Rectangle.html#method.intersection
+    /// [`PointsIter::points`]: ../primitives/trait.PointsIter.html#tymethod.points
+    </span><span class="kw">fn </span>fill_contiguous&lt;I&gt;(<span class="kw-2">&amp;mut </span><span class="self">self</span>, area: <span class="kw-2">&amp;</span>Rectangle, colors: I) -&gt; <span class="prelude-ty">Result</span>&lt;(), <span class="self">Self</span>::Error&gt;
+    <span class="kw">where
+        </span>I: IntoIterator&lt;Item = <span class="self">Self</span>::Color&gt;,
     {
-        <span class="self">self</span>.<span class="ident">draw_iter</span>(
-            <span class="ident">area</span>.<span class="ident">points</span>()
-                .<span class="ident">zip</span>(<span class="ident">colors</span>)
-                .<span class="ident">map</span>(<span class="op">|</span>(<span class="ident">pos</span>, <span class="ident">color</span>)<span class="op">|</span> <span class="ident">Pixel</span>(<span class="ident">pos</span>, <span class="ident">color</span>)),
+        <span class="self">self</span>.draw_iter(
+            area.points()
+                .zip(colors)
+                .map(|(pos, color)| Pixel(pos, color)),
         )
     }
 
-    <span class="doccomment">/// Fill a given area with a solid color.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// If the target display provides optimized hardware commands for filling a rectangular area of</span>
-    <span class="doccomment">/// the display with a solid color, this method should be overridden to use those commands to</span>
-    <span class="doccomment">/// improve performance.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The default implementation of this method calls [`fill_contiguous`](#method.fill_contiguous)</span>
-    <span class="doccomment">/// with an iterator that repeats the given `color` for every point in `area`.</span>
-    <span class="kw">fn</span> <span class="ident">fill_solid</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>, <span class="ident">area</span>: <span class="kw-2">&amp;</span><span class="ident">Rectangle</span>, <span class="ident">color</span>: <span class="ident"><span class="self">Self</span>::Color</span>) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident"><span class="self">Self</span>::Error</span><span class="op">&gt;</span> {
-        <span class="self">self</span>.<span class="ident">fill_contiguous</span>(<span class="ident">area</span>, <span class="ident">core::iter::repeat</span>(<span class="ident">color</span>))
+    <span class="doccomment">/// Fill a given area with a solid color.
+    ///
+    /// If the target display provides optimized hardware commands for filling a rectangular area of
+    /// the display with a solid color, this method should be overridden to use those commands to
+    /// improve performance.
+    ///
+    /// The default implementation of this method calls [`fill_contiguous`](#method.fill_contiguous)
+    /// with an iterator that repeats the given `color` for every point in `area`.
+    </span><span class="kw">fn </span>fill_solid(<span class="kw-2">&amp;mut </span><span class="self">self</span>, area: <span class="kw-2">&amp;</span>Rectangle, color: <span class="self">Self</span>::Color) -&gt; <span class="prelude-ty">Result</span>&lt;(), <span class="self">Self</span>::Error&gt; {
+        <span class="self">self</span>.fill_contiguous(area, core::iter::repeat(color))
     }
 
-    <span class="doccomment">/// Fill the entire display with a solid color.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// If the target hardware supports a more optimized way of filling the entire display with a</span>
-    <span class="doccomment">/// solid color, this method should be overridden to use those commands.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The default implementation of this method delegates to [`fill_solid`] to fill the</span>
-    <span class="doccomment">/// [`bounding_box`] returned by the [`Dimensions`] implementation.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// [`Dimensions`]: ../geometry/trait.Dimensions.html</span>
-    <span class="doccomment">/// [`bounding_box`]: ../geometry/trait.Dimensions.html#tymethod.bounding_box</span>
-    <span class="doccomment">/// [`fill_solid`]: #method.fill_solid</span>
-    <span class="kw">fn</span> <span class="ident">clear</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>, <span class="ident">color</span>: <span class="ident"><span class="self">Self</span>::Color</span>) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident"><span class="self">Self</span>::Error</span><span class="op">&gt;</span> {
-        <span class="self">self</span>.<span class="ident">fill_solid</span>(<span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">bounding_box</span>(), <span class="ident">color</span>)
+    <span class="doccomment">/// Fill the entire display with a solid color.
+    ///
+    /// If the target hardware supports a more optimized way of filling the entire display with a
+    /// solid color, this method should be overridden to use those commands.
+    ///
+    /// The default implementation of this method delegates to [`fill_solid`] to fill the
+    /// [`bounding_box`] returned by the [`Dimensions`] implementation.
+    ///
+    /// [`Dimensions`]: ../geometry/trait.Dimensions.html
+    /// [`bounding_box`]: ../geometry/trait.Dimensions.html#tymethod.bounding_box
+    /// [`fill_solid`]: #method.fill_solid
+    </span><span class="kw">fn </span>clear(<span class="kw-2">&amp;mut </span><span class="self">self</span>, color: <span class="self">Self</span>::Color) -&gt; <span class="prelude-ty">Result</span>&lt;(), <span class="self">Self</span>::Error&gt; {
+        <span class="self">self</span>.fill_solid(<span class="kw-2">&amp;</span><span class="self">self</span>.bounding_box(), color)
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="embedded_graphics_core" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0 (a55dd71d5 2022-09-19)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="embedded_graphics_core" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0 (69f9c33d7 2022-12-12)" ></div></body></html>

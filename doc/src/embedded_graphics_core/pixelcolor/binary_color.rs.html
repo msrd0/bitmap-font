@@ -1,6 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-core-0.3.3/src/pixelcolor/binary_color.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>binary_color.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../embedded_graphics_core/index.html"><div class="logo-container"><img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/b225511f390c0ed9bc065eb67d05125845312148/assets/logo_core.svg?sanitize=true" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../embedded_graphics_core/index.html"><div class="logo-container">
-                    <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/b225511f390c0ed9bc065eb67d05125845312148/assets/logo_core.svg?sanitize=true" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../embedded_graphics_core/index.html">
-                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/b225511f390c0ed9bc065eb67d05125845312148/assets/logo_core.svg?sanitize=true" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-core-0.3.3/src/pixelcolor/binary_color.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>binary_color.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../embedded_graphics_core/index.html">
+                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/b225511f390c0ed9bc065eb67d05125845312148/assets/logo_core.svg?sanitize=true" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -211,216 +210,216 @@
 <span id="209">209</span>
 <span id="210">210</span>
 <span id="211">211</span>
-</pre><pre class="rust"><code><span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::pixelcolor</span>::{
-    <span class="ident">raw</span>::{<span class="ident">RawData</span>, <span class="ident">RawU1</span>},
-    <span class="ident">PixelColor</span>,
+</pre><pre class="rust"><code><span class="kw">use </span><span class="kw">crate</span>::pixelcolor::{
+    raw::{RawData, RawU1},
+    PixelColor,
 };
 
-<span class="doccomment">/// Binary color.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// `BinaryColor` is used for displays and images with two possible color states.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// The interpretation of active and inactive states can be different for</span>
-<span class="doccomment">/// different types of displays. A `BinaryColor::On` might represent a black</span>
-<span class="doccomment">/// pixel on an LCD and a white pixel on an OLED display.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// To simplify the conversion from `BinaryColor` to RGB and grayscale color</span>
-<span class="doccomment">/// types the default conversions assume that `BinaryColor::Off` is black and</span>
-<span class="doccomment">/// `BinaryColor::On` is white.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Conversion between BinaryColor and bool</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// ```</span>
-<span class="doccomment">/// use embedded_graphics::pixelcolor::BinaryColor;</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// // A BinaryColor can be converted to a bool by using the is_on and is_off methods.</span>
-<span class="doccomment">/// let color = BinaryColor::On;</span>
-<span class="doccomment">/// assert!(color.is_on());</span>
-<span class="doccomment">/// assert!(color.invert().is_off());</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// // BinaryColor implements From&lt;bool&gt;.</span>
-<span class="doccomment">/// let bool_value = true;</span>
-<span class="doccomment">/// let color: BinaryColor = bool_value.into();</span>
-<span class="doccomment">/// assert_eq!(color, BinaryColor::On);</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// // this is equivalent to:</span>
-<span class="doccomment">/// let bool_value = true;</span>
-<span class="doccomment">/// let color = if bool_value {</span>
-<span class="doccomment">///     BinaryColor::On</span>
-<span class="doccomment">/// } else {</span>
-<span class="doccomment">///     BinaryColor::Off</span>
-<span class="doccomment">/// };</span>
-<span class="doccomment">/// assert_eq!(color, BinaryColor::On);</span>
-<span class="doccomment">/// ```</span>
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Copy</span>, <span class="ident">Clone</span>, <span class="ident">Eq</span>, <span class="ident">PartialEq</span>, <span class="ident">Ord</span>, <span class="ident">PartialOrd</span>, <span class="ident">Hash</span>, <span class="ident">Debug</span>)]</span>
-<span class="kw">pub</span> <span class="kw">enum</span> <span class="ident">BinaryColor</span> {
-    <span class="doccomment">/// Inactive pixel.</span>
-    <span class="ident">Off</span>,
+<span class="doccomment">/// Binary color.
+///
+/// `BinaryColor` is used for displays and images with two possible color states.
+///
+/// The interpretation of active and inactive states can be different for
+/// different types of displays. A `BinaryColor::On` might represent a black
+/// pixel on an LCD and a white pixel on an OLED display.
+///
+/// To simplify the conversion from `BinaryColor` to RGB and grayscale color
+/// types the default conversions assume that `BinaryColor::Off` is black and
+/// `BinaryColor::On` is white.
+///
+/// # Conversion between BinaryColor and bool
+///
+/// ```
+/// use embedded_graphics::pixelcolor::BinaryColor;
+///
+/// // A BinaryColor can be converted to a bool by using the is_on and is_off methods.
+/// let color = BinaryColor::On;
+/// assert!(color.is_on());
+/// assert!(color.invert().is_off());
+///
+/// // BinaryColor implements From&lt;bool&gt;.
+/// let bool_value = true;
+/// let color: BinaryColor = bool_value.into();
+/// assert_eq!(color, BinaryColor::On);
+///
+/// // this is equivalent to:
+/// let bool_value = true;
+/// let color = if bool_value {
+///     BinaryColor::On
+/// } else {
+///     BinaryColor::Off
+/// };
+/// assert_eq!(color, BinaryColor::On);
+/// ```
+</span><span class="attribute">#[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Hash, Debug)]
+</span><span class="kw">pub enum </span>BinaryColor {
+    <span class="doccomment">/// Inactive pixel.
+    </span>Off,
 
-    <span class="doccomment">/// Active pixel.</span>
-    <span class="ident">On</span>,
+    <span class="doccomment">/// Active pixel.
+    </span>On,
 }
 
-<span class="kw">impl</span> <span class="ident">Default</span> <span class="kw">for</span> <span class="ident">BinaryColor</span> {
-    <span class="kw">fn</span> <span class="ident">default</span>() -&gt; <span class="self">Self</span> {
-        <span class="ident"><span class="self">Self</span>::Off</span>
+<span class="kw">impl </span>Default <span class="kw">for </span>BinaryColor {
+    <span class="kw">fn </span>default() -&gt; <span class="self">Self </span>{
+        <span class="self">Self</span>::Off
     }
 }
 
-<span class="kw">impl</span> <span class="ident">BinaryColor</span> {
-    <span class="doccomment">/// Inverts the color.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Examples</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ```</span>
-    <span class="doccomment">/// use embedded_graphics::pixelcolor::BinaryColor;</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// assert_eq!(BinaryColor::Off.invert(), BinaryColor::On);</span>
-    <span class="doccomment">/// assert_eq!(BinaryColor::On.invert(), BinaryColor::Off);</span>
-    <span class="doccomment">/// ```</span>
-    <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">invert</span>(<span class="self">self</span>) -&gt; <span class="self">Self</span> {
-        <span class="kw">match</span> <span class="self">self</span> {
-            <span class="ident">BinaryColor::On</span> =&gt; <span class="ident">BinaryColor::Off</span>,
-            <span class="ident">BinaryColor::Off</span> =&gt; <span class="ident">BinaryColor::On</span>,
+<span class="kw">impl </span>BinaryColor {
+    <span class="doccomment">/// Inverts the color.
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// use embedded_graphics::pixelcolor::BinaryColor;
+    ///
+    /// assert_eq!(BinaryColor::Off.invert(), BinaryColor::On);
+    /// assert_eq!(BinaryColor::On.invert(), BinaryColor::Off);
+    /// ```
+    </span><span class="attribute">#[inline]
+    </span><span class="kw">pub fn </span>invert(<span class="self">self</span>) -&gt; <span class="self">Self </span>{
+        <span class="kw">match </span><span class="self">self </span>{
+            BinaryColor::On =&gt; BinaryColor::Off,
+            BinaryColor::Off =&gt; BinaryColor::On,
         }
     }
 
-    <span class="doccomment">/// Returns `true` if this color is `On`.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Examples</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ```</span>
-    <span class="doccomment">/// use embedded_graphics::pixelcolor::BinaryColor;</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// assert!(BinaryColor::On.is_on());</span>
-    <span class="doccomment">/// ```</span>
-    <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">is_on</span>(<span class="self">self</span>) -&gt; <span class="ident">bool</span> {
-        <span class="self">self</span> <span class="op">==</span> <span class="ident">BinaryColor::On</span>
+    <span class="doccomment">/// Returns `true` if this color is `On`.
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// use embedded_graphics::pixelcolor::BinaryColor;
+    ///
+    /// assert!(BinaryColor::On.is_on());
+    /// ```
+    </span><span class="attribute">#[inline]
+    </span><span class="kw">pub fn </span>is_on(<span class="self">self</span>) -&gt; bool {
+        <span class="self">self </span>== BinaryColor::On
     }
 
-    <span class="doccomment">/// Returns `true` if this color is `Off`.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Examples</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ```</span>
-    <span class="doccomment">/// use embedded_graphics::pixelcolor::BinaryColor;</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// assert!(BinaryColor::Off.is_off());</span>
-    <span class="doccomment">/// ```</span>
-    <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">is_off</span>(<span class="self">self</span>) -&gt; <span class="ident">bool</span> {
-        <span class="self">self</span> <span class="op">==</span> <span class="ident">BinaryColor::Off</span>
+    <span class="doccomment">/// Returns `true` if this color is `Off`.
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// use embedded_graphics::pixelcolor::BinaryColor;
+    ///
+    /// assert!(BinaryColor::Off.is_off());
+    /// ```
+    </span><span class="attribute">#[inline]
+    </span><span class="kw">pub fn </span>is_off(<span class="self">self</span>) -&gt; bool {
+        <span class="self">self </span>== BinaryColor::Off
     }
 
-    <span class="doccomment">/// Maps active and inactive colors to a different type.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Examples</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ```ignore</span>
-    <span class="doccomment">/// use embedded_graphics::pixelcolor::{BinaryColor, Rgb565};</span>
-    <span class="doccomment">/// let color = BinaryColor::On;</span>
-    <span class="doccomment">/// assert_eq!(color.map_color(Rgb565::RED, Rgb565::GREEN), Rgb565::GREEN)</span>
-    <span class="doccomment">/// ```</span>
-    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn</span> <span class="ident">map_color</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>(<span class="self">self</span>, <span class="ident">value_off</span>: <span class="ident">T</span>, <span class="ident">value_on</span>: <span class="ident">T</span>) -&gt; <span class="ident">T</span> {
-        <span class="kw">match</span> <span class="self">self</span> {
-            <span class="ident">BinaryColor::On</span> =&gt; <span class="ident">value_on</span>,
-            <span class="ident">BinaryColor::Off</span> =&gt; <span class="ident">value_off</span>,
-        }
-    }
-}
-
-<span class="kw">impl</span> <span class="ident">PixelColor</span> <span class="kw">for</span> <span class="ident">BinaryColor</span> {
-    <span class="kw">type</span> <span class="ident">Raw</span> <span class="op">=</span> <span class="ident">RawU1</span>;
-}
-
-<span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span><span class="ident">RawU1</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">BinaryColor</span> {
-    <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">data</span>: <span class="ident">RawU1</span>) -&gt; <span class="self">Self</span> {
-        <span class="kw">if</span> <span class="ident">data</span>.<span class="ident">into_inner</span>() <span class="op">!</span><span class="op">=</span> <span class="number">0</span> {
-            <span class="ident">BinaryColor::On</span>
-        } <span class="kw">else</span> {
-            <span class="ident">BinaryColor::Off</span>
+    <span class="doccomment">/// Maps active and inactive colors to a different type.
+    ///
+    /// # Examples
+    ///
+    /// ```ignore
+    /// use embedded_graphics::pixelcolor::{BinaryColor, Rgb565};
+    /// let color = BinaryColor::On;
+    /// assert_eq!(color.map_color(Rgb565::RED, Rgb565::GREEN), Rgb565::GREEN)
+    /// ```
+    </span><span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn </span>map_color&lt;T&gt;(<span class="self">self</span>, value_off: T, value_on: T) -&gt; T {
+        <span class="kw">match </span><span class="self">self </span>{
+            BinaryColor::On =&gt; value_on,
+            BinaryColor::Off =&gt; value_off,
         }
     }
 }
 
-<span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">RawU1</span> {
-    <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">color</span>: <span class="ident">BinaryColor</span>) -&gt; <span class="self">Self</span> {
-        <span class="ident">RawU1::new</span>(<span class="ident">color</span>.<span class="ident">map_color</span>(<span class="number">0</span>, <span class="number">1</span>))
-    }
+<span class="kw">impl </span>PixelColor <span class="kw">for </span>BinaryColor {
+    <span class="kw">type </span>Raw = RawU1;
 }
 
-<span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span><span class="ident">bool</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">BinaryColor</span> {
-    <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">value</span>: <span class="ident">bool</span>) -&gt; <span class="self">Self</span> {
-        <span class="kw">if</span> <span class="ident">value</span> {
-            <span class="ident">BinaryColor::On</span>
-        } <span class="kw">else</span> {
-            <span class="ident">BinaryColor::Off</span>
+<span class="kw">impl </span>From&lt;RawU1&gt; <span class="kw">for </span>BinaryColor {
+    <span class="kw">fn </span>from(data: RawU1) -&gt; <span class="self">Self </span>{
+        <span class="kw">if </span>data.into_inner() != <span class="number">0 </span>{
+            BinaryColor::On
+        } <span class="kw">else </span>{
+            BinaryColor::Off
         }
     }
 }
 
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
-<span class="kw">mod</span> <span class="ident">tests</span> {
-    <span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
-    <span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::pixelcolor</span>::{<span class="ident">IntoStorage</span>, <span class="ident">Rgb565</span>, <span class="ident">RgbColor</span>};
+<span class="kw">impl </span>From&lt;BinaryColor&gt; <span class="kw">for </span>RawU1 {
+    <span class="kw">fn </span>from(color: BinaryColor) -&gt; <span class="self">Self </span>{
+        RawU1::new(color.map_color(<span class="number">0</span>, <span class="number">1</span>))
+    }
+}
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">default_color_is_off</span>() {
-        <span class="macro">assert_eq!</span>(<span class="ident">BinaryColor::default</span>(), <span class="ident">BinaryColor::Off</span>);
+<span class="kw">impl </span>From&lt;bool&gt; <span class="kw">for </span>BinaryColor {
+    <span class="kw">fn </span>from(value: bool) -&gt; <span class="self">Self </span>{
+        <span class="kw">if </span>value {
+            BinaryColor::On
+        } <span class="kw">else </span>{
+            BinaryColor::Off
+        }
+    }
+}
+
+<span class="attribute">#[cfg(test)]
+</span><span class="kw">mod </span>tests {
+    <span class="kw">use super</span>::<span class="kw-2">*</span>;
+    <span class="kw">use </span><span class="kw">crate</span>::pixelcolor::{IntoStorage, Rgb565, RgbColor};
+
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>default_color_is_off() {
+        <span class="macro">assert_eq!</span>(BinaryColor::default(), BinaryColor::Off);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">invert_binary_color</span>() {
-        <span class="macro">assert_eq!</span>(<span class="ident">BinaryColor::Off</span>.<span class="ident">invert</span>(), <span class="ident">BinaryColor::On</span>);
-        <span class="macro">assert_eq!</span>(<span class="ident">BinaryColor::On</span>.<span class="ident">invert</span>(), <span class="ident">BinaryColor::Off</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>invert_binary_color() {
+        <span class="macro">assert_eq!</span>(BinaryColor::Off.invert(), BinaryColor::On);
+        <span class="macro">assert_eq!</span>(BinaryColor::On.invert(), BinaryColor::Off);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">map_binary_color</span>() {
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>map_binary_color() {
         <span class="macro">assert_eq!</span>(
-            <span class="ident">BinaryColor::Off</span>.<span class="ident">map_color</span>(<span class="ident">Rgb565::RED</span>, <span class="ident">Rgb565::GREEN</span>),
-            <span class="ident">Rgb565::RED</span>
+            BinaryColor::Off.map_color(Rgb565::RED, Rgb565::GREEN),
+            Rgb565::RED
         );
         <span class="macro">assert_eq!</span>(
-            <span class="ident">BinaryColor::On</span>.<span class="ident">map_color</span>(<span class="ident">Rgb565::RED</span>, <span class="ident">Rgb565::GREEN</span>),
-            <span class="ident">Rgb565::GREEN</span>
+            BinaryColor::On.map_color(Rgb565::RED, Rgb565::GREEN),
+            Rgb565::GREEN
         );
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">from_data</span>() {
-        <span class="macro">assert_eq!</span>(<span class="ident">BinaryColor::from</span>(<span class="ident">RawU1::new</span>(<span class="number">0</span>)), <span class="ident">BinaryColor::Off</span>);
-        <span class="macro">assert_eq!</span>(<span class="ident">BinaryColor::from</span>(<span class="ident">RawU1::new</span>(<span class="number">1</span>)), <span class="ident">BinaryColor::On</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>from_data() {
+        <span class="macro">assert_eq!</span>(BinaryColor::from(RawU1::new(<span class="number">0</span>)), BinaryColor::Off);
+        <span class="macro">assert_eq!</span>(BinaryColor::from(RawU1::new(<span class="number">1</span>)), BinaryColor::On);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">into_data</span>() {
-        <span class="macro">assert_eq!</span>(<span class="ident">RawU1::from</span>(<span class="ident">BinaryColor::Off</span>).<span class="ident">into_inner</span>(), <span class="number">0</span>);
-        <span class="macro">assert_eq!</span>(<span class="ident">RawU1::from</span>(<span class="ident">BinaryColor::On</span>).<span class="ident">into_inner</span>(), <span class="number">1</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>into_data() {
+        <span class="macro">assert_eq!</span>(RawU1::from(BinaryColor::Off).into_inner(), <span class="number">0</span>);
+        <span class="macro">assert_eq!</span>(RawU1::from(BinaryColor::On).into_inner(), <span class="number">1</span>);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">from_bool</span>() {
-        <span class="macro">assert_eq!</span>(<span class="ident">BinaryColor::from</span>(<span class="bool-val">false</span>), <span class="ident">BinaryColor::Off</span>);
-        <span class="macro">assert_eq!</span>(<span class="ident">BinaryColor::from</span>(<span class="bool-val">true</span>), <span class="ident">BinaryColor::On</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>from_bool() {
+        <span class="macro">assert_eq!</span>(BinaryColor::from(<span class="bool-val">false</span>), BinaryColor::Off);
+        <span class="macro">assert_eq!</span>(BinaryColor::from(<span class="bool-val">true</span>), BinaryColor::On);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">is_on_off</span>() {
-        <span class="macro">assert!</span>(<span class="ident">BinaryColor::Off</span>.<span class="ident">is_off</span>());
-        <span class="macro">assert!</span>(<span class="op">!</span><span class="ident">BinaryColor::On</span>.<span class="ident">is_off</span>());
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>is_on_off() {
+        <span class="macro">assert!</span>(BinaryColor::Off.is_off());
+        <span class="macro">assert!</span>(!BinaryColor::On.is_off());
 
-        <span class="macro">assert!</span>(<span class="op">!</span><span class="ident">BinaryColor::Off</span>.<span class="ident">is_on</span>());
-        <span class="macro">assert!</span>(<span class="ident">BinaryColor::On</span>.<span class="ident">is_on</span>());
+        <span class="macro">assert!</span>(!BinaryColor::Off.is_on());
+        <span class="macro">assert!</span>(BinaryColor::On.is_on());
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">into_storage</span>() {
-        <span class="macro">assert_eq!</span>(<span class="ident">BinaryColor::Off</span>.<span class="ident">into_storage</span>(), <span class="number">0u8</span>);
-        <span class="macro">assert_eq!</span>(<span class="ident">BinaryColor::On</span>.<span class="ident">into_storage</span>(), <span class="number">1u8</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>into_storage() {
+        <span class="macro">assert_eq!</span>(BinaryColor::Off.into_storage(), <span class="number">0u8</span>);
+        <span class="macro">assert_eq!</span>(BinaryColor::On.into_storage(), <span class="number">1u8</span>);
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="embedded_graphics_core" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0 (a55dd71d5 2022-09-19)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="embedded_graphics_core" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0 (69f9c33d7 2022-12-12)" ></div></body></html>

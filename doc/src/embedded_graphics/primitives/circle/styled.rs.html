@@ -1,6 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.1/src/primitives/circle/styled.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>styled.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../../storage.js"></script><script defer src="../../../../source-script.js"></script><script defer src="../../../../source-files.js"></script><script defer src="../../../../main.js"></script><noscript><link rel="stylesheet" href="../../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../../embedded_graphics/index.html"><div class="logo-container"><img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../../embedded_graphics/index.html"><div class="logo-container">
-                    <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../../embedded_graphics/index.html">
-                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.1/src/primitives/circle/styled.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>styled.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../../normalize.css"><link rel="stylesheet" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../../ayu.css" disabled><link rel="stylesheet" href="../../../../dark.css" disabled><link rel="stylesheet" href="../../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../../storage.js"></script><script defer src="../../../../source-script.js"></script><script defer src="../../../../source-files.js"></script><script defer src="../../../../main.js"></script><noscript><link rel="stylesheet" href="../../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../../embedded_graphics/index.html">
+                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../wheel.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -493,139 +492,139 @@
 <span id="491">491</span>
 <span id="492">492</span>
 <span id="493">493</span>
-</pre><pre class="rust"><code><span class="kw">use</span> <span class="kw">crate</span>::{
-    <span class="ident">draw_target::DrawTarget</span>,
-    <span class="ident">geometry</span>::{<span class="ident">Dimensions</span>, <span class="ident">Point</span>, <span class="ident">PointExt</span>},
-    <span class="ident">pixelcolor::PixelColor</span>,
-    <span class="ident">primitives</span>::{
-        <span class="ident">circle</span>::{<span class="ident">points::Scanlines</span>, <span class="ident">Circle</span>},
-        <span class="ident">common</span>::{<span class="ident">Scanline</span>, <span class="ident">StyledScanline</span>},
-        <span class="ident">rectangle::Rectangle</span>,
-        <span class="ident">styled</span>::{<span class="ident">StyledDimensions</span>, <span class="ident">StyledDrawable</span>, <span class="ident">StyledPixels</span>},
-        <span class="ident">PrimitiveStyle</span>,
+</pre><pre class="rust"><code><span class="kw">use crate</span>::{
+    draw_target::DrawTarget,
+    geometry::{Dimensions, Point, PointExt},
+    pixelcolor::PixelColor,
+    primitives::{
+        circle::{points::Scanlines, Circle},
+        common::{Scanline, StyledScanline},
+        rectangle::Rectangle,
+        styled::{StyledDimensions, StyledDrawable, StyledPixels},
+        PrimitiveStyle,
     },
-    <span class="ident">Pixel</span>,
+    Pixel,
 };
-<span class="kw">use</span> <span class="ident">az::SaturatingAs</span>;
+<span class="kw">use </span>az::SaturatingAs;
 
-<span class="doccomment">/// Pixel iterator for each pixel in the circle border</span>
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Clone</span>, <span class="ident">Eq</span>, <span class="ident">PartialEq</span>, <span class="ident">Hash</span>, <span class="ident">Debug</span>)]</span>
-<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">StyledPixelsIterator</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span> {
-    <span class="ident">styled_scanlines</span>: <span class="ident">StyledScanlines</span>,
+<span class="doccomment">/// Pixel iterator for each pixel in the circle border
+</span><span class="attribute">#[derive(Clone, Eq, PartialEq, Hash, Debug)]
+</span><span class="kw">pub struct </span>StyledPixelsIterator&lt;C&gt; {
+    styled_scanlines: StyledScanlines,
 
-    <span class="ident">stroke_left</span>: <span class="ident">Scanline</span>,
-    <span class="ident">fill</span>: <span class="ident">Scanline</span>,
-    <span class="ident">stroke_right</span>: <span class="ident">Scanline</span>,
+    stroke_left: Scanline,
+    fill: Scanline,
+    stroke_right: Scanline,
 
-    <span class="ident">stroke_color</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>,
-    <span class="ident">fill_color</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>,
+    stroke_color: <span class="prelude-ty">Option</span>&lt;C&gt;,
+    fill_color: <span class="prelude-ty">Option</span>&lt;C&gt;,
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">C</span>: <span class="ident">PixelColor</span><span class="op">&gt;</span> <span class="ident">StyledPixelsIterator</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span> {
-    <span class="kw">pub</span>(<span class="kw">in</span> <span class="ident"><span class="kw">crate</span>::primitives</span>) <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">primitive</span>: <span class="kw-2">&amp;</span><span class="ident">Circle</span>, <span class="ident">style</span>: <span class="kw-2">&amp;</span><span class="ident">PrimitiveStyle</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>) -&gt; <span class="self">Self</span> {
-        <span class="kw">let</span> <span class="ident">stroke_area</span> <span class="op">=</span> <span class="ident">style</span>.<span class="ident">stroke_area</span>(<span class="ident">primitive</span>);
-        <span class="kw">let</span> <span class="ident">fill_area</span> <span class="op">=</span> <span class="ident">style</span>.<span class="ident">fill_area</span>(<span class="ident">primitive</span>);
+<span class="kw">impl</span>&lt;C: PixelColor&gt; StyledPixelsIterator&lt;C&gt; {
+    <span class="kw">pub</span>(<span class="kw">in </span><span class="kw">crate</span>::primitives) <span class="kw">fn </span>new(primitive: <span class="kw-2">&amp;</span>Circle, style: <span class="kw-2">&amp;</span>PrimitiveStyle&lt;C&gt;) -&gt; <span class="self">Self </span>{
+        <span class="kw">let </span>stroke_area = style.stroke_area(primitive);
+        <span class="kw">let </span>fill_area = style.fill_area(primitive);
 
-        <span class="self">Self</span> {
-            <span class="ident">styled_scanlines</span>: <span class="ident">StyledScanlines::new</span>(<span class="kw-2">&amp;</span><span class="ident">stroke_area</span>, <span class="kw-2">&amp;</span><span class="ident">fill_area</span>),
-            <span class="ident">stroke_left</span>: <span class="ident">Scanline::new_empty</span>(<span class="number">0</span>),
-            <span class="ident">fill</span>: <span class="ident">Scanline::new_empty</span>(<span class="number">0</span>),
-            <span class="ident">stroke_right</span>: <span class="ident">Scanline::new_empty</span>(<span class="number">0</span>),
-            <span class="ident">stroke_color</span>: <span class="ident">style</span>.<span class="ident">stroke_color</span>,
-            <span class="ident">fill_color</span>: <span class="ident">style</span>.<span class="ident">fill_color</span>,
+        <span class="self">Self </span>{
+            styled_scanlines: StyledScanlines::new(<span class="kw-2">&amp;</span>stroke_area, <span class="kw-2">&amp;</span>fill_area),
+            stroke_left: Scanline::new_empty(<span class="number">0</span>),
+            fill: Scanline::new_empty(<span class="number">0</span>),
+            stroke_right: Scanline::new_empty(<span class="number">0</span>),
+            stroke_color: style.stroke_color,
+            fill_color: style.fill_color,
         }
     }
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span> <span class="ident">Iterator</span> <span class="kw">for</span> <span class="ident">StyledPixelsIterator</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>
-<span class="kw">where</span>
-    <span class="ident">C</span>: <span class="ident">PixelColor</span>,
+<span class="kw">impl</span>&lt;C&gt; Iterator <span class="kw">for </span>StyledPixelsIterator&lt;C&gt;
+<span class="kw">where
+    </span>C: PixelColor,
 {
-    <span class="kw">type</span> <span class="ident">Item</span> <span class="op">=</span> <span class="ident">Pixel</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>;
+    <span class="kw">type </span>Item = Pixel&lt;C&gt;;
 
-    <span class="kw">fn</span> <span class="ident">next</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Item</span><span class="op">&gt;</span> {
-        <span class="kw">match</span> (<span class="self">self</span>.<span class="ident">stroke_color</span>, <span class="self">self</span>.<span class="ident">fill_color</span>) {
-            (<span class="prelude-val">Some</span>(<span class="ident">stroke_color</span>), <span class="prelude-val">None</span>) =&gt; <span class="kw">loop</span> {
-                <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">pixel</span>) <span class="op">=</span> <span class="self">self</span>
-                    .<span class="ident">stroke_left</span>
-                    .<span class="ident">next</span>()
-                    .<span class="ident">or_else</span>(<span class="op">|</span><span class="op">|</span> <span class="self">self</span>.<span class="ident">stroke_right</span>.<span class="ident">next</span>())
-                    .<span class="ident">map</span>(<span class="op">|</span><span class="ident">p</span><span class="op">|</span> <span class="ident">Pixel</span>(<span class="ident">p</span>, <span class="ident">stroke_color</span>))
+    <span class="kw">fn </span>next(<span class="kw-2">&amp;mut </span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="self">Self</span>::Item&gt; {
+        <span class="kw">match </span>(<span class="self">self</span>.stroke_color, <span class="self">self</span>.fill_color) {
+            (<span class="prelude-val">Some</span>(stroke_color), <span class="prelude-val">None</span>) =&gt; <span class="kw">loop </span>{
+                <span class="kw">if let </span><span class="prelude-val">Some</span>(pixel) = <span class="self">self
+                    </span>.stroke_left
+                    .next()
+                    .or_else(|| <span class="self">self</span>.stroke_right.next())
+                    .map(|p| Pixel(p, stroke_color))
                 {
-                    <span class="kw">return</span> <span class="prelude-val">Some</span>(<span class="ident">pixel</span>);
+                    <span class="kw">return </span><span class="prelude-val">Some</span>(pixel);
                 }
 
-                <span class="kw">let</span> <span class="ident">scanline</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">styled_scanlines</span>.<span class="ident">next</span>()<span class="question-mark">?</span>;
-                <span class="self">self</span>.<span class="ident">stroke_left</span> <span class="op">=</span> <span class="ident">scanline</span>.<span class="ident">stroke_left</span>();
-                <span class="self">self</span>.<span class="ident">stroke_right</span> <span class="op">=</span> <span class="ident">scanline</span>.<span class="ident">stroke_right</span>();
+                <span class="kw">let </span>scanline = <span class="self">self</span>.styled_scanlines.next()<span class="question-mark">?</span>;
+                <span class="self">self</span>.stroke_left = scanline.stroke_left();
+                <span class="self">self</span>.stroke_right = scanline.stroke_right();
             },
-            (<span class="prelude-val">Some</span>(<span class="ident">stroke_color</span>), <span class="prelude-val">Some</span>(<span class="ident">fill_color</span>)) =&gt; <span class="kw">loop</span> {
-                <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">pixel</span>) <span class="op">=</span> <span class="self">self</span>
-                    .<span class="ident">stroke_left</span>
-                    .<span class="ident">next</span>()
-                    .<span class="ident">map</span>(<span class="op">|</span><span class="ident">p</span><span class="op">|</span> <span class="ident">Pixel</span>(<span class="ident">p</span>, <span class="ident">stroke_color</span>))
-                    .<span class="ident">or_else</span>(<span class="op">|</span><span class="op">|</span> <span class="self">self</span>.<span class="ident">fill</span>.<span class="ident">next</span>().<span class="ident">map</span>(<span class="op">|</span><span class="ident">p</span><span class="op">|</span> <span class="ident">Pixel</span>(<span class="ident">p</span>, <span class="ident">fill_color</span>)))
-                    .<span class="ident">or_else</span>(<span class="op">|</span><span class="op">|</span> <span class="self">self</span>.<span class="ident">stroke_right</span>.<span class="ident">next</span>().<span class="ident">map</span>(<span class="op">|</span><span class="ident">p</span><span class="op">|</span> <span class="ident">Pixel</span>(<span class="ident">p</span>, <span class="ident">stroke_color</span>)))
+            (<span class="prelude-val">Some</span>(stroke_color), <span class="prelude-val">Some</span>(fill_color)) =&gt; <span class="kw">loop </span>{
+                <span class="kw">if let </span><span class="prelude-val">Some</span>(pixel) = <span class="self">self
+                    </span>.stroke_left
+                    .next()
+                    .map(|p| Pixel(p, stroke_color))
+                    .or_else(|| <span class="self">self</span>.fill.next().map(|p| Pixel(p, fill_color)))
+                    .or_else(|| <span class="self">self</span>.stroke_right.next().map(|p| Pixel(p, stroke_color)))
                 {
-                    <span class="kw">return</span> <span class="prelude-val">Some</span>(<span class="ident">pixel</span>);
+                    <span class="kw">return </span><span class="prelude-val">Some</span>(pixel);
                 }
 
-                <span class="kw">let</span> <span class="ident">scanline</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">styled_scanlines</span>.<span class="ident">next</span>()<span class="question-mark">?</span>;
-                <span class="self">self</span>.<span class="ident">stroke_left</span> <span class="op">=</span> <span class="ident">scanline</span>.<span class="ident">stroke_left</span>();
-                <span class="self">self</span>.<span class="ident">fill</span> <span class="op">=</span> <span class="ident">scanline</span>.<span class="ident">fill</span>();
-                <span class="self">self</span>.<span class="ident">stroke_right</span> <span class="op">=</span> <span class="ident">scanline</span>.<span class="ident">stroke_right</span>();
+                <span class="kw">let </span>scanline = <span class="self">self</span>.styled_scanlines.next()<span class="question-mark">?</span>;
+                <span class="self">self</span>.stroke_left = scanline.stroke_left();
+                <span class="self">self</span>.fill = scanline.fill();
+                <span class="self">self</span>.stroke_right = scanline.stroke_right();
             },
-            (<span class="prelude-val">None</span>, <span class="prelude-val">Some</span>(<span class="ident">fill_color</span>)) =&gt; <span class="kw">loop</span> {
-                <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">pixel</span>) <span class="op">=</span> <span class="self">self</span>.<span class="ident">fill</span>.<span class="ident">next</span>().<span class="ident">map</span>(<span class="op">|</span><span class="ident">p</span><span class="op">|</span> <span class="ident">Pixel</span>(<span class="ident">p</span>, <span class="ident">fill_color</span>)) {
-                    <span class="kw">return</span> <span class="prelude-val">Some</span>(<span class="ident">pixel</span>);
+            (<span class="prelude-val">None</span>, <span class="prelude-val">Some</span>(fill_color)) =&gt; <span class="kw">loop </span>{
+                <span class="kw">if let </span><span class="prelude-val">Some</span>(pixel) = <span class="self">self</span>.fill.next().map(|p| Pixel(p, fill_color)) {
+                    <span class="kw">return </span><span class="prelude-val">Some</span>(pixel);
                 }
 
-                <span class="kw">let</span> <span class="ident">scanline</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">styled_scanlines</span>.<span class="ident">next</span>()<span class="question-mark">?</span>;
-                <span class="self">self</span>.<span class="ident">fill</span> <span class="op">=</span> <span class="ident">scanline</span>.<span class="ident">fill</span>();
+                <span class="kw">let </span>scanline = <span class="self">self</span>.styled_scanlines.next()<span class="question-mark">?</span>;
+                <span class="self">self</span>.fill = scanline.fill();
             },
             (<span class="prelude-val">None</span>, <span class="prelude-val">None</span>) =&gt; <span class="prelude-val">None</span>,
         }
     }
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">C</span>: <span class="ident">PixelColor</span><span class="op">&gt;</span> <span class="ident">StyledPixels</span><span class="op">&lt;</span><span class="ident">PrimitiveStyle</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Circle</span> {
-    <span class="kw">type</span> <span class="ident">Iter</span> <span class="op">=</span> <span class="ident">StyledPixelsIterator</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>;
+<span class="kw">impl</span>&lt;C: PixelColor&gt; StyledPixels&lt;PrimitiveStyle&lt;C&gt;&gt; <span class="kw">for </span>Circle {
+    <span class="kw">type </span>Iter = StyledPixelsIterator&lt;C&gt;;
 
-    <span class="kw">fn</span> <span class="ident">pixels</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">style</span>: <span class="kw-2">&amp;</span><span class="ident">PrimitiveStyle</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>) -&gt; <span class="ident"><span class="self">Self</span>::Iter</span> {
-        <span class="ident">StyledPixelsIterator::new</span>(<span class="self">self</span>, <span class="ident">style</span>)
+    <span class="kw">fn </span>pixels(<span class="kw-2">&amp;</span><span class="self">self</span>, style: <span class="kw-2">&amp;</span>PrimitiveStyle&lt;C&gt;) -&gt; <span class="self">Self</span>::Iter {
+        StyledPixelsIterator::new(<span class="self">self</span>, style)
     }
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">C</span>: <span class="ident">PixelColor</span><span class="op">&gt;</span> <span class="ident">StyledDrawable</span><span class="op">&lt;</span><span class="ident">PrimitiveStyle</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Circle</span> {
-    <span class="kw">type</span> <span class="ident">Color</span> <span class="op">=</span> <span class="ident">C</span>;
-    <span class="kw">type</span> <span class="ident">Output</span> <span class="op">=</span> ();
+<span class="kw">impl</span>&lt;C: PixelColor&gt; StyledDrawable&lt;PrimitiveStyle&lt;C&gt;&gt; <span class="kw">for </span>Circle {
+    <span class="kw">type </span>Color = C;
+    <span class="kw">type </span>Output = ();
 
-    <span class="kw">fn</span> <span class="ident">draw_styled</span><span class="op">&lt;</span><span class="ident">D</span><span class="op">&gt;</span>(
+    <span class="kw">fn </span>draw_styled&lt;D&gt;(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">style</span>: <span class="kw-2">&amp;</span><span class="ident">PrimitiveStyle</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>,
-        <span class="ident">target</span>: <span class="kw-2">&amp;mut</span> <span class="ident">D</span>,
-    ) -&gt; <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Output</span>, <span class="ident">D::Error</span><span class="op">&gt;</span>
-    <span class="kw">where</span>
-        <span class="ident">D</span>: <span class="ident">DrawTarget</span><span class="op">&lt;</span><span class="ident">Color</span> <span class="op">=</span> <span class="ident">C</span><span class="op">&gt;</span>,
+        style: <span class="kw-2">&amp;</span>PrimitiveStyle&lt;C&gt;,
+        target: <span class="kw-2">&amp;mut </span>D,
+    ) -&gt; <span class="prelude-ty">Result</span>&lt;<span class="self">Self</span>::Output, D::Error&gt;
+    <span class="kw">where
+        </span>D: DrawTarget&lt;Color = C&gt;,
     {
-        <span class="kw">match</span> (<span class="ident">style</span>.<span class="ident">effective_stroke_color</span>(), <span class="ident">style</span>.<span class="ident">fill_color</span>) {
-            (<span class="prelude-val">Some</span>(<span class="ident">stroke_color</span>), <span class="prelude-val">None</span>) =&gt; {
-                <span class="kw">for</span> <span class="ident">scanline</span> <span class="kw">in</span>
-                    <span class="ident">StyledScanlines::new</span>(<span class="kw-2">&amp;</span><span class="ident">style</span>.<span class="ident">stroke_area</span>(<span class="self">self</span>), <span class="kw-2">&amp;</span><span class="ident">style</span>.<span class="ident">fill_area</span>(<span class="self">self</span>))
+        <span class="kw">match </span>(style.effective_stroke_color(), style.fill_color) {
+            (<span class="prelude-val">Some</span>(stroke_color), <span class="prelude-val">None</span>) =&gt; {
+                <span class="kw">for </span>scanline <span class="kw">in
+                    </span>StyledScanlines::new(<span class="kw-2">&amp;</span>style.stroke_area(<span class="self">self</span>), <span class="kw-2">&amp;</span>style.fill_area(<span class="self">self</span>))
                 {
-                    <span class="ident">scanline</span>.<span class="ident">draw_stroke</span>(<span class="ident">target</span>, <span class="ident">stroke_color</span>)<span class="question-mark">?</span>;
+                    scanline.draw_stroke(target, stroke_color)<span class="question-mark">?</span>;
                 }
             }
-            (<span class="prelude-val">Some</span>(<span class="ident">stroke_color</span>), <span class="prelude-val">Some</span>(<span class="ident">fill_color</span>)) =&gt; {
-                <span class="kw">for</span> <span class="ident">scanline</span> <span class="kw">in</span>
-                    <span class="ident">StyledScanlines::new</span>(<span class="kw-2">&amp;</span><span class="ident">style</span>.<span class="ident">stroke_area</span>(<span class="self">self</span>), <span class="kw-2">&amp;</span><span class="ident">style</span>.<span class="ident">fill_area</span>(<span class="self">self</span>))
+            (<span class="prelude-val">Some</span>(stroke_color), <span class="prelude-val">Some</span>(fill_color)) =&gt; {
+                <span class="kw">for </span>scanline <span class="kw">in
+                    </span>StyledScanlines::new(<span class="kw-2">&amp;</span>style.stroke_area(<span class="self">self</span>), <span class="kw-2">&amp;</span>style.fill_area(<span class="self">self</span>))
                 {
-                    <span class="ident">scanline</span>.<span class="ident">draw_stroke_and_fill</span>(<span class="ident">target</span>, <span class="ident">stroke_color</span>, <span class="ident">fill_color</span>)<span class="question-mark">?</span>;
+                    scanline.draw_stroke_and_fill(target, stroke_color, fill_color)<span class="question-mark">?</span>;
                 }
             }
-            (<span class="prelude-val">None</span>, <span class="prelude-val">Some</span>(<span class="ident">fill_color</span>)) =&gt; {
-                <span class="kw">for</span> <span class="ident">scanline</span> <span class="kw">in</span> <span class="ident">Scanlines::new</span>(<span class="kw-2">&amp;</span><span class="ident">style</span>.<span class="ident">fill_area</span>(<span class="self">self</span>)) {
-                    <span class="ident">scanline</span>.<span class="ident">draw</span>(<span class="ident">target</span>, <span class="ident">fill_color</span>)<span class="question-mark">?</span>;
+            (<span class="prelude-val">None</span>, <span class="prelude-val">Some</span>(fill_color)) =&gt; {
+                <span class="kw">for </span>scanline <span class="kw">in </span>Scanlines::new(<span class="kw-2">&amp;</span>style.fill_area(<span class="self">self</span>)) {
+                    scanline.draw(target, fill_color)<span class="question-mark">?</span>;
                 }
             }
             (<span class="prelude-val">None</span>, <span class="prelude-val">None</span>) =&gt; {}
@@ -635,356 +634,356 @@
     }
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">C</span>: <span class="ident">PixelColor</span><span class="op">&gt;</span> <span class="ident">StyledDimensions</span><span class="op">&lt;</span><span class="ident">PrimitiveStyle</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Circle</span> {
-    <span class="kw">fn</span> <span class="ident">styled_bounding_box</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">style</span>: <span class="kw-2">&amp;</span><span class="ident">PrimitiveStyle</span><span class="op">&lt;</span><span class="ident">C</span><span class="op">&gt;</span>) -&gt; <span class="ident">Rectangle</span> {
-        <span class="kw">let</span> <span class="ident">offset</span> <span class="op">=</span> <span class="ident">style</span>.<span class="ident">outside_stroke_width</span>().<span class="ident">saturating_as</span>();
+<span class="kw">impl</span>&lt;C: PixelColor&gt; StyledDimensions&lt;PrimitiveStyle&lt;C&gt;&gt; <span class="kw">for </span>Circle {
+    <span class="kw">fn </span>styled_bounding_box(<span class="kw-2">&amp;</span><span class="self">self</span>, style: <span class="kw-2">&amp;</span>PrimitiveStyle&lt;C&gt;) -&gt; Rectangle {
+        <span class="kw">let </span>offset = style.outside_stroke_width().saturating_as();
 
-        <span class="self">self</span>.<span class="ident">bounding_box</span>().<span class="ident">offset</span>(<span class="ident">offset</span>)
+        <span class="self">self</span>.bounding_box().offset(offset)
     }
 }
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Clone</span>, <span class="ident">Eq</span>, <span class="ident">PartialEq</span>, <span class="ident">Hash</span>, <span class="ident">Debug</span>)]</span>
-<span class="kw">struct</span> <span class="ident">StyledScanlines</span> {
-    <span class="ident">scanlines</span>: <span class="ident">Scanlines</span>,
-    <span class="ident">fill_threshold</span>: <span class="ident">u32</span>,
+<span class="attribute">#[derive(Clone, Eq, PartialEq, Hash, Debug)]
+</span><span class="kw">struct </span>StyledScanlines {
+    scanlines: Scanlines,
+    fill_threshold: u32,
 }
 
-<span class="kw">impl</span> <span class="ident">StyledScanlines</span> {
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">stroke_area</span>: <span class="kw-2">&amp;</span><span class="ident">Circle</span>, <span class="ident">fill_area</span>: <span class="kw-2">&amp;</span><span class="ident">Circle</span>) -&gt; <span class="self">Self</span> {
-        <span class="self">Self</span> {
-            <span class="ident">scanlines</span>: <span class="ident">Scanlines::new</span>(<span class="ident">stroke_area</span>),
-            <span class="ident">fill_threshold</span>: <span class="ident">fill_area</span>.<span class="ident">threshold</span>(),
+<span class="kw">impl </span>StyledScanlines {
+    <span class="kw">pub fn </span>new(stroke_area: <span class="kw-2">&amp;</span>Circle, fill_area: <span class="kw-2">&amp;</span>Circle) -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{
+            scanlines: Scanlines::new(stroke_area),
+            fill_threshold: fill_area.threshold(),
         }
     }
 }
 
-<span class="kw">impl</span> <span class="ident">Iterator</span> <span class="kw">for</span> <span class="ident">StyledScanlines</span> {
-    <span class="kw">type</span> <span class="ident">Item</span> <span class="op">=</span> <span class="ident">StyledScanline</span>;
+<span class="kw">impl </span>Iterator <span class="kw">for </span>StyledScanlines {
+    <span class="kw">type </span>Item = StyledScanline;
 
-    <span class="kw">fn</span> <span class="ident">next</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Item</span><span class="op">&gt;</span> {
-        <span class="self">self</span>.<span class="ident">scanlines</span>.<span class="ident">next</span>().<span class="ident">map</span>(<span class="op">|</span><span class="ident">scanline</span><span class="op">|</span> {
-            <span class="kw">let</span> <span class="ident">fill_range</span> <span class="op">=</span> <span class="ident">scanline</span>
-                .<span class="ident">x</span>
-                .<span class="ident">clone</span>()
-                .<span class="ident">find</span>(<span class="op">|</span><span class="ident">x</span><span class="op">|</span> {
-                    <span class="kw">let</span> <span class="ident">delta</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="kw-2">*</span><span class="ident">x</span>, <span class="ident">scanline</span>.<span class="ident">y</span>) <span class="op">*</span> <span class="number">2</span> <span class="op">-</span> <span class="self">self</span>.<span class="ident">scanlines</span>.<span class="ident">center_2x</span>;
-                    (<span class="ident">delta</span>.<span class="ident">length_squared</span>() <span class="kw">as</span> <span class="ident">u32</span>) <span class="op">&lt;</span> <span class="self">self</span>.<span class="ident">fill_threshold</span>
+    <span class="kw">fn </span>next(<span class="kw-2">&amp;mut </span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="self">Self</span>::Item&gt; {
+        <span class="self">self</span>.scanlines.next().map(|scanline| {
+            <span class="kw">let </span>fill_range = scanline
+                .x
+                .clone()
+                .find(|x| {
+                    <span class="kw">let </span>delta = Point::new(<span class="kw-2">*</span>x, scanline.y) * <span class="number">2 </span>- <span class="self">self</span>.scanlines.center_2x;
+                    (delta.length_squared() <span class="kw">as </span>u32) &lt; <span class="self">self</span>.fill_threshold
                 })
-                .<span class="ident">map</span>(<span class="op">|</span><span class="ident">x</span><span class="op">|</span> <span class="ident">x</span>..<span class="ident">scanline</span>.<span class="ident">x</span>.<span class="ident">end</span> <span class="op">-</span> (<span class="ident">x</span> <span class="op">-</span> <span class="ident">scanline</span>.<span class="ident">x</span>.<span class="ident">start</span>));
+                .map(|x| x..scanline.x.end - (x - scanline.x.start));
 
-            <span class="ident">StyledScanline::new</span>(<span class="ident">scanline</span>.<span class="ident">y</span>, <span class="ident">scanline</span>.<span class="ident">x</span>, <span class="ident">fill_range</span>)
+            StyledScanline::new(scanline.y, scanline.x, fill_range)
         })
     }
 }
 
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
-<span class="kw">mod</span> <span class="ident">tests</span> {
-    <span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
-    <span class="kw">use</span> <span class="kw">crate</span>::{
-        <span class="ident">geometry</span>::{<span class="ident">Dimensions</span>, <span class="ident">Point</span>},
-        <span class="ident">iterator::PixelIteratorExt</span>,
-        <span class="ident">mock_display::MockDisplay</span>,
-        <span class="ident">pixelcolor::BinaryColor</span>,
-        <span class="ident">primitives</span>::{
-            <span class="ident">OffsetOutline</span>, <span class="ident">PointsIter</span>, <span class="ident">Primitive</span>, <span class="ident">PrimitiveStyleBuilder</span>, <span class="ident">StrokeAlignment</span>, <span class="ident">Styled</span>,
+<span class="attribute">#[cfg(test)]
+</span><span class="kw">mod </span>tests {
+    <span class="kw">use super</span>::<span class="kw-2">*</span>;
+    <span class="kw">use crate</span>::{
+        geometry::{Dimensions, Point},
+        iterator::PixelIteratorExt,
+        mock_display::MockDisplay,
+        pixelcolor::BinaryColor,
+        primitives::{
+            OffsetOutline, PointsIter, Primitive, PrimitiveStyleBuilder, StrokeAlignment, Styled,
         },
-        <span class="ident">Drawable</span>,
+        Drawable,
     };
 
-    <span class="doccomment">/// Draws a styled circle by only using the points iterator.</span>
-    <span class="kw">fn</span> <span class="ident">draw_circle</span>(
-        <span class="ident">diameter</span>: <span class="ident">u32</span>,
-        <span class="ident">stroke_color</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span>,
-        <span class="ident">stroke_width</span>: <span class="ident">u32</span>,
-        <span class="ident">fill_color</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span>,
-    ) -&gt; <span class="ident">MockDisplay</span><span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span> {
-        <span class="kw">let</span> <span class="ident">circle</span> <span class="op">=</span> <span class="ident">Circle::with_center</span>(<span class="ident">Point::new_equal</span>(<span class="number">10</span>), <span class="ident">diameter</span>);
+    <span class="doccomment">/// Draws a styled circle by only using the points iterator.
+    </span><span class="kw">fn </span>draw_circle(
+        diameter: u32,
+        stroke_color: <span class="prelude-ty">Option</span>&lt;BinaryColor&gt;,
+        stroke_width: u32,
+        fill_color: <span class="prelude-ty">Option</span>&lt;BinaryColor&gt;,
+    ) -&gt; MockDisplay&lt;BinaryColor&gt; {
+        <span class="kw">let </span>circle = Circle::with_center(Point::new_equal(<span class="number">10</span>), diameter);
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
-        <span class="ident">display</span>.<span class="ident">set_pixels</span>(<span class="ident">circle</span>.<span class="ident">points</span>(), <span class="ident">stroke_color</span>);
-        <span class="ident">display</span>.<span class="ident">set_pixels</span>(
-            <span class="ident">circle</span>.<span class="ident">offset</span>(<span class="op">-</span><span class="ident">stroke_width</span>.<span class="ident">saturating_as</span>::<span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span>()).<span class="ident">points</span>(),
-            <span class="ident">fill_color</span>,
+        <span class="kw">let </span><span class="kw-2">mut </span>display = MockDisplay::new();
+        display.set_pixels(circle.points(), stroke_color);
+        display.set_pixels(
+            circle.offset(-stroke_width.saturating_as::&lt;i32&gt;()).points(),
+            fill_color,
         );
 
-        <span class="ident">display</span>
+        display
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">fill</span>() {
-        <span class="kw">for</span> <span class="ident">diameter</span> <span class="kw">in</span> <span class="number">5</span>..<span class="op">=</span><span class="number">6</span> {
-            <span class="kw">let</span> <span class="ident">expected</span> <span class="op">=</span> <span class="ident">draw_circle</span>(<span class="ident">diameter</span>, <span class="prelude-val">None</span>, <span class="number">0</span>, <span class="prelude-val">Some</span>(<span class="ident">BinaryColor::On</span>));
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>fill() {
+        <span class="kw">for </span>diameter <span class="kw">in </span><span class="number">5</span>..=<span class="number">6 </span>{
+            <span class="kw">let </span>expected = draw_circle(diameter, <span class="prelude-val">None</span>, <span class="number">0</span>, <span class="prelude-val">Some</span>(BinaryColor::On));
 
-            <span class="kw">let</span> <span class="ident">circle</span> <span class="op">=</span> <span class="ident">Circle::with_center</span>(<span class="ident">Point::new_equal</span>(<span class="number">10</span>), <span class="ident">diameter</span>)
-                .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle::with_fill</span>(<span class="ident">BinaryColor::On</span>));
+            <span class="kw">let </span>circle = Circle::with_center(Point::new_equal(<span class="number">10</span>), diameter)
+                .into_styled(PrimitiveStyle::with_fill(BinaryColor::On));
 
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">drawable</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
-            <span class="ident">circle</span>.<span class="ident">draw</span>(<span class="kw-2">&amp;mut</span> <span class="ident">drawable</span>).<span class="ident">unwrap</span>();
-            <span class="ident">drawable</span>.<span class="ident">assert_eq_with_message</span>(<span class="kw-2">&amp;</span><span class="ident">expected</span>, <span class="op">|</span><span class="ident">f</span><span class="op">|</span> <span class="macro">write!</span>(<span class="ident">f</span>, <span class="string">&quot;diameter = {}&quot;</span>, <span class="ident">diameter</span>));
+            <span class="kw">let </span><span class="kw-2">mut </span>drawable = MockDisplay::new();
+            circle.draw(<span class="kw-2">&amp;mut </span>drawable).unwrap();
+            drawable.assert_eq_with_message(<span class="kw-2">&amp;</span>expected, |f| <span class="macro">write!</span>(f, <span class="string">&quot;diameter = {}&quot;</span>, diameter));
 
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">pixels</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
-            <span class="ident">circle</span>.<span class="ident">pixels</span>().<span class="ident">draw</span>(<span class="kw-2">&amp;mut</span> <span class="ident">pixels</span>).<span class="ident">unwrap</span>();
-            <span class="ident">pixels</span>.<span class="ident">assert_eq_with_message</span>(<span class="kw-2">&amp;</span><span class="ident">expected</span>, <span class="op">|</span><span class="ident">f</span><span class="op">|</span> <span class="macro">write!</span>(<span class="ident">f</span>, <span class="string">&quot;diameter = {}&quot;</span>, <span class="ident">diameter</span>));
+            <span class="kw">let </span><span class="kw-2">mut </span>pixels = MockDisplay::new();
+            circle.pixels().draw(<span class="kw-2">&amp;mut </span>pixels).unwrap();
+            pixels.assert_eq_with_message(<span class="kw-2">&amp;</span>expected, |f| <span class="macro">write!</span>(f, <span class="string">&quot;diameter = {}&quot;</span>, diameter));
         }
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">stroke</span>() {
-        <span class="kw">for</span> (<span class="ident">diameter</span>, <span class="ident">stroke_width</span>) <span class="kw">in</span> [(<span class="number">5</span>, <span class="number">2</span>), (<span class="number">5</span>, <span class="number">3</span>), (<span class="number">6</span>, <span class="number">2</span>), (<span class="number">6</span>, <span class="number">3</span>)].<span class="ident">iter</span>().<span class="ident">copied</span>() {
-            <span class="kw">let</span> <span class="ident">expected</span> <span class="op">=</span> <span class="ident">draw_circle</span>(<span class="ident">diameter</span>, <span class="prelude-val">Some</span>(<span class="ident">BinaryColor::On</span>), <span class="ident">stroke_width</span>, <span class="prelude-val">None</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>stroke() {
+        <span class="kw">for </span>(diameter, stroke_width) <span class="kw">in </span>[(<span class="number">5</span>, <span class="number">2</span>), (<span class="number">5</span>, <span class="number">3</span>), (<span class="number">6</span>, <span class="number">2</span>), (<span class="number">6</span>, <span class="number">3</span>)].iter().copied() {
+            <span class="kw">let </span>expected = draw_circle(diameter, <span class="prelude-val">Some</span>(BinaryColor::On), stroke_width, <span class="prelude-val">None</span>);
 
-            <span class="kw">let</span> <span class="ident">style</span> <span class="op">=</span> <span class="ident">PrimitiveStyleBuilder::new</span>()
-                .<span class="ident">stroke_color</span>(<span class="ident">BinaryColor::On</span>)
-                .<span class="ident">stroke_width</span>(<span class="ident">stroke_width</span>)
-                .<span class="ident">stroke_alignment</span>(<span class="ident">StrokeAlignment::Inside</span>)
-                .<span class="ident">build</span>();
+            <span class="kw">let </span>style = PrimitiveStyleBuilder::new()
+                .stroke_color(BinaryColor::On)
+                .stroke_width(stroke_width)
+                .stroke_alignment(StrokeAlignment::Inside)
+                .build();
 
-            <span class="kw">let</span> <span class="ident">circle</span> <span class="op">=</span> <span class="ident">Circle::with_center</span>(<span class="ident">Point::new_equal</span>(<span class="number">10</span>), <span class="ident">diameter</span>).<span class="ident">into_styled</span>(<span class="ident">style</span>);
+            <span class="kw">let </span>circle = Circle::with_center(Point::new_equal(<span class="number">10</span>), diameter).into_styled(style);
 
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">drawable</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
-            <span class="ident">circle</span>.<span class="ident">draw</span>(<span class="kw-2">&amp;mut</span> <span class="ident">drawable</span>).<span class="ident">unwrap</span>();
-            <span class="ident">drawable</span>.<span class="ident">assert_eq_with_message</span>(<span class="kw-2">&amp;</span><span class="ident">expected</span>, <span class="op">|</span><span class="ident">f</span><span class="op">|</span> {
+            <span class="kw">let </span><span class="kw-2">mut </span>drawable = MockDisplay::new();
+            circle.draw(<span class="kw-2">&amp;mut </span>drawable).unwrap();
+            drawable.assert_eq_with_message(<span class="kw-2">&amp;</span>expected, |f| {
                 <span class="macro">write!</span>(
-                    <span class="ident">f</span>,
+                    f,
                     <span class="string">&quot;diameter = {}, stroke_width = {}&quot;</span>,
-                    <span class="ident">diameter</span>, <span class="ident">stroke_width</span>
+                    diameter, stroke_width
                 )
             });
 
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">pixels</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
-            <span class="ident">circle</span>.<span class="ident">pixels</span>().<span class="ident">draw</span>(<span class="kw-2">&amp;mut</span> <span class="ident">pixels</span>).<span class="ident">unwrap</span>();
-            <span class="ident">pixels</span>.<span class="ident">assert_eq_with_message</span>(<span class="kw-2">&amp;</span><span class="ident">expected</span>, <span class="op">|</span><span class="ident">f</span><span class="op">|</span> {
+            <span class="kw">let </span><span class="kw-2">mut </span>pixels = MockDisplay::new();
+            circle.pixels().draw(<span class="kw-2">&amp;mut </span>pixels).unwrap();
+            pixels.assert_eq_with_message(<span class="kw-2">&amp;</span>expected, |f| {
                 <span class="macro">write!</span>(
-                    <span class="ident">f</span>,
+                    f,
                     <span class="string">&quot;diameter = {}, stroke_width = {}&quot;</span>,
-                    <span class="ident">diameter</span>, <span class="ident">stroke_width</span>
+                    diameter, stroke_width
                 )
             });
         }
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">stroke_and_fill</span>() {
-        <span class="kw">for</span> (<span class="ident">diameter</span>, <span class="ident">stroke_width</span>) <span class="kw">in</span> [(<span class="number">5</span>, <span class="number">2</span>), (<span class="number">5</span>, <span class="number">3</span>), (<span class="number">6</span>, <span class="number">2</span>), (<span class="number">6</span>, <span class="number">3</span>)].<span class="ident">iter</span>().<span class="ident">copied</span>() {
-            <span class="kw">let</span> <span class="ident">expected</span> <span class="op">=</span> <span class="ident">draw_circle</span>(
-                <span class="ident">diameter</span>,
-                <span class="prelude-val">Some</span>(<span class="ident">BinaryColor::On</span>),
-                <span class="ident">stroke_width</span>,
-                <span class="prelude-val">Some</span>(<span class="ident">BinaryColor::Off</span>),
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>stroke_and_fill() {
+        <span class="kw">for </span>(diameter, stroke_width) <span class="kw">in </span>[(<span class="number">5</span>, <span class="number">2</span>), (<span class="number">5</span>, <span class="number">3</span>), (<span class="number">6</span>, <span class="number">2</span>), (<span class="number">6</span>, <span class="number">3</span>)].iter().copied() {
+            <span class="kw">let </span>expected = draw_circle(
+                diameter,
+                <span class="prelude-val">Some</span>(BinaryColor::On),
+                stroke_width,
+                <span class="prelude-val">Some</span>(BinaryColor::Off),
             );
 
-            <span class="kw">let</span> <span class="ident">style</span> <span class="op">=</span> <span class="ident">PrimitiveStyleBuilder::new</span>()
-                .<span class="ident">fill_color</span>(<span class="ident">BinaryColor::Off</span>)
-                .<span class="ident">stroke_color</span>(<span class="ident">BinaryColor::On</span>)
-                .<span class="ident">stroke_width</span>(<span class="ident">stroke_width</span>)
-                .<span class="ident">stroke_alignment</span>(<span class="ident">StrokeAlignment::Inside</span>)
-                .<span class="ident">build</span>();
+            <span class="kw">let </span>style = PrimitiveStyleBuilder::new()
+                .fill_color(BinaryColor::Off)
+                .stroke_color(BinaryColor::On)
+                .stroke_width(stroke_width)
+                .stroke_alignment(StrokeAlignment::Inside)
+                .build();
 
-            <span class="kw">let</span> <span class="ident">circle</span> <span class="op">=</span> <span class="ident">Circle::with_center</span>(<span class="ident">Point::new_equal</span>(<span class="number">10</span>), <span class="ident">diameter</span>).<span class="ident">into_styled</span>(<span class="ident">style</span>);
+            <span class="kw">let </span>circle = Circle::with_center(Point::new_equal(<span class="number">10</span>), diameter).into_styled(style);
 
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">drawable</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
-            <span class="ident">circle</span>.<span class="ident">draw</span>(<span class="kw-2">&amp;mut</span> <span class="ident">drawable</span>).<span class="ident">unwrap</span>();
-            <span class="ident">drawable</span>.<span class="ident">assert_eq_with_message</span>(<span class="kw-2">&amp;</span><span class="ident">expected</span>, <span class="op">|</span><span class="ident">f</span><span class="op">|</span> {
+            <span class="kw">let </span><span class="kw-2">mut </span>drawable = MockDisplay::new();
+            circle.draw(<span class="kw-2">&amp;mut </span>drawable).unwrap();
+            drawable.assert_eq_with_message(<span class="kw-2">&amp;</span>expected, |f| {
                 <span class="macro">write!</span>(
-                    <span class="ident">f</span>,
+                    f,
                     <span class="string">&quot;diameter = {}, stroke_width = {}&quot;</span>,
-                    <span class="ident">diameter</span>, <span class="ident">stroke_width</span>
+                    diameter, stroke_width
                 )
             });
 
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">pixels</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
-            <span class="ident">circle</span>.<span class="ident">pixels</span>().<span class="ident">draw</span>(<span class="kw-2">&amp;mut</span> <span class="ident">pixels</span>).<span class="ident">unwrap</span>();
-            <span class="ident">pixels</span>.<span class="ident">assert_eq_with_message</span>(<span class="kw-2">&amp;</span><span class="ident">expected</span>, <span class="op">|</span><span class="ident">f</span><span class="op">|</span> {
+            <span class="kw">let </span><span class="kw-2">mut </span>pixels = MockDisplay::new();
+            circle.pixels().draw(<span class="kw-2">&amp;mut </span>pixels).unwrap();
+            pixels.assert_eq_with_message(<span class="kw-2">&amp;</span>expected, |f| {
                 <span class="macro">write!</span>(
-                    <span class="ident">f</span>,
+                    f,
                     <span class="string">&quot;diameter = {}, stroke_width = {}&quot;</span>,
-                    <span class="ident">diameter</span>, <span class="ident">stroke_width</span>
+                    diameter, stroke_width
                 )
             });
         }
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">filled_styled_points_matches_points</span>() {
-        <span class="kw">let</span> <span class="ident">circle</span> <span class="op">=</span> <span class="ident">Circle::with_center</span>(<span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">10</span>), <span class="number">5</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>filled_styled_points_matches_points() {
+        <span class="kw">let </span>circle = Circle::with_center(Point::new(<span class="number">10</span>, <span class="number">10</span>), <span class="number">5</span>);
 
-        <span class="kw">let</span> <span class="ident">styled_points</span> <span class="op">=</span> <span class="ident">circle</span>
-            .<span class="ident">clone</span>()
-            .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle::with_fill</span>(<span class="ident">BinaryColor::On</span>))
-            .<span class="ident">pixels</span>()
-            .<span class="ident">map</span>(<span class="op">|</span><span class="ident">Pixel</span>(<span class="ident">p</span>, <span class="kw">_</span>)<span class="op">|</span> <span class="ident">p</span>);
+        <span class="kw">let </span>styled_points = circle
+            .clone()
+            .into_styled(PrimitiveStyle::with_fill(BinaryColor::On))
+            .pixels()
+            .map(|Pixel(p, <span class="kw">_</span>)| p);
 
-        <span class="macro">assert!</span>(<span class="ident">circle</span>.<span class="ident">points</span>().<span class="ident">eq</span>(<span class="ident">styled_points</span>));
+        <span class="macro">assert!</span>(circle.points().eq(styled_points));
     }
 
-    <span class="comment">// Check that tiny circles render as a &quot;+&quot; shape with a hole in the center</span>
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">tiny_circle</span>() {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
+    <span class="comment">// Check that tiny circles render as a &quot;+&quot; shape with a hole in the center
+    </span><span class="attribute">#[test]
+    </span><span class="kw">fn </span>tiny_circle() {
+        <span class="kw">let </span><span class="kw-2">mut </span>display = MockDisplay::new();
 
-        <span class="ident">Circle::new</span>(<span class="ident">Point::new</span>(<span class="number">0</span>, <span class="number">0</span>), <span class="number">3</span>)
-            .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle::with_stroke</span>(<span class="ident">BinaryColor::On</span>, <span class="number">1</span>))
-            .<span class="ident">draw</span>(<span class="kw-2">&amp;mut</span> <span class="ident">display</span>)
-            .<span class="ident">unwrap</span>();
+        Circle::new(Point::new(<span class="number">0</span>, <span class="number">0</span>), <span class="number">3</span>)
+            .into_styled(PrimitiveStyle::with_stroke(BinaryColor::On, <span class="number">1</span>))
+            .draw(<span class="kw-2">&amp;mut </span>display)
+            .unwrap();
 
-        <span class="ident">display</span>.<span class="ident">assert_pattern</span>(<span class="kw-2">&amp;</span>[
-            <span class="string">&quot; # &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;# #&quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot; # &quot;</span>, <span class="comment">//</span>
-        ]);
+        display.assert_pattern(<span class="kw-2">&amp;</span>[
+            <span class="string">&quot; # &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;# #&quot;</span>, <span class="comment">//
+            </span><span class="string">&quot; # &quot;</span>, <span class="comment">//
+        </span>]);
     }
 
-    <span class="comment">// Check that tiny filled circle render as a &quot;+&quot; shape with NO hole in the center</span>
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">tiny_circle_filled</span>() {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
+    <span class="comment">// Check that tiny filled circle render as a &quot;+&quot; shape with NO hole in the center
+    </span><span class="attribute">#[test]
+    </span><span class="kw">fn </span>tiny_circle_filled() {
+        <span class="kw">let </span><span class="kw-2">mut </span>display = MockDisplay::new();
 
-        <span class="ident">Circle::new</span>(<span class="ident">Point::new</span>(<span class="number">0</span>, <span class="number">0</span>), <span class="number">3</span>)
-            .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle::with_fill</span>(<span class="ident">BinaryColor::On</span>))
-            .<span class="ident">draw</span>(<span class="kw-2">&amp;mut</span> <span class="ident">display</span>)
-            .<span class="ident">unwrap</span>();
+        Circle::new(Point::new(<span class="number">0</span>, <span class="number">0</span>), <span class="number">3</span>)
+            .into_styled(PrimitiveStyle::with_fill(BinaryColor::On))
+            .draw(<span class="kw-2">&amp;mut </span>display)
+            .unwrap();
 
-        <span class="ident">display</span>.<span class="ident">assert_pattern</span>(<span class="kw-2">&amp;</span>[
-            <span class="string">&quot; # &quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot;###&quot;</span>, <span class="comment">//</span>
-            <span class="string">&quot; # &quot;</span>, <span class="comment">//</span>
-        ]);
+        display.assert_pattern(<span class="kw-2">&amp;</span>[
+            <span class="string">&quot; # &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;###&quot;</span>, <span class="comment">//
+            </span><span class="string">&quot; # &quot;</span>, <span class="comment">//
+        </span>]);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">transparent_border</span>() {
-        <span class="kw">let</span> <span class="ident">circle</span>: <span class="ident">Styled</span><span class="op">&lt;</span><span class="ident">Circle</span>, <span class="ident">PrimitiveStyle</span><span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="op">=</span>
-            <span class="ident">Circle::new</span>(<span class="ident">Point::new</span>(<span class="op">-</span><span class="number">5</span>, <span class="op">-</span><span class="number">5</span>), <span class="number">21</span>)
-                .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle::with_fill</span>(<span class="ident">BinaryColor::On</span>));
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>transparent_border() {
+        <span class="kw">let </span>circle: Styled&lt;Circle, PrimitiveStyle&lt;BinaryColor&gt;&gt; =
+            Circle::new(Point::new(-<span class="number">5</span>, -<span class="number">5</span>), <span class="number">21</span>)
+                .into_styled(PrimitiveStyle::with_fill(BinaryColor::On));
 
-        <span class="macro">assert!</span>(<span class="ident">circle</span>.<span class="ident">pixels</span>().<span class="ident">count</span>() <span class="op">&gt;</span> <span class="number">0</span>);
+        <span class="macro">assert!</span>(circle.pixels().count() &gt; <span class="number">0</span>);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">it_handles_negative_coordinates</span>() {
-        <span class="kw">let</span> <span class="ident">positive</span> <span class="op">=</span> <span class="ident">Circle::new</span>(<span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">10</span>), <span class="number">5</span>)
-            .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle::with_stroke</span>(<span class="ident">BinaryColor::On</span>, <span class="number">1</span>))
-            .<span class="ident">pixels</span>();
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>it_handles_negative_coordinates() {
+        <span class="kw">let </span>positive = Circle::new(Point::new(<span class="number">10</span>, <span class="number">10</span>), <span class="number">5</span>)
+            .into_styled(PrimitiveStyle::with_stroke(BinaryColor::On, <span class="number">1</span>))
+            .pixels();
 
-        <span class="kw">let</span> <span class="ident">negative</span> <span class="op">=</span> <span class="ident">Circle::new</span>(<span class="ident">Point::new</span>(<span class="op">-</span><span class="number">10</span>, <span class="op">-</span><span class="number">10</span>), <span class="number">5</span>)
-            .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle::with_stroke</span>(<span class="ident">BinaryColor::On</span>, <span class="number">1</span>))
-            .<span class="ident">pixels</span>();
+        <span class="kw">let </span>negative = Circle::new(Point::new(-<span class="number">10</span>, -<span class="number">10</span>), <span class="number">5</span>)
+            .into_styled(PrimitiveStyle::with_stroke(BinaryColor::On, <span class="number">1</span>))
+            .pixels();
 
-        <span class="macro">assert!</span>(<span class="ident">negative</span>.<span class="ident">eq</span>(<span class="ident">positive</span>.<span class="ident">map</span>(<span class="op">|</span><span class="ident">Pixel</span>(<span class="ident">p</span>, <span class="ident">c</span>)<span class="op">|</span> <span class="ident">Pixel</span>(<span class="ident">p</span> <span class="op">-</span> <span class="ident">Point::new</span>(<span class="number">20</span>, <span class="number">20</span>), <span class="ident">c</span>))));
+        <span class="macro">assert!</span>(negative.eq(positive.map(|Pixel(p, c)| Pixel(p - Point::new(<span class="number">20</span>, <span class="number">20</span>), c))));
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">stroke_alignment</span>() {
-        <span class="kw">const</span> <span class="ident">CENTER</span>: <span class="ident">Point</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="number">15</span>, <span class="number">15</span>);
-        <span class="kw">const</span> <span class="ident">SIZE</span>: <span class="ident">u32</span> <span class="op">=</span> <span class="number">10</span>;
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>stroke_alignment() {
+        <span class="kw">const </span>CENTER: Point = Point::new(<span class="number">15</span>, <span class="number">15</span>);
+        <span class="kw">const </span>SIZE: u32 = <span class="number">10</span>;
 
-        <span class="kw">let</span> <span class="ident">style</span> <span class="op">=</span> <span class="ident">PrimitiveStyle::with_stroke</span>(<span class="ident">BinaryColor::On</span>, <span class="number">3</span>);
+        <span class="kw">let </span>style = PrimitiveStyle::with_stroke(BinaryColor::On, <span class="number">3</span>);
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display_center</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
-        <span class="ident">Circle::with_center</span>(<span class="ident">CENTER</span>, <span class="ident">SIZE</span>)
-            .<span class="ident">into_styled</span>(<span class="ident">style</span>)
-            .<span class="ident">draw</span>(<span class="kw-2">&amp;mut</span> <span class="ident">display_center</span>)
-            .<span class="ident">unwrap</span>();
+        <span class="kw">let </span><span class="kw-2">mut </span>display_center = MockDisplay::new();
+        Circle::with_center(CENTER, SIZE)
+            .into_styled(style)
+            .draw(<span class="kw-2">&amp;mut </span>display_center)
+            .unwrap();
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display_inside</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
-        <span class="ident">Circle::with_center</span>(<span class="ident">CENTER</span>, <span class="ident">SIZE</span> <span class="op">+</span> <span class="number">2</span>)
-            .<span class="ident">into_styled</span>(
-                <span class="ident">PrimitiveStyleBuilder::from</span>(<span class="kw-2">&amp;</span><span class="ident">style</span>)
-                    .<span class="ident">stroke_alignment</span>(<span class="ident">StrokeAlignment::Inside</span>)
-                    .<span class="ident">build</span>(),
+        <span class="kw">let </span><span class="kw-2">mut </span>display_inside = MockDisplay::new();
+        Circle::with_center(CENTER, SIZE + <span class="number">2</span>)
+            .into_styled(
+                PrimitiveStyleBuilder::from(<span class="kw-2">&amp;</span>style)
+                    .stroke_alignment(StrokeAlignment::Inside)
+                    .build(),
             )
-            .<span class="ident">draw</span>(<span class="kw-2">&amp;mut</span> <span class="ident">display_inside</span>)
-            .<span class="ident">unwrap</span>();
+            .draw(<span class="kw-2">&amp;mut </span>display_inside)
+            .unwrap();
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display_outside</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
-        <span class="ident">Circle::with_center</span>(<span class="ident">CENTER</span>, <span class="ident">SIZE</span> <span class="op">-</span> <span class="number">4</span>)
-            .<span class="ident">into_styled</span>(
-                <span class="ident">PrimitiveStyleBuilder::from</span>(<span class="kw-2">&amp;</span><span class="ident">style</span>)
-                    .<span class="ident">stroke_alignment</span>(<span class="ident">StrokeAlignment::Outside</span>)
-                    .<span class="ident">build</span>(),
+        <span class="kw">let </span><span class="kw-2">mut </span>display_outside = MockDisplay::new();
+        Circle::with_center(CENTER, SIZE - <span class="number">4</span>)
+            .into_styled(
+                PrimitiveStyleBuilder::from(<span class="kw-2">&amp;</span>style)
+                    .stroke_alignment(StrokeAlignment::Outside)
+                    .build(),
             )
-            .<span class="ident">draw</span>(<span class="kw-2">&amp;mut</span> <span class="ident">display_outside</span>)
-            .<span class="ident">unwrap</span>();
+            .draw(<span class="kw-2">&amp;mut </span>display_outside)
+            .unwrap();
 
-        <span class="ident">display_inside</span>.<span class="ident">assert_eq</span>(<span class="kw-2">&amp;</span><span class="ident">display_center</span>);
-        <span class="ident">display_outside</span>.<span class="ident">assert_eq</span>(<span class="kw-2">&amp;</span><span class="ident">display_center</span>);
+        display_inside.assert_eq(<span class="kw-2">&amp;</span>display_center);
+        display_outside.assert_eq(<span class="kw-2">&amp;</span>display_center);
     }
 
-    <span class="doccomment">/// Test for issue #143</span>
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">issue_143_stroke_and_fill</span>() {
-        <span class="kw">for</span> <span class="ident">size</span> <span class="kw">in</span> <span class="number">0</span>..<span class="number">10</span> {
-            <span class="kw">let</span> <span class="ident">circle_no_stroke</span>: <span class="ident">Styled</span><span class="op">&lt;</span><span class="ident">Circle</span>, <span class="ident">PrimitiveStyle</span><span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="op">=</span>
-                <span class="ident">Circle::new</span>(<span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">16</span>), <span class="ident">size</span>)
-                    .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle::with_fill</span>(<span class="ident">BinaryColor::On</span>));
+    <span class="doccomment">/// Test for issue #143
+    </span><span class="attribute">#[test]
+    </span><span class="kw">fn </span>issue_143_stroke_and_fill() {
+        <span class="kw">for </span>size <span class="kw">in </span><span class="number">0</span>..<span class="number">10 </span>{
+            <span class="kw">let </span>circle_no_stroke: Styled&lt;Circle, PrimitiveStyle&lt;BinaryColor&gt;&gt; =
+                Circle::new(Point::new(<span class="number">10</span>, <span class="number">16</span>), size)
+                    .into_styled(PrimitiveStyle::with_fill(BinaryColor::On));
 
-            <span class="kw">let</span> <span class="ident">style</span> <span class="op">=</span> <span class="ident">PrimitiveStyleBuilder::new</span>()
-                .<span class="ident">fill_color</span>(<span class="ident">BinaryColor::On</span>)
-                .<span class="ident">stroke_color</span>(<span class="ident">BinaryColor::On</span>)
-                .<span class="ident">stroke_width</span>(<span class="number">1</span>)
-                .<span class="ident">build</span>();
-            <span class="kw">let</span> <span class="ident">circle_stroke</span>: <span class="ident">Styled</span><span class="op">&lt;</span><span class="ident">Circle</span>, <span class="ident">PrimitiveStyle</span><span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="op">=</span>
-                <span class="ident">Circle::new</span>(<span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">16</span>), <span class="ident">size</span>).<span class="ident">into_styled</span>(<span class="ident">style</span>);
+            <span class="kw">let </span>style = PrimitiveStyleBuilder::new()
+                .fill_color(BinaryColor::On)
+                .stroke_color(BinaryColor::On)
+                .stroke_width(<span class="number">1</span>)
+                .build();
+            <span class="kw">let </span>circle_stroke: Styled&lt;Circle, PrimitiveStyle&lt;BinaryColor&gt;&gt; =
+                Circle::new(Point::new(<span class="number">10</span>, <span class="number">16</span>), size).into_styled(style);
 
             <span class="macro">assert_eq!</span>(
-                <span class="ident">circle_stroke</span>.<span class="ident">bounding_box</span>(),
-                <span class="ident">circle_no_stroke</span>.<span class="ident">bounding_box</span>(),
+                circle_stroke.bounding_box(),
+                circle_no_stroke.bounding_box(),
                 <span class="string">&quot;Filled and unfilled circle bounding boxes are unequal for radius {}&quot;</span>,
-                <span class="ident">size</span>
+                size
             );
             <span class="macro">assert!</span>(
-                <span class="ident">circle_no_stroke</span>.<span class="ident">pixels</span>().<span class="ident">eq</span>(<span class="ident">circle_stroke</span>.<span class="ident">pixels</span>()),
+                circle_no_stroke.pixels().eq(circle_stroke.pixels()),
                 <span class="string">&quot;Filled and unfilled circle iters are unequal for radius {}&quot;</span>,
-                <span class="ident">size</span>
+                size
             );
         }
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">bounding_boxes</span>() {
-        <span class="kw">const</span> <span class="ident">CENTER</span>: <span class="ident">Point</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="number">15</span>, <span class="number">15</span>);
-        <span class="kw">const</span> <span class="ident">SIZE</span>: <span class="ident">u32</span> <span class="op">=</span> <span class="number">10</span>;
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>bounding_boxes() {
+        <span class="kw">const </span>CENTER: Point = Point::new(<span class="number">15</span>, <span class="number">15</span>);
+        <span class="kw">const </span>SIZE: u32 = <span class="number">10</span>;
 
-        <span class="kw">let</span> <span class="ident">style</span> <span class="op">=</span> <span class="ident">PrimitiveStyle::with_stroke</span>(<span class="ident">BinaryColor::On</span>, <span class="number">3</span>);
+        <span class="kw">let </span>style = PrimitiveStyle::with_stroke(BinaryColor::On, <span class="number">3</span>);
 
-        <span class="kw">let</span> <span class="ident">center</span> <span class="op">=</span> <span class="ident">Circle::with_center</span>(<span class="ident">CENTER</span>, <span class="ident">SIZE</span>).<span class="ident">into_styled</span>(<span class="ident">style</span>);
+        <span class="kw">let </span>center = Circle::with_center(CENTER, SIZE).into_styled(style);
 
-        <span class="kw">let</span> <span class="ident">inside</span> <span class="op">=</span> <span class="ident">Circle::with_center</span>(<span class="ident">CENTER</span>, <span class="ident">SIZE</span>).<span class="ident">into_styled</span>(
-            <span class="ident">PrimitiveStyleBuilder::from</span>(<span class="kw-2">&amp;</span><span class="ident">style</span>)
-                .<span class="ident">stroke_alignment</span>(<span class="ident">StrokeAlignment::Inside</span>)
-                .<span class="ident">build</span>(),
+        <span class="kw">let </span>inside = Circle::with_center(CENTER, SIZE).into_styled(
+            PrimitiveStyleBuilder::from(<span class="kw-2">&amp;</span>style)
+                .stroke_alignment(StrokeAlignment::Inside)
+                .build(),
         );
 
-        <span class="kw">let</span> <span class="ident">outside</span> <span class="op">=</span> <span class="ident">Circle::with_center</span>(<span class="ident">CENTER</span>, <span class="ident">SIZE</span>).<span class="ident">into_styled</span>(
-            <span class="ident">PrimitiveStyleBuilder::from</span>(<span class="kw-2">&amp;</span><span class="ident">style</span>)
-                .<span class="ident">stroke_alignment</span>(<span class="ident">StrokeAlignment::Outside</span>)
-                .<span class="ident">build</span>(),
+        <span class="kw">let </span>outside = Circle::with_center(CENTER, SIZE).into_styled(
+            PrimitiveStyleBuilder::from(<span class="kw-2">&amp;</span>style)
+                .stroke_alignment(StrokeAlignment::Outside)
+                .build(),
         );
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
-        <span class="ident">center</span>.<span class="ident">draw</span>(<span class="kw-2">&amp;mut</span> <span class="ident">display</span>).<span class="ident">unwrap</span>();
-        <span class="macro">assert_eq!</span>(<span class="ident">display</span>.<span class="ident">affected_area</span>(), <span class="ident">center</span>.<span class="ident">bounding_box</span>());
+        <span class="kw">let </span><span class="kw-2">mut </span>display = MockDisplay::new();
+        center.draw(<span class="kw-2">&amp;mut </span>display).unwrap();
+        <span class="macro">assert_eq!</span>(display.affected_area(), center.bounding_box());
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
-        <span class="ident">outside</span>.<span class="ident">draw</span>(<span class="kw-2">&amp;mut</span> <span class="ident">display</span>).<span class="ident">unwrap</span>();
-        <span class="macro">assert_eq!</span>(<span class="ident">display</span>.<span class="ident">affected_area</span>(), <span class="ident">outside</span>.<span class="ident">bounding_box</span>());
+        <span class="kw">let </span><span class="kw-2">mut </span>display = MockDisplay::new();
+        outside.draw(<span class="kw-2">&amp;mut </span>display).unwrap();
+        <span class="macro">assert_eq!</span>(display.affected_area(), outside.bounding_box());
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::new</span>();
-        <span class="ident">inside</span>.<span class="ident">draw</span>(<span class="kw-2">&amp;mut</span> <span class="ident">display</span>).<span class="ident">unwrap</span>();
-        <span class="macro">assert_eq!</span>(<span class="ident">display</span>.<span class="ident">affected_area</span>(), <span class="ident">inside</span>.<span class="ident">bounding_box</span>());
+        <span class="kw">let </span><span class="kw-2">mut </span>display = MockDisplay::new();
+        inside.draw(<span class="kw-2">&amp;mut </span>display).unwrap();
+        <span class="macro">assert_eq!</span>(display.affected_area(), inside.bounding_box());
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">bounding_box_is_independent_of_colors</span>() {
-        <span class="kw">let</span> <span class="ident">transparent_circle</span> <span class="op">=</span>
-            <span class="ident">Circle::new</span>(<span class="ident">Point::new</span>(<span class="number">5</span>, <span class="number">5</span>), <span class="number">11</span>).<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle</span>::<span class="op">&lt;</span><span class="ident">BinaryColor</span><span class="op">&gt;</span><span class="ident">::new</span>());
-        <span class="kw">let</span> <span class="ident">filled_circle</span> <span class="op">=</span> <span class="ident">Circle::new</span>(<span class="ident">Point::new</span>(<span class="number">5</span>, <span class="number">5</span>), <span class="number">11</span>)
-            .<span class="ident">into_styled</span>(<span class="ident">PrimitiveStyle::with_fill</span>(<span class="ident">BinaryColor::On</span>));
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>bounding_box_is_independent_of_colors() {
+        <span class="kw">let </span>transparent_circle =
+            Circle::new(Point::new(<span class="number">5</span>, <span class="number">5</span>), <span class="number">11</span>).into_styled(PrimitiveStyle::&lt;BinaryColor&gt;::new());
+        <span class="kw">let </span>filled_circle = Circle::new(Point::new(<span class="number">5</span>, <span class="number">5</span>), <span class="number">11</span>)
+            .into_styled(PrimitiveStyle::with_fill(BinaryColor::On));
 
         <span class="macro">assert_eq!</span>(
-            <span class="ident">transparent_circle</span>.<span class="ident">bounding_box</span>(),
-            <span class="ident">filled_circle</span>.<span class="ident">bounding_box</span>(),
+            transparent_circle.bounding_box(),
+            filled_circle.bounding_box(),
         );
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../../" data-current-crate="embedded_graphics" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0 (a55dd71d5 2022-09-19)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../../" data-current-crate="embedded_graphics" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0 (69f9c33d7 2022-12-12)" ></div></body></html>

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/az-1.2.1/src/lib.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>lib.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script><script defer src="../../main.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../az/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../az/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../az/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/az-1.2.1/src/lib.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>lib.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../normalize.css"><link rel="stylesheet" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../ayu.css" disabled><link rel="stylesheet" href="../../dark.css" disabled><link rel="stylesheet" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script><script defer src="../../main.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../az/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -1133,22 +1133,22 @@
 <span id="1133">1133</span>
 <span id="1134">1134</span>
 <span id="1135">1135</span>
-</pre><pre class="rust"><code><span class="comment">// Copyright © 2019–2021 Trevor Spiteri</span>
+</pre><pre class="rust"><code><span class="comment">// Copyright © 2019–2021 Trevor Spiteri
 
-<span class="comment">// This library is free software: you can redistribute it and/or</span>
-<span class="comment">// modify it under the terms of either</span>
-<span class="comment">//</span>
-<span class="comment">//   * the Apache License, Version 2.0 or</span>
-<span class="comment">//   * the MIT License</span>
-<span class="comment">//</span>
-<span class="comment">// at your option.</span>
-<span class="comment">//</span>
-<span class="comment">// You should have recieved copies of the Apache License and the MIT</span>
-<span class="comment">// License along with the library. If not, see</span>
-<span class="comment">// &lt;https://www.apache.org/licenses/LICENSE-2.0&gt; and</span>
-<span class="comment">// &lt;https://opensource.org/licenses/MIT&gt;.</span>
+// This library is free software: you can redistribute it and/or
+// modify it under the terms of either
+//
+//   * the Apache License, Version 2.0 or
+//   * the MIT License
+//
+// at your option.
+//
+// You should have recieved copies of the Apache License and the MIT
+// License along with the library. If not, see
+// &lt;https://www.apache.org/licenses/LICENSE-2.0&gt; and
+// &lt;https://opensource.org/licenses/MIT&gt;.
 
-<span class="doccomment">/*!
+</span><span class="doccomment">/*!
 # Numeric casts
 
 This crate provides casts and checked casts.
@@ -1251,20 +1251,20 @@ additional terms or conditions.
 [*az* crate]: https://crates.io/crates/az
 [LICENSE-APACHE]: https://www.apache.org/licenses/LICENSE-2.0
 [LICENSE-MIT]: https://opensource.org/licenses/MIT
-*/</span>
-<span class="attribute">#![<span class="ident">no_std</span>]</span>
-<span class="attribute">#![<span class="ident">warn</span>(<span class="ident">missing_docs</span>)]</span>
-<span class="attribute">#![<span class="ident">doc</span>(<span class="ident">html_root_url</span> <span class="op">=</span> <span class="string">&quot;https://docs.rs/az/~1.2&quot;</span>)]</span>
-<span class="attribute">#![<span class="ident">doc</span>(<span class="ident">test</span>(<span class="ident">attr</span>(<span class="ident">deny</span>(<span class="ident">warnings</span>))))]</span>
-<span class="attribute">#![<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;fail-on-warnings&quot;</span>, <span class="ident">deny</span>(<span class="ident">warnings</span>))]</span>
+*/
+</span><span class="attribute">#![no_std]
+#![warn(missing_docs)]
+#![doc(html_root_url = <span class="string">&quot;https://docs.rs/az/~1.2&quot;</span>)]
+#![doc(test(attr(deny(warnings))))]
+#![cfg_attr(feature = <span class="string">&quot;fail-on-warnings&quot;</span>, deny(warnings))]
 
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
-<span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">std</span>;
+#[cfg(test)]
+</span><span class="kw">extern crate </span>std;
 
-<span class="kw">mod</span> <span class="ident">float</span>;
-<span class="kw">mod</span> <span class="ident">int</span>;
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
-<span class="kw">mod</span> <span class="ident">tests</span>;
+<span class="kw">mod </span>float;
+<span class="kw">mod </span>int;
+<span class="attribute">#[cfg(test)]
+</span><span class="kw">mod </span>tests;
 
 <span class="doccomment">/**
 Used to cast values.
@@ -1291,10 +1291,10 @@ let a: u32 = 5i32.cast();
 assert_eq!(a, 5);
 assert_eq!(Cast::&lt;u8&gt;::cast(17.1f32), 17);
 ```
-*/</span>
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">Cast</span><span class="op">&lt;</span><span class="ident">Dst</span><span class="op">&gt;</span> {
-    <span class="doccomment">/// Casts the value.</span>
-    <span class="kw">fn</span> <span class="ident">cast</span>(<span class="self">self</span>) -&gt; <span class="ident">Dst</span>;
+*/
+</span><span class="kw">pub trait </span>Cast&lt;Dst&gt; {
+    <span class="doccomment">/// Casts the value.
+    </span><span class="kw">fn </span>cast(<span class="self">self</span>) -&gt; Dst;
 }
 
 <span class="doccomment">/**
@@ -1317,10 +1317,10 @@ assert_eq!(CheckedCast::&lt;u8&gt;::checked_cast(17.1f32), Some(17));
 let b: Option&lt;u8&gt; = f32::NAN.checked_cast();
 assert_eq!(b, None);
 ```
-*/</span>
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">CheckedCast</span><span class="op">&lt;</span><span class="ident">Dst</span><span class="op">&gt;</span> {
-    <span class="doccomment">/// Casts the value.</span>
-    <span class="kw">fn</span> <span class="ident">checked_cast</span>(<span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Dst</span><span class="op">&gt;</span>;
+*/
+</span><span class="kw">pub trait </span>CheckedCast&lt;Dst&gt; {
+    <span class="doccomment">/// Casts the value.
+    </span><span class="kw">fn </span>checked_cast(<span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;Dst&gt;;
 }
 
 <span class="doccomment">/**
@@ -1342,10 +1342,10 @@ let a: u32 = (-1).saturating_cast();
 assert_eq!(a, 0);
 assert_eq!(SaturatingCast::&lt;u8&gt;::saturating_cast(17.0 + 256.0), 255);
 ```
-*/</span>
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">SaturatingCast</span><span class="op">&lt;</span><span class="ident">Dst</span><span class="op">&gt;</span> {
-    <span class="doccomment">/// Casts the value.</span>
-    <span class="kw">fn</span> <span class="ident">saturating_cast</span>(<span class="self">self</span>) -&gt; <span class="ident">Dst</span>;
+*/
+</span><span class="kw">pub trait </span>SaturatingCast&lt;Dst&gt; {
+    <span class="doccomment">/// Casts the value.
+    </span><span class="kw">fn </span>saturating_cast(<span class="self">self</span>) -&gt; Dst;
 }
 
 <span class="doccomment">/**
@@ -1367,10 +1367,10 @@ let a: u32 = (-1).wrapping_cast();
 assert_eq!(a, u32::max_value());
 assert_eq!(WrappingCast::&lt;u8&gt;::wrapping_cast(17.0 + 256.0), 17);
 ```
-*/</span>
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">WrappingCast</span><span class="op">&lt;</span><span class="ident">Dst</span><span class="op">&gt;</span> {
-    <span class="doccomment">/// Casts the value.</span>
-    <span class="kw">fn</span> <span class="ident">wrapping_cast</span>(<span class="self">self</span>) -&gt; <span class="ident">Dst</span>;
+*/
+</span><span class="kw">pub trait </span>WrappingCast&lt;Dst&gt; {
+    <span class="doccomment">/// Casts the value.
+    </span><span class="kw">fn </span>wrapping_cast(<span class="self">self</span>) -&gt; Dst;
 }
 
 <span class="doccomment">/**
@@ -1397,10 +1397,10 @@ assert_eq!(OverflowingCast::&lt;u8&gt;::overflowing_cast(17.0 + 256.0), (17, tru
 This trait’s method panics if the value does not fit and cannot be
 wrapped, for example when trying to cast floating-point ∞ into an
 integer type.
-*/</span>
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">OverflowingCast</span><span class="op">&lt;</span><span class="ident">Dst</span><span class="op">&gt;</span> {
-    <span class="doccomment">/// Casts the value.</span>
-    <span class="kw">fn</span> <span class="ident">overflowing_cast</span>(<span class="self">self</span>) -&gt; (<span class="ident">Dst</span>, <span class="ident">bool</span>);
+*/
+</span><span class="kw">pub trait </span>OverflowingCast&lt;Dst&gt; {
+    <span class="doccomment">/// Casts the value.
+    </span><span class="kw">fn </span>overflowing_cast(<span class="self">self</span>) -&gt; (Dst, bool);
 }
 
 <span class="doccomment">/**
@@ -1428,11 +1428,11 @@ The following panics because of overflow.
 use az::UnwrappedCast;
 let _overflow: u32 = (-5i32).unwrapped_cast();
 ```
-*/</span>
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">UnwrappedCast</span><span class="op">&lt;</span><span class="ident">Dst</span><span class="op">&gt;</span> {
-    <span class="doccomment">/// Casts the value.</span>
-    <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">track_caller</span>, <span class="ident">track_caller</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">unwrapped_cast</span>(<span class="self">self</span>) -&gt; <span class="ident">Dst</span>;
+*/
+</span><span class="kw">pub trait </span>UnwrappedCast&lt;Dst&gt; {
+    <span class="doccomment">/// Casts the value.
+    </span><span class="attribute">#[cfg_attr(track_caller, track_caller)]
+    </span><span class="kw">fn </span>unwrapped_cast(<span class="self">self</span>) -&gt; Dst;
 }
 
 <span class="doccomment">/**
@@ -1456,17 +1456,17 @@ impl Tr for () {
 }
 assert_eq!(&lt;() as Tr&gt;::assoc_from_u8(5u8), 5i8);
 ```
-*/</span>
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">CastFrom</span><span class="op">&lt;</span><span class="ident">Src</span><span class="op">&gt;</span> {
-    <span class="doccomment">/// Casts the value.</span>
-    <span class="kw">fn</span> <span class="ident">cast_from</span>(<span class="ident">src</span>: <span class="ident">Src</span>) -&gt; <span class="self">Self</span>;
+*/
+</span><span class="kw">pub trait </span>CastFrom&lt;Src&gt; {
+    <span class="doccomment">/// Casts the value.
+    </span><span class="kw">fn </span>cast_from(src: Src) -&gt; <span class="self">Self</span>;
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">Src</span>: <span class="ident">Cast</span><span class="op">&lt;</span><span class="ident">Dst</span><span class="op">&gt;</span>, <span class="ident">Dst</span><span class="op">&gt;</span> <span class="ident">CastFrom</span><span class="op">&lt;</span><span class="ident">Src</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Dst</span> {
-    <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">track_caller</span>, <span class="ident">track_caller</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">cast_from</span>(<span class="ident">src</span>: <span class="ident">Src</span>) -&gt; <span class="self">Self</span> {
-        <span class="ident">src</span>.<span class="ident">cast</span>()
+<span class="kw">impl</span>&lt;Src: Cast&lt;Dst&gt;, Dst&gt; CastFrom&lt;Src&gt; <span class="kw">for </span>Dst {
+    <span class="attribute">#[inline]
+    #[cfg_attr(track_caller, track_caller)]
+    </span><span class="kw">fn </span>cast_from(src: Src) -&gt; <span class="self">Self </span>{
+        src.cast()
     }
 }
 
@@ -1492,17 +1492,17 @@ impl Tr for () {
 assert_eq!(&lt;() as Tr&gt;::checked_assoc_from_u8(5u8), Some(5i8));
 assert_eq!(&lt;() as Tr&gt;::checked_assoc_from_u8(255u8), None);
 ```
-*/</span>
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">CheckedCastFrom</span><span class="op">&lt;</span><span class="ident">Src</span><span class="op">&gt;</span>: <span class="ident">Sized</span> {
-    <span class="doccomment">/// Casts the value.</span>
-    <span class="kw">fn</span> <span class="ident">checked_cast_from</span>(<span class="ident">src</span>: <span class="ident">Src</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span>;
+*/
+</span><span class="kw">pub trait </span>CheckedCastFrom&lt;Src&gt;: Sized {
+    <span class="doccomment">/// Casts the value.
+    </span><span class="kw">fn </span>checked_cast_from(src: Src) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="self">Self</span>&gt;;
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">Src</span>: <span class="ident">CheckedCast</span><span class="op">&lt;</span><span class="ident">Dst</span><span class="op">&gt;</span>, <span class="ident">Dst</span><span class="op">&gt;</span> <span class="ident">CheckedCastFrom</span><span class="op">&lt;</span><span class="ident">Src</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Dst</span> {
-    <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">track_caller</span>, <span class="ident">track_caller</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">checked_cast_from</span>(<span class="ident">src</span>: <span class="ident">Src</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span> {
-        <span class="ident">src</span>.<span class="ident">checked_cast</span>()
+<span class="kw">impl</span>&lt;Src: CheckedCast&lt;Dst&gt;, Dst&gt; CheckedCastFrom&lt;Src&gt; <span class="kw">for </span>Dst {
+    <span class="attribute">#[inline]
+    #[cfg_attr(track_caller, track_caller)]
+    </span><span class="kw">fn </span>checked_cast_from(src: Src) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="self">Self</span>&gt; {
+        src.checked_cast()
     }
 }
 
@@ -1528,17 +1528,17 @@ impl Tr for () {
 assert_eq!(&lt;() as Tr&gt;::saturating_assoc_from_u8(5u8), 5i8);
 assert_eq!(&lt;() as Tr&gt;::saturating_assoc_from_u8(255u8), 127i8);
 ```
-*/</span>
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">SaturatingCastFrom</span><span class="op">&lt;</span><span class="ident">Src</span><span class="op">&gt;</span> {
-    <span class="doccomment">/// Casts the value.</span>
-    <span class="kw">fn</span> <span class="ident">saturating_cast_from</span>(<span class="ident">src</span>: <span class="ident">Src</span>) -&gt; <span class="self">Self</span>;
+*/
+</span><span class="kw">pub trait </span>SaturatingCastFrom&lt;Src&gt; {
+    <span class="doccomment">/// Casts the value.
+    </span><span class="kw">fn </span>saturating_cast_from(src: Src) -&gt; <span class="self">Self</span>;
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">Src</span>: <span class="ident">SaturatingCast</span><span class="op">&lt;</span><span class="ident">Dst</span><span class="op">&gt;</span>, <span class="ident">Dst</span><span class="op">&gt;</span> <span class="ident">SaturatingCastFrom</span><span class="op">&lt;</span><span class="ident">Src</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Dst</span> {
-    <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">track_caller</span>, <span class="ident">track_caller</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">saturating_cast_from</span>(<span class="ident">src</span>: <span class="ident">Src</span>) -&gt; <span class="self">Self</span> {
-        <span class="ident">src</span>.<span class="ident">saturating_cast</span>()
+<span class="kw">impl</span>&lt;Src: SaturatingCast&lt;Dst&gt;, Dst&gt; SaturatingCastFrom&lt;Src&gt; <span class="kw">for </span>Dst {
+    <span class="attribute">#[inline]
+    #[cfg_attr(track_caller, track_caller)]
+    </span><span class="kw">fn </span>saturating_cast_from(src: Src) -&gt; <span class="self">Self </span>{
+        src.saturating_cast()
     }
 }
 
@@ -1564,17 +1564,17 @@ impl Tr for () {
 assert_eq!(&lt;() as Tr&gt;::wrapping_assoc_from_u8(5u8), 5i8);
 assert_eq!(&lt;() as Tr&gt;::wrapping_assoc_from_u8(255u8), -1i8);
 ```
-*/</span>
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">WrappingCastFrom</span><span class="op">&lt;</span><span class="ident">Src</span><span class="op">&gt;</span> {
-    <span class="doccomment">/// Casts the value.</span>
-    <span class="kw">fn</span> <span class="ident">wrapping_cast_from</span>(<span class="ident">src</span>: <span class="ident">Src</span>) -&gt; <span class="self">Self</span>;
+*/
+</span><span class="kw">pub trait </span>WrappingCastFrom&lt;Src&gt; {
+    <span class="doccomment">/// Casts the value.
+    </span><span class="kw">fn </span>wrapping_cast_from(src: Src) -&gt; <span class="self">Self</span>;
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">Src</span>: <span class="ident">WrappingCast</span><span class="op">&lt;</span><span class="ident">Dst</span><span class="op">&gt;</span>, <span class="ident">Dst</span><span class="op">&gt;</span> <span class="ident">WrappingCastFrom</span><span class="op">&lt;</span><span class="ident">Src</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Dst</span> {
-    <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">track_caller</span>, <span class="ident">track_caller</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">wrapping_cast_from</span>(<span class="ident">src</span>: <span class="ident">Src</span>) -&gt; <span class="self">Self</span> {
-        <span class="ident">src</span>.<span class="ident">wrapping_cast</span>()
+<span class="kw">impl</span>&lt;Src: WrappingCast&lt;Dst&gt;, Dst&gt; WrappingCastFrom&lt;Src&gt; <span class="kw">for </span>Dst {
+    <span class="attribute">#[inline]
+    #[cfg_attr(track_caller, track_caller)]
+    </span><span class="kw">fn </span>wrapping_cast_from(src: Src) -&gt; <span class="self">Self </span>{
+        src.wrapping_cast()
     }
 }
 
@@ -1600,17 +1600,17 @@ impl Tr for () {
 assert_eq!(&lt;() as Tr&gt;::overflowing_assoc_from_u8(5u8), (5i8, false));
 assert_eq!(&lt;() as Tr&gt;::overflowing_assoc_from_u8(255u8), (-1i8, true));
 ```
-*/</span>
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">OverflowingCastFrom</span><span class="op">&lt;</span><span class="ident">Src</span><span class="op">&gt;</span>: <span class="ident">Sized</span> {
-    <span class="doccomment">/// Casts the value.</span>
-    <span class="kw">fn</span> <span class="ident">overflowing_cast_from</span>(<span class="ident">src</span>: <span class="ident">Src</span>) -&gt; (<span class="self">Self</span>, <span class="ident">bool</span>);
+*/
+</span><span class="kw">pub trait </span>OverflowingCastFrom&lt;Src&gt;: Sized {
+    <span class="doccomment">/// Casts the value.
+    </span><span class="kw">fn </span>overflowing_cast_from(src: Src) -&gt; (<span class="self">Self</span>, bool);
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">Src</span>: <span class="ident">OverflowingCast</span><span class="op">&lt;</span><span class="ident">Dst</span><span class="op">&gt;</span>, <span class="ident">Dst</span><span class="op">&gt;</span> <span class="ident">OverflowingCastFrom</span><span class="op">&lt;</span><span class="ident">Src</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Dst</span> {
-    <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">track_caller</span>, <span class="ident">track_caller</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">overflowing_cast_from</span>(<span class="ident">src</span>: <span class="ident">Src</span>) -&gt; (<span class="self">Self</span>, <span class="ident">bool</span>) {
-        <span class="ident">src</span>.<span class="ident">overflowing_cast</span>()
+<span class="kw">impl</span>&lt;Src: OverflowingCast&lt;Dst&gt;, Dst&gt; OverflowingCastFrom&lt;Src&gt; <span class="kw">for </span>Dst {
+    <span class="attribute">#[inline]
+    #[cfg_attr(track_caller, track_caller)]
+    </span><span class="kw">fn </span>overflowing_cast_from(src: Src) -&gt; (<span class="self">Self</span>, bool) {
+        src.overflowing_cast()
     }
 }
 
@@ -1652,17 +1652,17 @@ The following assertion would panic because of overflow.
 let _overflow = &lt;() as Tr&gt;::unwrapped_assoc_from_u8(255u8);
 ```
 
-*/</span>
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">UnwrappedCastFrom</span><span class="op">&lt;</span><span class="ident">Src</span><span class="op">&gt;</span> {
-    <span class="doccomment">/// Casts the value.</span>
-    <span class="kw">fn</span> <span class="ident">unwrapped_cast_from</span>(<span class="ident">src</span>: <span class="ident">Src</span>) -&gt; <span class="self">Self</span>;
+*/
+</span><span class="kw">pub trait </span>UnwrappedCastFrom&lt;Src&gt; {
+    <span class="doccomment">/// Casts the value.
+    </span><span class="kw">fn </span>unwrapped_cast_from(src: Src) -&gt; <span class="self">Self</span>;
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">Src</span>: <span class="ident">UnwrappedCast</span><span class="op">&lt;</span><span class="ident">Dst</span><span class="op">&gt;</span>, <span class="ident">Dst</span><span class="op">&gt;</span> <span class="ident">UnwrappedCastFrom</span><span class="op">&lt;</span><span class="ident">Src</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Dst</span> {
-    <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">track_caller</span>, <span class="ident">track_caller</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">unwrapped_cast_from</span>(<span class="ident">src</span>: <span class="ident">Src</span>) -&gt; <span class="self">Self</span> {
-        <span class="ident">src</span>.<span class="ident">unwrapped_cast</span>()
+<span class="kw">impl</span>&lt;Src: UnwrappedCast&lt;Dst&gt;, Dst&gt; UnwrappedCastFrom&lt;Src&gt; <span class="kw">for </span>Dst {
+    <span class="attribute">#[inline]
+    #[cfg_attr(track_caller, track_caller)]
+    </span><span class="kw">fn </span>unwrapped_cast_from(src: Src) -&gt; <span class="self">Self </span>{
+        src.unwrapped_cast()
     }
 }
 
@@ -1723,22 +1723,22 @@ assert_eq!(owned.borrow().az::&lt;i64&gt;(), 12);
 ```
 
 [`borrow`]: `core::borrow::Borrow::borrow`
-*/</span>
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">Az</span> {
-    <span class="doccomment">/// Casts the value.</span>
-    <span class="kw">fn</span> <span class="ident">az</span><span class="op">&lt;</span><span class="ident">Dst</span><span class="op">&gt;</span>(<span class="self">self</span>) -&gt; <span class="ident">Dst</span>
-    <span class="kw">where</span>
-        <span class="self">Self</span>: <span class="ident">Cast</span><span class="op">&lt;</span><span class="ident">Dst</span><span class="op">&gt;</span>;
+*/
+</span><span class="kw">pub trait </span>Az {
+    <span class="doccomment">/// Casts the value.
+    </span><span class="kw">fn </span>az&lt;Dst&gt;(<span class="self">self</span>) -&gt; Dst
+    <span class="kw">where
+        </span><span class="self">Self</span>: Cast&lt;Dst&gt;;
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="ident">Az</span> <span class="kw">for</span> <span class="ident">T</span> {
-    <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">track_caller</span>, <span class="ident">track_caller</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">az</span><span class="op">&lt;</span><span class="ident">Dst</span><span class="op">&gt;</span>(<span class="self">self</span>) -&gt; <span class="ident">Dst</span>
-    <span class="kw">where</span>
-        <span class="self">Self</span>: <span class="ident">Cast</span><span class="op">&lt;</span><span class="ident">Dst</span><span class="op">&gt;</span>,
+<span class="kw">impl</span>&lt;T&gt; Az <span class="kw">for </span>T {
+    <span class="attribute">#[inline]
+    #[cfg_attr(track_caller, track_caller)]
+    </span><span class="kw">fn </span>az&lt;Dst&gt;(<span class="self">self</span>) -&gt; Dst
+    <span class="kw">where
+        </span><span class="self">Self</span>: Cast&lt;Dst&gt;,
     {
-        <span class="self">self</span>.<span class="ident">cast</span>()
+        <span class="self">self</span>.cast()
     }
 }
 
@@ -1796,22 +1796,22 @@ assert_eq!(owned.borrow().checked_as::&lt;u32&gt;(), Some(12));
 ```
 
 [`borrow`]: `core::borrow::Borrow::borrow`
-*/</span>
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">CheckedAs</span> {
-    <span class="doccomment">/// Casts the value.</span>
-    <span class="kw">fn</span> <span class="ident">checked_as</span><span class="op">&lt;</span><span class="ident">Dst</span><span class="op">&gt;</span>(<span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Dst</span><span class="op">&gt;</span>
-    <span class="kw">where</span>
-        <span class="self">Self</span>: <span class="ident">CheckedCast</span><span class="op">&lt;</span><span class="ident">Dst</span><span class="op">&gt;</span>;
+*/
+</span><span class="kw">pub trait </span>CheckedAs {
+    <span class="doccomment">/// Casts the value.
+    </span><span class="kw">fn </span>checked_as&lt;Dst&gt;(<span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;Dst&gt;
+    <span class="kw">where
+        </span><span class="self">Self</span>: CheckedCast&lt;Dst&gt;;
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="ident">CheckedAs</span> <span class="kw">for</span> <span class="ident">T</span> {
-    <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">track_caller</span>, <span class="ident">track_caller</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">checked_as</span><span class="op">&lt;</span><span class="ident">Dst</span><span class="op">&gt;</span>(<span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Dst</span><span class="op">&gt;</span>
-    <span class="kw">where</span>
-        <span class="self">Self</span>: <span class="ident">CheckedCast</span><span class="op">&lt;</span><span class="ident">Dst</span><span class="op">&gt;</span>,
+<span class="kw">impl</span>&lt;T&gt; CheckedAs <span class="kw">for </span>T {
+    <span class="attribute">#[inline]
+    #[cfg_attr(track_caller, track_caller)]
+    </span><span class="kw">fn </span>checked_as&lt;Dst&gt;(<span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;Dst&gt;
+    <span class="kw">where
+        </span><span class="self">Self</span>: CheckedCast&lt;Dst&gt;,
     {
-        <span class="self">self</span>.<span class="ident">checked_cast</span>()
+        <span class="self">self</span>.checked_cast()
     }
 }
 
@@ -1869,22 +1869,22 @@ assert_eq!(owned.borrow().saturating_as::&lt;u32&gt;(), 12);
 ```
 
 [`borrow`]: `core::borrow::Borrow::borrow`
-*/</span>
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">SaturatingAs</span> {
-    <span class="doccomment">/// Casts the value.</span>
-    <span class="kw">fn</span> <span class="ident">saturating_as</span><span class="op">&lt;</span><span class="ident">Dst</span><span class="op">&gt;</span>(<span class="self">self</span>) -&gt; <span class="ident">Dst</span>
-    <span class="kw">where</span>
-        <span class="self">Self</span>: <span class="ident">SaturatingCast</span><span class="op">&lt;</span><span class="ident">Dst</span><span class="op">&gt;</span>;
+*/
+</span><span class="kw">pub trait </span>SaturatingAs {
+    <span class="doccomment">/// Casts the value.
+    </span><span class="kw">fn </span>saturating_as&lt;Dst&gt;(<span class="self">self</span>) -&gt; Dst
+    <span class="kw">where
+        </span><span class="self">Self</span>: SaturatingCast&lt;Dst&gt;;
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="ident">SaturatingAs</span> <span class="kw">for</span> <span class="ident">T</span> {
-    <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">track_caller</span>, <span class="ident">track_caller</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">saturating_as</span><span class="op">&lt;</span><span class="ident">Dst</span><span class="op">&gt;</span>(<span class="self">self</span>) -&gt; <span class="ident">Dst</span>
-    <span class="kw">where</span>
-        <span class="self">Self</span>: <span class="ident">SaturatingCast</span><span class="op">&lt;</span><span class="ident">Dst</span><span class="op">&gt;</span>,
+<span class="kw">impl</span>&lt;T&gt; SaturatingAs <span class="kw">for </span>T {
+    <span class="attribute">#[inline]
+    #[cfg_attr(track_caller, track_caller)]
+    </span><span class="kw">fn </span>saturating_as&lt;Dst&gt;(<span class="self">self</span>) -&gt; Dst
+    <span class="kw">where
+        </span><span class="self">Self</span>: SaturatingCast&lt;Dst&gt;,
     {
-        <span class="self">self</span>.<span class="ident">saturating_cast</span>()
+        <span class="self">self</span>.saturating_cast()
     }
 }
 
@@ -1942,22 +1942,22 @@ assert_eq!(owned.borrow().wrapping_as::&lt;u32&gt;(), 12);
 ```
 
 [`borrow`]: `core::borrow::Borrow::borrow`
-*/</span>
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">WrappingAs</span> {
-    <span class="doccomment">/// Casts the value.</span>
-    <span class="kw">fn</span> <span class="ident">wrapping_as</span><span class="op">&lt;</span><span class="ident">Dst</span><span class="op">&gt;</span>(<span class="self">self</span>) -&gt; <span class="ident">Dst</span>
-    <span class="kw">where</span>
-        <span class="self">Self</span>: <span class="ident">WrappingCast</span><span class="op">&lt;</span><span class="ident">Dst</span><span class="op">&gt;</span>;
+*/
+</span><span class="kw">pub trait </span>WrappingAs {
+    <span class="doccomment">/// Casts the value.
+    </span><span class="kw">fn </span>wrapping_as&lt;Dst&gt;(<span class="self">self</span>) -&gt; Dst
+    <span class="kw">where
+        </span><span class="self">Self</span>: WrappingCast&lt;Dst&gt;;
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="ident">WrappingAs</span> <span class="kw">for</span> <span class="ident">T</span> {
-    <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">track_caller</span>, <span class="ident">track_caller</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">wrapping_as</span><span class="op">&lt;</span><span class="ident">Dst</span><span class="op">&gt;</span>(<span class="self">self</span>) -&gt; <span class="ident">Dst</span>
-    <span class="kw">where</span>
-        <span class="self">Self</span>: <span class="ident">WrappingCast</span><span class="op">&lt;</span><span class="ident">Dst</span><span class="op">&gt;</span>,
+<span class="kw">impl</span>&lt;T&gt; WrappingAs <span class="kw">for </span>T {
+    <span class="attribute">#[inline]
+    #[cfg_attr(track_caller, track_caller)]
+    </span><span class="kw">fn </span>wrapping_as&lt;Dst&gt;(<span class="self">self</span>) -&gt; Dst
+    <span class="kw">where
+        </span><span class="self">Self</span>: WrappingCast&lt;Dst&gt;,
     {
-        <span class="self">self</span>.<span class="ident">wrapping_cast</span>()
+        <span class="self">self</span>.wrapping_cast()
     }
 }
 
@@ -2021,22 +2021,22 @@ assert_eq!(owned.borrow().overflowing_as::&lt;u32&gt;(), (12, false));
 ```
 
 [`borrow`]: `core::borrow::Borrow::borrow`
-*/</span>
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">OverflowingAs</span> {
-    <span class="doccomment">/// Casts the value.</span>
-    <span class="kw">fn</span> <span class="ident">overflowing_as</span><span class="op">&lt;</span><span class="ident">Dst</span><span class="op">&gt;</span>(<span class="self">self</span>) -&gt; (<span class="ident">Dst</span>, <span class="ident">bool</span>)
-    <span class="kw">where</span>
-        <span class="self">Self</span>: <span class="ident">OverflowingCast</span><span class="op">&lt;</span><span class="ident">Dst</span><span class="op">&gt;</span>;
+*/
+</span><span class="kw">pub trait </span>OverflowingAs {
+    <span class="doccomment">/// Casts the value.
+    </span><span class="kw">fn </span>overflowing_as&lt;Dst&gt;(<span class="self">self</span>) -&gt; (Dst, bool)
+    <span class="kw">where
+        </span><span class="self">Self</span>: OverflowingCast&lt;Dst&gt;;
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="ident">OverflowingAs</span> <span class="kw">for</span> <span class="ident">T</span> {
-    <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">track_caller</span>, <span class="ident">track_caller</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">overflowing_as</span><span class="op">&lt;</span><span class="ident">Dst</span><span class="op">&gt;</span>(<span class="self">self</span>) -&gt; (<span class="ident">Dst</span>, <span class="ident">bool</span>)
-    <span class="kw">where</span>
-        <span class="self">Self</span>: <span class="ident">OverflowingCast</span><span class="op">&lt;</span><span class="ident">Dst</span><span class="op">&gt;</span>,
+<span class="kw">impl</span>&lt;T&gt; OverflowingAs <span class="kw">for </span>T {
+    <span class="attribute">#[inline]
+    #[cfg_attr(track_caller, track_caller)]
+    </span><span class="kw">fn </span>overflowing_as&lt;Dst&gt;(<span class="self">self</span>) -&gt; (Dst, bool)
+    <span class="kw">where
+        </span><span class="self">Self</span>: OverflowingCast&lt;Dst&gt;,
     {
-        <span class="self">self</span>.<span class="ident">overflowing_cast</span>()
+        <span class="self">self</span>.overflowing_cast()
     }
 }
 
@@ -2100,173 +2100,173 @@ assert_eq!(owned.borrow().unwrapped_as::&lt;i64&gt;(), 12);
 ```
 
 [`borrow`]: `core::borrow::Borrow::borrow`
-*/</span>
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">UnwrappedAs</span> {
-    <span class="doccomment">/// Casts the value.</span>
-    <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">track_caller</span>, <span class="ident">track_caller</span>)]</span>
-    <span class="kw">fn</span> <span class="ident">unwrapped_as</span><span class="op">&lt;</span><span class="ident">Dst</span><span class="op">&gt;</span>(<span class="self">self</span>) -&gt; <span class="ident">Dst</span>
-    <span class="kw">where</span>
-        <span class="self">Self</span>: <span class="ident">UnwrappedCast</span><span class="op">&lt;</span><span class="ident">Dst</span><span class="op">&gt;</span>;
+*/
+</span><span class="kw">pub trait </span>UnwrappedAs {
+    <span class="doccomment">/// Casts the value.
+    </span><span class="attribute">#[cfg_attr(track_caller, track_caller)]
+    </span><span class="kw">fn </span>unwrapped_as&lt;Dst&gt;(<span class="self">self</span>) -&gt; Dst
+    <span class="kw">where
+        </span><span class="self">Self</span>: UnwrappedCast&lt;Dst&gt;;
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="ident">UnwrappedAs</span> <span class="kw">for</span> <span class="ident">T</span> {
-    <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">fn</span> <span class="ident">unwrapped_as</span><span class="op">&lt;</span><span class="ident">Dst</span><span class="op">&gt;</span>(<span class="self">self</span>) -&gt; <span class="ident">Dst</span>
-    <span class="kw">where</span>
-        <span class="self">Self</span>: <span class="ident">UnwrappedCast</span><span class="op">&lt;</span><span class="ident">Dst</span><span class="op">&gt;</span>,
+<span class="kw">impl</span>&lt;T&gt; UnwrappedAs <span class="kw">for </span>T {
+    <span class="attribute">#[inline]
+    </span><span class="kw">fn </span>unwrapped_as&lt;Dst&gt;(<span class="self">self</span>) -&gt; Dst
+    <span class="kw">where
+        </span><span class="self">Self</span>: UnwrappedCast&lt;Dst&gt;,
     {
-        <span class="self">self</span>.<span class="ident">unwrapped_cast</span>()
+        <span class="self">self</span>.unwrapped_cast()
     }
 }
 
-<span class="doccomment">/// Casts the value.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Panics</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// When debug assertions are enabled, panics if the value does not</span>
-<span class="doccomment">/// fit in the destination. When debug assertions are *not* enabled</span>
-<span class="doccomment">/// (usual in release mode), the wrapped value can be returned, but it</span>
-<span class="doccomment">/// is not considered a breaking change if in the future it panics; if</span>
-<span class="doccomment">/// wrapping is required use [`wrapping_cast`] instead.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// This function also panics with no debug assertions if the value</span>
-<span class="doccomment">/// does not fit and cannot be wrapped, for example when trying to</span>
-<span class="doccomment">/// cast floating-point ∞ into an integer type.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Examples</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// ```rust</span>
-<span class="doccomment">/// assert_eq!(az::cast::&lt;i32, u32&gt;(5), 5);</span>
-<span class="doccomment">/// assert_eq!(az::cast::&lt;f32, u8&gt;(17.1), 17);</span>
-<span class="doccomment">/// ```</span>
-<span class="attribute">#[<span class="ident">inline</span>]</span>
-<span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">track_caller</span>, <span class="ident">track_caller</span>)]</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">cast</span><span class="op">&lt;</span><span class="ident">Src</span>: <span class="ident">Cast</span><span class="op">&lt;</span><span class="ident">Dst</span><span class="op">&gt;</span>, <span class="ident">Dst</span><span class="op">&gt;</span>(<span class="ident">src</span>: <span class="ident">Src</span>) -&gt; <span class="ident">Dst</span> {
-    <span class="ident">src</span>.<span class="ident">cast</span>()
+<span class="doccomment">/// Casts the value.
+///
+/// # Panics
+///
+/// When debug assertions are enabled, panics if the value does not
+/// fit in the destination. When debug assertions are *not* enabled
+/// (usual in release mode), the wrapped value can be returned, but it
+/// is not considered a breaking change if in the future it panics; if
+/// wrapping is required use [`wrapping_cast`] instead.
+///
+/// This function also panics with no debug assertions if the value
+/// does not fit and cannot be wrapped, for example when trying to
+/// cast floating-point ∞ into an integer type.
+///
+/// # Examples
+///
+/// ```rust
+/// assert_eq!(az::cast::&lt;i32, u32&gt;(5), 5);
+/// assert_eq!(az::cast::&lt;f32, u8&gt;(17.1), 17);
+/// ```
+</span><span class="attribute">#[inline]
+#[cfg_attr(track_caller, track_caller)]
+</span><span class="kw">pub fn </span>cast&lt;Src: Cast&lt;Dst&gt;, Dst&gt;(src: Src) -&gt; Dst {
+    src.cast()
 }
 
-<span class="doccomment">/// Casts the value, returning [`None`] if the value does not fit.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Examples</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// ```rust</span>
-<span class="doccomment">/// use core::f32;</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// assert_eq!(az::checked_cast::&lt;i32, u32&gt;(5), Some(5));</span>
-<span class="doccomment">/// assert_eq!(az::checked_cast::&lt;i32, u32&gt;(-5), None);</span>
-<span class="doccomment">/// assert_eq!(az::checked_cast::&lt;f32, u8&gt;(17.1), Some(17));</span>
-<span class="doccomment">/// assert_eq!(az::checked_cast::&lt;f32, u8&gt;(f32::NAN), None);</span>
-<span class="doccomment">/// ```</span>
-<span class="attribute">#[<span class="ident">inline</span>]</span>
-<span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">track_caller</span>, <span class="ident">track_caller</span>)]</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">checked_cast</span><span class="op">&lt;</span><span class="ident">Src</span>: <span class="ident">CheckedCast</span><span class="op">&lt;</span><span class="ident">Dst</span><span class="op">&gt;</span>, <span class="ident">Dst</span><span class="op">&gt;</span>(<span class="ident">src</span>: <span class="ident">Src</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Dst</span><span class="op">&gt;</span> {
-    <span class="ident">src</span>.<span class="ident">checked_cast</span>()
+<span class="doccomment">/// Casts the value, returning [`None`] if the value does not fit.
+///
+/// # Examples
+///
+/// ```rust
+/// use core::f32;
+///
+/// assert_eq!(az::checked_cast::&lt;i32, u32&gt;(5), Some(5));
+/// assert_eq!(az::checked_cast::&lt;i32, u32&gt;(-5), None);
+/// assert_eq!(az::checked_cast::&lt;f32, u8&gt;(17.1), Some(17));
+/// assert_eq!(az::checked_cast::&lt;f32, u8&gt;(f32::NAN), None);
+/// ```
+</span><span class="attribute">#[inline]
+#[cfg_attr(track_caller, track_caller)]
+</span><span class="kw">pub fn </span>checked_cast&lt;Src: CheckedCast&lt;Dst&gt;, Dst&gt;(src: Src) -&gt; <span class="prelude-ty">Option</span>&lt;Dst&gt; {
+    src.checked_cast()
 }
 
-<span class="doccomment">/// Casts the value, saturating if the value does not fit.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Panics</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// Panics if the value does not fit and saturation does not make</span>
-<span class="doccomment">/// sense, for example when trying to cast floating-point NaN into an</span>
-<span class="doccomment">/// integer type.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Examples</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// ```rust</span>
-<span class="doccomment">/// assert_eq!(az::saturating_cast::&lt;i32, u32&gt;(-1), 0);</span>
-<span class="doccomment">/// assert_eq!(az::saturating_cast::&lt;f32, u8&gt;(17.0 + 256.0), 255);</span>
-<span class="doccomment">/// ```</span>
-<span class="attribute">#[<span class="ident">inline</span>]</span>
-<span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">track_caller</span>, <span class="ident">track_caller</span>)]</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">saturating_cast</span><span class="op">&lt;</span><span class="ident">Src</span>: <span class="ident">SaturatingCast</span><span class="op">&lt;</span><span class="ident">Dst</span><span class="op">&gt;</span>, <span class="ident">Dst</span><span class="op">&gt;</span>(<span class="ident">src</span>: <span class="ident">Src</span>) -&gt; <span class="ident">Dst</span> {
-    <span class="ident">src</span>.<span class="ident">saturating_cast</span>()
+<span class="doccomment">/// Casts the value, saturating if the value does not fit.
+///
+/// # Panics
+///
+/// Panics if the value does not fit and saturation does not make
+/// sense, for example when trying to cast floating-point NaN into an
+/// integer type.
+///
+/// # Examples
+///
+/// ```rust
+/// assert_eq!(az::saturating_cast::&lt;i32, u32&gt;(-1), 0);
+/// assert_eq!(az::saturating_cast::&lt;f32, u8&gt;(17.0 + 256.0), 255);
+/// ```
+</span><span class="attribute">#[inline]
+#[cfg_attr(track_caller, track_caller)]
+</span><span class="kw">pub fn </span>saturating_cast&lt;Src: SaturatingCast&lt;Dst&gt;, Dst&gt;(src: Src) -&gt; Dst {
+    src.saturating_cast()
 }
 
-<span class="doccomment">/// Casts the value, wrapping on overflow.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Panics</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// Panics if the value does not fit and cannot be wrapped, for</span>
-<span class="doccomment">/// example when trying to cast floating-point ∞ into an integer type.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Examples</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// ```rust</span>
-<span class="doccomment">/// assert_eq!(az::wrapping_cast::&lt;i32, u32&gt;(-1), u32::max_value());</span>
-<span class="doccomment">/// assert_eq!(az::wrapping_cast::&lt;f32, u8&gt;(17.0 + 256.0), 17);</span>
-<span class="doccomment">/// ```</span>
-<span class="attribute">#[<span class="ident">inline</span>]</span>
-<span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">track_caller</span>, <span class="ident">track_caller</span>)]</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">wrapping_cast</span><span class="op">&lt;</span><span class="ident">Src</span>: <span class="ident">WrappingCast</span><span class="op">&lt;</span><span class="ident">Dst</span><span class="op">&gt;</span>, <span class="ident">Dst</span><span class="op">&gt;</span>(<span class="ident">src</span>: <span class="ident">Src</span>) -&gt; <span class="ident">Dst</span> {
-    <span class="ident">src</span>.<span class="ident">wrapping_cast</span>()
+<span class="doccomment">/// Casts the value, wrapping on overflow.
+///
+/// # Panics
+///
+/// Panics if the value does not fit and cannot be wrapped, for
+/// example when trying to cast floating-point ∞ into an integer type.
+///
+/// # Examples
+///
+/// ```rust
+/// assert_eq!(az::wrapping_cast::&lt;i32, u32&gt;(-1), u32::max_value());
+/// assert_eq!(az::wrapping_cast::&lt;f32, u8&gt;(17.0 + 256.0), 17);
+/// ```
+</span><span class="attribute">#[inline]
+#[cfg_attr(track_caller, track_caller)]
+</span><span class="kw">pub fn </span>wrapping_cast&lt;Src: WrappingCast&lt;Dst&gt;, Dst&gt;(src: Src) -&gt; Dst {
+    src.wrapping_cast()
 }
 
-<span class="doccomment">/// Overflowing cast.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// Returns a [tuple] of the value and a [`bool`], indicating whether</span>
-<span class="doccomment">/// an overflow has occurred. On overflow, the wrapped value is</span>
-<span class="doccomment">/// returned.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Panics</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// Panics if the value does not fit and cannot be wrapped, for</span>
-<span class="doccomment">/// example when trying to cast floating-point ∞ into an integer type.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Examples</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// ```rust</span>
-<span class="doccomment">/// assert_eq!(az::overflowing_cast::&lt;i32, u32&gt;(-1), (u32::max_value(), true));</span>
-<span class="doccomment">/// assert_eq!(az::overflowing_cast::&lt;f32, u8&gt;(17.0 + 256.0), (17, true));</span>
-<span class="doccomment">/// ```</span>
-<span class="attribute">#[<span class="ident">inline</span>]</span>
-<span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">track_caller</span>, <span class="ident">track_caller</span>)]</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">overflowing_cast</span><span class="op">&lt;</span><span class="ident">Src</span>: <span class="ident">OverflowingCast</span><span class="op">&lt;</span><span class="ident">Dst</span><span class="op">&gt;</span>, <span class="ident">Dst</span><span class="op">&gt;</span>(<span class="ident">src</span>: <span class="ident">Src</span>) -&gt; (<span class="ident">Dst</span>, <span class="ident">bool</span>) {
-    <span class="ident">src</span>.<span class="ident">overflowing_cast</span>()
+<span class="doccomment">/// Overflowing cast.
+///
+/// Returns a [tuple] of the value and a [`bool`], indicating whether
+/// an overflow has occurred. On overflow, the wrapped value is
+/// returned.
+///
+/// # Panics
+///
+/// Panics if the value does not fit and cannot be wrapped, for
+/// example when trying to cast floating-point ∞ into an integer type.
+///
+/// # Examples
+///
+/// ```rust
+/// assert_eq!(az::overflowing_cast::&lt;i32, u32&gt;(-1), (u32::max_value(), true));
+/// assert_eq!(az::overflowing_cast::&lt;f32, u8&gt;(17.0 + 256.0), (17, true));
+/// ```
+</span><span class="attribute">#[inline]
+#[cfg_attr(track_caller, track_caller)]
+</span><span class="kw">pub fn </span>overflowing_cast&lt;Src: OverflowingCast&lt;Dst&gt;, Dst&gt;(src: Src) -&gt; (Dst, bool) {
+    src.overflowing_cast()
 }
 
-<span class="doccomment">/// Casts the value, panicking if the value does not fit.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Panics</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// Panics if the value does not fit in the destination, even when</span>
-<span class="doccomment">/// debug assertions are not enabled.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Examples</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// ```rust</span>
-<span class="doccomment">/// assert_eq!(az::unwrapped_cast::&lt;i32, u32&gt;(5), 5);</span>
-<span class="doccomment">/// assert_eq!(az::unwrapped_cast::&lt;f32, u8&gt;(17.1), 17);</span>
-<span class="doccomment">/// ```</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// The following panics because of overflow.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// ```rust,should_panic</span>
-<span class="doccomment">/// let _overflow = az::unwrapped_cast::&lt;i32, u32&gt;(-5);</span>
-<span class="doccomment">/// ```</span>
-<span class="attribute">#[<span class="ident">inline</span>]</span>
-<span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">track_caller</span>, <span class="ident">track_caller</span>)]</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">unwrapped_cast</span><span class="op">&lt;</span><span class="ident">Src</span>: <span class="ident">UnwrappedCast</span><span class="op">&lt;</span><span class="ident">Dst</span><span class="op">&gt;</span>, <span class="ident">Dst</span><span class="op">&gt;</span>(<span class="ident">src</span>: <span class="ident">Src</span>) -&gt; <span class="ident">Dst</span> {
-    <span class="ident">src</span>.<span class="ident">unwrapped_cast</span>()
+<span class="doccomment">/// Casts the value, panicking if the value does not fit.
+///
+/// # Panics
+///
+/// Panics if the value does not fit in the destination, even when
+/// debug assertions are not enabled.
+///
+/// # Examples
+///
+/// ```rust
+/// assert_eq!(az::unwrapped_cast::&lt;i32, u32&gt;(5), 5);
+/// assert_eq!(az::unwrapped_cast::&lt;f32, u8&gt;(17.1), 17);
+/// ```
+///
+/// The following panics because of overflow.
+///
+/// ```rust,should_panic
+/// let _overflow = az::unwrapped_cast::&lt;i32, u32&gt;(-5);
+/// ```
+</span><span class="attribute">#[inline]
+#[cfg_attr(track_caller, track_caller)]
+</span><span class="kw">pub fn </span>unwrapped_cast&lt;Src: UnwrappedCast&lt;Dst&gt;, Dst&gt;(src: Src) -&gt; Dst {
+    src.unwrapped_cast()
 }
 
-<span class="doccomment">/// Used to convert floating-point numbers to integers with rounding</span>
-<span class="doccomment">/// to the nearest, with ties rounded to even.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// The underlying value can be retrieved through the `.0` index.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Examples</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// ```rust</span>
-<span class="doccomment">/// use az::Round;</span>
-<span class="doccomment">/// assert_eq!(az::cast::&lt;_, i32&gt;(Round(0.4)), 0);</span>
-<span class="doccomment">/// assert_eq!(az::cast::&lt;_, i32&gt;(Round(0.6)), 1);</span>
-<span class="doccomment">/// // ties rounded to even</span>
-<span class="doccomment">/// assert_eq!(az::cast::&lt;_, i32&gt;(Round(-0.5)), 0);</span>
-<span class="doccomment">/// assert_eq!(az::cast::&lt;_, i32&gt;(Round(-1.5)), -2);</span>
-<span class="doccomment">/// ```</span>
-<span class="attribute">#[<span class="ident">repr</span>(<span class="ident">transparent</span>)]</span>
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Clone</span>, <span class="ident">Copy</span>, <span class="ident">Default</span>, <span class="ident">Eq</span>, <span class="ident">PartialEq</span>, <span class="ident">PartialOrd</span>, <span class="ident">Ord</span>)]</span>
-<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Round</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>(<span class="kw">pub</span> <span class="ident">T</span>);
+<span class="doccomment">/// Used to convert floating-point numbers to integers with rounding
+/// to the nearest, with ties rounded to even.
+///
+/// The underlying value can be retrieved through the `.0` index.
+///
+/// # Examples
+///
+/// ```rust
+/// use az::Round;
+/// assert_eq!(az::cast::&lt;_, i32&gt;(Round(0.4)), 0);
+/// assert_eq!(az::cast::&lt;_, i32&gt;(Round(0.6)), 1);
+/// // ties rounded to even
+/// assert_eq!(az::cast::&lt;_, i32&gt;(Round(-0.5)), 0);
+/// assert_eq!(az::cast::&lt;_, i32&gt;(Round(-1.5)), -2);
+/// ```
+</span><span class="attribute">#[repr(transparent)]
+#[derive(Clone, Copy, Default, Eq, PartialEq, PartialOrd, Ord)]
+</span><span class="kw">pub struct </span>Round&lt;T&gt;(<span class="kw">pub </span>T);
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="az" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0 (a55dd71d5 2022-09-19)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="az" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0 (69f9c33d7 2022-12-12)" ></div></body></html>

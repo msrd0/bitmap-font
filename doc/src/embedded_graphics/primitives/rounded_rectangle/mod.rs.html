@@ -1,6 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.1/src/primitives/rounded_rectangle/mod.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../../storage.js"></script><script defer src="../../../../source-script.js"></script><script defer src="../../../../source-files.js"></script><script defer src="../../../../main.js"></script><noscript><link rel="stylesheet" href="../../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../../embedded_graphics/index.html"><div class="logo-container"><img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../../embedded_graphics/index.html"><div class="logo-container">
-                    <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../../embedded_graphics/index.html">
-                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.1/src/primitives/rounded_rectangle/mod.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../../normalize.css"><link rel="stylesheet" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../../ayu.css" disabled><link rel="stylesheet" href="../../../../dark.css" disabled><link rel="stylesheet" href="../../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../../storage.js"></script><script defer src="../../../../source-script.js"></script><script defer src="../../../../source-files.js"></script><script defer src="../../../../main.js"></script><noscript><link rel="stylesheet" href="../../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../../embedded_graphics/index.html">
+                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../wheel.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -565,570 +564,570 @@
 <span id="563">563</span>
 <span id="564">564</span>
 <span id="565">565</span>
-</pre><pre class="rust"><code><span class="doccomment">//! The rounded rectangle primitive.</span>
+</pre><pre class="rust"><code><span class="doccomment">//! The rounded rectangle primitive.
 
-<span class="kw">use</span> <span class="ident">core::ops::Range</span>;
+</span><span class="kw">use </span>core::ops::Range;
 
-<span class="kw">use</span> <span class="kw">crate</span>::{
-    <span class="ident">geometry</span>::{<span class="ident">Dimensions</span>, <span class="ident">Point</span>, <span class="ident">Size</span>},
-    <span class="ident">primitives</span>::{<span class="ident">rectangle::Rectangle</span>, <span class="ident">ContainsPoint</span>, <span class="ident">OffsetOutline</span>, <span class="ident">PointsIter</span>, <span class="ident">Primitive</span>},
-    <span class="ident">transform::Transform</span>,
+<span class="kw">use crate</span>::{
+    geometry::{Dimensions, Point, Size},
+    primitives::{rectangle::Rectangle, ContainsPoint, OffsetOutline, PointsIter, Primitive},
+    transform::Transform,
 };
 
-<span class="kw">mod</span> <span class="ident">corner_radii</span>;
-<span class="kw">mod</span> <span class="ident">ellipse_quadrant</span>;
-<span class="kw">mod</span> <span class="ident">points</span>;
-<span class="kw">mod</span> <span class="ident">styled</span>;
+<span class="kw">mod </span>corner_radii;
+<span class="kw">mod </span>ellipse_quadrant;
+<span class="kw">mod </span>points;
+<span class="kw">mod </span>styled;
 
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">corner_radii</span>::{<span class="ident">CornerRadii</span>, <span class="ident">CornerRadiiBuilder</span>};
-<span class="kw">use</span> <span class="ident">ellipse_quadrant</span>::{<span class="ident">EllipseQuadrant</span>, <span class="ident">Quadrant</span>};
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">points::Points</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">styled::StyledPixelsIterator</span>;
+<span class="kw">pub use </span>corner_radii::{CornerRadii, CornerRadiiBuilder};
+<span class="kw">use </span>ellipse_quadrant::{EllipseQuadrant, Quadrant};
+<span class="kw">pub use </span>points::Points;
+<span class="kw">pub use </span>styled::StyledPixelsIterator;
 
-<span class="doccomment">/// Rounded rectangle primitive.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// Creates a rectangle with rounded corners. Corners can be circular or elliptical in shape, and</span>
-<span class="doccomment">/// each corner may have a separate radius applied to it. To create a rounded rectangle with the same</span>
-<span class="doccomment">/// radius for each corner, use the [`with_equal_corners`](#method.with_equal_corners) method.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// Rounded rectangles with different radii for each corner can be created by passing a</span>
-<span class="doccomment">/// [`CornerRadii`](../struct.CornerRadii.html) configuration struct to the [`new`](#method.new)</span>
-<span class="doccomment">/// method.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Overlapping corners</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// It is possible to create a `RoundedRectangle` with corner radii too large to be contained within</span>
-<span class="doccomment">/// its edges. When this happens, the corner radii will be confined to fit within the rounded</span>
-<span class="doccomment">/// rectangle before use by other parts of embedded-graphics.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// This is similar but not identical to</span>
-<span class="doccomment">/// [how the CSS specification works](https://www.w3.org/TR/css-backgrounds-3/#corner-overlap) as it</span>
-<span class="doccomment">/// relies on floating point calculations.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Examples</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// ## Create a uniform rounded rectangle</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// This example creates a rounded rectangle 50px wide by 60px tall. Using</span>
-<span class="doccomment">/// [`with_equal_corners`](#method.with_equal_corners), all corners are given the same 10px circular</span>
-<span class="doccomment">/// radius. The rectangle is drawn using a solid green fill with a 5px red stroke.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// ```rust</span>
-<span class="doccomment">/// use embedded_graphics::{</span>
-<span class="doccomment">///     pixelcolor::Rgb565,</span>
-<span class="doccomment">///     prelude::*,</span>
-<span class="doccomment">///     primitives::{Rectangle, RoundedRectangle, PrimitiveStyle, PrimitiveStyleBuilder},</span>
-<span class="doccomment">/// };</span>
-<span class="doccomment">/// # use embedded_graphics::mock_display::MockDisplay;</span>
-<span class="doccomment">/// # let mut display = MockDisplay::default();</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// let style = PrimitiveStyleBuilder::new()</span>
-<span class="doccomment">///     .stroke_width(5)</span>
-<span class="doccomment">///     .stroke_color(Rgb565::RED)</span>
-<span class="doccomment">///     .fill_color(Rgb565::GREEN)</span>
-<span class="doccomment">///     .build();</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// RoundedRectangle::with_equal_corners(</span>
-<span class="doccomment">///     Rectangle::new(Point::new(5, 5), Size::new(40, 50)),</span>
-<span class="doccomment">///     Size::new(10, 10),</span>
-<span class="doccomment">/// )</span>
-<span class="doccomment">/// .into_styled(style)</span>
-<span class="doccomment">/// .draw(&amp;mut display)?;</span>
-<span class="doccomment">/// # Ok::&lt;(), core::convert::Infallible&gt;(())</span>
-<span class="doccomment">/// ```</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// ## Different corner radii</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// This example creates a rounded rectangle 50px wide by 60px tall. Each corner is given a distinct</span>
-<span class="doccomment">/// radius in the x and y direction by creating a [`CornerRadii`](../struct.CornerRadii.html)</span>
-<span class="doccomment">/// object and passing that to [`RoundedRectangle::new`](#method.new).</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// ```rust</span>
-<span class="doccomment">/// use embedded_graphics::{</span>
-<span class="doccomment">///     pixelcolor::Rgb565,</span>
-<span class="doccomment">///     prelude::*,</span>
-<span class="doccomment">///     primitives::{CornerRadiiBuilder, Rectangle, RoundedRectangle, PrimitiveStyle, PrimitiveStyleBuilder},</span>
-<span class="doccomment">/// };</span>
-<span class="doccomment">/// # use embedded_graphics::mock_display::MockDisplay;</span>
-<span class="doccomment">/// # let mut display = MockDisplay::default();</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// let style = PrimitiveStyleBuilder::new()</span>
-<span class="doccomment">///     .stroke_width(5)</span>
-<span class="doccomment">///     .stroke_color(Rgb565::RED)</span>
-<span class="doccomment">///     .fill_color(Rgb565::GREEN)</span>
-<span class="doccomment">///     .build();</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// let radii = CornerRadiiBuilder::new()</span>
-<span class="doccomment">///     .top_left(Size::new(5, 6))</span>
-<span class="doccomment">///     .top_right(Size::new(7, 8))</span>
-<span class="doccomment">///     .bottom_right(Size::new(9, 10))</span>
-<span class="doccomment">///     .bottom_left(Size::new(11, 12))</span>
-<span class="doccomment">///     .build();</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// RoundedRectangle::new(Rectangle::new(Point::new(5, 5), Size::new(40, 50)), radii)</span>
-<span class="doccomment">///     .into_styled(style)</span>
-<span class="doccomment">///     .draw(&amp;mut display)?;</span>
-<span class="doccomment">/// # Ok::&lt;(), core::convert::Infallible&gt;(())</span>
-<span class="doccomment">/// ```</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// ## Using `CornerRadiiBuilder`</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// This example creates a rounded rectangle 50px wide by 60px tall. Corner radii are set using the</span>
-<span class="doccomment">/// [`CornerRadiiBuilder`](../struct.CornerRadiiBuilder.html) builder.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// ```rust</span>
-<span class="doccomment">/// use embedded_graphics::{</span>
-<span class="doccomment">///     pixelcolor::Rgb565,</span>
-<span class="doccomment">///     prelude::*,</span>
-<span class="doccomment">///     primitives::{CornerRadii, CornerRadiiBuilder, Rectangle, RoundedRectangle, PrimitiveStyle, PrimitiveStyleBuilder},</span>
-<span class="doccomment">/// };</span>
-<span class="doccomment">/// # use embedded_graphics::mock_display::MockDisplay;</span>
-<span class="doccomment">/// # let mut display = MockDisplay::default();</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// let style = PrimitiveStyleBuilder::new()</span>
-<span class="doccomment">///     .stroke_width(5)</span>
-<span class="doccomment">///     .stroke_color(Rgb565::RED)</span>
-<span class="doccomment">///     .fill_color(Rgb565::GREEN)</span>
-<span class="doccomment">///     .build();</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// let radii = CornerRadiiBuilder::new()</span>
-<span class="doccomment">///     // Set the top left and top right corner radii to 10 x 20px</span>
-<span class="doccomment">///     .top(Size::new(10, 20))</span>
-<span class="doccomment">///     // Set the bottom right corner radius to 5 x 8px</span>
-<span class="doccomment">///     .bottom_right(Size::new(5, 8))</span>
-<span class="doccomment">///     .build();</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// RoundedRectangle::new(Rectangle::new(Point::new(5, 5), Size::new(40, 50)), radii)</span>
-<span class="doccomment">///     .into_styled(style)</span>
-<span class="doccomment">///     .draw(&amp;mut display)?;</span>
-<span class="doccomment">/// # Ok::&lt;(), core::convert::Infallible&gt;(())</span>
-<span class="doccomment">/// ```</span>
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Copy</span>, <span class="ident">Clone</span>, <span class="ident">Eq</span>, <span class="ident">PartialEq</span>, <span class="ident">Ord</span>, <span class="ident">PartialOrd</span>, <span class="ident">Hash</span>, <span class="ident">Debug</span>)]</span>
-<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">RoundedRectangle</span> {
-    <span class="doccomment">/// The base rectangle</span>
-    <span class="kw">pub</span> <span class="ident">rectangle</span>: <span class="ident">Rectangle</span>,
+<span class="doccomment">/// Rounded rectangle primitive.
+///
+/// Creates a rectangle with rounded corners. Corners can be circular or elliptical in shape, and
+/// each corner may have a separate radius applied to it. To create a rounded rectangle with the same
+/// radius for each corner, use the [`with_equal_corners`](#method.with_equal_corners) method.
+///
+/// Rounded rectangles with different radii for each corner can be created by passing a
+/// [`CornerRadii`](../struct.CornerRadii.html) configuration struct to the [`new`](#method.new)
+/// method.
+///
+/// # Overlapping corners
+///
+/// It is possible to create a `RoundedRectangle` with corner radii too large to be contained within
+/// its edges. When this happens, the corner radii will be confined to fit within the rounded
+/// rectangle before use by other parts of embedded-graphics.
+///
+/// This is similar but not identical to
+/// [how the CSS specification works](https://www.w3.org/TR/css-backgrounds-3/#corner-overlap) as it
+/// relies on floating point calculations.
+///
+/// # Examples
+///
+/// ## Create a uniform rounded rectangle
+///
+/// This example creates a rounded rectangle 50px wide by 60px tall. Using
+/// [`with_equal_corners`](#method.with_equal_corners), all corners are given the same 10px circular
+/// radius. The rectangle is drawn using a solid green fill with a 5px red stroke.
+///
+/// ```rust
+/// use embedded_graphics::{
+///     pixelcolor::Rgb565,
+///     prelude::*,
+///     primitives::{Rectangle, RoundedRectangle, PrimitiveStyle, PrimitiveStyleBuilder},
+/// };
+/// # use embedded_graphics::mock_display::MockDisplay;
+/// # let mut display = MockDisplay::default();
+///
+/// let style = PrimitiveStyleBuilder::new()
+///     .stroke_width(5)
+///     .stroke_color(Rgb565::RED)
+///     .fill_color(Rgb565::GREEN)
+///     .build();
+///
+/// RoundedRectangle::with_equal_corners(
+///     Rectangle::new(Point::new(5, 5), Size::new(40, 50)),
+///     Size::new(10, 10),
+/// )
+/// .into_styled(style)
+/// .draw(&amp;mut display)?;
+/// # Ok::&lt;(), core::convert::Infallible&gt;(())
+/// ```
+///
+/// ## Different corner radii
+///
+/// This example creates a rounded rectangle 50px wide by 60px tall. Each corner is given a distinct
+/// radius in the x and y direction by creating a [`CornerRadii`](../struct.CornerRadii.html)
+/// object and passing that to [`RoundedRectangle::new`](#method.new).
+///
+/// ```rust
+/// use embedded_graphics::{
+///     pixelcolor::Rgb565,
+///     prelude::*,
+///     primitives::{CornerRadiiBuilder, Rectangle, RoundedRectangle, PrimitiveStyle, PrimitiveStyleBuilder},
+/// };
+/// # use embedded_graphics::mock_display::MockDisplay;
+/// # let mut display = MockDisplay::default();
+///
+/// let style = PrimitiveStyleBuilder::new()
+///     .stroke_width(5)
+///     .stroke_color(Rgb565::RED)
+///     .fill_color(Rgb565::GREEN)
+///     .build();
+///
+/// let radii = CornerRadiiBuilder::new()
+///     .top_left(Size::new(5, 6))
+///     .top_right(Size::new(7, 8))
+///     .bottom_right(Size::new(9, 10))
+///     .bottom_left(Size::new(11, 12))
+///     .build();
+///
+/// RoundedRectangle::new(Rectangle::new(Point::new(5, 5), Size::new(40, 50)), radii)
+///     .into_styled(style)
+///     .draw(&amp;mut display)?;
+/// # Ok::&lt;(), core::convert::Infallible&gt;(())
+/// ```
+///
+/// ## Using `CornerRadiiBuilder`
+///
+/// This example creates a rounded rectangle 50px wide by 60px tall. Corner radii are set using the
+/// [`CornerRadiiBuilder`](../struct.CornerRadiiBuilder.html) builder.
+///
+/// ```rust
+/// use embedded_graphics::{
+///     pixelcolor::Rgb565,
+///     prelude::*,
+///     primitives::{CornerRadii, CornerRadiiBuilder, Rectangle, RoundedRectangle, PrimitiveStyle, PrimitiveStyleBuilder},
+/// };
+/// # use embedded_graphics::mock_display::MockDisplay;
+/// # let mut display = MockDisplay::default();
+///
+/// let style = PrimitiveStyleBuilder::new()
+///     .stroke_width(5)
+///     .stroke_color(Rgb565::RED)
+///     .fill_color(Rgb565::GREEN)
+///     .build();
+///
+/// let radii = CornerRadiiBuilder::new()
+///     // Set the top left and top right corner radii to 10 x 20px
+///     .top(Size::new(10, 20))
+///     // Set the bottom right corner radius to 5 x 8px
+///     .bottom_right(Size::new(5, 8))
+///     .build();
+///
+/// RoundedRectangle::new(Rectangle::new(Point::new(5, 5), Size::new(40, 50)), radii)
+///     .into_styled(style)
+///     .draw(&amp;mut display)?;
+/// # Ok::&lt;(), core::convert::Infallible&gt;(())
+/// ```
+</span><span class="attribute">#[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Hash, Debug)]
+</span><span class="kw">pub struct </span>RoundedRectangle {
+    <span class="doccomment">/// The base rectangle
+    </span><span class="kw">pub </span>rectangle: Rectangle,
 
-    <span class="doccomment">/// The radius of each corner</span>
-    <span class="kw">pub</span> <span class="ident">corners</span>: <span class="ident">CornerRadii</span>,
+    <span class="doccomment">/// The radius of each corner
+    </span><span class="kw">pub </span>corners: CornerRadii,
 }
 
-<span class="kw">impl</span> <span class="ident">RoundedRectangle</span> {
-    <span class="doccomment">/// Creates a new rounded rectangle with the given corner radii.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The size and position of the rounded rectangle is determined by the given base</span>
-    <span class="doccomment">/// rectangle.</span>
-    <span class="kw">pub</span> <span class="kw">const</span> <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">rectangle</span>: <span class="ident">Rectangle</span>, <span class="ident">corners</span>: <span class="ident">CornerRadii</span>) -&gt; <span class="self">Self</span> {
-        <span class="self">Self</span> { <span class="ident">rectangle</span>, <span class="ident">corners</span> }
+<span class="kw">impl </span>RoundedRectangle {
+    <span class="doccomment">/// Creates a new rounded rectangle with the given corner radii.
+    ///
+    /// The size and position of the rounded rectangle is determined by the given base
+    /// rectangle.
+    </span><span class="kw">pub const fn </span>new(rectangle: Rectangle, corners: CornerRadii) -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{ rectangle, corners }
     }
 
-    <span class="doccomment">/// Creates a new rounded rectangle with equal corner radius for all corners.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// The size and position of the rounded rectangle is determined by the given base</span>
-    <span class="doccomment">/// rectangle.</span>
-    <span class="kw">pub</span> <span class="kw">const</span> <span class="kw">fn</span> <span class="ident">with_equal_corners</span>(<span class="ident">rectangle</span>: <span class="ident">Rectangle</span>, <span class="ident">corner_radius</span>: <span class="ident">Size</span>) -&gt; <span class="self">Self</span> {
-        <span class="ident"><span class="self">Self</span>::new</span>(<span class="ident">rectangle</span>, <span class="ident">CornerRadii::new</span>(<span class="ident">corner_radius</span>))
+    <span class="doccomment">/// Creates a new rounded rectangle with equal corner radius for all corners.
+    ///
+    /// The size and position of the rounded rectangle is determined by the given base
+    /// rectangle.
+    </span><span class="kw">pub const fn </span>with_equal_corners(rectangle: Rectangle, corner_radius: Size) -&gt; <span class="self">Self </span>{
+        <span class="self">Self</span>::new(rectangle, CornerRadii::new(corner_radius))
     }
 
-    <span class="doccomment">/// Return the rounded rectangle with confined corner radii.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// This method will return a rounded rectangle of the same width and height, but with all</span>
-    <span class="doccomment">/// corner radii confined to fit within its base rectangle.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// Calling this method is not necessary when using operations provided by embedded-graphics</span>
-    <span class="doccomment">/// (`.into_styled()`, `.contains()`, etc) as these confine the corner radii internally.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// # Examples</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ## Confine corner radii that are too large</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// This example creates a rounded rectangle 50px x 60px in size. Each corner is set to an equal</span>
-    <span class="doccomment">/// radius of 40px x 40px. Each edge of the rectangle would thus need to be at least 80px long</span>
-    <span class="doccomment">/// to contain all corner radii completely. By using `confine_radii`, the corner radii are</span>
-    <span class="doccomment">/// reduced to 25px x 25px so that they fit within the 50px x 60px base rectangle.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ```rust</span>
-    <span class="doccomment">/// use embedded_graphics::{</span>
-    <span class="doccomment">///     geometry::{Point, Size},</span>
-    <span class="doccomment">///     primitives::{CornerRadii, CornerRadiiBuilder, Rectangle, RoundedRectangle},</span>
-    <span class="doccomment">/// };</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// let radii = CornerRadiiBuilder::new().all(Size::new(40, 40)).build();</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// let base_rectangle = Rectangle::new(Point::zero(), Size::new(50, 60));</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// let rounded_rectangle = RoundedRectangle::new(base_rectangle, radii);</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// let confined = rounded_rectangle.confine_radii();</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// assert_eq!(</span>
-    <span class="doccomment">///     confined.corners,</span>
-    <span class="doccomment">///     CornerRadii {</span>
-    <span class="doccomment">///         top_left: Size::new(25, 25),</span>
-    <span class="doccomment">///         top_right: Size::new(25, 25),</span>
-    <span class="doccomment">///         bottom_right: Size::new(25, 25),</span>
-    <span class="doccomment">///         bottom_left: Size::new(25, 25),</span>
-    <span class="doccomment">///     }</span>
-    <span class="doccomment">/// );</span>
-    <span class="doccomment">/// ```</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">confine_radii</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="self">Self</span> {
-        <span class="ident"><span class="self">Self</span>::new</span>(<span class="self">self</span>.<span class="ident">rectangle</span>, <span class="self">self</span>.<span class="ident">corners</span>.<span class="ident">confine</span>(<span class="self">self</span>.<span class="ident">rectangle</span>.<span class="ident">size</span>))
+    <span class="doccomment">/// Return the rounded rectangle with confined corner radii.
+    ///
+    /// This method will return a rounded rectangle of the same width and height, but with all
+    /// corner radii confined to fit within its base rectangle.
+    ///
+    /// Calling this method is not necessary when using operations provided by embedded-graphics
+    /// (`.into_styled()`, `.contains()`, etc) as these confine the corner radii internally.
+    ///
+    /// # Examples
+    ///
+    /// ## Confine corner radii that are too large
+    ///
+    /// This example creates a rounded rectangle 50px x 60px in size. Each corner is set to an equal
+    /// radius of 40px x 40px. Each edge of the rectangle would thus need to be at least 80px long
+    /// to contain all corner radii completely. By using `confine_radii`, the corner radii are
+    /// reduced to 25px x 25px so that they fit within the 50px x 60px base rectangle.
+    ///
+    /// ```rust
+    /// use embedded_graphics::{
+    ///     geometry::{Point, Size},
+    ///     primitives::{CornerRadii, CornerRadiiBuilder, Rectangle, RoundedRectangle},
+    /// };
+    ///
+    /// let radii = CornerRadiiBuilder::new().all(Size::new(40, 40)).build();
+    ///
+    /// let base_rectangle = Rectangle::new(Point::zero(), Size::new(50, 60));
+    ///
+    /// let rounded_rectangle = RoundedRectangle::new(base_rectangle, radii);
+    ///
+    /// let confined = rounded_rectangle.confine_radii();
+    ///
+    /// assert_eq!(
+    ///     confined.corners,
+    ///     CornerRadii {
+    ///         top_left: Size::new(25, 25),
+    ///         top_right: Size::new(25, 25),
+    ///         bottom_right: Size::new(25, 25),
+    ///         bottom_left: Size::new(25, 25),
+    ///     }
+    /// );
+    /// ```
+    </span><span class="kw">pub fn </span>confine_radii(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="self">Self </span>{
+        <span class="self">Self</span>::new(<span class="self">self</span>.rectangle, <span class="self">self</span>.corners.confine(<span class="self">self</span>.rectangle.size))
     }
 
-    <span class="kw">fn</span> <span class="ident">get_confined_corner_quadrant</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">quadrant</span>: <span class="ident">Quadrant</span>) -&gt; <span class="ident">EllipseQuadrant</span> {
-        <span class="kw">let</span> <span class="self">Self</span> {
-            <span class="ident">rectangle</span>, <span class="ident">corners</span>, ..
-        } <span class="op">=</span> <span class="self">self</span>;
+    <span class="kw">fn </span>get_confined_corner_quadrant(<span class="kw-2">&amp;</span><span class="self">self</span>, quadrant: Quadrant) -&gt; EllipseQuadrant {
+        <span class="kw">let </span><span class="self">Self </span>{
+            rectangle, corners, ..
+        } = <span class="self">self</span>;
 
-        <span class="kw">let</span> <span class="ident">Rectangle</span> { <span class="ident">top_left</span>, <span class="ident">size</span>, .. } <span class="op">=</span> <span class="kw-2">*</span><span class="ident">rectangle</span>;
+        <span class="kw">let </span>Rectangle { top_left, size, .. } = <span class="kw-2">*</span>rectangle;
 
-        <span class="kw">let</span> <span class="ident">corners</span> <span class="op">=</span> <span class="ident">corners</span>.<span class="ident">confine</span>(<span class="ident">size</span>);
+        <span class="kw">let </span>corners = corners.confine(size);
 
-        <span class="kw">match</span> <span class="ident">quadrant</span> {
-            <span class="ident">Quadrant::TopLeft</span> =&gt; {
-                <span class="ident">EllipseQuadrant::new</span>(<span class="ident">top_left</span>, <span class="ident">corners</span>.<span class="ident">top_left</span>, <span class="ident">Quadrant::TopLeft</span>)
+        <span class="kw">match </span>quadrant {
+            Quadrant::TopLeft =&gt; {
+                EllipseQuadrant::new(top_left, corners.top_left, Quadrant::TopLeft)
             }
-            <span class="ident">Quadrant::TopRight</span> =&gt; <span class="ident">EllipseQuadrant::new</span>(
-                <span class="ident">top_left</span> <span class="op">+</span> <span class="ident">size</span>.<span class="ident">x_axis</span>() <span class="op">-</span> <span class="ident">corners</span>.<span class="ident">top_right</span>.<span class="ident">x_axis</span>(),
-                <span class="ident">corners</span>.<span class="ident">top_right</span>,
-                <span class="ident">Quadrant::TopRight</span>,
+            Quadrant::TopRight =&gt; EllipseQuadrant::new(
+                top_left + size.x_axis() - corners.top_right.x_axis(),
+                corners.top_right,
+                Quadrant::TopRight,
             ),
-            <span class="ident">Quadrant::BottomRight</span> =&gt; <span class="ident">EllipseQuadrant::new</span>(
-                <span class="ident">top_left</span> <span class="op">+</span> <span class="ident">size</span> <span class="op">-</span> <span class="ident">corners</span>.<span class="ident">bottom_right</span>,
-                <span class="ident">corners</span>.<span class="ident">bottom_right</span>,
-                <span class="ident">Quadrant::BottomRight</span>,
+            Quadrant::BottomRight =&gt; EllipseQuadrant::new(
+                top_left + size - corners.bottom_right,
+                corners.bottom_right,
+                Quadrant::BottomRight,
             ),
-            <span class="ident">Quadrant::BottomLeft</span> =&gt; <span class="ident">EllipseQuadrant::new</span>(
-                <span class="ident">top_left</span> <span class="op">+</span> <span class="ident">size</span>.<span class="ident">y_axis</span>() <span class="op">-</span> <span class="ident">corners</span>.<span class="ident">bottom_left</span>.<span class="ident">y_axis</span>(),
-                <span class="ident">corners</span>.<span class="ident">bottom_left</span>,
-                <span class="ident">Quadrant::BottomLeft</span>,
+            Quadrant::BottomLeft =&gt; EllipseQuadrant::new(
+                top_left + size.y_axis() - corners.bottom_left.y_axis(),
+                corners.bottom_left,
+                Quadrant::BottomLeft,
             ),
         }
     }
 }
 
-<span class="kw">impl</span> <span class="ident">OffsetOutline</span> <span class="kw">for</span> <span class="ident">RoundedRectangle</span> {
-    <span class="kw">fn</span> <span class="ident">offset</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">offset</span>: <span class="ident">i32</span>) -&gt; <span class="self">Self</span> {
-        <span class="kw">let</span> <span class="ident">rectangle</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">rectangle</span>.<span class="ident">offset</span>(<span class="ident">offset</span>);
+<span class="kw">impl </span>OffsetOutline <span class="kw">for </span>RoundedRectangle {
+    <span class="kw">fn </span>offset(<span class="kw-2">&amp;</span><span class="self">self</span>, offset: i32) -&gt; <span class="self">Self </span>{
+        <span class="kw">let </span>rectangle = <span class="self">self</span>.rectangle.offset(offset);
 
-        <span class="kw">let</span> <span class="ident">corners</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">offset</span> <span class="op">&gt;</span><span class="op">=</span> <span class="number">0</span> {
-            <span class="kw">let</span> <span class="ident">corner_offset</span> <span class="op">=</span> <span class="ident">Size::new_equal</span>(<span class="ident">offset</span> <span class="kw">as</span> <span class="ident">u32</span>);
+        <span class="kw">let </span>corners = <span class="kw">if </span>offset &gt;= <span class="number">0 </span>{
+            <span class="kw">let </span>corner_offset = Size::new_equal(offset <span class="kw">as </span>u32);
 
-            <span class="ident">CornerRadii</span> {
-                <span class="ident">top_left</span>: <span class="self">self</span>.<span class="ident">corners</span>.<span class="ident">top_left</span>.<span class="ident">saturating_add</span>(<span class="ident">corner_offset</span>),
-                <span class="ident">top_right</span>: <span class="self">self</span>.<span class="ident">corners</span>.<span class="ident">top_right</span>.<span class="ident">saturating_add</span>(<span class="ident">corner_offset</span>),
-                <span class="ident">bottom_right</span>: <span class="self">self</span>.<span class="ident">corners</span>.<span class="ident">bottom_right</span>.<span class="ident">saturating_add</span>(<span class="ident">corner_offset</span>),
-                <span class="ident">bottom_left</span>: <span class="self">self</span>.<span class="ident">corners</span>.<span class="ident">bottom_left</span>.<span class="ident">saturating_add</span>(<span class="ident">corner_offset</span>),
+            CornerRadii {
+                top_left: <span class="self">self</span>.corners.top_left.saturating_add(corner_offset),
+                top_right: <span class="self">self</span>.corners.top_right.saturating_add(corner_offset),
+                bottom_right: <span class="self">self</span>.corners.bottom_right.saturating_add(corner_offset),
+                bottom_left: <span class="self">self</span>.corners.bottom_left.saturating_add(corner_offset),
             }
-        } <span class="kw">else</span> {
-            <span class="kw">let</span> <span class="ident">corner_offset</span> <span class="op">=</span> <span class="ident">Size::new_equal</span>((<span class="op">-</span><span class="ident">offset</span>) <span class="kw">as</span> <span class="ident">u32</span>);
+        } <span class="kw">else </span>{
+            <span class="kw">let </span>corner_offset = Size::new_equal((-offset) <span class="kw">as </span>u32);
 
-            <span class="ident">CornerRadii</span> {
-                <span class="ident">top_left</span>: <span class="self">self</span>.<span class="ident">corners</span>.<span class="ident">top_left</span>.<span class="ident">saturating_sub</span>(<span class="ident">corner_offset</span>),
-                <span class="ident">top_right</span>: <span class="self">self</span>.<span class="ident">corners</span>.<span class="ident">top_right</span>.<span class="ident">saturating_sub</span>(<span class="ident">corner_offset</span>),
-                <span class="ident">bottom_right</span>: <span class="self">self</span>.<span class="ident">corners</span>.<span class="ident">bottom_right</span>.<span class="ident">saturating_sub</span>(<span class="ident">corner_offset</span>),
-                <span class="ident">bottom_left</span>: <span class="self">self</span>.<span class="ident">corners</span>.<span class="ident">bottom_left</span>.<span class="ident">saturating_sub</span>(<span class="ident">corner_offset</span>),
+            CornerRadii {
+                top_left: <span class="self">self</span>.corners.top_left.saturating_sub(corner_offset),
+                top_right: <span class="self">self</span>.corners.top_right.saturating_sub(corner_offset),
+                bottom_right: <span class="self">self</span>.corners.bottom_right.saturating_sub(corner_offset),
+                bottom_left: <span class="self">self</span>.corners.bottom_left.saturating_sub(corner_offset),
             }
         };
 
-        <span class="ident"><span class="self">Self</span>::new</span>(<span class="ident">rectangle</span>, <span class="ident">corners</span>)
+        <span class="self">Self</span>::new(rectangle, corners)
     }
 }
 
-<span class="kw">impl</span> <span class="ident">Primitive</span> <span class="kw">for</span> <span class="ident">RoundedRectangle</span> {}
+<span class="kw">impl </span>Primitive <span class="kw">for </span>RoundedRectangle {}
 
-<span class="kw">impl</span> <span class="ident">PointsIter</span> <span class="kw">for</span> <span class="ident">RoundedRectangle</span> {
-    <span class="kw">type</span> <span class="ident">Iter</span> <span class="op">=</span> <span class="ident">Points</span>;
+<span class="kw">impl </span>PointsIter <span class="kw">for </span>RoundedRectangle {
+    <span class="kw">type </span>Iter = Points;
 
-    <span class="kw">fn</span> <span class="ident">points</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident"><span class="self">Self</span>::Iter</span> {
-        <span class="ident">Points::new</span>(<span class="self">self</span>)
+    <span class="kw">fn </span>points(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="self">Self</span>::Iter {
+        Points::new(<span class="self">self</span>)
     }
 }
 
-<span class="kw">impl</span> <span class="ident">ContainsPoint</span> <span class="kw">for</span> <span class="ident">RoundedRectangle</span> {
-    <span class="kw">fn</span> <span class="ident">contains</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">point</span>: <span class="ident">Point</span>) -&gt; <span class="ident">bool</span> {
-        <span class="kw">let</span> <span class="ident">rounded_rectangle_contains</span> <span class="op">=</span> <span class="ident">RoundedRectangleContains::new</span>(<span class="self">self</span>);
-        <span class="ident">rounded_rectangle_contains</span>.<span class="ident">contains</span>(<span class="ident">point</span>)
+<span class="kw">impl </span>ContainsPoint <span class="kw">for </span>RoundedRectangle {
+    <span class="kw">fn </span>contains(<span class="kw-2">&amp;</span><span class="self">self</span>, point: Point) -&gt; bool {
+        <span class="kw">let </span>rounded_rectangle_contains = RoundedRectangleContains::new(<span class="self">self</span>);
+        rounded_rectangle_contains.contains(point)
     }
 }
 
-<span class="kw">impl</span> <span class="ident">Dimensions</span> <span class="kw">for</span> <span class="ident">RoundedRectangle</span> {
-    <span class="kw">fn</span> <span class="ident">bounding_box</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Rectangle</span> {
-        <span class="self">self</span>.<span class="ident">rectangle</span>
+<span class="kw">impl </span>Dimensions <span class="kw">for </span>RoundedRectangle {
+    <span class="kw">fn </span>bounding_box(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Rectangle {
+        <span class="self">self</span>.rectangle
     }
 }
 
-<span class="kw">impl</span> <span class="ident">Transform</span> <span class="kw">for</span> <span class="ident">RoundedRectangle</span> {
-    <span class="doccomment">/// Translate the rounded rectangle from its current position to a new position by (x, y)</span>
-    <span class="doccomment">/// pixels, returning a new `RoundedRectangle`. For a mutating transform, see `translate_mut`.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ```</span>
-    <span class="doccomment">/// # use embedded_graphics::prelude::*;</span>
-    <span class="doccomment">/// use embedded_graphics::primitives::{Rectangle, RoundedRectangle};</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// let original = RoundedRectangle::with_equal_corners(</span>
-    <span class="doccomment">///     Rectangle::new(Point::new(5, 10), Size::new(20, 30)),</span>
-    <span class="doccomment">///     Size::new(10, 15),</span>
-    <span class="doccomment">/// );</span>
-    <span class="doccomment">/// let moved = original.translate(Point::new(10, 12));</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// assert_eq!(original.bounding_box().top_left, Point::new(5, 10));</span>
-    <span class="doccomment">/// assert_eq!(moved.bounding_box().top_left, Point::new(15, 22));</span>
-    <span class="doccomment">/// ```</span>
-    <span class="kw">fn</span> <span class="ident">translate</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">by</span>: <span class="ident">Point</span>) -&gt; <span class="self">Self</span> {
-        <span class="self">Self</span> {
-            <span class="ident">rectangle</span>: <span class="self">self</span>.<span class="ident">rectangle</span>.<span class="ident">translate</span>(<span class="ident">by</span>),
-            ..<span class="kw-2">*</span><span class="self">self</span>
+<span class="kw">impl </span>Transform <span class="kw">for </span>RoundedRectangle {
+    <span class="doccomment">/// Translate the rounded rectangle from its current position to a new position by (x, y)
+    /// pixels, returning a new `RoundedRectangle`. For a mutating transform, see `translate_mut`.
+    ///
+    /// ```
+    /// # use embedded_graphics::prelude::*;
+    /// use embedded_graphics::primitives::{Rectangle, RoundedRectangle};
+    ///
+    /// let original = RoundedRectangle::with_equal_corners(
+    ///     Rectangle::new(Point::new(5, 10), Size::new(20, 30)),
+    ///     Size::new(10, 15),
+    /// );
+    /// let moved = original.translate(Point::new(10, 12));
+    ///
+    /// assert_eq!(original.bounding_box().top_left, Point::new(5, 10));
+    /// assert_eq!(moved.bounding_box().top_left, Point::new(15, 22));
+    /// ```
+    </span><span class="kw">fn </span>translate(<span class="kw-2">&amp;</span><span class="self">self</span>, by: Point) -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{
+            rectangle: <span class="self">self</span>.rectangle.translate(by),
+            ..<span class="kw-2">*</span><span class="self">self
+        </span>}
+    }
+
+    <span class="doccomment">/// Translate the rounded rectangle from its current position to a new position by (x, y) pixels.
+    ///
+    /// ```
+    /// # use embedded_graphics::prelude::*;
+    /// use embedded_graphics::primitives::{Rectangle, RoundedRectangle};
+    ///
+    /// let mut shape = RoundedRectangle::with_equal_corners(
+    ///     Rectangle::new(Point::new(5, 10), Size::new(20, 30)),
+    ///     Size::new(10, 15),
+    /// );
+    ///
+    /// shape.translate_mut(Point::new(10, 12));
+    ///
+    /// assert_eq!(shape.bounding_box().top_left, Point::new(15, 22));
+    /// ```
+    </span><span class="kw">fn </span>translate_mut(<span class="kw-2">&amp;mut </span><span class="self">self</span>, by: Point) -&gt; <span class="kw-2">&amp;mut </span><span class="self">Self </span>{
+        <span class="self">self</span>.rectangle.translate_mut(by);
+
+        <span class="self">self
+    </span>}
+}
+
+<span class="attribute">#[derive(Clone, PartialEq, Eq, Hash, Debug)]
+</span><span class="kw">pub</span>(<span class="kw">in </span><span class="kw">crate</span>::primitives) <span class="kw">struct </span>RoundedRectangleContains {
+    <span class="doccomment">/// Bounding box rows.
+    </span>rows: Range&lt;i32&gt;,
+    <span class="doccomment">/// Bounding box columns.
+    </span>columns: Range&lt;i32&gt;,
+
+    <span class="doccomment">/// Rows that don&#39;t belong to a corner radius on the left side.
+    </span>straight_rows_left: Range&lt;i32&gt;,
+    <span class="doccomment">/// Rows that don&#39;t belong to a corner radius on the right side.
+    </span>straight_rows_right: Range&lt;i32&gt;,
+
+    <span class="doccomment">/// Confined top left corner ellipse.
+    </span>top_left: EllipseQuadrant,
+    <span class="doccomment">/// Confined top right corner ellipse.
+    </span>top_right: EllipseQuadrant,
+    <span class="doccomment">/// Confined bottom left corner ellipse.
+    </span>bottom_left: EllipseQuadrant,
+    <span class="doccomment">/// Confined bottom right corner ellipse.
+    </span>bottom_right: EllipseQuadrant,
+}
+
+<span class="kw">impl </span>RoundedRectangleContains {
+    <span class="kw">pub fn </span>new(rounded_rectangle: <span class="kw-2">&amp;</span>RoundedRectangle) -&gt; <span class="self">Self </span>{
+        <span class="kw">let </span>top_left = rounded_rectangle.get_confined_corner_quadrant(Quadrant::TopLeft);
+        <span class="kw">let </span>top_right = rounded_rectangle.get_confined_corner_quadrant(Quadrant::TopRight);
+        <span class="kw">let </span>bottom_left = rounded_rectangle.get_confined_corner_quadrant(Quadrant::BottomLeft);
+        <span class="kw">let </span>bottom_right = rounded_rectangle.get_confined_corner_quadrant(Quadrant::BottomRight);
+
+        <span class="kw">let </span>rows = rounded_rectangle.rectangle.rows();
+        <span class="kw">let </span>columns = rounded_rectangle.rectangle.columns();
+
+        <span class="kw">let </span>straight_rows_left = (rows.start + top_left.bounding_box().size.height <span class="kw">as </span>i32)
+            ..(rows.end - bottom_left.bounding_box().size.height <span class="kw">as </span>i32);
+        <span class="kw">let </span>straight_rows_right = (rows.start + top_right.bounding_box().size.height <span class="kw">as </span>i32)
+            ..(rows.end - bottom_right.bounding_box().size.height <span class="kw">as </span>i32);
+
+        <span class="self">Self </span>{
+            rows,
+            columns,
+
+            straight_rows_left,
+            straight_rows_right,
+
+            top_left,
+            top_right,
+            bottom_left,
+            bottom_right,
         }
     }
 
-    <span class="doccomment">/// Translate the rounded rectangle from its current position to a new position by (x, y) pixels.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ```</span>
-    <span class="doccomment">/// # use embedded_graphics::prelude::*;</span>
-    <span class="doccomment">/// use embedded_graphics::primitives::{Rectangle, RoundedRectangle};</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// let mut shape = RoundedRectangle::with_equal_corners(</span>
-    <span class="doccomment">///     Rectangle::new(Point::new(5, 10), Size::new(20, 30)),</span>
-    <span class="doccomment">///     Size::new(10, 15),</span>
-    <span class="doccomment">/// );</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// shape.translate_mut(Point::new(10, 12));</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// assert_eq!(shape.bounding_box().top_left, Point::new(15, 22));</span>
-    <span class="doccomment">/// ```</span>
-    <span class="kw">fn</span> <span class="ident">translate_mut</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>, <span class="ident">by</span>: <span class="ident">Point</span>) -&gt; <span class="kw-2">&amp;mut</span> <span class="self">Self</span> {
-        <span class="self">self</span>.<span class="ident">rectangle</span>.<span class="ident">translate_mut</span>(<span class="ident">by</span>);
-
-        <span class="self">self</span>
-    }
-}
-
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Clone</span>, <span class="ident">PartialEq</span>, <span class="ident">Eq</span>, <span class="ident">Hash</span>, <span class="ident">Debug</span>)]</span>
-<span class="kw">pub</span>(<span class="kw">in</span> <span class="ident"><span class="kw">crate</span>::primitives</span>) <span class="kw">struct</span> <span class="ident">RoundedRectangleContains</span> {
-    <span class="doccomment">/// Bounding box rows.</span>
-    <span class="ident">rows</span>: <span class="ident">Range</span><span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span>,
-    <span class="doccomment">/// Bounding box columns.</span>
-    <span class="ident">columns</span>: <span class="ident">Range</span><span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span>,
-
-    <span class="doccomment">/// Rows that don&#39;t belong to a corner radius on the left side.</span>
-    <span class="ident">straight_rows_left</span>: <span class="ident">Range</span><span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span>,
-    <span class="doccomment">/// Rows that don&#39;t belong to a corner radius on the right side.</span>
-    <span class="ident">straight_rows_right</span>: <span class="ident">Range</span><span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span>,
-
-    <span class="doccomment">/// Confined top left corner ellipse.</span>
-    <span class="ident">top_left</span>: <span class="ident">EllipseQuadrant</span>,
-    <span class="doccomment">/// Confined top right corner ellipse.</span>
-    <span class="ident">top_right</span>: <span class="ident">EllipseQuadrant</span>,
-    <span class="doccomment">/// Confined bottom left corner ellipse.</span>
-    <span class="ident">bottom_left</span>: <span class="ident">EllipseQuadrant</span>,
-    <span class="doccomment">/// Confined bottom right corner ellipse.</span>
-    <span class="ident">bottom_right</span>: <span class="ident">EllipseQuadrant</span>,
-}
-
-<span class="kw">impl</span> <span class="ident">RoundedRectangleContains</span> {
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">rounded_rectangle</span>: <span class="kw-2">&amp;</span><span class="ident">RoundedRectangle</span>) -&gt; <span class="self">Self</span> {
-        <span class="kw">let</span> <span class="ident">top_left</span> <span class="op">=</span> <span class="ident">rounded_rectangle</span>.<span class="ident">get_confined_corner_quadrant</span>(<span class="ident">Quadrant::TopLeft</span>);
-        <span class="kw">let</span> <span class="ident">top_right</span> <span class="op">=</span> <span class="ident">rounded_rectangle</span>.<span class="ident">get_confined_corner_quadrant</span>(<span class="ident">Quadrant::TopRight</span>);
-        <span class="kw">let</span> <span class="ident">bottom_left</span> <span class="op">=</span> <span class="ident">rounded_rectangle</span>.<span class="ident">get_confined_corner_quadrant</span>(<span class="ident">Quadrant::BottomLeft</span>);
-        <span class="kw">let</span> <span class="ident">bottom_right</span> <span class="op">=</span> <span class="ident">rounded_rectangle</span>.<span class="ident">get_confined_corner_quadrant</span>(<span class="ident">Quadrant::BottomRight</span>);
-
-        <span class="kw">let</span> <span class="ident">rows</span> <span class="op">=</span> <span class="ident">rounded_rectangle</span>.<span class="ident">rectangle</span>.<span class="ident">rows</span>();
-        <span class="kw">let</span> <span class="ident">columns</span> <span class="op">=</span> <span class="ident">rounded_rectangle</span>.<span class="ident">rectangle</span>.<span class="ident">columns</span>();
-
-        <span class="kw">let</span> <span class="ident">straight_rows_left</span> <span class="op">=</span> (<span class="ident">rows</span>.<span class="ident">start</span> <span class="op">+</span> <span class="ident">top_left</span>.<span class="ident">bounding_box</span>().<span class="ident">size</span>.<span class="ident">height</span> <span class="kw">as</span> <span class="ident">i32</span>)
-            ..(<span class="ident">rows</span>.<span class="ident">end</span> <span class="op">-</span> <span class="ident">bottom_left</span>.<span class="ident">bounding_box</span>().<span class="ident">size</span>.<span class="ident">height</span> <span class="kw">as</span> <span class="ident">i32</span>);
-        <span class="kw">let</span> <span class="ident">straight_rows_right</span> <span class="op">=</span> (<span class="ident">rows</span>.<span class="ident">start</span> <span class="op">+</span> <span class="ident">top_right</span>.<span class="ident">bounding_box</span>().<span class="ident">size</span>.<span class="ident">height</span> <span class="kw">as</span> <span class="ident">i32</span>)
-            ..(<span class="ident">rows</span>.<span class="ident">end</span> <span class="op">-</span> <span class="ident">bottom_right</span>.<span class="ident">bounding_box</span>().<span class="ident">size</span>.<span class="ident">height</span> <span class="kw">as</span> <span class="ident">i32</span>);
-
-        <span class="self">Self</span> {
-            <span class="ident">rows</span>,
-            <span class="ident">columns</span>,
-
-            <span class="ident">straight_rows_left</span>,
-            <span class="ident">straight_rows_right</span>,
-
-            <span class="ident">top_left</span>,
-            <span class="ident">top_right</span>,
-            <span class="ident">bottom_left</span>,
-            <span class="ident">bottom_right</span>,
-        }
-    }
-
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">contains</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">point</span>: <span class="ident">Point</span>) -&gt; <span class="ident">bool</span> {
-        <span class="kw">if</span> <span class="op">!</span>(<span class="self">self</span>.<span class="ident">rows</span>.<span class="ident">contains</span>(<span class="kw-2">&amp;</span><span class="ident">point</span>.<span class="ident">y</span>) <span class="op">&amp;&amp;</span> <span class="self">self</span>.<span class="ident">columns</span>.<span class="ident">contains</span>(<span class="kw-2">&amp;</span><span class="ident">point</span>.<span class="ident">x</span>)) {
-            <span class="kw">return</span> <span class="bool-val">false</span>;
+    <span class="kw">pub fn </span>contains(<span class="kw-2">&amp;</span><span class="self">self</span>, point: Point) -&gt; bool {
+        <span class="kw">if </span>!(<span class="self">self</span>.rows.contains(<span class="kw-2">&amp;</span>point.y) &amp;&amp; <span class="self">self</span>.columns.contains(<span class="kw-2">&amp;</span>point.x)) {
+            <span class="kw">return </span><span class="bool-val">false</span>;
         }
 
-        <span class="kw">if</span> <span class="ident">point</span>.<span class="ident">y</span> <span class="op">&lt;</span> <span class="self">self</span>.<span class="ident">straight_rows_left</span>.<span class="ident">start</span>
-            <span class="op">&amp;&amp;</span> <span class="ident">point</span>.<span class="ident">x</span> <span class="op">&lt;</span> <span class="self">self</span>.<span class="ident">top_left</span>.<span class="ident">bounding_box</span>().<span class="ident">columns</span>().<span class="ident">end</span>
+        <span class="kw">if </span>point.y &lt; <span class="self">self</span>.straight_rows_left.start
+            &amp;&amp; point.x &lt; <span class="self">self</span>.top_left.bounding_box().columns().end
         {
-            <span class="kw">return</span> <span class="self">self</span>.<span class="ident">top_left</span>.<span class="ident">contains</span>(<span class="ident">point</span>);
+            <span class="kw">return </span><span class="self">self</span>.top_left.contains(point);
         }
 
-        <span class="kw">if</span> <span class="ident">point</span>.<span class="ident">y</span> <span class="op">&lt;</span> <span class="self">self</span>.<span class="ident">straight_rows_right</span>.<span class="ident">start</span>
-            <span class="op">&amp;&amp;</span> <span class="ident">point</span>.<span class="ident">x</span> <span class="op">&gt;</span><span class="op">=</span> <span class="self">self</span>.<span class="ident">top_right</span>.<span class="ident">bounding_box</span>().<span class="ident">columns</span>().<span class="ident">start</span>
+        <span class="kw">if </span>point.y &lt; <span class="self">self</span>.straight_rows_right.start
+            &amp;&amp; point.x &gt;= <span class="self">self</span>.top_right.bounding_box().columns().start
         {
-            <span class="kw">return</span> <span class="self">self</span>.<span class="ident">top_right</span>.<span class="ident">contains</span>(<span class="ident">point</span>);
+            <span class="kw">return </span><span class="self">self</span>.top_right.contains(point);
         }
 
-        <span class="kw">if</span> <span class="ident">point</span>.<span class="ident">y</span> <span class="op">&gt;</span><span class="op">=</span> <span class="self">self</span>.<span class="ident">straight_rows_left</span>.<span class="ident">end</span>
-            <span class="op">&amp;&amp;</span> <span class="ident">point</span>.<span class="ident">x</span> <span class="op">&lt;</span> <span class="self">self</span>.<span class="ident">bottom_left</span>.<span class="ident">bounding_box</span>().<span class="ident">columns</span>().<span class="ident">end</span>
+        <span class="kw">if </span>point.y &gt;= <span class="self">self</span>.straight_rows_left.end
+            &amp;&amp; point.x &lt; <span class="self">self</span>.bottom_left.bounding_box().columns().end
         {
-            <span class="kw">return</span> <span class="self">self</span>.<span class="ident">bottom_left</span>.<span class="ident">contains</span>(<span class="ident">point</span>);
+            <span class="kw">return </span><span class="self">self</span>.bottom_left.contains(point);
         }
 
-        <span class="kw">if</span> <span class="ident">point</span>.<span class="ident">y</span> <span class="op">&gt;</span><span class="op">=</span> <span class="self">self</span>.<span class="ident">straight_rows_right</span>.<span class="ident">end</span>
-            <span class="op">&amp;&amp;</span> <span class="ident">point</span>.<span class="ident">x</span> <span class="op">&gt;</span><span class="op">=</span> <span class="self">self</span>.<span class="ident">bottom_right</span>.<span class="ident">bounding_box</span>().<span class="ident">columns</span>().<span class="ident">start</span>
+        <span class="kw">if </span>point.y &gt;= <span class="self">self</span>.straight_rows_right.end
+            &amp;&amp; point.x &gt;= <span class="self">self</span>.bottom_right.bounding_box().columns().start
         {
-            <span class="kw">return</span> <span class="self">self</span>.<span class="ident">bottom_right</span>.<span class="ident">contains</span>(<span class="ident">point</span>);
+            <span class="kw">return </span><span class="self">self</span>.bottom_right.contains(point);
         }
 
-        <span class="bool-val">true</span>
-    }
+        <span class="bool-val">true
+    </span>}
 }
 
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
-<span class="kw">mod</span> <span class="ident">tests</span> {
-    <span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
-    <span class="kw">use</span> <span class="kw">crate</span>::{
-        <span class="ident">geometry</span>::{<span class="ident">Point</span>, <span class="ident">Size</span>},
-        <span class="ident">mock_display::MockDisplay</span>,
-        <span class="ident">pixelcolor::BinaryColor</span>,
-        <span class="ident">primitives::CornerRadiiBuilder</span>,
+<span class="attribute">#[cfg(test)]
+</span><span class="kw">mod </span>tests {
+    <span class="kw">use super</span>::<span class="kw-2">*</span>;
+    <span class="kw">use crate</span>::{
+        geometry::{Point, Size},
+        mock_display::MockDisplay,
+        pixelcolor::BinaryColor,
+        primitives::CornerRadiiBuilder,
     };
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">clamp_radius_at_rect_size</span>() {
-        <span class="kw">let</span> <span class="ident">clamped</span> <span class="op">=</span> <span class="ident">RoundedRectangle::with_equal_corners</span>(
-            <span class="ident">Rectangle::new</span>(<span class="ident">Point::zero</span>(), <span class="ident">Size::new</span>(<span class="number">20</span>, <span class="number">30</span>)),
-            <span class="ident">Size::new_equal</span>(<span class="number">50</span>),
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>clamp_radius_at_rect_size() {
+        <span class="kw">let </span>clamped = RoundedRectangle::with_equal_corners(
+            Rectangle::new(Point::zero(), Size::new(<span class="number">20</span>, <span class="number">30</span>)),
+            Size::new_equal(<span class="number">50</span>),
         )
-        .<span class="ident">points</span>();
+        .points();
 
-        <span class="kw">let</span> <span class="ident">expected</span> <span class="op">=</span> <span class="ident">RoundedRectangle::with_equal_corners</span>(
-            <span class="ident">Rectangle::new</span>(<span class="ident">Point::zero</span>(), <span class="ident">Size::new</span>(<span class="number">20</span>, <span class="number">30</span>)),
-            <span class="ident">Size::new_equal</span>(<span class="number">10</span>),
+        <span class="kw">let </span>expected = RoundedRectangle::with_equal_corners(
+            Rectangle::new(Point::zero(), Size::new(<span class="number">20</span>, <span class="number">30</span>)),
+            Size::new_equal(<span class="number">10</span>),
         )
-        .<span class="ident">points</span>();
+        .points();
 
-        <span class="macro">assert!</span>(<span class="ident">clamped</span>.<span class="ident">eq</span>(<span class="ident">expected</span>));
+        <span class="macro">assert!</span>(clamped.eq(expected));
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">large_bottom_right_corner</span>() {
-        <span class="kw">let</span> <span class="ident">radii</span> <span class="op">=</span> <span class="ident">CornerRadiiBuilder::new</span>()
-            .<span class="ident">all</span>(<span class="ident">Size::new_equal</span>(<span class="number">20</span>))
-            .<span class="ident">bottom_right</span>(<span class="ident">Size::new</span>(<span class="number">200</span>, <span class="number">200</span>))
-            .<span class="ident">build</span>();
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>large_bottom_right_corner() {
+        <span class="kw">let </span>radii = CornerRadiiBuilder::new()
+            .all(Size::new_equal(<span class="number">20</span>))
+            .bottom_right(Size::new(<span class="number">200</span>, <span class="number">200</span>))
+            .build();
 
-        <span class="kw">let</span> <span class="ident">base_rectangle</span> <span class="op">=</span> <span class="ident">Rectangle::with_corners</span>(<span class="ident">Point::new_equal</span>(<span class="number">20</span>), <span class="ident">Point::new_equal</span>(<span class="number">100</span>));
+        <span class="kw">let </span>base_rectangle = Rectangle::with_corners(Point::new_equal(<span class="number">20</span>), Point::new_equal(<span class="number">100</span>));
 
-        <span class="kw">let</span> <span class="ident">rounded_rectangle</span> <span class="op">=</span> <span class="ident">RoundedRectangle::new</span>(<span class="ident">base_rectangle</span>, <span class="ident">radii</span>);
+        <span class="kw">let </span>rounded_rectangle = RoundedRectangle::new(base_rectangle, radii);
 
-        <span class="kw">let</span> <span class="ident">confined</span> <span class="op">=</span> <span class="ident">rounded_rectangle</span>.<span class="ident">confine_radii</span>();
+        <span class="kw">let </span>confined = rounded_rectangle.confine_radii();
 
         <span class="macro">assert_eq!</span>(
-            <span class="ident">confined</span>,
-            <span class="ident">RoundedRectangle</span> {
-                <span class="ident">rectangle</span>: <span class="ident">base_rectangle</span>,
-                <span class="ident">corners</span>: <span class="ident">CornerRadii</span> {
-                    <span class="ident">top_left</span>: <span class="ident">Size::new_equal</span>(<span class="number">7</span>),
-                    <span class="ident">top_right</span>: <span class="ident">Size::new_equal</span>(<span class="number">7</span>),
-                    <span class="ident">bottom_right</span>: <span class="ident">Size::new_equal</span>(<span class="number">73</span>),
-                    <span class="ident">bottom_left</span>: <span class="ident">Size::new_equal</span>(<span class="number">7</span>),
+            confined,
+            RoundedRectangle {
+                rectangle: base_rectangle,
+                corners: CornerRadii {
+                    top_left: Size::new_equal(<span class="number">7</span>),
+                    top_right: Size::new_equal(<span class="number">7</span>),
+                    bottom_right: Size::new_equal(<span class="number">73</span>),
+                    bottom_left: Size::new_equal(<span class="number">7</span>),
                 }
             }
         );
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">offset</span>() {
-        <span class="kw">let</span> <span class="ident">center</span> <span class="op">=</span> <span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">20</span>);
-        <span class="kw">let</span> <span class="ident">rect</span> <span class="op">=</span> <span class="ident">Rectangle::with_center</span>(<span class="ident">center</span>, <span class="ident">Size::new</span>(<span class="number">3</span>, <span class="number">4</span>));
-        <span class="kw">let</span> <span class="ident">rounded</span> <span class="op">=</span> <span class="ident">RoundedRectangle::with_equal_corners</span>(<span class="ident">rect</span>, <span class="ident">Size::new</span>(<span class="number">2</span>, <span class="number">3</span>));
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>offset() {
+        <span class="kw">let </span>center = Point::new(<span class="number">10</span>, <span class="number">20</span>);
+        <span class="kw">let </span>rect = Rectangle::with_center(center, Size::new(<span class="number">3</span>, <span class="number">4</span>));
+        <span class="kw">let </span>rounded = RoundedRectangle::with_equal_corners(rect, Size::new(<span class="number">2</span>, <span class="number">3</span>));
 
-        <span class="macro">assert_eq!</span>(<span class="ident">rounded</span>.<span class="ident">offset</span>(<span class="number">0</span>), <span class="ident">rounded</span>);
-
-        <span class="macro">assert_eq!</span>(
-            <span class="ident">rounded</span>.<span class="ident">offset</span>(<span class="number">1</span>),
-            <span class="ident">RoundedRectangle::with_equal_corners</span>(
-                <span class="ident">Rectangle::with_center</span>(<span class="ident">center</span>, <span class="ident">Size::new</span>(<span class="number">5</span>, <span class="number">6</span>)),
-                <span class="ident">Size::new</span>(<span class="number">3</span>, <span class="number">4</span>)
-            ),
-        );
-        <span class="macro">assert_eq!</span>(
-            <span class="ident">rounded</span>.<span class="ident">offset</span>(<span class="number">2</span>),
-            <span class="ident">RoundedRectangle::with_equal_corners</span>(
-                <span class="ident">Rectangle::with_center</span>(<span class="ident">center</span>, <span class="ident">Size::new</span>(<span class="number">7</span>, <span class="number">8</span>)),
-                <span class="ident">Size::new</span>(<span class="number">4</span>, <span class="number">5</span>)
-            ),
-        );
+        <span class="macro">assert_eq!</span>(rounded.offset(<span class="number">0</span>), rounded);
 
         <span class="macro">assert_eq!</span>(
-            <span class="ident">rounded</span>.<span class="ident">offset</span>(<span class="op">-</span><span class="number">1</span>),
-            <span class="ident">RoundedRectangle::with_equal_corners</span>(
-                <span class="ident">Rectangle::with_center</span>(<span class="ident">center</span>, <span class="ident">Size::new</span>(<span class="number">1</span>, <span class="number">2</span>)),
-                <span class="ident">Size::new</span>(<span class="number">1</span>, <span class="number">2</span>)
+            rounded.offset(<span class="number">1</span>),
+            RoundedRectangle::with_equal_corners(
+                Rectangle::with_center(center, Size::new(<span class="number">5</span>, <span class="number">6</span>)),
+                Size::new(<span class="number">3</span>, <span class="number">4</span>)
             ),
         );
         <span class="macro">assert_eq!</span>(
-            <span class="ident">rounded</span>.<span class="ident">offset</span>(<span class="op">-</span><span class="number">2</span>),
-            <span class="ident">RoundedRectangle::with_equal_corners</span>(
-                <span class="ident">Rectangle::with_center</span>(<span class="ident">center</span>, <span class="ident">Size::new</span>(<span class="number">0</span>, <span class="number">0</span>)),
-                <span class="ident">Size::new</span>(<span class="number">0</span>, <span class="number">1</span>)
+            rounded.offset(<span class="number">2</span>),
+            RoundedRectangle::with_equal_corners(
+                Rectangle::with_center(center, Size::new(<span class="number">7</span>, <span class="number">8</span>)),
+                Size::new(<span class="number">4</span>, <span class="number">5</span>)
+            ),
+        );
+
+        <span class="macro">assert_eq!</span>(
+            rounded.offset(-<span class="number">1</span>),
+            RoundedRectangle::with_equal_corners(
+                Rectangle::with_center(center, Size::new(<span class="number">1</span>, <span class="number">2</span>)),
+                Size::new(<span class="number">1</span>, <span class="number">2</span>)
             ),
         );
         <span class="macro">assert_eq!</span>(
-            <span class="ident">rounded</span>.<span class="ident">offset</span>(<span class="op">-</span><span class="number">3</span>),
-            <span class="ident">RoundedRectangle::with_equal_corners</span>(
-                <span class="ident">Rectangle::with_center</span>(<span class="ident">center</span>, <span class="ident">Size::new</span>(<span class="number">0</span>, <span class="number">0</span>)),
-                <span class="ident">Size::new</span>(<span class="number">0</span>, <span class="number">0</span>)
+            rounded.offset(-<span class="number">2</span>),
+            RoundedRectangle::with_equal_corners(
+                Rectangle::with_center(center, Size::new(<span class="number">0</span>, <span class="number">0</span>)),
+                Size::new(<span class="number">0</span>, <span class="number">1</span>)
+            ),
+        );
+        <span class="macro">assert_eq!</span>(
+            rounded.offset(-<span class="number">3</span>),
+            RoundedRectangle::with_equal_corners(
+                Rectangle::with_center(center, Size::new(<span class="number">0</span>, <span class="number">0</span>)),
+                Size::new(<span class="number">0</span>, <span class="number">0</span>)
             ),
         );
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">contains_equal_corners</span>() {
-        <span class="kw">let</span> <span class="ident">rounded_rectangle</span> <span class="op">=</span> <span class="ident">RoundedRectangle::with_equal_corners</span>(
-            <span class="ident">Rectangle::new</span>(<span class="ident">Point::new</span>(<span class="number">1</span>, <span class="number">2</span>), <span class="ident">Size::new</span>(<span class="number">20</span>, <span class="number">10</span>)),
-            <span class="ident">Size::new</span>(<span class="number">8</span>, <span class="number">4</span>),
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>contains_equal_corners() {
+        <span class="kw">let </span>rounded_rectangle = RoundedRectangle::with_equal_corners(
+            Rectangle::new(Point::new(<span class="number">1</span>, <span class="number">2</span>), Size::new(<span class="number">20</span>, <span class="number">10</span>)),
+            Size::new(<span class="number">8</span>, <span class="number">4</span>),
         );
 
-        <span class="kw">let</span> <span class="ident">expected</span> <span class="op">=</span> <span class="ident">MockDisplay::from_points</span>(<span class="ident">rounded_rectangle</span>.<span class="ident">points</span>(), <span class="ident">BinaryColor::On</span>);
+        <span class="kw">let </span>expected = MockDisplay::from_points(rounded_rectangle.points(), BinaryColor::On);
 
-        <span class="kw">let</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::from_points</span>(
-            <span class="ident">rounded_rectangle</span>
-                .<span class="ident">rectangle</span>
-                .<span class="ident">offset</span>(<span class="number">10</span>)
-                .<span class="ident">points</span>()
-                .<span class="ident">filter</span>(<span class="op">|</span><span class="ident">p</span><span class="op">|</span> <span class="ident">rounded_rectangle</span>.<span class="ident">contains</span>(<span class="kw-2">*</span><span class="ident">p</span>)),
-            <span class="ident">BinaryColor::On</span>,
+        <span class="kw">let </span>display = MockDisplay::from_points(
+            rounded_rectangle
+                .rectangle
+                .offset(<span class="number">10</span>)
+                .points()
+                .filter(|p| rounded_rectangle.contains(<span class="kw-2">*</span>p)),
+            BinaryColor::On,
         );
-        <span class="ident">display</span>.<span class="ident">assert_eq</span>(<span class="kw-2">&amp;</span><span class="ident">expected</span>);
+        display.assert_eq(<span class="kw-2">&amp;</span>expected);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">contains_different_corners</span>() {
-        <span class="kw">let</span> <span class="ident">rounded_rectangle</span> <span class="op">=</span> <span class="ident">RoundedRectangle::new</span>(
-            <span class="ident">Rectangle::new</span>(<span class="ident">Point::new</span>(<span class="number">1</span>, <span class="number">2</span>), <span class="ident">Size::new</span>(<span class="number">25</span>, <span class="number">10</span>)),
-            <span class="ident">CornerRadiiBuilder::new</span>()
-                .<span class="ident">top_left</span>(<span class="ident">Size::new_equal</span>(<span class="number">10</span>))
-                .<span class="ident">bottom_right</span>(<span class="ident">Size::new_equal</span>(<span class="number">10</span>))
-                .<span class="ident">build</span>(),
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>contains_different_corners() {
+        <span class="kw">let </span>rounded_rectangle = RoundedRectangle::new(
+            Rectangle::new(Point::new(<span class="number">1</span>, <span class="number">2</span>), Size::new(<span class="number">25</span>, <span class="number">10</span>)),
+            CornerRadiiBuilder::new()
+                .top_left(Size::new_equal(<span class="number">10</span>))
+                .bottom_right(Size::new_equal(<span class="number">10</span>))
+                .build(),
         );
 
-        <span class="kw">let</span> <span class="ident">expected</span> <span class="op">=</span> <span class="ident">MockDisplay::from_points</span>(<span class="ident">rounded_rectangle</span>.<span class="ident">points</span>(), <span class="ident">BinaryColor::On</span>);
+        <span class="kw">let </span>expected = MockDisplay::from_points(rounded_rectangle.points(), BinaryColor::On);
 
-        <span class="kw">let</span> <span class="ident">display</span> <span class="op">=</span> <span class="ident">MockDisplay::from_points</span>(
-            <span class="ident">rounded_rectangle</span>
-                .<span class="ident">rectangle</span>
-                .<span class="ident">offset</span>(<span class="number">10</span>)
-                .<span class="ident">points</span>()
-                .<span class="ident">filter</span>(<span class="op">|</span><span class="ident">p</span><span class="op">|</span> <span class="ident">rounded_rectangle</span>.<span class="ident">contains</span>(<span class="kw-2">*</span><span class="ident">p</span>)),
-            <span class="ident">BinaryColor::On</span>,
+        <span class="kw">let </span>display = MockDisplay::from_points(
+            rounded_rectangle
+                .rectangle
+                .offset(<span class="number">10</span>)
+                .points()
+                .filter(|p| rounded_rectangle.contains(<span class="kw-2">*</span>p)),
+            BinaryColor::On,
         );
-        <span class="ident">display</span>.<span class="ident">assert_eq</span>(<span class="kw-2">&amp;</span><span class="ident">expected</span>);
+        display.assert_eq(<span class="kw-2">&amp;</span>expected);
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../../" data-current-crate="embedded_graphics" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0 (a55dd71d5 2022-09-19)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../../" data-current-crate="embedded_graphics" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0 (69f9c33d7 2022-12-12)" ></div></body></html>

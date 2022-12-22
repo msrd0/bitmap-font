@@ -1,6 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-core-0.3.3/src/pixelcolor/raw/mod.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../../storage.js"></script><script defer src="../../../../source-script.js"></script><script defer src="../../../../source-files.js"></script><script defer src="../../../../main.js"></script><noscript><link rel="stylesheet" href="../../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../../embedded_graphics_core/index.html"><div class="logo-container"><img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/b225511f390c0ed9bc065eb67d05125845312148/assets/logo_core.svg?sanitize=true" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../../embedded_graphics_core/index.html"><div class="logo-container">
-                    <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/b225511f390c0ed9bc065eb67d05125845312148/assets/logo_core.svg?sanitize=true" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../../embedded_graphics_core/index.html">
-                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/b225511f390c0ed9bc065eb67d05125845312148/assets/logo_core.svg?sanitize=true" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-core-0.3.3/src/pixelcolor/raw/mod.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../../normalize.css"><link rel="stylesheet" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../../ayu.css" disabled><link rel="stylesheet" href="../../../../dark.css" disabled><link rel="stylesheet" href="../../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../../storage.js"></script><script defer src="../../../../source-script.js"></script><script defer src="../../../../source-files.js"></script><script defer src="../../../../main.js"></script><noscript><link rel="stylesheet" href="../../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../../embedded_graphics_core/index.html">
+                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/b225511f390c0ed9bc065eb67d05125845312148/assets/logo_core.svg?sanitize=true" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../wheel.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -280,285 +279,285 @@
 <span id="278">278</span>
 <span id="279">279</span>
 <span id="280">280</span>
-</pre><pre class="rust"><code><span class="doccomment">//! Raw color types.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! This module contains structs to represent the raw data used to store color</span>
-<span class="doccomment">//! information. Colors that implement the [`PixelColor`] trait can use the</span>
-<span class="doccomment">//! associated [`Raw`] type to define their raw data representation.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! Specifying a [`Raw`] type for a [`PixelColor`] is required to use that color</span>
-<span class="doccomment">//! with the [`Image`] struct.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! # Converting colors to raw data</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! Colors can be converted into raw data by using two different methods. The [`into_storage`]</span>
-<span class="doccomment">//! method is used to convert a color into a single integer value. To convert a color into a byte</span>
-<span class="doccomment">//! array the methods provided by the [`ToBytes`] trait can be used. By using [`to_be_bytes`] the</span>
-<span class="doccomment">//! color components will have the same order in memory as in the name of the type.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ```</span>
-<span class="doccomment">//! use embedded_graphics::{pixelcolor::Rgb888, prelude::*};</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! let color = Rgb888::new(0x11, 0x22, 0x33);</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! assert_eq!(color.into_storage(), 0x00112233);</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! assert_eq!(color.to_be_bytes(), [0x11, 0x22, 0x33]);</span>
-<span class="doccomment">//! ```</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! # Implementing PixelColor with Raw support</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! This example shows how to implement a new [`PixelColor`] that can be used</span>
-<span class="doccomment">//! with images.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! The RGBI color type uses 4 bits per pixel, one for each color channel and</span>
-<span class="doccomment">//! an additional intensity bit.</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! ```rust</span>
-<span class="doccomment">//! use embedded_graphics::{image::ImageRaw, pixelcolor::raw::RawU4, prelude::*};</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! /// RGBI color</span>
-<span class="doccomment">//! #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Hash, Debug, Default)]</span>
-<span class="doccomment">//! pub struct RGBI(RawU4);</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! impl RGBI {</span>
-<span class="doccomment">//!     /// Creates a RGBI color.</span>
-<span class="doccomment">//!     pub fn new(red: bool, green: bool, blue: bool, intensity: bool) -&gt; Self {</span>
-<span class="doccomment">//!         let mut value = 0;</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//!         if red {</span>
-<span class="doccomment">//!             value |= 0b0100;</span>
-<span class="doccomment">//!         }</span>
-<span class="doccomment">//!         if green {</span>
-<span class="doccomment">//!             value |= 0b0010;</span>
-<span class="doccomment">//!         }</span>
-<span class="doccomment">//!         if blue {</span>
-<span class="doccomment">//!             value |= 0b0001;</span>
-<span class="doccomment">//!         }</span>
-<span class="doccomment">//!         if intensity {</span>
-<span class="doccomment">//!             value |= 0b1000;</span>
-<span class="doccomment">//!         }</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//!         Self(RawU4::new(value))</span>
-<span class="doccomment">//!     }</span>
-<span class="doccomment">//! }</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! /// Implement `PixelColor` to associate a raw data type with the `RGBI` struct.</span>
-<span class="doccomment">//! impl PixelColor for RGBI {</span>
-<span class="doccomment">//!     type Raw = RawU4;</span>
-<span class="doccomment">//! }</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! /// `From&lt;RawU4&gt;` is used by `Image` to construct RGBI colors.</span>
-<span class="doccomment">//! impl From&lt;RawU4&gt; for RGBI {</span>
-<span class="doccomment">//!     fn from(data: RawU4) -&gt; Self {</span>
-<span class="doccomment">//!         Self(data)</span>
-<span class="doccomment">//!     }</span>
-<span class="doccomment">//! }</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! /// Raw image data with 2 pixels per byte.</span>
-<span class="doccomment">//! #[rustfmt::skip]</span>
-<span class="doccomment">//! const IMAGE_DATA: &amp;[u8] = &amp;[</span>
-<span class="doccomment">//!     0b0001_0010,</span>
-<span class="doccomment">//!     0b0100_1111,</span>
-<span class="doccomment">//! ];</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! // Create new image with RGBI colors.</span>
-<span class="doccomment">//! let image_raw: ImageRaw&lt;RGBI&gt; = ImageRaw::new(IMAGE_DATA, 2);</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! // In a real application the image could now be drawn to a display:</span>
-<span class="doccomment">//! // display.draw(&amp;image);</span>
-<span class="doccomment">//! #</span>
-<span class="doccomment">//! # use embedded_graphics::{mock_display::MockDisplay, image::Image};</span>
-<span class="doccomment">//! #</span>
-<span class="doccomment">//! # let mut display = MockDisplay::new();</span>
-<span class="doccomment">//! # Image::new(&amp;image_raw, Point::zero()).draw(&amp;mut display).unwrap();</span>
-<span class="doccomment">//! #</span>
-<span class="doccomment">//! # let expected_pixels = [</span>
-<span class="doccomment">//! #     Pixel(Point::new(0, 0), RGBI::new(false, false, true, false)),</span>
-<span class="doccomment">//! #     Pixel(Point::new(1, 0), RGBI::new(false, true, false, false)),</span>
-<span class="doccomment">//! #     Pixel(Point::new(0, 1), RGBI::new(true, false, false, false)),</span>
-<span class="doccomment">//! #     Pixel(Point::new(1, 1), RGBI::new(true, true, true, true)),</span>
-<span class="doccomment">//! # ];</span>
-<span class="doccomment">//! #</span>
-<span class="doccomment">//! # let mut expected_display = MockDisplay::new();</span>
-<span class="doccomment">//! # expected_pixels.iter().copied().draw(&amp;mut expected_display).unwrap();</span>
-<span class="doccomment">//! #</span>
-<span class="doccomment">//! # // assert_eq can&#39;t be used because ColorMapping isn&#39;t implemented for RGBI</span>
-<span class="doccomment">//! # assert!(display.eq(&amp;expected_display));</span>
-<span class="doccomment">//! ```</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! [`PixelColor`]: ../trait.PixelColor.html</span>
-<span class="doccomment">//! [`Raw`]: ../trait.PixelColor.html#associatedtype.Raw</span>
-<span class="doccomment">//! [`Image`]: https://docs.rs/embedded-graphics/latest/embedded_graphics/image/struct.Image.html</span>
-<span class="doccomment">//! [`into_storage`]: ../trait.IntoStorage.html#tymethod.into_storage</span>
-<span class="doccomment">//! [`ToBytes`]: trait.ToBytes.html</span>
-<span class="doccomment">//! [`to_be_bytes`]: trait.ToBytes.html#tymethod.to_be_bytes</span>
+</pre><pre class="rust"><code><span class="doccomment">//! Raw color types.
+//!
+//! This module contains structs to represent the raw data used to store color
+//! information. Colors that implement the [`PixelColor`] trait can use the
+//! associated [`Raw`] type to define their raw data representation.
+//!
+//! Specifying a [`Raw`] type for a [`PixelColor`] is required to use that color
+//! with the [`Image`] struct.
+//!
+//! # Converting colors to raw data
+//!
+//! Colors can be converted into raw data by using two different methods. The [`into_storage`]
+//! method is used to convert a color into a single integer value. To convert a color into a byte
+//! array the methods provided by the [`ToBytes`] trait can be used. By using [`to_be_bytes`] the
+//! color components will have the same order in memory as in the name of the type.
+//!
+//! ```
+//! use embedded_graphics::{pixelcolor::Rgb888, prelude::*};
+//!
+//! let color = Rgb888::new(0x11, 0x22, 0x33);
+//!
+//! assert_eq!(color.into_storage(), 0x00112233);
+//!
+//! assert_eq!(color.to_be_bytes(), [0x11, 0x22, 0x33]);
+//! ```
+//!
+//! # Implementing PixelColor with Raw support
+//!
+//! This example shows how to implement a new [`PixelColor`] that can be used
+//! with images.
+//!
+//! The RGBI color type uses 4 bits per pixel, one for each color channel and
+//! an additional intensity bit.
+//!
+//! ```rust
+//! use embedded_graphics::{image::ImageRaw, pixelcolor::raw::RawU4, prelude::*};
+//!
+//! /// RGBI color
+//! #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Hash, Debug, Default)]
+//! pub struct RGBI(RawU4);
+//!
+//! impl RGBI {
+//!     /// Creates a RGBI color.
+//!     pub fn new(red: bool, green: bool, blue: bool, intensity: bool) -&gt; Self {
+//!         let mut value = 0;
+//!
+//!         if red {
+//!             value |= 0b0100;
+//!         }
+//!         if green {
+//!             value |= 0b0010;
+//!         }
+//!         if blue {
+//!             value |= 0b0001;
+//!         }
+//!         if intensity {
+//!             value |= 0b1000;
+//!         }
+//!
+//!         Self(RawU4::new(value))
+//!     }
+//! }
+//!
+//! /// Implement `PixelColor` to associate a raw data type with the `RGBI` struct.
+//! impl PixelColor for RGBI {
+//!     type Raw = RawU4;
+//! }
+//!
+//! /// `From&lt;RawU4&gt;` is used by `Image` to construct RGBI colors.
+//! impl From&lt;RawU4&gt; for RGBI {
+//!     fn from(data: RawU4) -&gt; Self {
+//!         Self(data)
+//!     }
+//! }
+//!
+//! /// Raw image data with 2 pixels per byte.
+//! #[rustfmt::skip]
+//! const IMAGE_DATA: &amp;[u8] = &amp;[
+//!     0b0001_0010,
+//!     0b0100_1111,
+//! ];
+//!
+//! // Create new image with RGBI colors.
+//! let image_raw: ImageRaw&lt;RGBI&gt; = ImageRaw::new(IMAGE_DATA, 2);
+//!
+//! // In a real application the image could now be drawn to a display:
+//! // display.draw(&amp;image);
+//! #
+//! # use embedded_graphics::{mock_display::MockDisplay, image::Image};
+//! #
+//! # let mut display = MockDisplay::new();
+//! # Image::new(&amp;image_raw, Point::zero()).draw(&amp;mut display).unwrap();
+//! #
+//! # let expected_pixels = [
+//! #     Pixel(Point::new(0, 0), RGBI::new(false, false, true, false)),
+//! #     Pixel(Point::new(1, 0), RGBI::new(false, true, false, false)),
+//! #     Pixel(Point::new(0, 1), RGBI::new(true, false, false, false)),
+//! #     Pixel(Point::new(1, 1), RGBI::new(true, true, true, true)),
+//! # ];
+//! #
+//! # let mut expected_display = MockDisplay::new();
+//! # expected_pixels.iter().copied().draw(&amp;mut expected_display).unwrap();
+//! #
+//! # // assert_eq can&#39;t be used because ColorMapping isn&#39;t implemented for RGBI
+//! # assert!(display.eq(&amp;expected_display));
+//! ```
+//!
+//! [`PixelColor`]: ../trait.PixelColor.html
+//! [`Raw`]: ../trait.PixelColor.html#associatedtype.Raw
+//! [`Image`]: https://docs.rs/embedded-graphics/latest/embedded_graphics/image/struct.Image.html
+//! [`into_storage`]: ../trait.IntoStorage.html#tymethod.into_storage
+//! [`ToBytes`]: trait.ToBytes.html
+//! [`to_be_bytes`]: trait.ToBytes.html#tymethod.to_be_bytes
 
-<span class="kw">mod</span> <span class="ident">to_bytes</span>;
+</span><span class="kw">mod </span>to_bytes;
 
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">to_bytes::ToBytes</span>;
+<span class="kw">pub use </span>to_bytes::ToBytes;
 
-<span class="doccomment">/// Trait implemented by all `RawUx` types.</span>
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">RawData</span>: <span class="ident">Sized</span> <span class="op">+</span> <span class="ident">private::Sealed</span> <span class="op">+</span> <span class="ident">From</span><span class="op">&lt;</span><span class="op">&lt;</span><span class="self">Self</span> <span class="kw">as</span> <span class="ident">RawData</span><span class="op">&gt;</span><span class="ident">::Storage</span><span class="op">&gt;</span> <span class="op">+</span> <span class="ident">ToBytes</span> {
-    <span class="doccomment">/// Storage type.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// A primitive unsigned integer storage type that contains at least `BITS_PER_PIXEL` bits.</span>
-    <span class="kw">type</span> <span class="ident">Storage</span>;
+<span class="doccomment">/// Trait implemented by all `RawUx` types.
+</span><span class="kw">pub trait </span>RawData: Sized + private::Sealed + From&lt;&lt;<span class="self">Self </span><span class="kw">as </span>RawData&gt;::Storage&gt; + ToBytes {
+    <span class="doccomment">/// Storage type.
+    ///
+    /// A primitive unsigned integer storage type that contains at least `BITS_PER_PIXEL` bits.
+    </span><span class="kw">type </span>Storage;
 
-    <span class="doccomment">/// Bits per pixel.</span>
-    <span class="kw">const</span> <span class="ident">BITS_PER_PIXEL</span>: <span class="ident">usize</span>;
+    <span class="doccomment">/// Bits per pixel.
+    </span><span class="kw">const </span>BITS_PER_PIXEL: usize;
 
-    <span class="doccomment">/// Converts this raw data into the storage type.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// If the primitive integer types used as the storage type contains more bits</span>
-    <span class="doccomment">/// than used by this type the unused most significant bits are set to `0`.</span>
-    <span class="kw">fn</span> <span class="ident">into_inner</span>(<span class="self">self</span>) -&gt; <span class="ident"><span class="self">Self</span>::Storage</span>;
+    <span class="doccomment">/// Converts this raw data into the storage type.
+    ///
+    /// If the primitive integer types used as the storage type contains more bits
+    /// than used by this type the unused most significant bits are set to `0`.
+    </span><span class="kw">fn </span>into_inner(<span class="self">self</span>) -&gt; <span class="self">Self</span>::Storage;
 
-    <span class="doccomment">/// Converts a `u32` into a `RawData` type.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// This method can be used to generically construct all `RawData` types from</span>
-    <span class="doccomment">/// the same integer type. If the width of the `RawData` type is less than</span>
-    <span class="doccomment">/// 32 bits only the least significant bits are used.</span>
-    <span class="kw">fn</span> <span class="ident">from_u32</span>(<span class="ident">value</span>: <span class="ident">u32</span>) -&gt; <span class="self">Self</span>;
+    <span class="doccomment">/// Converts a `u32` into a `RawData` type.
+    ///
+    /// This method can be used to generically construct all `RawData` types from
+    /// the same integer type. If the width of the `RawData` type is less than
+    /// 32 bits only the least significant bits are used.
+    </span><span class="kw">fn </span>from_u32(value: u32) -&gt; <span class="self">Self</span>;
 }
 
-<span class="doccomment">/// Dummy implementation for `()`.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// `()` can be used as [`PixelColor::Raw`] if raw data conversion isn&#39;t required.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// [`PixelColor::Raw`]: ../trait.PixelColor.html#associatedtype.Raw</span>
-<span class="kw">impl</span> <span class="ident">RawData</span> <span class="kw">for</span> () {
-    <span class="kw">type</span> <span class="ident">Storage</span> <span class="op">=</span> ();
+<span class="doccomment">/// Dummy implementation for `()`.
+///
+/// `()` can be used as [`PixelColor::Raw`] if raw data conversion isn&#39;t required.
+///
+/// [`PixelColor::Raw`]: ../trait.PixelColor.html#associatedtype.Raw
+</span><span class="kw">impl </span>RawData <span class="kw">for </span>() {
+    <span class="kw">type </span>Storage = ();
 
-    <span class="kw">const</span> <span class="ident">BITS_PER_PIXEL</span>: <span class="ident">usize</span> <span class="op">=</span> <span class="number">0</span>;
+    <span class="kw">const </span>BITS_PER_PIXEL: usize = <span class="number">0</span>;
 
-    <span class="kw">fn</span> <span class="ident">into_inner</span>(<span class="self">self</span>) {}
+    <span class="kw">fn </span>into_inner(<span class="self">self</span>) {}
 
-    <span class="kw">fn</span> <span class="ident">from_u32</span>(<span class="ident">_value</span>: <span class="ident">u32</span>) {}
+    <span class="kw">fn </span>from_u32(_value: u32) {}
 }
 
-<span class="kw">impl</span> <span class="ident">private::Sealed</span> <span class="kw">for</span> () {}
+<span class="kw">impl </span>private::Sealed <span class="kw">for </span>() {}
 
-<span class="macro">macro_rules!</span> <span class="ident">impl_raw_data</span> {
-    (<span class="macro-nonterminal">$</span><span class="kw">type</span>:<span class="macro-nonterminal">ident</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">storage_type</span>:<span class="ident">ident</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">bpp</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">mask</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">bpp_str</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">doc</span>:<span class="ident">expr</span>) =&gt; {
-        <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">bpp_str</span>]</span>
-        <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;per pixel raw data.&quot;</span>]</span>
-        <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;&quot;</span>]</span>
-        <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">doc</span>]</span>
-        <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;&quot;</span>]</span>
-        <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;See the [module-level documentation] for more information.&quot;</span>]</span>
-        <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;&quot;</span>]</span>
-        <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;[module-level documentation]: index.html&quot;</span>]</span>
-        <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;[`new`]: #method.new&quot;</span>]</span>
-        <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;[`into_inner`]: trait.RawData.html#tymethod.into_inner&quot;</span>]</span>
-        <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Copy</span>, <span class="ident">Clone</span>, <span class="ident">Eq</span>, <span class="ident">PartialEq</span>, <span class="ident">Ord</span>, <span class="ident">PartialOrd</span>, <span class="ident">Hash</span>, <span class="ident">Debug</span>, <span class="ident">Default</span>)]</span>
-        <span class="kw">pub</span> <span class="kw">struct</span> <span class="macro-nonterminal">$</span><span class="kw">type</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">storage_type</span>);
+<span class="macro">macro_rules! </span>impl_raw_data {
+    (<span class="macro-nonterminal">$</span><span class="kw">type</span>:<span class="macro-nonterminal">ident </span>: <span class="macro-nonterminal">$storage_type</span>:ident, <span class="macro-nonterminal">$bpp</span>:expr, <span class="macro-nonterminal">$mask</span>:expr, <span class="macro-nonterminal">$bpp_str</span>:expr, <span class="macro-nonterminal">$doc</span>:expr) =&gt; {
+        <span class="attribute">#[doc = <span class="macro-nonterminal">$bpp_str</span>]
+        #[doc = <span class="string">&quot;per pixel raw data.&quot;</span>]
+        #[doc = <span class="string">&quot;&quot;</span>]
+        #[doc = <span class="macro-nonterminal">$doc</span>]
+        #[doc = <span class="string">&quot;&quot;</span>]
+        #[doc = <span class="string">&quot;See the [module-level documentation] for more information.&quot;</span>]
+        #[doc = <span class="string">&quot;&quot;</span>]
+        #[doc = <span class="string">&quot;[module-level documentation]: index.html&quot;</span>]
+        #[doc = <span class="string">&quot;[`new`]: #method.new&quot;</span>]
+        #[doc = <span class="string">&quot;[`into_inner`]: trait.RawData.html#tymethod.into_inner&quot;</span>]
+        #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Hash, Debug, Default)]
+        </span><span class="kw">pub struct </span><span class="macro-nonterminal">$</span><span class="kw">type</span>(<span class="macro-nonterminal">$storage_type</span>);
 
-        <span class="kw">impl</span> <span class="macro-nonterminal">$</span><span class="kw">type</span> {
-            <span class="doccomment">/// Creates a new color from the least significant</span>
-            <span class="attribute">#[<span class="macro-nonterminal">doc</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">bpp_str</span>]</span>
-            <span class="doccomment">/// of value.</span>
-            <span class="attribute">#[<span class="ident">inline</span>]</span>
-            <span class="kw">pub</span> <span class="kw">const</span> <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">value</span>: <span class="macro-nonterminal">$</span><span class="macro-nonterminal">storage_type</span>) -&gt; <span class="self">Self</span> {
-                <span class="macro-nonterminal">$</span><span class="kw">type</span>(<span class="macro-nonterminal">value</span> <span class="op">&amp;</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">mask</span>)
+        <span class="kw">impl </span><span class="macro-nonterminal">$</span><span class="kw">type </span>{
+            <span class="doccomment">/// Creates a new color from the least significant
+            </span><span class="attribute">#[<span class="macro-nonterminal">doc </span>= <span class="macro-nonterminal">$bpp_str</span>]
+            </span><span class="doccomment">/// of value.
+            </span><span class="attribute">#[inline]
+            </span><span class="kw">pub const fn </span>new(value: <span class="macro-nonterminal">$storage_type</span>) -&gt; <span class="self">Self </span>{
+                <span class="macro-nonterminal">$</span><span class="kw">type</span>(<span class="macro-nonterminal">value </span>&amp; <span class="macro-nonterminal">$mask</span>)
             }
         }
 
-        <span class="kw">impl</span> <span class="ident">RawData</span> <span class="kw">for</span> <span class="macro-nonterminal">$</span><span class="kw">type</span> {
-            <span class="kw">type</span> <span class="macro-nonterminal">Storage</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">storage_type</span>;
+        <span class="kw">impl </span>RawData <span class="kw">for </span><span class="macro-nonterminal">$</span><span class="kw">type </span>{
+            <span class="kw">type </span><span class="macro-nonterminal">Storage </span>= <span class="macro-nonterminal">$storage_type</span>;
 
-            <span class="kw">const</span> <span class="ident">BITS_PER_PIXEL</span>: <span class="ident">usize</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">bpp</span>;
+            <span class="kw">const </span>BITS_PER_PIXEL: usize = <span class="macro-nonterminal">$bpp</span>;
 
-            <span class="kw">fn</span> <span class="ident">into_inner</span>(<span class="self">self</span>) -&gt; <span class="ident"><span class="self">Self</span>::Storage</span> {
-                <span class="self">self</span>.<span class="number">0</span>
-            }
+            <span class="kw">fn </span>into_inner(<span class="self">self</span>) -&gt; <span class="self">Self</span>::Storage {
+                <span class="self">self</span>.<span class="number">0
+            </span>}
 
-            <span class="kw">fn</span> <span class="ident">from_u32</span>(<span class="ident">value</span>: <span class="ident">u32</span>) -&gt; <span class="self">Self</span> {
-                <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">trivial_numeric_casts</span>)]</span>
-                <span class="ident"><span class="self">Self</span>::new</span>(<span class="ident">value</span> <span class="kw">as</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">storage_type</span>)
-            }
-        }
-
-        <span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">storage_type</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="macro-nonterminal">$</span><span class="kw">type</span> {
-            <span class="attribute">#[<span class="macro-nonterminal">inline</span>]</span>
-            <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">value</span>: <span class="macro-nonterminal">$</span><span class="macro-nonterminal">storage_type</span>) -&gt; <span class="self">Self</span> {
-                <span class="ident"><span class="self">Self</span>::new</span>(<span class="ident">value</span>)
+            <span class="kw">fn </span>from_u32(value: u32) -&gt; <span class="self">Self </span>{
+                <span class="attribute">#[allow(trivial_numeric_casts)]
+                </span><span class="self">Self</span>::new(value <span class="kw">as </span><span class="macro-nonterminal">$storage_type</span>)
             }
         }
 
-        <span class="kw">impl</span> <span class="ident">private::Sealed</span> <span class="kw">for</span> <span class="macro-nonterminal">$</span><span class="kw">type</span> {}
+        <span class="kw">impl </span>From&lt;<span class="macro-nonterminal">$storage_type</span>&gt; <span class="kw">for </span><span class="macro-nonterminal">$</span><span class="kw">type </span>{
+            <span class="attribute">#[<span class="macro-nonterminal">inline</span>]
+            </span><span class="kw">fn </span>from(value: <span class="macro-nonterminal">$storage_type</span>) -&gt; <span class="self">Self </span>{
+                <span class="self">Self</span>::new(value)
+            }
+        }
+
+        <span class="kw">impl </span>private::Sealed <span class="kw">for </span><span class="macro-nonterminal">$</span><span class="kw">type </span>{}
     };
-    (<span class="macro-nonterminal">$</span><span class="kw">type</span>:<span class="macro-nonterminal">ident</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">storage_type</span>:<span class="ident">ident</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">bpp</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">mask</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">bpp_str</span>:<span class="ident">expr</span>) =&gt; {
+    (<span class="macro-nonterminal">$</span><span class="kw">type</span>:<span class="macro-nonterminal">ident </span>: <span class="macro-nonterminal">$storage_type</span>:ident, <span class="macro-nonterminal">$bpp</span>:expr, <span class="macro-nonterminal">$mask</span>:expr, <span class="macro-nonterminal">$bpp_str</span>:expr) =&gt; {
         <span class="macro">impl_raw_data!</span>(
-            <span class="macro-nonterminal">$</span><span class="kw">type</span>: <span class="macro-nonterminal">$</span><span class="macro-nonterminal">storage_type</span>,
-            <span class="macro-nonterminal">$</span><span class="macro-nonterminal">bpp</span>,
-            <span class="macro-nonterminal">$</span><span class="macro-nonterminal">mask</span>,
-            <span class="macro-nonterminal">$</span><span class="macro-nonterminal">bpp_str</span>,
+            <span class="macro-nonterminal">$</span><span class="kw">type</span>: <span class="macro-nonterminal">$storage_type</span>,
+            <span class="macro-nonterminal">$bpp</span>,
+            <span class="macro-nonterminal">$mask</span>,
+            <span class="macro-nonterminal">$bpp_str</span>,
             <span class="macro">concat!</span>(
                 <span class="string">&quot;`&quot;</span>,
                 <span class="macro">stringify!</span>(<span class="macro-nonterminal">$</span><span class="kw">type</span>),
                 <span class="string">&quot;` is internally stored in an `&quot;</span>,
-                <span class="macro">stringify!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">storage_type</span>),
+                <span class="macro">stringify!</span>(<span class="macro-nonterminal">$storage_type</span>),
                 <span class="string">&quot;`. It can be constructed from an `&quot;</span>,
-                <span class="macro">stringify!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">storage_type</span>),
+                <span class="macro">stringify!</span>(<span class="macro-nonterminal">$storage_type</span>),
                 <span class="string">&quot;` by using the &quot;</span>,
                 <span class="string">&quot;[`new`] method or by calling `&quot;</span>,
                 <span class="macro">stringify!</span>(<span class="macro-nonterminal">$</span><span class="kw">type</span>),
                 <span class="string">&quot;::from(&quot;</span>,
-                <span class="macro">stringify!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">storage_type</span>),
+                <span class="macro">stringify!</span>(<span class="macro-nonterminal">$storage_type</span>),
                 <span class="string">&quot;_value)`. &quot;</span>,
                 <span class="string">&quot;To convert a `&quot;</span>,
                 <span class="macro">stringify!</span>(<span class="macro-nonterminal">$</span><span class="kw">type</span>),
                 <span class="string">&quot;` back into a `&quot;</span>,
-                <span class="macro">stringify!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">storage_type</span>),
-                <span class="string">&quot;` the [`into_inner`] method can be used.&quot;</span>
-            )
+                <span class="macro">stringify!</span>(<span class="macro-nonterminal">$storage_type</span>),
+                <span class="string">&quot;` the [`into_inner`] method can be used.&quot;
+            </span>)
         );
     };
 }
 
-<span class="macro">impl_raw_data!</span>(<span class="ident">RawU1</span>: <span class="ident">u8</span>, <span class="number">1</span>, <span class="number">0x01</span>, <span class="string">&quot;1 bit&quot;</span>);
-<span class="macro">impl_raw_data!</span>(<span class="ident">RawU2</span>: <span class="ident">u8</span>, <span class="number">2</span>, <span class="number">0x03</span>, <span class="string">&quot;2 bits&quot;</span>);
-<span class="macro">impl_raw_data!</span>(<span class="ident">RawU4</span>: <span class="ident">u8</span>, <span class="number">4</span>, <span class="number">0x0F</span>, <span class="string">&quot;4 bits&quot;</span>);
-<span class="macro">impl_raw_data!</span>(<span class="ident">RawU8</span>: <span class="ident">u8</span>, <span class="number">8</span>, <span class="number">0xFF</span>, <span class="string">&quot;8 bits&quot;</span>);
-<span class="macro">impl_raw_data!</span>(<span class="ident">RawU16</span>: <span class="ident">u16</span>, <span class="number">16</span>, <span class="number">0xFFFF</span>, <span class="string">&quot;16 bits&quot;</span>);
-<span class="macro">impl_raw_data!</span>(<span class="ident">RawU18</span>: <span class="ident">u32</span>, <span class="number">18</span>, <span class="number">0x3FFFF</span>, <span class="string">&quot;18 bits&quot;</span>);
-<span class="macro">impl_raw_data!</span>(<span class="ident">RawU24</span>: <span class="ident">u32</span>, <span class="number">24</span>, <span class="number">0xFF_FFFF</span>, <span class="string">&quot;24 bits&quot;</span>);
-<span class="macro">impl_raw_data!</span>(<span class="ident">RawU32</span>: <span class="ident">u32</span>, <span class="number">32</span>, <span class="number">0xFFFF_FFFF</span>, <span class="string">&quot;32 bits&quot;</span>);
+<span class="macro">impl_raw_data!</span>(RawU1: u8, <span class="number">1</span>, <span class="number">0x01</span>, <span class="string">&quot;1 bit&quot;</span>);
+<span class="macro">impl_raw_data!</span>(RawU2: u8, <span class="number">2</span>, <span class="number">0x03</span>, <span class="string">&quot;2 bits&quot;</span>);
+<span class="macro">impl_raw_data!</span>(RawU4: u8, <span class="number">4</span>, <span class="number">0x0F</span>, <span class="string">&quot;4 bits&quot;</span>);
+<span class="macro">impl_raw_data!</span>(RawU8: u8, <span class="number">8</span>, <span class="number">0xFF</span>, <span class="string">&quot;8 bits&quot;</span>);
+<span class="macro">impl_raw_data!</span>(RawU16: u16, <span class="number">16</span>, <span class="number">0xFFFF</span>, <span class="string">&quot;16 bits&quot;</span>);
+<span class="macro">impl_raw_data!</span>(RawU18: u32, <span class="number">18</span>, <span class="number">0x3FFFF</span>, <span class="string">&quot;18 bits&quot;</span>);
+<span class="macro">impl_raw_data!</span>(RawU24: u32, <span class="number">24</span>, <span class="number">0xFF_FFFF</span>, <span class="string">&quot;24 bits&quot;</span>);
+<span class="macro">impl_raw_data!</span>(RawU32: u32, <span class="number">32</span>, <span class="number">0xFFFF_FFFF</span>, <span class="string">&quot;32 bits&quot;</span>);
 
-<span class="doccomment">/// Raw data byte order.</span>
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">ByteOrder</span>: <span class="ident">private::Sealed</span> {}
+<span class="doccomment">/// Raw data byte order.
+</span><span class="kw">pub trait </span>ByteOrder: private::Sealed {}
 
-<span class="doccomment">/// Little endian byte order marker.</span>
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Copy</span>, <span class="ident">Clone</span>, <span class="ident">Eq</span>, <span class="ident">PartialEq</span>, <span class="ident">Ord</span>, <span class="ident">PartialOrd</span>, <span class="ident">Hash</span>, <span class="ident">Debug</span>)]</span>
-<span class="kw">pub</span> <span class="kw">enum</span> <span class="ident">LittleEndian</span> {}
+<span class="doccomment">/// Little endian byte order marker.
+</span><span class="attribute">#[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Hash, Debug)]
+</span><span class="kw">pub enum </span>LittleEndian {}
 
-<span class="kw">impl</span> <span class="ident">ByteOrder</span> <span class="kw">for</span> <span class="ident">LittleEndian</span> {}
-<span class="kw">impl</span> <span class="ident">private::Sealed</span> <span class="kw">for</span> <span class="ident">LittleEndian</span> {}
+<span class="kw">impl </span>ByteOrder <span class="kw">for </span>LittleEndian {}
+<span class="kw">impl </span>private::Sealed <span class="kw">for </span>LittleEndian {}
 
-<span class="doccomment">/// Big endian byte order marker.</span>
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Copy</span>, <span class="ident">Clone</span>, <span class="ident">Eq</span>, <span class="ident">PartialEq</span>, <span class="ident">Ord</span>, <span class="ident">PartialOrd</span>, <span class="ident">Hash</span>, <span class="ident">Debug</span>)]</span>
-<span class="kw">pub</span> <span class="kw">enum</span> <span class="ident">BigEndian</span> {}
+<span class="doccomment">/// Big endian byte order marker.
+</span><span class="attribute">#[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Hash, Debug)]
+</span><span class="kw">pub enum </span>BigEndian {}
 
-<span class="kw">impl</span> <span class="ident">ByteOrder</span> <span class="kw">for</span> <span class="ident">BigEndian</span> {}
-<span class="kw">impl</span> <span class="ident">private::Sealed</span> <span class="kw">for</span> <span class="ident">BigEndian</span> {}
+<span class="kw">impl </span>ByteOrder <span class="kw">for </span>BigEndian {}
+<span class="kw">impl </span>private::Sealed <span class="kw">for </span>BigEndian {}
 
-<span class="kw">mod</span> <span class="ident">private</span> {
-    <span class="doccomment">/// Sealed trait to prevent implementation of traits in other crates.</span>
-    <span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">Sealed</span> {}
+<span class="kw">mod </span>private {
+    <span class="doccomment">/// Sealed trait to prevent implementation of traits in other crates.
+    </span><span class="kw">pub trait </span>Sealed {}
 }
 
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
-<span class="kw">mod</span> <span class="ident">tests</span> {
-    <span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
+<span class="attribute">#[cfg(test)]
+</span><span class="kw">mod </span>tests {
+    <span class="kw">use super</span>::<span class="kw-2">*</span>;
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">upper_bits_are_masked</span>() {
-        <span class="macro">assert_eq!</span>(<span class="ident">RawU1::new</span>(<span class="ident">u8::max_value</span>()).<span class="number">0</span>, <span class="number">0x1</span>);
-        <span class="macro">assert_eq!</span>(<span class="ident">RawU2::new</span>(<span class="ident">u8::max_value</span>()).<span class="number">0</span>, <span class="number">0x3</span>);
-        <span class="macro">assert_eq!</span>(<span class="ident">RawU4::new</span>(<span class="ident">u8::max_value</span>()).<span class="number">0</span>, <span class="number">0xF</span>);
-        <span class="macro">assert_eq!</span>(<span class="ident">RawU24::new</span>(<span class="ident">u32::max_value</span>()).<span class="number">0</span>, <span class="number">0xFFFFFF</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>upper_bits_are_masked() {
+        <span class="macro">assert_eq!</span>(RawU1::new(u8::max_value()).<span class="number">0</span>, <span class="number">0x1</span>);
+        <span class="macro">assert_eq!</span>(RawU2::new(u8::max_value()).<span class="number">0</span>, <span class="number">0x3</span>);
+        <span class="macro">assert_eq!</span>(RawU4::new(u8::max_value()).<span class="number">0</span>, <span class="number">0xF</span>);
+        <span class="macro">assert_eq!</span>(RawU24::new(u32::max_value()).<span class="number">0</span>, <span class="number">0xFFFFFF</span>);
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../../" data-current-crate="embedded_graphics_core" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0 (a55dd71d5 2022-09-19)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../../" data-current-crate="embedded_graphics_core" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0 (69f9c33d7 2022-12-12)" ></div></body></html>

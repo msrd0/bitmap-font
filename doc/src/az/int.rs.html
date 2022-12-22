@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/az-1.2.1/src/int.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>int.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script><script defer src="../../main.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../az/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../az/index.html"><div class="logo-container"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../az/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/az-1.2.1/src/int.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>int.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../normalize.css"><link rel="stylesheet" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../ayu.css" disabled><link rel="stylesheet" href="../../dark.css" disabled><link rel="stylesheet" href="../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../storage.js"></script><script defer src="../../source-script.js"></script><script defer src="../../source-files.js"></script><script defer src="../../main.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../az/index.html"><img class="rust-logo" src="../../rust-logo.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../wheel.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -540,124 +540,124 @@
 <span id="540">540</span>
 <span id="541">541</span>
 <span id="542">542</span>
-</pre><pre class="rust"><code><span class="comment">// Copyright © 2019–2021 Trevor Spiteri</span>
+</pre><pre class="rust"><code><span class="comment">// Copyright © 2019–2021 Trevor Spiteri
 
-<span class="comment">// This library is free software: you can redistribute it and/or</span>
-<span class="comment">// modify it under the terms of either</span>
-<span class="comment">//</span>
-<span class="comment">//   * the Apache License, Version 2.0 or</span>
-<span class="comment">//   * the MIT License</span>
-<span class="comment">//</span>
-<span class="comment">// at your option.</span>
-<span class="comment">//</span>
-<span class="comment">// You should have recieved copies of the Apache License and the MIT</span>
-<span class="comment">// License along with the library. If not, see</span>
-<span class="comment">// &lt;https://www.apache.org/licenses/LICENSE-2.0&gt; and</span>
-<span class="comment">// &lt;https://opensource.org/licenses/MIT&gt;.</span>
+// This library is free software: you can redistribute it and/or
+// modify it under the terms of either
+//
+//   * the Apache License, Version 2.0 or
+//   * the MIT License
+//
+// at your option.
+//
+// You should have recieved copies of the Apache License and the MIT
+// License along with the library. If not, see
+// &lt;https://www.apache.org/licenses/LICENSE-2.0&gt; and
+// &lt;https://opensource.org/licenses/MIT&gt;.
 
-<span class="kw">use</span> <span class="kw">crate</span>::{
-    <span class="ident">cast</span>, <span class="ident">checked_cast</span>, <span class="ident">overflowing_cast</span>, <span class="ident">saturating_cast</span>, <span class="ident">wrapping_cast</span>, <span class="ident">Cast</span>, <span class="ident">CheckedCast</span>,
-    <span class="ident">OverflowingCast</span>, <span class="ident">Round</span>, <span class="ident">SaturatingCast</span>, <span class="ident">UnwrappedCast</span>, <span class="ident">WrappingCast</span>,
+</span><span class="kw">use crate</span>::{
+    cast, checked_cast, overflowing_cast, saturating_cast, wrapping_cast, Cast, CheckedCast,
+    OverflowingCast, Round, SaturatingCast, UnwrappedCast, WrappingCast,
 };
-<span class="kw">use</span> <span class="ident">core</span>::{<span class="ident">mem</span>, <span class="ident">num::Wrapping</span>};
+<span class="kw">use </span>core::{mem, num::Wrapping};
 
-<span class="macro">macro_rules!</span> <span class="ident">bool_to_int</span> {
-    (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span>:<span class="ident">ty</span>) =&gt; {
-        <span class="kw">impl</span> <span class="ident">Cast</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">bool</span> {
-            <span class="attribute">#[<span class="ident">inline</span>]</span>
-            <span class="kw">fn</span> <span class="ident">cast</span>(<span class="self">self</span>) -&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span> {
-                <span class="self">self</span> <span class="kw">as</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span>
+<span class="macro">macro_rules! </span>bool_to_int {
+    (<span class="macro-nonterminal">$Dst</span>:ty) =&gt; {
+        <span class="kw">impl </span>Cast&lt;<span class="macro-nonterminal">$Dst</span>&gt; <span class="kw">for </span>bool {
+            <span class="attribute">#[inline]
+            </span><span class="kw">fn </span>cast(<span class="self">self</span>) -&gt; <span class="macro-nonterminal">$Dst </span>{
+                <span class="self">self </span><span class="kw">as </span><span class="macro-nonterminal">$Dst
+            </span>}
+        }
+
+        <span class="kw">impl </span>CheckedCast&lt;<span class="macro-nonterminal">$Dst</span>&gt; <span class="kw">for </span>bool {
+            <span class="attribute">#[inline]
+            </span><span class="kw">fn </span>checked_cast(<span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="macro-nonterminal">$Dst</span>&gt; {
+                <span class="prelude-val">Some</span>(<span class="self">self </span><span class="kw">as </span><span class="macro-nonterminal">$Dst</span>)
             }
         }
 
-        <span class="kw">impl</span> <span class="ident">CheckedCast</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">bool</span> {
-            <span class="attribute">#[<span class="ident">inline</span>]</span>
-            <span class="kw">fn</span> <span class="ident">checked_cast</span>(<span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span><span class="op">&gt;</span> {
-                <span class="prelude-val">Some</span>(<span class="self">self</span> <span class="kw">as</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span>)
+        <span class="kw">impl </span>SaturatingCast&lt;<span class="macro-nonterminal">$Dst</span>&gt; <span class="kw">for </span>bool {
+            <span class="attribute">#[inline]
+            </span><span class="kw">fn </span>saturating_cast(<span class="self">self</span>) -&gt; <span class="macro-nonterminal">$Dst </span>{
+                <span class="self">self </span><span class="kw">as </span><span class="macro-nonterminal">$Dst
+            </span>}
+        }
+
+        <span class="kw">impl </span>WrappingCast&lt;<span class="macro-nonterminal">$Dst</span>&gt; <span class="kw">for </span>bool {
+            <span class="attribute">#[inline]
+            </span><span class="kw">fn </span>wrapping_cast(<span class="self">self</span>) -&gt; <span class="macro-nonterminal">$Dst </span>{
+                <span class="self">self </span><span class="kw">as </span><span class="macro-nonterminal">$Dst
+            </span>}
+        }
+
+        <span class="kw">impl </span>OverflowingCast&lt;<span class="macro-nonterminal">$Dst</span>&gt; <span class="kw">for </span>bool {
+            <span class="attribute">#[inline]
+            </span><span class="kw">fn </span>overflowing_cast(<span class="self">self</span>) -&gt; (<span class="macro-nonterminal">$Dst</span>, bool) {
+                (<span class="self">self </span><span class="kw">as </span><span class="macro-nonterminal">$Dst</span>, <span class="bool-val">false</span>)
             }
         }
 
-        <span class="kw">impl</span> <span class="ident">SaturatingCast</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">bool</span> {
-            <span class="attribute">#[<span class="ident">inline</span>]</span>
-            <span class="kw">fn</span> <span class="ident">saturating_cast</span>(<span class="self">self</span>) -&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span> {
-                <span class="self">self</span> <span class="kw">as</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span>
-            }
-        }
-
-        <span class="kw">impl</span> <span class="ident">WrappingCast</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">bool</span> {
-            <span class="attribute">#[<span class="ident">inline</span>]</span>
-            <span class="kw">fn</span> <span class="ident">wrapping_cast</span>(<span class="self">self</span>) -&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span> {
-                <span class="self">self</span> <span class="kw">as</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span>
-            }
-        }
-
-        <span class="kw">impl</span> <span class="ident">OverflowingCast</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">bool</span> {
-            <span class="attribute">#[<span class="ident">inline</span>]</span>
-            <span class="kw">fn</span> <span class="ident">overflowing_cast</span>(<span class="self">self</span>) -&gt; (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span>, <span class="ident">bool</span>) {
-                (<span class="self">self</span> <span class="kw">as</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span>, <span class="bool-val">false</span>)
-            }
-        }
-
-        <span class="kw">impl</span> <span class="ident">UnwrappedCast</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">bool</span> {
-            <span class="attribute">#[<span class="ident">inline</span>]</span>
-            <span class="kw">fn</span> <span class="ident">unwrapped_cast</span>(<span class="self">self</span>) -&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span> {
-                <span class="self">self</span> <span class="kw">as</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span>
-            }
+        <span class="kw">impl </span>UnwrappedCast&lt;<span class="macro-nonterminal">$Dst</span>&gt; <span class="kw">for </span>bool {
+            <span class="attribute">#[inline]
+            </span><span class="kw">fn </span>unwrapped_cast(<span class="self">self</span>) -&gt; <span class="macro-nonterminal">$Dst </span>{
+                <span class="self">self </span><span class="kw">as </span><span class="macro-nonterminal">$Dst
+            </span>}
         }
     };
 }
 
-<span class="macro">macro_rules!</span> <span class="ident">common</span> {
-    (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">Src</span>:<span class="ident">ty</span> =&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span>:<span class="ident">ty</span>) =&gt; {
-        <span class="kw">impl</span> <span class="ident">Cast</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Src</span> {
-            <span class="attribute">#[<span class="ident">inline</span>]</span>
-            <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">track_caller</span>, <span class="ident">track_caller</span>)]</span>
-            <span class="kw">fn</span> <span class="ident">cast</span>(<span class="self">self</span>) -&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span> {
-                <span class="kw">let</span> (<span class="ident">wrapped</span>, <span class="ident">overflow</span>) <span class="op">=</span> <span class="ident">overflowing_cast</span>(<span class="self">self</span>);
-                <span class="macro">debug_assert!</span>(<span class="op">!</span><span class="ident">overflow</span>, <span class="string">&quot;{} overflows&quot;</span>, <span class="self">self</span>);
-                <span class="kw">let</span> <span class="kw">_</span> <span class="op">=</span> <span class="ident">overflow</span>;
-                <span class="ident">wrapped</span>
+<span class="macro">macro_rules! </span>common {
+    (<span class="macro-nonterminal">$Src</span>:ty =&gt; <span class="macro-nonterminal">$Dst</span>:ty) =&gt; {
+        <span class="kw">impl </span>Cast&lt;<span class="macro-nonterminal">$Dst</span>&gt; <span class="kw">for </span><span class="macro-nonterminal">$Src </span>{
+            <span class="attribute">#[inline]
+            #[cfg_attr(track_caller, track_caller)]
+            </span><span class="kw">fn </span>cast(<span class="self">self</span>) -&gt; <span class="macro-nonterminal">$Dst </span>{
+                <span class="kw">let </span>(wrapped, overflow) = overflowing_cast(<span class="self">self</span>);
+                <span class="macro">debug_assert!</span>(!overflow, <span class="string">&quot;{} overflows&quot;</span>, <span class="self">self</span>);
+                <span class="kw">let _ </span>= overflow;
+                wrapped
             }
         }
 
-        <span class="kw">impl</span> <span class="ident">CheckedCast</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Src</span> {
-            <span class="attribute">#[<span class="ident">inline</span>]</span>
-            <span class="kw">fn</span> <span class="ident">checked_cast</span>(<span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span><span class="op">&gt;</span> {
-                <span class="kw">match</span> <span class="ident">overflowing_cast</span>(<span class="self">self</span>) {
-                    (<span class="ident">value</span>, <span class="bool-val">false</span>) =&gt; <span class="prelude-val">Some</span>(<span class="ident">value</span>),
+        <span class="kw">impl </span>CheckedCast&lt;<span class="macro-nonterminal">$Dst</span>&gt; <span class="kw">for </span><span class="macro-nonterminal">$Src </span>{
+            <span class="attribute">#[inline]
+            </span><span class="kw">fn </span>checked_cast(<span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="macro-nonterminal">$Dst</span>&gt; {
+                <span class="kw">match </span>overflowing_cast(<span class="self">self</span>) {
+                    (value, <span class="bool-val">false</span>) =&gt; <span class="prelude-val">Some</span>(value),
                     (<span class="kw">_</span>, <span class="bool-val">true</span>) =&gt; <span class="prelude-val">None</span>,
                 }
             }
         }
 
-        <span class="kw">impl</span> <span class="ident">SaturatingCast</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Src</span> {
-            <span class="attribute">#[<span class="ident">inline</span>]</span>
-            <span class="kw">fn</span> <span class="ident">saturating_cast</span>(<span class="self">self</span>) -&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span> {
-                <span class="kw">match</span> <span class="ident">overflowing_cast</span>(<span class="self">self</span>) {
-                    (<span class="ident">value</span>, <span class="bool-val">false</span>) =&gt; <span class="ident">value</span>,
+        <span class="kw">impl </span>SaturatingCast&lt;<span class="macro-nonterminal">$Dst</span>&gt; <span class="kw">for </span><span class="macro-nonterminal">$Src </span>{
+            <span class="attribute">#[inline]
+            </span><span class="kw">fn </span>saturating_cast(<span class="self">self</span>) -&gt; <span class="macro-nonterminal">$Dst </span>{
+                <span class="kw">match </span>overflowing_cast(<span class="self">self</span>) {
+                    (value, <span class="bool-val">false</span>) =&gt; value,
                     (<span class="kw">_</span>, <span class="bool-val">true</span>) =&gt; {
-                        <span class="kw">if</span> <span class="self">self</span> <span class="op">&gt;</span> <span class="number">0</span> {
-                            <span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span><span class="op">&gt;</span><span class="ident">::max_value</span>()
-                        } <span class="kw">else</span> {
-                            <span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span><span class="op">&gt;</span><span class="ident">::min_value</span>()
+                        <span class="kw">if </span><span class="self">self </span>&gt; <span class="number">0 </span>{
+                            &lt;<span class="macro-nonterminal">$Dst</span>&gt;::max_value()
+                        } <span class="kw">else </span>{
+                            &lt;<span class="macro-nonterminal">$Dst</span>&gt;::min_value()
                         }
                     }
                 }
             }
         }
 
-        <span class="kw">impl</span> <span class="ident">WrappingCast</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Src</span> {
-            <span class="attribute">#[<span class="ident">inline</span>]</span>
-            <span class="kw">fn</span> <span class="ident">wrapping_cast</span>(<span class="self">self</span>) -&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span> {
-                <span class="ident">overflowing_cast</span>(<span class="self">self</span>).<span class="number">0</span>
-            }
+        <span class="kw">impl </span>WrappingCast&lt;<span class="macro-nonterminal">$Dst</span>&gt; <span class="kw">for </span><span class="macro-nonterminal">$Src </span>{
+            <span class="attribute">#[inline]
+            </span><span class="kw">fn </span>wrapping_cast(<span class="self">self</span>) -&gt; <span class="macro-nonterminal">$Dst </span>{
+                overflowing_cast(<span class="self">self</span>).<span class="number">0
+            </span>}
         }
 
-        <span class="kw">impl</span> <span class="ident">UnwrappedCast</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Src</span> {
-            <span class="attribute">#[<span class="ident">inline</span>]</span>
-            <span class="kw">fn</span> <span class="ident">unwrapped_cast</span>(<span class="self">self</span>) -&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span> {
-                <span class="kw">match</span> <span class="ident">overflowing_cast</span>(<span class="self">self</span>) {
-                    (<span class="ident">value</span>, <span class="bool-val">false</span>) =&gt; <span class="ident">value</span>,
+        <span class="kw">impl </span>UnwrappedCast&lt;<span class="macro-nonterminal">$Dst</span>&gt; <span class="kw">for </span><span class="macro-nonterminal">$Src </span>{
+            <span class="attribute">#[inline]
+            </span><span class="kw">fn </span>unwrapped_cast(<span class="self">self</span>) -&gt; <span class="macro-nonterminal">$Dst </span>{
+                <span class="kw">match </span>overflowing_cast(<span class="self">self</span>) {
+                    (value, <span class="bool-val">false</span>) =&gt; value,
                     (<span class="kw">_</span>, <span class="bool-val">true</span>) =&gt; <span class="macro">panic!</span>(<span class="string">&quot;overflow&quot;</span>),
                 }
             }
@@ -665,422 +665,422 @@
     };
 }
 
-<span class="macro">macro_rules!</span> <span class="ident">same_signedness</span> {
-    ($(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">Src</span>:<span class="ident">ty</span>),<span class="op">*</span> =&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span>:<span class="ident">ty</span>) =&gt; { $(
-        <span class="macro">common!</span> { <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Src</span> =&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span> }
+<span class="macro">macro_rules! </span>same_signedness {
+    ($(<span class="macro-nonterminal">$Src</span>:ty),* =&gt; <span class="macro-nonterminal">$Dst</span>:ty) =&gt; { $(
+        <span class="macro">common! </span>{ <span class="macro-nonterminal">$Src </span>=&gt; <span class="macro-nonterminal">$Dst </span>}
 
-        <span class="kw">impl</span> <span class="ident">OverflowingCast</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Src</span> {
-            <span class="attribute">#[<span class="ident">inline</span>]</span>
-            <span class="kw">fn</span> <span class="ident">overflowing_cast</span>(<span class="self">self</span>) -&gt; (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span>, <span class="ident">bool</span>) {
-                <span class="kw">let</span> <span class="ident">wrapped</span> <span class="op">=</span> <span class="self">self</span> <span class="kw">as</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span>;
-                <span class="kw">let</span> <span class="ident">overflow</span> <span class="op">=</span> <span class="self">self</span> <span class="op">!</span><span class="op">=</span> <span class="ident">wrapped</span> <span class="kw">as</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Src</span>;
-                (<span class="ident">wrapped</span>, <span class="ident">overflow</span>)
+        <span class="kw">impl </span>OverflowingCast&lt;<span class="macro-nonterminal">$Dst</span>&gt; <span class="kw">for </span><span class="macro-nonterminal">$Src </span>{
+            <span class="attribute">#[inline]
+            </span><span class="kw">fn </span>overflowing_cast(<span class="self">self</span>) -&gt; (<span class="macro-nonterminal">$Dst</span>, bool) {
+                <span class="kw">let </span>wrapped = <span class="self">self </span><span class="kw">as </span><span class="macro-nonterminal">$Dst</span>;
+                <span class="kw">let </span>overflow = <span class="self">self </span>!= wrapped <span class="kw">as </span><span class="macro-nonterminal">$Src</span>;
+                (wrapped, overflow)
             }
         }
-    )<span class="op">*</span> };
+    )* };
 }
 
-<span class="macro">macro_rules!</span> <span class="ident">signed_to_unsigned</span> {
-    ($(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">Src</span>:<span class="ident">ty</span>),<span class="op">*</span> =&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span>:<span class="ident">ty</span>) =&gt; { $(
-        <span class="macro">common!</span> { <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Src</span> =&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span> }
+<span class="macro">macro_rules! </span>signed_to_unsigned {
+    ($(<span class="macro-nonterminal">$Src</span>:ty),* =&gt; <span class="macro-nonterminal">$Dst</span>:ty) =&gt; { $(
+        <span class="macro">common! </span>{ <span class="macro-nonterminal">$Src </span>=&gt; <span class="macro-nonterminal">$Dst </span>}
 
-        <span class="kw">impl</span> <span class="ident">OverflowingCast</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Src</span> {
-            <span class="attribute">#[<span class="ident">inline</span>]</span>
-            <span class="kw">fn</span> <span class="ident">overflowing_cast</span>(<span class="self">self</span>) -&gt; (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span>, <span class="ident">bool</span>) {
-                <span class="kw">let</span> <span class="ident">wrapped</span> <span class="op">=</span> <span class="self">self</span> <span class="kw">as</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span>;
-                <span class="kw">let</span> <span class="ident">overflow</span> <span class="op">=</span> <span class="self">self</span> <span class="op">&lt;</span> <span class="number">0</span> <span class="op">|</span><span class="op">|</span> <span class="self">self</span> <span class="op">!</span><span class="op">=</span> <span class="ident">wrapped</span> <span class="kw">as</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Src</span>;
-                (<span class="ident">wrapped</span>, <span class="ident">overflow</span>)
+        <span class="kw">impl </span>OverflowingCast&lt;<span class="macro-nonterminal">$Dst</span>&gt; <span class="kw">for </span><span class="macro-nonterminal">$Src </span>{
+            <span class="attribute">#[inline]
+            </span><span class="kw">fn </span>overflowing_cast(<span class="self">self</span>) -&gt; (<span class="macro-nonterminal">$Dst</span>, bool) {
+                <span class="kw">let </span>wrapped = <span class="self">self </span><span class="kw">as </span><span class="macro-nonterminal">$Dst</span>;
+                <span class="kw">let </span>overflow = <span class="self">self </span>&lt; <span class="number">0 </span>|| <span class="self">self </span>!= wrapped <span class="kw">as </span><span class="macro-nonterminal">$Src</span>;
+                (wrapped, overflow)
             }
         }
-    )<span class="op">*</span> };
+    )* };
 }
 
-<span class="macro">macro_rules!</span> <span class="ident">unsigned_to_signed</span> {
-    ($(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">Src</span>:<span class="ident">ty</span>),<span class="op">*</span> =&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span>:<span class="ident">ty</span>) =&gt; { $(
-        <span class="macro">common!</span> { <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Src</span> =&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span> }
+<span class="macro">macro_rules! </span>unsigned_to_signed {
+    ($(<span class="macro-nonterminal">$Src</span>:ty),* =&gt; <span class="macro-nonterminal">$Dst</span>:ty) =&gt; { $(
+        <span class="macro">common! </span>{ <span class="macro-nonterminal">$Src </span>=&gt; <span class="macro-nonterminal">$Dst </span>}
 
-        <span class="kw">impl</span> <span class="ident">OverflowingCast</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Src</span> {
-            <span class="attribute">#[<span class="ident">inline</span>]</span>
-            <span class="kw">fn</span> <span class="ident">overflowing_cast</span>(<span class="self">self</span>) -&gt; (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span>, <span class="ident">bool</span>) {
-                <span class="kw">let</span> <span class="ident">wrapped</span> <span class="op">=</span> <span class="self">self</span> <span class="kw">as</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span>;
-                <span class="kw">let</span> <span class="ident">overflow</span> <span class="op">=</span> <span class="ident">wrapped</span> <span class="op">&lt;</span> <span class="number">0</span> <span class="op">|</span><span class="op">|</span> <span class="self">self</span> <span class="op">!</span><span class="op">=</span> <span class="ident">wrapped</span> <span class="kw">as</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Src</span>;
-                (<span class="ident">wrapped</span>, <span class="ident">overflow</span>)
+        <span class="kw">impl </span>OverflowingCast&lt;<span class="macro-nonterminal">$Dst</span>&gt; <span class="kw">for </span><span class="macro-nonterminal">$Src </span>{
+            <span class="attribute">#[inline]
+            </span><span class="kw">fn </span>overflowing_cast(<span class="self">self</span>) -&gt; (<span class="macro-nonterminal">$Dst</span>, bool) {
+                <span class="kw">let </span>wrapped = <span class="self">self </span><span class="kw">as </span><span class="macro-nonterminal">$Dst</span>;
+                <span class="kw">let </span>overflow = wrapped &lt; <span class="number">0 </span>|| <span class="self">self </span>!= wrapped <span class="kw">as </span><span class="macro-nonterminal">$Src</span>;
+                (wrapped, overflow)
             }
         }
-    )<span class="op">*</span> };
+    )* };
 }
 
-<span class="macro">macro_rules!</span> <span class="ident">wrapping_int</span> {
-    ($(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">Src</span>:<span class="ident">ty</span>),<span class="op">*</span> =&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span>:<span class="ident">ty</span>) =&gt; { $(
-        <span class="kw">impl</span> <span class="ident">Cast</span><span class="op">&lt;</span><span class="ident">Wrapping</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Src</span> {
-            <span class="attribute">#[<span class="ident">inline</span>]</span>
-            <span class="kw">fn</span> <span class="ident">cast</span>(<span class="self">self</span>) -&gt; <span class="ident">Wrapping</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span><span class="op">&gt;</span> {
-                <span class="ident">Wrapping</span>(<span class="ident">wrapping_cast</span>(<span class="self">self</span>))
+<span class="macro">macro_rules! </span>wrapping_int {
+    ($(<span class="macro-nonterminal">$Src</span>:ty),* =&gt; <span class="macro-nonterminal">$Dst</span>:ty) =&gt; { $(
+        <span class="kw">impl </span>Cast&lt;Wrapping&lt;<span class="macro-nonterminal">$Dst</span>&gt;&gt; <span class="kw">for </span><span class="macro-nonterminal">$Src </span>{
+            <span class="attribute">#[inline]
+            </span><span class="kw">fn </span>cast(<span class="self">self</span>) -&gt; Wrapping&lt;<span class="macro-nonterminal">$Dst</span>&gt; {
+                Wrapping(wrapping_cast(<span class="self">self</span>))
             }
         }
 
-        <span class="kw">impl</span> <span class="ident">CheckedCast</span><span class="op">&lt;</span><span class="ident">Wrapping</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Src</span> {
-            <span class="attribute">#[<span class="ident">inline</span>]</span>
-            <span class="kw">fn</span> <span class="ident">checked_cast</span>(<span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Wrapping</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span><span class="op">&gt;</span><span class="op">&gt;</span> {
-                <span class="prelude-val">Some</span>(<span class="ident">cast</span>(<span class="self">self</span>))
+        <span class="kw">impl </span>CheckedCast&lt;Wrapping&lt;<span class="macro-nonterminal">$Dst</span>&gt;&gt; <span class="kw">for </span><span class="macro-nonterminal">$Src </span>{
+            <span class="attribute">#[inline]
+            </span><span class="kw">fn </span>checked_cast(<span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;Wrapping&lt;<span class="macro-nonterminal">$Dst</span>&gt;&gt; {
+                <span class="prelude-val">Some</span>(cast(<span class="self">self</span>))
             }
         }
 
-        <span class="kw">impl</span> <span class="ident">UnwrappedCast</span><span class="op">&lt;</span><span class="ident">Wrapping</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Src</span> {
-            <span class="attribute">#[<span class="ident">inline</span>]</span>
-            <span class="kw">fn</span> <span class="ident">unwrapped_cast</span>(<span class="self">self</span>) -&gt; <span class="ident">Wrapping</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span><span class="op">&gt;</span> {
-                <span class="ident">cast</span>(<span class="self">self</span>)
+        <span class="kw">impl </span>UnwrappedCast&lt;Wrapping&lt;<span class="macro-nonterminal">$Dst</span>&gt;&gt; <span class="kw">for </span><span class="macro-nonterminal">$Src </span>{
+            <span class="attribute">#[inline]
+            </span><span class="kw">fn </span>unwrapped_cast(<span class="self">self</span>) -&gt; Wrapping&lt;<span class="macro-nonterminal">$Dst</span>&gt; {
+                cast(<span class="self">self</span>)
             }
         }
-    )<span class="op">*</span> };
+    )* };
 }
 
-<span class="macro">macro_rules!</span> <span class="ident">float_to_int</span> {
-    (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">Src</span>:<span class="ident">ty</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">ViaU</span>:<span class="ident">ty</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">ViaI</span>:<span class="ident">ty</span> =&gt; $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span>:<span class="ident">ty</span>)<span class="kw-2">*</span>) =&gt; { $(
-        <span class="kw">impl</span> <span class="ident">Cast</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Src</span> {
-            <span class="attribute">#[<span class="ident">inline</span>]</span>
-            <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">track_caller</span>, <span class="ident">track_caller</span>)]</span>
-            <span class="kw">fn</span> <span class="ident">cast</span>(<span class="self">self</span>) -&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span> {
-                <span class="kw">let</span> (<span class="ident">wrapped</span>, <span class="ident">overflow</span>) <span class="op">=</span> <span class="ident">overflowing_cast</span>(<span class="self">self</span>);
-                <span class="macro">debug_assert!</span>(<span class="op">!</span><span class="ident">overflow</span>, <span class="string">&quot;{} overflows&quot;</span>, <span class="self">self</span>);
-                <span class="kw">let</span> <span class="kw">_</span> <span class="op">=</span> <span class="ident">overflow</span>;
-                <span class="ident">wrapped</span>
+<span class="macro">macro_rules! </span>float_to_int {
+    (<span class="macro-nonterminal">$Src</span>:ty, <span class="macro-nonterminal">$ViaU</span>:ty, <span class="macro-nonterminal">$ViaI</span>:ty =&gt; $(<span class="macro-nonterminal">$Dst</span>:ty)<span class="kw-2">*</span>) =&gt; { $(
+        <span class="kw">impl </span>Cast&lt;<span class="macro-nonterminal">$Dst</span>&gt; <span class="kw">for </span><span class="macro-nonterminal">$Src </span>{
+            <span class="attribute">#[inline]
+            #[cfg_attr(track_caller, track_caller)]
+            </span><span class="kw">fn </span>cast(<span class="self">self</span>) -&gt; <span class="macro-nonterminal">$Dst </span>{
+                <span class="kw">let </span>(wrapped, overflow) = overflowing_cast(<span class="self">self</span>);
+                <span class="macro">debug_assert!</span>(!overflow, <span class="string">&quot;{} overflows&quot;</span>, <span class="self">self</span>);
+                <span class="kw">let _ </span>= overflow;
+                wrapped
             }
         }
 
-        <span class="kw">impl</span> <span class="ident">CheckedCast</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Src</span> {
-            <span class="kw">fn</span> <span class="ident">checked_cast</span>(<span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span><span class="op">&gt;</span> {
-                <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">Float</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">ViaU</span><span class="op">&gt;</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">into</span>();
-                <span class="kw">match</span> <span class="ident">f</span>.<span class="ident">kind</span> {
-                    <span class="ident">FloatKind::Nan</span> <span class="op">|</span> <span class="ident">FloatKind::Infinite</span> <span class="op">|</span> <span class="ident">FloatKind::Overflowing</span>(<span class="kw">_</span>, <span class="bool-val">true</span>) =&gt; <span class="prelude-val">None</span>,
-                    <span class="ident">FloatKind::Overflowing</span>(<span class="ident">abs</span>, <span class="bool-val">false</span>) =&gt; {
-                        <span class="kw">if</span> <span class="ident">f</span>.<span class="ident">neg</span> {
-                            <span class="kw">let</span> <span class="ident">i</span> <span class="op">=</span> <span class="ident">abs</span> <span class="kw">as</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">ViaI</span>;
-                            <span class="kw">if</span> <span class="ident">i</span> <span class="op">==</span> <span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">ViaI</span><span class="op">&gt;</span><span class="ident">::min_value</span>() {
-                                <span class="ident">checked_cast</span>(<span class="ident">i</span>)
-                            } <span class="kw">else</span> <span class="kw">if</span> <span class="ident">i</span> <span class="op">&lt;</span> <span class="number">0</span> {
-                                <span class="prelude-val">None</span>
-                            } <span class="kw">else</span> {
-                                <span class="ident">checked_cast</span>(<span class="op">-</span><span class="ident">i</span>)
+        <span class="kw">impl </span>CheckedCast&lt;<span class="macro-nonterminal">$Dst</span>&gt; <span class="kw">for </span><span class="macro-nonterminal">$Src </span>{
+            <span class="kw">fn </span>checked_cast(<span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="macro-nonterminal">$Dst</span>&gt; {
+                <span class="kw">let </span>f: Float&lt;<span class="macro-nonterminal">$ViaU</span>&gt; = <span class="self">self</span>.into();
+                <span class="kw">match </span>f.kind {
+                    FloatKind::Nan | FloatKind::Infinite | FloatKind::Overflowing(<span class="kw">_</span>, <span class="bool-val">true</span>) =&gt; <span class="prelude-val">None</span>,
+                    FloatKind::Overflowing(abs, <span class="bool-val">false</span>) =&gt; {
+                        <span class="kw">if </span>f.neg {
+                            <span class="kw">let </span>i = abs <span class="kw">as </span><span class="macro-nonterminal">$ViaI</span>;
+                            <span class="kw">if </span>i == &lt;<span class="macro-nonterminal">$ViaI</span>&gt;::min_value() {
+                                checked_cast(i)
+                            } <span class="kw">else if </span>i &lt; <span class="number">0 </span>{
+                                <span class="prelude-val">None
+                            </span>} <span class="kw">else </span>{
+                                checked_cast(-i)
                             }
-                        } <span class="kw">else</span> {
-                            <span class="ident">checked_cast</span>(<span class="ident">abs</span>)
+                        } <span class="kw">else </span>{
+                            checked_cast(abs)
                         }
                     }
                 }
             }
         }
 
-        <span class="kw">impl</span> <span class="ident">SaturatingCast</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Src</span> {
-            <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">track_caller</span>, <span class="ident">track_caller</span>)]</span>
-            <span class="kw">fn</span> <span class="ident">saturating_cast</span>(<span class="self">self</span>) -&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span> {
-                <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">Float</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">ViaU</span><span class="op">&gt;</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">into</span>();
-                <span class="kw">let</span> <span class="ident">saturated</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">f</span>.<span class="ident">neg</span> {
-                    <span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span><span class="op">&gt;</span><span class="ident">::min_value</span>()
-                } <span class="kw">else</span> {
-                    <span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span><span class="op">&gt;</span><span class="ident">::max_value</span>()
+        <span class="kw">impl </span>SaturatingCast&lt;<span class="macro-nonterminal">$Dst</span>&gt; <span class="kw">for </span><span class="macro-nonterminal">$Src </span>{
+            <span class="attribute">#[cfg_attr(track_caller, track_caller)]
+            </span><span class="kw">fn </span>saturating_cast(<span class="self">self</span>) -&gt; <span class="macro-nonterminal">$Dst </span>{
+                <span class="kw">let </span>f: Float&lt;<span class="macro-nonterminal">$ViaU</span>&gt; = <span class="self">self</span>.into();
+                <span class="kw">let </span>saturated = <span class="kw">if </span>f.neg {
+                    &lt;<span class="macro-nonterminal">$Dst</span>&gt;::min_value()
+                } <span class="kw">else </span>{
+                    &lt;<span class="macro-nonterminal">$Dst</span>&gt;::max_value()
                 };
-                <span class="kw">match</span> <span class="ident">f</span>.<span class="ident">kind</span> {
-                    <span class="ident">FloatKind::Nan</span> =&gt; <span class="macro">panic!</span>(<span class="string">&quot;NaN&quot;</span>),
-                    <span class="ident">FloatKind::Infinite</span> <span class="op">|</span> <span class="ident">FloatKind::Overflowing</span>(<span class="kw">_</span>, <span class="bool-val">true</span>) =&gt; <span class="ident">saturated</span>,
-                    <span class="ident">FloatKind::Overflowing</span>(<span class="ident">abs</span>, <span class="bool-val">false</span>) =&gt; {
-                        <span class="kw">if</span> <span class="ident">f</span>.<span class="ident">neg</span> {
-                            <span class="kw">let</span> <span class="ident">i</span> <span class="op">=</span> <span class="ident">abs</span> <span class="kw">as</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">ViaI</span>;
-                            <span class="kw">if</span> <span class="ident">i</span> <span class="op">==</span> <span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">ViaI</span><span class="op">&gt;</span><span class="ident">::min_value</span>() {
-                                <span class="ident">saturating_cast</span>(<span class="ident">i</span>)
-                            } <span class="kw">else</span> <span class="kw">if</span> <span class="ident">i</span> <span class="op">&lt;</span> <span class="number">0</span> {
-                                <span class="ident">saturated</span>
-                            } <span class="kw">else</span> {
-                                <span class="ident">saturating_cast</span>(<span class="op">-</span><span class="ident">i</span>)
+                <span class="kw">match </span>f.kind {
+                    FloatKind::Nan =&gt; <span class="macro">panic!</span>(<span class="string">&quot;NaN&quot;</span>),
+                    FloatKind::Infinite | FloatKind::Overflowing(<span class="kw">_</span>, <span class="bool-val">true</span>) =&gt; saturated,
+                    FloatKind::Overflowing(abs, <span class="bool-val">false</span>) =&gt; {
+                        <span class="kw">if </span>f.neg {
+                            <span class="kw">let </span>i = abs <span class="kw">as </span><span class="macro-nonterminal">$ViaI</span>;
+                            <span class="kw">if </span>i == &lt;<span class="macro-nonterminal">$ViaI</span>&gt;::min_value() {
+                                saturating_cast(i)
+                            } <span class="kw">else if </span>i &lt; <span class="number">0 </span>{
+                                saturated
+                            } <span class="kw">else </span>{
+                                saturating_cast(-i)
                             }
-                        } <span class="kw">else</span> {
-                            <span class="ident">saturating_cast</span>(<span class="ident">abs</span>)
+                        } <span class="kw">else </span>{
+                            saturating_cast(abs)
                         }
                     }
                 }
             }
         }
 
-        <span class="kw">impl</span> <span class="ident">WrappingCast</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Src</span> {
-            <span class="attribute">#[<span class="ident">inline</span>]</span>
-            <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">track_caller</span>, <span class="ident">track_caller</span>)]</span>
-            <span class="kw">fn</span> <span class="ident">wrapping_cast</span>(<span class="self">self</span>) -&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span> {
-                <span class="ident">overflowing_cast</span>(<span class="self">self</span>).<span class="number">0</span>
-            }
+        <span class="kw">impl </span>WrappingCast&lt;<span class="macro-nonterminal">$Dst</span>&gt; <span class="kw">for </span><span class="macro-nonterminal">$Src </span>{
+            <span class="attribute">#[inline]
+            #[cfg_attr(track_caller, track_caller)]
+            </span><span class="kw">fn </span>wrapping_cast(<span class="self">self</span>) -&gt; <span class="macro-nonterminal">$Dst </span>{
+                overflowing_cast(<span class="self">self</span>).<span class="number">0
+            </span>}
         }
 
-        <span class="kw">impl</span> <span class="ident">OverflowingCast</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Src</span> {
-            <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">track_caller</span>, <span class="ident">track_caller</span>)]</span>
-            <span class="kw">fn</span> <span class="ident">overflowing_cast</span>(<span class="self">self</span>) -&gt; (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span>, <span class="ident">bool</span>) {
-                <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">Float</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">ViaU</span><span class="op">&gt;</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">into</span>();
-                <span class="kw">match</span> <span class="ident">f</span>.<span class="ident">kind</span> {
-                    <span class="ident">FloatKind::Nan</span> =&gt; <span class="macro">panic!</span>(<span class="string">&quot;NaN&quot;</span>),
-                    <span class="ident">FloatKind::Infinite</span> =&gt; <span class="macro">panic!</span>(<span class="string">&quot;infinite&quot;</span>),
-                    <span class="ident">FloatKind::Overflowing</span>(<span class="ident">abs</span>, <span class="ident">overflow</span>) =&gt; {
-                        <span class="kw">if</span> <span class="ident">f</span>.<span class="ident">neg</span> {
-                            <span class="kw">let</span> <span class="ident">i</span> <span class="op">=</span> <span class="ident">abs</span> <span class="kw">as</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">ViaI</span>;
-                            <span class="kw">let</span> (<span class="ident">wrapped</span>, <span class="ident">overflow2</span>) <span class="op">=</span> <span class="kw">if</span> <span class="ident">i</span> <span class="op">==</span> <span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">ViaI</span><span class="op">&gt;</span><span class="ident">::min_value</span>() {
-                                <span class="ident">overflowing_cast</span>(<span class="ident">i</span>)
-                            } <span class="kw">else</span> <span class="kw">if</span> <span class="ident">i</span> <span class="op">&lt;</span> <span class="number">0</span> {
-                                (<span class="ident">wrapping_cast</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span><span class="op">&gt;</span>(<span class="ident">abs</span>).<span class="ident">wrapping_neg</span>(), <span class="bool-val">true</span>)
-                            } <span class="kw">else</span> {
-                                <span class="ident">overflowing_cast</span>(<span class="op">-</span><span class="ident">i</span>)
+        <span class="kw">impl </span>OverflowingCast&lt;<span class="macro-nonterminal">$Dst</span>&gt; <span class="kw">for </span><span class="macro-nonterminal">$Src </span>{
+            <span class="attribute">#[cfg_attr(track_caller, track_caller)]
+            </span><span class="kw">fn </span>overflowing_cast(<span class="self">self</span>) -&gt; (<span class="macro-nonterminal">$Dst</span>, bool) {
+                <span class="kw">let </span>f: Float&lt;<span class="macro-nonterminal">$ViaU</span>&gt; = <span class="self">self</span>.into();
+                <span class="kw">match </span>f.kind {
+                    FloatKind::Nan =&gt; <span class="macro">panic!</span>(<span class="string">&quot;NaN&quot;</span>),
+                    FloatKind::Infinite =&gt; <span class="macro">panic!</span>(<span class="string">&quot;infinite&quot;</span>),
+                    FloatKind::Overflowing(abs, overflow) =&gt; {
+                        <span class="kw">if </span>f.neg {
+                            <span class="kw">let </span>i = abs <span class="kw">as </span><span class="macro-nonterminal">$ViaI</span>;
+                            <span class="kw">let </span>(wrapped, overflow2) = <span class="kw">if </span>i == &lt;<span class="macro-nonterminal">$ViaI</span>&gt;::min_value() {
+                                overflowing_cast(i)
+                            } <span class="kw">else if </span>i &lt; <span class="number">0 </span>{
+                                (wrapping_cast::&lt;<span class="kw">_</span>, <span class="macro-nonterminal">$Dst</span>&gt;(abs).wrapping_neg(), <span class="bool-val">true</span>)
+                            } <span class="kw">else </span>{
+                                overflowing_cast(-i)
                             };
-                            (<span class="ident">wrapped</span>, <span class="ident">overflow</span> <span class="op">|</span> <span class="ident">overflow2</span>)
-                        } <span class="kw">else</span> {
-                            <span class="kw">let</span> (<span class="ident">wrapped</span>, <span class="ident">overflow2</span>) <span class="op">=</span> <span class="ident">overflowing_cast</span>(<span class="ident">abs</span>);
-                            (<span class="ident">wrapped</span>, <span class="ident">overflow</span> <span class="op">|</span> <span class="ident">overflow2</span>)
+                            (wrapped, overflow | overflow2)
+                        } <span class="kw">else </span>{
+                            <span class="kw">let </span>(wrapped, overflow2) = overflowing_cast(abs);
+                            (wrapped, overflow | overflow2)
                         }
                     }
                 }
             }
         }
 
-        <span class="kw">impl</span> <span class="ident">UnwrappedCast</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Src</span> {
-            <span class="attribute">#[<span class="ident">inline</span>]</span>
-            <span class="kw">fn</span> <span class="ident">unwrapped_cast</span>(<span class="self">self</span>) -&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span> {
-                <span class="kw">match</span> <span class="ident">overflowing_cast</span>(<span class="self">self</span>) {
-                    (<span class="ident">val</span>, <span class="bool-val">false</span>) =&gt; <span class="ident">val</span>,
+        <span class="kw">impl </span>UnwrappedCast&lt;<span class="macro-nonterminal">$Dst</span>&gt; <span class="kw">for </span><span class="macro-nonterminal">$Src </span>{
+            <span class="attribute">#[inline]
+            </span><span class="kw">fn </span>unwrapped_cast(<span class="self">self</span>) -&gt; <span class="macro-nonterminal">$Dst </span>{
+                <span class="kw">match </span>overflowing_cast(<span class="self">self</span>) {
+                    (val, <span class="bool-val">false</span>) =&gt; val,
                     (<span class="kw">_</span>, <span class="bool-val">true</span>) =&gt; <span class="macro">panic!</span>(<span class="string">&quot;overflow&quot;</span>),
                 }
             }
         }
 
-        <span class="kw">impl</span> <span class="ident">Cast</span><span class="op">&lt;</span><span class="ident">Wrapping</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Src</span> {
-            <span class="attribute">#[<span class="ident">inline</span>]</span>
-            <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">track_caller</span>, <span class="ident">track_caller</span>)]</span>
-            <span class="kw">fn</span> <span class="ident">cast</span>(<span class="self">self</span>) -&gt; <span class="ident">Wrapping</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span><span class="op">&gt;</span> {
-                <span class="ident">Wrapping</span>(<span class="ident">wrapping_cast</span>(<span class="self">self</span>))
+        <span class="kw">impl </span>Cast&lt;Wrapping&lt;<span class="macro-nonterminal">$Dst</span>&gt;&gt; <span class="kw">for </span><span class="macro-nonterminal">$Src </span>{
+            <span class="attribute">#[inline]
+            #[cfg_attr(track_caller, track_caller)]
+            </span><span class="kw">fn </span>cast(<span class="self">self</span>) -&gt; Wrapping&lt;<span class="macro-nonterminal">$Dst</span>&gt; {
+                Wrapping(wrapping_cast(<span class="self">self</span>))
             }
         }
 
-        <span class="kw">impl</span> <span class="ident">CheckedCast</span><span class="op">&lt;</span><span class="ident">Wrapping</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Src</span> {
-            <span class="kw">fn</span> <span class="ident">checked_cast</span>(<span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Wrapping</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span><span class="op">&gt;</span><span class="op">&gt;</span> {
-                <span class="kw">let</span> <span class="ident">f</span>: <span class="ident">Float</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">ViaU</span><span class="op">&gt;</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">into</span>();
-                <span class="kw">match</span> <span class="ident">f</span>.<span class="ident">kind</span> {
-                    <span class="ident">FloatKind::Nan</span> <span class="op">|</span> <span class="ident">FloatKind::Infinite</span> =&gt; <span class="prelude-val">None</span>,
-                    <span class="ident">FloatKind::Overflowing</span>(<span class="ident">abs</span>, <span class="kw">_</span>) =&gt; {
-                        <span class="kw">let</span> <span class="ident">wrapped</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">f</span>.<span class="ident">neg</span> {
-                            <span class="kw">let</span> <span class="ident">i</span> <span class="op">=</span> <span class="ident">abs</span> <span class="kw">as</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">ViaI</span>;
-                            <span class="kw">if</span> <span class="ident">i</span> <span class="op">==</span> <span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">ViaI</span><span class="op">&gt;</span><span class="ident">::min_value</span>() {
-                                <span class="ident">wrapping_cast</span>(<span class="ident">i</span>)
-                            } <span class="kw">else</span> <span class="kw">if</span> <span class="ident">i</span> <span class="op">&lt;</span> <span class="number">0</span> {
-                                <span class="ident">wrapping_cast</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span><span class="op">&gt;</span>(<span class="ident">abs</span>).<span class="ident">wrapping_neg</span>()
-                            } <span class="kw">else</span> {
-                                <span class="ident">wrapping_cast</span>(<span class="op">-</span><span class="ident">i</span>)
+        <span class="kw">impl </span>CheckedCast&lt;Wrapping&lt;<span class="macro-nonterminal">$Dst</span>&gt;&gt; <span class="kw">for </span><span class="macro-nonterminal">$Src </span>{
+            <span class="kw">fn </span>checked_cast(<span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;Wrapping&lt;<span class="macro-nonterminal">$Dst</span>&gt;&gt; {
+                <span class="kw">let </span>f: Float&lt;<span class="macro-nonterminal">$ViaU</span>&gt; = <span class="self">self</span>.into();
+                <span class="kw">match </span>f.kind {
+                    FloatKind::Nan | FloatKind::Infinite =&gt; <span class="prelude-val">None</span>,
+                    FloatKind::Overflowing(abs, <span class="kw">_</span>) =&gt; {
+                        <span class="kw">let </span>wrapped = <span class="kw">if </span>f.neg {
+                            <span class="kw">let </span>i = abs <span class="kw">as </span><span class="macro-nonterminal">$ViaI</span>;
+                            <span class="kw">if </span>i == &lt;<span class="macro-nonterminal">$ViaI</span>&gt;::min_value() {
+                                wrapping_cast(i)
+                            } <span class="kw">else if </span>i &lt; <span class="number">0 </span>{
+                                wrapping_cast::&lt;<span class="kw">_</span>, <span class="macro-nonterminal">$Dst</span>&gt;(abs).wrapping_neg()
+                            } <span class="kw">else </span>{
+                                wrapping_cast(-i)
                             }
-                        } <span class="kw">else</span> {
-                            <span class="ident">wrapping_cast</span>(<span class="ident">abs</span>)
+                        } <span class="kw">else </span>{
+                            wrapping_cast(abs)
                         };
-                        <span class="prelude-val">Some</span>(<span class="ident">Wrapping</span>(<span class="ident">wrapped</span>))
+                        <span class="prelude-val">Some</span>(Wrapping(wrapped))
                     }
                 }
             }
         }
 
-        <span class="kw">impl</span> <span class="ident">UnwrappedCast</span><span class="op">&lt;</span><span class="ident">Wrapping</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Src</span> {
-            <span class="attribute">#[<span class="ident">inline</span>]</span>
-            <span class="kw">fn</span> <span class="ident">unwrapped_cast</span>(<span class="self">self</span>) -&gt; <span class="ident">Wrapping</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span><span class="op">&gt;</span> {
-                <span class="ident">cast</span>(<span class="self">self</span>)
+        <span class="kw">impl </span>UnwrappedCast&lt;Wrapping&lt;<span class="macro-nonterminal">$Dst</span>&gt;&gt; <span class="kw">for </span><span class="macro-nonterminal">$Src </span>{
+            <span class="attribute">#[inline]
+            </span><span class="kw">fn </span>unwrapped_cast(<span class="self">self</span>) -&gt; Wrapping&lt;<span class="macro-nonterminal">$Dst</span>&gt; {
+                cast(<span class="self">self</span>)
             }
         }
-    )<span class="op">*</span> };
+    )* };
 }
 
-<span class="macro">float_to_int!</span> { <span class="ident">f32</span>, <span class="ident">u32</span>, <span class="ident">i32</span> =&gt; <span class="ident">i8</span> <span class="ident">i16</span> <span class="ident">i32</span> }
-<span class="macro">float_to_int!</span> { <span class="ident">f32</span>, <span class="ident">u64</span>, <span class="ident">i64</span> =&gt; <span class="ident">i64</span> }
-<span class="macro">float_to_int!</span> { <span class="ident">f32</span>, <span class="ident">u128</span>, <span class="ident">i128</span> =&gt; <span class="ident">i128</span> }
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">target_pointer_width</span> <span class="op">=</span> <span class="string">&quot;16&quot;</span>, <span class="ident">target_pointer_width</span> <span class="op">=</span> <span class="string">&quot;32&quot;</span>))]</span>
-<span class="macro">float_to_int!</span> { <span class="ident">f32</span>, <span class="ident">u32</span>, <span class="ident">i32</span> =&gt; <span class="ident">isize</span> }
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">target_pointer_width</span> <span class="op">=</span> <span class="string">&quot;64&quot;</span>)]</span>
-<span class="macro">float_to_int!</span> { <span class="ident">f32</span>, <span class="ident">u64</span>, <span class="ident">i64</span> =&gt; <span class="ident">isize</span> }
-<span class="macro">float_to_int!</span> { <span class="ident">f32</span>, <span class="ident">u32</span>, <span class="ident">i32</span> =&gt; <span class="ident">u8</span> <span class="ident">u16</span> <span class="ident">u32</span> }
-<span class="macro">float_to_int!</span> { <span class="ident">f32</span>, <span class="ident">u64</span>, <span class="ident">i64</span> =&gt; <span class="ident">u64</span> }
-<span class="macro">float_to_int!</span> { <span class="ident">f32</span>, <span class="ident">u128</span>, <span class="ident">i128</span> =&gt; <span class="ident">u128</span> }
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">target_pointer_width</span> <span class="op">=</span> <span class="string">&quot;16&quot;</span>, <span class="ident">target_pointer_width</span> <span class="op">=</span> <span class="string">&quot;32&quot;</span>))]</span>
-<span class="macro">float_to_int!</span> { <span class="ident">f32</span>, <span class="ident">u32</span>, <span class="ident">i32</span> =&gt; <span class="ident">usize</span> }
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">target_pointer_width</span> <span class="op">=</span> <span class="string">&quot;64&quot;</span>)]</span>
-<span class="macro">float_to_int!</span> { <span class="ident">f32</span>, <span class="ident">u64</span>, <span class="ident">i64</span> =&gt; <span class="ident">usize</span> }
+<span class="macro">float_to_int! </span>{ f32, u32, i32 =&gt; i8 i16 i32 }
+<span class="macro">float_to_int! </span>{ f32, u64, i64 =&gt; i64 }
+<span class="macro">float_to_int! </span>{ f32, u128, i128 =&gt; i128 }
+<span class="attribute">#[cfg(any(target_pointer_width = <span class="string">&quot;16&quot;</span>, target_pointer_width = <span class="string">&quot;32&quot;</span>))]
+</span><span class="macro">float_to_int! </span>{ f32, u32, i32 =&gt; isize }
+<span class="attribute">#[cfg(target_pointer_width = <span class="string">&quot;64&quot;</span>)]
+</span><span class="macro">float_to_int! </span>{ f32, u64, i64 =&gt; isize }
+<span class="macro">float_to_int! </span>{ f32, u32, i32 =&gt; u8 u16 u32 }
+<span class="macro">float_to_int! </span>{ f32, u64, i64 =&gt; u64 }
+<span class="macro">float_to_int! </span>{ f32, u128, i128 =&gt; u128 }
+<span class="attribute">#[cfg(any(target_pointer_width = <span class="string">&quot;16&quot;</span>, target_pointer_width = <span class="string">&quot;32&quot;</span>))]
+</span><span class="macro">float_to_int! </span>{ f32, u32, i32 =&gt; usize }
+<span class="attribute">#[cfg(target_pointer_width = <span class="string">&quot;64&quot;</span>)]
+</span><span class="macro">float_to_int! </span>{ f32, u64, i64 =&gt; usize }
 
-<span class="macro">float_to_int!</span> { <span class="ident">f64</span>, <span class="ident">u64</span>, <span class="ident">i64</span> =&gt; <span class="ident">i8</span> <span class="ident">i16</span> <span class="ident">i32</span> <span class="ident">i64</span> }
-<span class="macro">float_to_int!</span> { <span class="ident">f64</span>, <span class="ident">u128</span>, <span class="ident">i128</span> =&gt; <span class="ident">i128</span> }
-<span class="macro">float_to_int!</span> { <span class="ident">f64</span>, <span class="ident">u64</span>, <span class="ident">i64</span> =&gt; <span class="ident">isize</span> }
-<span class="macro">float_to_int!</span> { <span class="ident">f64</span>, <span class="ident">u64</span>, <span class="ident">i64</span> =&gt; <span class="ident">u8</span> <span class="ident">u16</span> <span class="ident">u32</span> <span class="ident">u64</span> }
-<span class="macro">float_to_int!</span> { <span class="ident">f64</span>, <span class="ident">u128</span>, <span class="ident">i128</span> =&gt; <span class="ident">u128</span> }
-<span class="macro">float_to_int!</span> { <span class="ident">f64</span>, <span class="ident">u64</span>, <span class="ident">i64</span> =&gt; <span class="ident">usize</span> }
+<span class="macro">float_to_int! </span>{ f64, u64, i64 =&gt; i8 i16 i32 i64 }
+<span class="macro">float_to_int! </span>{ f64, u128, i128 =&gt; i128 }
+<span class="macro">float_to_int! </span>{ f64, u64, i64 =&gt; isize }
+<span class="macro">float_to_int! </span>{ f64, u64, i64 =&gt; u8 u16 u32 u64 }
+<span class="macro">float_to_int! </span>{ f64, u128, i128 =&gt; u128 }
+<span class="macro">float_to_int! </span>{ f64, u64, i64 =&gt; usize }
 
-<span class="macro">float_to_int!</span> { <span class="ident">Round</span><span class="op">&lt;</span><span class="ident">f32</span><span class="op">&gt;</span>, <span class="ident">u32</span>, <span class="ident">i32</span> =&gt; <span class="ident">i8</span> <span class="ident">i16</span> <span class="ident">i32</span> }
-<span class="macro">float_to_int!</span> { <span class="ident">Round</span><span class="op">&lt;</span><span class="ident">f32</span><span class="op">&gt;</span>, <span class="ident">u64</span>, <span class="ident">i64</span> =&gt; <span class="ident">i64</span> }
-<span class="macro">float_to_int!</span> { <span class="ident">Round</span><span class="op">&lt;</span><span class="ident">f32</span><span class="op">&gt;</span>, <span class="ident">u128</span>, <span class="ident">i128</span> =&gt; <span class="ident">i128</span> }
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">target_pointer_width</span> <span class="op">=</span> <span class="string">&quot;16&quot;</span>, <span class="ident">target_pointer_width</span> <span class="op">=</span> <span class="string">&quot;32&quot;</span>))]</span>
-<span class="macro">float_to_int!</span> { <span class="ident">Round</span><span class="op">&lt;</span><span class="ident">f32</span><span class="op">&gt;</span>, <span class="ident">u32</span>, <span class="ident">i32</span> =&gt; <span class="ident">isize</span> }
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">target_pointer_width</span> <span class="op">=</span> <span class="string">&quot;64&quot;</span>)]</span>
-<span class="macro">float_to_int!</span> { <span class="ident">Round</span><span class="op">&lt;</span><span class="ident">f32</span><span class="op">&gt;</span>, <span class="ident">u64</span>, <span class="ident">i64</span> =&gt; <span class="ident">isize</span> }
-<span class="macro">float_to_int!</span> { <span class="ident">Round</span><span class="op">&lt;</span><span class="ident">f32</span><span class="op">&gt;</span>, <span class="ident">u32</span>, <span class="ident">i32</span> =&gt; <span class="ident">u8</span> <span class="ident">u16</span> <span class="ident">u32</span> }
-<span class="macro">float_to_int!</span> { <span class="ident">Round</span><span class="op">&lt;</span><span class="ident">f32</span><span class="op">&gt;</span>, <span class="ident">u64</span>, <span class="ident">i64</span> =&gt; <span class="ident">u64</span> }
-<span class="macro">float_to_int!</span> { <span class="ident">Round</span><span class="op">&lt;</span><span class="ident">f32</span><span class="op">&gt;</span>, <span class="ident">u128</span>, <span class="ident">i128</span> =&gt; <span class="ident">u128</span> }
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">target_pointer_width</span> <span class="op">=</span> <span class="string">&quot;16&quot;</span>, <span class="ident">target_pointer_width</span> <span class="op">=</span> <span class="string">&quot;32&quot;</span>))]</span>
-<span class="macro">float_to_int!</span> { <span class="ident">Round</span><span class="op">&lt;</span><span class="ident">f32</span><span class="op">&gt;</span>, <span class="ident">u32</span>, <span class="ident">i32</span> =&gt; <span class="ident">usize</span> }
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">target_pointer_width</span> <span class="op">=</span> <span class="string">&quot;64&quot;</span>)]</span>
-<span class="macro">float_to_int!</span> { <span class="ident">Round</span><span class="op">&lt;</span><span class="ident">f32</span><span class="op">&gt;</span>, <span class="ident">u64</span>, <span class="ident">i64</span> =&gt; <span class="ident">usize</span> }
+<span class="macro">float_to_int! </span>{ Round&lt;f32&gt;, u32, i32 =&gt; i8 i16 i32 }
+<span class="macro">float_to_int! </span>{ Round&lt;f32&gt;, u64, i64 =&gt; i64 }
+<span class="macro">float_to_int! </span>{ Round&lt;f32&gt;, u128, i128 =&gt; i128 }
+<span class="attribute">#[cfg(any(target_pointer_width = <span class="string">&quot;16&quot;</span>, target_pointer_width = <span class="string">&quot;32&quot;</span>))]
+</span><span class="macro">float_to_int! </span>{ Round&lt;f32&gt;, u32, i32 =&gt; isize }
+<span class="attribute">#[cfg(target_pointer_width = <span class="string">&quot;64&quot;</span>)]
+</span><span class="macro">float_to_int! </span>{ Round&lt;f32&gt;, u64, i64 =&gt; isize }
+<span class="macro">float_to_int! </span>{ Round&lt;f32&gt;, u32, i32 =&gt; u8 u16 u32 }
+<span class="macro">float_to_int! </span>{ Round&lt;f32&gt;, u64, i64 =&gt; u64 }
+<span class="macro">float_to_int! </span>{ Round&lt;f32&gt;, u128, i128 =&gt; u128 }
+<span class="attribute">#[cfg(any(target_pointer_width = <span class="string">&quot;16&quot;</span>, target_pointer_width = <span class="string">&quot;32&quot;</span>))]
+</span><span class="macro">float_to_int! </span>{ Round&lt;f32&gt;, u32, i32 =&gt; usize }
+<span class="attribute">#[cfg(target_pointer_width = <span class="string">&quot;64&quot;</span>)]
+</span><span class="macro">float_to_int! </span>{ Round&lt;f32&gt;, u64, i64 =&gt; usize }
 
-<span class="macro">float_to_int!</span> { <span class="ident">Round</span><span class="op">&lt;</span><span class="ident">f64</span><span class="op">&gt;</span>, <span class="ident">u64</span>, <span class="ident">i64</span> =&gt; <span class="ident">i8</span> <span class="ident">i16</span> <span class="ident">i32</span> <span class="ident">i64</span> }
-<span class="macro">float_to_int!</span> { <span class="ident">Round</span><span class="op">&lt;</span><span class="ident">f64</span><span class="op">&gt;</span>, <span class="ident">u128</span>, <span class="ident">i128</span> =&gt; <span class="ident">i128</span> }
-<span class="macro">float_to_int!</span> { <span class="ident">Round</span><span class="op">&lt;</span><span class="ident">f64</span><span class="op">&gt;</span>, <span class="ident">u64</span>, <span class="ident">i64</span> =&gt; <span class="ident">isize</span> }
-<span class="macro">float_to_int!</span> { <span class="ident">Round</span><span class="op">&lt;</span><span class="ident">f64</span><span class="op">&gt;</span>, <span class="ident">u64</span>, <span class="ident">i64</span> =&gt; <span class="ident">u8</span> <span class="ident">u16</span> <span class="ident">u32</span> <span class="ident">u64</span> }
-<span class="macro">float_to_int!</span> { <span class="ident">Round</span><span class="op">&lt;</span><span class="ident">f64</span><span class="op">&gt;</span>, <span class="ident">u128</span>, <span class="ident">i128</span> =&gt; <span class="ident">u128</span> }
-<span class="macro">float_to_int!</span> { <span class="ident">Round</span><span class="op">&lt;</span><span class="ident">f64</span><span class="op">&gt;</span>, <span class="ident">u64</span>, <span class="ident">i64</span> =&gt; <span class="ident">usize</span> }
+<span class="macro">float_to_int! </span>{ Round&lt;f64&gt;, u64, i64 =&gt; i8 i16 i32 i64 }
+<span class="macro">float_to_int! </span>{ Round&lt;f64&gt;, u128, i128 =&gt; i128 }
+<span class="macro">float_to_int! </span>{ Round&lt;f64&gt;, u64, i64 =&gt; isize }
+<span class="macro">float_to_int! </span>{ Round&lt;f64&gt;, u64, i64 =&gt; u8 u16 u32 u64 }
+<span class="macro">float_to_int! </span>{ Round&lt;f64&gt;, u128, i128 =&gt; u128 }
+<span class="macro">float_to_int! </span>{ Round&lt;f64&gt;, u64, i64 =&gt; usize }
 
-<span class="macro">macro_rules!</span> <span class="ident">signed</span> {
-    ($(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span>:<span class="ident">ty</span>),<span class="kw-2">*</span>) =&gt; { $(
-        <span class="macro">bool_to_int!</span> { <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span> }
-        <span class="macro">same_signedness!</span> { <span class="ident">i8</span>, <span class="ident">i16</span>, <span class="ident">i32</span>, <span class="ident">i64</span>, <span class="ident">i128</span>, <span class="ident">isize</span> =&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span> }
-        <span class="macro">unsigned_to_signed!</span> { <span class="ident">u8</span>, <span class="ident">u16</span>, <span class="ident">u32</span>, <span class="ident">u64</span>, <span class="ident">u128</span>, <span class="ident">usize</span> =&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span> }
-        <span class="macro">wrapping_int!</span> {
-            <span class="ident">bool</span>, <span class="ident">i8</span>, <span class="ident">i16</span>, <span class="ident">i32</span>, <span class="ident">i64</span>, <span class="ident">i128</span>, <span class="ident">isize</span>, <span class="ident">u8</span>, <span class="ident">u16</span>, <span class="ident">u32</span>, <span class="ident">u64</span>, <span class="ident">u128</span>, <span class="ident">usize</span> =&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span>
-        }
-    )<span class="op">*</span> };
+<span class="macro">macro_rules! </span>signed {
+    ($(<span class="macro-nonterminal">$Dst</span>:ty),<span class="kw-2">*</span>) =&gt; { $(
+        <span class="macro">bool_to_int! </span>{ <span class="macro-nonterminal">$Dst </span>}
+        <span class="macro">same_signedness! </span>{ i8, i16, i32, i64, i128, isize =&gt; <span class="macro-nonterminal">$Dst </span>}
+        <span class="macro">unsigned_to_signed! </span>{ u8, u16, u32, u64, u128, usize =&gt; <span class="macro-nonterminal">$Dst </span>}
+        <span class="macro">wrapping_int! </span>{
+            bool, i8, i16, i32, i64, i128, isize, u8, u16, u32, u64, u128, usize =&gt; <span class="macro-nonterminal">$Dst
+        </span>}
+    )* };
 }
 
-<span class="macro">macro_rules!</span> <span class="ident">unsigned</span> {
-    ($(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span>:<span class="ident">ty</span>),<span class="kw-2">*</span>) =&gt; { $(
-        <span class="macro">bool_to_int!</span> { <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span> }
-        <span class="macro">signed_to_unsigned!</span> { <span class="ident">i8</span>, <span class="ident">i16</span>, <span class="ident">i32</span>, <span class="ident">i64</span>, <span class="ident">i128</span>, <span class="ident">isize</span> =&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span> }
-        <span class="macro">same_signedness!</span> { <span class="ident">u8</span>, <span class="ident">u16</span>, <span class="ident">u32</span>, <span class="ident">u64</span>, <span class="ident">u128</span>, <span class="ident">usize</span> =&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span> }
-        <span class="macro">wrapping_int!</span> {
-            <span class="ident">bool</span>, <span class="ident">i8</span>, <span class="ident">i16</span>, <span class="ident">i32</span>, <span class="ident">i64</span>, <span class="ident">i128</span>, <span class="ident">isize</span>, <span class="ident">u8</span>, <span class="ident">u16</span>, <span class="ident">u32</span>, <span class="ident">u64</span>, <span class="ident">u128</span>, <span class="ident">usize</span> =&gt; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span>
-        }
-    )<span class="op">*</span> };
+<span class="macro">macro_rules! </span>unsigned {
+    ($(<span class="macro-nonterminal">$Dst</span>:ty),<span class="kw-2">*</span>) =&gt; { $(
+        <span class="macro">bool_to_int! </span>{ <span class="macro-nonterminal">$Dst </span>}
+        <span class="macro">signed_to_unsigned! </span>{ i8, i16, i32, i64, i128, isize =&gt; <span class="macro-nonterminal">$Dst </span>}
+        <span class="macro">same_signedness! </span>{ u8, u16, u32, u64, u128, usize =&gt; <span class="macro-nonterminal">$Dst </span>}
+        <span class="macro">wrapping_int! </span>{
+            bool, i8, i16, i32, i64, i128, isize, u8, u16, u32, u64, u128, usize =&gt; <span class="macro-nonterminal">$Dst
+        </span>}
+    )* };
 }
 
-<span class="macro">signed!</span> { <span class="ident">i8</span>, <span class="ident">i16</span>, <span class="ident">i32</span>, <span class="ident">i64</span>, <span class="ident">i128</span>, <span class="ident">isize</span> }
-<span class="macro">unsigned!</span> { <span class="ident">u8</span>, <span class="ident">u16</span>, <span class="ident">u32</span>, <span class="ident">u64</span>, <span class="ident">u128</span>, <span class="ident">usize</span> }
+<span class="macro">signed! </span>{ i8, i16, i32, i64, i128, isize }
+<span class="macro">unsigned! </span>{ u8, u16, u32, u64, u128, usize }
 
-<span class="kw">enum</span> <span class="ident">FloatKind</span><span class="op">&lt;</span><span class="ident">Uns</span><span class="op">&gt;</span> {
-    <span class="ident">Nan</span>,
-    <span class="ident">Infinite</span>,
-    <span class="ident">Overflowing</span>(<span class="ident">Uns</span>, <span class="ident">bool</span>),
+<span class="kw">enum </span>FloatKind&lt;Uns&gt; {
+    Nan,
+    Infinite,
+    Overflowing(Uns, bool),
 }
-<span class="kw">struct</span> <span class="ident">Float</span><span class="op">&lt;</span><span class="ident">Uns</span><span class="op">&gt;</span> {
-    <span class="ident">neg</span>: <span class="ident">bool</span>,
-    <span class="ident">kind</span>: <span class="ident">FloatKind</span><span class="op">&lt;</span><span class="ident">Uns</span><span class="op">&gt;</span>,
+<span class="kw">struct </span>Float&lt;Uns&gt; {
+    neg: bool,
+    kind: FloatKind&lt;Uns&gt;,
 }
 
-<span class="macro">macro_rules!</span> <span class="ident">from_for_float</span> {
-    (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">Src</span>:<span class="ident">ty</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Uns</span>:<span class="ident">ty</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">PREC</span>:<span class="ident">expr</span> =&gt; $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span>:<span class="ident">ty</span>),<span class="kw-2">*</span>) =&gt; { $(
-        <span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">Src</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Float</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span><span class="op">&gt;</span> {
-            <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">src</span>: <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Src</span>) -&gt; <span class="self">Self</span> {
-                <span class="kw">const</span> <span class="ident">SRC_NBITS</span>: <span class="ident">i32</span> <span class="op">=</span> <span class="ident">mem::size_of</span>::<span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">Src</span><span class="op">&gt;</span>() <span class="kw">as</span> <span class="ident">i32</span> <span class="op">*</span> <span class="number">8</span>;
-                <span class="kw">const</span> <span class="ident">DST_NBITS</span>: <span class="ident">i32</span> <span class="op">=</span> <span class="ident">mem::size_of</span>::<span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span><span class="op">&gt;</span>() <span class="kw">as</span> <span class="ident">i32</span> <span class="op">*</span> <span class="number">8</span>;
-                <span class="kw">const</span> <span class="ident">MANT_NBITS</span>: <span class="ident">i32</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">PREC</span> <span class="op">-</span> <span class="number">1</span>;
-                <span class="kw">const</span> <span class="ident">EXP_NBITS</span>: <span class="ident">i32</span> <span class="op">=</span> <span class="ident">SRC_NBITS</span> <span class="op">-</span> <span class="ident">MANT_NBITS</span> <span class="op">-</span> <span class="number">1</span>;
-                <span class="kw">const</span> <span class="ident">EXP_BIAS</span>: <span class="ident">i32</span> <span class="op">=</span> (<span class="number">1</span> <span class="op">&lt;</span><span class="op">&lt;</span> (<span class="ident">EXP_NBITS</span> <span class="op">-</span> <span class="number">1</span>)) <span class="op">-</span> <span class="number">1</span>;
-                <span class="kw">const</span> <span class="ident">SIGN_MASK</span>: <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Uns</span> <span class="op">=</span> <span class="op">!</span>(<span class="op">!</span><span class="number">0</span> <span class="op">&gt;</span><span class="op">&gt;</span> <span class="number">1</span>);
-                <span class="kw">const</span> <span class="ident">MANT_MASK</span>: <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Uns</span> <span class="op">=</span> <span class="op">!</span>(<span class="op">!</span><span class="number">0</span> <span class="op">&lt;</span><span class="op">&lt;</span> <span class="ident">MANT_NBITS</span>);
-                <span class="kw">const</span> <span class="ident">EXP_MASK</span>: <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Uns</span> <span class="op">=</span> <span class="op">!</span>(<span class="ident">SIGN_MASK</span> <span class="op">|</span> <span class="ident">MANT_MASK</span>);
+<span class="macro">macro_rules! </span>from_for_float {
+    (<span class="macro-nonterminal">$Src</span>:ty, <span class="macro-nonterminal">$Uns</span>:ty, <span class="macro-nonterminal">$PREC</span>:expr =&gt; $(<span class="macro-nonterminal">$Dst</span>:ty),<span class="kw-2">*</span>) =&gt; { $(
+        <span class="kw">impl </span>From&lt;<span class="macro-nonterminal">$Src</span>&gt; <span class="kw">for </span>Float&lt;<span class="macro-nonterminal">$Dst</span>&gt; {
+            <span class="kw">fn </span>from(src: <span class="macro-nonterminal">$Src</span>) -&gt; <span class="self">Self </span>{
+                <span class="kw">const </span>SRC_NBITS: i32 = mem::size_of::&lt;<span class="macro-nonterminal">$Src</span>&gt;() <span class="kw">as </span>i32 * <span class="number">8</span>;
+                <span class="kw">const </span>DST_NBITS: i32 = mem::size_of::&lt;<span class="macro-nonterminal">$Dst</span>&gt;() <span class="kw">as </span>i32 * <span class="number">8</span>;
+                <span class="kw">const </span>MANT_NBITS: i32 = <span class="macro-nonterminal">$PREC </span>- <span class="number">1</span>;
+                <span class="kw">const </span>EXP_NBITS: i32 = SRC_NBITS - MANT_NBITS - <span class="number">1</span>;
+                <span class="kw">const </span>EXP_BIAS: i32 = (<span class="number">1 </span>&lt;&lt; (EXP_NBITS - <span class="number">1</span>)) - <span class="number">1</span>;
+                <span class="kw">const </span>SIGN_MASK: <span class="macro-nonterminal">$Uns </span>= !(!<span class="number">0 </span>&gt;&gt; <span class="number">1</span>);
+                <span class="kw">const </span>MANT_MASK: <span class="macro-nonterminal">$Uns </span>= !(!<span class="number">0 </span>&lt;&lt; MANT_NBITS);
+                <span class="kw">const </span>EXP_MASK: <span class="macro-nonterminal">$Uns </span>= !(SIGN_MASK | MANT_MASK);
 
-                <span class="kw">let</span> <span class="ident">u</span> <span class="op">=</span> <span class="ident">src</span>.<span class="ident">to_bits</span>();
-                <span class="kw">let</span> <span class="ident">neg</span> <span class="op">=</span> (<span class="ident">u</span> <span class="op">&amp;</span> <span class="ident">SIGN_MASK</span>) <span class="op">!</span><span class="op">=</span> <span class="number">0</span>;
-                <span class="kw">let</span> <span class="ident">biased_exp</span> <span class="op">=</span> <span class="ident">u</span> <span class="op">&amp;</span> <span class="ident">EXP_MASK</span>;
-                <span class="kw">if</span> <span class="ident">biased_exp</span> <span class="op">==</span> <span class="ident">EXP_MASK</span> {
-                    <span class="kw">let</span> <span class="ident">kind</span> <span class="op">=</span> <span class="kw">if</span> (<span class="ident">u</span> <span class="op">&amp;</span> <span class="ident">MANT_MASK</span>) <span class="op">==</span> <span class="number">0</span> {
-                        <span class="ident">FloatKind::Infinite</span>
-                    } <span class="kw">else</span> {
-                        <span class="ident">FloatKind::Nan</span>
+                <span class="kw">let </span>u = src.to_bits();
+                <span class="kw">let </span>neg = (u &amp; SIGN_MASK) != <span class="number">0</span>;
+                <span class="kw">let </span>biased_exp = u &amp; EXP_MASK;
+                <span class="kw">if </span>biased_exp == EXP_MASK {
+                    <span class="kw">let </span>kind = <span class="kw">if </span>(u &amp; MANT_MASK) == <span class="number">0 </span>{
+                        FloatKind::Infinite
+                    } <span class="kw">else </span>{
+                        FloatKind::Nan
                     };
-                    <span class="kw">return</span> <span class="ident">Float</span> { <span class="ident">neg</span>, <span class="ident">kind</span> };
+                    <span class="kw">return </span>Float { neg, kind };
                 }
-                <span class="kw">let</span> <span class="ident">shift</span> <span class="op">=</span> (<span class="ident">biased_exp</span> <span class="op">&gt;</span><span class="op">&gt;</span> <span class="ident">MANT_NBITS</span>) <span class="kw">as</span> <span class="ident">i32</span> <span class="op">-</span> (<span class="ident">EXP_BIAS</span> <span class="op">+</span> <span class="ident">MANT_NBITS</span>);
+                <span class="kw">let </span>shift = (biased_exp &gt;&gt; MANT_NBITS) <span class="kw">as </span>i32 - (EXP_BIAS + MANT_NBITS);
 
-                <span class="comment">// Check if the magnitude is smaller than one. Do not return</span>
-                <span class="comment">// early if shift == -MANT_NBITS, as there is implicit one.</span>
-                <span class="kw">if</span> <span class="ident">shift</span> <span class="op">&lt;</span> <span class="op">-</span><span class="ident">MANT_NBITS</span> {
-                    <span class="kw">let</span> <span class="ident">kind</span> <span class="op">=</span> <span class="ident">FloatKind::Overflowing</span>(<span class="number">0</span>, <span class="bool-val">false</span>);
-                    <span class="kw">return</span> <span class="ident">Float</span> { <span class="ident">neg</span>, <span class="ident">kind</span> };
-                }
-
-                <span class="comment">// Check if the least significant bit will be in a $Dst.</span>
-                <span class="kw">if</span> <span class="ident">shift</span> <span class="op">&gt;</span><span class="op">=</span> <span class="ident">DST_NBITS</span> {
-                    <span class="kw">let</span> <span class="ident">kind</span> <span class="op">=</span> <span class="ident">FloatKind::Overflowing</span>(<span class="number">0</span>, <span class="bool-val">true</span>);
-                    <span class="kw">return</span> <span class="ident">Float</span> { <span class="ident">neg</span>, <span class="ident">kind</span> };
+                <span class="comment">// Check if the magnitude is smaller than one. Do not return
+                // early if shift == -MANT_NBITS, as there is implicit one.
+                </span><span class="kw">if </span>shift &lt; -MANT_NBITS {
+                    <span class="kw">let </span>kind = FloatKind::Overflowing(<span class="number">0</span>, <span class="bool-val">false</span>);
+                    <span class="kw">return </span>Float { neg, kind };
                 }
 
-                <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">significand</span>: <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span> <span class="op">=</span> (<span class="ident">u</span> <span class="op">&amp;</span> <span class="ident">MANT_MASK</span>).<span class="ident">into</span>();
-                <span class="comment">// Add implicit one.</span>
-                <span class="ident">significand</span> <span class="op">|</span><span class="op">=</span> <span class="number">1</span> <span class="op">&lt;</span><span class="op">&lt;</span> <span class="ident">MANT_NBITS</span>;
-                <span class="kw">let</span> <span class="ident">kind</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">shift</span> <span class="op">&lt;</span> <span class="number">0</span> {
-                    <span class="ident">FloatKind::Overflowing</span>(<span class="ident">significand</span> <span class="op">&gt;</span><span class="op">&gt;</span> <span class="op">-</span><span class="ident">shift</span>, <span class="bool-val">false</span>)
-                } <span class="kw">else</span> {
-                    <span class="kw">let</span> <span class="ident">wrapped</span> <span class="op">=</span> <span class="ident">significand</span> <span class="op">&lt;</span><span class="op">&lt;</span> <span class="ident">shift</span>;
-                    <span class="kw">let</span> <span class="ident">overflow</span> <span class="op">=</span> (<span class="ident">wrapped</span> <span class="op">&gt;</span><span class="op">&gt;</span> <span class="ident">shift</span>) <span class="op">!</span><span class="op">=</span> <span class="ident">significand</span>;
-                    <span class="ident">FloatKind::Overflowing</span>(<span class="ident">wrapped</span>, <span class="ident">overflow</span>)
+                <span class="comment">// Check if the least significant bit will be in a $Dst.
+                </span><span class="kw">if </span>shift &gt;= DST_NBITS {
+                    <span class="kw">let </span>kind = FloatKind::Overflowing(<span class="number">0</span>, <span class="bool-val">true</span>);
+                    <span class="kw">return </span>Float { neg, kind };
+                }
+
+                <span class="kw">let </span><span class="kw-2">mut </span>significand: <span class="macro-nonterminal">$Dst </span>= (u &amp; MANT_MASK).into();
+                <span class="comment">// Add implicit one.
+                </span>significand |= <span class="number">1 </span>&lt;&lt; MANT_NBITS;
+                <span class="kw">let </span>kind = <span class="kw">if </span>shift &lt; <span class="number">0 </span>{
+                    FloatKind::Overflowing(significand &gt;&gt; -shift, <span class="bool-val">false</span>)
+                } <span class="kw">else </span>{
+                    <span class="kw">let </span>wrapped = significand &lt;&lt; shift;
+                    <span class="kw">let </span>overflow = (wrapped &gt;&gt; shift) != significand;
+                    FloatKind::Overflowing(wrapped, overflow)
                 };
-                <span class="ident">Float</span> { <span class="ident">neg</span>, <span class="ident">kind</span> }
+                Float { neg, kind }
             }
         }
 
-        <span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span><span class="ident">Round</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">Src</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Float</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span><span class="op">&gt;</span> {
-            <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">src</span>: <span class="ident">Round</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">Src</span><span class="op">&gt;</span>) -&gt; <span class="self">Self</span> {
-                <span class="kw">const</span> <span class="ident">SRC_NBITS</span>: <span class="ident">i32</span> <span class="op">=</span> <span class="ident">mem::size_of</span>::<span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">Src</span><span class="op">&gt;</span>() <span class="kw">as</span> <span class="ident">i32</span> <span class="op">*</span> <span class="number">8</span>;
-                <span class="kw">const</span> <span class="ident">DST_NBITS</span>: <span class="ident">i32</span> <span class="op">=</span> <span class="ident">mem::size_of</span>::<span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span><span class="op">&gt;</span>() <span class="kw">as</span> <span class="ident">i32</span> <span class="op">*</span> <span class="number">8</span>;
-                <span class="kw">const</span> <span class="ident">MANT_NBITS</span>: <span class="ident">i32</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">PREC</span> <span class="op">-</span> <span class="number">1</span>;
-                <span class="kw">const</span> <span class="ident">EXP_NBITS</span>: <span class="ident">i32</span> <span class="op">=</span> <span class="ident">SRC_NBITS</span> <span class="op">-</span> <span class="ident">MANT_NBITS</span> <span class="op">-</span> <span class="number">1</span>;
-                <span class="kw">const</span> <span class="ident">EXP_BIAS</span>: <span class="ident">i32</span> <span class="op">=</span> (<span class="number">1</span> <span class="op">&lt;</span><span class="op">&lt;</span> (<span class="ident">EXP_NBITS</span> <span class="op">-</span> <span class="number">1</span>)) <span class="op">-</span> <span class="number">1</span>;
-                <span class="kw">const</span> <span class="ident">SIGN_MASK</span>: <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Uns</span> <span class="op">=</span> <span class="op">!</span>(<span class="op">!</span><span class="number">0</span> <span class="op">&gt;</span><span class="op">&gt;</span> <span class="number">1</span>);
-                <span class="kw">const</span> <span class="ident">MANT_MASK</span>: <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Uns</span> <span class="op">=</span> <span class="op">!</span>(<span class="op">!</span><span class="number">0</span> <span class="op">&lt;</span><span class="op">&lt;</span> <span class="ident">MANT_NBITS</span>);
-                <span class="kw">const</span> <span class="ident">EXP_MASK</span>: <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Uns</span> <span class="op">=</span> <span class="op">!</span>(<span class="ident">SIGN_MASK</span> <span class="op">|</span> <span class="ident">MANT_MASK</span>);
+        <span class="kw">impl </span>From&lt;Round&lt;<span class="macro-nonterminal">$Src</span>&gt;&gt; <span class="kw">for </span>Float&lt;<span class="macro-nonterminal">$Dst</span>&gt; {
+            <span class="kw">fn </span>from(src: Round&lt;<span class="macro-nonterminal">$Src</span>&gt;) -&gt; <span class="self">Self </span>{
+                <span class="kw">const </span>SRC_NBITS: i32 = mem::size_of::&lt;<span class="macro-nonterminal">$Src</span>&gt;() <span class="kw">as </span>i32 * <span class="number">8</span>;
+                <span class="kw">const </span>DST_NBITS: i32 = mem::size_of::&lt;<span class="macro-nonterminal">$Dst</span>&gt;() <span class="kw">as </span>i32 * <span class="number">8</span>;
+                <span class="kw">const </span>MANT_NBITS: i32 = <span class="macro-nonterminal">$PREC </span>- <span class="number">1</span>;
+                <span class="kw">const </span>EXP_NBITS: i32 = SRC_NBITS - MANT_NBITS - <span class="number">1</span>;
+                <span class="kw">const </span>EXP_BIAS: i32 = (<span class="number">1 </span>&lt;&lt; (EXP_NBITS - <span class="number">1</span>)) - <span class="number">1</span>;
+                <span class="kw">const </span>SIGN_MASK: <span class="macro-nonterminal">$Uns </span>= !(!<span class="number">0 </span>&gt;&gt; <span class="number">1</span>);
+                <span class="kw">const </span>MANT_MASK: <span class="macro-nonterminal">$Uns </span>= !(!<span class="number">0 </span>&lt;&lt; MANT_NBITS);
+                <span class="kw">const </span>EXP_MASK: <span class="macro-nonterminal">$Uns </span>= !(SIGN_MASK | MANT_MASK);
 
-                <span class="kw">let</span> <span class="ident">src</span> <span class="op">=</span> <span class="ident">src</span>.<span class="number">0</span>;
-                <span class="kw">let</span> <span class="ident">u</span> <span class="op">=</span> <span class="ident">src</span>.<span class="ident">to_bits</span>();
-                <span class="kw">let</span> <span class="ident">neg</span> <span class="op">=</span> (<span class="ident">u</span> <span class="op">&amp;</span> <span class="ident">SIGN_MASK</span>) <span class="op">!</span><span class="op">=</span> <span class="number">0</span>;
-                <span class="kw">let</span> <span class="ident">biased_exp</span> <span class="op">=</span> <span class="ident">u</span> <span class="op">&amp;</span> <span class="ident">EXP_MASK</span>;
-                <span class="kw">if</span> <span class="ident">biased_exp</span> <span class="op">==</span> <span class="ident">EXP_MASK</span> {
-                    <span class="kw">let</span> <span class="ident">kind</span> <span class="op">=</span> <span class="kw">if</span> (<span class="ident">u</span> <span class="op">&amp;</span> <span class="ident">MANT_MASK</span>) <span class="op">==</span> <span class="number">0</span> {
-                        <span class="ident">FloatKind::Infinite</span>
-                    } <span class="kw">else</span> {
-                        <span class="ident">FloatKind::Nan</span>
+                <span class="kw">let </span>src = src.<span class="number">0</span>;
+                <span class="kw">let </span>u = src.to_bits();
+                <span class="kw">let </span>neg = (u &amp; SIGN_MASK) != <span class="number">0</span>;
+                <span class="kw">let </span>biased_exp = u &amp; EXP_MASK;
+                <span class="kw">if </span>biased_exp == EXP_MASK {
+                    <span class="kw">let </span>kind = <span class="kw">if </span>(u &amp; MANT_MASK) == <span class="number">0 </span>{
+                        FloatKind::Infinite
+                    } <span class="kw">else </span>{
+                        FloatKind::Nan
                     };
-                    <span class="kw">return</span> <span class="ident">Float</span> { <span class="ident">neg</span>, <span class="ident">kind</span> };
+                    <span class="kw">return </span>Float { neg, kind };
                 }
-                <span class="kw">let</span> <span class="ident">shift</span> <span class="op">=</span> (<span class="ident">biased_exp</span> <span class="op">&gt;</span><span class="op">&gt;</span> <span class="ident">MANT_NBITS</span>) <span class="kw">as</span> <span class="ident">i32</span> <span class="op">-</span> (<span class="ident">EXP_BIAS</span> <span class="op">+</span> <span class="ident">MANT_NBITS</span>);
+                <span class="kw">let </span>shift = (biased_exp &gt;&gt; MANT_NBITS) <span class="kw">as </span>i32 - (EXP_BIAS + MANT_NBITS);
 
-                <span class="comment">// If shift = -MANT_BITS, then 1 ≤ x &lt; 2.</span>
-                <span class="comment">// If shift = -MANT_BITS - 1, then 0.5 ≤ x &lt; 1, which can be rounded up.</span>
-                <span class="comment">// If shift &lt; -MANT_BITS - 1, then x &lt; 0.5, which is rounded down.</span>
-                <span class="comment">////                    || (shift == -MANT_NBITS - 1 &amp;&amp; ((u &amp; MANT_MASK) != 0 || x))</span>
-                <span class="kw">if</span> <span class="ident">shift</span> <span class="op">&lt;</span> <span class="op">-</span><span class="ident">MANT_NBITS</span> <span class="op">-</span> <span class="number">1</span> {
-                    <span class="kw">let</span> <span class="ident">kind</span> <span class="op">=</span> <span class="ident">FloatKind::Overflowing</span>(<span class="number">0</span>, <span class="bool-val">false</span>);
-                    <span class="kw">return</span> <span class="ident">Float</span> { <span class="ident">neg</span>, <span class="ident">kind</span> };
-                }
-
-                <span class="comment">// Check if the least significant bit will be in a $Dst.</span>
-                <span class="kw">if</span> <span class="ident">shift</span> <span class="op">&gt;</span><span class="op">=</span> <span class="ident">DST_NBITS</span> {
-                    <span class="kw">let</span> <span class="ident">kind</span> <span class="op">=</span> <span class="ident">FloatKind::Overflowing</span>(<span class="number">0</span>, <span class="bool-val">true</span>);
-                    <span class="kw">return</span> <span class="ident">Float</span> { <span class="ident">neg</span>, <span class="ident">kind</span> };
+                <span class="comment">// If shift = -MANT_BITS, then 1 ≤ x &lt; 2.
+                // If shift = -MANT_BITS - 1, then 0.5 ≤ x &lt; 1, which can be rounded up.
+                // If shift &lt; -MANT_BITS - 1, then x &lt; 0.5, which is rounded down.
+                ////                    || (shift == -MANT_NBITS - 1 &amp;&amp; ((u &amp; MANT_MASK) != 0 || x))
+                </span><span class="kw">if </span>shift &lt; -MANT_NBITS - <span class="number">1 </span>{
+                    <span class="kw">let </span>kind = FloatKind::Overflowing(<span class="number">0</span>, <span class="bool-val">false</span>);
+                    <span class="kw">return </span>Float { neg, kind };
                 }
 
-                <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">significand</span>: <span class="macro-nonterminal">$</span><span class="macro-nonterminal">Dst</span> <span class="op">=</span> (<span class="ident">u</span> <span class="op">&amp;</span> <span class="ident">MANT_MASK</span>).<span class="ident">into</span>();
-                <span class="comment">// Add implicit one.</span>
-                <span class="ident">significand</span> <span class="op">|</span><span class="op">=</span> <span class="number">1</span> <span class="op">&lt;</span><span class="op">&lt;</span> <span class="ident">MANT_NBITS</span>;
-                <span class="kw">let</span> <span class="ident">kind</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">shift</span> <span class="op">&lt;</span> <span class="number">0</span> {
-                    <span class="kw">let</span> <span class="ident">right</span> <span class="op">=</span> <span class="op">-</span><span class="ident">shift</span>;
-                    <span class="kw">let</span> <span class="ident">round_bit</span> <span class="op">=</span> <span class="number">1</span> <span class="op">&lt;</span><span class="op">&lt;</span> (<span class="ident">right</span> <span class="op">-</span> <span class="number">1</span>);
-                    <span class="kw">if</span> (<span class="ident">significand</span> <span class="op">&amp;</span> <span class="ident">round_bit</span>) <span class="op">!</span><span class="op">=</span> <span class="number">0</span> <span class="op">&amp;&amp;</span> (<span class="ident">significand</span> <span class="op">&amp;</span> (<span class="number">3</span> <span class="op">*</span> <span class="ident">round_bit</span> <span class="op">-</span> <span class="number">1</span>)) <span class="op">!</span><span class="op">=</span> <span class="number">0</span> {
-                        <span class="ident">significand</span> <span class="op">+</span><span class="op">=</span> <span class="ident">round_bit</span>;
+                <span class="comment">// Check if the least significant bit will be in a $Dst.
+                </span><span class="kw">if </span>shift &gt;= DST_NBITS {
+                    <span class="kw">let </span>kind = FloatKind::Overflowing(<span class="number">0</span>, <span class="bool-val">true</span>);
+                    <span class="kw">return </span>Float { neg, kind };
+                }
+
+                <span class="kw">let </span><span class="kw-2">mut </span>significand: <span class="macro-nonterminal">$Dst </span>= (u &amp; MANT_MASK).into();
+                <span class="comment">// Add implicit one.
+                </span>significand |= <span class="number">1 </span>&lt;&lt; MANT_NBITS;
+                <span class="kw">let </span>kind = <span class="kw">if </span>shift &lt; <span class="number">0 </span>{
+                    <span class="kw">let </span>right = -shift;
+                    <span class="kw">let </span>round_bit = <span class="number">1 </span>&lt;&lt; (right - <span class="number">1</span>);
+                    <span class="kw">if </span>(significand &amp; round_bit) != <span class="number">0 </span>&amp;&amp; (significand &amp; (<span class="number">3 </span>* round_bit - <span class="number">1</span>)) != <span class="number">0 </span>{
+                        significand += round_bit;
                     }
-                    <span class="ident">FloatKind::Overflowing</span>(<span class="ident">significand</span> <span class="op">&gt;</span><span class="op">&gt;</span> <span class="ident">right</span>, <span class="bool-val">false</span>)
-                } <span class="kw">else</span> {
-                    <span class="kw">let</span> <span class="ident">wrapped</span> <span class="op">=</span> <span class="ident">significand</span> <span class="op">&lt;</span><span class="op">&lt;</span> <span class="ident">shift</span>;
-                    <span class="kw">let</span> <span class="ident">overflow</span> <span class="op">=</span> (<span class="ident">wrapped</span> <span class="op">&gt;</span><span class="op">&gt;</span> <span class="ident">shift</span>) <span class="op">!</span><span class="op">=</span> <span class="ident">significand</span>;
-                    <span class="ident">FloatKind::Overflowing</span>(<span class="ident">wrapped</span>, <span class="ident">overflow</span>)
+                    FloatKind::Overflowing(significand &gt;&gt; right, <span class="bool-val">false</span>)
+                } <span class="kw">else </span>{
+                    <span class="kw">let </span>wrapped = significand &lt;&lt; shift;
+                    <span class="kw">let </span>overflow = (wrapped &gt;&gt; shift) != significand;
+                    FloatKind::Overflowing(wrapped, overflow)
                 };
-                <span class="ident">Float</span> { <span class="ident">neg</span>, <span class="ident">kind</span> }
+                Float { neg, kind }
             }
         }
-    )<span class="op">*</span> };
+    )* };
 }
 
-<span class="macro">from_for_float!</span> { <span class="ident">f32</span>, <span class="ident">u32</span>, <span class="number">24</span> =&gt; <span class="ident">u32</span>, <span class="ident">u64</span>, <span class="ident">u128</span> }
-<span class="macro">from_for_float!</span> { <span class="ident">f64</span>, <span class="ident">u64</span>, <span class="number">53</span> =&gt; <span class="ident">u64</span>, <span class="ident">u128</span> }
+<span class="macro">from_for_float! </span>{ f32, u32, <span class="number">24 </span>=&gt; u32, u64, u128 }
+<span class="macro">from_for_float! </span>{ f64, u64, <span class="number">53 </span>=&gt; u64, u128 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="az" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0 (a55dd71d5 2022-09-19)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-current-crate="az" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0 (69f9c33d7 2022-12-12)" ></div></body></html>

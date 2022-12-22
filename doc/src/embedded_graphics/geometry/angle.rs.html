@@ -1,6 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.1/src/geometry/angle.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>angle.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../embedded_graphics/index.html"><div class="logo-container"><img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../embedded_graphics/index.html"><div class="logo-container">
-                    <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../embedded_graphics/index.html">
-                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.1/src/geometry/angle.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>angle.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../normalize.css"><link rel="stylesheet" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../ayu.css" disabled><link rel="stylesheet" href="../../../dark.css" disabled><link rel="stylesheet" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../embedded_graphics/index.html">
+                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -479,403 +478,403 @@
 <span id="477">477</span>
 <span id="478">478</span>
 <span id="479">479</span>
-</pre><pre class="rust"><code><span class="kw">use</span> <span class="ident"><span class="kw">super</span>::real</span>;
-<span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::geometry::Real</span>;
-<span class="kw">use</span> <span class="ident">core::f32::consts::PI</span>;
-<span class="kw">use</span> <span class="ident">core::ops</span>::{<span class="ident">Add</span>, <span class="ident">AddAssign</span>, <span class="ident">Neg</span>, <span class="ident">Sub</span>, <span class="ident">SubAssign</span>};
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;fixed_point&quot;</span>))]</span>
-<span class="attribute">#[<span class="ident">allow</span>(<span class="ident">unused_imports</span>)]</span>
-<span class="kw">use</span> <span class="ident">micromath::F32Ext</span>;
+</pre><pre class="rust"><code><span class="kw">use </span><span class="kw">super</span>::real;
+<span class="kw">use </span><span class="kw">crate</span>::geometry::Real;
+<span class="kw">use </span>core::f32::consts::PI;
+<span class="kw">use </span>core::ops::{Add, AddAssign, Neg, Sub, SubAssign};
+<span class="attribute">#[cfg(not(feature = <span class="string">&quot;fixed_point&quot;</span>))]
+#[allow(unused_imports)]
+</span><span class="kw">use </span>micromath::F32Ext;
 
-<span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">mod</span> <span class="ident">angle_consts</span> {
-    <span class="kw">use</span> <span class="kw">super</span>::{<span class="ident">real</span>, <span class="ident">Angle</span>};
+<span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">mod </span>angle_consts {
+    <span class="kw">use super</span>::{real, Angle};
 
-    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">const</span> <span class="ident">ANGLE_90DEG</span>: <span class="ident">Angle</span> <span class="op">=</span> <span class="ident">Angle</span>(<span class="ident">real::FRAC_PI_2</span>);
-    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">const</span> <span class="ident">ANGLE_180DEG</span>: <span class="ident">Angle</span> <span class="op">=</span> <span class="ident">Angle</span>(<span class="ident">real::PI</span>);
-    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">const</span> <span class="ident">ANGLE_360DEG</span>: <span class="ident">Angle</span> <span class="op">=</span> <span class="ident">Angle</span>(<span class="ident">real::TAU</span>);
+    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">const </span>ANGLE_90DEG: Angle = Angle(real::FRAC_PI_2);
+    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">const </span>ANGLE_180DEG: Angle = Angle(real::PI);
+    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">const </span>ANGLE_360DEG: Angle = Angle(real::TAU);
 }
 
-<span class="doccomment">/// Angle.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// `Angle` is used to define the value of an angle.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Examples</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// ## Create an `Angle` from a value</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// ```rust</span>
-<span class="doccomment">/// use embedded_graphics::geometry::{Angle, AngleUnit};</span>
-<span class="doccomment">/// use core::f32::consts::PI;</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// // Create an angle using the `from_degrees` constructor method</span>
-<span class="doccomment">/// let angle_a = Angle::from_degrees(10.0);</span>
-<span class="doccomment">/// let angle_b = Angle::from_radians(PI);</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// // Angles can also be created using the [AngleUnit](./trait.AngleUnit.html) trait</span>
-<span class="doccomment">/// let angle_c = 30.0.deg();</span>
-<span class="doccomment">/// let angle_d = PI.rad();</span>
-<span class="doccomment">/// ```</span>
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Copy</span>, <span class="ident">Clone</span>, <span class="ident">PartialEq</span>, <span class="ident">PartialOrd</span>, <span class="ident">Debug</span>)]</span>
-<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Angle</span>(<span class="ident">Real</span>);
+<span class="doccomment">/// Angle.
+///
+/// `Angle` is used to define the value of an angle.
+///
+/// # Examples
+///
+/// ## Create an `Angle` from a value
+///
+/// ```rust
+/// use embedded_graphics::geometry::{Angle, AngleUnit};
+/// use core::f32::consts::PI;
+///
+/// // Create an angle using the `from_degrees` constructor method
+/// let angle_a = Angle::from_degrees(10.0);
+/// let angle_b = Angle::from_radians(PI);
+///
+/// // Angles can also be created using the [AngleUnit](./trait.AngleUnit.html) trait
+/// let angle_c = 30.0.deg();
+/// let angle_d = PI.rad();
+/// ```
+</span><span class="attribute">#[derive(Copy, Clone, PartialEq, PartialOrd, Debug)]
+</span><span class="kw">pub struct </span>Angle(Real);
 
-<span class="kw">impl</span> <span class="ident">Angle</span> {
-    <span class="doccomment">/// Creates an angle defined in degrees.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">from_degrees</span>(<span class="ident">angle</span>: <span class="ident">f32</span>) -&gt; <span class="self">Self</span> {
-        <span class="ident">Angle</span>((<span class="ident">angle</span> <span class="op">*</span> <span class="ident">PI</span> <span class="op">/</span> <span class="number">180.0</span>).<span class="ident">into</span>())
+<span class="kw">impl </span>Angle {
+    <span class="doccomment">/// Creates an angle defined in degrees.
+    </span><span class="kw">pub fn </span>from_degrees(angle: f32) -&gt; <span class="self">Self </span>{
+        Angle((angle * PI / <span class="number">180.0</span>).into())
     }
 
-    <span class="doccomment">/// Creates an angle defined in radians.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">from_radians</span>(<span class="ident">angle</span>: <span class="ident">f32</span>) -&gt; <span class="self">Self</span> {
-        <span class="ident">Angle</span>(<span class="ident">angle</span>.<span class="ident">into</span>())
+    <span class="doccomment">/// Creates an angle defined in radians.
+    </span><span class="kw">pub fn </span>from_radians(angle: f32) -&gt; <span class="self">Self </span>{
+        Angle(angle.into())
     }
 
-    <span class="doccomment">/// Creates a zero degree angle.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">zero</span>() -&gt; <span class="self">Self</span> {
-        <span class="ident">Angle</span>(<span class="number">0</span>.<span class="ident">into</span>())
+    <span class="doccomment">/// Creates a zero degree angle.
+    </span><span class="kw">pub fn </span>zero() -&gt; <span class="self">Self </span>{
+        Angle(<span class="number">0</span>.into())
     }
 
-    <span class="doccomment">/// Compute the absolute value of the angle.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">abs</span>(<span class="self">self</span>) -&gt; <span class="self">Self</span> {
-        <span class="ident">Angle</span>(<span class="self">self</span>.<span class="number">0</span>.<span class="ident">abs</span>())
+    <span class="doccomment">/// Compute the absolute value of the angle.
+    </span><span class="kw">pub fn </span>abs(<span class="self">self</span>) -&gt; <span class="self">Self </span>{
+        Angle(<span class="self">self</span>.<span class="number">0</span>.abs())
     }
 
-    <span class="doccomment">/// Normalize the angle to less than one full rotation (ie. in the range 0..360).</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">normalize</span>(<span class="self">self</span>) -&gt; <span class="self">Self</span> {
-        <span class="ident">Angle</span>(<span class="self">self</span>.<span class="number">0</span>.<span class="ident">rem_euclid</span>((<span class="number">2.0</span> <span class="op">*</span> <span class="ident">PI</span>).<span class="ident">into</span>()))
+    <span class="doccomment">/// Normalize the angle to less than one full rotation (ie. in the range 0..360).
+    </span><span class="kw">pub fn </span>normalize(<span class="self">self</span>) -&gt; <span class="self">Self </span>{
+        Angle(<span class="self">self</span>.<span class="number">0</span>.rem_euclid((<span class="number">2.0 </span>* PI).into()))
     }
 
-    <span class="doccomment">/// Return numerical value of the angle in degree</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">to_degrees</span>(<span class="self">self</span>) -&gt; <span class="ident">f32</span> {
-        <span class="kw">let</span> <span class="ident">angle</span>: <span class="ident">f32</span> <span class="op">=</span> <span class="self">self</span>.<span class="number">0</span>.<span class="ident">into</span>();
-        <span class="number">180.0</span> <span class="op">*</span> <span class="ident">angle</span> <span class="op">/</span> <span class="ident">PI</span>
+    <span class="doccomment">/// Return numerical value of the angle in degree
+    </span><span class="kw">pub fn </span>to_degrees(<span class="self">self</span>) -&gt; f32 {
+        <span class="kw">let </span>angle: f32 = <span class="self">self</span>.<span class="number">0</span>.into();
+        <span class="number">180.0 </span>* angle / PI
     }
 
-    <span class="doccomment">/// Return numerical value of the angle in radian</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">to_radians</span>(<span class="self">self</span>) -&gt; <span class="ident">f32</span> {
-        <span class="self">self</span>.<span class="number">0</span>.<span class="ident">into</span>()
-    }
-}
-
-<span class="doccomment">/// AngleUnit trait.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// `AngleUnit` is a trait to convert numbers into angle by appending .deg() or .rad()</span>
-<span class="doccomment">/// to the number as if it was a unit.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Examples</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// ## Create an `Angle` from a value using `AngleUnit`</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// ```rust</span>
-<span class="doccomment">/// use embedded_graphics::geometry::AngleUnit;</span>
-<span class="doccomment">/// use core::f32::consts::PI;</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// // Create an angle using the `AngleUnit` methods</span>
-<span class="doccomment">/// let angle_a = 30.0.deg();</span>
-<span class="doccomment">/// let angle_b = PI.rad();</span>
-<span class="doccomment">/// ```</span>
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">AngleUnit</span> {
-    <span class="doccomment">/// Convert a number (interpreted as degrees) to an `Angle`.</span>
-    <span class="kw">fn</span> <span class="ident">deg</span>(<span class="self">self</span>) -&gt; <span class="ident">Angle</span>;
-
-    <span class="doccomment">/// Convert a number (interpreted as radians) to an `Angle`.</span>
-    <span class="kw">fn</span> <span class="ident">rad</span>(<span class="self">self</span>) -&gt; <span class="ident">Angle</span>;
-}
-
-<span class="kw">impl</span> <span class="ident">AngleUnit</span> <span class="kw">for</span> <span class="ident">f32</span> {
-    <span class="kw">fn</span> <span class="ident">deg</span>(<span class="self">self</span>) -&gt; <span class="ident">Angle</span> {
-        <span class="ident">Angle::from_degrees</span>(<span class="self">self</span>)
-    }
-
-    <span class="kw">fn</span> <span class="ident">rad</span>(<span class="self">self</span>) -&gt; <span class="ident">Angle</span> {
-        <span class="ident">Angle::from_radians</span>(<span class="self">self</span>)
+    <span class="doccomment">/// Return numerical value of the angle in radian
+    </span><span class="kw">pub fn </span>to_radians(<span class="self">self</span>) -&gt; f32 {
+        <span class="self">self</span>.<span class="number">0</span>.into()
     }
 }
 
-<span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">trait</span> <span class="ident">Trigonometry</span> {
-    <span class="doccomment">/// Get the sine of the angle.</span>
-    <span class="kw">fn</span> <span class="ident">sin</span>(<span class="self">self</span>) -&gt; <span class="ident">Real</span>;
+<span class="doccomment">/// AngleUnit trait.
+///
+/// `AngleUnit` is a trait to convert numbers into angle by appending .deg() or .rad()
+/// to the number as if it was a unit.
+///
+/// # Examples
+///
+/// ## Create an `Angle` from a value using `AngleUnit`
+///
+/// ```rust
+/// use embedded_graphics::geometry::AngleUnit;
+/// use core::f32::consts::PI;
+///
+/// // Create an angle using the `AngleUnit` methods
+/// let angle_a = 30.0.deg();
+/// let angle_b = PI.rad();
+/// ```
+</span><span class="kw">pub trait </span>AngleUnit {
+    <span class="doccomment">/// Convert a number (interpreted as degrees) to an `Angle`.
+    </span><span class="kw">fn </span>deg(<span class="self">self</span>) -&gt; Angle;
 
-    <span class="doccomment">/// Get the cosine of the angle.</span>
-    <span class="kw">fn</span> <span class="ident">cos</span>(<span class="self">self</span>) -&gt; <span class="ident">Real</span>;
-
-    <span class="doccomment">/// Get the tangent of the angle.</span>
-    <span class="kw">fn</span> <span class="ident">tan</span>(<span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Real</span><span class="op">&gt;</span>;
+    <span class="doccomment">/// Convert a number (interpreted as radians) to an `Angle`.
+    </span><span class="kw">fn </span>rad(<span class="self">self</span>) -&gt; Angle;
 }
 
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;fixed_point&quot;</span>))]</span>
-<span class="kw">impl</span> <span class="ident">Trigonometry</span> <span class="kw">for</span> <span class="ident">Angle</span> {
-    <span class="kw">fn</span> <span class="ident">sin</span>(<span class="self">self</span>) -&gt; <span class="ident">Real</span> {
-        <span class="kw">let</span> <span class="ident">angle</span>: <span class="ident">f32</span> <span class="op">=</span> <span class="self">self</span>.<span class="number">0</span>.<span class="ident">into</span>();
-        <span class="ident">angle</span>.<span class="ident">sin</span>().<span class="ident">into</span>()
+<span class="kw">impl </span>AngleUnit <span class="kw">for </span>f32 {
+    <span class="kw">fn </span>deg(<span class="self">self</span>) -&gt; Angle {
+        Angle::from_degrees(<span class="self">self</span>)
     }
 
-    <span class="kw">fn</span> <span class="ident">cos</span>(<span class="self">self</span>) -&gt; <span class="ident">Real</span> {
-        <span class="kw">let</span> <span class="ident">angle</span>: <span class="ident">f32</span> <span class="op">=</span> <span class="self">self</span>.<span class="number">0</span>.<span class="ident">into</span>();
-        <span class="ident">angle</span>.<span class="ident">cos</span>().<span class="ident">into</span>()
+    <span class="kw">fn </span>rad(<span class="self">self</span>) -&gt; Angle {
+        Angle::from_radians(<span class="self">self</span>)
+    }
+}
+
+<span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">trait </span>Trigonometry {
+    <span class="doccomment">/// Get the sine of the angle.
+    </span><span class="kw">fn </span>sin(<span class="self">self</span>) -&gt; Real;
+
+    <span class="doccomment">/// Get the cosine of the angle.
+    </span><span class="kw">fn </span>cos(<span class="self">self</span>) -&gt; Real;
+
+    <span class="doccomment">/// Get the tangent of the angle.
+    </span><span class="kw">fn </span>tan(<span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;Real&gt;;
+}
+
+<span class="attribute">#[cfg(not(feature = <span class="string">&quot;fixed_point&quot;</span>))]
+</span><span class="kw">impl </span>Trigonometry <span class="kw">for </span>Angle {
+    <span class="kw">fn </span>sin(<span class="self">self</span>) -&gt; Real {
+        <span class="kw">let </span>angle: f32 = <span class="self">self</span>.<span class="number">0</span>.into();
+        angle.sin().into()
     }
 
-    <span class="kw">fn</span> <span class="ident">tan</span>(<span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Real</span><span class="op">&gt;</span> {
-        <span class="kw">let</span> <span class="ident">angle</span>: <span class="ident">f32</span> <span class="op">=</span> <span class="self">self</span>.<span class="number">0</span>.<span class="ident">into</span>();
-        <span class="kw">let</span> <span class="ident">tan</span> <span class="op">=</span> <span class="ident">angle</span>.<span class="ident">tan</span>();
-        <span class="comment">// FRAC_PI_2.tan() has no value, but the approximate method used by micromath actually return a huge</span>
-        <span class="comment">// value which is &gt; 20000000.0, so we check for this to decide that the angle was approximately</span>
-        <span class="comment">// FRAC_PI_2 and that tan() has actually no value.</span>
-        <span class="kw">if</span> <span class="ident">tan</span>.<span class="ident">is_nan</span>() <span class="op">|</span><span class="op">|</span> <span class="ident">tan</span>.<span class="ident">abs</span>() <span class="op">&gt;</span> <span class="number">20000000.0</span> {
-            <span class="prelude-val">None</span>
-        } <span class="kw">else</span> {
-            <span class="prelude-val">Some</span>(<span class="ident">tan</span>.<span class="ident">into</span>())
+    <span class="kw">fn </span>cos(<span class="self">self</span>) -&gt; Real {
+        <span class="kw">let </span>angle: f32 = <span class="self">self</span>.<span class="number">0</span>.into();
+        angle.cos().into()
+    }
+
+    <span class="kw">fn </span>tan(<span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;Real&gt; {
+        <span class="kw">let </span>angle: f32 = <span class="self">self</span>.<span class="number">0</span>.into();
+        <span class="kw">let </span>tan = angle.tan();
+        <span class="comment">// FRAC_PI_2.tan() has no value, but the approximate method used by micromath actually return a huge
+        // value which is &gt; 20000000.0, so we check for this to decide that the angle was approximately
+        // FRAC_PI_2 and that tan() has actually no value.
+        </span><span class="kw">if </span>tan.is_nan() || tan.abs() &gt; <span class="number">20000000.0 </span>{
+            <span class="prelude-val">None
+        </span>} <span class="kw">else </span>{
+            <span class="prelude-val">Some</span>(tan.into())
         }
     }
 }
 
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;fixed_point&quot;</span>)]</span>
-<span class="kw">impl</span> <span class="ident">Trigonometry</span> <span class="kw">for</span> <span class="ident">Angle</span> {
-    <span class="kw">fn</span> <span class="ident">sin</span>(<span class="self">self</span>) -&gt; <span class="ident">Real</span> {
-        <span class="kw">use</span> <span class="ident">fixed::types::I16F16</span>;
-        <span class="kw">const</span> <span class="ident">SIN</span>: [<span class="ident">I16F16</span>; <span class="number">91</span>] <span class="op">=</span> [
-            <span class="comment">// Ideally we could make the compiler generate those values, but for now sin() is not a const fn,</span>
-            <span class="comment">// so it can&#39;t be used here. Here is how it would look like:</span>
-            <span class="comment">//   I16F16::from_bits((0f64.sin() * (1 &lt;&lt; 16) as f64).round()))),</span>
-            <span class="ident">I16F16::from_bits</span>(<span class="number">0</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">1144</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">2287</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">3430</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">4572</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">5712</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">6850</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">7987</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">9121</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">10252</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">11380</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">12505</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">13626</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">14742</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">15855</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">16962</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">18064</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">19161</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">20252</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">21336</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">22415</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">23486</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">24550</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">25607</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">26656</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">27697</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">28729</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">29753</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">30767</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">31772</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">32768</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">33754</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">34729</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">35693</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">36647</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">37590</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">38521</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">39441</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">40348</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">41243</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">42126</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">42995</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">43852</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">44695</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">45525</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">46341</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">47143</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">47930</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">48703</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">49461</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">50203</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">50931</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">51643</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">52339</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">53020</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">53684</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">54332</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">54963</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">55578</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">56175</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">56756</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">57319</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">57865</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">58393</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">58903</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">59396</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">59870</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">60326</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">60764</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">61183</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">61584</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">61966</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">62328</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">62672</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">62997</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">63303</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">63589</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">63856</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">64104</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">64332</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">64540</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">64729</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">64898</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">65048</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">65177</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">65287</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">65376</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">65446</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">65496</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">65526</span>),
-            <span class="ident">I16F16::from_bits</span>(<span class="number">65536</span>),
+<span class="attribute">#[cfg(feature = <span class="string">&quot;fixed_point&quot;</span>)]
+</span><span class="kw">impl </span>Trigonometry <span class="kw">for </span>Angle {
+    <span class="kw">fn </span>sin(<span class="self">self</span>) -&gt; Real {
+        <span class="kw">use </span>fixed::types::I16F16;
+        <span class="kw">const </span>SIN: [I16F16; <span class="number">91</span>] = [
+            <span class="comment">// Ideally we could make the compiler generate those values, but for now sin() is not a const fn,
+            // so it can&#39;t be used here. Here is how it would look like:
+            //   I16F16::from_bits((0f64.sin() * (1 &lt;&lt; 16) as f64).round()))),
+            </span>I16F16::from_bits(<span class="number">0</span>),
+            I16F16::from_bits(<span class="number">1144</span>),
+            I16F16::from_bits(<span class="number">2287</span>),
+            I16F16::from_bits(<span class="number">3430</span>),
+            I16F16::from_bits(<span class="number">4572</span>),
+            I16F16::from_bits(<span class="number">5712</span>),
+            I16F16::from_bits(<span class="number">6850</span>),
+            I16F16::from_bits(<span class="number">7987</span>),
+            I16F16::from_bits(<span class="number">9121</span>),
+            I16F16::from_bits(<span class="number">10252</span>),
+            I16F16::from_bits(<span class="number">11380</span>),
+            I16F16::from_bits(<span class="number">12505</span>),
+            I16F16::from_bits(<span class="number">13626</span>),
+            I16F16::from_bits(<span class="number">14742</span>),
+            I16F16::from_bits(<span class="number">15855</span>),
+            I16F16::from_bits(<span class="number">16962</span>),
+            I16F16::from_bits(<span class="number">18064</span>),
+            I16F16::from_bits(<span class="number">19161</span>),
+            I16F16::from_bits(<span class="number">20252</span>),
+            I16F16::from_bits(<span class="number">21336</span>),
+            I16F16::from_bits(<span class="number">22415</span>),
+            I16F16::from_bits(<span class="number">23486</span>),
+            I16F16::from_bits(<span class="number">24550</span>),
+            I16F16::from_bits(<span class="number">25607</span>),
+            I16F16::from_bits(<span class="number">26656</span>),
+            I16F16::from_bits(<span class="number">27697</span>),
+            I16F16::from_bits(<span class="number">28729</span>),
+            I16F16::from_bits(<span class="number">29753</span>),
+            I16F16::from_bits(<span class="number">30767</span>),
+            I16F16::from_bits(<span class="number">31772</span>),
+            I16F16::from_bits(<span class="number">32768</span>),
+            I16F16::from_bits(<span class="number">33754</span>),
+            I16F16::from_bits(<span class="number">34729</span>),
+            I16F16::from_bits(<span class="number">35693</span>),
+            I16F16::from_bits(<span class="number">36647</span>),
+            I16F16::from_bits(<span class="number">37590</span>),
+            I16F16::from_bits(<span class="number">38521</span>),
+            I16F16::from_bits(<span class="number">39441</span>),
+            I16F16::from_bits(<span class="number">40348</span>),
+            I16F16::from_bits(<span class="number">41243</span>),
+            I16F16::from_bits(<span class="number">42126</span>),
+            I16F16::from_bits(<span class="number">42995</span>),
+            I16F16::from_bits(<span class="number">43852</span>),
+            I16F16::from_bits(<span class="number">44695</span>),
+            I16F16::from_bits(<span class="number">45525</span>),
+            I16F16::from_bits(<span class="number">46341</span>),
+            I16F16::from_bits(<span class="number">47143</span>),
+            I16F16::from_bits(<span class="number">47930</span>),
+            I16F16::from_bits(<span class="number">48703</span>),
+            I16F16::from_bits(<span class="number">49461</span>),
+            I16F16::from_bits(<span class="number">50203</span>),
+            I16F16::from_bits(<span class="number">50931</span>),
+            I16F16::from_bits(<span class="number">51643</span>),
+            I16F16::from_bits(<span class="number">52339</span>),
+            I16F16::from_bits(<span class="number">53020</span>),
+            I16F16::from_bits(<span class="number">53684</span>),
+            I16F16::from_bits(<span class="number">54332</span>),
+            I16F16::from_bits(<span class="number">54963</span>),
+            I16F16::from_bits(<span class="number">55578</span>),
+            I16F16::from_bits(<span class="number">56175</span>),
+            I16F16::from_bits(<span class="number">56756</span>),
+            I16F16::from_bits(<span class="number">57319</span>),
+            I16F16::from_bits(<span class="number">57865</span>),
+            I16F16::from_bits(<span class="number">58393</span>),
+            I16F16::from_bits(<span class="number">58903</span>),
+            I16F16::from_bits(<span class="number">59396</span>),
+            I16F16::from_bits(<span class="number">59870</span>),
+            I16F16::from_bits(<span class="number">60326</span>),
+            I16F16::from_bits(<span class="number">60764</span>),
+            I16F16::from_bits(<span class="number">61183</span>),
+            I16F16::from_bits(<span class="number">61584</span>),
+            I16F16::from_bits(<span class="number">61966</span>),
+            I16F16::from_bits(<span class="number">62328</span>),
+            I16F16::from_bits(<span class="number">62672</span>),
+            I16F16::from_bits(<span class="number">62997</span>),
+            I16F16::from_bits(<span class="number">63303</span>),
+            I16F16::from_bits(<span class="number">63589</span>),
+            I16F16::from_bits(<span class="number">63856</span>),
+            I16F16::from_bits(<span class="number">64104</span>),
+            I16F16::from_bits(<span class="number">64332</span>),
+            I16F16::from_bits(<span class="number">64540</span>),
+            I16F16::from_bits(<span class="number">64729</span>),
+            I16F16::from_bits(<span class="number">64898</span>),
+            I16F16::from_bits(<span class="number">65048</span>),
+            I16F16::from_bits(<span class="number">65177</span>),
+            I16F16::from_bits(<span class="number">65287</span>),
+            I16F16::from_bits(<span class="number">65376</span>),
+            I16F16::from_bits(<span class="number">65446</span>),
+            I16F16::from_bits(<span class="number">65496</span>),
+            I16F16::from_bits(<span class="number">65526</span>),
+            I16F16::from_bits(<span class="number">65536</span>),
         ];
-        <span class="kw">let</span> <span class="ident">degree</span>: <span class="ident">i32</span> <span class="op">=</span> (<span class="ident">Real::from</span>(<span class="number">180</span>) <span class="op">*</span> <span class="self">self</span>.<span class="number">0</span> <span class="op">/</span> <span class="ident">real::PI</span>).<span class="ident">round</span>().<span class="ident">into</span>();
-        <span class="kw">let</span> <span class="ident">degree</span> <span class="op">=</span> <span class="ident">degree</span>.<span class="ident">rem_euclid</span>(<span class="number">360</span>) <span class="kw">as</span> <span class="ident">usize</span>;
-        <span class="kw">let</span> <span class="ident">sin</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">degree</span> <span class="op">&lt;</span><span class="op">=</span> <span class="number">90</span> {
-            <span class="ident">SIN</span>[<span class="ident">degree</span>]
-        } <span class="kw">else</span> <span class="kw">if</span> <span class="ident">degree</span> <span class="op">&lt;</span><span class="op">=</span> <span class="number">180</span> {
-            <span class="ident">SIN</span>[<span class="number">180</span> <span class="op">-</span> <span class="ident">degree</span>]
-        } <span class="kw">else</span> <span class="kw">if</span> <span class="ident">degree</span> <span class="op">&lt;</span><span class="op">=</span> <span class="number">270</span> {
-            <span class="op">-</span><span class="ident">SIN</span>[<span class="ident">degree</span> <span class="op">-</span> <span class="number">180</span>]
-        } <span class="kw">else</span> {
-            <span class="op">-</span><span class="ident">SIN</span>[<span class="number">360</span> <span class="op">-</span> <span class="ident">degree</span>]
+        <span class="kw">let </span>degree: i32 = (Real::from(<span class="number">180</span>) * <span class="self">self</span>.<span class="number">0 </span>/ real::PI).round().into();
+        <span class="kw">let </span>degree = degree.rem_euclid(<span class="number">360</span>) <span class="kw">as </span>usize;
+        <span class="kw">let </span>sin = <span class="kw">if </span>degree &lt;= <span class="number">90 </span>{
+            SIN[degree]
+        } <span class="kw">else if </span>degree &lt;= <span class="number">180 </span>{
+            SIN[<span class="number">180 </span>- degree]
+        } <span class="kw">else if </span>degree &lt;= <span class="number">270 </span>{
+            -SIN[degree - <span class="number">180</span>]
+        } <span class="kw">else </span>{
+            -SIN[<span class="number">360 </span>- degree]
         };
-        <span class="ident">sin</span>.<span class="ident">into</span>()
+        sin.into()
     }
 
-    <span class="kw">fn</span> <span class="ident">cos</span>(<span class="self">self</span>) -&gt; <span class="ident">Real</span> {
-        (<span class="self">self</span> <span class="op">+</span> <span class="ident">angle_consts::ANGLE_90DEG</span>).<span class="ident">sin</span>()
+    <span class="kw">fn </span>cos(<span class="self">self</span>) -&gt; Real {
+        (<span class="self">self </span>+ angle_consts::ANGLE_90DEG).sin()
     }
 
-    <span class="kw">fn</span> <span class="ident">tan</span>(<span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Real</span><span class="op">&gt;</span> {
-        <span class="kw">let</span> <span class="ident">cos</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">cos</span>();
-        <span class="kw">if</span> <span class="ident">cos</span> <span class="op">!</span><span class="op">=</span> <span class="ident">Real::zero</span>() {
-            <span class="prelude-val">Some</span>(<span class="self">self</span>.<span class="ident">sin</span>() <span class="op">/</span> <span class="ident">cos</span>)
-        } <span class="kw">else</span> {
-            <span class="prelude-val">None</span>
+    <span class="kw">fn </span>tan(<span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;Real&gt; {
+        <span class="kw">let </span>cos = <span class="self">self</span>.cos();
+        <span class="kw">if </span>cos != Real::zero() {
+            <span class="prelude-val">Some</span>(<span class="self">self</span>.sin() / cos)
+        } <span class="kw">else </span>{
+            <span class="prelude-val">None
+        </span>}
+    }
+}
+
+<span class="kw">impl </span>Add <span class="kw">for </span>Angle {
+    <span class="kw">type </span>Output = Angle;
+
+    <span class="kw">fn </span>add(<span class="self">self</span>, other: Angle) -&gt; Angle {
+        Angle(<span class="self">self</span>.<span class="number">0 </span>+ other.<span class="number">0</span>)
+    }
+}
+
+<span class="kw">impl </span>AddAssign <span class="kw">for </span>Angle {
+    <span class="kw">fn </span>add_assign(<span class="kw-2">&amp;mut </span><span class="self">self</span>, other: Angle) {
+        <span class="self">self</span>.<span class="number">0 </span>+= other.<span class="number">0</span>;
+    }
+}
+
+<span class="kw">impl </span>Sub <span class="kw">for </span>Angle {
+    <span class="kw">type </span>Output = Angle;
+
+    <span class="kw">fn </span>sub(<span class="self">self</span>, other: Angle) -&gt; Angle {
+        Angle(<span class="self">self</span>.<span class="number">0 </span>- other.<span class="number">0</span>)
+    }
+}
+
+<span class="kw">impl </span>SubAssign <span class="kw">for </span>Angle {
+    <span class="kw">fn </span>sub_assign(<span class="kw-2">&amp;mut </span><span class="self">self</span>, other: Angle) {
+        <span class="self">self</span>.<span class="number">0 </span>-= other.<span class="number">0</span>;
+    }
+}
+
+<span class="kw">impl </span>Neg <span class="kw">for </span>Angle {
+    <span class="kw">type </span>Output = Angle;
+
+    <span class="kw">fn </span>neg(<span class="self">self</span>) -&gt; Angle {
+        Angle(-<span class="self">self</span>.<span class="number">0</span>)
+    }
+}
+
+<span class="attribute">#[cfg(test)]
+</span><span class="kw">mod </span>tests {
+    <span class="kw">use super</span>::<span class="kw-2">*</span>;
+    <span class="kw">use </span>float_cmp::{approx_eq, ApproxEq, F32Margin};
+
+    <span class="kw">impl </span>ApproxEq <span class="kw">for </span>Angle {
+        <span class="kw">type </span>Margin = F32Margin;
+
+        <span class="kw">fn </span>approx_eq&lt;M: Into&lt;<span class="self">Self</span>::Margin&gt;&gt;(<span class="self">self</span>, other: <span class="self">Self</span>, margin: M) -&gt; bool {
+            <span class="self">self</span>.<span class="number">0</span>.approx_eq(other.<span class="number">0</span>, margin.into())
         }
     }
-}
 
-<span class="kw">impl</span> <span class="ident">Add</span> <span class="kw">for</span> <span class="ident">Angle</span> {
-    <span class="kw">type</span> <span class="ident">Output</span> <span class="op">=</span> <span class="ident">Angle</span>;
-
-    <span class="kw">fn</span> <span class="ident">add</span>(<span class="self">self</span>, <span class="ident">other</span>: <span class="ident">Angle</span>) -&gt; <span class="ident">Angle</span> {
-        <span class="ident">Angle</span>(<span class="self">self</span>.<span class="number">0</span> <span class="op">+</span> <span class="ident">other</span>.<span class="number">0</span>)
-    }
-}
-
-<span class="kw">impl</span> <span class="ident">AddAssign</span> <span class="kw">for</span> <span class="ident">Angle</span> {
-    <span class="kw">fn</span> <span class="ident">add_assign</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>, <span class="ident">other</span>: <span class="ident">Angle</span>) {
-        <span class="self">self</span>.<span class="number">0</span> <span class="op">+</span><span class="op">=</span> <span class="ident">other</span>.<span class="number">0</span>;
-    }
-}
-
-<span class="kw">impl</span> <span class="ident">Sub</span> <span class="kw">for</span> <span class="ident">Angle</span> {
-    <span class="kw">type</span> <span class="ident">Output</span> <span class="op">=</span> <span class="ident">Angle</span>;
-
-    <span class="kw">fn</span> <span class="ident">sub</span>(<span class="self">self</span>, <span class="ident">other</span>: <span class="ident">Angle</span>) -&gt; <span class="ident">Angle</span> {
-        <span class="ident">Angle</span>(<span class="self">self</span>.<span class="number">0</span> <span class="op">-</span> <span class="ident">other</span>.<span class="number">0</span>)
-    }
-}
-
-<span class="kw">impl</span> <span class="ident">SubAssign</span> <span class="kw">for</span> <span class="ident">Angle</span> {
-    <span class="kw">fn</span> <span class="ident">sub_assign</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>, <span class="ident">other</span>: <span class="ident">Angle</span>) {
-        <span class="self">self</span>.<span class="number">0</span> <span class="op">-</span><span class="op">=</span> <span class="ident">other</span>.<span class="number">0</span>;
-    }
-}
-
-<span class="kw">impl</span> <span class="ident">Neg</span> <span class="kw">for</span> <span class="ident">Angle</span> {
-    <span class="kw">type</span> <span class="ident">Output</span> <span class="op">=</span> <span class="ident">Angle</span>;
-
-    <span class="kw">fn</span> <span class="ident">neg</span>(<span class="self">self</span>) -&gt; <span class="ident">Angle</span> {
-        <span class="ident">Angle</span>(<span class="op">-</span><span class="self">self</span>.<span class="number">0</span>)
-    }
-}
-
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
-<span class="kw">mod</span> <span class="ident">tests</span> {
-    <span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
-    <span class="kw">use</span> <span class="ident">float_cmp</span>::{<span class="ident">approx_eq</span>, <span class="ident">ApproxEq</span>, <span class="ident">F32Margin</span>};
-
-    <span class="kw">impl</span> <span class="ident">ApproxEq</span> <span class="kw">for</span> <span class="ident">Angle</span> {
-        <span class="kw">type</span> <span class="ident">Margin</span> <span class="op">=</span> <span class="ident">F32Margin</span>;
-
-        <span class="kw">fn</span> <span class="ident">approx_eq</span><span class="op">&lt;</span><span class="ident">M</span>: <span class="ident">Into</span><span class="op">&lt;</span><span class="ident"><span class="self">Self</span>::Margin</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="self">self</span>, <span class="ident">other</span>: <span class="self">Self</span>, <span class="ident">margin</span>: <span class="ident">M</span>) -&gt; <span class="ident">bool</span> {
-            <span class="self">self</span>.<span class="number">0</span>.<span class="ident">approx_eq</span>(<span class="ident">other</span>.<span class="number">0</span>, <span class="ident">margin</span>.<span class="ident">into</span>())
-        }
-    }
-
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">angles_can_be_added</span>() {
-        <span class="kw">let</span> <span class="ident">left</span> <span class="op">=</span> <span class="ident">Angle::from_degrees</span>(<span class="number">10.0</span>);
-        <span class="kw">let</span> <span class="ident">right</span> <span class="op">=</span> <span class="ident">Angle::from_degrees</span>(<span class="number">30.0</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>angles_can_be_added() {
+        <span class="kw">let </span>left = Angle::from_degrees(<span class="number">10.0</span>);
+        <span class="kw">let </span>right = Angle::from_degrees(<span class="number">30.0</span>);
 
         <span class="macro">assert!</span>(<span class="macro">approx_eq!</span>(
-            <span class="ident">Angle</span>,
-            <span class="ident">left</span> <span class="op">+</span> <span class="ident">right</span>,
-            <span class="ident">Angle::from_degrees</span>(<span class="number">40.0</span>),
-            <span class="ident">epsilon</span> <span class="op">=</span> <span class="number">0.0001</span>
-        ));
+            Angle,
+            left + right,
+            Angle::from_degrees(<span class="number">40.0</span>),
+            epsilon = <span class="number">0.0001
+        </span>));
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">angles_can_be_subtracted</span>() {
-        <span class="kw">let</span> <span class="ident">left</span> <span class="op">=</span> <span class="ident">Angle::from_degrees</span>(<span class="number">30.0</span>);
-        <span class="kw">let</span> <span class="ident">right</span> <span class="op">=</span> <span class="ident">Angle::from_degrees</span>(<span class="number">10.0</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>angles_can_be_subtracted() {
+        <span class="kw">let </span>left = Angle::from_degrees(<span class="number">30.0</span>);
+        <span class="kw">let </span>right = Angle::from_degrees(<span class="number">10.0</span>);
 
         <span class="macro">assert!</span>(<span class="macro">approx_eq!</span>(
-            <span class="ident">Angle</span>,
-            <span class="ident">left</span> <span class="op">-</span> <span class="ident">right</span>,
-            <span class="ident">Angle::from_degrees</span>(<span class="number">20.0</span>),
-            <span class="ident">epsilon</span> <span class="op">=</span> <span class="number">0.0001</span>
-        ));
+            Angle,
+            left - right,
+            Angle::from_degrees(<span class="number">20.0</span>),
+            epsilon = <span class="number">0.0001
+        </span>));
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">angles_can_be_absoluted</span>() {
-        <span class="kw">let</span> <span class="ident">angle</span> <span class="op">=</span> <span class="ident">Angle::from_degrees</span>(<span class="number">30.0</span>).<span class="ident">abs</span>();
-        <span class="macro">assert_eq!</span>(<span class="ident">angle</span>, <span class="ident">Angle::from_degrees</span>(<span class="number">30.0</span>));
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>angles_can_be_absoluted() {
+        <span class="kw">let </span>angle = Angle::from_degrees(<span class="number">30.0</span>).abs();
+        <span class="macro">assert_eq!</span>(angle, Angle::from_degrees(<span class="number">30.0</span>));
 
-        <span class="kw">let</span> <span class="ident">angle</span> <span class="op">=</span> <span class="ident">Angle::from_degrees</span>(<span class="op">-</span><span class="number">30.0</span>).<span class="ident">abs</span>();
-        <span class="macro">assert_eq!</span>(<span class="ident">angle</span>, <span class="ident">Angle::from_degrees</span>(<span class="number">30.0</span>));
+        <span class="kw">let </span>angle = Angle::from_degrees(-<span class="number">30.0</span>).abs();
+        <span class="macro">assert_eq!</span>(angle, Angle::from_degrees(<span class="number">30.0</span>));
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">angle_unit</span>() {
-        <span class="macro">assert_eq!</span>(<span class="number">180.0</span>.<span class="ident">deg</span>(), <span class="ident">Angle::from_degrees</span>(<span class="number">180.0</span>));
-        <span class="macro">assert_eq!</span>(<span class="ident">PI</span>.<span class="ident">rad</span>(), <span class="ident">Angle::from_radians</span>(<span class="ident">PI</span>));
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>angle_unit() {
+        <span class="macro">assert_eq!</span>(<span class="number">180.0</span>.deg(), Angle::from_degrees(<span class="number">180.0</span>));
+        <span class="macro">assert_eq!</span>(PI.rad(), Angle::from_radians(PI));
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">from_radians</span>() {
-        <span class="macro">assert_eq!</span>(<span class="ident">Angle</span>(<span class="ident">PI</span>.<span class="ident">into</span>()), <span class="ident">Angle::from_radians</span>(<span class="ident">PI</span>));
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>from_radians() {
+        <span class="macro">assert_eq!</span>(Angle(PI.into()), Angle::from_radians(PI));
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">to_radians</span>() {
-        <span class="kw">let</span> <span class="ident">angle</span> <span class="op">=</span> <span class="ident">Angle</span>(<span class="ident">PI</span>.<span class="ident">into</span>()).<span class="ident">to_radians</span>();
-        <span class="macro">assert!</span>(<span class="macro">approx_eq!</span>(<span class="ident">f32</span>, <span class="ident">angle</span>, <span class="ident">PI</span>, <span class="ident">epsilon</span> <span class="op">=</span> <span class="number">0.0001</span>));
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>to_radians() {
+        <span class="kw">let </span>angle = Angle(PI.into()).to_radians();
+        <span class="macro">assert!</span>(<span class="macro">approx_eq!</span>(f32, angle, PI, epsilon = <span class="number">0.0001</span>));
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">from_degrees</span>() {
-        <span class="kw">let</span> <span class="ident">angle</span> <span class="op">=</span> <span class="ident">Angle::from_degrees</span>(<span class="number">180.0</span>);
-        <span class="macro">assert!</span>(<span class="macro">approx_eq!</span>(<span class="ident">f32</span>, <span class="ident">angle</span>.<span class="number">0</span>.<span class="ident">into</span>(), <span class="ident">PI</span>, <span class="ident">epsilon</span> <span class="op">=</span> <span class="number">0.0001</span>));
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>from_degrees() {
+        <span class="kw">let </span>angle = Angle::from_degrees(<span class="number">180.0</span>);
+        <span class="macro">assert!</span>(<span class="macro">approx_eq!</span>(f32, angle.<span class="number">0</span>.into(), PI, epsilon = <span class="number">0.0001</span>));
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">to_degrees</span>() {
-        <span class="kw">let</span> <span class="ident">angle</span> <span class="op">=</span> <span class="ident">Angle</span>(<span class="ident">PI</span>.<span class="ident">into</span>()).<span class="ident">to_degrees</span>();
-        <span class="macro">assert!</span>(<span class="macro">approx_eq!</span>(<span class="ident">f32</span>, <span class="ident">angle</span>, <span class="number">180.0</span>, <span class="ident">epsilon</span> <span class="op">=</span> <span class="number">0.001</span>));
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>to_degrees() {
+        <span class="kw">let </span>angle = Angle(PI.into()).to_degrees();
+        <span class="macro">assert!</span>(<span class="macro">approx_eq!</span>(f32, angle, <span class="number">180.0</span>, epsilon = <span class="number">0.001</span>));
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">sin_correct</span>() {
-        <span class="kw">let</span> <span class="ident">degree_sin_pairs</span> <span class="op">=</span> [
-            (<span class="op">-</span><span class="number">90.0</span>, <span class="op">-</span><span class="number">1.0</span>),
-            (<span class="op">-</span><span class="number">60.0</span>, <span class="op">-</span><span class="number">0.86602540</span>),
-            (<span class="op">-</span><span class="number">45.0</span>, <span class="op">-</span><span class="number">0.70710678</span>),
-            (<span class="op">-</span><span class="number">30.0</span>, <span class="op">-</span><span class="number">0.5</span>),
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>sin_correct() {
+        <span class="kw">let </span>degree_sin_pairs = [
+            (-<span class="number">90.0</span>, -<span class="number">1.0</span>),
+            (-<span class="number">60.0</span>, -<span class="number">0.86602540</span>),
+            (-<span class="number">45.0</span>, -<span class="number">0.70710678</span>),
+            (-<span class="number">30.0</span>, -<span class="number">0.5</span>),
             (<span class="number">0.0</span>, <span class="number">0.0</span>),
             (<span class="number">30.0</span>, <span class="number">0.5</span>),
             (<span class="number">45.0</span>, <span class="number">0.70710678</span>),
@@ -885,78 +884,78 @@
             (<span class="number">135.0</span>, <span class="number">0.70710678</span>),
             (<span class="number">150.0</span>, <span class="number">0.5</span>),
             (<span class="number">180.0</span>, <span class="number">0.0</span>),
-            (<span class="number">210.0</span>, <span class="op">-</span><span class="number">0.5</span>),
-            (<span class="number">225.0</span>, <span class="op">-</span><span class="number">0.70710678</span>),
-            (<span class="number">240.0</span>, <span class="op">-</span><span class="number">0.86602540</span>),
-            (<span class="number">270.0</span>, <span class="op">-</span><span class="number">1.0</span>),
+            (<span class="number">210.0</span>, -<span class="number">0.5</span>),
+            (<span class="number">225.0</span>, -<span class="number">0.70710678</span>),
+            (<span class="number">240.0</span>, -<span class="number">0.86602540</span>),
+            (<span class="number">270.0</span>, -<span class="number">1.0</span>),
         ];
 
-        <span class="kw">for</span> (<span class="ident">angle</span>, <span class="ident">sin</span>) <span class="kw">in</span> <span class="kw-2">&amp;</span><span class="ident">degree_sin_pairs</span> {
+        <span class="kw">for </span>(angle, sin) <span class="kw">in </span><span class="kw-2">&amp;</span>degree_sin_pairs {
             <span class="macro">assert!</span>(<span class="macro">approx_eq!</span>(
-                <span class="ident">Real</span>,
-                <span class="ident">angle</span>.<span class="ident">deg</span>().<span class="ident">sin</span>(),
-                (<span class="kw-2">*</span><span class="ident">sin</span>).<span class="ident">into</span>(),
-                <span class="ident">epsilon</span> <span class="op">=</span> <span class="number">0.0001</span>
-            ));
+                Real,
+                angle.deg().sin(),
+                (<span class="kw-2">*</span>sin).into(),
+                epsilon = <span class="number">0.0001
+            </span>));
         }
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">cos_correct</span>() {
-        <span class="kw">let</span> <span class="ident">degree_cos_pairs</span> <span class="op">=</span> [
-            (<span class="op">-</span><span class="number">90.0</span>, <span class="number">0.0</span>),
-            (<span class="op">-</span><span class="number">60.0</span>, <span class="number">0.5</span>),
-            (<span class="op">-</span><span class="number">45.0</span>, <span class="number">0.70710678</span>),
-            (<span class="op">-</span><span class="number">30.0</span>, <span class="number">0.86602540</span>),
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>cos_correct() {
+        <span class="kw">let </span>degree_cos_pairs = [
+            (-<span class="number">90.0</span>, <span class="number">0.0</span>),
+            (-<span class="number">60.0</span>, <span class="number">0.5</span>),
+            (-<span class="number">45.0</span>, <span class="number">0.70710678</span>),
+            (-<span class="number">30.0</span>, <span class="number">0.86602540</span>),
             (<span class="number">0.0</span>, <span class="number">1.0</span>),
             (<span class="number">30.0</span>, <span class="number">0.86602540</span>),
             (<span class="number">45.0</span>, <span class="number">0.70710678</span>),
             (<span class="number">60.0</span>, <span class="number">0.5</span>),
             (<span class="number">90.0</span>, <span class="number">0.0</span>),
-            (<span class="number">120.0</span>, <span class="op">-</span><span class="number">0.5</span>),
-            (<span class="number">135.0</span>, <span class="op">-</span><span class="number">0.70710678</span>),
-            (<span class="number">150.0</span>, <span class="op">-</span><span class="number">0.86602540</span>),
-            (<span class="number">180.0</span>, <span class="op">-</span><span class="number">1.0</span>),
-            (<span class="number">210.0</span>, <span class="op">-</span><span class="number">0.86602540</span>),
-            (<span class="number">225.0</span>, <span class="op">-</span><span class="number">0.70710678</span>),
-            (<span class="number">240.0</span>, <span class="op">-</span><span class="number">0.5</span>),
-            (<span class="number">270.0</span>, <span class="op">-</span><span class="number">0.0</span>),
+            (<span class="number">120.0</span>, -<span class="number">0.5</span>),
+            (<span class="number">135.0</span>, -<span class="number">0.70710678</span>),
+            (<span class="number">150.0</span>, -<span class="number">0.86602540</span>),
+            (<span class="number">180.0</span>, -<span class="number">1.0</span>),
+            (<span class="number">210.0</span>, -<span class="number">0.86602540</span>),
+            (<span class="number">225.0</span>, -<span class="number">0.70710678</span>),
+            (<span class="number">240.0</span>, -<span class="number">0.5</span>),
+            (<span class="number">270.0</span>, -<span class="number">0.0</span>),
         ];
 
-        <span class="kw">for</span> (<span class="ident">angle</span>, <span class="ident">cos</span>) <span class="kw">in</span> <span class="kw-2">&amp;</span><span class="ident">degree_cos_pairs</span> {
+        <span class="kw">for </span>(angle, cos) <span class="kw">in </span><span class="kw-2">&amp;</span>degree_cos_pairs {
             <span class="macro">assert!</span>(<span class="macro">approx_eq!</span>(
-                <span class="ident">Real</span>,
-                <span class="ident">angle</span>.<span class="ident">deg</span>().<span class="ident">cos</span>(),
-                (<span class="kw-2">*</span><span class="ident">cos</span>).<span class="ident">into</span>(),
-                <span class="ident">epsilon</span> <span class="op">=</span> <span class="number">0.0001</span>
-            ));
+                Real,
+                angle.deg().cos(),
+                (<span class="kw-2">*</span>cos).into(),
+                epsilon = <span class="number">0.0001
+            </span>));
         }
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">tan_correct</span>() {
-        <span class="kw">let</span> <span class="ident">degree_tan_pairs</span> <span class="op">=</span> [
-            (<span class="op">-</span><span class="number">60.0</span>, <span class="op">-</span><span class="number">1.73205080</span>),
-            (<span class="op">-</span><span class="number">45.0</span>, <span class="op">-</span><span class="number">1.0</span>),
-            (<span class="op">-</span><span class="number">30.0</span>, <span class="op">-</span><span class="number">0.57735026</span>),
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>tan_correct() {
+        <span class="kw">let </span>degree_tan_pairs = [
+            (-<span class="number">60.0</span>, -<span class="number">1.73205080</span>),
+            (-<span class="number">45.0</span>, -<span class="number">1.0</span>),
+            (-<span class="number">30.0</span>, -<span class="number">0.57735026</span>),
             (<span class="number">0.0</span>, <span class="number">0.0</span>),
             (<span class="number">30.0</span>, <span class="number">0.57735026</span>),
             (<span class="number">45.0</span>, <span class="number">1.0</span>),
             (<span class="number">60.0</span>, <span class="number">1.73205080</span>),
         ];
 
-        <span class="kw">for</span> (<span class="ident">angle</span>, <span class="ident">tan</span>) <span class="kw">in</span> <span class="kw-2">&amp;</span><span class="ident">degree_tan_pairs</span> {
+        <span class="kw">for </span>(angle, tan) <span class="kw">in </span><span class="kw-2">&amp;</span>degree_tan_pairs {
             <span class="macro">assert!</span>(<span class="macro">approx_eq!</span>(
-                <span class="ident">Real</span>,
-                <span class="ident">angle</span>.<span class="ident">deg</span>().<span class="ident">tan</span>().<span class="ident">unwrap</span>(),
-                (<span class="kw-2">*</span><span class="ident">tan</span>).<span class="ident">into</span>(),
-                <span class="ident">epsilon</span> <span class="op">=</span> <span class="number">0.0001</span>
-            ));
+                Real,
+                angle.deg().tan().unwrap(),
+                (<span class="kw-2">*</span>tan).into(),
+                epsilon = <span class="number">0.0001
+            </span>));
         }
 
-        <span class="macro">assert_eq!</span>((<span class="op">-</span><span class="number">90.0</span>.<span class="ident">deg</span>()).<span class="ident">tan</span>(), <span class="prelude-val">None</span>);
-        <span class="macro">assert_eq!</span>(<span class="number">90.0</span>.<span class="ident">deg</span>().<span class="ident">tan</span>(), <span class="prelude-val">None</span>);
+        <span class="macro">assert_eq!</span>((-<span class="number">90.0</span>.deg()).tan(), <span class="prelude-val">None</span>);
+        <span class="macro">assert_eq!</span>(<span class="number">90.0</span>.deg().tan(), <span class="prelude-val">None</span>);
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="embedded_graphics" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0 (a55dd71d5 2022-09-19)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="embedded_graphics" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0 (69f9c33d7 2022-12-12)" ></div></body></html>

@@ -1,6 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.1/src/primitives/polyline/mod.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../../storage.js"></script><script defer src="../../../../source-script.js"></script><script defer src="../../../../source-files.js"></script><script defer src="../../../../main.js"></script><noscript><link rel="stylesheet" href="../../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../../embedded_graphics/index.html"><div class="logo-container"><img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></div></a><h2 class="location"></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../../../embedded_graphics/index.html"><div class="logo-container">
-                    <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></div></a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../../embedded_graphics/index.html">
-                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../wheel.svg"></a></div></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.1/src/primitives/polyline/mod.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" href="../../../../normalize.css"><link rel="stylesheet" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" href="../../../../ayu.css" disabled><link rel="stylesheet" href="../../../../dark.css" disabled><link rel="stylesheet" href="../../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../../storage.js"></script><script defer src="../../../../source-script.js"></script><script defer src="../../../../source-files.js"></script><script defer src="../../../../main.js"></script><noscript><link rel="stylesheet" href="../../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../../embedded_graphics/index.html">
+                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../wheel.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -281,286 +280,286 @@
 <span id="279">279</span>
 <span id="280">280</span>
 <span id="281">281</span>
-</pre><pre class="rust"><code><span class="doccomment">//! The polyline primitive</span>
+</pre><pre class="rust"><code><span class="doccomment">//! The polyline primitive
 
-<span class="kw">use</span> <span class="kw">crate</span>::{
-    <span class="ident">geometry</span>::{<span class="ident">Dimensions</span>, <span class="ident">Point</span>, <span class="ident">Size</span>},
-    <span class="ident">primitives</span>::{<span class="ident">PointsIter</span>, <span class="ident">Primitive</span>, <span class="ident">Rectangle</span>},
-    <span class="ident">transform::Transform</span>,
+</span><span class="kw">use crate</span>::{
+    geometry::{Dimensions, Point, Size},
+    primitives::{PointsIter, Primitive, Rectangle},
+    transform::Transform,
 };
 
-<span class="kw">mod</span> <span class="ident">points</span>;
-<span class="kw">pub</span>(<span class="kw">in</span> <span class="ident"><span class="kw">crate</span>::primitives</span>) <span class="kw">mod</span> <span class="ident">scanline_intersections</span>;
-<span class="kw">mod</span> <span class="ident">scanline_iterator</span>;
-<span class="kw">mod</span> <span class="ident">styled</span>;
+<span class="kw">mod </span>points;
+<span class="kw">pub</span>(<span class="kw">in </span><span class="kw">crate</span>::primitives) <span class="kw">mod </span>scanline_intersections;
+<span class="kw">mod </span>scanline_iterator;
+<span class="kw">mod </span>styled;
 
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">points::Points</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">styled::StyledPixelsIterator</span>;
+<span class="kw">pub use </span>points::Points;
+<span class="kw">pub use </span>styled::StyledPixelsIterator;
 
-<span class="doccomment">/// Polyline primitive</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// Creates an unfilled chained line shape.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Examples</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// ## Draw a &quot;heartbeat&quot; shaped polyline</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// This example draws a stylized cardiogram in a 5px green stroke.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// ```rust</span>
-<span class="doccomment">/// use embedded_graphics::{</span>
-<span class="doccomment">///     pixelcolor::Rgb565, prelude::*, primitives::{Polyline, PrimitiveStyle},</span>
-<span class="doccomment">/// };</span>
-<span class="doccomment">/// # use embedded_graphics::mock_display::MockDisplay;</span>
-<span class="doccomment">/// # let mut display = MockDisplay::default();</span>
-<span class="doccomment">/// # display.set_allow_out_of_bounds_drawing(true);</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// // A &quot;heartbeat&quot; shaped polyline</span>
-<span class="doccomment">/// let points: [Point; 10] = [</span>
-<span class="doccomment">///     Point::new(10, 64),</span>
-<span class="doccomment">///     Point::new(50, 64),</span>
-<span class="doccomment">///     Point::new(60, 44),</span>
-<span class="doccomment">///     Point::new(70, 64),</span>
-<span class="doccomment">///     Point::new(80, 64),</span>
-<span class="doccomment">///     Point::new(90, 74),</span>
-<span class="doccomment">///     Point::new(100, 10),</span>
-<span class="doccomment">///     Point::new(110, 84),</span>
-<span class="doccomment">///     Point::new(120, 64),</span>
-<span class="doccomment">///     Point::new(300, 64),</span>
-<span class="doccomment">/// ];</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// let line_style = PrimitiveStyle::with_stroke(Rgb565::GREEN, 5);</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// Polyline::new(&amp;points)</span>
-<span class="doccomment">///     .into_styled(line_style)</span>
-<span class="doccomment">///     .draw(&amp;mut display)?;</span>
-<span class="doccomment">/// # Ok::&lt;(), core::convert::Infallible&gt;(())</span>
-<span class="doccomment">/// ```</span>
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Copy</span>, <span class="ident">Clone</span>, <span class="ident">Eq</span>, <span class="ident">PartialEq</span>, <span class="ident">Ord</span>, <span class="ident">PartialOrd</span>, <span class="ident">Hash</span>, <span class="ident">Debug</span>, <span class="ident">Default</span>)]</span>
-<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Polyline</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
-    <span class="doccomment">/// An offset to apply to the polyline as a whole</span>
-    <span class="kw">pub</span> <span class="ident">translate</span>: <span class="ident">Point</span>,
+<span class="doccomment">/// Polyline primitive
+///
+/// Creates an unfilled chained line shape.
+///
+/// # Examples
+///
+/// ## Draw a &quot;heartbeat&quot; shaped polyline
+///
+/// This example draws a stylized cardiogram in a 5px green stroke.
+///
+/// ```rust
+/// use embedded_graphics::{
+///     pixelcolor::Rgb565, prelude::*, primitives::{Polyline, PrimitiveStyle},
+/// };
+/// # use embedded_graphics::mock_display::MockDisplay;
+/// # let mut display = MockDisplay::default();
+/// # display.set_allow_out_of_bounds_drawing(true);
+///
+/// // A &quot;heartbeat&quot; shaped polyline
+/// let points: [Point; 10] = [
+///     Point::new(10, 64),
+///     Point::new(50, 64),
+///     Point::new(60, 44),
+///     Point::new(70, 64),
+///     Point::new(80, 64),
+///     Point::new(90, 74),
+///     Point::new(100, 10),
+///     Point::new(110, 84),
+///     Point::new(120, 64),
+///     Point::new(300, 64),
+/// ];
+///
+/// let line_style = PrimitiveStyle::with_stroke(Rgb565::GREEN, 5);
+///
+/// Polyline::new(&amp;points)
+///     .into_styled(line_style)
+///     .draw(&amp;mut display)?;
+/// # Ok::&lt;(), core::convert::Infallible&gt;(())
+/// ```
+</span><span class="attribute">#[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Hash, Debug, Default)]
+</span><span class="kw">pub struct </span>Polyline&lt;<span class="lifetime">&#39;a</span>&gt; {
+    <span class="doccomment">/// An offset to apply to the polyline as a whole
+    </span><span class="kw">pub </span>translate: Point,
 
-    <span class="doccomment">/// All vertices in the line</span>
-    <span class="kw">pub</span> <span class="ident">vertices</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> [<span class="ident">Point</span>],
+    <span class="doccomment">/// All vertices in the line
+    </span><span class="kw">pub </span>vertices: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>[Point],
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="ident">Polyline</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
-    <span class="doccomment">/// Create a new polyline from a list of vertices</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// If fewer than two vertices are provided, the line will not render anything when drawn.</span>
-    <span class="kw">pub</span> <span class="kw">const</span> <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">vertices</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> [<span class="ident">Point</span>]) -&gt; <span class="self">Self</span> {
-        <span class="self">Self</span> {
-            <span class="ident">vertices</span>,
-            <span class="ident">translate</span>: <span class="ident">Point::zero</span>(),
+<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>&gt; Polyline&lt;<span class="lifetime">&#39;a</span>&gt; {
+    <span class="doccomment">/// Create a new polyline from a list of vertices
+    ///
+    /// If fewer than two vertices are provided, the line will not render anything when drawn.
+    </span><span class="kw">pub const fn </span>new(vertices: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>[Point]) -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{
+            vertices,
+            translate: Point::zero(),
         }
     }
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="ident">Primitive</span> <span class="kw">for</span> <span class="ident">Polyline</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {}
+<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>&gt; Primitive <span class="kw">for </span>Polyline&lt;<span class="lifetime">&#39;a</span>&gt; {}
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="ident">PointsIter</span> <span class="kw">for</span> <span class="ident">Polyline</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
-    <span class="kw">type</span> <span class="ident">Iter</span> <span class="op">=</span> <span class="ident">Points</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span>;
+<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>&gt; PointsIter <span class="kw">for </span>Polyline&lt;<span class="lifetime">&#39;a</span>&gt; {
+    <span class="kw">type </span>Iter = Points&lt;<span class="lifetime">&#39;a</span>&gt;;
 
-    <span class="kw">fn</span> <span class="ident">points</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident"><span class="self">Self</span>::Iter</span> {
-        <span class="ident">Points::new</span>(<span class="self">self</span>)
+    <span class="kw">fn </span>points(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="self">Self</span>::Iter {
+        Points::new(<span class="self">self</span>)
     }
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="ident">Dimensions</span> <span class="kw">for</span> <span class="ident">Polyline</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
-    <span class="kw">fn</span> <span class="ident">bounding_box</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">Rectangle</span> {
-        <span class="kw">match</span> <span class="self">self</span>.<span class="ident">vertices</span> {
-            [] =&gt; <span class="ident">Rectangle::zero</span>(),
-            [<span class="ident">v</span>] =&gt; <span class="ident">Rectangle::new</span>(<span class="kw-2">*</span><span class="ident">v</span>, <span class="ident">Size::zero</span>()),
-            <span class="ident">vertices</span> =&gt; {
-                <span class="kw">let</span> <span class="ident">top_left</span> <span class="op">=</span> <span class="ident">vertices</span>
-                    .<span class="ident">iter</span>()
-                    .<span class="ident">map</span>(<span class="op">|</span><span class="ident">v</span><span class="op">|</span> <span class="kw-2">*</span><span class="ident">v</span> <span class="op">+</span> <span class="self">self</span>.<span class="ident">translate</span>)
-                    .<span class="ident">fold</span>(<span class="ident">Point::new</span>(<span class="ident">core::i32::MAX</span>, <span class="ident">core::i32::MAX</span>), <span class="op">|</span><span class="ident">accum</span>, <span class="ident">v</span><span class="op">|</span> {
-                        <span class="ident">Point::new</span>(<span class="ident">accum</span>.<span class="ident">x</span>.<span class="ident">min</span>(<span class="ident">v</span>.<span class="ident">x</span>), <span class="ident">accum</span>.<span class="ident">y</span>.<span class="ident">min</span>(<span class="ident">v</span>.<span class="ident">y</span>))
+<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>&gt; Dimensions <span class="kw">for </span>Polyline&lt;<span class="lifetime">&#39;a</span>&gt; {
+    <span class="kw">fn </span>bounding_box(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Rectangle {
+        <span class="kw">match </span><span class="self">self</span>.vertices {
+            [] =&gt; Rectangle::zero(),
+            [v] =&gt; Rectangle::new(<span class="kw-2">*</span>v, Size::zero()),
+            vertices =&gt; {
+                <span class="kw">let </span>top_left = vertices
+                    .iter()
+                    .map(|v| <span class="kw-2">*</span>v + <span class="self">self</span>.translate)
+                    .fold(Point::new(core::i32::MAX, core::i32::MAX), |accum, v| {
+                        Point::new(accum.x.min(v.x), accum.y.min(v.y))
                     });
 
-                <span class="kw">let</span> <span class="ident">bottom_right</span> <span class="op">=</span> <span class="ident">vertices</span>
-                    .<span class="ident">iter</span>()
-                    .<span class="ident">map</span>(<span class="op">|</span><span class="ident">v</span><span class="op">|</span> <span class="kw-2">*</span><span class="ident">v</span> <span class="op">+</span> <span class="self">self</span>.<span class="ident">translate</span>)
-                    .<span class="ident">fold</span>(<span class="ident">Point::new</span>(<span class="ident">core::i32::MIN</span>, <span class="ident">core::i32::MIN</span>), <span class="op">|</span><span class="ident">accum</span>, <span class="ident">v</span><span class="op">|</span> {
-                        <span class="ident">Point::new</span>(<span class="ident">accum</span>.<span class="ident">x</span>.<span class="ident">max</span>(<span class="ident">v</span>.<span class="ident">x</span>), <span class="ident">accum</span>.<span class="ident">y</span>.<span class="ident">max</span>(<span class="ident">v</span>.<span class="ident">y</span>))
+                <span class="kw">let </span>bottom_right = vertices
+                    .iter()
+                    .map(|v| <span class="kw-2">*</span>v + <span class="self">self</span>.translate)
+                    .fold(Point::new(core::i32::MIN, core::i32::MIN), |accum, v| {
+                        Point::new(accum.x.max(v.x), accum.y.max(v.y))
                     });
 
-                <span class="ident">Rectangle::with_corners</span>(<span class="ident">top_left</span>, <span class="ident">bottom_right</span>)
+                Rectangle::with_corners(top_left, bottom_right)
             }
         }
     }
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="ident">Transform</span> <span class="kw">for</span> <span class="ident">Polyline</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
-    <span class="doccomment">/// Translate the polyline from its current position to a new position by (x, y) pixels, returning</span>
-    <span class="doccomment">/// a new `Polyline`. For a mutating transform, see `translate_mut`.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ```</span>
-    <span class="doccomment">/// # use embedded_graphics::primitives::Polyline;</span>
-    <span class="doccomment">/// # use embedded_graphics::prelude::*;</span>
-    <span class="doccomment">/// let points = [</span>
-    <span class="doccomment">///     Point::new(5, 10),</span>
-    <span class="doccomment">///     Point::new(7, 7),</span>
-    <span class="doccomment">///     Point::new(5, 8),</span>
-    <span class="doccomment">///     Point::new(10, 10),</span>
-    <span class="doccomment">/// ];</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// let polyline = Polyline::new(&amp;points);</span>
-    <span class="doccomment">/// let moved = polyline.translate(Point::new(10, 12));</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// assert_eq!(polyline.bounding_box().top_left, Point::new(5, 7));</span>
-    <span class="doccomment">/// assert_eq!(moved.bounding_box().top_left, Point::new(15, 19));</span>
-    <span class="doccomment">/// ```</span>
-    <span class="kw">fn</span> <span class="ident">translate</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">by</span>: <span class="ident">Point</span>) -&gt; <span class="self">Self</span> {
-        <span class="self">Self</span> {
-            <span class="ident">translate</span>: <span class="self">self</span>.<span class="ident">translate</span> <span class="op">+</span> <span class="ident">by</span>,
-            ..<span class="kw-2">*</span><span class="self">self</span>
-        }
+<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>&gt; Transform <span class="kw">for </span>Polyline&lt;<span class="lifetime">&#39;a</span>&gt; {
+    <span class="doccomment">/// Translate the polyline from its current position to a new position by (x, y) pixels, returning
+    /// a new `Polyline`. For a mutating transform, see `translate_mut`.
+    ///
+    /// ```
+    /// # use embedded_graphics::primitives::Polyline;
+    /// # use embedded_graphics::prelude::*;
+    /// let points = [
+    ///     Point::new(5, 10),
+    ///     Point::new(7, 7),
+    ///     Point::new(5, 8),
+    ///     Point::new(10, 10),
+    /// ];
+    ///
+    /// let polyline = Polyline::new(&amp;points);
+    /// let moved = polyline.translate(Point::new(10, 12));
+    ///
+    /// assert_eq!(polyline.bounding_box().top_left, Point::new(5, 7));
+    /// assert_eq!(moved.bounding_box().top_left, Point::new(15, 19));
+    /// ```
+    </span><span class="kw">fn </span>translate(<span class="kw-2">&amp;</span><span class="self">self</span>, by: Point) -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{
+            translate: <span class="self">self</span>.translate + by,
+            ..<span class="kw-2">*</span><span class="self">self
+        </span>}
     }
 
-    <span class="doccomment">/// Translate the polyline from its current position to a new position by (x, y) pixels.</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// ```</span>
-    <span class="doccomment">/// # use embedded_graphics::primitives::Polyline;</span>
-    <span class="doccomment">/// # use embedded_graphics::prelude::*;</span>
-    <span class="doccomment">/// let points = [</span>
-    <span class="doccomment">///     Point::new(5, 10),</span>
-    <span class="doccomment">///     Point::new(7, 7),</span>
-    <span class="doccomment">///     Point::new(5, 8),</span>
-    <span class="doccomment">///     Point::new(10, 10),</span>
-    <span class="doccomment">/// ];</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// let mut polyline = Polyline::new(&amp;points);</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// polyline.translate_mut(Point::new(10, 12));</span>
-    <span class="doccomment">///</span>
-    <span class="doccomment">/// assert_eq!(polyline.bounding_box().top_left, Point::new(15, 19));</span>
-    <span class="doccomment">/// ```</span>
-    <span class="kw">fn</span> <span class="ident">translate_mut</span>(<span class="kw-2">&amp;mut</span> <span class="self">self</span>, <span class="ident">by</span>: <span class="ident">Point</span>) -&gt; <span class="kw-2">&amp;mut</span> <span class="self">Self</span> {
-        <span class="self">self</span>.<span class="ident">translate</span> <span class="op">+</span><span class="op">=</span> <span class="ident">by</span>;
+    <span class="doccomment">/// Translate the polyline from its current position to a new position by (x, y) pixels.
+    ///
+    /// ```
+    /// # use embedded_graphics::primitives::Polyline;
+    /// # use embedded_graphics::prelude::*;
+    /// let points = [
+    ///     Point::new(5, 10),
+    ///     Point::new(7, 7),
+    ///     Point::new(5, 8),
+    ///     Point::new(10, 10),
+    /// ];
+    ///
+    /// let mut polyline = Polyline::new(&amp;points);
+    ///
+    /// polyline.translate_mut(Point::new(10, 12));
+    ///
+    /// assert_eq!(polyline.bounding_box().top_left, Point::new(15, 19));
+    /// ```
+    </span><span class="kw">fn </span>translate_mut(<span class="kw-2">&amp;mut </span><span class="self">self</span>, by: Point) -&gt; <span class="kw-2">&amp;mut </span><span class="self">Self </span>{
+        <span class="self">self</span>.translate += by;
 
-        <span class="self">self</span>
-    }
+        <span class="self">self
+    </span>}
 }
 
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
-<span class="kw">mod</span> <span class="ident">tests</span> {
-    <span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
-    <span class="kw">use</span> <span class="ident"><span class="kw">crate</span>::geometry</span>::{<span class="ident">Point</span>, <span class="ident">Size</span>};
+<span class="attribute">#[cfg(test)]
+</span><span class="kw">mod </span>tests {
+    <span class="kw">use super</span>::<span class="kw-2">*</span>;
+    <span class="kw">use </span><span class="kw">crate</span>::geometry::{Point, Size};
 
-    <span class="comment">// A &quot;heartbeat&quot; shaped polyline</span>
-    <span class="kw">pub</span>(<span class="kw">in</span> <span class="ident"><span class="kw">crate</span>::primitives::polyline</span>) <span class="kw">const</span> <span class="ident">HEARTBEAT</span>: [<span class="ident">Point</span>; <span class="number">10</span>] <span class="op">=</span> [
-        <span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">64</span>),
-        <span class="ident">Point::new</span>(<span class="number">50</span>, <span class="number">64</span>),
-        <span class="ident">Point::new</span>(<span class="number">60</span>, <span class="number">44</span>),
-        <span class="ident">Point::new</span>(<span class="number">70</span>, <span class="number">64</span>),
-        <span class="ident">Point::new</span>(<span class="number">80</span>, <span class="number">64</span>),
-        <span class="ident">Point::new</span>(<span class="number">90</span>, <span class="number">74</span>),
-        <span class="ident">Point::new</span>(<span class="number">100</span>, <span class="number">10</span>),
-        <span class="ident">Point::new</span>(<span class="number">110</span>, <span class="number">84</span>),
-        <span class="ident">Point::new</span>(<span class="number">120</span>, <span class="number">64</span>),
-        <span class="ident">Point::new</span>(<span class="number">300</span>, <span class="number">64</span>),
+    <span class="comment">// A &quot;heartbeat&quot; shaped polyline
+    </span><span class="kw">pub</span>(<span class="kw">in </span><span class="kw">crate</span>::primitives::polyline) <span class="kw">const </span>HEARTBEAT: [Point; <span class="number">10</span>] = [
+        Point::new(<span class="number">10</span>, <span class="number">64</span>),
+        Point::new(<span class="number">50</span>, <span class="number">64</span>),
+        Point::new(<span class="number">60</span>, <span class="number">44</span>),
+        Point::new(<span class="number">70</span>, <span class="number">64</span>),
+        Point::new(<span class="number">80</span>, <span class="number">64</span>),
+        Point::new(<span class="number">90</span>, <span class="number">74</span>),
+        Point::new(<span class="number">100</span>, <span class="number">10</span>),
+        Point::new(<span class="number">110</span>, <span class="number">84</span>),
+        Point::new(<span class="number">120</span>, <span class="number">64</span>),
+        Point::new(<span class="number">300</span>, <span class="number">64</span>),
     ];
 
-    <span class="comment">// Smaller test pattern for mock display</span>
-    <span class="kw">pub</span>(<span class="kw">in</span> <span class="ident"><span class="kw">crate</span>::primitives::polyline</span>) <span class="kw">const</span> <span class="ident">SMALL</span>: [<span class="ident">Point</span>; <span class="number">4</span>] <span class="op">=</span> [
-        <span class="ident">Point::new</span>(<span class="number">2</span>, <span class="number">5</span>),
-        <span class="ident">Point::new</span>(<span class="number">5</span>, <span class="number">2</span>),
-        <span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">5</span>),
-        <span class="ident">Point::new</span>(<span class="number">15</span>, <span class="number">2</span>),
+    <span class="comment">// Smaller test pattern for mock display
+    </span><span class="kw">pub</span>(<span class="kw">in </span><span class="kw">crate</span>::primitives::polyline) <span class="kw">const </span>SMALL: [Point; <span class="number">4</span>] = [
+        Point::new(<span class="number">2</span>, <span class="number">5</span>),
+        Point::new(<span class="number">5</span>, <span class="number">2</span>),
+        Point::new(<span class="number">10</span>, <span class="number">5</span>),
+        Point::new(<span class="number">15</span>, <span class="number">2</span>),
     ];
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">special_case_dimensions</span>() {
-        <span class="macro">assert_eq!</span>(<span class="ident">Polyline::new</span>(<span class="kw-2">&amp;</span>[]).<span class="ident">bounding_box</span>(), <span class="ident">Rectangle::zero</span>(),);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>special_case_dimensions() {
+        <span class="macro">assert_eq!</span>(Polyline::new(<span class="kw-2">&amp;</span>[]).bounding_box(), Rectangle::zero(),);
 
         <span class="macro">assert_eq!</span>(
-            <span class="ident">Polyline::new</span>(<span class="kw-2">&amp;</span>[<span class="ident">Point::new</span>(<span class="number">15</span>, <span class="number">17</span>)]).<span class="ident">bounding_box</span>(),
-            <span class="ident">Rectangle::new</span>(<span class="ident">Point::new</span>(<span class="number">15</span>, <span class="number">17</span>), <span class="ident">Size::zero</span>())
+            Polyline::new(<span class="kw-2">&amp;</span>[Point::new(<span class="number">15</span>, <span class="number">17</span>)]).bounding_box(),
+            Rectangle::new(Point::new(<span class="number">15</span>, <span class="number">17</span>), Size::zero())
         );
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">positive_dimensions</span>() {
-        <span class="kw">let</span> <span class="ident">polyline</span> <span class="op">=</span> <span class="ident">Polyline::new</span>(<span class="kw-2">&amp;</span><span class="ident">HEARTBEAT</span>);
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>positive_dimensions() {
+        <span class="kw">let </span>polyline = Polyline::new(<span class="kw-2">&amp;</span>HEARTBEAT);
 
-        <span class="kw">let</span> <span class="ident">bb</span> <span class="op">=</span> <span class="ident">polyline</span>.<span class="ident">bounding_box</span>();
+        <span class="kw">let </span>bb = polyline.bounding_box();
 
         <span class="macro">assert_eq!</span>(
-            <span class="ident">bb</span>,
-            <span class="ident">Rectangle::with_corners</span>(<span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">10</span>), <span class="ident">Point::new</span>(<span class="number">300</span>, <span class="number">84</span>))
+            bb,
+            Rectangle::with_corners(Point::new(<span class="number">10</span>, <span class="number">10</span>), Point::new(<span class="number">300</span>, <span class="number">84</span>))
         );
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">negative_dimensions</span>() {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">negative</span>: [<span class="ident">Point</span>; <span class="number">10</span>] <span class="op">=</span> [<span class="ident">Point::zero</span>(); <span class="number">10</span>];
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>negative_dimensions() {
+        <span class="kw">let </span><span class="kw-2">mut </span>negative: [Point; <span class="number">10</span>] = [Point::zero(); <span class="number">10</span>];
 
-        <span class="kw">for</span> (<span class="ident">i</span>, <span class="ident">v</span>) <span class="kw">in</span> <span class="ident">HEARTBEAT</span>.<span class="ident">iter</span>().<span class="ident">enumerate</span>() {
-            <span class="ident">negative</span>[<span class="ident">i</span>] <span class="op">=</span> <span class="kw-2">*</span><span class="ident">v</span> <span class="op">-</span> <span class="ident">Point::new</span>(<span class="number">100</span>, <span class="number">100</span>);
+        <span class="kw">for </span>(i, v) <span class="kw">in </span>HEARTBEAT.iter().enumerate() {
+            negative[i] = <span class="kw-2">*</span>v - Point::new(<span class="number">100</span>, <span class="number">100</span>);
         }
 
-        <span class="kw">let</span> <span class="ident">polyline</span> <span class="op">=</span> <span class="ident">Polyline::new</span>(<span class="kw-2">&amp;</span><span class="ident">negative</span>);
+        <span class="kw">let </span>polyline = Polyline::new(<span class="kw-2">&amp;</span>negative);
 
-        <span class="kw">let</span> <span class="ident">bb</span> <span class="op">=</span> <span class="ident">polyline</span>.<span class="ident">bounding_box</span>();
+        <span class="kw">let </span>bb = polyline.bounding_box();
 
         <span class="macro">assert_eq!</span>(
-            <span class="ident">bb</span>,
-            <span class="ident">Rectangle::with_corners</span>(<span class="ident">Point::new</span>(<span class="op">-</span><span class="number">90</span>, <span class="op">-</span><span class="number">90</span>), <span class="ident">Point::new</span>(<span class="number">200</span>, <span class="op">-</span><span class="number">16</span>))
+            bb,
+            Rectangle::with_corners(Point::new(-<span class="number">90</span>, -<span class="number">90</span>), Point::new(<span class="number">200</span>, -<span class="number">16</span>))
         );
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">transformed_dimensions</span>() {
-        <span class="kw">let</span> <span class="ident">polyline</span> <span class="op">=</span> <span class="ident">Polyline::new</span>(<span class="kw-2">&amp;</span><span class="ident">HEARTBEAT</span>).<span class="ident">translate</span>(<span class="ident">Point::new</span>(<span class="op">-</span><span class="number">100</span>, <span class="op">-</span><span class="number">100</span>));
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>transformed_dimensions() {
+        <span class="kw">let </span>polyline = Polyline::new(<span class="kw-2">&amp;</span>HEARTBEAT).translate(Point::new(-<span class="number">100</span>, -<span class="number">100</span>));
 
-        <span class="kw">let</span> <span class="ident">bb</span> <span class="op">=</span> <span class="ident">polyline</span>.<span class="ident">bounding_box</span>();
+        <span class="kw">let </span>bb = polyline.bounding_box();
 
         <span class="macro">assert_eq!</span>(
-            <span class="ident">bb</span>,
-            <span class="ident">Rectangle::with_corners</span>(<span class="ident">Point::new</span>(<span class="op">-</span><span class="number">90</span>, <span class="op">-</span><span class="number">90</span>), <span class="ident">Point::new</span>(<span class="number">200</span>, <span class="op">-</span><span class="number">16</span>))
+            bb,
+            Rectangle::with_corners(Point::new(-<span class="number">90</span>, -<span class="number">90</span>), Point::new(<span class="number">200</span>, -<span class="number">16</span>))
         );
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">translate_does_not_modify_size</span>() {
-        <span class="kw">let</span> <span class="ident">points</span> <span class="op">=</span> [
-            <span class="ident">Point::new</span>(<span class="number">5</span>, <span class="number">10</span>),
-            <span class="ident">Point::new</span>(<span class="number">7</span>, <span class="number">7</span>),
-            <span class="ident">Point::new</span>(<span class="number">5</span>, <span class="number">8</span>),
-            <span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">10</span>),
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>translate_does_not_modify_size() {
+        <span class="kw">let </span>points = [
+            Point::new(<span class="number">5</span>, <span class="number">10</span>),
+            Point::new(<span class="number">7</span>, <span class="number">7</span>),
+            Point::new(<span class="number">5</span>, <span class="number">8</span>),
+            Point::new(<span class="number">10</span>, <span class="number">10</span>),
         ];
 
-        <span class="kw">let</span> <span class="ident">polyline</span> <span class="op">=</span> <span class="ident">Polyline::new</span>(<span class="kw-2">&amp;</span><span class="ident">points</span>);
-        <span class="kw">let</span> <span class="ident">moved</span> <span class="op">=</span> <span class="ident">polyline</span>.<span class="ident">translate</span>(<span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">12</span>));
+        <span class="kw">let </span>polyline = Polyline::new(<span class="kw-2">&amp;</span>points);
+        <span class="kw">let </span>moved = polyline.translate(Point::new(<span class="number">10</span>, <span class="number">12</span>));
 
-        <span class="macro">assert_eq!</span>(<span class="ident">moved</span>.<span class="ident">bounding_box</span>().<span class="ident">size</span>, <span class="ident">polyline</span>.<span class="ident">bounding_box</span>().<span class="ident">size</span>);
+        <span class="macro">assert_eq!</span>(moved.bounding_box().size, polyline.bounding_box().size);
     }
 
-    <span class="attribute">#[<span class="ident">test</span>]</span>
-    <span class="kw">fn</span> <span class="ident">translate_translated</span>() {
-        <span class="kw">let</span> <span class="ident">points</span> <span class="op">=</span> [
-            <span class="ident">Point::new</span>(<span class="number">5</span>, <span class="number">10</span>),
-            <span class="ident">Point::new</span>(<span class="number">7</span>, <span class="number">7</span>),
-            <span class="ident">Point::new</span>(<span class="number">5</span>, <span class="number">8</span>),
-            <span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">10</span>),
+    <span class="attribute">#[test]
+    </span><span class="kw">fn </span>translate_translated() {
+        <span class="kw">let </span>points = [
+            Point::new(<span class="number">5</span>, <span class="number">10</span>),
+            Point::new(<span class="number">7</span>, <span class="number">7</span>),
+            Point::new(<span class="number">5</span>, <span class="number">8</span>),
+            Point::new(<span class="number">10</span>, <span class="number">10</span>),
         ];
 
-        <span class="kw">let</span> <span class="ident">polyline</span> <span class="op">=</span> <span class="ident">Polyline::new</span>(<span class="kw-2">&amp;</span><span class="ident">points</span>);
-        <span class="kw">let</span> <span class="ident">moved</span> <span class="op">=</span> <span class="ident">polyline</span>.<span class="ident">translate</span>(<span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">12</span>));
-        <span class="kw">let</span> <span class="ident">moved2</span> <span class="op">=</span> <span class="ident">moved</span>.<span class="ident">translate</span>(<span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">12</span>));
+        <span class="kw">let </span>polyline = Polyline::new(<span class="kw-2">&amp;</span>points);
+        <span class="kw">let </span>moved = polyline.translate(Point::new(<span class="number">10</span>, <span class="number">12</span>));
+        <span class="kw">let </span>moved2 = moved.translate(Point::new(<span class="number">10</span>, <span class="number">12</span>));
 
         <span class="macro">assert_eq!</span>(
-            <span class="ident">moved</span>.<span class="ident">bounding_box</span>(),
-            <span class="ident">polyline</span>.<span class="ident">bounding_box</span>().<span class="ident">translate</span>(<span class="ident">Point::new</span>(<span class="number">10</span>, <span class="number">12</span>))
+            moved.bounding_box(),
+            polyline.bounding_box().translate(Point::new(<span class="number">10</span>, <span class="number">12</span>))
         );
         <span class="macro">assert_eq!</span>(
-            <span class="ident">moved2</span>.<span class="ident">bounding_box</span>(),
-            <span class="ident">polyline</span>.<span class="ident">bounding_box</span>().<span class="ident">translate</span>(<span class="ident">Point::new</span>(<span class="number">20</span>, <span class="number">24</span>))
+            moved2.bounding_box(),
+            polyline.bounding_box().translate(Point::new(<span class="number">20</span>, <span class="number">24</span>))
         );
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../../" data-current-crate="embedded_graphics" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0 (a55dd71d5 2022-09-19)" ></div></body></html>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../../" data-current-crate="embedded_graphics" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.66.0 (69f9c33d7 2022-12-12)" ></div></body></html>

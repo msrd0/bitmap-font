@@ -20,6 +20,8 @@ mod bitmap;
 use bitmap::Bitmap;
 
 mod util;
+use log::{info, warn, LevelFilter};
+use simple_logger::SimpleLogger;
 use util::CeilingDiv;
 
 const CHAR_RANGES: &[(char, char)] = &[
@@ -177,7 +179,7 @@ impl<'a> GlyphData<'a> {
 				bitmap.height()
 			);
 			if bitmap.width() >= width && bitmap.height() >= height {
-				println!("[WARN] {} - clipping", msg);
+				warn!("{} - clipping", msg);
 			} else {
 				bail!("{}", msg);
 			}
@@ -249,6 +251,11 @@ struct FontMetadata {
 }
 
 fn main() -> anyhow::Result<()> {
+	SimpleLogger::new()
+		.with_level(LevelFilter::Info)
+		.with_local_timestamps()
+		.init()?;
+
 	let mut fonts_with_metadata = Vec::new();
 	let mut fonts = Vec::new();
 	let mut virtual_fonts = Vec::new();
@@ -274,7 +281,7 @@ fn main() -> anyhow::Result<()> {
 	for file in fs::read_dir(dir)? {
 		let file = file?;
 		let path = file.path().display().to_string();
-		println!("Inspecting file {}", path);
+		info!("Inspecting file {}", path);
 		let path = match path
 			.strip_prefix("tamzen-font/bdf/TamzenForPowerline")
 			.and_then(|path| path.strip_suffix(".bdf"))
@@ -299,7 +306,7 @@ fn main() -> anyhow::Result<()> {
 			(Some(width), Some(height)) => (width, height),
 			_ => continue
 		};
-		println!(
+		info!(
 			" -> Found font {}x{} ({})",
 			width,
 			height,

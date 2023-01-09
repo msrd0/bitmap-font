@@ -5,6 +5,7 @@
 
 use anyhow::bail;
 use askama::Template;
+use base64::prelude::*;
 use bdf_reader::Glyph;
 use bit_vec::BitVec;
 use indexmap::IndexMap;
@@ -408,8 +409,8 @@ fn main() -> anyhow::Result<()> {
 			bitmap_len_str,
 			img_width: raw_width,
 			img_height: raw_height,
-			bmp: base64::encode(bmp),
-			bmp_double: base64::encode(bmp_double)
+			bmp: BASE64_STANDARD.encode(bmp),
+			bmp_double: BASE64_STANDARD.encode(bmp_double)
 		};
 		fonts.push(font);
 

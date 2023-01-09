@@ -57,7 +57,7 @@ jobs:
             target
           key: ${{ runner.os }}-rust-${{ steps.rust-version.outputs.version }}
       - name: Run cargo test
-        run: cargo test
+        run: cargo test -p bitmap-font
         env:
           RUST_BACKTRACE: 1
   

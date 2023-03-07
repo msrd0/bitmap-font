@@ -5,6 +5,15 @@ on:
     branches: [main]
   pull_request:
 
+env:
+  # speed up build by using clang/lld
+  CC: "clang-14"
+  CXX: "clang++-14"
+  LD: "clang-14"
+  LDFLAGS: "-fuse-ld=lld-14"
+  RUSTFLAGS: "-C linker=clang-14 -C link-arg=-fuse-ld=lld-14"
+  RUST_BACKTRACE: "1"
+
 jobs:
   codegen:
     runs-on: ubuntu-latest
@@ -13,71 +22,65 @@ jobs:
         with:
           submodules: recursive
       - uses: dtolnay/rust-toolchain@stable
-      - name: Get Rust Version
-        id: rust-version
-        run: echo "::set-output name=version::$(cargo -V | head -n1 | awk '{print $2}')"
+        id: rust-toolchain
       - uses: actions/cache@v3
         with:
           path: |
             ~/.cargo/git
             ~/.cargo/registry
             target
-          key: ${{ runner.os }}-rust-${{ steps.rust-version.outputs.version }}-codegen
-      - name: Run codegen
-        run: |
-          cd codegen
-          cargo run
-        env:
-          RUST_BACKTRACE: 1
-      - name: Compare generated code
-        run: git diff --exit-code src/ tests/
+          key: "${{runner.os}} Rust ${{steps.rust-toolchain.outputs.cachekey}} (Codegen)"
+      - run: cargo run --manifest-path codegen/Cargo.toml
+      - run: git diff --exit-code src/ tests/
   
   test:
     strategy:
       fail-fast: false
       matrix:
-        toolchain: ["1.57", stable]
-        nightly: [false]
+        rust:
+          - name: "MSRV"
+            toolchain: "1.63.0"
+            nightly: false
+          - name: "Stable"
+            toolchain: "stable"
+            nightly: false
+          - name: "Nightly"
+            toolchain: "nightly"
+            nightly: true
     runs-on: ubuntu-latest
-    name: test-${{ matrix.toolchain }}
-    continue-on-error: ${{ matrix.nightly }}
+    name: "Test (Rust ${{matrix.rust.name}})"
+    continue-on-error: ${{matrix.rust.nightly}}
     steps:
       - uses: actions/checkout@v3
       - uses: dtolnay/rust-toolchain@master
         with:
-          toolchain: ${{ matrix.toolchain }}
-      - name: Get Rust Version
-        id: rust-version
-        run: echo "::set-output name=version::$(cargo -V | head -n1 | awk '{print $2}')"
+          toolchain: ${{matrix.rust.toolchain}}
+        id: rust-toolchain
       - uses: actions/cache@v3
         with:
           path: |
             ~/.cargo/git
             ~/.cargo/registry
             target
-          key: ${{ runner.os }}-rust-${{ steps.rust-version.outputs.version }}
-      - name: Run cargo test
-        run: cargo test -p bitmap-font
-        env:
-          RUST_BACKTRACE: 1
+          key: "${{runner.os}} Rust ${{steps.rust-toolchain.outputs.cachekey}}"
+      - run: cargo test -p bitmap-font
   
   clippy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: dtolnay/rust-toolchain@stable
+      - uses: dtolnay/rust-toolchain@master
         with:
           components: clippy
-      - name: Get Rust Version
-        id: rust-version
-        run: echo "::set-output name=version::$(cargo -V | head -n1 | awk '{print $2}')"
+          toolchain: "1.67"
+        id: rust-toolchain
       - uses: actions/cache@v3
         with:
           path: |
             ~/.cargo/git
             ~/.cargo/registry
             target
-          key: ${{ runner.os }}-rust-${{ steps.rust-version.outputs.version }}-clippy
+          key: "${{runner.os}} Rust ${{steps.rust-toolchain.outputs.cachekey}} (Clippy)"
       - run: cargo clippy --profile test -- -Dclippy::all
   
   rustfmt:
@@ -103,12 +106,10 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: dtolnay/rust-toolchain@stable
-      - name: Get Rust Version
-        id: rust-version
-        run: echo "::set-output name=version::$(cargo -V | head -n1 | awk '{print $2}')"
+        id: rust-toolchain
       - name: Get Tarpaulin Version
         id: tarpaulin-version
-        run: echo "::set-output name=version::$(wget -qO- 'https://api.github.com/repos/xd009642/tarpaulin/releases/latest' | jq -r '.tag_name')"
+        run: echo "version=$(wget -qO- 'https://crates.io/api/v1/crates/cargo-tarpaulin' | jq -r '.crate.max_stable_version')" >>$GITHUB_OUTPUT
       - uses: actions/cache@v3
         with:
           path: |
@@ -116,10 +117,10 @@ jobs:
             ~/.cargo/git
             ~/.cargo/registry
             target
-          key: ${{ runner.os }}-cargo-${{ steps.rust-version.outputs.version }}-tarpaulin-${{ steps.tarpaulin-version.outputs.version }}
+          key: "${{runner.os}} Rust ${{steps.rust-toolchain.outputs.cachekey}} (Tarpaulin ${{steps.tarpaulin-version.outputs.version}})"
       - name: Install Tarpaulin
         run: |
-          test -e ~/.cargo/bin/cargo-tarpaulin || cargo install cargo-tarpaulin --version ${{ steps.tarpaulin-version.outputs.version }}
+          test -e ~/.cargo/bin/cargo-tarpaulin || cargo install cargo-tarpaulin --version ${{steps.tarpaulin-version.outputs.version}}
       - name: Run Tarpaulin coverage tests
         run: |
           cargo tarpaulin -v \
@@ -128,8 +129,6 @@ jobs:
           	--exclude-files 'target/*' \
           	--ignore-panics --ignore-tests \
           	--out Html --out Json
-        env:
-          RUST_BACKTRACE: 1
       - uses: actions/upload-artifact@v3
         with:
           name: tarpaulin-report
@@ -142,18 +141,20 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: dtolnay/rust-toolchain@stable
+        id: rust-toolchain
       - uses: actions/cache@v3
         with:
           path: |
-            ~/.cargo
+            ~/.cargo/git
+            ~/.cargo/registry
             target
-          key: ${{ runner.os }}-cargo-doc }}
+          key: "${{runner.os}} Rust ${{steps.rust-toolchain.outputs.cachekey}} (Doc)"
       - run: cargo doc
-      - run: tar cfJ rustdoc.tar.xz target/doc/
+      - run: tar cfj rustdoc.tar.bz2 target/doc/
       - uses: actions/upload-artifact@v3
         with:
           name: rustdoc
-          path: rustdoc.tar.xz
+          path: rustdoc.tar.bz2
   
   pages:
     runs-on: ubuntu-latest
@@ -172,8 +173,8 @@ jobs:
       
       - run: |
           test ! -d ./doc || rm -r ./doc
-          tar xfJ rustdoc.tar.xz --strip-components=1
-          rm rustdoc.tar.xz
+          tar xfj rustdoc.tar.bz2 --strip-components=1
+          rm rustdoc.tar.bz2
           
           coverage=$(jq '.files | { covered: map(.covered) | add, coverable: map(.coverable) | add } | .covered / .coverable * 10000 | round | . / 100' tarpaulin-report.json)
           color=$([[ $coverage < 80 ]] && printf yellow || printf brightgreen)
@@ -184,4 +185,4 @@ jobs:
       
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: "GitHub Pages for ${{ github.sha }}"
+          commit_message: "GitHub Pages for ${{github.sha}}"

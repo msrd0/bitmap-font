@@ -30,7 +30,7 @@ jobs:
             ~/.cargo/registry
             target
           key: "${{runner.os}} Rust ${{steps.rust-toolchain.outputs.cachekey}} (Codegen)"
-      - run: cargo run --manifest-path codegen/Cargo.toml
+      - run: cd codegen && cargo run
       - run: git diff --exit-code src/ tests/
   
   test:

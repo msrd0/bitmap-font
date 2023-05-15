@@ -15,8 +15,8 @@
 	<a href="https://msrd0.github.io/bitmap-font/doc/bitmap_font/index.html">
 		<img alt="bitmap-font main branch documentation" src="https://img.shields.io/badge/docs-main-blue.svg"/>
 	</a>
-	<a href="https://blog.rust-lang.org/2021/12/02/Rust-1.57.0.html">
-		<img alt="Rust 1.57+" src="https://img.shields.io/badge/rustc-1.57+-orange.svg"/>
+	<a href="https://blog.rust-lang.org/2022/05/19/Rust-1.61.0.html">
+		<img alt="Rust 1.61+" src="https://img.shields.io/badge/rustc-1.61+-orange.svg"/>
 	</a>
 	<a href="https://deps.rs/repo/github/msrd0/bitmap-font">
 		<img alt="dependency report" src="https://deps.rs/repo/github/msrd0/bitmap-font/status.svg"/>
@@ -104,8 +104,8 @@ of this font.
 ```
 
  [contributors]: https://github.com/msrd0/bitmap-font/graphs/contributors
- [__cargo_doc2readme_dependencies_info]: ggGkYW0BYXSEG_N0QJHQOm9HG74Beb5vRrYBG2NMKQS7lQADG84YALdtFut5YXKEG7QsMysq64PIGyOKYfl4MwNjG-1TTKAJaS94G62BH4qvezKCYWSCg2tiaXRtYXAtZm9udGUwLjIuMmtiaXRtYXBfZm9udIJxZW1iZWRkZWRfZ3JhcGhpY3NlMC43LjE
- [__link0]: https://crates.io/crates/embedded_graphics/0.7.1
- [__link1]: https://docs.rs/embedded_graphics/0.7.1/embedded_graphics/?search=mono_font
+ [__cargo_doc2readme_dependencies_info]: ggGkYW0BYXSEGz9hV0L4yLNCGzqX6YFbQohpG92x-KBiv9-dG_aEBp2jAnbRYXKEG7QsMysq64PIGyOKYfl4MwNjG-1TTKAJaS94G62BH4qvezKCYWSCg2tiaXRtYXAtZm9udGUwLjIuMmtiaXRtYXBfZm9udIJxZW1iZWRkZWRfZ3JhcGhpY3NlMC44LjA
+ [__link0]: https://crates.io/crates/embedded_graphics/0.8.0
+ [__link1]: https://docs.rs/embedded_graphics/0.8.0/embedded_graphics/?search=mono_font
  [__link2]: https://github.com/sunaku/tamzen-font
  [__link3]: https://docs.rs/bitmap-font/0.2.2/bitmap_font/tamzen/index.html

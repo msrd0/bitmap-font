@@ -208,6 +208,7 @@ use embedded_graphics::{
 struct Mapping;
 
 impl GlyphMapping for Mapping {
+	#[allow(unused_parens)]
 	fn index(&self, c: char) -> usize {
 		match c {
 			' ' ..= '~' => (c as usize - ' ' as usize),
@@ -239,7 +240,7 @@ const ONE: NonZeroU8 = match NonZeroU8::new(1) {
 /// Font License: <https://github.com/sunaku/tamzen-font/blob/master/LICENSE>
 #[allow(non_upper_case_globals)]
 pub const FONT_5x9: BitmapFont<'static> = BitmapFont {
-	bitmap: ImageRaw::new_binary(
+	bitmap: ImageRaw::new(
 		// 96 x 81 (972)
 		&[
 			0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0x14, 0xa2, 0x61,
@@ -324,7 +325,7 @@ pub const FONT_5x9: BitmapFont<'static> = BitmapFont {
 /// Font License: <https://github.com/sunaku/tamzen-font/blob/master/LICENSE>
 #[allow(non_upper_case_globals)]
 pub const FONT_5x9_BOLD: BitmapFont<'static> = BitmapFont {
-	bitmap: ImageRaw::new_binary(
+	bitmap: ImageRaw::new(
 		// 96 x 81 (972)
 		&[
 			0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03, 0x3c, 0xa2, 0x41,
@@ -409,7 +410,7 @@ pub const FONT_5x9_BOLD: BitmapFont<'static> = BitmapFont {
 /// Font License: <https://github.com/sunaku/tamzen-font/blob/master/LICENSE>
 #[allow(non_upper_case_globals)]
 pub const FONT_6x12: BitmapFont<'static> = BitmapFont {
-	bitmap: ImageRaw::new_binary(
+	bitmap: ImageRaw::new(
 		// 96 x 132 (1584)
 		&[
 			0x00, 0x00, 0x00, 0x10, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x85, 0x14, 0x11,
@@ -532,7 +533,7 @@ pub const FONT_6x12: BitmapFont<'static> = BitmapFont {
 /// Font License: <https://github.com/sunaku/tamzen-font/blob/master/LICENSE>
 #[allow(non_upper_case_globals)]
 pub const FONT_6x12_BOLD: BitmapFont<'static> = BitmapFont {
-	bitmap: ImageRaw::new_binary(
+	bitmap: ImageRaw::new(
 		// 96 x 132 (1584)
 		&[
 			0x00, 0x00, 0x00, 0x30, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x8d, 0x94, 0x31,
@@ -655,7 +656,7 @@ pub const FONT_6x12_BOLD: BitmapFont<'static> = BitmapFont {
 /// Font License: <https://github.com/sunaku/tamzen-font/blob/master/LICENSE>
 #[allow(non_upper_case_globals)]
 pub const FONT_7x13: BitmapFont<'static> = BitmapFont {
-	bitmap: ImageRaw::new_binary(
+	bitmap: ImageRaw::new(
 		// 64 x 247 (1976)
 		&[
 			0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x80, 0x00, 0x00, 0x00,
@@ -803,7 +804,7 @@ pub const FONT_7x13: BitmapFont<'static> = BitmapFont {
 /// Font License: <https://github.com/sunaku/tamzen-font/blob/master/LICENSE>
 #[allow(non_upper_case_globals)]
 pub const FONT_7x13_BOLD: BitmapFont<'static> = BitmapFont {
-	bitmap: ImageRaw::new_binary(
+	bitmap: ImageRaw::new(
 		// 64 x 247 (1976)
 		&[
 			0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0x41, 0x80, 0x00, 0x00, 0x00,
@@ -951,7 +952,7 @@ pub const FONT_7x13_BOLD: BitmapFont<'static> = BitmapFont {
 /// Font License: <https://github.com/sunaku/tamzen-font/blob/master/LICENSE>
 #[allow(non_upper_case_globals)]
 pub const FONT_7x14: BitmapFont<'static> = BitmapFont {
-	bitmap: ImageRaw::new_binary(
+	bitmap: ImageRaw::new(
 		// 64 x 266 (2128)
 		&[
 			0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
@@ -1108,7 +1109,7 @@ pub const FONT_7x14: BitmapFont<'static> = BitmapFont {
 /// Font License: <https://github.com/sunaku/tamzen-font/blob/master/LICENSE>
 #[allow(non_upper_case_globals)]
 pub const FONT_7x14_BOLD: BitmapFont<'static> = BitmapFont {
-	bitmap: ImageRaw::new_binary(
+	bitmap: ImageRaw::new(
 		// 64 x 266 (2128)
 		&[
 			0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
@@ -1265,7 +1266,7 @@ pub const FONT_7x14_BOLD: BitmapFont<'static> = BitmapFont {
 /// Font License: <https://github.com/sunaku/tamzen-font/blob/master/LICENSE>
 #[allow(non_upper_case_globals)]
 pub const FONT_8x15: BitmapFont<'static> = BitmapFont {
-	bitmap: ImageRaw::new_binary(
+	bitmap: ImageRaw::new(
 		// 128 x 165 (2640)
 		&[
 			0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
@@ -1454,7 +1455,7 @@ pub const FONT_8x15: BitmapFont<'static> = BitmapFont {
 /// Font License: <https://github.com/sunaku/tamzen-font/blob/master/LICENSE>
 #[allow(non_upper_case_globals)]
 pub const FONT_8x15_BOLD: BitmapFont<'static> = BitmapFont {
-	bitmap: ImageRaw::new_binary(
+	bitmap: ImageRaw::new(
 		// 128 x 165 (2640)
 		&[
 			0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
@@ -1643,7 +1644,7 @@ pub const FONT_8x15_BOLD: BitmapFont<'static> = BitmapFont {
 /// Font License: <https://github.com/sunaku/tamzen-font/blob/master/LICENSE>
 #[allow(non_upper_case_globals)]
 pub const FONT_8x16: BitmapFont<'static> = BitmapFont {
-	bitmap: ImageRaw::new_binary(
+	bitmap: ImageRaw::new(
 		// 128 x 176 (2816)
 		&[
 			0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
@@ -1843,7 +1844,7 @@ pub const FONT_8x16: BitmapFont<'static> = BitmapFont {
 /// Font License: <https://github.com/sunaku/tamzen-font/blob/master/LICENSE>
 #[allow(non_upper_case_globals)]
 pub const FONT_8x16_BOLD: BitmapFont<'static> = BitmapFont {
-	bitmap: ImageRaw::new_binary(
+	bitmap: ImageRaw::new(
 		// 128 x 176 (2816)
 		&[
 			0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
@@ -2043,7 +2044,7 @@ pub const FONT_8x16_BOLD: BitmapFont<'static> = BitmapFont {
 /// Font License: <https://github.com/sunaku/tamzen-font/blob/master/LICENSE>
 #[allow(non_upper_case_globals)]
 pub const FONT_10x20: BitmapFont<'static> = BitmapFont {
-	bitmap: ImageRaw::new_binary(
+	bitmap: ImageRaw::new(
 		// 192 x 180 (4320)
 		&[
 			0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
@@ -2337,7 +2338,7 @@ pub const FONT_10x20: BitmapFont<'static> = BitmapFont {
 /// Font License: <https://github.com/sunaku/tamzen-font/blob/master/LICENSE>
 #[allow(non_upper_case_globals)]
 pub const FONT_10x20_BOLD: BitmapFont<'static> = BitmapFont {
-	bitmap: ImageRaw::new_binary(
+	bitmap: ImageRaw::new(
 		// 192 x 180 (4320)
 		&[
 			0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,

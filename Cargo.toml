@@ -8,7 +8,7 @@ name = "bitmap-font"
 version = "0.2.2"
 authors = ["Dominic Meiser <git@msrd0.de>"]
 edition = "2021"
-rust-version = "1.57"
+rust-version = "1.61"
 description = "Bitmap fonts for the embedded-graphics crate that don't require generics"
 keywords = ["embedded", "graphics", "bitmap", "font", "no_std"]
 categories = ["embedded", "graphics", "no-std"]
@@ -18,4 +18,4 @@ repository = "https://github.com/msrd0/bitmap-font"
 include = ["src/**/*", "LICENSE", "crates-io.md"]
 
 [dependencies]
-embedded-graphics = "0.7"
+embedded-graphics = "0.8"

@@ -1,4 +1,4 @@
-# bitmap-font [![Rust 1.57+](https://img.shields.io/badge/rustc-1.57+-orange.svg)](https://blog.rust-lang.org/2021/12/02/Rust-1.57.0.html) [![License Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0) [![GitHub](https://img.shields.io/badge/Code-On%20Github-blue?logo=GitHub)](https://github.com/msrd0/bitmap-font)
+# bitmap-font [![Rust 1.61+](https://img.shields.io/badge/rustc-1.61+-orange.svg)](https://blog.rust-lang.org/2022/05/19/Rust-1.61.0.html) [![License Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0) [![GitHub](https://img.shields.io/badge/Code-On%20Github-blue?logo=GitHub)](https://github.com/msrd0/bitmap-font)
 
 This crate provides bitmap fonts for the [`embedded-graphics`][__link0] crate. Those don’t only look better than the [built-in fonts][__link1] by using the good-looking [Tamzen font][__link2] over a font that renders `.` like a `+`, but also allow scaling fonts by pixel-doubling them, giving you two font sizes for the flash size requirements of the smaller one.
 
@@ -66,8 +66,8 @@ of this font.
 ```
 
  [contributors]: https://github.com/msrd0/bitmap-font/graphs/contributors
- [__cargo_doc2readme_dependencies_info]: ggGkYW0BYXSEG8OLOcBnX8tEG0XUTjj8V5LfGxwiScerO4peG3cFs12J67qKYXKEG7QsMysq64PIGyOKYfl4MwNjG-1TTKAJaS94G62BH4qvezKCYWSCg2tiaXRtYXAtZm9udGUwLjIuMmtiaXRtYXBfZm9udIJxZW1iZWRkZWRfZ3JhcGhpY3NlMC43LjE
- [__link0]: https://crates.io/crates/embedded_graphics/0.7.1
- [__link1]: https://docs.rs/embedded_graphics/0.7.1/embedded_graphics/?search=mono_font
+ [__cargo_doc2readme_dependencies_info]: ggGkYW0BYXSEGxtTp1ugHjhdG0FTi-0AJfYpG7nTNfccmo0QG5flQtRqvsuKYXKEG7QsMysq64PIGyOKYfl4MwNjG-1TTKAJaS94G62BH4qvezKCYWSCg2tiaXRtYXAtZm9udGUwLjIuMmtiaXRtYXBfZm9udIJxZW1iZWRkZWRfZ3JhcGhpY3NlMC44LjA
+ [__link0]: https://crates.io/crates/embedded_graphics/0.8.0
+ [__link1]: https://docs.rs/embedded_graphics/0.8.0/embedded_graphics/?search=mono_font
  [__link2]: https://github.com/sunaku/tamzen-font
  [__link3]: https://docs.rs/bitmap-font/0.2.2/bitmap_font/tamzen/index.html

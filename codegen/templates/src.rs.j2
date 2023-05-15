@@ -43,6 +43,7 @@ use embedded_graphics::{
 struct Mapping;
 
 impl GlyphMapping for Mapping {
+	#[allow(unused_parens)]
 	fn index(&self, c: char) -> usize {
 		match c {
 			{% for range in char_ranges -%}
@@ -75,7 +76,7 @@ const ONE: NonZeroU8 = match NonZeroU8::new(1) {
 /// Font License: <https://github.com/sunaku/tamzen-font/blob/master/LICENSE>
 #[allow(non_upper_case_globals)]
 pub const FONT_{{ font.width }}x{{ font.height }}{% if font.bold %}_BOLD{% endif %}: BitmapFont<'static> = BitmapFont {
-	bitmap: ImageRaw::new_binary(
+	bitmap: ImageRaw::new(
 		// {{ font.img_width }} x {{ font.img_height }} ({{ font.bitmap_len }})
 		&[
 			{%- for chunk in font.bitmap|chunks(16) %}

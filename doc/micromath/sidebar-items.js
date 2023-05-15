@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"trait":[["F32Ext","`f32` extension providing various arithmetic approximations and polyfills for `std` functionality."]]};
+window.SIDEBAR_ITEMS = {"struct":["F32"],"trait":["F32Ext"]};

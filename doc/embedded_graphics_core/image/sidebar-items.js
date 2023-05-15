@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"trait":[["ImageDrawable","Image drawable."]]};
+window.SIDEBAR_ITEMS = {"trait":["GetPixel","ImageDrawable"]};

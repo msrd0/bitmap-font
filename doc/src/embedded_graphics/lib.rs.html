@@ -1,5 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.1/src/lib.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>lib.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-1f7d512b176f0f72.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Bold-124a1ca42af929b6.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-6827029ac823cab7.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../static.files/light-ebce58d0a40c3431.css"><link rel="stylesheet" disabled href="../../static.files/dark-f23faae4a2daf9a6.css"><link rel="stylesheet" disabled href="../../static.files/ayu-8af5e100b21cd173.css"><script id="default-settings" ></script><script src="../../static.files/storage-d43fa987303ecbbb.js"></script><script defer src="../../static.files/source-script-5cf2e01a42cc9858.js"></script><script defer src="../../source-files.js"></script><script defer src="../../static.files/main-c55e1eb52e1886b4.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../embedded_graphics/index.html">
-                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-5ec35bf9ca753509.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/embedded-graphics-0.8.0/src/lib.rs`."><title>lib.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-c4dbdcde0fbd8430.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../static.files/light-db279b6232be9c13.css"><link rel="stylesheet" disabled href="../../static.files/dark-cf923f49f397b216.css"><link rel="stylesheet" disabled href="../../static.files/ayu-be46fdc453a55015.css"><script src="../../static.files/storage-3891ce972e3a2bf8.js"></script><script defer src="../../static.files/source-script-1b95b7cca98b26e5.js"></script><script defer src="../../source-files.js"></script><script defer src="../../static.files/main-98a684e84ae5b08b.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../embedded_graphics/index.html">
+                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -245,6 +245,56 @@
 <a href="#244" id="244">244</a>
 <a href="#245" id="245">245</a>
 <a href="#246" id="246">246</a>
+<a href="#247" id="247">247</a>
+<a href="#248" id="248">248</a>
+<a href="#249" id="249">249</a>
+<a href="#250" id="250">250</a>
+<a href="#251" id="251">251</a>
+<a href="#252" id="252">252</a>
+<a href="#253" id="253">253</a>
+<a href="#254" id="254">254</a>
+<a href="#255" id="255">255</a>
+<a href="#256" id="256">256</a>
+<a href="#257" id="257">257</a>
+<a href="#258" id="258">258</a>
+<a href="#259" id="259">259</a>
+<a href="#260" id="260">260</a>
+<a href="#261" id="261">261</a>
+<a href="#262" id="262">262</a>
+<a href="#263" id="263">263</a>
+<a href="#264" id="264">264</a>
+<a href="#265" id="265">265</a>
+<a href="#266" id="266">266</a>
+<a href="#267" id="267">267</a>
+<a href="#268" id="268">268</a>
+<a href="#269" id="269">269</a>
+<a href="#270" id="270">270</a>
+<a href="#271" id="271">271</a>
+<a href="#272" id="272">272</a>
+<a href="#273" id="273">273</a>
+<a href="#274" id="274">274</a>
+<a href="#275" id="275">275</a>
+<a href="#276" id="276">276</a>
+<a href="#277" id="277">277</a>
+<a href="#278" id="278">278</a>
+<a href="#279" id="279">279</a>
+<a href="#280" id="280">280</a>
+<a href="#281" id="281">281</a>
+<a href="#282" id="282">282</a>
+<a href="#283" id="283">283</a>
+<a href="#284" id="284">284</a>
+<a href="#285" id="285">285</a>
+<a href="#286" id="286">286</a>
+<a href="#287" id="287">287</a>
+<a href="#288" id="288">288</a>
+<a href="#289" id="289">289</a>
+<a href="#290" id="290">290</a>
+<a href="#291" id="291">291</a>
+<a href="#292" id="292">292</a>
+<a href="#293" id="293">293</a>
+<a href="#294" id="294">294</a>
+<a href="#295" id="295">295</a>
+<a href="#296" id="296">296</a>
 </pre><pre class="rust"><code><span class="doccomment">//! Embedded-graphics is a 2D graphics library that is focused on memory constrained embedded devices.
 //!
 //! A core goal of embedded-graphics is to draw graphics without using any buffers; the crate is
@@ -255,19 +305,19 @@
 //!
 //! It contains built in items that make it easy to draw 2D graphics primitives:
 //!
-//! * [Raw data images](./image/struct.ImageRaw.html)
-//! * [Primitives](./primitives/index.html)
-//!     * [Lines](./primitives/line/struct.Line.html)
-//!     * [Rectangles (and squares)](./primitives/rectangle/struct.Rectangle.html)
-//!     * [Circles](./primitives/circle/struct.Circle.html)
-//!     * [Ellipses](./primitives/ellipse/struct.Ellipse.html)
-//!     * [Arcs](./primitives/arc/struct.Arc.html)
-//!     * [Sectors](./primitives/sector/struct.Sector.html)
-//!     * [Triangles](./primitives/triangle/struct.Triangle.html)
-//!     * [Polylines](./primitives/polyline/struct.Polyline.html)
-//!     * [Rounded rectangles](./primitives/rounded_rectangle/struct.RoundedRectangle.html)
-//! * [Text](./text/index.html)
-//! * [Monospaced fonts](./mono_font/index.html)
+//! * [Raw data images]
+//! * [Primitives]
+//!     * [Lines]
+//!     * [Rectangles (and squares)]
+//!     * [Circles]
+//!     * [Ellipses]
+//!     * [Arcs]
+//!     * [Sectors]
+//!     * [Triangles]
+//!     * [Polylines]
+//!     * [Rounded rectangles]
+//! * [Text]
+//! * [Monospaced fonts]
 //!
 //! # Additional functions provided by external crates
 //!
@@ -276,12 +326,18 @@
 //!
 //! * [BMP images - `tinybmp`](https://crates.io/crates/tinybmp)
 //! * [TGA images - `tinytga`](https://crates.io/crates/tinytga)
+//! * [QOI images - `tinyqoi`](https://crates.io/crates/tinyqoi)
+//! * [Large collection of fonts - `u8g2-fonts`](https://crates.io/crates/u8g2-fonts)
 //! * [ProFont monospace font - `profont`](https://crates.io/crates/profont)
 //! * [Picofont Pico8 font - `embedded-picofont`](https://crates.io/crates/embedded_picofont)
 //! * [IBM437 font - `ibm437`](https://crates.io/crates/ibm437)
 //! * [Simple layout/alignment functions - `embedded-layout`](https://crates.io/crates/embedded-layout)
 //! * [TextBox with text alignment options - `embedded-text`](https://crates.io/crates/embedded-text)
 //! * [Heapless plotting library for small embedded targets - `embedded-plots`](https://crates.io/crates/embedded-plots)
+//! * [Virtual seven-segment displays - `eg-seven-segment`](https://crates.io/crates/eg-seven-segment)
+//! * [Canvas for drawing onto before drawing on the display - `embedded-canvas`](https://crates.io/crates/embedded-canvas)
+//! * [Frames Per Second counter for embedded devices - `embedded-fps`](https://crates.io/crates/embedded-fps)
+//! * [Framebuffer with DMA support - `embedded-graphics-framebuf`](https://crates.io/crates/embedded-graphics-framebuf)
 //!
 //! Note that some of these crates may not support the latest version of embedded-graphics.
 //!
@@ -314,12 +370,14 @@
 //! * [ls010b7dh01](https://crates.io/crates/ls010b7dh01): A platform agnostic driver for the LS010B7DH01 memory LCD display
 //! * [push2_display](https://crates.io/crates/push2_display): Ableton Push2 embedded-graphics display driver
 //! * [sh1106](https://crates.io/crates/sh1106): I2C driver for the SH1106 OLED display
+//! * [smart-leds-matrix](https://github.com/smart-leds-rs/smart-leds-matrix): Driver for smart LED (like ws2812) based LED matrixes.
 //! * [ssd1306](https://crates.io/crates/ssd1306): I2C and SPI (4 wire) driver for the SSD1306 OLED display
 //! * [ssd1309](https://crates.io/crates/ssd1309): I2C/SPI driver for the SSD1309 OLED display written in 100% Rust.
 //! * [ssd1322](https://crates.io/crates/ssd1322): Pure Rust driver for the SSD1322 OLED display chip
 //! * [ssd1331](https://crates.io/crates/ssd1331): SPI (4 wire) driver for the SSD1331 OLED display
 //! * [ssd1351](https://crates.io/crates/ssd1351): SSD1351 driver
 //! * [ssd1675](https://crates.io/crates/ssd1675): Rust driver for the Solomon Systech SSD1675 e-Paper display (EPD) controller
+//! * [st7565](https://crates.io/crates/st7565): SPI driver for ST7565 based displays
 //! * [st7735-lcd](https://crates.io/crates/st7735-lcd): Rust library for displays using the ST7735 driver
 //! * [st7789](https://crates.io/crates/st7789): A Rust driver library for ST7789 displays
 //! * [st7920](https://crates.io/crates/st7920): ST7920 LCD driver in Rust
@@ -338,7 +396,7 @@
 //!
 //! ```bash
 //! git clone https://github.com/embedded-graphics/examples.git
-//! cd examples
+//! cd examples/eg-0.7
 //!
 //! cargo run --example hello-world
 //! ```
@@ -353,10 +411,14 @@
 //! * `fixed_point` - use fixed point arithmetic instead of floating point for all trigonometric
 //! calculation.
 //!
+//! * `defmt` - provide implementations of `defmt::Format` for all types where possible. [`defmt`]
+//!   is a library for logging that moves as much work as possible over to a separate logging
+//!   machine, making it especially suited to low-resource MCUs.
+//!
 //! # Migrating from older versions
 //!
 //! * [Migration guide from 0.5 to 0.6](https://github.com/embedded-graphics/embedded-graphics/blob/master/MIGRATING-0.5-0.6.md).
-//! * [Migration guide from 0.6 to 0.7](https://github.com/embedded-graphics/embedded-graphics/blob/master/MIGRATING-0.5-0.6.md).
+//! * [Migration guide from 0.6 to 0.7](https://github.com/embedded-graphics/embedded-graphics/blob/master/MIGRATING-0.6-0.7.md).
 //!
 //! # Implementing `embedded_graphics` support for a display driver
 //!
@@ -368,9 +430,9 @@
 //!
 //! ## Drawing examples
 //!
-//! [![A grid of screenshots showing primitives, text and other items that can be drawn using embedded-graphics.](https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/4c680418cc4c37b8f7ed92d8b26edfde880d4c96/doc/assets/all_drawing_ops.png)](./examples/index.html)
+//! [![A grid of screenshots showing primitives, text and other items that can be drawn using embedded-graphics.](https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/4c680418cc4c37b8f7ed92d8b26edfde880d4c96/doc/assets/all_drawing_ops.png)][examples]
 //!
-//! Example usage of drawing primitives, text and images with embedded-graphics can be found [here](./examples/index.html).
+//! Example usage of drawing primitives, text and images with embedded-graphics can be found [here][examples].
 //!
 //! ## Shapes and text
 //!
@@ -454,15 +516,50 @@
 //!
 //! Additional examples can be found in the [examples](https://github.com/embedded-graphics/examples) repository.
 //!
-//! [`Circle`]: ./primitives/circle/struct.Circle.html
-//! [`MockDisplay`]: ./mock_display/struct.MockDisplay.html
-//! [`Point`]: ./geometry/struct.Point.html
-//! [`Size`]: ./geometry/struct.Size.html
+//! &lt;!-- README-LINKS
+//! [`Circle`]: https://docs.rs/embedded-graphics/latest/embedded_graphics/primitives/circle/struct.Circle.html
+//! [`MockDisplay`]: https://docs.rs/embedded-graphics/latest/embedded_graphics/mock_display/struct.MockDisplay.html
+//! [`Point`]: https://docs.rs/embedded-graphics/latest/embedded_graphics/geometry/struct.Point.html
+//! [`Size`]: https://docs.rs/embedded-graphics/latest/embedded_graphics/geometry/struct.Size.html
+//! [Raw data images]: https://docs.rs/embedded-graphics/latest/embedded_graphics/image/struct.ImageRaw.html
+//! [Primitives]: https://docs.rs/embedded-graphics/latest/embedded_graphics/primitives/index.html
+//! [Lines]: https://docs.rs/embedded-graphics/latest/embedded_graphics/primitives/line/struct.Line.html
+//! [Rectangles (and squares)]: https://docs.rs/embedded-graphics/latest/embedded_graphics/primitives/rectangle/struct.Rectangle.html
+//! [Circles]: https://docs.rs/embedded-graphics/latest/embedded_graphics/primitives/circle/struct.Circle.html
+//! [Ellipses]: https://docs.rs/embedded-graphics/latest/embedded_graphics/primitives/ellipse/struct.Ellipse.html
+//! [Arcs]: https://docs.rs/embedded-graphics/latest/embedded_graphics/primitives/arc/struct.Arc.html
+//! [Sectors]: https://docs.rs/embedded-graphics/latest/embedded_graphics/primitives/sector/struct.Sector.html
+//! [Triangles]: https://docs.rs/embedded-graphics/latest/embedded_graphics/primitives/triangle/struct.Triangle.html
+//! [Polylines]: https://docs.rs/embedded-graphics/latest/embedded_graphics/primitives/polyline/struct.Polyline.html
+//! [Rounded rectangles]: https://docs.rs/embedded-graphics/latest/embedded_graphics/primitives/rounded_rectangle/struct.RoundedRectangle.html
+//! [Text]: https://docs.rs/embedded-graphics/latest/embedded_graphics/text/index.html
+//! [Monospaced fonts]: https://docs.rs/embedded-graphics/latest/embedded_graphics/mono_font/index.html
+//! [examples]: https://docs.rs/embedded-graphics/latest/embedded_graphics/examples/index.html
+//! README-LINKS --&gt;
+//!
+//! [`Circle`]: primitives::circle::Circle
+//! [`MockDisplay`]: mock_display::MockDisplay
+//! [`Point`]: geometry::Point
+//! [`Size`]: geometry::Size
+//! [Raw data images]: image::ImageRaw
+//! [Primitives]: primitives
+//! [Lines]: primitives::line::Line
+//! [Rectangles (and squares)]: primitives::rectangle::Rectangle
+//! [Circles]: primitives::circle::Circle
+//! [Ellipses]: primitives::ellipse::Ellipse
+//! [Arcs]: primitives::arc::Arc
+//! [Sectors]: primitives::sector::Sector
+//! [Triangles]: primitives::triangle::Triangle
+//! [Polylines]: primitives::polyline::Polyline
+//! [Rounded rectangles]: primitives::rounded_rectangle::RoundedRectangle
+//! [Text]: text
+//! [Monospaced fonts]: mono_font
+//! [`Drawable`]: drawable::Drawable
 //! [`DrawTarget`]: https://docs.rs/embedded-graphics-core/latest/embedded_graphics_core/draw_target/trait.DrawTarget.html
 //! [`embedded-graphics-core`]: https://docs.rs/embedded-graphics-core/
-//! [`Drawable`]: ./drawable/trait.Drawable.html
 //! [simulator]: https://github.com/embedded-graphics/simulator
 //! [simulator examples]: https://github.com/embedded-graphics/simulator/tree/master/examples
+//! [`defmt`]: https://defmt.ferrous-systems.com/
 
 </span><span class="attr">#![doc(
     html_logo_url = <span class="string">&quot;https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true&quot;
@@ -477,9 +574,12 @@
 #![deny(unstable_features)]
 #![deny(unused_import_braces)]
 #![deny(unused_qualifications)]
+#![deny(rustdoc::broken_intra_doc_links)]
+#![deny(rustdoc::private_intra_doc_links)]
 
 </span><span class="kw">pub mod </span>draw_target;
 <span class="kw">pub mod </span>examples;
+<span class="kw">pub mod </span>framebuffer;
 <span class="kw">pub mod </span>geometry;
 <span class="kw">pub mod </span>image;
 <span class="kw">pub mod </span>iterator;
@@ -492,4 +592,4 @@
 
 <span class="kw">pub use </span>embedded_graphics_core::{pixelcolor, Drawable, Pixel};
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="embedded_graphics" data-themes="" data-resource-suffix="" data-rustdoc-version="1.67.1 (d5a82bbd2 2023-02-07)" data-search-js="search-444266647c4dba98.js" data-settings-js="settings-bebeae96e00e4617.js" data-settings-css="settings-af96d9e2fc13e081.css" ></div></body></html>
+</section></main><div id="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="embedded_graphics" data-themes="" data-resource-suffix="" data-rustdoc-version="1.69.0 (84c898d65 2023-04-16)" data-search-js="search-8a59a8356673ec1f.js" data-settings-js="settings-f0c5c39777a9a2f6.js" data-settings-css="settings-0bcba95ff279c1db.css" ></div></body></html>

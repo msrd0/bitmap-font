@@ -1,0 +1,3 @@
+(function() {var implementors = {
+"micromath":[["impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.69.0/core/iter/traits/accum/trait.Sum.html\" title=\"trait core::iter::traits::accum::Sum\">Sum</a>&lt;<a class=\"struct\" href=\"micromath/struct.F32.html\" title=\"struct micromath::F32\">F32</a>&gt; for <a class=\"struct\" href=\"micromath/struct.F32.html\" title=\"struct micromath::F32\">F32</a>"]]
+};if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

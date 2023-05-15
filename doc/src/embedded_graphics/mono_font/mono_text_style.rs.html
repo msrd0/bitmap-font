@@ -1,5 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.1/src/mono_font/mono_text_style.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>mono_text_style.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-1f7d512b176f0f72.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Bold-124a1ca42af929b6.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-6827029ac823cab7.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../../static.files/light-ebce58d0a40c3431.css"><link rel="stylesheet" disabled href="../../../static.files/dark-f23faae4a2daf9a6.css"><link rel="stylesheet" disabled href="../../../static.files/ayu-8af5e100b21cd173.css"><script id="default-settings" ></script><script src="../../../static.files/storage-d43fa987303ecbbb.js"></script><script defer src="../../../static.files/source-script-5cf2e01a42cc9858.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../static.files/main-c55e1eb52e1886b4.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../embedded_graphics/index.html">
-                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-5ec35bf9ca753509.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/embedded-graphics-0.8.0/src/mono_font/mono_text_style.rs`."><title>mono_text_style.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-c4dbdcde0fbd8430.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../../static.files/light-db279b6232be9c13.css"><link rel="stylesheet" disabled href="../../../static.files/dark-cf923f49f397b216.css"><link rel="stylesheet" disabled href="../../../static.files/ayu-be46fdc453a55015.css"><script src="../../../static.files/storage-3891ce972e3a2bf8.js"></script><script defer src="../../../static.files/source-script-1b95b7cca98b26e5.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../static.files/main-98a684e84ae5b08b.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../embedded_graphics/index.html">
+                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1183,6 +1183,33 @@
 <a href="#1182" id="1182">1182</a>
 <a href="#1183" id="1183">1183</a>
 <a href="#1184" id="1184">1184</a>
+<a href="#1185" id="1185">1185</a>
+<a href="#1186" id="1186">1186</a>
+<a href="#1187" id="1187">1187</a>
+<a href="#1188" id="1188">1188</a>
+<a href="#1189" id="1189">1189</a>
+<a href="#1190" id="1190">1190</a>
+<a href="#1191" id="1191">1191</a>
+<a href="#1192" id="1192">1192</a>
+<a href="#1193" id="1193">1193</a>
+<a href="#1194" id="1194">1194</a>
+<a href="#1195" id="1195">1195</a>
+<a href="#1196" id="1196">1196</a>
+<a href="#1197" id="1197">1197</a>
+<a href="#1198" id="1198">1198</a>
+<a href="#1199" id="1199">1199</a>
+<a href="#1200" id="1200">1200</a>
+<a href="#1201" id="1201">1201</a>
+<a href="#1202" id="1202">1202</a>
+<a href="#1203" id="1203">1203</a>
+<a href="#1204" id="1204">1204</a>
+<a href="#1205" id="1205">1205</a>
+<a href="#1206" id="1206">1206</a>
+<a href="#1207" id="1207">1207</a>
+<a href="#1208" id="1208">1208</a>
+<a href="#1209" id="1209">1209</a>
+<a href="#1210" id="1210">1210</a>
+<a href="#1211" id="1211">1211</a>
 </pre><pre class="rust"><code><span class="kw">use crate</span>::{
     draw_target::DrawTarget,
     geometry::{Point, Size},
@@ -1210,11 +1237,11 @@
 /// background, use the [`new`] method. For more complex text styles, use the
 /// [`MonoTextStyleBuilder`].
 ///
-/// [`Text`]: ../text/struct.Text.html
+/// [`Text`]: crate::text::Text
 /// [`non_exhaustive`]: https://blog.rust-lang.org/2019/12/19/Rust-1.40.0.html#[non_exhaustive]-structs,-enums,-and-variants
-/// [`MonoTextStyleBuilder`]: ./struct.MonoTextStyleBuilder.html
-/// [`new`]: #method.new
+/// [`new`]: MonoTextStyle::new()
 </span><span class="attr">#[derive(Copy, Clone, Debug, PartialEq)]
+#[cfg_attr(feature = <span class="string">&quot;defmt&quot;</span>, derive(::defmt::Format))]
 #[non_exhaustive]
 </span><span class="kw">pub struct </span>MonoTextStyle&lt;<span class="lifetime">&#39;a</span>, C&gt; {
     <span class="doccomment">/// Text color.
@@ -1246,7 +1273,7 @@
     ///
     /// Drawing a `Text` with a transparent `MonoTextStyle` will not draw any pixels.
     ///
-    /// [`Text`]: ../text/struct.Text.html
+    /// [`Text`]: super::text::Text
     </span><span class="kw">pub fn </span>is_transparent(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
         <span class="self">self</span>.text_color.is_none()
             &amp;&amp; <span class="self">self</span>.background_color.is_none()
@@ -1399,7 +1426,7 @@
             )<span class="question-mark">?</span>,
             (<span class="prelude-val">None</span>, <span class="prelude-val">None</span>) =&gt; {
                 <span class="kw">let </span>dx = (<span class="self">self</span>.font.character_size.width + <span class="self">self</span>.font.character_spacing)
-                    * text.len() <span class="kw">as </span>u32;
+                    * text.chars().count() <span class="kw">as </span>u32;
 
                 position + Size::new(dx, <span class="number">0</span>)
             }
@@ -1442,7 +1469,7 @@
     <span class="kw">fn </span>measure_string(<span class="kw-2">&amp;</span><span class="self">self</span>, text: <span class="kw-2">&amp;</span>str, position: Point, baseline: Baseline) -&gt; TextMetrics {
         <span class="kw">let </span>bb_position = position - Point::new(<span class="number">0</span>, <span class="self">self</span>.baseline_offset(baseline));
 
-        <span class="kw">let </span>bb_width = (text.len() <span class="kw">as </span>u32
+        <span class="kw">let </span>bb_width = (text.chars().count() <span class="kw">as </span>u32
             * (<span class="self">self</span>.font.character_size.width + <span class="self">self</span>.font.character_spacing))
             .saturating_sub(<span class="self">self</span>.font.character_spacing);
 
@@ -1486,6 +1513,7 @@
 }
 
 <span class="attr">#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
+#[cfg_attr(feature = <span class="string">&quot;defmt&quot;</span>, derive(::defmt::Format))]
 </span><span class="kw">enum </span>LineElement {
     Char(char),
     Spacing,
@@ -1560,18 +1588,18 @@
 ///     .build();
 /// ```
 ///
-/// [`FONT_6X9`]: ascii/constant.FONT_6X9.html
-/// [other fonts]: index.html
-/// [`Text`]: ../text/struct.Text.html
-/// [`MonoTextStyle`]: struct.MonoTextStyle.html
+/// [`FONT_6X9`]: crate::mono_font::ascii::FONT_6X9
+/// [other fonts]: super
+/// [`Text`]: crate::text::Text
 </span><span class="attr">#[derive(Copy, Clone, Debug)]
+#[cfg_attr(feature = <span class="string">&quot;defmt&quot;</span>, derive(::defmt::Format))]
 </span><span class="kw">pub struct </span>MonoTextStyleBuilder&lt;<span class="lifetime">&#39;a</span>, C&gt; {
     style: MonoTextStyle&lt;<span class="lifetime">&#39;a</span>, C&gt;,
 }
 
 <span class="kw">impl</span>&lt;C&gt; MonoTextStyleBuilder&lt;<span class="lifetime">&#39;_</span>, C&gt; {
     <span class="doccomment">/// Creates a new text style builder.
-    </span><span class="kw">pub fn </span>new() -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub const fn </span>new() -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
             style: MonoTextStyle {
                 font: <span class="kw-2">&amp;</span><span class="kw">super</span>::NULL_FONT,
@@ -1643,28 +1671,28 @@
 
 <span class="kw">impl</span>&lt;C: PixelColor&gt; MonoTextStyleBuilder&lt;<span class="lifetime">&#39;_</span>, C&gt; {
     <span class="doccomment">/// Sets the text color.
-    </span><span class="kw">pub fn </span>text_color(<span class="kw-2">mut </span><span class="self">self</span>, text_color: C) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub const fn </span>text_color(<span class="kw-2">mut </span><span class="self">self</span>, text_color: C) -&gt; <span class="self">Self </span>{
         <span class="self">self</span>.style.text_color = <span class="prelude-val">Some</span>(text_color);
 
         <span class="self">self
     </span>}
 
     <span class="doccomment">/// Sets the background color.
-    </span><span class="kw">pub fn </span>background_color(<span class="kw-2">mut </span><span class="self">self</span>, background_color: C) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub const fn </span>background_color(<span class="kw-2">mut </span><span class="self">self</span>, background_color: C) -&gt; <span class="self">Self </span>{
         <span class="self">self</span>.style.background_color = <span class="prelude-val">Some</span>(background_color);
 
         <span class="self">self
     </span>}
 
     <span class="doccomment">/// Enables underline with a custom color.
-    </span><span class="kw">pub fn </span>underline_with_color(<span class="kw-2">mut </span><span class="self">self</span>, underline_color: C) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub const fn </span>underline_with_color(<span class="kw-2">mut </span><span class="self">self</span>, underline_color: C) -&gt; <span class="self">Self </span>{
         <span class="self">self</span>.style.underline_color = DecorationColor::Custom(underline_color);
 
         <span class="self">self
     </span>}
 
     <span class="doccomment">/// Enables strikethrough with a custom color.
-    </span><span class="kw">pub fn </span>strikethrough_with_color(<span class="kw-2">mut </span><span class="self">self</span>, strikethrough_color: C) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub const fn </span>strikethrough_with_color(<span class="kw-2">mut </span><span class="self">self</span>, strikethrough_color: C) -&gt; <span class="self">Self </span>{
         <span class="self">self</span>.style.strikethrough_color = DecorationColor::Custom(strikethrough_color);
 
         <span class="self">self
@@ -1677,8 +1705,8 @@
     /// This method can only be called after a font was set by using the [`font`] method. All other
     /// settings are optional and they will be set to their default value if they are missing.
     ///
-    /// [`font`]: #method.font
-    </span><span class="kw">pub fn </span>build(<span class="self">self</span>) -&gt; MonoTextStyle&lt;<span class="lifetime">&#39;a</span>, C&gt; {
+    /// [`font`]: MonoTextStyleBuilder::font()
+    </span><span class="kw">pub const fn </span>build(<span class="self">self</span>) -&gt; MonoTextStyle&lt;<span class="lifetime">&#39;a</span>, C&gt; {
         <span class="self">self</span>.style
     }
 }
@@ -1698,6 +1726,7 @@
         mock_display::MockDisplay,
         mono_font::{
             ascii::{FONT_10X20, FONT_6X9},
+            iso_8859_1::FONT_6X9 <span class="kw">as </span>FONT_6X9_LATIN1,
             mapping,
             tests::<span class="kw-2">*</span>,
             DecorationDimensions,
@@ -2228,6 +2257,31 @@
     }
 
     <span class="attr">#[test]
+    </span><span class="kw">fn </span>latin1_text_dimensions_one_line() {
+        <span class="kw">let </span>position = Point::new(<span class="number">5</span>, <span class="number">5</span>);
+
+        <span class="kw">let </span>style = MonoTextStyleBuilder::&lt;BinaryColor&gt;::new()
+            .font(<span class="kw-2">&amp;</span>FONT_6X9_LATIN1)
+            .build();
+        <span class="kw">let </span>text = Text::with_baseline(<span class="string">&quot;123°§£&quot;</span>, position, style, Baseline::Top);
+
+        <span class="macro">assert_eq!</span>(
+            text.bounding_box(),
+            Rectangle::new(
+                position,
+                FONT_6X9_LATIN1
+                    .character_size
+                    .component_mul(Size::new(<span class="number">6</span>, <span class="number">1</span>))
+            )
+        );
+
+        <span class="kw">let </span><span class="kw-2">mut </span>display = MockDisplay::new();
+        <span class="kw">let </span>next = text.draw(<span class="kw-2">&amp;mut </span>display).unwrap();
+
+        <span class="macro">assert_eq!</span>(next, position + FONT_6X9_LATIN1.character_size.x_axis() * <span class="number">6</span>);
+    }
+
+    <span class="attr">#[test]
     </span><span class="kw">fn </span>transparent_text_dimensions_one_line() {
         <span class="kw">let </span>position = Point::new(<span class="number">5</span>, <span class="number">5</span>);
 
@@ -2345,7 +2399,7 @@
     </span><span class="kw">fn </span>builder_change_font() {
         <span class="kw">let </span>_style = {
             <span class="kw">let </span>font = MonoFont {
-                image: ImageRaw::new_binary(<span class="kw-2">&amp;</span>[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], <span class="number">1</span>),
+                image: ImageRaw::new(<span class="kw-2">&amp;</span>[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], <span class="number">1</span>),
                 character_size: Size::new(<span class="number">1</span>, <span class="number">2</span>),
                 character_spacing: <span class="number">0</span>,
                 baseline: <span class="number">0</span>,
@@ -2368,4 +2422,4 @@
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="embedded_graphics" data-themes="" data-resource-suffix="" data-rustdoc-version="1.67.1 (d5a82bbd2 2023-02-07)" data-search-js="search-444266647c4dba98.js" data-settings-js="settings-bebeae96e00e4617.js" data-settings-css="settings-af96d9e2fc13e081.css" ></div></body></html>
+</section></main><div id="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="embedded_graphics" data-themes="" data-resource-suffix="" data-rustdoc-version="1.69.0 (84c898d65 2023-04-16)" data-search-js="search-8a59a8356673ec1f.js" data-settings-js="settings-f0c5c39777a9a2f6.js" data-settings-css="settings-0bcba95ff279c1db.css" ></div></body></html>

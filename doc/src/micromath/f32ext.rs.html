@@ -1,5 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/micromath-1.1.1/src/f32ext.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>f32ext.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-1f7d512b176f0f72.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Bold-124a1ca42af929b6.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-6827029ac823cab7.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../static.files/light-ebce58d0a40c3431.css"><link rel="stylesheet" disabled href="../../static.files/dark-f23faae4a2daf9a6.css"><link rel="stylesheet" disabled href="../../static.files/ayu-8af5e100b21cd173.css"><script id="default-settings" ></script><script src="../../static.files/storage-d43fa987303ecbbb.js"></script><script defer src="../../static.files/source-script-5cf2e01a42cc9858.js"></script><script defer src="../../source-files.js"></script><script defer src="../../static.files/main-c55e1eb52e1886b4.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../micromath/index.html">
-                        <img src="https://raw.githubusercontent.com/tarcieri/micromath/main/img/micromath-sq.png" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-5ec35bf9ca753509.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/micromath-2.0.0/src/f32ext.rs`."><title>f32ext.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-c4dbdcde0fbd8430.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../static.files/light-db279b6232be9c13.css"><link rel="stylesheet" disabled href="../../static.files/dark-cf923f49f397b216.css"><link rel="stylesheet" disabled href="../../static.files/ayu-be46fdc453a55015.css"><script src="../../static.files/storage-3891ce972e3a2bf8.js"></script><script defer src="../../static.files/source-script-1b95b7cca98b26e5.js"></script><script defer src="../../source-files.js"></script><script defer src="../../static.files/main-98a684e84ae5b08b.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../micromath/index.html">
+                        <img src="https://raw.githubusercontent.com/tarcieri/micromath/main/img/micromath-sq.png" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -244,37 +244,10 @@
 <a href="#243" id="243">243</a>
 <a href="#244" id="244">244</a>
 <a href="#245" id="245">245</a>
-</pre><pre class="rust"><code><span class="doccomment">//! `f32` extension providing various arithmetic approximations and polyfills
-//! for `std` functionality.
+<a href="#246" id="246">246</a>
+</pre><pre class="rust"><code><span class="doccomment">//! `f32` extension
 
-</span><span class="kw">mod </span>abs;
-<span class="kw">mod </span>acos;
-<span class="kw">mod </span>asin;
-<span class="kw">mod </span>atan;
-<span class="kw">mod </span>atan2;
-<span class="kw">mod </span>ceil;
-<span class="kw">mod </span>copysign;
-<span class="kw">mod </span>cos;
-<span class="kw">mod </span>div_euclid;
-<span class="kw">mod </span>exp;
-<span class="kw">mod </span>floor;
-<span class="kw">mod </span>fract;
-<span class="kw">mod </span>hypot;
-<span class="kw">mod </span>inv;
-<span class="kw">mod </span>invsqrt;
-<span class="kw">mod </span>ln;
-<span class="kw">mod </span>log;
-<span class="kw">mod </span>log10;
-<span class="kw">mod </span>log2;
-<span class="kw">mod </span>powf;
-<span class="kw">mod </span>powi;
-<span class="kw">mod </span>rem_euclid;
-<span class="kw">mod </span>round;
-<span class="kw">mod </span>sin;
-<span class="kw">mod </span>sqrt;
-<span class="kw">mod </span>tan;
-<span class="kw">mod </span>trunc;
-<span class="kw">mod </span>utils;
+</span><span class="kw">use </span><span class="kw">crate</span>::float::F32;
 
 <span class="doccomment">/// `f32` extension providing various arithmetic approximations and polyfills
 /// for `std` functionality.
@@ -283,211 +256,240 @@
     /// implementation.
     </span><span class="kw">fn </span>abs(<span class="self">self</span>) -&gt; f32;
 
-    <span class="doccomment">/// Approximate `asin(x)` in radians in the range `[-pi/2, pi/2]`.
-    </span><span class="kw">fn </span>asin(<span class="self">self</span>) -&gt; f32;
-
-    <span class="doccomment">/// Approximate `acos(x)` in radians in the range `[0, pi]`
+    <span class="doccomment">/// Approximates `acos(x)` in radians in the range `[0, pi]`
     </span><span class="kw">fn </span>acos(<span class="self">self</span>) -&gt; f32;
 
-    <span class="doccomment">/// Approximate `atan(x)` in radians with a maximum error of `0.002`.
+    <span class="doccomment">/// Approximates `asin(x)` in radians in the range `[-pi/2, pi/2]`.
+    </span><span class="kw">fn </span>asin(<span class="self">self</span>) -&gt; f32;
+
+    <span class="doccomment">/// Approximates `atan(x)` in radians with a maximum error of `0.002`.
     </span><span class="kw">fn </span>atan(<span class="self">self</span>) -&gt; f32;
 
-    <span class="doccomment">/// Approximate `atan(x)` normalized to the `[−1,1]` range with a maximum
+    <span class="doccomment">/// Approximates `atan(x)` normalized to the `[−1,1]` range with a maximum
     /// error of `0.1620` degrees.
     </span><span class="kw">fn </span>atan_norm(<span class="self">self</span>) -&gt; f32;
 
-    <span class="doccomment">/// Approximate the four quadrant arctangent `atan2(x)` in radians, with
+    <span class="doccomment">/// Approximates the four quadrant arctangent `atan2(x)` in radians, with
     /// a maximum error of `0.002`.
     </span><span class="kw">fn </span>atan2(<span class="self">self</span>, other: f32) -&gt; f32;
 
-    <span class="doccomment">/// Approximate the four quadrant arctangent.
+    <span class="doccomment">/// Approximates the four quadrant arctangent.
     /// Normalized to the `[0,4)` range with a maximum error of `0.1620` degrees.
     </span><span class="kw">fn </span>atan2_norm(<span class="self">self</span>, other: f32) -&gt; f32;
 
-    <span class="doccomment">/// Approximate floating point ceiling.
+    <span class="doccomment">/// Approximates floating point ceiling.
     </span><span class="kw">fn </span>ceil(<span class="self">self</span>) -&gt; f32;
 
-    <span class="doccomment">/// Approximate cosine in radians with a maximum error of `0.002`.
+    <span class="doccomment">/// Copies the sign from one number to another and returns it.
+    </span><span class="kw">fn </span>copysign(<span class="self">self</span>, sign: f32) -&gt; f32;
+
+    <span class="doccomment">/// Approximates cosine in radians with a maximum error of `0.002`.
     </span><span class="kw">fn </span>cos(<span class="self">self</span>) -&gt; f32;
 
     <span class="doccomment">/// Calculates Euclidean division, the matching method for `rem_euclid`.
     </span><span class="kw">fn </span>div_euclid(<span class="self">self</span>, other: f32) -&gt; f32;
 
-    <span class="doccomment">/// Approximate floating point floor.
+    <span class="doccomment">/// Approximates `e^x`.
+    </span><span class="kw">fn </span>exp(<span class="self">self</span>) -&gt; f32;
+
+    <span class="doccomment">/// Approximates floating point floor.
     </span><span class="kw">fn </span>floor(<span class="self">self</span>) -&gt; f32;
-
-    <span class="doccomment">/// Approximate the length of the hypotenuse of a right-angle triangle given
-    /// legs of length `x` and `y`.
-    </span><span class="kw">fn </span>hypot(<span class="self">self</span>, other: f32) -&gt; f32;
-
-    <span class="doccomment">/// Approximate `1/x` with an average deviation of ~8%.
-    </span><span class="kw">fn </span>inv(<span class="self">self</span>) -&gt; f32;
-
-    <span class="doccomment">/// Approximate inverse square root with an average deviation of ~5%.
-    </span><span class="kw">fn </span>invsqrt(<span class="self">self</span>) -&gt; f32;
-
-    <span class="doccomment">/// Calculates the least nonnegative remainder of `self (mod other)`.
-    </span><span class="kw">fn </span>rem_euclid(<span class="self">self</span>, other: f32) -&gt; f32;
-
-    <span class="doccomment">/// Approximate sine in radians with a maximum error of `0.002`.
-    </span><span class="kw">fn </span>sin(<span class="self">self</span>) -&gt; f32;
-
-    <span class="doccomment">/// Approximate square root with an average deviation of ~5%.
-    </span><span class="kw">fn </span>sqrt(<span class="self">self</span>) -&gt; f32;
-
-    <span class="doccomment">/// Approximate `tan(x)` in radians with a maximum error of `0.6`.
-    </span><span class="kw">fn </span>tan(<span class="self">self</span>) -&gt; f32;
-
-    <span class="doccomment">/// Retrieve whole number part of floating point with sign.
-    </span><span class="kw">fn </span>trunc(<span class="self">self</span>) -&gt; f32;
-
-    <span class="doccomment">/// Round the number part of floating point with sign.
-    </span><span class="kw">fn </span>round(<span class="self">self</span>) -&gt; f32;
 
     <span class="doccomment">/// Retrieve the fractional part of floating point with sign.
     </span><span class="kw">fn </span>fract(<span class="self">self</span>) -&gt; f32;
 
-    <span class="doccomment">/// Copies the sign from one number to another and returns it.
-    </span><span class="kw">fn </span>copysign(<span class="self">self</span>, sign: f32) -&gt; f32;
+    <span class="doccomment">/// Approximates the length of the hypotenuse of a right-angle triangle given
+    /// legs of length `x` and `y`.
+    </span><span class="kw">fn </span>hypot(<span class="self">self</span>, other: f32) -&gt; f32;
 
-    <span class="doccomment">/// Approximate `ln(x)`.
+    <span class="doccomment">/// Approximates `1/x` with an average deviation of ~8%.
+    </span><span class="kw">fn </span>inv(<span class="self">self</span>) -&gt; f32;
+
+    <span class="doccomment">/// Approximates inverse square root with an average deviation of ~5%.
+    </span><span class="kw">fn </span>invsqrt(<span class="self">self</span>) -&gt; f32;
+
+    <span class="doccomment">/// Approximates `ln(x)`.
     </span><span class="kw">fn </span>ln(<span class="self">self</span>) -&gt; f32;
 
-    <span class="doccomment">/// Approximate `e^x`.
-    </span><span class="kw">fn </span>exp(<span class="self">self</span>) -&gt; f32;
-
-    <span class="doccomment">/// Approximate `log` with an arbitrary base.
+    <span class="doccomment">/// Approximates `log` with an arbitrary base.
     </span><span class="kw">fn </span>log(<span class="self">self</span>, base: f32) -&gt; f32;
 
-    <span class="doccomment">/// Approximate `log2`.
+    <span class="doccomment">/// Approximates `log2`.
     </span><span class="kw">fn </span>log2(<span class="self">self</span>) -&gt; f32;
 
-    <span class="doccomment">/// Approximate `log10`.
+    <span class="doccomment">/// Approximates `log10`.
     </span><span class="kw">fn </span>log10(<span class="self">self</span>) -&gt; f32;
 
-    <span class="doccomment">/// Approximate `self^n`.
+    <span class="doccomment">/// Approximates `self^n`.
     </span><span class="kw">fn </span>powf(<span class="self">self</span>, n: f32) -&gt; f32;
 
-    <span class="doccomment">/// Approximate `self^n` where n is an `i32`
+    <span class="doccomment">/// Approximates `self^n` where n is an `i32`
     </span><span class="kw">fn </span>powi(<span class="self">self</span>, n: i32) -&gt; f32;
+
+    <span class="doccomment">/// Calculates the least nonnegative remainder of `self (mod other)`.
+    </span><span class="kw">fn </span>rem_euclid(<span class="self">self</span>, other: f32) -&gt; f32;
+
+    <span class="doccomment">/// Round the number part of floating point with sign.
+    </span><span class="kw">fn </span>round(<span class="self">self</span>) -&gt; f32;
+
+    <span class="doccomment">/// Approximates sine in radians with a maximum error of `0.002`.
+    </span><span class="kw">fn </span>sin(<span class="self">self</span>) -&gt; f32;
+
+    <span class="doccomment">/// Approximates square root with an average deviation of ~5%.
+    </span><span class="kw">fn </span>sqrt(<span class="self">self</span>) -&gt; f32;
+
+    <span class="doccomment">/// Approximates `tan(x)` in radians with a maximum error of `0.6`.
+    </span><span class="kw">fn </span>tan(<span class="self">self</span>) -&gt; f32;
+
+    <span class="doccomment">/// Retrieve whole number part of floating point with sign.
+    </span><span class="kw">fn </span>trunc(<span class="self">self</span>) -&gt; f32;
 }
 
 <span class="kw">impl </span>F32Ext <span class="kw">for </span>f32 {
-    <span class="kw">fn </span>abs(<span class="self">self</span>) -&gt; f32 {
-        <span class="self">self</span>::abs::abs(<span class="self">self</span>)
-    }
+    <span class="attr">#[inline]
+    </span><span class="kw">fn </span>abs(<span class="self">self</span>) -&gt; f32 {
+        F32(<span class="self">self</span>).abs().<span class="number">0
+    </span>}
 
-    <span class="kw">fn </span>asin(<span class="self">self</span>) -&gt; f32 {
-        <span class="self">self</span>::asin::asin_approx(<span class="self">self</span>)
-    }
+    <span class="attr">#[inline]
+    </span><span class="kw">fn </span>acos(<span class="self">self</span>) -&gt; f32 {
+        F32(<span class="self">self</span>).acos().<span class="number">0
+    </span>}
 
-    <span class="kw">fn </span>acos(<span class="self">self</span>) -&gt; f32 {
-        <span class="self">self</span>::acos::acos_approx(<span class="self">self</span>)
-    }
+    <span class="attr">#[inline]
+    </span><span class="kw">fn </span>asin(<span class="self">self</span>) -&gt; f32 {
+        F32(<span class="self">self</span>).asin().<span class="number">0
+    </span>}
 
-    <span class="kw">fn </span>atan(<span class="self">self</span>) -&gt; f32 {
-        <span class="self">self</span>::atan::atan_approx(<span class="self">self</span>)
-    }
+    <span class="attr">#[inline]
+    </span><span class="kw">fn </span>atan(<span class="self">self</span>) -&gt; f32 {
+        F32(<span class="self">self</span>).atan().<span class="number">0
+    </span>}
 
-    <span class="kw">fn </span>atan_norm(<span class="self">self</span>) -&gt; f32 {
-        <span class="self">self</span>::atan::atan_norm_approx(<span class="self">self</span>)
-    }
+    <span class="attr">#[inline]
+    </span><span class="kw">fn </span>atan_norm(<span class="self">self</span>) -&gt; f32 {
+        F32(<span class="self">self</span>).atan_norm().<span class="number">0
+    </span>}
 
-    <span class="kw">fn </span>atan2(<span class="self">self</span>, other: f32) -&gt; f32 {
-        <span class="self">self</span>::atan2::atan2_approx(<span class="self">self</span>, other)
-    }
+    <span class="attr">#[inline]
+    </span><span class="kw">fn </span>atan2(<span class="self">self</span>, other: f32) -&gt; f32 {
+        F32(<span class="self">self</span>).atan2(F32(other)).<span class="number">0
+    </span>}
 
-    <span class="kw">fn </span>atan2_norm(<span class="self">self</span>, other: f32) -&gt; f32 {
-        <span class="self">self</span>::atan2::atan2_norm_approx(<span class="self">self</span>, other)
-    }
+    <span class="attr">#[inline]
+    </span><span class="kw">fn </span>atan2_norm(<span class="self">self</span>, other: f32) -&gt; f32 {
+        F32(<span class="self">self</span>).atan2_norm(F32(other)).<span class="number">0
+    </span>}
 
-    <span class="kw">fn </span>ceil(<span class="self">self</span>) -&gt; f32 {
-        <span class="self">self</span>::ceil::ceil(<span class="self">self</span>)
-    }
+    <span class="attr">#[inline]
+    </span><span class="kw">fn </span>ceil(<span class="self">self</span>) -&gt; f32 {
+        F32(<span class="self">self</span>).ceil().<span class="number">0
+    </span>}
 
-    <span class="kw">fn </span>cos(<span class="self">self</span>) -&gt; f32 {
-        <span class="self">self</span>::cos::cos_approx(<span class="self">self</span>)
-    }
+    <span class="attr">#[inline]
+    </span><span class="kw">fn </span>copysign(<span class="self">self</span>, sign: f32) -&gt; f32 {
+        F32(<span class="self">self</span>).copysign(F32(sign)).<span class="number">0
+    </span>}
 
-    <span class="kw">fn </span>div_euclid(<span class="self">self</span>, other: f32) -&gt; f32 {
-        <span class="self">self</span>::div_euclid::div_euclid(<span class="self">self</span>, other)
-    }
+    <span class="attr">#[inline]
+    </span><span class="kw">fn </span>cos(<span class="self">self</span>) -&gt; f32 {
+        F32(<span class="self">self</span>).cos().<span class="number">0
+    </span>}
 
-    <span class="kw">fn </span>floor(<span class="self">self</span>) -&gt; f32 {
-        <span class="self">self</span>::floor::floor(<span class="self">self</span>)
-    }
+    <span class="attr">#[inline]
+    </span><span class="kw">fn </span>div_euclid(<span class="self">self</span>, other: f32) -&gt; f32 {
+        F32(<span class="self">self</span>).div_euclid(F32(other)).<span class="number">0
+    </span>}
 
-    <span class="kw">fn </span>hypot(<span class="self">self</span>, other: f32) -&gt; f32 {
-        <span class="self">self</span>::hypot::hypot_approx(<span class="self">self</span>, other)
-    }
+    <span class="attr">#[inline]
+    </span><span class="kw">fn </span>exp(<span class="self">self</span>) -&gt; f32 {
+        F32(<span class="self">self</span>).exp().<span class="number">0
+    </span>}
 
-    <span class="kw">fn </span>inv(<span class="self">self</span>) -&gt; f32 {
-        <span class="self">self</span>::inv::inv_approx(<span class="self">self</span>)
-    }
+    <span class="attr">#[inline]
+    </span><span class="kw">fn </span>floor(<span class="self">self</span>) -&gt; f32 {
+        F32(<span class="self">self</span>).floor().<span class="number">0
+    </span>}
 
-    <span class="kw">fn </span>invsqrt(<span class="self">self</span>) -&gt; f32 {
-        <span class="self">self</span>::invsqrt::invsqrt_approx(<span class="self">self</span>)
-    }
+    <span class="attr">#[inline]
+    </span><span class="kw">fn </span>fract(<span class="self">self</span>) -&gt; f32 {
+        F32(<span class="self">self</span>).fract().<span class="number">0
+    </span>}
 
-    <span class="kw">fn </span>rem_euclid(<span class="self">self</span>, other: f32) -&gt; f32 {
-        <span class="self">self</span>::rem_euclid::rem_euclid(<span class="self">self</span>, other)
-    }
+    <span class="attr">#[inline]
+    </span><span class="kw">fn </span>hypot(<span class="self">self</span>, other: f32) -&gt; f32 {
+        F32(<span class="self">self</span>).hypot(other.into()).<span class="number">0
+    </span>}
 
-    <span class="kw">fn </span>sin(<span class="self">self</span>) -&gt; f32 {
-        <span class="self">self</span>::sin::sin_approx(<span class="self">self</span>)
-    }
+    <span class="attr">#[inline]
+    </span><span class="kw">fn </span>inv(<span class="self">self</span>) -&gt; f32 {
+        F32(<span class="self">self</span>).inv().<span class="number">0
+    </span>}
 
-    <span class="kw">fn </span>sqrt(<span class="self">self</span>) -&gt; f32 {
-        <span class="self">self</span>::sqrt::sqrt_approx(<span class="self">self</span>)
-    }
+    <span class="attr">#[inline]
+    </span><span class="kw">fn </span>invsqrt(<span class="self">self</span>) -&gt; f32 {
+        F32(<span class="self">self</span>).invsqrt().<span class="number">0
+    </span>}
 
-    <span class="kw">fn </span>tan(<span class="self">self</span>) -&gt; f32 {
-        <span class="self">self</span>::tan::tan_approx(<span class="self">self</span>)
-    }
+    <span class="attr">#[inline]
+    </span><span class="kw">fn </span>ln(<span class="self">self</span>) -&gt; f32 {
+        F32(<span class="self">self</span>).ln().<span class="number">0
+    </span>}
 
-    <span class="kw">fn </span>trunc(<span class="self">self</span>) -&gt; f32 {
-        <span class="self">self</span>::trunc::trunc_sign(<span class="self">self</span>)
-    }
+    <span class="attr">#[inline]
+    </span><span class="kw">fn </span>log(<span class="self">self</span>, base: f32) -&gt; f32 {
+        F32(<span class="self">self</span>).log(F32(base)).<span class="number">0
+    </span>}
 
-    <span class="kw">fn </span>round(<span class="self">self</span>) -&gt; f32 {
-        <span class="self">self</span>::round::round(<span class="self">self</span>)
-    }
+    <span class="attr">#[inline]
+    </span><span class="kw">fn </span>log2(<span class="self">self</span>) -&gt; f32 {
+        F32(<span class="self">self</span>).log2().<span class="number">0
+    </span>}
 
-    <span class="kw">fn </span>fract(<span class="self">self</span>) -&gt; f32 {
-        <span class="self">self</span>::fract::fract_sign(<span class="self">self</span>)
-    }
+    <span class="attr">#[inline]
+    </span><span class="kw">fn </span>log10(<span class="self">self</span>) -&gt; f32 {
+        F32(<span class="self">self</span>).log10().<span class="number">0
+    </span>}
 
-    <span class="kw">fn </span>copysign(<span class="self">self</span>, sign: f32) -&gt; f32 {
-        <span class="self">self</span>::copysign::copysign(<span class="self">self</span>, sign)
-    }
+    <span class="attr">#[inline]
+    </span><span class="kw">fn </span>powf(<span class="self">self</span>, n: f32) -&gt; f32 {
+        F32(<span class="self">self</span>).powf(F32(n)).<span class="number">0
+    </span>}
 
-    <span class="kw">fn </span>ln(<span class="self">self</span>) -&gt; f32 {
-        <span class="self">self</span>::ln::ln_1to2_series_approximation(<span class="self">self</span>)
-    }
+    <span class="attr">#[inline]
+    </span><span class="kw">fn </span>powi(<span class="self">self</span>, n: i32) -&gt; f32 {
+        F32(<span class="self">self</span>).powi(n).<span class="number">0
+    </span>}
 
-    <span class="kw">fn </span>exp(<span class="self">self</span>) -&gt; f32 {
-        <span class="self">self</span>::exp::exp_ln2_approximation(<span class="self">self</span>, <span class="number">4</span>)
-    }
+    <span class="attr">#[inline]
+    </span><span class="kw">fn </span>rem_euclid(<span class="self">self</span>, other: f32) -&gt; f32 {
+        F32(<span class="self">self</span>).rem_euclid(F32(other)).<span class="number">0
+    </span>}
 
-    <span class="kw">fn </span>log(<span class="self">self</span>, base: f32) -&gt; f32 {
-        <span class="self">self</span>::log::log_ln_approx(<span class="self">self</span>, base)
-    }
+    <span class="attr">#[inline]
+    </span><span class="kw">fn </span>round(<span class="self">self</span>) -&gt; f32 {
+        F32(<span class="self">self</span>).round().<span class="number">0
+    </span>}
 
-    <span class="kw">fn </span>log2(<span class="self">self</span>) -&gt; f32 {
-        <span class="self">self</span>::log2::log2_ln_approx(<span class="self">self</span>)
-    }
+    <span class="attr">#[inline]
+    </span><span class="kw">fn </span>sin(<span class="self">self</span>) -&gt; f32 {
+        F32(<span class="self">self</span>).sin().<span class="number">0
+    </span>}
 
-    <span class="kw">fn </span>log10(<span class="self">self</span>) -&gt; f32 {
-        <span class="self">self</span>::log10::log10_ln_approx(<span class="self">self</span>)
-    }
+    <span class="attr">#[inline]
+    </span><span class="kw">fn </span>sqrt(<span class="self">self</span>) -&gt; f32 {
+        F32(<span class="self">self</span>).sqrt().<span class="number">0
+    </span>}
 
-    <span class="kw">fn </span>powf(<span class="self">self</span>, n: f32) -&gt; f32 {
-        <span class="self">self</span>::powf::powf_exp_ln_approx(<span class="self">self</span>, n)
-    }
+    <span class="attr">#[inline]
+    </span><span class="kw">fn </span>tan(<span class="self">self</span>) -&gt; f32 {
+        F32(<span class="self">self</span>).tan().<span class="number">0
+    </span>}
 
-    <span class="kw">fn </span>powi(<span class="self">self</span>, n: i32) -&gt; f32 {
-        <span class="self">self</span>::powi::powi_exp_by_squaring(<span class="self">self</span>, n)
-    }
+    <span class="attr">#[inline]
+    </span><span class="kw">fn </span>trunc(<span class="self">self</span>) -&gt; f32 {
+        F32(<span class="self">self</span>).trunc().<span class="number">0
+    </span>}
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="micromath" data-themes="" data-resource-suffix="" data-rustdoc-version="1.67.1 (d5a82bbd2 2023-02-07)" data-search-js="search-444266647c4dba98.js" data-settings-js="settings-bebeae96e00e4617.js" data-settings-css="settings-af96d9e2fc13e081.css" ></div></body></html>
+</section></main><div id="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="micromath" data-themes="" data-resource-suffix="" data-rustdoc-version="1.69.0 (84c898d65 2023-04-16)" data-search-js="search-8a59a8356673ec1f.js" data-settings-js="settings-f0c5c39777a9a2f6.js" data-settings-css="settings-0bcba95ff279c1db.css" ></div></body></html>

@@ -1,5 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.1/src/mock_display/mod.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-1f7d512b176f0f72.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Bold-124a1ca42af929b6.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-6827029ac823cab7.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../../static.files/light-ebce58d0a40c3431.css"><link rel="stylesheet" disabled href="../../../static.files/dark-f23faae4a2daf9a6.css"><link rel="stylesheet" disabled href="../../../static.files/ayu-8af5e100b21cd173.css"><script id="default-settings" ></script><script src="../../../static.files/storage-d43fa987303ecbbb.js"></script><script defer src="../../../static.files/source-script-5cf2e01a42cc9858.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../static.files/main-c55e1eb52e1886b4.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../embedded_graphics/index.html">
-                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-5ec35bf9ca753509.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/embedded-graphics-0.8.0/src/mock_display/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-c4dbdcde0fbd8430.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../../static.files/light-db279b6232be9c13.css"><link rel="stylesheet" disabled href="../../../static.files/dark-cf923f49f397b216.css"><link rel="stylesheet" disabled href="../../../static.files/ayu-be46fdc453a55015.css"><script src="../../../static.files/storage-3891ce972e3a2bf8.js"></script><script defer src="../../../static.files/source-script-1b95b7cca98b26e5.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../static.files/main-98a684e84ae5b08b.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../embedded_graphics/index.html">
+                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -803,12 +803,6 @@
 <a href="#802" id="802">802</a>
 <a href="#803" id="803">803</a>
 <a href="#804" id="804">804</a>
-<a href="#805" id="805">805</a>
-<a href="#806" id="806">806</a>
-<a href="#807" id="807">807</a>
-<a href="#808" id="808">808</a>
-<a href="#809" id="809">809</a>
-<a href="#810" id="810">810</a>
 </pre><pre class="rust"><code><span class="doccomment">//! Mock display for use in tests.
 //!
 //! [`MockDisplay`] can be used to replace a real display in tests. The internal
@@ -977,21 +971,20 @@
 //! ]);
 //! ```
 //!
-//! [`pixelcolor`]: ../pixelcolor/index.html#structs
-//! [`BinaryColor`]: ../pixelcolor/enum.BinaryColor.html
-//! [`Gray2`]: ../pixelcolor/struct.Gray2.html
-//! [`Gray4`]: ../pixelcolor/struct.Gray4.html
-//! [`Gray8`]: ../pixelcolor/struct.Gray8.html
-//! [`Rgb565`]: ../pixelcolor/struct.Rgb565.html
-//! [`Rgb888`]: ../pixelcolor/struct.Rgb888.html
-//! [`DrawTarget`]: ../draw_target/trait.DrawTarget.html
-//! [`MockDisplay`]: struct.MockDisplay.html
-//! [`assert_eq`]: struct.MockDisplay.html#method.assert_eq
-//! [`assert_pattern`]: struct.MockDisplay.html#method.assert_pattern
-//! [`diff`]: struct.MockDisplay.html#method.diff
-//! [`from_pattern`]: struct.MockDisplay.html#method.from_pattern
-//! [`set_allow_overdraw`]: struct.MockDisplay.html#method.set_allow_overdraw
-//! [`set_allow_out_of_bounds_drawing`]: struct.MockDisplay.html#method.set_allow_out_of_bounds_drawing
+//! [`pixelcolor`]: super::pixelcolor#structs
+//! [`BinaryColor`]: super::pixelcolor::BinaryColor
+//! [`Gray2`]: super::pixelcolor::Gray2
+//! [`Gray4`]: super::pixelcolor::Gray4
+//! [`Gray8`]: super::pixelcolor::Gray8
+//! [`Rgb565`]: super::pixelcolor::Rgb565
+//! [`Rgb888`]: super::pixelcolor::Rgb888
+//! [`DrawTarget`]: super::draw_target::DrawTarget
+//! [`assert_eq`]: MockDisplay::assert_eq()
+//! [`assert_pattern`]: MockDisplay::assert_pattern()
+//! [`diff`]: MockDisplay::diff()
+//! [`from_pattern`]: MockDisplay::from_pattern()
+//! [`set_allow_overdraw`]: MockDisplay::set_allow_overdraw()
+//! [`set_allow_out_of_bounds_drawing`]: MockDisplay::set_allow_out_of_bounds_drawing()
 
 </span><span class="kw">mod </span>color_mapping;
 <span class="kw">mod </span>fancy_panic;
@@ -1015,7 +1008,7 @@
 
 <span class="doccomment">/// Mock display struct
 ///
-/// See the [module documentation](./index.html) for usage and examples.
+/// See the [module documentation](self) for usage and examples.
 </span><span class="attr">#[derive(Clone)]
 </span><span class="kw">pub struct </span>MockDisplay&lt;C&gt;
 <span class="kw">where
@@ -1062,10 +1055,10 @@
     /// ]);
     /// ```
     ///
-    /// [`Point`]: ../geometry/struct.Point.html
-    /// [`PointsIter::points`]: ../primitives/trait.PointsIter.html#tymethod.points
-    /// [`map`]: #method.map
-    /// [`BinaryColor`]: ../pixelcolor/enum.BinaryColor.html
+    /// [`Point`]: super::geometry::Point
+    /// [`PointsIter::points`]: super::primitives::PointsIter::points
+    /// [`map`]: MockDisplay::map()
+    /// [`BinaryColor`]: super::pixelcolor::BinaryColor
     </span><span class="kw">pub fn </span>from_points&lt;I&gt;(points: I, color: C) -&gt; <span class="self">Self
     </span><span class="kw">where
         </span>I: IntoIterator&lt;Item = Point&gt;,
@@ -1091,7 +1084,7 @@
     }
 
     <span class="doccomment">/// Returns the color of a pixel.
-    </span><span class="kw">pub fn </span>get_pixel(<span class="kw-2">&amp;</span><span class="self">self</span>, p: Point) -&gt; <span class="prelude-ty">Option</span>&lt;C&gt; {
+    </span><span class="kw">pub const fn </span>get_pixel(<span class="kw-2">&amp;</span><span class="self">self</span>, p: Point) -&gt; <span class="prelude-ty">Option</span>&lt;C&gt; {
         <span class="kw">let </span>Point { x, y } = p;
 
         <span class="self">self</span>.pixels[x <span class="kw">as </span>usize + y <span class="kw">as </span>usize * SIZE]
@@ -1177,8 +1170,8 @@
     /// Similarly, overdraw is checked by default and will panic if a point is drawn to the same
     /// coordinate twice. This behavior can be disabled by calling [`set_allow_overdraw(true)`].
     ///
-    /// [`set_allow_out_of_bounds_drawing(true)`]: #method.set_allow_out_of_bounds_drawing
-    /// [`set_allow_overdraw(true)`]: #method.set_allow_overdraw
+    /// [`set_allow_out_of_bounds_drawing(true)`]: MockDisplay::set_allow_out_of_bounds_drawing()
+    /// [`set_allow_overdraw(true)`]: MockDisplay::set_allow_overdraw()
     </span><span class="kw">pub fn </span>draw_pixel(<span class="kw-2">&amp;mut </span><span class="self">self</span>, point: Point, color: C) {
         <span class="kw">if </span>!DISPLAY_AREA.contains(point) {
             <span class="kw">if </span>!<span class="self">self</span>.allow_out_of_bounds_drawing {
@@ -1243,7 +1236,7 @@
     ///
     /// Invert a `MockDisplay` by applying [`BinaryColor::invert`] to the color of each pixel.
     ///
-    /// [`BinaryColor::invert`]: ../pixelcolor/enum.BinaryColor.html#method.invert
+    /// [`BinaryColor::invert`]: super::pixelcolor::BinaryColor::invert()
     ///
     /// ```
     /// use embedded_graphics::{mock_display::MockDisplay, pixelcolor::BinaryColor};
@@ -1326,7 +1319,6 @@
     /// All other characters are converted by implementations of the
     /// [`ColorMapping`] trait.
     ///
-    /// [`ColorMapping`]: trait.ColorMapping.html
     </span><span class="kw">pub fn </span>from_pattern(pattern: <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span>str]) -&gt; MockDisplay&lt;C&gt; {
         <span class="comment">// Check pattern dimensions.
         </span><span class="kw">let </span>pattern_width = pattern.first().map_or(<span class="number">0</span>, |row| row.len());
@@ -1385,9 +1377,8 @@
     ///
     /// Panics if the displays aren&#39;t equal.
     ///
-    /// [module-level documentation]: index.html#assertions
-    </span><span class="comment">// MSRV: add track_caller attribute to get better error messages for rust &gt;= 1.46.0
-    // #[track_caller]
+    /// [module-level documentation]: self#assertions
+    </span><span class="attr">#[track_caller]
     </span><span class="kw">pub fn </span>assert_eq(<span class="kw-2">&amp;</span><span class="self">self</span>, other: <span class="kw-2">&amp;</span>MockDisplay&lt;C&gt;) {
         <span class="kw">if </span>!<span class="self">self</span>.eq(other) {
             <span class="kw">if </span><span class="macro">option_env!</span>(<span class="string">&quot;EG_FANCY_PANIC&quot;</span>) == <span class="prelude-val">Some</span>(<span class="string">&quot;1&quot;</span>) {
@@ -1410,9 +1401,8 @@
     ///
     /// Panics if the displays aren&#39;t equal.
     ///
-    /// [module-level documentation]: index.html#assertions
-    </span><span class="comment">// MSRV: add track_caller attribute to get better error messages for rust &gt;= 1.46.0
-    // #[track_caller]
+    /// [module-level documentation]: self#assertions
+    </span><span class="attr">#[track_caller]
     </span><span class="kw">pub fn </span>assert_eq_with_message&lt;F&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, other: <span class="kw-2">&amp;</span>MockDisplay&lt;C&gt;, msg: F)
     <span class="kw">where
         </span>F: Fn(<span class="kw-2">&amp;mut </span>fmt::Formatter&lt;<span class="lifetime">&#39;_</span>&gt;) -&gt; fmt::Result,
@@ -1441,9 +1431,8 @@
     ///
     /// Panics if the display content isn&#39;t equal to the pattern.
     ///
-    /// [module-level documentation]: index.html#assertions
-    </span><span class="comment">// MSRV: add track_caller attribute to get better error messages for rust &gt;= 1.46.0
-    // #[track_caller]
+    /// [module-level documentation]: self#assertions
+    </span><span class="attr">#[track_caller]
     </span><span class="kw">pub fn </span>assert_pattern(<span class="kw-2">&amp;</span><span class="self">self</span>, pattern: <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span>str]) {
         <span class="kw">let </span>other = MockDisplay::&lt;C&gt;::from_pattern(pattern);
 
@@ -1461,9 +1450,8 @@
     ///
     /// Panics if the display content isn&#39;t equal to the pattern.
     ///
-    /// [module-level documentation]: index.html#assertions
-    </span><span class="comment">// MSRV: add track_caller attribute to get better error messages for rust &gt;= 1.46.0
-    // #[track_caller]
+    /// [module-level documentation]: self#assertions
+    </span><span class="attr">#[track_caller]
     </span><span class="kw">pub fn </span>assert_pattern_with_message&lt;F&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, pattern: <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span>str], msg: F)
     <span class="kw">where
         </span>F: Fn(<span class="kw-2">&amp;mut </span>fmt::Formatter&lt;<span class="lifetime">&#39;_</span>&gt;) -&gt; fmt::Result,
@@ -1620,4 +1608,4 @@
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="embedded_graphics" data-themes="" data-resource-suffix="" data-rustdoc-version="1.67.1 (d5a82bbd2 2023-02-07)" data-search-js="search-444266647c4dba98.js" data-settings-js="settings-bebeae96e00e4617.js" data-settings-css="settings-af96d9e2fc13e081.css" ></div></body></html>
+</section></main><div id="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="embedded_graphics" data-themes="" data-resource-suffix="" data-rustdoc-version="1.69.0 (84c898d65 2023-04-16)" data-search-js="search-8a59a8356673ec1f.js" data-settings-js="settings-f0c5c39777a9a2f6.js" data-settings-css="settings-0bcba95ff279c1db.css" ></div></body></html>

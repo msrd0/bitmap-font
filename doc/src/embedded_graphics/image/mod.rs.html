@@ -1,5 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.1/src/image/mod.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-1f7d512b176f0f72.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Bold-124a1ca42af929b6.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-6827029ac823cab7.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../../static.files/light-ebce58d0a40c3431.css"><link rel="stylesheet" disabled href="../../../static.files/dark-f23faae4a2daf9a6.css"><link rel="stylesheet" disabled href="../../../static.files/ayu-8af5e100b21cd173.css"><script id="default-settings" ></script><script src="../../../static.files/storage-d43fa987303ecbbb.js"></script><script defer src="../../../static.files/source-script-5cf2e01a42cc9858.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../static.files/main-c55e1eb52e1886b4.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../embedded_graphics/index.html">
-                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-5ec35bf9ca753509.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/embedded-graphics-0.8.0/src/image/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-c4dbdcde0fbd8430.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../../static.files/light-db279b6232be9c13.css"><link rel="stylesheet" disabled href="../../../static.files/dark-cf923f49f397b216.css"><link rel="stylesheet" disabled href="../../../static.files/ayu-be46fdc453a55015.css"><script src="../../../static.files/storage-3891ce972e3a2bf8.js"></script><script defer src="../../../static.files/source-script-1b95b7cca98b26e5.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../static.files/main-98a684e84ae5b08b.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../embedded_graphics/index.html">
+                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -290,6 +290,30 @@
 <a href="#289" id="289">289</a>
 <a href="#290" id="290">290</a>
 <a href="#291" id="291">291</a>
+<a href="#292" id="292">292</a>
+<a href="#293" id="293">293</a>
+<a href="#294" id="294">294</a>
+<a href="#295" id="295">295</a>
+<a href="#296" id="296">296</a>
+<a href="#297" id="297">297</a>
+<a href="#298" id="298">298</a>
+<a href="#299" id="299">299</a>
+<a href="#300" id="300">300</a>
+<a href="#301" id="301">301</a>
+<a href="#302" id="302">302</a>
+<a href="#303" id="303">303</a>
+<a href="#304" id="304">304</a>
+<a href="#305" id="305">305</a>
+<a href="#306" id="306">306</a>
+<a href="#307" id="307">307</a>
+<a href="#308" id="308">308</a>
+<a href="#309" id="309">309</a>
+<a href="#310" id="310">310</a>
+<a href="#311" id="311">311</a>
+<a href="#312" id="312">312</a>
+<a href="#313" id="313">313</a>
+<a href="#314" id="314">314</a>
+<a href="#315" id="315">315</a>
 </pre><pre class="rust"><code><span class="doccomment">//! Image support for embedded-graphics
 //!
 //! The two main types used to draw images are [`ImageDrawable`] and [`Image`].
@@ -382,20 +406,16 @@
 //!
 //! [tinytga]: https://crates.io/crates/tinytga
 //! [tinybmp]: https://crates.io/crates/tinybmp
-//! [raw pixel data]: struct.ImageRaw.html
-//! [`ImageDrawable`]: trait.ImageDrawable.html
-//! [`ImageDrawableExt`]: trait.ImageDrawableExt.html
-//! [`sub_image`]: trait.ImageDrawableExt.html#tymethod.sub_image
-//! [`OriginDimensions`]: ../geometry/trait.OriginDimensions.html
-//! [`Image`]: ./struct.Image.html
-//! [`SubImage`]: struct.SubImage.html
-//! [`prelude`]: ../prelude/index.html
+//! [raw pixel data]: ImageRaw
+//! [`sub_image`]: ImageDrawableExt::sub_image
+//! [`OriginDimensions`]: super::geometry::OriginDimensions
+//! [`prelude`]: super::prelude
 
 </span><span class="kw">mod </span>image_drawable_ext;
 <span class="kw">mod </span>image_raw;
 <span class="kw">mod </span>sub_image;
 
-<span class="kw">pub use </span>embedded_graphics_core::image::ImageDrawable;
+<span class="kw">pub use </span>embedded_graphics_core::image::{GetPixel, ImageDrawable};
 <span class="kw">pub use </span>image_drawable_ext::ImageDrawableExt;
 <span class="kw">pub use </span>image_raw::{ImageRaw, ImageRawBE, ImageRawLE};
 <span class="kw">pub use </span>sub_image::SubImage;
@@ -418,12 +438,12 @@
 ///
 /// Refer to the [module documentation] for examples.
 ///
-/// [module documentation]: ./index.html
-/// [`Transform::translate`]: ../transform/trait.Transform.html#tymethod.translate
-/// [`Transform::translate_mut`]: ../transform/trait.Transform.html#tymethod.translate_mut
-/// [`DrawTarget`]: ../draw_target/trait.DrawTarget.html
-/// [`ImageDrawable`]: trait.ImageDrawable.html
+/// [module documentation]: self
+/// [`Transform::translate`]: super::transform::Transform::translate
+/// [`Transform::translate_mut`]: super::transform::Transform::translate_mut
+/// [`DrawTarget`]: super::draw_target::DrawTarget
 </span><span class="attr">#[derive(Debug, Clone, Copy)]
+#[cfg_attr(feature = <span class="string">&quot;defmt&quot;</span>, derive(::defmt::Format))]
 </span><span class="kw">pub struct </span>Image&lt;<span class="lifetime">&#39;a</span>, T&gt; {
     image_drawable: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>T,
     offset: Point,
@@ -434,10 +454,20 @@
     </span>T: ImageDrawable,
 {
     <span class="doccomment">/// Creates a new `Image`.
-    </span><span class="kw">pub fn </span>new(image_drawable: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>T, position: Point) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub const fn </span>new(image_drawable: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>T, position: Point) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
             image_drawable,
             offset: position,
+        }
+    }
+
+    <span class="doccomment">/// Creates a new `Image` centered around a given point.
+    </span><span class="kw">pub fn </span>with_center(image_drawable: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>T, center: Point) -&gt; <span class="self">Self </span>{
+        <span class="kw">let </span>offset = Rectangle::with_center(center, image_drawable.size()).top_left;
+
+        <span class="self">Self </span>{
+            image_drawable,
+            offset,
         }
     }
 }
@@ -580,6 +610,24 @@
             </span><span class="string">&quot; .#.#&quot;</span>, <span class="comment">//
         </span>]);
     }
+
+    <span class="attr">#[test]
+    </span><span class="kw">fn </span>with_center() {
+        <span class="kw">let </span>image_raw: ImageRaw&lt;BinaryColor&gt; = ImageRaw::new(<span class="kw-2">&amp;</span>[<span class="number">0xAA</span>, <span class="number">0x55</span>, <span class="number">0xAA</span>, <span class="number">0x55</span>], <span class="number">4</span>);
+
+        <span class="kw">let </span><span class="kw-2">mut </span>display = MockDisplay::new();
+        Image::with_center(<span class="kw-2">&amp;</span>image_raw, Point::new(<span class="number">1</span>, <span class="number">2</span>))
+            .draw(<span class="kw-2">&amp;mut </span>display)
+            .unwrap();
+
+        display.assert_pattern(<span class="kw-2">&amp;</span>[
+            <span class="string">&quot;    &quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;#.#.&quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;.#.#&quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;#.#.&quot;</span>, <span class="comment">//
+            </span><span class="string">&quot;.#.#&quot;</span>, <span class="comment">//
+        </span>]);
+    }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="embedded_graphics" data-themes="" data-resource-suffix="" data-rustdoc-version="1.67.1 (d5a82bbd2 2023-02-07)" data-search-js="search-444266647c4dba98.js" data-settings-js="settings-bebeae96e00e4617.js" data-settings-css="settings-af96d9e2fc13e081.css" ></div></body></html>
+</section></main><div id="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="embedded_graphics" data-themes="" data-resource-suffix="" data-rustdoc-version="1.69.0 (84c898d65 2023-04-16)" data-search-js="search-8a59a8356673ec1f.js" data-settings-js="settings-f0c5c39777a9a2f6.js" data-settings-css="settings-0bcba95ff279c1db.css" ></div></body></html>

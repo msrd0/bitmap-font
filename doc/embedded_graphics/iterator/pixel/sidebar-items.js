@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"struct":[["Translated","Translated pixel iterator."]]};
+window.SIDEBAR_ITEMS = {"struct":["Translated"]};

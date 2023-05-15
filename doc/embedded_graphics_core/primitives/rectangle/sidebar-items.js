@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"struct":[["Points","Iterator over all points inside the rectangle."],["Rectangle","Rectangle primitive"]]};
+window.SIDEBAR_ITEMS = {"struct":["Points","Rectangle"]};

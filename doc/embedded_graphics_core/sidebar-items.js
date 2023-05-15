@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["draw_target","A target for embedded-graphics drawing operations."],["geometry","Geometry module."],["image","Image drawable trait."],["pixelcolor","Pixel color types."],["prelude","Prelude"],["primitives","Core primitives."]],"struct":[["Pixel","A single pixel."]],"trait":[["Drawable","Marks an object as “drawable”. Must be implemented for all graphics objects"]]};
+window.SIDEBAR_ITEMS = {"mod":["draw_target","geometry","image","pixelcolor","prelude","primitives"],"struct":["Pixel"],"trait":["Drawable"]};

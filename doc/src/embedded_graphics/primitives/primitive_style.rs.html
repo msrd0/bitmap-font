@@ -1,5 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/embedded-graphics-0.7.1/src/primitives/primitive_style.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>primitive_style.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-1f7d512b176f0f72.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Bold-124a1ca42af929b6.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-6827029ac823cab7.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../../static.files/light-ebce58d0a40c3431.css"><link rel="stylesheet" disabled href="../../../static.files/dark-f23faae4a2daf9a6.css"><link rel="stylesheet" disabled href="../../../static.files/ayu-8af5e100b21cd173.css"><script id="default-settings" ></script><script src="../../../static.files/storage-d43fa987303ecbbb.js"></script><script defer src="../../../static.files/source-script-5cf2e01a42cc9858.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../static.files/main-c55e1eb52e1886b4.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><div class="width-limiter"><nav class="sub"><a class="sub-logo-container" href="../../../embedded_graphics/index.html">
-                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-5ec35bf9ca753509.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/embedded-graphics-0.8.0/src/primitives/primitive_style.rs`."><title>primitive_style.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-c4dbdcde0fbd8430.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../../static.files/light-db279b6232be9c13.css"><link rel="stylesheet" disabled href="../../../static.files/dark-cf923f49f397b216.css"><link rel="stylesheet" disabled href="../../../static.files/ayu-be46fdc453a55015.css"><script src="../../../static.files/storage-3891ce972e3a2bf8.js"></script><script defer src="../../../static.files/source-script-1b95b7cca98b26e5.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../static.files/main-98a684e84ae5b08b.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../embedded_graphics/index.html">
+                        <img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -436,6 +436,13 @@
 <a href="#435" id="435">435</a>
 <a href="#436" id="436">436</a>
 <a href="#437" id="437">437</a>
+<a href="#438" id="438">438</a>
+<a href="#439" id="439">439</a>
+<a href="#440" id="440">440</a>
+<a href="#441" id="441">441</a>
+<a href="#442" id="442">442</a>
+<a href="#443" id="443">443</a>
+<a href="#444" id="444">444</a>
 </pre><pre class="rust"><code><span class="kw">use crate</span>::{pixelcolor::PixelColor, primitives::OffsetOutline};
 <span class="kw">use </span>az::SaturatingAs;
 
@@ -445,14 +452,14 @@
 /// is drawn.
 ///
 /// Because `PrimitiveStyle` has the [`non_exhaustive`] attribute, it cannot be created using a
-/// struct literal. To create a `PrimitiveStyle`, the [`with_stroke`](#method.with_stroke) and
-/// [`with_fill`](#method.with_fill) methods can be used for styles that only require a stroke or
+/// struct literal. To create a `PrimitiveStyle`, the [`with_stroke`](PrimitiveStyle::with_stroke()) and
+/// [`with_fill`](PrimitiveStyle::with_fill()) methods can be used for styles that only require a stroke or
 /// fill respectively. For more complex styles, use the [`PrimitiveStyleBuilder`].
 ///
-/// [primitive]: ../primitives/index.html
-/// [`PrimitiveStyleBuilder`]: struct.PrimitiveStyleBuilder.html
+/// [primitive]: crate::primitives
 /// [`non_exhaustive`]: https://blog.rust-lang.org/2019/12/19/Rust-1.40.0.html#[non_exhaustive]-structs,-enums,-and-variants
 </span><span class="attr">#[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Hash, Debug)]
+#[cfg_attr(feature = <span class="string">&quot;defmt&quot;</span>, derive(::defmt::Format))]
 #[non_exhaustive]
 </span><span class="kw">pub struct </span>PrimitiveStyle&lt;C&gt;
 <span class="kw">where
@@ -487,33 +494,33 @@
     </span>C: PixelColor,
 {
     <span class="doccomment">/// Creates a primitive style without fill and stroke.
-    </span><span class="kw">pub fn </span>new() -&gt; <span class="self">Self </span>{
-        <span class="self">Self</span>::default()
+    </span><span class="kw">pub const fn </span>new() -&gt; <span class="self">Self </span>{
+        <span class="self">Self</span>::const_default()
     }
 
     <span class="doccomment">/// Creates a stroke primitive style.
     ///
     /// If the `stroke_width` is `0` the resulting style won&#39;t draw a stroke.
-    </span><span class="kw">pub fn </span>with_stroke(stroke_color: C, stroke_width: u32) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub const fn </span>with_stroke(stroke_color: C, stroke_width: u32) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
             stroke_color: <span class="prelude-val">Some</span>(stroke_color),
             stroke_width,
-            ..PrimitiveStyle::default()
+            ..PrimitiveStyle::const_default()
         }
     }
 
     <span class="doccomment">/// Creates a fill primitive style.
-    </span><span class="kw">pub fn </span>with_fill(fill_color: C) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub const fn </span>with_fill(fill_color: C) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
             fill_color: <span class="prelude-val">Some</span>(fill_color),
-            ..PrimitiveStyle::default()
+            ..PrimitiveStyle::const_default()
         }
     }
 
     <span class="doccomment">/// Returns the stroke width on the outside of the shape.
     ///
     /// The outside stroke width is determined by `stroke_width` and `stroke_alignment`.
-    </span><span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn </span>outside_stroke_width(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; u32 {
+    </span><span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">const fn </span>outside_stroke_width(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; u32 {
         <span class="kw">match </span><span class="self">self</span>.stroke_alignment {
             StrokeAlignment::Inside =&gt; <span class="number">0</span>,
             StrokeAlignment::Center =&gt; <span class="self">self</span>.stroke_width / <span class="number">2</span>,
@@ -524,7 +531,7 @@
     <span class="doccomment">/// Returns the stroke width on the inside of the shape.
     ///
     /// The inside stroke width is determined by `stroke_width` and `stroke_alignment`.
-    </span><span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn </span>inside_stroke_width(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; u32 {
+    </span><span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">const fn </span>inside_stroke_width(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; u32 {
         <span class="kw">match </span><span class="self">self</span>.stroke_alignment {
             StrokeAlignment::Inside =&gt; <span class="self">self</span>.stroke_width,
             StrokeAlignment::Center =&gt; <span class="self">self</span>.stroke_width.saturating_add(<span class="number">1</span>) / <span class="number">2</span>,
@@ -533,7 +540,7 @@
     }
 
     <span class="doccomment">/// Returns if a primitive drawn with this style is completely transparent.
-    </span><span class="kw">pub fn </span>is_transparent(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
+    </span><span class="kw">pub const fn </span>is_transparent(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; bool {
         (<span class="self">self</span>.stroke_color.is_none() || <span class="self">self</span>.stroke_width == <span class="number">0</span>) &amp;&amp; <span class="self">self</span>.fill_color.is_none()
     }
 
@@ -560,6 +567,17 @@
 
         primitive.offset(offset)
     }
+
+    <span class="doccomment">/// A helper function to allow `const` default.
+    </span><span class="comment">// MSRV: Move into `Default` impl when we have consts in traits
+    </span><span class="kw">const fn </span>const_default() -&gt; <span class="self">Self </span>{
+        <span class="self">Self </span>{
+            fill_color: <span class="prelude-val">None</span>,
+            stroke_color: <span class="prelude-val">None</span>,
+            stroke_width: <span class="number">0</span>,
+            stroke_alignment: StrokeAlignment::Center,
+        }
+    }
 }
 
 <span class="kw">impl</span>&lt;C&gt; Default <span class="kw">for </span>PrimitiveStyle&lt;C&gt;
@@ -567,12 +585,7 @@
     </span>C: PixelColor,
 {
     <span class="kw">fn </span>default() -&gt; <span class="self">Self </span>{
-        <span class="self">Self </span>{
-            fill_color: <span class="prelude-val">None</span>,
-            stroke_color: <span class="prelude-val">None</span>,
-            stroke_width: <span class="number">0</span>,
-            stroke_alignment: StrokeAlignment::Center,
-        }
+        <span class="self">Self</span>::const_default()
     }
 }
 
@@ -624,8 +637,8 @@
 /// let rectangle = Rectangle::new(Point::new(20, 20), Size::new(20, 10)).into_styled(style);
 /// ```
 ///
-/// [`PrimitiveStyle`]: ./struct.PrimitiveStyle.html
 </span><span class="attr">#[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Hash, Debug, Default)]
+#[cfg_attr(feature = <span class="string">&quot;defmt&quot;</span>, derive(::defmt::Format))]
 </span><span class="kw">pub struct </span>PrimitiveStyleBuilder&lt;C&gt;
 <span class="kw">where
     </span>C: PixelColor,
@@ -638,56 +651,56 @@
     </span>C: PixelColor,
 {
     <span class="doccomment">/// Creates a new primitive style builder.
-    </span><span class="kw">pub fn </span>new() -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub const fn </span>new() -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            style: PrimitiveStyle::default(),
+            style: PrimitiveStyle::const_default(),
         }
     }
 
     <span class="doccomment">/// Sets the fill color.
-    </span><span class="kw">pub fn </span>fill_color(<span class="kw-2">mut </span><span class="self">self</span>, fill_color: C) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub const fn </span>fill_color(<span class="kw-2">mut </span><span class="self">self</span>, fill_color: C) -&gt; <span class="self">Self </span>{
         <span class="self">self</span>.style.fill_color = <span class="prelude-val">Some</span>(fill_color);
 
         <span class="self">self
     </span>}
 
     <span class="doccomment">/// Resets the fill color to transparent.
-    </span><span class="kw">pub fn </span>reset_fill_color(<span class="kw-2">mut </span><span class="self">self</span>) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub const fn </span>reset_fill_color(<span class="kw-2">mut </span><span class="self">self</span>) -&gt; <span class="self">Self </span>{
         <span class="self">self</span>.style.fill_color = <span class="prelude-val">None</span>;
 
         <span class="self">self
     </span>}
 
     <span class="doccomment">/// Sets the stroke color.
-    </span><span class="kw">pub fn </span>stroke_color(<span class="kw-2">mut </span><span class="self">self</span>, stroke_color: C) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub const fn </span>stroke_color(<span class="kw-2">mut </span><span class="self">self</span>, stroke_color: C) -&gt; <span class="self">Self </span>{
         <span class="self">self</span>.style.stroke_color = <span class="prelude-val">Some</span>(stroke_color);
 
         <span class="self">self
     </span>}
 
     <span class="doccomment">/// Resets the stroke color to transparent.
-    </span><span class="kw">pub fn </span>reset_stroke_color(<span class="kw-2">mut </span><span class="self">self</span>) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub const fn </span>reset_stroke_color(<span class="kw-2">mut </span><span class="self">self</span>) -&gt; <span class="self">Self </span>{
         <span class="self">self</span>.style.stroke_color = <span class="prelude-val">None</span>;
 
         <span class="self">self
     </span>}
 
     <span class="doccomment">/// Sets the stroke width.
-    </span><span class="kw">pub fn </span>stroke_width(<span class="kw-2">mut </span><span class="self">self</span>, stroke_width: u32) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub const fn </span>stroke_width(<span class="kw-2">mut </span><span class="self">self</span>, stroke_width: u32) -&gt; <span class="self">Self </span>{
         <span class="self">self</span>.style.stroke_width = stroke_width;
 
         <span class="self">self
     </span>}
 
     <span class="doccomment">/// Sets the stroke alignment.
-    </span><span class="kw">pub fn </span>stroke_alignment(<span class="kw-2">mut </span><span class="self">self</span>, stroke_alignment: StrokeAlignment) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub const fn </span>stroke_alignment(<span class="kw-2">mut </span><span class="self">self</span>, stroke_alignment: StrokeAlignment) -&gt; <span class="self">Self </span>{
         <span class="self">self</span>.style.stroke_alignment = stroke_alignment;
 
         <span class="self">self
     </span>}
 
     <span class="doccomment">/// Builds the primitive style.
-    </span><span class="kw">pub fn </span>build(<span class="self">self</span>) -&gt; PrimitiveStyle&lt;C&gt; {
+    </span><span class="kw">pub const fn </span>build(<span class="self">self</span>) -&gt; PrimitiveStyle&lt;C&gt; {
         <span class="self">self</span>.style
     }
 }
@@ -703,6 +716,7 @@
 
 <span class="doccomment">/// Stroke alignment.
 </span><span class="attr">#[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Hash, Debug)]
+#[cfg_attr(feature = <span class="string">&quot;defmt&quot;</span>, derive(::defmt::Format))]
 </span><span class="kw">pub enum </span>StrokeAlignment {
     <span class="doccomment">/// Inside.
     </span>Inside,
@@ -874,4 +888,4 @@
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="embedded_graphics" data-themes="" data-resource-suffix="" data-rustdoc-version="1.67.1 (d5a82bbd2 2023-02-07)" data-search-js="search-444266647c4dba98.js" data-settings-js="settings-bebeae96e00e4617.js" data-settings-css="settings-af96d9e2fc13e081.css" ></div></body></html>
+</section></main><div id="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="embedded_graphics" data-themes="" data-resource-suffix="" data-rustdoc-version="1.69.0 (84c898d65 2023-04-16)" data-search-js="search-8a59a8356673ec1f.js" data-settings-js="settings-f0c5c39777a9a2f6.js" data-settings-css="settings-0bcba95ff279c1db.css" ></div></body></html>

@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"trait":[["Transform","Transform operations"]]};
+window.SIDEBAR_ITEMS = {"trait":["Transform"]};

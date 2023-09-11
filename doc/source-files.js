@@ -6,6 +6,6 @@ var sourcesIndex = JSON.parse('{\
 "embedded_graphics_core":["",[["draw_target",[],["mod.rs"]],["geometry",[],["mod.rs","point.rs","size.rs"]],["image",[],["mod.rs"]],["pixelcolor",[["raw",[],["mod.rs","to_bytes.rs"]]],["binary_color.rs","conversion.rs","gray_color.rs","mod.rs","rgb_color.rs","web_colors.rs"]],["primitives",[["rectangle",[],["mod.rs","points.rs"]]],["mod.rs"]]],["drawable.rs","lib.rs","prelude.rs"]],\
 "float_cmp":["",[],["eq.rs","lib.rs","macros.rs","ratio.rs","ulps.rs","ulps_eq.rs"]],\
 "micromath":["",[["float",[],["abs.rs","acos.rs","asin.rs","atan.rs","atan2.rs","ceil.rs","copysign.rs","cos.rs","div_euclid.rs","exp.rs","floor.rs","fract.rs","hypot.rs","inv.rs","invsqrt.rs","ln.rs","log.rs","log10.rs","log2.rs","powf.rs","powi.rs","rem_euclid.rs","round.rs","sin.rs","sqrt.rs","tan.rs","trunc.rs"]]],["f32ext.rs","float.rs","lib.rs"]],\
-"num_traits":["",[["ops",[],["checked.rs","euclid.rs","inv.rs","mod.rs","mul_add.rs","overflowing.rs","saturating.rs","wrapping.rs"]]],["bounds.rs","cast.rs","float.rs","identities.rs","int.rs","lib.rs","macros.rs","pow.rs","sign.rs"]]\
+"num_traits":["",[["ops",[],["bytes.rs","checked.rs","euclid.rs","inv.rs","mod.rs","mul_add.rs","overflowing.rs","saturating.rs","wrapping.rs"]]],["bounds.rs","cast.rs","float.rs","identities.rs","int.rs","lib.rs","macros.rs","pow.rs","sign.rs"]]\
 }');
 createSourceSidebar();

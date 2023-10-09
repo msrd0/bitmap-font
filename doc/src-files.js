@@ -1,4 +1,4 @@
-var sourcesIndex = JSON.parse('{\
+var srcIndex = JSON.parse('{\
 "az":["",[],["float.rs","int.rs","lib.rs"]],\
 "bitmap_font":["",[],["lib.rs","tamzen.rs"]],\
 "byteorder":["",[],["lib.rs"]],\
@@ -8,4 +8,4 @@ var sourcesIndex = JSON.parse('{\
 "micromath":["",[["float",[],["abs.rs","acos.rs","asin.rs","atan.rs","atan2.rs","ceil.rs","copysign.rs","cos.rs","div_euclid.rs","exp.rs","floor.rs","fract.rs","hypot.rs","inv.rs","invsqrt.rs","ln.rs","log.rs","log10.rs","log2.rs","powf.rs","powi.rs","rem_euclid.rs","round.rs","sin.rs","sqrt.rs","tan.rs","trunc.rs"]]],["f32ext.rs","float.rs","lib.rs"]],\
 "num_traits":["",[["ops",[],["bytes.rs","checked.rs","euclid.rs","inv.rs","mod.rs","mul_add.rs","overflowing.rs","saturating.rs","wrapping.rs"]]],["bounds.rs","cast.rs","float.rs","identities.rs","int.rs","lib.rs","macros.rs","pow.rs","sign.rs"]]\
 }');
-createSourceSidebar();
+createSrcSidebar();

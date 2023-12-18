@@ -129,7 +129,7 @@ jobs:
           	--exclude-files 'target/*' \
           	--ignore-panics --ignore-tests \
           	--out Html --out Json
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: tarpaulin-report
           path: |
@@ -151,7 +151,7 @@ jobs:
           key: "${{runner.os}} Rust ${{steps.rust-toolchain.outputs.cachekey}} (Doc)"
       - run: cargo doc
       - run: tar cfj rustdoc.tar.bz2 target/doc/
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: rustdoc
           path: rustdoc.tar.bz2

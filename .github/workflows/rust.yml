@@ -23,7 +23,7 @@ jobs:
           submodules: recursive
       - uses: dtolnay/rust-toolchain@stable
         id: rust-toolchain
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         with:
           path: |
             ~/.cargo/git
@@ -56,7 +56,7 @@ jobs:
         with:
           toolchain: ${{matrix.rust.toolchain}}
         id: rust-toolchain
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         with:
           path: |
             ~/.cargo/git
@@ -74,7 +74,7 @@ jobs:
           components: clippy
           toolchain: "1.69"
         id: rust-toolchain
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         with:
           path: |
             ~/.cargo/git
@@ -110,7 +110,7 @@ jobs:
       - name: Get Tarpaulin Version
         id: tarpaulin-version
         run: echo "version=$(wget -qO- 'https://crates.io/api/v1/crates/cargo-tarpaulin' | jq -r '.crate.max_stable_version')" >>$GITHUB_OUTPUT
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         with:
           path: |
             ~/.cargo/bin/cargo-tarpaulin
@@ -142,7 +142,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
         id: rust-toolchain
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         with:
           path: |
             ~/.cargo/git

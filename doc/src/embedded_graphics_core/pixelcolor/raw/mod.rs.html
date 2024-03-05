@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/embedded-graphics-core-0.4.0/src/pixelcolor/raw/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../" data-static-root-path="../../../../static.files/" data-current-crate="embedded_graphics_core" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../src-files.js"></script><script defer src="../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../embedded_graphics_core/index.html"><img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/b225511f390c0ed9bc065eb67d05125845312148/assets/logo_core.svg?sanitize=true" alt="embedded_graphics_core"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/embedded-graphics-core-0.4.0/src/pixelcolor/raw/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../" data-static-root-path="../../../../static.files/" data-current-crate="embedded_graphics_core" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../src-files.js"></script><script defer src="../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><a class="sub-logo-container" href="../../../../embedded_graphics_core/index.html"><img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/b225511f390c0ed9bc065eb67d05125845312148/assets/logo_core.svg?sanitize=true" alt="embedded_graphics_core"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -378,7 +379,7 @@
 //! # let mut expected_display = MockDisplay::new();
 //! # expected_pixels.iter().copied().draw(&amp;mut expected_display).unwrap();
 //! #
-//! # // assert_eq can&#39;t be used because ColorMapping isn&#39;t implemented for RGBI
+//! # // assert_eq can't be used because ColorMapping isn't implemented for RGBI
 //! # assert!(display.eq(&amp;expected_display));
 //! ```
 //!
@@ -418,7 +419,7 @@
 
 <span class="doccomment">/// Dummy implementation for `()`.
 ///
-/// `()` can be used as [`PixelColor::Raw`] if raw data conversion isn&#39;t required.
+/// `()` can be used as [`PixelColor::Raw`] if raw data conversion isn't required.
 ///
 /// [`PixelColor::Raw`]: super::PixelColor::Raw
 </span><span class="kw">impl </span>RawData <span class="kw">for </span>() {
@@ -436,13 +437,13 @@
 <span class="macro">macro_rules! </span>impl_raw_data {
     (<span class="macro-nonterminal">$</span><span class="kw">type</span>:<span class="macro-nonterminal">ident </span>: <span class="macro-nonterminal">$storage_type</span>:ident, <span class="macro-nonterminal">$bpp</span>:expr, <span class="macro-nonterminal">$mask</span>:expr, <span class="macro-nonterminal">$bpp_str</span>:expr, <span class="macro-nonterminal">$doc</span>:expr) =&gt; {
         <span class="attr">#[doc = <span class="macro-nonterminal">$bpp_str</span>]
-        #[doc = <span class="string">&quot;per pixel raw data.&quot;</span>]
-        #[doc = <span class="string">&quot;&quot;</span>]
+        #[doc = <span class="string">"per pixel raw data."</span>]
+        #[doc = <span class="string">""</span>]
         #[doc = <span class="macro-nonterminal">$doc</span>]
-        #[doc = <span class="string">&quot;&quot;</span>]
-        #[doc = <span class="string">&quot;See the [module-level documentation](super) for more information.&quot;</span>]
+        #[doc = <span class="string">""</span>]
+        #[doc = <span class="string">"See the [module-level documentation](super) for more information."</span>]
         #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Hash, Debug, Default)]
-        #[cfg_attr(feature = <span class="string">&quot;defmt&quot;</span>, derive(::defmt::Format))]
+        #[cfg_attr(feature = <span class="string">"defmt"</span>, derive(::defmt::Format))]
         </span><span class="kw">pub struct </span><span class="macro-nonterminal">$</span><span class="kw">type</span>(<span class="macro-nonterminal">$storage_type</span>);
 
         <span class="kw">impl </span><span class="macro-nonterminal">$</span><span class="kw">type </span>{
@@ -486,42 +487,42 @@
             <span class="macro-nonterminal">$mask</span>,
             <span class="macro-nonterminal">$bpp_str</span>,
             <span class="macro">concat!</span>(
-                <span class="string">&quot;`&quot;</span>,
+                <span class="string">"`"</span>,
                 <span class="macro">stringify!</span>(<span class="macro-nonterminal">$</span><span class="kw">type</span>),
-                <span class="string">&quot;` is internally stored in an `&quot;</span>,
+                <span class="string">"` is internally stored in an `"</span>,
                 <span class="macro">stringify!</span>(<span class="macro-nonterminal">$storage_type</span>),
-                <span class="string">&quot;`. It can be constructed from an [`&quot;</span>,
+                <span class="string">"`. It can be constructed from an [`"</span>,
                 <span class="macro">stringify!</span>(<span class="macro-nonterminal">$storage_type</span>),
-                <span class="string">&quot;`] by using the &quot;</span>,
-                <span class="string">&quot;[`new`](Self::new) method or by calling `&quot;</span>,
+                <span class="string">"`] by using the "</span>,
+                <span class="string">"[`new`](Self::new) method or by calling `"</span>,
                 <span class="macro">stringify!</span>(<span class="macro-nonterminal">$</span><span class="kw">type</span>),
-                <span class="string">&quot;::from(&quot;</span>,
+                <span class="string">"::from("</span>,
                 <span class="macro">stringify!</span>(<span class="macro-nonterminal">$storage_type</span>),
-                <span class="string">&quot;_value)`. &quot;</span>,
-                <span class="string">&quot;To convert a `&quot;</span>,
+                <span class="string">"_value)`. "</span>,
+                <span class="string">"To convert a `"</span>,
                 <span class="macro">stringify!</span>(<span class="macro-nonterminal">$</span><span class="kw">type</span>),
-                <span class="string">&quot;` back into a [`&quot;</span>,
+                <span class="string">"` back into a [`"</span>,
                 <span class="macro">stringify!</span>(<span class="macro-nonterminal">$storage_type</span>),
-                <span class="string">&quot;`] the [`into_inner`](Self::into_inner) method can be used.&quot;
+                <span class="string">"`] the [`into_inner`](Self::into_inner) method can be used."
             </span>)
         );
     };
 }
 
-<span class="macro">impl_raw_data!</span>(RawU1: u8, <span class="number">1</span>, <span class="number">0x01</span>, <span class="string">&quot;1 bit&quot;</span>);
-<span class="macro">impl_raw_data!</span>(RawU2: u8, <span class="number">2</span>, <span class="number">0x03</span>, <span class="string">&quot;2 bits&quot;</span>);
-<span class="macro">impl_raw_data!</span>(RawU4: u8, <span class="number">4</span>, <span class="number">0x0F</span>, <span class="string">&quot;4 bits&quot;</span>);
-<span class="macro">impl_raw_data!</span>(RawU8: u8, <span class="number">8</span>, <span class="number">0xFF</span>, <span class="string">&quot;8 bits&quot;</span>);
-<span class="macro">impl_raw_data!</span>(RawU16: u16, <span class="number">16</span>, <span class="number">0xFFFF</span>, <span class="string">&quot;16 bits&quot;</span>);
-<span class="macro">impl_raw_data!</span>(RawU24: u32, <span class="number">24</span>, <span class="number">0xFF_FFFF</span>, <span class="string">&quot;24 bits&quot;</span>);
-<span class="macro">impl_raw_data!</span>(RawU32: u32, <span class="number">32</span>, <span class="number">0xFFFF_FFFF</span>, <span class="string">&quot;32 bits&quot;</span>);
+<span class="macro">impl_raw_data!</span>(RawU1: u8, <span class="number">1</span>, <span class="number">0x01</span>, <span class="string">"1 bit"</span>);
+<span class="macro">impl_raw_data!</span>(RawU2: u8, <span class="number">2</span>, <span class="number">0x03</span>, <span class="string">"2 bits"</span>);
+<span class="macro">impl_raw_data!</span>(RawU4: u8, <span class="number">4</span>, <span class="number">0x0F</span>, <span class="string">"4 bits"</span>);
+<span class="macro">impl_raw_data!</span>(RawU8: u8, <span class="number">8</span>, <span class="number">0xFF</span>, <span class="string">"8 bits"</span>);
+<span class="macro">impl_raw_data!</span>(RawU16: u16, <span class="number">16</span>, <span class="number">0xFFFF</span>, <span class="string">"16 bits"</span>);
+<span class="macro">impl_raw_data!</span>(RawU24: u32, <span class="number">24</span>, <span class="number">0xFF_FFFF</span>, <span class="string">"24 bits"</span>);
+<span class="macro">impl_raw_data!</span>(RawU32: u32, <span class="number">32</span>, <span class="number">0xFFFF_FFFF</span>, <span class="string">"32 bits"</span>);
 
 <span class="doccomment">/// Raw data byte order.
 </span><span class="kw">pub trait </span>ByteOrder: private::Sealed {}
 
 <span class="doccomment">/// Little endian byte order marker.
 </span><span class="attr">#[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Hash, Debug)]
-#[cfg_attr(feature = <span class="string">&quot;defmt&quot;</span>, derive(::defmt::Format))]
+#[cfg_attr(feature = <span class="string">"defmt"</span>, derive(::defmt::Format))]
 </span><span class="kw">pub enum </span>LittleEndian {}
 
 <span class="kw">impl </span>ByteOrder <span class="kw">for </span>LittleEndian {}
@@ -529,7 +530,7 @@
 
 <span class="doccomment">/// Big endian byte order marker.
 </span><span class="attr">#[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Hash, Debug)]
-#[cfg_attr(feature = <span class="string">&quot;defmt&quot;</span>, derive(::defmt::Format))]
+#[cfg_attr(feature = <span class="string">"defmt"</span>, derive(::defmt::Format))]
 </span><span class="kw">pub enum </span>BigEndian {}
 
 <span class="kw">impl </span>ByteOrder <span class="kw">for </span>BigEndian {}

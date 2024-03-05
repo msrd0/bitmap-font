@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/embedded-graphics-0.8.1/src/mock_display/fancy_panic.rs`."><title>fancy_panic.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="embedded_graphics" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../embedded_graphics/index.html"><img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="embedded_graphics"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/embedded-graphics-0.8.1/src/mock_display/fancy_panic.rs`."><title>fancy_panic.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="embedded_graphics" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><a class="sub-logo-container" href="../../../embedded_graphics/index.html"><img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="embedded_graphics"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -310,21 +311,21 @@
 };
 <span class="kw">use </span>core::fmt::{<span class="self">self</span>, Display, Write};
 
-<span class="kw">pub struct </span>FancyPanic&lt;<span class="lifetime">&#39;a</span>, C&gt;
+<span class="kw">pub struct </span>FancyPanic&lt;<span class="lifetime">'a</span>, C&gt;
 <span class="kw">where
     </span>C: PixelColor + ColorMapping,
 {
-    display: FancyDisplay&lt;<span class="lifetime">&#39;a</span>, C&gt;,
-    expected: FancyDisplay&lt;<span class="lifetime">&#39;a</span>, C&gt;,
+    display: FancyDisplay&lt;<span class="lifetime">'a</span>, C&gt;,
+    expected: FancyDisplay&lt;<span class="lifetime">'a</span>, C&gt;,
 }
 
-<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>, C&gt; FancyPanic&lt;<span class="lifetime">&#39;a</span>, C&gt;
+<span class="kw">impl</span>&lt;<span class="lifetime">'a</span>, C&gt; FancyPanic&lt;<span class="lifetime">'a</span>, C&gt;
 <span class="kw">where
     </span>C: PixelColor + ColorMapping,
 {
     <span class="kw">pub fn </span>new(
-        display: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>MockDisplay&lt;C&gt;,
-        expected: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>MockDisplay&lt;C&gt;,
+        display: <span class="kw-2">&amp;</span><span class="lifetime">'a </span>MockDisplay&lt;C&gt;,
+        expected: <span class="kw-2">&amp;</span><span class="lifetime">'a </span>MockDisplay&lt;C&gt;,
         max_column_width: usize,
     ) -&gt; <span class="self">Self </span>{
         <span class="kw">let </span>bounding_box_display = display.affected_area_origin();
@@ -352,57 +353,57 @@
         }
     }
 
-    <span class="kw">fn </span>write_vertical_border(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span>fmt::Formatter&lt;<span class="lifetime">&#39;_</span>&gt;) -&gt; fmt::Result {
+    <span class="kw">fn </span>write_vertical_border(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span>fmt::Formatter&lt;<span class="lifetime">'_</span>&gt;) -&gt; fmt::Result {
         <span class="macro">writeln!</span>(
             f,
-            <span class="string">&quot;+-{:-&lt;width$}-+-{:-&lt;width$}-+-{:-&lt;width$}-+&quot;</span>,
-            <span class="string">&quot;&quot;</span>,
-            <span class="string">&quot;&quot;</span>,
-            <span class="string">&quot;&quot;</span>,
+            <span class="string">"+-{:-&lt;width$}-+-{:-&lt;width$}-+-{:-&lt;width$}-+"</span>,
+            <span class="string">""</span>,
+            <span class="string">""</span>,
+            <span class="string">""</span>,
             width = <span class="self">self</span>.display.column_width
         )
     }
 
-    <span class="kw">fn </span>write_header(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span>fmt::Formatter&lt;<span class="lifetime">&#39;_</span>&gt;) -&gt; fmt::Result {
+    <span class="kw">fn </span>write_header(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span>fmt::Formatter&lt;<span class="lifetime">'_</span>&gt;) -&gt; fmt::Result {
         <span class="macro">writeln!</span>(
             f,
-            <span class="string">&quot;| {:^width$} | {:^width$} | {:^width$} |&quot;</span>,
-            <span class="string">&quot;display&quot;</span>,
-            <span class="string">&quot;expected&quot;</span>,
-            <span class="string">&quot;diff&quot;</span>,
+            <span class="string">"| {:^width$} | {:^width$} | {:^width$} |"</span>,
+            <span class="string">"display"</span>,
+            <span class="string">"expected"</span>,
+            <span class="string">"diff"</span>,
             width = <span class="self">self</span>.display.column_width
         )
     }
 
-    <span class="kw">fn </span>write_footer(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span>fmt::Formatter&lt;<span class="lifetime">&#39;_</span>&gt;) -&gt; fmt::Result {
+    <span class="kw">fn </span>write_footer(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span>fmt::Formatter&lt;<span class="lifetime">'_</span>&gt;) -&gt; fmt::Result {
         <span class="macro">write!</span>(
             f,
-            <span class="string">&quot;diff colors: {}\u{25FC}{} additional pixel&quot;</span>,
+            <span class="string">"diff colors: {}\u{25FC}{} additional pixel"</span>,
             Ansi::Foreground(<span class="prelude-val">Some</span>(Rgb888::GREEN)),
             Ansi::Foreground(<span class="prelude-val">None</span>)
         )<span class="question-mark">?</span>;
 
         <span class="macro">write!</span>(
             f,
-            <span class="string">&quot;, {}\u{25FC}{} missing pixel&quot;</span>,
+            <span class="string">", {}\u{25FC}{} missing pixel"</span>,
             Ansi::Foreground(<span class="prelude-val">Some</span>(Rgb888::RED)),
             Ansi::Foreground(<span class="prelude-val">None</span>)
         )<span class="question-mark">?</span>;
 
         <span class="macro">writeln!</span>(
             f,
-            <span class="string">&quot;, {}\u{25FC}{} wrong color&quot;</span>,
+            <span class="string">", {}\u{25FC}{} wrong color"</span>,
             Ansi::Foreground(<span class="prelude-val">Some</span>(Rgb888::BLUE)),
             Ansi::Foreground(<span class="prelude-val">None</span>)
         )
     }
 }
 
-<span class="kw">impl</span>&lt;C&gt; Display <span class="kw">for </span>FancyPanic&lt;<span class="lifetime">&#39;_</span>, C&gt;
+<span class="kw">impl</span>&lt;C&gt; Display <span class="kw">for </span>FancyPanic&lt;<span class="lifetime">'_</span>, C&gt;
 <span class="kw">where
     </span>C: PixelColor + ColorMapping,
 {
-    <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span>fmt::Formatter&lt;<span class="lifetime">&#39;_</span>&gt;) -&gt; fmt::Result {
+    <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span>fmt::Formatter&lt;<span class="lifetime">'_</span>&gt;) -&gt; fmt::Result {
         <span class="kw">let </span>diff = <span class="self">self</span>.display.display.diff(<span class="self">self</span>.expected.display);
         <span class="kw">let </span>diff = FancyDisplay::new(<span class="kw-2">&amp;</span>diff, <span class="self">self</span>.display.bounding_box, <span class="self">self</span>.display.column_width);
 
@@ -414,22 +415,22 @@
 
             <span class="comment">// Skip all odd y coordinates, because `write_row` outputs two rows of pixels.
             </span><span class="kw">for </span>y <span class="kw">in </span><span class="self">self</span>.display.bounding_box.rows().step_by(<span class="number">2</span>) {
-                f.write_str(<span class="string">&quot;| &quot;</span>)<span class="question-mark">?</span>;
+                f.write_str(<span class="string">"| "</span>)<span class="question-mark">?</span>;
                 <span class="self">self</span>.display.write_row(f, y)<span class="question-mark">?</span>;
-                f.write_str(<span class="string">&quot; | &quot;</span>)<span class="question-mark">?</span>;
+                f.write_str(<span class="string">" | "</span>)<span class="question-mark">?</span>;
                 <span class="self">self</span>.expected.write_row(f, y)<span class="question-mark">?</span>;
-                f.write_str(<span class="string">&quot; | &quot;</span>)<span class="question-mark">?</span>;
+                f.write_str(<span class="string">" | "</span>)<span class="question-mark">?</span>;
                 diff.write_row(f, y)<span class="question-mark">?</span>;
-                f.write_str(<span class="string">&quot; |\n&quot;</span>)<span class="question-mark">?</span>;
+                f.write_str(<span class="string">" |\n"</span>)<span class="question-mark">?</span>;
             }
 
             <span class="self">self</span>.write_vertical_border(f)<span class="question-mark">?</span>;
         } <span class="kw">else </span>{
             <span class="kw">let </span>width = <span class="self">self</span>.display.bounding_box.size.width <span class="kw">as </span>usize;
 
-            <span class="macro">write!</span>(f, <span class="string">&quot;display\n{:-&lt;w$}\n{}&quot;</span>, <span class="string">&quot;&quot;</span>, <span class="self">self</span>.display, w = width)<span class="question-mark">?</span>;
-            <span class="macro">write!</span>(f, <span class="string">&quot;\nexpected\n{:-&lt;w$}\n{}&quot;</span>, <span class="string">&quot;&quot;</span>, <span class="self">self</span>.expected, w = width)<span class="question-mark">?</span>;
-            <span class="macro">write!</span>(f, <span class="string">&quot;\ndiff\n{:-&lt;width$}\n{}&quot;</span>, <span class="string">&quot;&quot;</span>, diff, width = width)<span class="question-mark">?</span>;
+            <span class="macro">write!</span>(f, <span class="string">"display\n{:-&lt;w$}\n{}"</span>, <span class="string">""</span>, <span class="self">self</span>.display, w = width)<span class="question-mark">?</span>;
+            <span class="macro">write!</span>(f, <span class="string">"\nexpected\n{:-&lt;w$}\n{}"</span>, <span class="string">""</span>, <span class="self">self</span>.expected, w = width)<span class="question-mark">?</span>;
+            <span class="macro">write!</span>(f, <span class="string">"\ndiff\n{:-&lt;width$}\n{}"</span>, <span class="string">""</span>, diff, width = width)<span class="question-mark">?</span>;
         }
         <span class="self">self</span>.write_footer(f)<span class="question-mark">?</span>;
 
@@ -437,21 +438,21 @@
     }
 }
 
-<span class="kw">struct </span>FancyDisplay&lt;<span class="lifetime">&#39;a</span>, C&gt;
+<span class="kw">struct </span>FancyDisplay&lt;<span class="lifetime">'a</span>, C&gt;
 <span class="kw">where
     </span>C: PixelColor + ColorMapping,
 {
-    display: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>MockDisplay&lt;C&gt;,
+    display: <span class="kw-2">&amp;</span><span class="lifetime">'a </span>MockDisplay&lt;C&gt;,
     bounding_box: Rectangle,
     column_width: usize,
 }
 
-<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>, C&gt; FancyDisplay&lt;<span class="lifetime">&#39;a</span>, C&gt;
+<span class="kw">impl</span>&lt;<span class="lifetime">'a</span>, C&gt; FancyDisplay&lt;<span class="lifetime">'a</span>, C&gt;
 <span class="kw">where
     </span>C: PixelColor + ColorMapping,
 {
     <span class="kw">const fn </span>new(
-        display: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>MockDisplay&lt;C&gt;,
+        display: <span class="kw-2">&amp;</span><span class="lifetime">'a </span>MockDisplay&lt;C&gt;,
         bounding_box: Rectangle,
         column_width: usize,
     ) -&gt; <span class="self">Self </span>{
@@ -462,7 +463,7 @@
         }
     }
 
-    <span class="kw">fn </span>write_row(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span>fmt::Formatter&lt;<span class="lifetime">&#39;_</span>&gt;, y: i32) -&gt; fmt::Result {
+    <span class="kw">fn </span>write_row(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span>fmt::Formatter&lt;<span class="lifetime">'_</span>&gt;, y: i32) -&gt; fmt::Result {
         <span class="kw">for </span>x <span class="kw">in </span><span class="self">self</span>.bounding_box.columns() {
             <span class="kw">let </span>point_top = Point::new(x, y);
             <span class="kw">let </span>point_bottom = Point::new(x, y + <span class="number">1</span>);
@@ -485,10 +486,10 @@
                 <span class="prelude-val">None
             </span>};
 
-            <span class="comment">// Write &quot;upper half block&quot; character.
+            <span class="comment">// Write "upper half block" character.
             </span><span class="macro">write!</span>(
                 f,
-                <span class="string">&quot;{}{}\u{2580}&quot;</span>,
+                <span class="string">"{}{}\u{2580}"</span>,
                 Ansi::Foreground(foreground),
                 Ansi::Background(background)
             )<span class="question-mark">?</span>;
@@ -499,22 +500,22 @@
 
         <span class="comment">// Pad output with spaces if column width is larger than the width of the bounding box.
         </span><span class="kw">for _ in </span><span class="self">self</span>.bounding_box.size.width <span class="kw">as </span>usize..<span class="self">self</span>.column_width {
-            f.write_char(<span class="string">&#39; &#39;</span>)<span class="question-mark">?
+            f.write_char(<span class="string">' '</span>)<span class="question-mark">?
         </span>}
 
         <span class="prelude-val">Ok</span>(())
     }
 }
 
-<span class="kw">impl</span>&lt;C&gt; Display <span class="kw">for </span>FancyDisplay&lt;<span class="lifetime">&#39;_</span>, C&gt;
+<span class="kw">impl</span>&lt;C&gt; Display <span class="kw">for </span>FancyDisplay&lt;<span class="lifetime">'_</span>, C&gt;
 <span class="kw">where
     </span>C: PixelColor + ColorMapping,
 {
-    <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span>fmt::Formatter&lt;<span class="lifetime">&#39;_</span>&gt;) -&gt; fmt::Result {
+    <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span>fmt::Formatter&lt;<span class="lifetime">'_</span>&gt;) -&gt; fmt::Result {
         <span class="comment">// Skip all odd y coordinates, because `write_row` outputs two rows of pixels.
         </span><span class="kw">for </span>y <span class="kw">in </span><span class="self">self</span>.bounding_box.rows().step_by(<span class="number">2</span>) {
             <span class="self">self</span>.write_row(f, y)<span class="question-mark">?</span>;
-            f.write_char(<span class="string">&#39;\n&#39;</span>)<span class="question-mark">?
+            f.write_char(<span class="string">'\n'</span>)<span class="question-mark">?
         </span>}
 
         <span class="prelude-val">Ok</span>(())
@@ -528,17 +529,17 @@
 }
 
 <span class="kw">impl </span>Display <span class="kw">for </span>Ansi {
-    <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span>fmt::Formatter&lt;<span class="lifetime">&#39;_</span>&gt;) -&gt; fmt::Result {
+    <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span>fmt::Formatter&lt;<span class="lifetime">'_</span>&gt;) -&gt; fmt::Result {
         <span class="kw">match </span><span class="self">self </span>{
             <span class="self">Self</span>::Foreground(<span class="prelude-val">Some</span>(color)) =&gt; {
-                <span class="macro">write!</span>(f, <span class="string">&quot;\x1b[38;2;{};{};{}m&quot;</span>, color.r(), color.g(), color.b())
+                <span class="macro">write!</span>(f, <span class="string">"\x1b[38;2;{};{};{}m"</span>, color.r(), color.g(), color.b())
             }
-            <span class="self">Self</span>::Foreground(<span class="prelude-val">None</span>) =&gt; <span class="macro">write!</span>(f, <span class="string">&quot;\x1b[39m&quot;</span>),
+            <span class="self">Self</span>::Foreground(<span class="prelude-val">None</span>) =&gt; <span class="macro">write!</span>(f, <span class="string">"\x1b[39m"</span>),
             <span class="self">Self</span>::Background(<span class="prelude-val">Some</span>(color)) =&gt; {
-                <span class="macro">write!</span>(f, <span class="string">&quot;\x1b[48;2;{};{};{}m&quot;</span>, color.r(), color.g(), color.b())
+                <span class="macro">write!</span>(f, <span class="string">"\x1b[48;2;{};{};{}m"</span>, color.r(), color.g(), color.b())
             }
-            <span class="self">Self</span>::Background(<span class="prelude-val">None</span>) =&gt; <span class="macro">write!</span>(f, <span class="string">&quot;\x1b[49m&quot;</span>),
-            <span class="self">Self</span>::Reset =&gt; <span class="macro">write!</span>(f, <span class="string">&quot;\x1b[0m&quot;</span>),
+            <span class="self">Self</span>::Background(<span class="prelude-val">None</span>) =&gt; <span class="macro">write!</span>(f, <span class="string">"\x1b[49m"</span>),
+            <span class="self">Self</span>::Reset =&gt; <span class="macro">write!</span>(f, <span class="string">"\x1b[0m"</span>),
         }
     }
 }
@@ -551,58 +552,58 @@
     <span class="attr">#[test]
     </span><span class="kw">fn </span>fancy_panic_columns() {
         <span class="kw">let </span>display = MockDisplay::&lt;BinaryColor&gt;::from_pattern(<span class="kw-2">&amp;</span>[
-            <span class="string">&quot;   &quot;</span>, <span class="comment">//
-            </span><span class="string">&quot;.##&quot;</span>, <span class="comment">//
+            <span class="string">"   "</span>, <span class="comment">//
+            </span><span class="string">".##"</span>, <span class="comment">//
         </span>]);
 
         <span class="kw">let </span>expected = MockDisplay::&lt;BinaryColor&gt;::from_pattern(<span class="kw-2">&amp;</span>[
-            <span class="string">&quot;.# &quot;</span>, <span class="comment">//
-            </span><span class="string">&quot;  #&quot;</span>, <span class="comment">//
+            <span class="string">".# "</span>, <span class="comment">//
+            </span><span class="string">"  #"</span>, <span class="comment">//
         </span>]);
 
         <span class="kw">let </span><span class="kw-2">mut </span>out = arrayvec::ArrayString::&lt;<span class="number">1024</span>&gt;::new();
-        <span class="macro">write!</span>(<span class="kw-2">&amp;mut </span>out, <span class="string">&quot;{}&quot;</span>, FancyPanic::new(<span class="kw-2">&amp;</span>display, <span class="kw-2">&amp;</span>expected, <span class="number">30</span>)).unwrap();
+        <span class="macro">write!</span>(<span class="kw-2">&amp;mut </span>out, <span class="string">"{}"</span>, FancyPanic::new(<span class="kw-2">&amp;</span>display, <span class="kw-2">&amp;</span>expected, <span class="number">30</span>)).unwrap();
 
         <span class="macro">assert_eq!</span>(<span class="kw-2">&amp;</span>out, <span class="macro">concat!</span>(
-            <span class="string">&quot;+------------+------------+------------+\n&quot;</span>,
-            <span class="string">&quot;|  display   |  expected  |    diff    |\n&quot;</span>,
-            <span class="string">&quot;+------------+------------+------------+\n&quot;</span>,
-            <span class="string">&quot;| \x1b[38;2;128;128;128m\x1b[48;2;0;0;0m▀\x1b[38;2;128;128;128m\x1b[48;2;255;255;255m▀\x1b[38;2;128;128;128m\x1b[48;2;255;255;255m▀\x1b[0m        &quot;</span>,
-            <span class="string">&quot;| \x1b[38;2;0;0;0m\x1b[48;2;128;128;128m▀\x1b[38;2;255;255;255m\x1b[48;2;128;128;128m▀\x1b[38;2;128;128;128m\x1b[48;2;255;255;255m▀\x1b[0m        &quot;</span>,
-            <span class="string">&quot;| \x1b[38;2;255;0;0m\x1b[48;2;0;255;0m▀\x1b[38;2;255;0;0m\x1b[48;2;0;255;0m▀\x1b[38;2;128;128;128m\x1b[48;2;128;128;128m▀\x1b[0m        |\n&quot;</span>,
-            <span class="string">&quot;+------------+------------+------------+\n&quot;</span>,
-            <span class="string">&quot;diff colors: \x1b[38;2;0;255;0m◼\x1b[39m additional pixel, \x1b[38;2;255;0;0m◼\x1b[39m missing pixel, \x1b[38;2;0;0;255m◼\x1b[39m wrong color\n&quot;</span>,
+            <span class="string">"+------------+------------+------------+\n"</span>,
+            <span class="string">"|  display   |  expected  |    diff    |\n"</span>,
+            <span class="string">"+------------+------------+------------+\n"</span>,
+            <span class="string">"| \x1b[38;2;128;128;128m\x1b[48;2;0;0;0m▀\x1b[38;2;128;128;128m\x1b[48;2;255;255;255m▀\x1b[38;2;128;128;128m\x1b[48;2;255;255;255m▀\x1b[0m        "</span>,
+            <span class="string">"| \x1b[38;2;0;0;0m\x1b[48;2;128;128;128m▀\x1b[38;2;255;255;255m\x1b[48;2;128;128;128m▀\x1b[38;2;128;128;128m\x1b[48;2;255;255;255m▀\x1b[0m        "</span>,
+            <span class="string">"| \x1b[38;2;255;0;0m\x1b[48;2;0;255;0m▀\x1b[38;2;255;0;0m\x1b[48;2;0;255;0m▀\x1b[38;2;128;128;128m\x1b[48;2;128;128;128m▀\x1b[0m        |\n"</span>,
+            <span class="string">"+------------+------------+------------+\n"</span>,
+            <span class="string">"diff colors: \x1b[38;2;0;255;0m◼\x1b[39m additional pixel, \x1b[38;2;255;0;0m◼\x1b[39m missing pixel, \x1b[38;2;0;0;255m◼\x1b[39m wrong color\n"</span>,
         ));
     }
 
     <span class="attr">#[test]
     </span><span class="kw">fn </span>fancy_panic_no_columns() {
         <span class="kw">let </span>display = MockDisplay::&lt;BinaryColor&gt;::from_pattern(<span class="kw-2">&amp;</span>[
-            <span class="string">&quot;   &quot;</span>, <span class="comment">//
-            </span><span class="string">&quot;.##&quot;</span>, <span class="comment">//
+            <span class="string">"   "</span>, <span class="comment">//
+            </span><span class="string">".##"</span>, <span class="comment">//
         </span>]);
 
         <span class="kw">let </span>expected = MockDisplay::&lt;BinaryColor&gt;::from_pattern(<span class="kw-2">&amp;</span>[
-            <span class="string">&quot;.# &quot;</span>, <span class="comment">//
-            </span><span class="string">&quot;  #&quot;</span>, <span class="comment">//
+            <span class="string">".# "</span>, <span class="comment">//
+            </span><span class="string">"  #"</span>, <span class="comment">//
         </span>]);
 
         <span class="kw">let </span><span class="kw-2">mut </span>out = arrayvec::ArrayString::&lt;<span class="number">1024</span>&gt;::new();
-        <span class="macro">write!</span>(<span class="kw-2">&amp;mut </span>out, <span class="string">&quot;{}&quot;</span>, FancyPanic::new(<span class="kw-2">&amp;</span>display, <span class="kw-2">&amp;</span>expected, <span class="number">0</span>)).unwrap();
+        <span class="macro">write!</span>(<span class="kw-2">&amp;mut </span>out, <span class="string">"{}"</span>, FancyPanic::new(<span class="kw-2">&amp;</span>display, <span class="kw-2">&amp;</span>expected, <span class="number">0</span>)).unwrap();
 
         <span class="macro">assert_eq!</span>(<span class="kw-2">&amp;</span>out, <span class="macro">concat!</span>(
-            <span class="string">&quot;display\n&quot;</span>,
-            <span class="string">&quot;---\n&quot;</span>,
-            <span class="string">&quot;\x1b[38;2;128;128;128m\x1b[48;2;0;0;0m▀\x1b[38;2;128;128;128m\x1b[48;2;255;255;255m▀\x1b[38;2;128;128;128m\x1b[48;2;255;255;255m▀\x1b[0m\n&quot;</span>,
-            <span class="string">&quot;\n&quot;</span>,
-            <span class="string">&quot;expected\n&quot;</span>,
-            <span class="string">&quot;---\n&quot;</span>,
-            <span class="string">&quot;\x1b[38;2;0;0;0m\x1b[48;2;128;128;128m▀\x1b[38;2;255;255;255m\x1b[48;2;128;128;128m▀\x1b[38;2;128;128;128m\x1b[48;2;255;255;255m▀\x1b[0m\n&quot;</span>,
-            <span class="string">&quot;\n&quot;</span>,
-            <span class="string">&quot;diff\n&quot;</span>,
-            <span class="string">&quot;---\n&quot;</span>,
-            <span class="string">&quot;\x1b[38;2;255;0;0m\x1b[48;2;0;255;0m▀\x1b[38;2;255;0;0m\x1b[48;2;0;255;0m▀\x1b[38;2;128;128;128m\x1b[48;2;128;128;128m▀\x1b[0m\n&quot;</span>,
-            <span class="string">&quot;diff colors: \x1b[38;2;0;255;0m◼\x1b[39m additional pixel, \x1b[38;2;255;0;0m◼\x1b[39m missing pixel, \x1b[38;2;0;0;255m◼\x1b[39m wrong color\n&quot;</span>,
+            <span class="string">"display\n"</span>,
+            <span class="string">"---\n"</span>,
+            <span class="string">"\x1b[38;2;128;128;128m\x1b[48;2;0;0;0m▀\x1b[38;2;128;128;128m\x1b[48;2;255;255;255m▀\x1b[38;2;128;128;128m\x1b[48;2;255;255;255m▀\x1b[0m\n"</span>,
+            <span class="string">"\n"</span>,
+            <span class="string">"expected\n"</span>,
+            <span class="string">"---\n"</span>,
+            <span class="string">"\x1b[38;2;0;0;0m\x1b[48;2;128;128;128m▀\x1b[38;2;255;255;255m\x1b[48;2;128;128;128m▀\x1b[38;2;128;128;128m\x1b[48;2;255;255;255m▀\x1b[0m\n"</span>,
+            <span class="string">"\n"</span>,
+            <span class="string">"diff\n"</span>,
+            <span class="string">"---\n"</span>,
+            <span class="string">"\x1b[38;2;255;0;0m\x1b[48;2;0;255;0m▀\x1b[38;2;255;0;0m\x1b[48;2;0;255;0m▀\x1b[38;2;128;128;128m\x1b[48;2;128;128;128m▀\x1b[0m\n"</span>,
+            <span class="string">"diff colors: \x1b[38;2;0;255;0m◼\x1b[39m additional pixel, \x1b[38;2;255;0;0m◼\x1b[39m missing pixel, \x1b[38;2;0;0;255m◼\x1b[39m wrong color\n"</span>,
         ));
     }
 }

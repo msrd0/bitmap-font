@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/lib.rs`."><title>lib.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="bitmap_font" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/lib.rs`."><title>lib.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="bitmap_font" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -328,7 +329,7 @@
 #![warn(rust_2018_idioms, unreachable_pub)]
 #![forbid(unsafe_code)]
 
-</span><span class="doccomment">//! This crate provides bitmap fonts for the [`embedded-graphics`] crate. Those don&#39;t only look
+</span><span class="doccomment">//! This crate provides bitmap fonts for the [`embedded-graphics`] crate. Those don't only look
 //! better than the [built-in fonts](embedded_graphics::mono_font) by using the good-looking
 //! [Tamzen font](https://github.com/sunaku/tamzen-font) over a font that renders `.` like a `+`,
 //! but also allow scaling fonts by pixel-doubling them, giving you two font sizes for the flash
@@ -356,9 +357,9 @@
 //! # fn main() -&gt; Result&lt;(), Infallible&gt; {
 //! # let mut display = Display;
 //!
-//! // Draw text &#39;Hello World!&#39; with the top left corner being the origin
+//! // Draw text 'Hello World!' with the top left corner being the origin
 //! let text = Text::new(
-//! 	&quot;Hello World!&quot;,
+//! 	"Hello World!",
 //! 	Point::zero(),
 //! 	TextStyle::new(&amp;FONT_8x15, BinaryColor::On)
 //! );
@@ -388,12 +389,12 @@
 
 <span class="doccomment">/// Stores the font bitmap and some additional info for each font.
 </span><span class="attr">#[derive(Clone, Copy)]
-</span><span class="kw">pub struct </span>BitmapFont&lt;<span class="lifetime">&#39;a</span>&gt; {
+</span><span class="kw">pub struct </span>BitmapFont&lt;<span class="lifetime">'a</span>&gt; {
 	<span class="doccomment">/// The raw bitmap data for the font.
-	</span>bitmap: ImageRaw&lt;<span class="lifetime">&#39;a</span>, BinaryColor&gt;,
+	</span>bitmap: ImageRaw&lt;<span class="lifetime">'a</span>, BinaryColor&gt;,
 
 	<span class="doccomment">/// The char to glyph mapping.
-	</span>glyph_mapping: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span><span class="kw">dyn </span>GlyphMapping,
+	</span>glyph_mapping: <span class="kw-2">&amp;</span><span class="lifetime">'a </span><span class="kw">dyn </span>GlyphMapping,
 
 	<span class="doccomment">/// The size of each character in the raw bitmap data.
 	</span>size: Size,
@@ -403,7 +404,7 @@
 	</span>pixels: NonZeroU8
 }
 
-<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>&gt; BitmapFont&lt;<span class="lifetime">&#39;a</span>&gt; {
+<span class="kw">impl</span>&lt;<span class="lifetime">'a</span>&gt; BitmapFont&lt;<span class="lifetime">'a</span>&gt; {
 	<span class="doccomment">/// Return the width of each character.
 	</span><span class="kw">pub const fn </span>width(<span class="self">self</span>) -&gt; u32 {
 		<span class="self">self</span>.size.width * <span class="self">self</span>.pixels.get() <span class="kw">as </span>u32
@@ -453,18 +454,18 @@
 <span class="doccomment">/// The equivalent of [`MonoTextStyle`][embedded_graphics::mono_font::MonoTextStyle] for [`BitmapFont`].
 </span><span class="attr">#[derive(Clone, Copy)]
 #[non_exhaustive]
-</span><span class="kw">pub struct </span>TextStyle&lt;<span class="lifetime">&#39;a</span>&gt; {
-	<span class="kw">pub </span>font: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>BitmapFont&lt;<span class="lifetime">&#39;a</span>&gt;,
+</span><span class="kw">pub struct </span>TextStyle&lt;<span class="lifetime">'a</span>&gt; {
+	<span class="kw">pub </span>font: <span class="kw-2">&amp;</span><span class="lifetime">'a </span>BitmapFont&lt;<span class="lifetime">'a</span>&gt;,
 	<span class="kw">pub </span>color: BinaryColor
 }
 
-<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>&gt; TextStyle&lt;<span class="lifetime">&#39;a</span>&gt; {
-	<span class="kw">pub fn </span>new(font: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>BitmapFont&lt;<span class="lifetime">&#39;a</span>&gt;, color: BinaryColor) -&gt; <span class="self">Self </span>{
+<span class="kw">impl</span>&lt;<span class="lifetime">'a</span>&gt; TextStyle&lt;<span class="lifetime">'a</span>&gt; {
+	<span class="kw">pub fn </span>new(font: <span class="kw-2">&amp;</span><span class="lifetime">'a </span>BitmapFont&lt;<span class="lifetime">'a</span>&gt;, color: BinaryColor) -&gt; <span class="self">Self </span>{
 		<span class="self">Self </span>{ font, color }
 	}
 }
 
-<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>&gt; TextRenderer <span class="kw">for </span>TextStyle&lt;<span class="lifetime">&#39;a</span>&gt; {
+<span class="kw">impl</span>&lt;<span class="lifetime">'a</span>&gt; TextRenderer <span class="kw">for </span>TextStyle&lt;<span class="lifetime">'a</span>&gt; {
 	<span class="kw">type </span>Color = BinaryColor;
 
 	<span class="kw">fn </span>draw_string&lt;D&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, text: <span class="kw-2">&amp;</span>str, <span class="kw-2">mut </span>pos: Point, <span class="kw">_</span>: Baseline, target: <span class="kw-2">&amp;mut </span>D) -&gt; <span class="prelude-ty">Result</span>&lt;Point, D::Error&gt;
@@ -483,7 +484,7 @@
 	<span class="kw">where
 		</span>D: DrawTarget&lt;Color = <span class="self">Self</span>::Color&gt;
 	{
-		<span class="comment">// we don&#39;t draw background nor text decorations
+		<span class="comment">// we don't draw background nor text decorations
 		</span><span class="prelude-val">Ok</span>(pos + Size::new(width * <span class="self">self</span>.font.width(), <span class="number">0</span>))
 	}
 
@@ -503,18 +504,18 @@
 <span class="doccomment">/// A pixel-doubling draw target. This works by intercepting all drawing operations, and doubling
 /// all pixels from the point of the origin. **This means you need to carefully select your
 /// origin!** All drawing operations, after being pixel-doubled (i.e. multiplied by the amount
-/// of pixels specified), will be offseted to map your custom origin to the `target`&#39;s origin.
+/// of pixels specified), will be offseted to map your custom origin to the `target`'s origin.
 ///
 /// Also, this target draws `color` for all pixels that are on, and nothing for all pixels
 /// that are off.
-</span><span class="kw">struct </span>PixelDoublingDrawTarget&lt;<span class="lifetime">&#39;a</span>, D: DrawTarget&lt;Color = BinaryColor&gt;&gt; {
-	target: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span><span class="kw-2">mut </span>D,
+</span><span class="kw">struct </span>PixelDoublingDrawTarget&lt;<span class="lifetime">'a</span>, D: DrawTarget&lt;Color = BinaryColor&gt;&gt; {
+	target: <span class="kw-2">&amp;</span><span class="lifetime">'a </span><span class="kw-2">mut </span>D,
 	color: BinaryColor,
 	offset: Point,
 	pixels: NonZeroU8
 }
 
-<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>, D&gt; Dimensions <span class="kw">for </span>PixelDoublingDrawTarget&lt;<span class="lifetime">&#39;a</span>, D&gt;
+<span class="kw">impl</span>&lt;<span class="lifetime">'a</span>, D&gt; Dimensions <span class="kw">for </span>PixelDoublingDrawTarget&lt;<span class="lifetime">'a</span>, D&gt;
 <span class="kw">where
 	</span>D: DrawTarget&lt;Color = BinaryColor&gt;
 {
@@ -527,7 +528,7 @@
 	}
 }
 
-<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>, D&gt; DrawTarget <span class="kw">for </span>PixelDoublingDrawTarget&lt;<span class="lifetime">&#39;a</span>, D&gt;
+<span class="kw">impl</span>&lt;<span class="lifetime">'a</span>, D&gt; DrawTarget <span class="kw">for </span>PixelDoublingDrawTarget&lt;<span class="lifetime">'a</span>, D&gt;
 <span class="kw">where
 	</span>D: DrawTarget&lt;Color = BinaryColor&gt;
 {

@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/embedded-graphics-0.8.1/src/mock_display/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="embedded_graphics" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../embedded_graphics/index.html"><img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="embedded_graphics"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/embedded-graphics-0.8.1/src/mock_display/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="embedded_graphics" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><a class="sub-logo-container" href="../../../embedded_graphics/index.html"><img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="embedded_graphics"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -817,7 +818,7 @@
 //! # Assertions
 //!
 //! [`MockDisplay`] provides the [`assert_eq`] and [`assert_pattern`] methods to check if the
-//! display is in the correct state after some drawing operations were executed. It&#39;s recommended
+//! display is in the correct state after some drawing operations were executed. It's recommended
 //! to use these methods instead of the standard `assert_eq!` macro, because they provide an
 //! optional improved debug output for failing tests. If the `EG_FANCY_PANIC` environment variable
 //! is set to `1` at compile time a graphic representation of the display content and a diff of the
@@ -828,7 +829,7 @@
 //! ```
 //!
 //! Enabling the advanced test output requires a terminal that supports 24 BPP colors and a font
-//! that includes the upper half block character `&#39;\u{2580}&#39;`.
+//! that includes the upper half block character `'\u{2580}'`.
 //!
 //! The color code used to show the difference between the display and the expected output is shown
 //! in the documentation of the [`diff`] method.
@@ -837,7 +838,7 @@
 //!
 //! [`MockDisplay`] implements additional checks during drawing operations that will cause a panic if
 //! any pixel is drawn outside the framebuffer or if a pixel is drawn more than once. These
-//! stricter checks were added to help with testing and shouldn&#39;t be implemented by normal
+//! stricter checks were added to help with testing and shouldn't be implemented by normal
 //! [`DrawTarget`]s.
 //!
 //! If a test relies on out of bounds drawing or overdrawing the additional checks can explicitly
@@ -849,9 +850,9 @@
 //!
 //! | Character | Color                    | Description                             |
 //! |-----------|--------------------------|-----------------------------------------|
-//! | `&#39; &#39;`     | `None`                   | No drawing operation changed the pixel  |
-//! | `&#39;.&#39;`     | `Some(BinaryColor::Off)` | Pixel was changed to `BinaryColor::Off` |
-//! | `&#39;#&#39;`     | `Some(BinaryColor::On)`  | Pixel was changed to `BinaryColor::On`  |
+//! | `' '`     | `None`                   | No drawing operation changed the pixel  |
+//! | `'.'`     | `Some(BinaryColor::Off)` | Pixel was changed to `BinaryColor::Off` |
+//! | `'#'`     | `Some(BinaryColor::On)`  | Pixel was changed to `BinaryColor::On`  |
 //!
 //! # Characters used in [`Gray2`] patterns
 //!
@@ -859,11 +860,11 @@
 //!
 //! | Character | Color                    | Description                             |
 //! |-----------|--------------------------|-----------------------------------------|
-//! | `&#39; &#39;`     | `None`                   | No drawing operation changed the pixel  |
-//! | `&#39;0&#39;`     | `Some(Gray2::new(0x0))`  | Pixel was changed to `Gray2::new(0x0)`  |
-//! | `&#39;1&#39;`     | `Some(Gray2::new(0x1))`  | Pixel was changed to `Gray2::new(0x1)`  |
-//! | `&#39;2&#39;`     | `Some(Gray2::new(0x2))`  | Pixel was changed to `Gray2::new(0x2)`  |
-//! | `&#39;3&#39;`     | `Some(Gray2::new(0x3))`  | Pixel was changed to `Gray2::new(0x3)`  |
+//! | `' '`     | `None`                   | No drawing operation changed the pixel  |
+//! | `'0'`     | `Some(Gray2::new(0x0))`  | Pixel was changed to `Gray2::new(0x0)`  |
+//! | `'1'`     | `Some(Gray2::new(0x1))`  | Pixel was changed to `Gray2::new(0x1)`  |
+//! | `'2'`     | `Some(Gray2::new(0x2))`  | Pixel was changed to `Gray2::new(0x2)`  |
+//! | `'3'`     | `Some(Gray2::new(0x3))`  | Pixel was changed to `Gray2::new(0x3)`  |
 //!
 //! # Characters used in [`Gray4`] patterns
 //!
@@ -871,12 +872,12 @@
 //!
 //! | Character | Color                    | Description                             |
 //! |-----------|--------------------------|-----------------------------------------|
-//! | `&#39; &#39;`     | `None`                   | No drawing operation changed the pixel  |
-//! | `&#39;0&#39;`     | `Some(Gray4::new(0x0))`  | Pixel was changed to `Gray4::new(0x0)`  |
-//! | `&#39;1&#39;`     | `Some(Gray4::new(0x1))`  | Pixel was changed to `Gray4::new(0x1)`  |
+//! | `' '`     | `None`                   | No drawing operation changed the pixel  |
+//! | `'0'`     | `Some(Gray4::new(0x0))`  | Pixel was changed to `Gray4::new(0x0)`  |
+//! | `'1'`     | `Some(Gray4::new(0x1))`  | Pixel was changed to `Gray4::new(0x1)`  |
 //! | ⋮         | ⋮                        | ⋮                                      |
-//! | `&#39;E&#39;`     | `Some(Gray4::new(0xE))`  | Pixel was changed to `Gray4::new(0xE)`  |
-//! | `&#39;F&#39;`     | `Some(Gray4::new(0xF))`  | Pixel was changed to `Gray4::new(0xF)`  |
+//! | `'E'`     | `Some(Gray4::new(0xE))`  | Pixel was changed to `Gray4::new(0xE)`  |
+//! | `'F'`     | `Some(Gray4::new(0xF))`  | Pixel was changed to `Gray4::new(0xF)`  |
 //!
 //! # Characters used in [`Gray8`] patterns
 //!
@@ -884,12 +885,12 @@
 //!
 //! | Character | Color                    | Description                             |
 //! |-----------|--------------------------|-----------------------------------------|
-//! | `&#39; &#39;`     | `None`                   | No drawing operation changed the pixel  |
-//! | `&#39;0&#39;`     | `Some(Gray8::new(0x00))` | Pixel was changed to `Gray8::new(0x00)` |
-//! | `&#39;1&#39;`     | `Some(Gray8::new(0x11))` | Pixel was changed to `Gray8::new(0x11)` |
+//! | `' '`     | `None`                   | No drawing operation changed the pixel  |
+//! | `'0'`     | `Some(Gray8::new(0x00))` | Pixel was changed to `Gray8::new(0x00)` |
+//! | `'1'`     | `Some(Gray8::new(0x11))` | Pixel was changed to `Gray8::new(0x11)` |
 //! | ⋮         | ⋮                        | ⋮                                      |
-//! | `&#39;E&#39;`     | `Some(Gray8::new(0xEE))` | Pixel was changed to `Gray8::new(0xEE)` |
-//! | `&#39;F&#39;`     | `Some(Gray8::new(0xFF))` | Pixel was changed to `Gray8::new(0xFF)` |
+//! | `'E'`     | `Some(Gray8::new(0xEE))` | Pixel was changed to `Gray8::new(0xEE)` |
+//! | `'F'`     | `Some(Gray8::new(0xFF))` | Pixel was changed to `Gray8::new(0xFF)` |
 //!
 //! Note: `Gray8` uses a different mapping than `Gray2` and `Gray4`, by duplicating the pattern
 //! value into the high and low nibble. This allows using a single digit to test luma values ranging
@@ -902,15 +903,15 @@
 //!
 //! | Character | Color                    | Description                             |
 //! |-----------|--------------------------|-----------------------------------------|
-//! | `&#39; &#39;`     | `None`                   | No drawing operation changed the pixel  |
-//! | `&#39;K&#39;`     | `Some(C::BLACK)`         | Pixel was changed to `C::BLACK`         |
-//! | `&#39;R&#39;`     | `Some(C::RED)`           | Pixel was changed to `C::RED`           |
-//! | `&#39;G&#39;`     | `Some(C::GREEN)`         | Pixel was changed to `C::GREEN`         |
-//! | `&#39;B&#39;`     | `Some(C::BLUE)`          | Pixel was changed to `C::BLUE`          |
-//! | `&#39;Y&#39;`     | `Some(C::YELLOW)`        | Pixel was changed to `C::YELLOW`        |
-//! | `&#39;M&#39;`     | `Some(C::MAGENTA)`       | Pixel was changed to `C::MAGENTA`       |
-//! | `&#39;C&#39;`     | `Some(C::CYAN)`          | Pixel was changed to `C::CYAN`          |
-//! | `&#39;W&#39;`     | `Some(C::WHITE)`         | Pixel was changed to `C::WHITE`         |
+//! | `' '`     | `None`                   | No drawing operation changed the pixel  |
+//! | `'K'`     | `Some(C::BLACK)`         | Pixel was changed to `C::BLACK`         |
+//! | `'R'`     | `Some(C::RED)`           | Pixel was changed to `C::RED`           |
+//! | `'G'`     | `Some(C::GREEN)`         | Pixel was changed to `C::GREEN`         |
+//! | `'B'`     | `Some(C::BLUE)`          | Pixel was changed to `C::BLUE`          |
+//! | `'Y'`     | `Some(C::YELLOW)`        | Pixel was changed to `C::YELLOW`        |
+//! | `'M'`     | `Some(C::MAGENTA)`       | Pixel was changed to `C::MAGENTA`       |
+//! | `'C'`     | `Some(C::CYAN)`          | Pixel was changed to `C::CYAN`          |
+//! | `'W'`     | `Some(C::WHITE)`         | Pixel was changed to `C::WHITE`         |
 //!
 //! Note: The table used `C` as a placeholder for the actual color type, like `Rgb565::BLACK`.
 //!
@@ -918,7 +919,7 @@
 //!
 //! ## Assert that a modified display matches the expected value
 //!
-//! This example sets three pixels on the display and checks that they&#39;re turned on.
+//! This example sets three pixels on the display and checks that they're turned on.
 //!
 //! ```rust
 //! use embedded_graphics::{mock_display::MockDisplay, pixelcolor::BinaryColor, prelude::*};
@@ -930,9 +931,9 @@
 //! Pixel(Point::new(1, 2), BinaryColor::On).draw(&amp;mut display);
 //!
 //! display.assert_pattern(&amp;[
-//!     &quot;#  &quot;, //
-//!     &quot;  #&quot;, //
-//!     &quot; # &quot;, //
+//!     "#  ", //
+//!     "  #", //
+//!     " # ", //
 //! ]);
 //! ```
 //!
@@ -965,8 +966,8 @@
 //! image.draw(&amp;mut display);
 //!
 //! display.assert_pattern(&amp;[
-//!     &quot;KRGY&quot;, //
-//!     &quot;BCMW&quot;, //
+//!     "KRGY", //
+//!     "BCMW", //
 //! ]);
 //! ```
 //!
@@ -1047,10 +1048,10 @@
     /// let mut display = MockDisplay::from_points(circle.points(), BinaryColor::On);
     ///
     /// display.assert_pattern(&amp;[
-    ///     &quot; ## &quot;,
-    ///     &quot;####&quot;,
-    ///     &quot;####&quot;,
-    ///     &quot; ## &quot;,
+    ///     " ## ",
+    ///     "####",
+    ///     "####",
+    ///     " ## ",
     /// ]);
     /// ```
     ///
@@ -1097,7 +1098,7 @@
     </span><span class="kw">pub fn </span>set_pixel(<span class="kw-2">&amp;mut </span><span class="self">self</span>, point: Point, color: <span class="prelude-ty">Option</span>&lt;C&gt;) {
         <span class="macro">assert!</span>(
             point.x &gt;= <span class="number">0 </span>&amp;&amp; point.y &gt;= <span class="number">0 </span>&amp;&amp; point.x &lt; SIZE <span class="kw">as </span>i32 &amp;&amp; point.y &lt; SIZE <span class="kw">as </span>i32,
-            <span class="string">&quot;point must be inside display bounding box: {:?}&quot;</span>,
+            <span class="string">"point must be inside display bounding box: {:?}"</span>,
             point
         );
 
@@ -1175,7 +1176,7 @@
         <span class="kw">if </span>!DISPLAY_AREA.contains(point) {
             <span class="kw">if </span>!<span class="self">self</span>.allow_out_of_bounds_drawing {
                 <span class="macro">panic!</span>(
-                    <span class="string">&quot;tried to draw pixel outside the display area (x: {}, y: {})&quot;</span>,
+                    <span class="string">"tried to draw pixel outside the display area (x: {}, y: {})"</span>,
                     point.x, point.y
                 );
             } <span class="kw">else </span>{
@@ -1184,7 +1185,7 @@
         }
 
         <span class="kw">if </span>!<span class="self">self</span>.allow_overdraw &amp;&amp; <span class="self">self</span>.get_pixel(point).is_some() {
-            <span class="macro">panic!</span>(<span class="string">&quot;tried to draw pixel twice (x: {}, y: {})&quot;</span>, point.x, point.y);
+            <span class="macro">panic!</span>(<span class="string">"tried to draw pixel twice (x: {}, y: {})"</span>, point.x, point.y);
         }
 
         <span class="self">self</span>.set_pixel_unchecked(point, <span class="prelude-val">Some</span>(color));
@@ -1198,24 +1199,24 @@
     /// use embedded_graphics::{mock_display::MockDisplay, pixelcolor::BinaryColor};
     ///
     /// let display: MockDisplay&lt;BinaryColor&gt; = MockDisplay::from_pattern(&amp;[
-    ///     &quot;#### ####&quot;,
-    ///     &quot;#    #   &quot;,
-    ///     &quot;###  # ##&quot;,
-    ///     &quot;#    #  #&quot;,
-    ///     &quot;#### ####&quot;,
+    ///     "#### ####",
+    ///     "#    #   ",
+    ///     "###  # ##",
+    ///     "#    #  #",
+    ///     "#### ####",
     /// ]);
     ///
     /// let mirrored = display.swap_xy();
     /// mirrored.assert_pattern(&amp;[
-    ///     &quot;#####&quot;,
-    ///     &quot;# # #&quot;,
-    ///     &quot;# # #&quot;,
-    ///     &quot;#   #&quot;,
-    ///     &quot;     &quot;,
-    ///     &quot;#####&quot;,
-    ///     &quot;#   #&quot;,
-    ///     &quot;# # #&quot;,
-    ///     &quot;# ###&quot;,
+    ///     "#####",
+    ///     "# # #",
+    ///     "# # #",
+    ///     "#   #",
+    ///     "     ",
+    ///     "#####",
+    ///     "#   #",
+    ///     "# # #",
+    ///     "# ###",
     /// ]);
     /// ```
     </span><span class="kw">pub fn </span>swap_xy(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; MockDisplay&lt;C&gt; {
@@ -1241,16 +1242,16 @@
     /// use embedded_graphics::{mock_display::MockDisplay, pixelcolor::BinaryColor};
     ///
     /// let display: MockDisplay&lt;BinaryColor&gt; = MockDisplay::from_pattern(&amp;[
-    ///     &quot;####&quot;,
-    ///     &quot;#  .&quot;,
-    ///     &quot;....&quot;,
+    ///     "####",
+    ///     "#  .",
+    ///     "....",
     /// ]);
     ///
     /// let inverted = display.map(|c| c.invert());
     /// inverted.assert_pattern(&amp;[
-    ///     &quot;....&quot;,
-    ///     &quot;.  #&quot;,
-    ///     &quot;####&quot;,
+    ///     "....",
+    ///     ".  #",
+    ///     "####",
     /// ]);
     /// ```
     </span><span class="kw">pub fn </span>map&lt;CT, F&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, f: F) -&gt; MockDisplay&lt;CT&gt;
@@ -1313,7 +1314,7 @@
     /// The color pattern is specified by a slice of string slices. Each string
     /// slice represents a row of pixels and every character a single pixel.
     ///
-    /// A space character in the pattern represents a pixel which wasn&#39;t
+    /// A space character in the pattern represents a pixel which wasn't
     /// modified by any drawing routine and is left in the default state.
     /// All other characters are converted by implementations of the
     /// [`ColorMapping`] trait.
@@ -1324,19 +1325,19 @@
         <span class="kw">let </span>pattern_height = pattern.len();
         <span class="macro">assert!</span>(
             pattern_width &lt;= SIZE,
-            <span class="string">&quot;Test pattern must not be wider than {} columns&quot;</span>,
+            <span class="string">"Test pattern must not be wider than {} columns"</span>,
             SIZE
         );
         <span class="macro">assert!</span>(
             pattern_height &lt;= SIZE,
-            <span class="string">&quot;Test pattern must not be taller than {} rows&quot;</span>,
+            <span class="string">"Test pattern must not be taller than {} rows"</span>,
             SIZE
         );
         <span class="kw">for </span>(row_idx, row) <span class="kw">in </span>pattern.iter().enumerate() {
             <span class="macro">assert_eq!</span>(
                 row.len(),
                 pattern_width,
-                <span class="string">&quot;Row #{} is {} characters wide (must be {} characters to match previous rows)&quot;</span>,
+                <span class="string">"Row #{} is {} characters wide (must be {} characters to match previous rows)"</span>,
                 row_idx + <span class="number">1</span>,
                 row.len(),
                 pattern_width
@@ -1349,7 +1350,7 @@
             .flat_map(|row| {
                 row.chars()
                     .map(|c| <span class="kw">match </span>c {
-                        <span class="string">&#39; &#39; </span>=&gt; <span class="prelude-val">None</span>,
+                        <span class="string">' ' </span>=&gt; <span class="prelude-val">None</span>,
                         <span class="kw">_ </span>=&gt; <span class="prelude-val">Some</span>(C::char_to_color(c)),
                     })
                     .chain(iter::repeat(<span class="prelude-val">None</span>))
@@ -1374,17 +1375,17 @@
     ///
     /// # Panics
     ///
-    /// Panics if the displays aren&#39;t equal.
+    /// Panics if the displays aren't equal.
     ///
     /// [module-level documentation]: self#assertions
     </span><span class="attr">#[track_caller]
     </span><span class="kw">pub fn </span>assert_eq(<span class="kw-2">&amp;</span><span class="self">self</span>, other: <span class="kw-2">&amp;</span>MockDisplay&lt;C&gt;) {
         <span class="kw">if </span>!<span class="self">self</span>.eq(other) {
-            <span class="kw">if </span><span class="macro">option_env!</span>(<span class="string">&quot;EG_FANCY_PANIC&quot;</span>) == <span class="prelude-val">Some</span>(<span class="string">&quot;1&quot;</span>) {
+            <span class="kw">if </span><span class="macro">option_env!</span>(<span class="string">"EG_FANCY_PANIC"</span>) == <span class="prelude-val">Some</span>(<span class="string">"1"</span>) {
                 <span class="kw">let </span>fancy_panic = FancyPanic::new(<span class="self">self</span>, other, <span class="number">30</span>);
-                <span class="macro">panic!</span>(<span class="string">&quot;\n{}&quot;</span>, fancy_panic);
+                <span class="macro">panic!</span>(<span class="string">"\n{}"</span>, fancy_panic);
             } <span class="kw">else </span>{
-                <span class="macro">panic!</span>(<span class="string">&quot;\ndisplay\n{:?}\nexpected\n{:?}&quot;</span>, <span class="self">self</span>, other);
+                <span class="macro">panic!</span>(<span class="string">"\ndisplay\n{:?}\nexpected\n{:?}"</span>, <span class="self">self</span>, other);
             }
         }
     }
@@ -1398,21 +1399,21 @@
     ///
     /// # Panics
     ///
-    /// Panics if the displays aren&#39;t equal.
+    /// Panics if the displays aren't equal.
     ///
     /// [module-level documentation]: self#assertions
     </span><span class="attr">#[track_caller]
     </span><span class="kw">pub fn </span>assert_eq_with_message&lt;F&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, other: <span class="kw-2">&amp;</span>MockDisplay&lt;C&gt;, msg: F)
     <span class="kw">where
-        </span>F: Fn(<span class="kw-2">&amp;mut </span>fmt::Formatter&lt;<span class="lifetime">&#39;_</span>&gt;) -&gt; fmt::Result,
+        </span>F: Fn(<span class="kw-2">&amp;mut </span>fmt::Formatter&lt;<span class="lifetime">'_</span>&gt;) -&gt; fmt::Result,
     {
         <span class="kw">if </span>!<span class="self">self</span>.eq(other) {
-            <span class="kw">if </span><span class="macro">option_env!</span>(<span class="string">&quot;EG_FANCY_PANIC&quot;</span>) == <span class="prelude-val">Some</span>(<span class="string">&quot;1&quot;</span>) {
+            <span class="kw">if </span><span class="macro">option_env!</span>(<span class="string">"EG_FANCY_PANIC"</span>) == <span class="prelude-val">Some</span>(<span class="string">"1"</span>) {
                 <span class="kw">let </span>fancy_panic = FancyPanic::new(<span class="self">self</span>, other, <span class="number">30</span>);
-                <span class="macro">panic!</span>(<span class="string">&quot;\n{}\n\n{}&quot;</span>, MessageWrapper(msg), fancy_panic);
+                <span class="macro">panic!</span>(<span class="string">"\n{}\n\n{}"</span>, MessageWrapper(msg), fancy_panic);
             } <span class="kw">else </span>{
                 <span class="macro">panic!</span>(
-                    <span class="string">&quot;\n{}\n\ndisplay:\n{:?}\nexpected:\n{:?}&quot;</span>,
+                    <span class="string">"\n{}\n\ndisplay:\n{:?}\nexpected:\n{:?}"</span>,
                     MessageWrapper(msg),
                     <span class="self">self</span>,
                     other
@@ -1428,7 +1429,7 @@
     ///
     /// # Panics
     ///
-    /// Panics if the display content isn&#39;t equal to the pattern.
+    /// Panics if the display content isn't equal to the pattern.
     ///
     /// [module-level documentation]: self#assertions
     </span><span class="attr">#[track_caller]
@@ -1447,13 +1448,13 @@
     ///
     /// # Panics
     ///
-    /// Panics if the display content isn&#39;t equal to the pattern.
+    /// Panics if the display content isn't equal to the pattern.
     ///
     /// [module-level documentation]: self#assertions
     </span><span class="attr">#[track_caller]
     </span><span class="kw">pub fn </span>assert_pattern_with_message&lt;F&gt;(<span class="kw-2">&amp;</span><span class="self">self</span>, pattern: <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span>str], msg: F)
     <span class="kw">where
-        </span>F: Fn(<span class="kw-2">&amp;mut </span>fmt::Formatter&lt;<span class="lifetime">&#39;_</span>&gt;) -&gt; fmt::Result,
+        </span>F: Fn(<span class="kw-2">&amp;mut </span>fmt::Formatter&lt;<span class="lifetime">'_</span>&gt;) -&gt; fmt::Result,
     {
         <span class="kw">let </span>other = MockDisplay::&lt;C&gt;::from_pattern(pattern);
 
@@ -1485,17 +1486,17 @@
             .take_while(|row| row.iter().all(Option::is_none))
             .count();
 
-        <span class="macro">writeln!</span>(f, <span class="string">&quot;MockDisplay[&quot;</span>)<span class="question-mark">?</span>;
+        <span class="macro">writeln!</span>(f, <span class="string">"MockDisplay["</span>)<span class="question-mark">?</span>;
         <span class="kw">for </span>row <span class="kw">in </span><span class="self">self</span>.pixels.chunks(SIZE).take(SIZE - empty_rows) {
             <span class="kw">for </span>color <span class="kw">in </span>row {
-                f.write_char(color.map_or(<span class="string">&#39; &#39;</span>, C::color_to_char))<span class="question-mark">?</span>;
+                f.write_char(color.map_or(<span class="string">' '</span>, C::color_to_char))<span class="question-mark">?</span>;
             }
             <span class="macro">writeln!</span>(f)<span class="question-mark">?</span>;
         }
         <span class="kw">if </span>empty_rows &gt; <span class="number">0 </span>{
-            <span class="macro">writeln!</span>(f, <span class="string">&quot;({} empty rows skipped)&quot;</span>, empty_rows)<span class="question-mark">?</span>;
+            <span class="macro">writeln!</span>(f, <span class="string">"({} empty rows skipped)"</span>, empty_rows)<span class="question-mark">?</span>;
         }
-        <span class="macro">writeln!</span>(f, <span class="string">&quot;]&quot;</span>)<span class="question-mark">?</span>;
+        <span class="macro">writeln!</span>(f, <span class="string">"]"</span>)<span class="question-mark">?</span>;
 
         <span class="prelude-val">Ok</span>(())
     }
@@ -1536,9 +1537,9 @@
 
 <span class="kw">impl</span>&lt;F&gt; fmt::Display <span class="kw">for </span>MessageWrapper&lt;F&gt;
 <span class="kw">where
-    </span>F: Fn(<span class="kw-2">&amp;mut </span>fmt::Formatter&lt;<span class="lifetime">&#39;_</span>&gt;) -&gt; fmt::Result,
+    </span>F: Fn(<span class="kw-2">&amp;mut </span>fmt::Formatter&lt;<span class="lifetime">'_</span>&gt;) -&gt; fmt::Result,
 {
-    <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span>fmt::Formatter&lt;<span class="lifetime">&#39;_</span>&gt;) -&gt; fmt::Result {
+    <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span>fmt::Formatter&lt;<span class="lifetime">'_</span>&gt;) -&gt; fmt::Result {
         <span class="self">self</span>.<span class="number">0</span>(f)
     }
 }
@@ -1552,7 +1553,7 @@
     };
 
     <span class="attr">#[test]
-    #[should_panic(expected = <span class="string">&quot;tried to draw pixel outside the display area (x: 65, y: 0)&quot;</span>)]
+    #[should_panic(expected = <span class="string">"tried to draw pixel outside the display area (x: 65, y: 0)"</span>)]
     </span><span class="kw">fn </span>panic_on_out_of_bounds_drawing() {
         <span class="kw">let </span><span class="kw-2">mut </span>display = MockDisplay::new();
 
@@ -1572,7 +1573,7 @@
     }
 
     <span class="attr">#[test]
-    #[should_panic(expected = <span class="string">&quot;tried to draw pixel twice (x: 1, y: 2)&quot;</span>)]
+    #[should_panic(expected = <span class="string">"tried to draw pixel twice (x: 1, y: 2)"</span>)]
     </span><span class="kw">fn </span>panic_on_overdraw() {
         <span class="kw">let </span><span class="kw-2">mut </span>display = MockDisplay::new();
 
@@ -1599,9 +1600,9 @@
 
     <span class="attr">#[test]
     </span><span class="kw">fn </span>diff() {
-        <span class="kw">let </span>display1 = MockDisplay::&lt;Rgb565&gt;::from_pattern(<span class="kw-2">&amp;</span>[<span class="string">&quot; R RR&quot;</span>]);
-        <span class="kw">let </span>display2 = MockDisplay::&lt;Rgb565&gt;::from_pattern(<span class="kw-2">&amp;</span>[<span class="string">&quot; RR B&quot;</span>]);
-        <span class="kw">let </span>expected = MockDisplay::&lt;Rgb888&gt;::from_pattern(<span class="kw-2">&amp;</span>[<span class="string">&quot;  RGB&quot;</span>]);
+        <span class="kw">let </span>display1 = MockDisplay::&lt;Rgb565&gt;::from_pattern(<span class="kw-2">&amp;</span>[<span class="string">" R RR"</span>]);
+        <span class="kw">let </span>display2 = MockDisplay::&lt;Rgb565&gt;::from_pattern(<span class="kw-2">&amp;</span>[<span class="string">" RR B"</span>]);
+        <span class="kw">let </span>expected = MockDisplay::&lt;Rgb888&gt;::from_pattern(<span class="kw-2">&amp;</span>[<span class="string">"  RGB"</span>]);
 
         display1.diff(<span class="kw-2">&amp;</span>display2).assert_eq(<span class="kw-2">&amp;</span>expected);
     }

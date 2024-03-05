@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/embedded-graphics-0.8.1/src/text/text.rs`."><title>text.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="embedded_graphics" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../embedded_graphics/index.html"><img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="embedded_graphics"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/embedded-graphics-0.8.1/src/text/text.rs`."><title>text.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="embedded_graphics" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><a class="sub-logo-container" href="../../../embedded_graphics/index.html"><img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="embedded_graphics"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -800,10 +801,10 @@
 ///
 /// See the [module-level documentation](super) for more information about text drawables and examples.
 </span><span class="attr">#[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Hash, Debug)]
-#[cfg_attr(feature = <span class="string">&quot;defmt&quot;</span>, derive(::defmt::Format))]
-</span><span class="kw">pub struct </span>Text&lt;<span class="lifetime">&#39;a</span>, S&gt; {
+#[cfg_attr(feature = <span class="string">"defmt"</span>, derive(::defmt::Format))]
+</span><span class="kw">pub struct </span>Text&lt;<span class="lifetime">'a</span>, S&gt; {
     <span class="doccomment">/// The string.
-    </span><span class="kw">pub </span>text: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>str,
+    </span><span class="kw">pub </span>text: <span class="kw-2">&amp;</span><span class="lifetime">'a </span>str,
 
     <span class="doccomment">/// The position.
     </span><span class="kw">pub </span>position: Point,
@@ -815,9 +816,9 @@
     </span><span class="kw">pub </span>text_style: TextStyle,
 }
 
-<span class="kw">impl</span>&lt;<span class="lifetime">&#39;a</span>, S&gt; Text&lt;<span class="lifetime">&#39;a</span>, S&gt; {
+<span class="kw">impl</span>&lt;<span class="lifetime">'a</span>, S&gt; Text&lt;<span class="lifetime">'a</span>, S&gt; {
     <span class="doccomment">/// Creates a text drawable with the default text style.
-    </span><span class="kw">pub const fn </span>new(text: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>str, position: Point, character_style: S) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub const fn </span>new(text: <span class="kw-2">&amp;</span><span class="lifetime">'a </span>str, position: Point, character_style: S) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
             text,
             position,
@@ -828,7 +829,7 @@
 
     <span class="doccomment">/// Creates a text drawable with the given text style.
     </span><span class="kw">pub const fn </span>with_text_style(
-        text: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>str,
+        text: <span class="kw-2">&amp;</span><span class="lifetime">'a </span>str,
         position: Point,
         character_style: S,
         text_style: TextStyle,
@@ -843,7 +844,7 @@
 
     <span class="doccomment">/// Creates a text drawable with the given baseline.
     </span><span class="kw">pub const fn </span>with_baseline(
-        text: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>str,
+        text: <span class="kw-2">&amp;</span><span class="lifetime">'a </span>str,
         position: Point,
         character_style: S,
         baseline: Baseline,
@@ -858,7 +859,7 @@
 
     <span class="doccomment">/// Creates a text drawable with the given alignment.
     </span><span class="kw">pub const fn </span>with_alignment(
-        text: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>str,
+        text: <span class="kw-2">&amp;</span><span class="lifetime">'a </span>str,
         position: Point,
         character_style: S,
         alignment: Alignment,
@@ -872,7 +873,7 @@
     }
 }
 
-<span class="kw">impl</span>&lt;S: Clone&gt; Transform <span class="kw">for </span>Text&lt;<span class="lifetime">&#39;_</span>, S&gt; {
+<span class="kw">impl</span>&lt;S: Clone&gt; Transform <span class="kw">for </span>Text&lt;<span class="lifetime">'_</span>, S&gt; {
     <span class="kw">fn </span>translate(<span class="kw-2">&amp;</span><span class="self">self</span>, by: Point) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
             position: <span class="self">self</span>.position + by,
@@ -887,7 +888,7 @@
     </span>}
 }
 
-<span class="kw">impl</span>&lt;S: TextRenderer&gt; Text&lt;<span class="lifetime">&#39;_</span>, S&gt; {
+<span class="kw">impl</span>&lt;S: TextRenderer&gt; Text&lt;<span class="lifetime">'_</span>, S&gt; {
     <span class="kw">fn </span>line_height(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; i32 {
         <span class="self">self</span>.text_style
             .line_height
@@ -898,7 +899,7 @@
     <span class="kw">fn </span>lines(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw">impl </span>Iterator&lt;Item = (<span class="kw-2">&amp;</span>str, Point)&gt; {
         <span class="kw">let </span><span class="kw-2">mut </span>position = <span class="self">self</span>.position;
 
-        <span class="self">self</span>.text.split(<span class="string">&#39;\n&#39;</span>).map(<span class="kw">move </span>|line| {
+        <span class="self">self</span>.text.split(<span class="string">'\n'</span>).map(<span class="kw">move </span>|line| {
             <span class="kw">let </span>p = <span class="kw">match </span><span class="self">self</span>.text_style.alignment {
                 Alignment::Left =&gt; position,
                 Alignment::Right =&gt; {
@@ -921,9 +922,9 @@
 
             position.y += <span class="self">self</span>.line_height();
 
-            <span class="comment">// remove trailing &#39;\r&#39; for &#39;\r\n&#39; line endings
+            <span class="comment">// remove trailing '\r' for '\r\n' line endings
             </span><span class="kw">let </span>len = line.len();
-            <span class="kw">if </span>len &gt; <span class="number">0 </span>&amp;&amp; line.as_bytes()[len - <span class="number">1</span>] == <span class="string">b&#39;\r&#39; </span>{
+            <span class="kw">if </span>len &gt; <span class="number">0 </span>&amp;&amp; line.as_bytes()[len - <span class="number">1</span>] == <span class="string">b'\r' </span>{
                 (<span class="kw-2">&amp;</span>line[<span class="number">0</span>..len - <span class="number">1</span>], p)
             } <span class="kw">else </span>{
                 (line, p)
@@ -932,7 +933,7 @@
     }
 }
 
-<span class="kw">impl</span>&lt;S: TextRenderer&gt; Drawable <span class="kw">for </span>Text&lt;<span class="lifetime">&#39;_</span>, S&gt; {
+<span class="kw">impl</span>&lt;S: TextRenderer&gt; Drawable <span class="kw">for </span>Text&lt;<span class="lifetime">'_</span>, S&gt; {
     <span class="kw">type </span>Color = S::Color;
     <span class="kw">type </span>Output = Point;
 
@@ -968,7 +969,7 @@
     }
 }
 
-<span class="kw">impl</span>&lt;S: TextRenderer&gt; Dimensions <span class="kw">for </span>Text&lt;<span class="lifetime">&#39;_</span>, S&gt; {
+<span class="kw">impl</span>&lt;S: TextRenderer&gt; Dimensions <span class="kw">for </span>Text&lt;<span class="lifetime">'_</span>, S&gt; {
     <span class="kw">fn </span>bounding_box(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; Rectangle {
         <span class="kw">let </span><span class="kw-2">mut </span>min_max: <span class="prelude-ty">Option</span>&lt;(Point, Point)&gt; = <span class="prelude-val">None</span>;
 
@@ -1003,18 +1004,18 @@
         text::{Alignment, Baseline, LineHeight, TextStyleBuilder},
     };
 
-    <span class="kw">const </span>HELLO_WORLD: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str = <span class="string">&quot;Hello World!&quot;</span>;
+    <span class="kw">const </span>HELLO_WORLD: <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str = <span class="string">"Hello World!"</span>;
 
     <span class="attr">#[test]
     </span><span class="kw">fn </span>constructor() {
         <span class="kw">let </span>character_style = MonoTextStyle::new(<span class="kw-2">&amp;</span>FONT_6X9, BinaryColor::On);
 
-        <span class="kw">let </span>text = Text::new(<span class="string">&quot;Hello e-g&quot;</span>, Point::new(<span class="number">10</span>, <span class="number">11</span>), character_style);
+        <span class="kw">let </span>text = Text::new(<span class="string">"Hello e-g"</span>, Point::new(<span class="number">10</span>, <span class="number">11</span>), character_style);
 
         <span class="macro">assert_eq!</span>(
             text,
             Text {
-                text: <span class="string">&quot;Hello e-g&quot;</span>,
+                text: <span class="string">"Hello e-g"</span>,
                 position: Point::new(<span class="number">10</span>, <span class="number">11</span>),
                 character_style,
                 text_style: TextStyle::default(),
@@ -1025,25 +1026,25 @@
     <span class="attr">#[test]
     </span><span class="kw">fn </span>multiline() {
         assert_text_from_pattern(
-            <span class="string">&quot;AB\nC&quot;</span>,
+            <span class="string">"AB\nC"</span>,
             <span class="kw-2">&amp;</span>FONT_6X9,
             <span class="kw-2">&amp;</span>[
-                <span class="string">&quot;            &quot;</span>,
-                <span class="string">&quot;  #   ####  &quot;</span>,
-                <span class="string">&quot; # #  #   # &quot;</span>,
-                <span class="string">&quot;#   # ####  &quot;</span>,
-                <span class="string">&quot;##### #   # &quot;</span>,
-                <span class="string">&quot;#   # #   # &quot;</span>,
-                <span class="string">&quot;#   # ####  &quot;</span>,
-                <span class="string">&quot;            &quot;</span>,
-                <span class="string">&quot;            &quot;</span>,
-                <span class="string">&quot;            &quot;</span>,
-                <span class="string">&quot;  ##        &quot;</span>,
-                <span class="string">&quot; #  #       &quot;</span>,
-                <span class="string">&quot; #          &quot;</span>,
-                <span class="string">&quot; #          &quot;</span>,
-                <span class="string">&quot; #  #       &quot;</span>,
-                <span class="string">&quot;  ##        &quot;</span>,
+                <span class="string">"            "</span>,
+                <span class="string">"  #   ####  "</span>,
+                <span class="string">" # #  #   # "</span>,
+                <span class="string">"#   # ####  "</span>,
+                <span class="string">"##### #   # "</span>,
+                <span class="string">"#   # #   # "</span>,
+                <span class="string">"#   # ####  "</span>,
+                <span class="string">"            "</span>,
+                <span class="string">"            "</span>,
+                <span class="string">"            "</span>,
+                <span class="string">"  ##        "</span>,
+                <span class="string">" #  #       "</span>,
+                <span class="string">" #          "</span>,
+                <span class="string">" #          "</span>,
+                <span class="string">" #  #       "</span>,
+                <span class="string">"  ##        "</span>,
             ],
         );
     }
@@ -1051,35 +1052,35 @@
     <span class="attr">#[test]
     </span><span class="kw">fn </span>multiline_empty_line() {
         assert_text_from_pattern(
-            <span class="string">&quot;A\n\nBC&quot;</span>,
+            <span class="string">"A\n\nBC"</span>,
             <span class="kw-2">&amp;</span>FONT_6X9,
             <span class="kw-2">&amp;</span>[
-                <span class="string">&quot;            &quot;</span>,
-                <span class="string">&quot;  #         &quot;</span>,
-                <span class="string">&quot; # #        &quot;</span>,
-                <span class="string">&quot;#   #       &quot;</span>,
-                <span class="string">&quot;#####       &quot;</span>,
-                <span class="string">&quot;#   #       &quot;</span>,
-                <span class="string">&quot;#   #       &quot;</span>,
-                <span class="string">&quot;            &quot;</span>,
-                <span class="string">&quot;            &quot;</span>,
-                <span class="string">&quot;            &quot;</span>,
-                <span class="string">&quot;            &quot;</span>,
-                <span class="string">&quot;            &quot;</span>,
-                <span class="string">&quot;            &quot;</span>,
-                <span class="string">&quot;            &quot;</span>,
-                <span class="string">&quot;            &quot;</span>,
-                <span class="string">&quot;            &quot;</span>,
-                <span class="string">&quot;            &quot;</span>,
-                <span class="string">&quot;            &quot;</span>,
-                <span class="string">&quot;            &quot;</span>,
-                <span class="string">&quot;####    ##  &quot;</span>,
-                <span class="string">&quot;#   #  #  # &quot;</span>,
-                <span class="string">&quot;####   #    &quot;</span>,
-                <span class="string">&quot;#   #  #    &quot;</span>,
-                <span class="string">&quot;#   #  #  # &quot;</span>,
-                <span class="string">&quot;####    ##  &quot;</span>,
-                <span class="string">&quot;            &quot;</span>,
+                <span class="string">"            "</span>,
+                <span class="string">"  #         "</span>,
+                <span class="string">" # #        "</span>,
+                <span class="string">"#   #       "</span>,
+                <span class="string">"#####       "</span>,
+                <span class="string">"#   #       "</span>,
+                <span class="string">"#   #       "</span>,
+                <span class="string">"            "</span>,
+                <span class="string">"            "</span>,
+                <span class="string">"            "</span>,
+                <span class="string">"            "</span>,
+                <span class="string">"            "</span>,
+                <span class="string">"            "</span>,
+                <span class="string">"            "</span>,
+                <span class="string">"            "</span>,
+                <span class="string">"            "</span>,
+                <span class="string">"            "</span>,
+                <span class="string">"            "</span>,
+                <span class="string">"            "</span>,
+                <span class="string">"####    ##  "</span>,
+                <span class="string">"#   #  #  # "</span>,
+                <span class="string">"####   #    "</span>,
+                <span class="string">"#   #  #    "</span>,
+                <span class="string">"#   #  #  # "</span>,
+                <span class="string">"####    ##  "</span>,
+                <span class="string">"            "</span>,
             ],
         );
     }
@@ -1091,7 +1092,7 @@
             .text_color(BinaryColor::On)
             .build();
 
-        <span class="kw">let </span>text = Text::with_baseline(<span class="string">&quot;AB\nC&quot;</span>, Point::zero(), character_style, Baseline::Top);
+        <span class="kw">let </span>text = Text::with_baseline(<span class="string">"AB\nC"</span>, Point::zero(), character_style, Baseline::Top);
 
         <span class="macro">assert_eq!</span>(
             text.bounding_box(),
@@ -1107,15 +1108,15 @@
             .build();
 
         <span class="kw">let </span><span class="kw-2">mut </span>single_text_display = MockDisplay::new();
-        Text::with_baseline(<span class="string">&quot;AB\nC&quot;</span>, Point::zero(), character_style, Baseline::Top)
+        Text::with_baseline(<span class="string">"AB\nC"</span>, Point::zero(), character_style, Baseline::Top)
             .draw(<span class="kw-2">&amp;mut </span>single_text_display)
             .unwrap();
 
         <span class="kw">let </span><span class="kw-2">mut </span>multiple_text_display = MockDisplay::new();
-        <span class="kw">let </span>pos = Text::with_baseline(<span class="string">&quot;AB\n&quot;</span>, Point::zero(), character_style, Baseline::Top)
+        <span class="kw">let </span>pos = Text::with_baseline(<span class="string">"AB\n"</span>, Point::zero(), character_style, Baseline::Top)
             .draw(<span class="kw-2">&amp;mut </span>multiple_text_display)
             .unwrap();
-        Text::with_baseline(<span class="string">&quot;C&quot;</span>, pos, character_style, Baseline::Top)
+        Text::with_baseline(<span class="string">"C"</span>, pos, character_style, Baseline::Top)
             .draw(<span class="kw-2">&amp;mut </span>multiple_text_display)
             .unwrap();
 
@@ -1130,12 +1131,12 @@
             .build();
 
         <span class="kw">let </span><span class="kw-2">mut </span>cr_lf_display = MockDisplay::new();
-        Text::with_baseline(<span class="string">&quot;AB\r\nC&quot;</span>, Point::zero(), character_style, Baseline::Top)
+        Text::with_baseline(<span class="string">"AB\r\nC"</span>, Point::zero(), character_style, Baseline::Top)
             .draw(<span class="kw-2">&amp;mut </span>cr_lf_display)
             .unwrap();
 
         <span class="kw">let </span><span class="kw-2">mut </span>lf_display = MockDisplay::new();
-        Text::with_baseline(<span class="string">&quot;AB\nC&quot;</span>, Point::zero(), character_style, Baseline::Top)
+        Text::with_baseline(<span class="string">"AB\nC"</span>, Point::zero(), character_style, Baseline::Top)
             .draw(<span class="kw-2">&amp;mut </span>lf_display)
             .unwrap();
 
@@ -1169,7 +1170,7 @@
             .text_color(BinaryColor::Off)
             .background_color(BinaryColor::On)
             .build();
-        Text::new(<span class="string">&quot;Mm&quot;</span>, Point::new(<span class="number">0</span>, <span class="number">7</span>), style_inverse)
+        Text::new(<span class="string">"Mm"</span>, Point::new(<span class="number">0</span>, <span class="number">7</span>), style_inverse)
             .draw(<span class="kw-2">&amp;mut </span>display_inverse)
             .unwrap();
 
@@ -1179,7 +1180,7 @@
             .text_color(BinaryColor::On)
             .background_color(BinaryColor::Off)
             .build();
-        Text::new(<span class="string">&quot;Mm&quot;</span>, Point::new(<span class="number">0</span>, <span class="number">7</span>), style_normal)
+        Text::new(<span class="string">"Mm"</span>, Point::new(<span class="number">0</span>, <span class="number">7</span>), style_normal)
             .draw(<span class="kw-2">&amp;mut </span>display_normal)
             .unwrap();
 
@@ -1190,7 +1191,7 @@
     </span><span class="kw">fn </span>no_fill_does_not_hang() {
         <span class="kw">let </span><span class="kw-2">mut </span>display = MockDisplay::new();
         Text::new(
-            <span class="string">&quot; &quot;</span>,
+            <span class="string">" "</span>,
             Point::zero(),
             MonoTextStyle::new(<span class="kw-2">&amp;</span>FONT_6X9, BinaryColor::On),
         )
@@ -1216,20 +1217,20 @@
             .draw(<span class="kw-2">&amp;mut </span>display)
             .unwrap();
 
-        Text::with_baseline(<span class="string">&quot;AA&quot;</span>, Point::zero(), character_style, Baseline::Top)
+        Text::with_baseline(<span class="string">"AA"</span>, Point::zero(), character_style, Baseline::Top)
             .draw(<span class="kw-2">&amp;mut </span>display)
             .unwrap();
 
         display.assert_pattern(<span class="kw-2">&amp;</span>[
-            <span class="string">&quot;############&quot;</span>,
-            <span class="string">&quot;##.##### ###&quot;</span>,
-            <span class="string">&quot;#.#.### # ##&quot;</span>,
-            <span class="string">&quot;.###.# ### #&quot;</span>,
-            <span class="string">&quot;.....#     #&quot;</span>,
-            <span class="string">&quot;.###.# ### #&quot;</span>,
-            <span class="string">&quot;.###.# ### #&quot;</span>,
-            <span class="string">&quot;############&quot;</span>,
-            <span class="string">&quot;############&quot;</span>,
+            <span class="string">"############"</span>,
+            <span class="string">"##.##### ###"</span>,
+            <span class="string">"#.#.### # ##"</span>,
+            <span class="string">".###.# ### #"</span>,
+            <span class="string">".....#     #"</span>,
+            <span class="string">".###.# ### #"</span>,
+            <span class="string">".###.# ### #"</span>,
+            <span class="string">"############"</span>,
+            <span class="string">"############"</span>,
         ]);
     }
 
@@ -1240,12 +1241,12 @@
             .font(<span class="kw-2">&amp;</span>FONT_6X9)
             .build();
 
-        <span class="kw">let </span>styled = Text::new(<span class="string">&quot; A&quot;</span>, Point::new(<span class="number">7</span>, <span class="number">11</span>), style);
+        <span class="kw">let </span>styled = Text::new(<span class="string">" A"</span>, Point::new(<span class="number">7</span>, <span class="number">11</span>), style);
 
         <span class="macro">assert_eq!</span>(
             styled.bounding_box(),
             Rectangle::new(Point::new(<span class="number">7</span>, <span class="number">11</span>), Size::zero()),
-            <span class="string">&quot;Transparent text is expected to have a zero sized bounding box with the top left corner at the text position&quot;</span>,
+            <span class="string">"Transparent text is expected to have a zero sized bounding box with the top left corner at the text position"</span>,
         );
     }
 
@@ -1262,28 +1263,28 @@
             .build();
 
         <span class="kw">let </span><span class="kw-2">mut </span>display = MockDisplay::new();
-        Text::with_text_style(<span class="string">&quot;A\nBC&quot;</span>, Point::new(<span class="number">0</span>, <span class="number">0</span>), character_style, text_style)
+        Text::with_text_style(<span class="string">"A\nBC"</span>, Point::new(<span class="number">0</span>, <span class="number">0</span>), character_style, text_style)
             .draw(<span class="kw-2">&amp;mut </span>display)
             .unwrap();
 
         display.assert_pattern(<span class="kw-2">&amp;</span>[
-            <span class="string">&quot;            &quot;</span>,
-            <span class="string">&quot;  #         &quot;</span>,
-            <span class="string">&quot; # #        &quot;</span>,
-            <span class="string">&quot;#   #       &quot;</span>,
-            <span class="string">&quot;#####       &quot;</span>,
-            <span class="string">&quot;#   #       &quot;</span>,
-            <span class="string">&quot;#   #       &quot;</span>,
-            <span class="string">&quot;            &quot;</span>,
-            <span class="string">&quot;            &quot;</span>,
-            <span class="string">&quot;            &quot;</span>,
-            <span class="string">&quot;####    ##  &quot;</span>,
-            <span class="string">&quot;#   #  #  # &quot;</span>,
-            <span class="string">&quot;####   #    &quot;</span>,
-            <span class="string">&quot;#   #  #    &quot;</span>,
-            <span class="string">&quot;#   #  #  # &quot;</span>,
-            <span class="string">&quot;####    ##  &quot;</span>,
-            <span class="string">&quot;            &quot;</span>,
+            <span class="string">"            "</span>,
+            <span class="string">"  #         "</span>,
+            <span class="string">" # #        "</span>,
+            <span class="string">"#   #       "</span>,
+            <span class="string">"#####       "</span>,
+            <span class="string">"#   #       "</span>,
+            <span class="string">"#   #       "</span>,
+            <span class="string">"            "</span>,
+            <span class="string">"            "</span>,
+            <span class="string">"            "</span>,
+            <span class="string">"####    ##  "</span>,
+            <span class="string">"#   #  #  # "</span>,
+            <span class="string">"####   #    "</span>,
+            <span class="string">"#   #  #    "</span>,
+            <span class="string">"#   #  #  # "</span>,
+            <span class="string">"####    ##  "</span>,
+            <span class="string">"            "</span>,
         ]);
     }
 
@@ -1300,28 +1301,28 @@
             .build();
 
         <span class="kw">let </span><span class="kw-2">mut </span>display = MockDisplay::new();
-        Text::with_text_style(<span class="string">&quot;A\nBC&quot;</span>, Point::new(<span class="number">5</span>, <span class="number">0</span>), character_style, text_style)
+        Text::with_text_style(<span class="string">"A\nBC"</span>, Point::new(<span class="number">5</span>, <span class="number">0</span>), character_style, text_style)
             .draw(<span class="kw-2">&amp;mut </span>display)
             .unwrap();
 
         display.assert_pattern(<span class="kw-2">&amp;</span>[
-            <span class="string">&quot;            &quot;</span>,
-            <span class="string">&quot;     #      &quot;</span>,
-            <span class="string">&quot;    # #     &quot;</span>,
-            <span class="string">&quot;   #   #    &quot;</span>,
-            <span class="string">&quot;   #####    &quot;</span>,
-            <span class="string">&quot;   #   #    &quot;</span>,
-            <span class="string">&quot;   #   #    &quot;</span>,
-            <span class="string">&quot;            &quot;</span>,
-            <span class="string">&quot;            &quot;</span>,
-            <span class="string">&quot;            &quot;</span>,
-            <span class="string">&quot;####    ##  &quot;</span>,
-            <span class="string">&quot;#   #  #  # &quot;</span>,
-            <span class="string">&quot;####   #    &quot;</span>,
-            <span class="string">&quot;#   #  #    &quot;</span>,
-            <span class="string">&quot;#   #  #  # &quot;</span>,
-            <span class="string">&quot;####    ##  &quot;</span>,
-            <span class="string">&quot;            &quot;</span>,
+            <span class="string">"            "</span>,
+            <span class="string">"     #      "</span>,
+            <span class="string">"    # #     "</span>,
+            <span class="string">"   #   #    "</span>,
+            <span class="string">"   #####    "</span>,
+            <span class="string">"   #   #    "</span>,
+            <span class="string">"   #   #    "</span>,
+            <span class="string">"            "</span>,
+            <span class="string">"            "</span>,
+            <span class="string">"            "</span>,
+            <span class="string">"####    ##  "</span>,
+            <span class="string">"#   #  #  # "</span>,
+            <span class="string">"####   #    "</span>,
+            <span class="string">"#   #  #    "</span>,
+            <span class="string">"#   #  #  # "</span>,
+            <span class="string">"####    ##  "</span>,
+            <span class="string">"            "</span>,
         ]);
     }
 
@@ -1338,28 +1339,28 @@
             .build();
 
         <span class="kw">let </span><span class="kw-2">mut </span>display = MockDisplay::new();
-        Text::with_text_style(<span class="string">&quot;A\nBC&quot;</span>, Point::new(<span class="number">11</span>, <span class="number">0</span>), character_style, text_style)
+        Text::with_text_style(<span class="string">"A\nBC"</span>, Point::new(<span class="number">11</span>, <span class="number">0</span>), character_style, text_style)
             .draw(<span class="kw-2">&amp;mut </span>display)
             .unwrap();
 
         display.assert_pattern(<span class="kw-2">&amp;</span>[
-            <span class="string">&quot;            &quot;</span>,
-            <span class="string">&quot;        #   &quot;</span>,
-            <span class="string">&quot;       # #  &quot;</span>,
-            <span class="string">&quot;      #   # &quot;</span>,
-            <span class="string">&quot;      ##### &quot;</span>,
-            <span class="string">&quot;      #   # &quot;</span>,
-            <span class="string">&quot;      #   # &quot;</span>,
-            <span class="string">&quot;            &quot;</span>,
-            <span class="string">&quot;            &quot;</span>,
-            <span class="string">&quot;            &quot;</span>,
-            <span class="string">&quot;####    ##  &quot;</span>,
-            <span class="string">&quot;#   #  #  # &quot;</span>,
-            <span class="string">&quot;####   #    &quot;</span>,
-            <span class="string">&quot;#   #  #    &quot;</span>,
-            <span class="string">&quot;#   #  #  # &quot;</span>,
-            <span class="string">&quot;####    ##  &quot;</span>,
-            <span class="string">&quot;            &quot;</span>,
+            <span class="string">"            "</span>,
+            <span class="string">"        #   "</span>,
+            <span class="string">"       # #  "</span>,
+            <span class="string">"      #   # "</span>,
+            <span class="string">"      ##### "</span>,
+            <span class="string">"      #   # "</span>,
+            <span class="string">"      #   # "</span>,
+            <span class="string">"            "</span>,
+            <span class="string">"            "</span>,
+            <span class="string">"            "</span>,
+            <span class="string">"####    ##  "</span>,
+            <span class="string">"#   #  #  # "</span>,
+            <span class="string">"####   #    "</span>,
+            <span class="string">"#   #  #    "</span>,
+            <span class="string">"#   #  #  # "</span>,
+            <span class="string">"####    ##  "</span>,
+            <span class="string">"            "</span>,
         ]);
     }
 
@@ -1372,17 +1373,17 @@
             .text_color(BinaryColor::On)
             .build();
 
-        Text::with_baseline(<span class="string">&quot;t&quot;</span>, Point::new(<span class="number">0</span>, <span class="number">8</span>), character_style, Baseline::Top)
+        Text::with_baseline(<span class="string">"t"</span>, Point::new(<span class="number">0</span>, <span class="number">8</span>), character_style, Baseline::Top)
             .draw(<span class="kw-2">&amp;mut </span>display)
             .unwrap();
-        Text::with_baseline(<span class="string">&quot;m&quot;</span>, Point::new(<span class="number">6</span>, <span class="number">8</span>), character_style, Baseline::Middle)
+        Text::with_baseline(<span class="string">"m"</span>, Point::new(<span class="number">6</span>, <span class="number">8</span>), character_style, Baseline::Middle)
             .draw(<span class="kw-2">&amp;mut </span>display)
             .unwrap();
-        Text::with_baseline(<span class="string">&quot;b&quot;</span>, Point::new(<span class="number">12</span>, <span class="number">8</span>), character_style, Baseline::Bottom)
+        Text::with_baseline(<span class="string">"b"</span>, Point::new(<span class="number">12</span>, <span class="number">8</span>), character_style, Baseline::Bottom)
             .draw(<span class="kw-2">&amp;mut </span>display)
             .unwrap();
         Text::with_baseline(
-            <span class="string">&quot;B&quot;</span>,
+            <span class="string">"B"</span>,
             Point::new(<span class="number">18</span>, <span class="number">8</span>),
             character_style,
             Baseline::Alphabetic,
@@ -1391,21 +1392,21 @@
         .unwrap();
 
         display.assert_pattern(<span class="kw-2">&amp;</span>[
-            <span class="string">&quot;                       &quot;</span>,
-            <span class="string">&quot;             #         &quot;</span>,
-            <span class="string">&quot;             #         &quot;</span>,
-            <span class="string">&quot;             ###  #### &quot;</span>,
-            <span class="string">&quot;             #  # #   #&quot;</span>,
-            <span class="string">&quot;             #  # #### &quot;</span>,
-            <span class="string">&quot;             ###  #   #&quot;</span>,
-            <span class="string">&quot;      ## #        #   #&quot;</span>,
-            <span class="string">&quot;      # # #       #### &quot;</span>,
-            <span class="string">&quot;  #   # # #            &quot;</span>,
-            <span class="string">&quot;  #   #   #            &quot;</span>,
-            <span class="string">&quot; ###                   &quot;</span>,
-            <span class="string">&quot;  #                    &quot;</span>,
-            <span class="string">&quot;  # #                  &quot;</span>,
-            <span class="string">&quot;   #                   &quot;</span>,
+            <span class="string">"                       "</span>,
+            <span class="string">"             #         "</span>,
+            <span class="string">"             #         "</span>,
+            <span class="string">"             ###  #### "</span>,
+            <span class="string">"             #  # #   #"</span>,
+            <span class="string">"             #  # #### "</span>,
+            <span class="string">"             ###  #   #"</span>,
+            <span class="string">"      ## #        #   #"</span>,
+            <span class="string">"      # # #       #### "</span>,
+            <span class="string">"  #   # # #            "</span>,
+            <span class="string">"  #   #   #            "</span>,
+            <span class="string">" ###                   "</span>,
+            <span class="string">"  #                    "</span>,
+            <span class="string">"  # #                  "</span>,
+            <span class="string">"   #                   "</span>,
         ]);
     }
 
@@ -1430,7 +1431,7 @@
                     .build();
 
                 <span class="kw">let </span>text = Text::with_text_style(
-                    <span class="string">&quot;1\n23&quot;</span>,
+                    <span class="string">"1\n23"</span>,
                     Point::new_equal(<span class="number">20</span>),
                     character_style,
                     text_style,
@@ -1442,7 +1443,7 @@
                 <span class="macro">assert_eq!</span>(
                     display.affected_area(),
                     text.bounding_box(),
-                    <span class="string">&quot;alignment: {:?}, baseline: {:?}&quot;</span>,
+                    <span class="string">"alignment: {:?}, baseline: {:?}"</span>,
                     alignment,
                     baseline
                 );
@@ -1463,23 +1464,23 @@
             .build();
 
         <span class="kw">let </span><span class="kw-2">mut </span>display = MockDisplay::new();
-        <span class="kw">let </span>next = Text::new(<span class="string">&quot;AB&quot;</span>, Point::new(<span class="number">0</span>, <span class="number">8</span>), character_style1)
+        <span class="kw">let </span>next = Text::new(<span class="string">"AB"</span>, Point::new(<span class="number">0</span>, <span class="number">8</span>), character_style1)
             .draw(<span class="kw-2">&amp;mut </span>display)
             .unwrap();
-        Text::new(<span class="string">&quot;C&quot;</span>, next, character_style2)
+        Text::new(<span class="string">"C"</span>, next, character_style2)
             .draw(<span class="kw-2">&amp;mut </span>display)
             .unwrap();
 
         display.assert_pattern(<span class="kw-2">&amp;</span>[
-            <span class="string">&quot;             ...  &quot;</span>,
-            <span class="string">&quot;            .   . &quot;</span>,
-            <span class="string">&quot;            .     &quot;</span>,
-            <span class="string">&quot;  #   ####  .     &quot;</span>,
-            <span class="string">&quot; # #  #   # .     &quot;</span>,
-            <span class="string">&quot;#   # ####  .     &quot;</span>,
-            <span class="string">&quot;##### #   # .     &quot;</span>,
-            <span class="string">&quot;#   # #   # .   . &quot;</span>,
-            <span class="string">&quot;#   # ####   ...  &quot;</span>,
+            <span class="string">"             ...  "</span>,
+            <span class="string">"            .   . "</span>,
+            <span class="string">"            .     "</span>,
+            <span class="string">"  #   ####  .     "</span>,
+            <span class="string">" # #  #   # .     "</span>,
+            <span class="string">"#   # ####  .     "</span>,
+            <span class="string">"##### #   # .     "</span>,
+            <span class="string">"#   # #   # .   . "</span>,
+            <span class="string">"#   # ####   ...  "</span>,
         ]);
     }
 
@@ -1495,24 +1496,24 @@
             .build();
 
         <span class="kw">let </span><span class="kw-2">mut </span>display = MockDisplay::new();
-        Text::with_text_style(<span class="string">&quot;A\nB&quot;</span>, Point::new(<span class="number">0</span>, <span class="number">5</span>), character_style, text_style)
+        Text::with_text_style(<span class="string">"A\nB"</span>, Point::new(<span class="number">0</span>, <span class="number">5</span>), character_style, text_style)
             .draw(<span class="kw-2">&amp;mut </span>display)
             .unwrap();
 
         display.assert_pattern(<span class="kw-2">&amp;</span>[
-            <span class="string">&quot;  #  &quot;</span>, <span class="comment">//
-            </span><span class="string">&quot; # # &quot;</span>, <span class="comment">//
-            </span><span class="string">&quot;#   #&quot;</span>, <span class="comment">//
-            </span><span class="string">&quot;#####&quot;</span>, <span class="comment">//
-            </span><span class="string">&quot;#   #&quot;</span>, <span class="comment">//
-            </span><span class="string">&quot;#   #&quot;</span>, <span class="comment">//
-            </span><span class="string">&quot;     &quot;</span>, <span class="comment">//
-            </span><span class="string">&quot;#### &quot;</span>, <span class="comment">//
-            </span><span class="string">&quot;#   #&quot;</span>, <span class="comment">//
-            </span><span class="string">&quot;#### &quot;</span>, <span class="comment">//
-            </span><span class="string">&quot;#   #&quot;</span>, <span class="comment">//
-            </span><span class="string">&quot;#   #&quot;</span>, <span class="comment">//
-            </span><span class="string">&quot;#### &quot;</span>, <span class="comment">//
+            <span class="string">"  #  "</span>, <span class="comment">//
+            </span><span class="string">" # # "</span>, <span class="comment">//
+            </span><span class="string">"#   #"</span>, <span class="comment">//
+            </span><span class="string">"#####"</span>, <span class="comment">//
+            </span><span class="string">"#   #"</span>, <span class="comment">//
+            </span><span class="string">"#   #"</span>, <span class="comment">//
+            </span><span class="string">"     "</span>, <span class="comment">//
+            </span><span class="string">"#### "</span>, <span class="comment">//
+            </span><span class="string">"#   #"</span>, <span class="comment">//
+            </span><span class="string">"#### "</span>, <span class="comment">//
+            </span><span class="string">"#   #"</span>, <span class="comment">//
+            </span><span class="string">"#   #"</span>, <span class="comment">//
+            </span><span class="string">"#### "</span>, <span class="comment">//
         </span>]);
     }
 
@@ -1529,36 +1530,36 @@
             .build();
 
         <span class="kw">let </span><span class="kw-2">mut </span>display = MockDisplay::new();
-        Text::with_text_style(<span class="string">&quot;A\nBC&quot;</span>, Point::zero(), character_style, text_style)
+        Text::with_text_style(<span class="string">"A\nBC"</span>, Point::zero(), character_style, text_style)
             .draw(<span class="kw-2">&amp;mut </span>display)
             .unwrap();
 
         display.assert_pattern(<span class="kw-2">&amp;</span>[
-            <span class="string">&quot;            &quot;</span>,
-            <span class="string">&quot;  #         &quot;</span>,
-            <span class="string">&quot; # #        &quot;</span>,
-            <span class="string">&quot;#   #       &quot;</span>,
-            <span class="string">&quot;#####       &quot;</span>,
-            <span class="string">&quot;#   #       &quot;</span>,
-            <span class="string">&quot;#   #       &quot;</span>,
-            <span class="string">&quot;            &quot;</span>,
-            <span class="string">&quot;            &quot;</span>,
-            <span class="string">&quot;            &quot;</span>,
-            <span class="string">&quot;            &quot;</span>,
-            <span class="string">&quot;            &quot;</span>,
-            <span class="string">&quot;            &quot;</span>,
-            <span class="string">&quot;            &quot;</span>,
-            <span class="string">&quot;            &quot;</span>,
-            <span class="string">&quot;            &quot;</span>,
-            <span class="string">&quot;            &quot;</span>,
-            <span class="string">&quot;            &quot;</span>,
-            <span class="string">&quot;            &quot;</span>,
-            <span class="string">&quot;####    ##  &quot;</span>,
-            <span class="string">&quot;#   #  #  # &quot;</span>,
-            <span class="string">&quot;####   #    &quot;</span>,
-            <span class="string">&quot;#   #  #    &quot;</span>,
-            <span class="string">&quot;#   #  #  # &quot;</span>,
-            <span class="string">&quot;####    ##  &quot;</span>,
+            <span class="string">"            "</span>,
+            <span class="string">"  #         "</span>,
+            <span class="string">" # #        "</span>,
+            <span class="string">"#   #       "</span>,
+            <span class="string">"#####       "</span>,
+            <span class="string">"#   #       "</span>,
+            <span class="string">"#   #       "</span>,
+            <span class="string">"            "</span>,
+            <span class="string">"            "</span>,
+            <span class="string">"            "</span>,
+            <span class="string">"            "</span>,
+            <span class="string">"            "</span>,
+            <span class="string">"            "</span>,
+            <span class="string">"            "</span>,
+            <span class="string">"            "</span>,
+            <span class="string">"            "</span>,
+            <span class="string">"            "</span>,
+            <span class="string">"            "</span>,
+            <span class="string">"            "</span>,
+            <span class="string">"####    ##  "</span>,
+            <span class="string">"#   #  #  # "</span>,
+            <span class="string">"####   #    "</span>,
+            <span class="string">"#   #  #    "</span>,
+            <span class="string">"#   #  #  # "</span>,
+            <span class="string">"####    ##  "</span>,
         ]);
     }
 }

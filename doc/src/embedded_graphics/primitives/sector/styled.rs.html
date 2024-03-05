@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/embedded-graphics-0.8.1/src/primitives/sector/styled.rs`."><title>styled.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../" data-static-root-path="../../../../static.files/" data-current-crate="embedded_graphics" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../src-files.js"></script><script defer src="../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../../embedded_graphics/index.html"><img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="embedded_graphics"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/embedded-graphics-0.8.1/src/primitives/sector/styled.rs`."><title>styled.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../" data-static-root-path="../../../../static.files/" data-current-crate="embedded_graphics" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../src-files.js"></script><script defer src="../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><a class="sub-logo-container" href="../../../../embedded_graphics/index.html"><img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="embedded_graphics"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -714,7 +715,7 @@
 
 <span class="doccomment">/// Pixel iterator for each pixel in the sector border
 </span><span class="attr">#[derive(Clone, PartialEq, Debug)]
-#[cfg_attr(feature = <span class="string">&quot;defmt&quot;</span>, derive(::defmt::Format))]
+#[cfg_attr(feature = <span class="string">"defmt"</span>, derive(::defmt::Format))]
 </span><span class="kw">pub struct </span>StyledPixelsIterator&lt;C&gt; {
     iter: DistanceIterator,
 
@@ -874,7 +875,7 @@
 }
 
 <span class="kw">impl</span>&lt;C: PixelColor&gt; StyledDimensions&lt;PrimitiveStyle&lt;C&gt;&gt; <span class="kw">for </span>Sector {
-    <span class="comment">// FIXME: This doesn&#39;t take into account start/end angles. This should be fixed to close #405.
+    <span class="comment">// FIXME: This doesn't take into account start/end angles. This should be fixed to close #405.
     </span><span class="kw">fn </span>styled_bounding_box(<span class="kw-2">&amp;</span><span class="self">self</span>, style: <span class="kw-2">&amp;</span>PrimitiveStyle&lt;C&gt;) -&gt; Rectangle {
         <span class="kw">let </span>offset = style.outside_stroke_width().saturating_as();
 
@@ -883,7 +884,7 @@
 }
 
 <span class="attr">#[derive(Debug, Copy, Clone, PartialOrd, PartialEq)]
-#[cfg_attr(feature = <span class="string">&quot;defmt&quot;</span>, derive(::defmt::Format))]
+#[cfg_attr(feature = <span class="string">"defmt"</span>, derive(::defmt::Format))]
 </span><span class="kw">enum </span>BevelKind {
     Interior,
     Exterior,
@@ -913,18 +914,18 @@
             .unwrap();
 
         display.assert_pattern(<span class="kw-2">&amp;</span>[
-            <span class="string">&quot;  #####  &quot;</span>, <span class="comment">//
-            </span><span class="string">&quot; ##   ## &quot;</span>, <span class="comment">//
-            </span><span class="string">&quot;##     ##&quot;</span>, <span class="comment">//
-            </span><span class="string">&quot;  ## ##  &quot;</span>, <span class="comment">//
-            </span><span class="string">&quot;   ###   &quot;</span>, <span class="comment">//
+            <span class="string">"  #####  "</span>, <span class="comment">//
+            </span><span class="string">" ##   ## "</span>, <span class="comment">//
+            </span><span class="string">"##     ##"</span>, <span class="comment">//
+            </span><span class="string">"  ## ##  "</span>, <span class="comment">//
+            </span><span class="string">"   ###   "</span>, <span class="comment">//
         </span>]);
     }
 
     <span class="comment">// Check the rendering of a filled sector with negative sweep
     // TODO: Re-enable this test for `fixed_point` and track as part of #484
-    </span><span class="attr">#[cfg_attr(not(feature = <span class="string">&quot;fixed_point&quot;</span>), test)]
-    #[cfg_attr(feature = <span class="string">&quot;fixed_point&quot;</span>, allow(unused))]
+    </span><span class="attr">#[cfg_attr(not(feature = <span class="string">"fixed_point"</span>), test)]
+    #[cfg_attr(feature = <span class="string">"fixed_point"</span>, allow(unused))]
     </span><span class="kw">fn </span>tiny_sector_filled() {
         <span class="kw">let </span><span class="kw-2">mut </span>display = MockDisplay::new();
 
@@ -934,13 +935,13 @@
             .unwrap();
 
         display.assert_pattern(<span class="kw-2">&amp;</span>[
-            <span class="string">&quot;  ###  &quot;</span>, <span class="comment">//
-            </span><span class="string">&quot; ##### &quot;</span>, <span class="comment">//
-            </span><span class="string">&quot;###### &quot;</span>, <span class="comment">//
-            </span><span class="string">&quot;#####  &quot;</span>, <span class="comment">//
-            </span><span class="string">&quot;###### &quot;</span>, <span class="comment">//
-            </span><span class="string">&quot; ##### &quot;</span>, <span class="comment">//
-            </span><span class="string">&quot;  ###  &quot;</span>, <span class="comment">//
+            <span class="string">"  ###  "</span>, <span class="comment">//
+            </span><span class="string">" ##### "</span>, <span class="comment">//
+            </span><span class="string">"###### "</span>, <span class="comment">//
+            </span><span class="string">"#####  "</span>, <span class="comment">//
+            </span><span class="string">"###### "</span>, <span class="comment">//
+            </span><span class="string">" ##### "</span>, <span class="comment">//
+            </span><span class="string">"  ###  "</span>, <span class="comment">//
         </span>]);
     }
 
@@ -980,17 +981,17 @@
             StrokeAlignment::Inside,
             <span class="number">19 </span>+ <span class="number">2</span>,
             <span class="kw-2">&amp;</span>[
-                <span class="string">&quot;   ####       &quot;</span>,
-                <span class="string">&quot;   ######     &quot;</span>,
-                <span class="string">&quot;   #######    &quot;</span>,
-                <span class="string">&quot;   ########   &quot;</span>,
-                <span class="string">&quot;   ###  ####  &quot;</span>,
-                <span class="string">&quot;   ###   #### &quot;</span>,
-                <span class="string">&quot;   ###    ### &quot;</span>,
-                <span class="string">&quot;   ###    ####&quot;</span>,
-                <span class="string">&quot;   ###########&quot;</span>,
-                <span class="string">&quot;   ###########&quot;</span>,
-                <span class="string">&quot;   ###########&quot;</span>,
+                <span class="string">"   ####       "</span>,
+                <span class="string">"   ######     "</span>,
+                <span class="string">"   #######    "</span>,
+                <span class="string">"   ########   "</span>,
+                <span class="string">"   ###  ####  "</span>,
+                <span class="string">"   ###   #### "</span>,
+                <span class="string">"   ###    ### "</span>,
+                <span class="string">"   ###    ####"</span>,
+                <span class="string">"   ###########"</span>,
+                <span class="string">"   ###########"</span>,
+                <span class="string">"   ###########"</span>,
             ],
         );
     }
@@ -1001,18 +1002,18 @@
             StrokeAlignment::Center,
             <span class="number">19</span>,
             <span class="kw-2">&amp;</span>[
-                <span class="string">&quot;  #####       &quot;</span>,
-                <span class="string">&quot;  #######     &quot;</span>,
-                <span class="string">&quot;  ########    &quot;</span>,
-                <span class="string">&quot;  ### #####   &quot;</span>,
-                <span class="string">&quot;  ###   ####  &quot;</span>,
-                <span class="string">&quot;  ###    #### &quot;</span>,
-                <span class="string">&quot;  ###     ### &quot;</span>,
-                <span class="string">&quot;  ###     ####&quot;</span>,
-                <span class="string">&quot;  ###      ###&quot;</span>,
-                <span class="string">&quot;  ############&quot;</span>,
-                <span class="string">&quot;  ############&quot;</span>,
-                <span class="string">&quot;  ############&quot;</span>,
+                <span class="string">"  #####       "</span>,
+                <span class="string">"  #######     "</span>,
+                <span class="string">"  ########    "</span>,
+                <span class="string">"  ### #####   "</span>,
+                <span class="string">"  ###   ####  "</span>,
+                <span class="string">"  ###    #### "</span>,
+                <span class="string">"  ###     ### "</span>,
+                <span class="string">"  ###     ####"</span>,
+                <span class="string">"  ###      ###"</span>,
+                <span class="string">"  ############"</span>,
+                <span class="string">"  ############"</span>,
+                <span class="string">"  ############"</span>,
             ],
         );
     }
@@ -1023,20 +1024,20 @@
             StrokeAlignment::Outside,
             <span class="number">19 </span>- <span class="number">4</span>,
             <span class="kw-2">&amp;</span>[
-                <span class="string">&quot;#######       &quot;</span>,
-                <span class="string">&quot;#########     &quot;</span>,
-                <span class="string">&quot;##########    &quot;</span>,
-                <span class="string">&quot;###   #####   &quot;</span>,
-                <span class="string">&quot;###     ####  &quot;</span>,
-                <span class="string">&quot;###      #### &quot;</span>,
-                <span class="string">&quot;###       ### &quot;</span>,
-                <span class="string">&quot;###       ####&quot;</span>,
-                <span class="string">&quot;###        ###&quot;</span>,
-                <span class="string">&quot;###        ###&quot;</span>,
-                <span class="string">&quot;###        ###&quot;</span>,
-                <span class="string">&quot;##############&quot;</span>,
-                <span class="string">&quot;##############&quot;</span>,
-                <span class="string">&quot;##############&quot;</span>,
+                <span class="string">"#######       "</span>,
+                <span class="string">"#########     "</span>,
+                <span class="string">"##########    "</span>,
+                <span class="string">"###   #####   "</span>,
+                <span class="string">"###     ####  "</span>,
+                <span class="string">"###      #### "</span>,
+                <span class="string">"###       ### "</span>,
+                <span class="string">"###       ####"</span>,
+                <span class="string">"###        ###"</span>,
+                <span class="string">"###        ###"</span>,
+                <span class="string">"###        ###"</span>,
+                <span class="string">"##############"</span>,
+                <span class="string">"##############"</span>,
+                <span class="string">"##############"</span>,
             ],
         );
     }
@@ -1092,16 +1093,16 @@
             .unwrap();
 
         display.assert_pattern(<span class="kw-2">&amp;</span>[
-            <span class="string">&quot;RRRR      &quot;</span>,
-            <span class="string">&quot;RRRRRR    &quot;</span>,
-            <span class="string">&quot;RRRRRRRR  &quot;</span>,
-            <span class="string">&quot;RRRGRRRR  &quot;</span>,
-            <span class="string">&quot;RRRGGRRRR &quot;</span>,
-            <span class="string">&quot;RRRGGGRRR &quot;</span>,
-            <span class="string">&quot;RRRGGGGRRR&quot;</span>,
-            <span class="string">&quot;RRRRRRRRRR&quot;</span>,
-            <span class="string">&quot;RRRRRRRRRR&quot;</span>,
-            <span class="string">&quot;RRRRRRRRRR&quot;</span>,
+            <span class="string">"RRRR      "</span>,
+            <span class="string">"RRRRRR    "</span>,
+            <span class="string">"RRRRRRRR  "</span>,
+            <span class="string">"RRRGRRRR  "</span>,
+            <span class="string">"RRRGGRRRR "</span>,
+            <span class="string">"RRRGGGRRR "</span>,
+            <span class="string">"RRRGGGGRRR"</span>,
+            <span class="string">"RRRRRRRRRR"</span>,
+            <span class="string">"RRRRRRRRRR"</span>,
+            <span class="string">"RRRRRRRRRR"</span>,
         ]);
     }
 
@@ -1122,12 +1123,12 @@
             .unwrap();
 
         display.assert_pattern(<span class="kw-2">&amp;</span>[
-            <span class="string">&quot;          R &quot;</span>,
-            <span class="string">&quot;       RRRR &quot;</span>,
-            <span class="string">&quot;     RRRRRRR&quot;</span>,
-            <span class="string">&quot;  RRRRRRRRRR&quot;</span>,
-            <span class="string">&quot; RRRRRRRRRRR&quot;</span>,
-            <span class="string">&quot;  RRRRRRRRRR&quot;</span>,
+            <span class="string">"          R "</span>,
+            <span class="string">"       RRRR "</span>,
+            <span class="string">"     RRRRRRR"</span>,
+            <span class="string">"  RRRRRRRRRR"</span>,
+            <span class="string">" RRRRRRRRRRR"</span>,
+            <span class="string">"  RRRRRRRRRR"</span>,
         ]);
     }
 
@@ -1148,28 +1149,28 @@
             .unwrap();
 
         display.assert_pattern(<span class="kw-2">&amp;</span>[
-            <span class="string">&quot;                  &quot;</span>,
-            <span class="string">&quot;       RRRRR      &quot;</span>,
-            <span class="string">&quot;     RRRRRRRRR    &quot;</span>,
-            <span class="string">&quot;   RRRRRRRRRRRRR  &quot;</span>,
-            <span class="string">&quot;   RRRRGGGGGRRRR  &quot;</span>,
-            <span class="string">&quot;  RRRRGGGGGGGRRRR &quot;</span>,
-            <span class="string">&quot;  RRRGGGGGGGGGRRR &quot;</span>,
-            <span class="string">&quot; RRRGGGGGGGGGGGRRR&quot;</span>,
-            <span class="string">&quot; RRRGGGGRRRRRRRRRR&quot;</span>,
-            <span class="string">&quot; RRRGGGRRRRRRRRRRR&quot;</span>,
-            <span class="string">&quot; RRRGGGGRRRRRRRRRR&quot;</span>,
-            <span class="string">&quot; RRRGGGGGGGRRRRRRR&quot;</span>,
-            <span class="string">&quot;  RRRGGGGGGGGRRRR &quot;</span>,
-            <span class="string">&quot;  RRRRGGGGGGGRRRR &quot;</span>,
-            <span class="string">&quot;   RRRRGGGGGRRRR  &quot;</span>,
-            <span class="string">&quot;   RRRRRRRRRRRRR  &quot;</span>,
-            <span class="string">&quot;     RRRRRRRRR    &quot;</span>,
-            <span class="string">&quot;       RRRRR      &quot;</span>,
+            <span class="string">"                  "</span>,
+            <span class="string">"       RRRRR      "</span>,
+            <span class="string">"     RRRRRRRRR    "</span>,
+            <span class="string">"   RRRRRRRRRRRRR  "</span>,
+            <span class="string">"   RRRRGGGGGRRRR  "</span>,
+            <span class="string">"  RRRRGGGGGGGRRRR "</span>,
+            <span class="string">"  RRRGGGGGGGGGRRR "</span>,
+            <span class="string">" RRRGGGGGGGGGGGRRR"</span>,
+            <span class="string">" RRRGGGGRRRRRRRRRR"</span>,
+            <span class="string">" RRRGGGRRRRRRRRRRR"</span>,
+            <span class="string">" RRRGGGGRRRRRRRRRR"</span>,
+            <span class="string">" RRRGGGGGGGRRRRRRR"</span>,
+            <span class="string">"  RRRGGGGGGGGRRRR "</span>,
+            <span class="string">"  RRRRGGGGGGGRRRR "</span>,
+            <span class="string">"   RRRRGGGGGRRRR  "</span>,
+            <span class="string">"   RRRRRRRRRRRRR  "</span>,
+            <span class="string">"     RRRRRRRRR    "</span>,
+            <span class="string">"       RRRRR      "</span>,
         ]);
     }
 
-    <span class="doccomment">/// The stroke for the radial lines shouldn&#39;t overlap the outer edge of the stroke on the
+    <span class="doccomment">/// The stroke for the radial lines shouldn't overlap the outer edge of the stroke on the
     /// circular part of the sector.
     </span><span class="attr">#[test]
     #[ignore]
@@ -1188,32 +1189,32 @@
             .unwrap();
 
         display.assert_pattern(<span class="kw-2">&amp;</span>[
-            <span class="string">&quot;RRRRRRRRRRRRRR            &quot;</span>,
-            <span class="string">&quot;RRRRRRRRRRRRRRRRR         &quot;</span>,
-            <span class="string">&quot;RRRRRRRRRRRRRRRRRRR       &quot;</span>,
-            <span class="string">&quot;RRRRRRRRRRRRRRRRRRRR      &quot;</span>,
-            <span class="string">&quot;RRRRRRRRRRRRRRRRRRRRR     &quot;</span>,
-            <span class="string">&quot;RRRRRRRRRRRRRRRRRRRRRR    &quot;</span>,
-            <span class="string">&quot;RRRRRRRRRRRRRRRRRRRRRRR   &quot;</span>,
-            <span class="string">&quot;RRRRRRRRRRRRRRRRRRRRRRRR  &quot;</span>,
-            <span class="string">&quot;RRRRRRRRRRRRRRRRRRRRRRRR  &quot;</span>,
-            <span class="string">&quot;RRRRRRRRRRRRRRRRRRRRRRRRR &quot;</span>,
-            <span class="string">&quot;RRRRRRRRRRRRRRRRRRRRRRRRR &quot;</span>,
-            <span class="string">&quot;RRRRRRRRRRRRRRRRRRRRRRRRR &quot;</span>,
-            <span class="string">&quot;RRRRRRRRRRRRRRRRRRRRRRRRRR&quot;</span>,
-            <span class="string">&quot;RRRRRRRRRRRRRRRRRRRRRRRRRR&quot;</span>,
-            <span class="string">&quot;RRRRRRRRRRRRRRRRRRRRRRRRRR&quot;</span>,
-            <span class="string">&quot;RRRRRRRRRRRRRRRRRRRRRRRRRR&quot;</span>,
-            <span class="string">&quot;RRRRRRRRRRRRRRRRRRRRRRRRRR&quot;</span>,
-            <span class="string">&quot;RRRRRRRRRRRRRRRRRRRRRRRRRR&quot;</span>,
-            <span class="string">&quot;RRRRRRRRRRRRRRRRRRRRRRRRRR&quot;</span>,
-            <span class="string">&quot;RRRRRRRRRRRRRRRRRRRRRRRRRR&quot;</span>,
-            <span class="string">&quot;RRRRRRRRRRRRRRRRRRRRRRRRRR&quot;</span>,
-            <span class="string">&quot;RRRRRRRRRRRRRRRRRRRRRRRRRR&quot;</span>,
-            <span class="string">&quot;RRRRRRRRRRRRRRRRRRRRRRRRRR&quot;</span>,
-            <span class="string">&quot;RRRRRRRRRRRRRRRRRRRRRRRRRR&quot;</span>,
-            <span class="string">&quot;RRRRRRRRRRRRRRRRRRRRRRRRRR&quot;</span>,
-            <span class="string">&quot;RRRRRRRRRRRRRRRRRRRRRRRRRR&quot;</span>,
+            <span class="string">"RRRRRRRRRRRRRR            "</span>,
+            <span class="string">"RRRRRRRRRRRRRRRRR         "</span>,
+            <span class="string">"RRRRRRRRRRRRRRRRRRR       "</span>,
+            <span class="string">"RRRRRRRRRRRRRRRRRRRR      "</span>,
+            <span class="string">"RRRRRRRRRRRRRRRRRRRRR     "</span>,
+            <span class="string">"RRRRRRRRRRRRRRRRRRRRRR    "</span>,
+            <span class="string">"RRRRRRRRRRRRRRRRRRRRRRR   "</span>,
+            <span class="string">"RRRRRRRRRRRRRRRRRRRRRRRR  "</span>,
+            <span class="string">"RRRRRRRRRRRRRRRRRRRRRRRR  "</span>,
+            <span class="string">"RRRRRRRRRRRRRRRRRRRRRRRRR "</span>,
+            <span class="string">"RRRRRRRRRRRRRRRRRRRRRRRRR "</span>,
+            <span class="string">"RRRRRRRRRRRRRRRRRRRRRRRRR "</span>,
+            <span class="string">"RRRRRRRRRRRRRRRRRRRRRRRRRR"</span>,
+            <span class="string">"RRRRRRRRRRRRRRRRRRRRRRRRRR"</span>,
+            <span class="string">"RRRRRRRRRRRRRRRRRRRRRRRRRR"</span>,
+            <span class="string">"RRRRRRRRRRRRRRRRRRRRRRRRRR"</span>,
+            <span class="string">"RRRRRRRRRRRRRRRRRRRRRRRRRR"</span>,
+            <span class="string">"RRRRRRRRRRRRRRRRRRRRRRRRRR"</span>,
+            <span class="string">"RRRRRRRRRRRRRRRRRRRRRRRRRR"</span>,
+            <span class="string">"RRRRRRRRRRRRRRRRRRRRRRRRRR"</span>,
+            <span class="string">"RRRRRRRRRRRRRRRRRRRRRRRRRR"</span>,
+            <span class="string">"RRRRRRRRRRRRRRRRRRRRRRRRRR"</span>,
+            <span class="string">"RRRRRRRRRRRRRRRRRRRRRRRRRR"</span>,
+            <span class="string">"RRRRRRRRRRRRRRRRRRRRRRRRRR"</span>,
+            <span class="string">"RRRRRRRRRRRRRRRRRRRRRRRRRR"</span>,
+            <span class="string">"RRRRRRRRRRRRRRRRRRRRRRRRRR"</span>,
         ]);
     }
 
@@ -1235,16 +1236,16 @@
             .unwrap();
 
         display.assert_pattern(<span class="kw-2">&amp;</span>[
-            <span class="string">&quot;      .....      &quot;</span>,
-            <span class="string">&quot;    .........    &quot;</span>,
-            <span class="string">&quot;  ....#####....  &quot;</span>,
-            <span class="string">&quot;  ..#########..  &quot;</span>,
-            <span class="string">&quot; ..###########.. &quot;</span>,
-            <span class="string">&quot; ..###########.. &quot;</span>,
-            <span class="string">&quot;..#############..&quot;</span>,
-            <span class="string">&quot;..#############..&quot;</span>,
-            <span class="string">&quot;.................&quot;</span>,
-            <span class="string">&quot;.................&quot;</span>,
+            <span class="string">"      .....      "</span>,
+            <span class="string">"    .........    "</span>,
+            <span class="string">"  ....#####....  "</span>,
+            <span class="string">"  ..#########..  "</span>,
+            <span class="string">" ..###########.. "</span>,
+            <span class="string">" ..###########.. "</span>,
+            <span class="string">"..#############.."</span>,
+            <span class="string">"..#############.."</span>,
+            <span class="string">"................."</span>,
+            <span class="string">"................."</span>,
         ]);
     }
 
@@ -1266,27 +1267,27 @@
             .unwrap();
 
         display.assert_pattern(<span class="kw-2">&amp;</span>[
-            <span class="string">&quot;      ....&quot;</span>,
-            <span class="string">&quot;    ......&quot;</span>,
-            <span class="string">&quot;  ....##..&quot;</span>,
-            <span class="string">&quot;  ..####..&quot;</span>,
-            <span class="string">&quot; ..#####..&quot;</span>,
-            <span class="string">&quot; ..#####..&quot;</span>,
-            <span class="string">&quot;..######..&quot;</span>,
-            <span class="string">&quot;..######..&quot;</span>,
-            <span class="string">&quot;..######..&quot;</span>,
-            <span class="string">&quot;..######..&quot;</span>,
-            <span class="string">&quot;..######..&quot;</span>,
-            <span class="string">&quot; ..#####..&quot;</span>,
-            <span class="string">&quot; ..#####..&quot;</span>,
-            <span class="string">&quot;  ..####..&quot;</span>,
-            <span class="string">&quot;  ....##..&quot;</span>,
-            <span class="string">&quot;    ......&quot;</span>,
-            <span class="string">&quot;      ....&quot;</span>,
+            <span class="string">"      ...."</span>,
+            <span class="string">"    ......"</span>,
+            <span class="string">"  ....##.."</span>,
+            <span class="string">"  ..####.."</span>,
+            <span class="string">" ..#####.."</span>,
+            <span class="string">" ..#####.."</span>,
+            <span class="string">"..######.."</span>,
+            <span class="string">"..######.."</span>,
+            <span class="string">"..######.."</span>,
+            <span class="string">"..######.."</span>,
+            <span class="string">"..######.."</span>,
+            <span class="string">" ..#####.."</span>,
+            <span class="string">" ..#####.."</span>,
+            <span class="string">"  ..####.."</span>,
+            <span class="string">"  ....##.."</span>,
+            <span class="string">"    ......"</span>,
+            <span class="string">"      ...."</span>,
         ]);
     }
 
-    <span class="doccomment">/// The fill shouldn&#39;t overlap the stroke and there should be no gaps between stroke and fill.
+    <span class="doccomment">/// The fill shouldn't overlap the stroke and there should be no gaps between stroke and fill.
     </span><span class="attr">#[test]
     </span><span class="kw">fn </span>issue_484_gaps_and_overlap() {
         <span class="kw">let </span><span class="kw-2">mut </span>display = MockDisplay::new();
@@ -1303,33 +1304,33 @@
             .unwrap();
 
         display.assert_pattern(<span class="kw-2">&amp;</span>[
-            <span class="string">&quot;       R                &quot;</span>,
-            <span class="string">&quot;      RRRRR             &quot;</span>,
-            <span class="string">&quot;      RRRRRRR           &quot;</span>,
-            <span class="string">&quot;      RRGGRRRRR         &quot;</span>,
-            <span class="string">&quot;      RRGGGGRRRR        &quot;</span>,
-            <span class="string">&quot;     RRGGGGGGGRRR       &quot;</span>,
-            <span class="string">&quot;     RRGGGGGGGGRRR      &quot;</span>,
-            <span class="string">&quot;     RRGGGGGGGGGRRR     &quot;</span>,
-            <span class="string">&quot;     RRGGGGGGGGGGRRR    &quot;</span>,
-            <span class="string">&quot;    RRGGGGGGGGGGGGRRR   &quot;</span>,
-            <span class="string">&quot;    RRGGGGGGGGGGGGGRR   &quot;</span>,
-            <span class="string">&quot;    RRGGGGGGGGGGGGGRRR  &quot;</span>,
-            <span class="string">&quot;    RRGGGGGGGGGGGGGGRR  &quot;</span>,
-            <span class="string">&quot;   RRGGGGGGGGGGGGGGGRRR &quot;</span>,
-            <span class="string">&quot;   RRGGGGGGGGGGGGGGGGRR &quot;</span>,
-            <span class="string">&quot;   RRGGGGGGGGGGGGGGGGRR &quot;</span>,
-            <span class="string">&quot;   RRGGGGGGGGGGGGGGGGRRR&quot;</span>,
-            <span class="string">&quot;  RRGGGGGGGGGGGGGGGGGGRR&quot;</span>,
-            <span class="string">&quot;  RRGGGGGGGGGGGGGGGGGGRR&quot;</span>,
-            <span class="string">&quot;  RRGGGGGGGGGGGGGGGGGGRR&quot;</span>,
-            <span class="string">&quot;  RRGGGGGGGGGGGGGGGGGGRR&quot;</span>,
-            <span class="string">&quot; RRRRRRGGGGGGGGGGGGGGGRR&quot;</span>,
-            <span class="string">&quot;   RRRRRRRRGGGGGGGGGGGRR&quot;</span>,
-            <span class="string">&quot;       RRRRRRRRGGGGGGGRR&quot;</span>,
-            <span class="string">&quot;           RRRRRRRRGGGRR&quot;</span>,
-            <span class="string">&quot;               RRRRRRRRR&quot;</span>,
-            <span class="string">&quot;                   RRRR &quot;</span>,
+            <span class="string">"       R                "</span>,
+            <span class="string">"      RRRRR             "</span>,
+            <span class="string">"      RRRRRRR           "</span>,
+            <span class="string">"      RRGGRRRRR         "</span>,
+            <span class="string">"      RRGGGGRRRR        "</span>,
+            <span class="string">"     RRGGGGGGGRRR       "</span>,
+            <span class="string">"     RRGGGGGGGGRRR      "</span>,
+            <span class="string">"     RRGGGGGGGGGRRR     "</span>,
+            <span class="string">"     RRGGGGGGGGGGRRR    "</span>,
+            <span class="string">"    RRGGGGGGGGGGGGRRR   "</span>,
+            <span class="string">"    RRGGGGGGGGGGGGGRR   "</span>,
+            <span class="string">"    RRGGGGGGGGGGGGGRRR  "</span>,
+            <span class="string">"    RRGGGGGGGGGGGGGGRR  "</span>,
+            <span class="string">"   RRGGGGGGGGGGGGGGGRRR "</span>,
+            <span class="string">"   RRGGGGGGGGGGGGGGGGRR "</span>,
+            <span class="string">"   RRGGGGGGGGGGGGGGGGRR "</span>,
+            <span class="string">"   RRGGGGGGGGGGGGGGGGRRR"</span>,
+            <span class="string">"  RRGGGGGGGGGGGGGGGGGGRR"</span>,
+            <span class="string">"  RRGGGGGGGGGGGGGGGGGGRR"</span>,
+            <span class="string">"  RRGGGGGGGGGGGGGGGGGGRR"</span>,
+            <span class="string">"  RRGGGGGGGGGGGGGGGGGGRR"</span>,
+            <span class="string">" RRRRRRGGGGGGGGGGGGGGGRR"</span>,
+            <span class="string">"   RRRRRRRRGGGGGGGGGGGRR"</span>,
+            <span class="string">"       RRRRRRRRGGGGGGGRR"</span>,
+            <span class="string">"           RRRRRRRRGGGRR"</span>,
+            <span class="string">"               RRRRRRRRR"</span>,
+            <span class="string">"                   RRRR "</span>,
         ]);
     }
 

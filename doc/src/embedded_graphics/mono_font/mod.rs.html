@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/embedded-graphics-0.8.1/src/mono_font/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="embedded_graphics" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../embedded_graphics/index.html"><img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="embedded_graphics"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/runner/.cargo/registry/src/index.crates.io-6f17d22bba15001f/embedded-graphics-0.8.1/src/mono_font/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="embedded_graphics" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><a class="sub-logo-container" href="../../../embedded_graphics/index.html"><img src="https://raw.githubusercontent.com/embedded-graphics/embedded-graphics/191fe7f8a0fedc713f9722b9dc59208dacadee7e/assets/logo.svg?sanitize=true" alt="embedded_graphics"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -539,9 +540,9 @@
 ///
 /// [module documentation]: self
 </span><span class="attr">#[derive(Clone, Copy)]
-</span><span class="kw">pub struct </span>MonoFont&lt;<span class="lifetime">&#39;a</span>&gt; {
+</span><span class="kw">pub struct </span>MonoFont&lt;<span class="lifetime">'a</span>&gt; {
     <span class="doccomment">/// Raw image data containing the font.
-    </span><span class="kw">pub </span>image: ImageRaw&lt;<span class="lifetime">&#39;a</span>, BinaryColor&gt;,
+    </span><span class="kw">pub </span>image: ImageRaw&lt;<span class="lifetime">'a</span>, BinaryColor&gt;,
 
     <span class="doccomment">/// Size of a single character in pixel.
     </span><span class="kw">pub </span>character_size: Size,
@@ -564,12 +565,12 @@
     </span><span class="kw">pub </span>underline: DecorationDimensions,
 
     <span class="doccomment">/// Glyph mapping.
-    </span><span class="kw">pub </span>glyph_mapping: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span><span class="kw">dyn </span>GlyphMapping,
+    </span><span class="kw">pub </span>glyph_mapping: <span class="kw-2">&amp;</span><span class="lifetime">'a </span><span class="kw">dyn </span>GlyphMapping,
 }
 
-<span class="kw">impl </span>MonoFont&lt;<span class="lifetime">&#39;_</span>&gt; {
+<span class="kw">impl </span>MonoFont&lt;<span class="lifetime">'_</span>&gt; {
     <span class="doccomment">/// Returns a subimage for a glyph.
-    </span><span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn </span>glyph(<span class="kw-2">&amp;</span><span class="self">self</span>, c: char) -&gt; SubImage&lt;<span class="lifetime">&#39;_</span>, ImageRaw&lt;BinaryColor&gt;&gt; {
+    </span><span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn </span>glyph(<span class="kw-2">&amp;</span><span class="self">self</span>, c: char) -&gt; SubImage&lt;<span class="lifetime">'_</span>, ImageRaw&lt;BinaryColor&gt;&gt; {
         <span class="kw">if </span><span class="self">self</span>.character_size.width == <span class="number">0 </span>|| <span class="self">self</span>.image.size().width &lt; <span class="self">self</span>.character_size.width {
             <span class="kw">return </span>SubImage::new_unchecked(<span class="kw-2">&amp;</span><span class="self">self</span>.image, Rectangle::zero());
         }
@@ -577,7 +578,7 @@
         <span class="kw">let </span>glyphs_per_row = <span class="self">self</span>.image.size().width / <span class="self">self</span>.character_size.width;
 
         <span class="comment">// Char _code_ offset from first char, most often a space
-        // E.g. first char = &#39; &#39; (32), target char = &#39;!&#39; (33), offset = 33 - 32 = 1
+        // E.g. first char = ' ' (32), target char = '!' (33), offset = 33 - 32 = 1
         </span><span class="kw">let </span>glyph_index = <span class="self">self</span>.glyph_mapping.index(c) <span class="kw">as </span>u32;
         <span class="kw">let </span>row = glyph_index / glyphs_per_row;
 
@@ -595,7 +596,7 @@
     }
 }
 
-<span class="kw">impl </span>PartialEq <span class="kw">for </span>MonoFont&lt;<span class="lifetime">&#39;_</span>&gt; {
+<span class="kw">impl </span>PartialEq <span class="kw">for </span>MonoFont&lt;<span class="lifetime">'_</span>&gt; {
     <span class="attr">#[allow(trivial_casts)]
     </span><span class="kw">fn </span>eq(<span class="kw-2">&amp;</span><span class="self">self</span>, other: <span class="kw-2">&amp;</span><span class="self">Self</span>) -&gt; bool {
         <span class="self">self</span>.image == other.image
@@ -611,26 +612,26 @@
     }
 }
 
-<span class="kw">impl </span>fmt::Debug <span class="kw">for </span>MonoFont&lt;<span class="lifetime">&#39;_</span>&gt; {
-    <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span>fmt::Formatter&lt;<span class="lifetime">&#39;_</span>&gt;) -&gt; fmt::Result {
-        f.debug_struct(<span class="string">&quot;MonoFont&quot;</span>)
-            .field(<span class="string">&quot;image&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.image)
-            .field(<span class="string">&quot;character_size&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.character_size)
-            .field(<span class="string">&quot;character_spacing&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.character_spacing)
-            .field(<span class="string">&quot;baseline&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.baseline)
-            .field(<span class="string">&quot;strikethrough&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.strikethrough)
-            .field(<span class="string">&quot;underline&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.underline)
-            .field(<span class="string">&quot;glyph_mapping&quot;</span>, <span class="kw-2">&amp;</span><span class="string">&quot;?&quot;</span>)
+<span class="kw">impl </span>fmt::Debug <span class="kw">for </span>MonoFont&lt;<span class="lifetime">'_</span>&gt; {
+    <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span>fmt::Formatter&lt;<span class="lifetime">'_</span>&gt;) -&gt; fmt::Result {
+        f.debug_struct(<span class="string">"MonoFont"</span>)
+            .field(<span class="string">"image"</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.image)
+            .field(<span class="string">"character_size"</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.character_size)
+            .field(<span class="string">"character_spacing"</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.character_spacing)
+            .field(<span class="string">"baseline"</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.baseline)
+            .field(<span class="string">"strikethrough"</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.strikethrough)
+            .field(<span class="string">"underline"</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.underline)
+            .field(<span class="string">"glyph_mapping"</span>, <span class="kw-2">&amp;</span><span class="string">"?"</span>)
             .finish_non_exhaustive()
     }
 }
 
-<span class="attr">#[cfg(feature = <span class="string">&quot;defmt&quot;</span>)]
-</span><span class="kw">impl </span>::defmt::Format <span class="kw">for </span>MonoFont&lt;<span class="lifetime">&#39;_</span>&gt; {
+<span class="attr">#[cfg(feature = <span class="string">"defmt"</span>)]
+</span><span class="kw">impl </span>::defmt::Format <span class="kw">for </span>MonoFont&lt;<span class="lifetime">'_</span>&gt; {
     <span class="kw">fn </span>format(<span class="kw-2">&amp;</span><span class="self">self</span>, f: ::defmt::Formatter) {
         <span class="macro">::defmt::write!</span>(
             f,
-            <span class="string">&quot;MonoFont {{ image: {}, character_size: {}, character_spacing: {}, baseline: {}, strikethrough: {}, underline: {}, .. }}&quot;</span>,
+            <span class="string">"MonoFont {{ image: {}, character_size: {}, character_spacing: {}, baseline: {}, strikethrough: {}, underline: {}, .. }}"</span>,
             <span class="kw-2">&amp;</span><span class="self">self</span>.image,
             <span class="kw-2">&amp;</span><span class="self">self</span>.character_size,
             <span class="kw-2">&amp;</span><span class="self">self</span>.character_spacing,
@@ -648,7 +649,7 @@
 /// decorations in [`MonoFont`]s.
 ///
 </span><span class="attr">#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
-#[cfg_attr(feature = <span class="string">&quot;defmt&quot;</span>, derive(::defmt::Format))]
+#[cfg_attr(feature = <span class="string">"defmt"</span>, derive(::defmt::Format))]
 </span><span class="kw">pub struct </span>DecorationDimensions {
     <span class="doccomment">/// Offset from the top of the character to the top of the decoration.
     </span><span class="kw">pub </span>offset: u32,
@@ -740,9 +741,9 @@
             .text_color(BinaryColor::On)
             .build();
 
-        <span class="comment">// Draw &#39;A&#39; character to determine it&#39;s baseline
+        <span class="comment">// Draw 'A' character to determine it's baseline
         </span><span class="kw">let </span><span class="kw-2">mut </span>display = MockDisplay::new();
-        Text::with_baseline(<span class="string">&quot;A&quot;</span>, Point::zero(), style, Baseline::Top)
+        Text::with_baseline(<span class="string">"A"</span>, Point::zero(), style, Baseline::Top)
             .draw(<span class="kw-2">&amp;mut </span>display)
             .unwrap();
 
@@ -780,7 +781,7 @@
     <span class="doccomment">/// (Statically) test that [`MonoFont: Send + Sync`].
     </span><span class="kw">fn </span>_mono_font_is_sync()
     <span class="kw">where
-        for</span>&lt;<span class="lifetime">&#39;a</span>&gt; MonoFont&lt;<span class="lifetime">&#39;a</span>&gt;: Send + Sync,
+        for</span>&lt;<span class="lifetime">'a</span>&gt; MonoFont&lt;<span class="lifetime">'a</span>&gt;: Send + Sync,
     {
     }
 
@@ -804,12 +805,12 @@
         <span class="kw">for </span>y <span class="kw">in </span>bb.rows() {
             <span class="kw">for </span>x <span class="kw">in </span>bb.columns() {
                 <span class="kw">let </span>c = <span class="kw">match </span>framebuffer.pixel(Point::new(x, y)).unwrap() {
-                    BinaryColor::Off =&gt; <span class="string">&#39; &#39;</span>,
-                    BinaryColor::On =&gt; <span class="string">&#39;#&#39;</span>,
+                    BinaryColor::Off =&gt; <span class="string">' '</span>,
+                    BinaryColor::On =&gt; <span class="string">'#'</span>,
                 };
                 output.push(c);
             }
-            output.push(<span class="string">&#39;\n&#39;</span>);
+            output.push(<span class="string">'\n'</span>);
         }
     }
 
@@ -843,7 +844,7 @@
             <span class="kw">let </span><span class="kw-2">mut </span>text = ArrayString::&lt;<span class="number">1024</span>&gt;::new();
             <span class="kw">for </span>(i, c) <span class="kw">in </span>mapping.glyph_mapping().chars().enumerate() {
                 <span class="kw">if </span>i % chars_per_row == <span class="number">0 </span>&amp;&amp; i != <span class="number">0 </span>{
-                    text.push(<span class="string">&#39;\n&#39;</span>);
+                    text.push(<span class="string">'\n'</span>);
                 }
                 text.push(c);
             }
@@ -860,12 +861,12 @@
 
             <span class="kw">if </span>expected != output {
                 <span class="kw">let </span><span class="kw-2">mut </span>message = ArrayString::&lt;<span class="number">65536</span>&gt;::new();
-                message.push_str(<span class="string">&quot;Output:\n&quot;</span>);
+                message.push_str(<span class="string">"Output:\n"</span>);
                 dump_framebuffer(<span class="kw-2">&amp;</span>output, <span class="kw-2">&amp;mut </span>message);
-                message.push_str(<span class="string">&quot;\nExpected:\n&quot;</span>);
+                message.push_str(<span class="string">"\nExpected:\n"</span>);
                 dump_framebuffer(<span class="kw-2">&amp;</span>expected, <span class="kw-2">&amp;mut </span>message);
 
-                <span class="macro">panic!</span>(<span class="string">&quot;{}&quot;</span>, message)
+                <span class="macro">panic!</span>(<span class="string">"{}"</span>, message)
             }
         }
     }
@@ -884,7 +885,7 @@
 
         <span class="kw">let </span><span class="kw-2">mut </span>display = MockDisplay::new();
         Text::new(
-            <span class="string">&quot; &quot;</span>,
+            <span class="string">" "</span>,
             Point::new_equal(<span class="number">20</span>),
             MonoTextStyle::new(<span class="kw-2">&amp;</span>ZERO_WIDTH, BinaryColor::On),
         )
@@ -908,7 +909,7 @@
 
         <span class="kw">let </span><span class="kw-2">mut </span>display = MockDisplay::new();
         Text::new(
-            <span class="string">&quot; &quot;</span>,
+            <span class="string">" "</span>,
             Point::new_equal(<span class="number">20</span>),
             MonoTextStyle::new(<span class="kw-2">&amp;</span>NOT_WIDE_ENOUGH, BinaryColor::On),
         )
@@ -932,14 +933,14 @@
 
         <span class="kw">let </span><span class="kw-2">mut </span>display = MockDisplay::new();
         Text::new(
-            <span class="string">&quot; &quot;</span>,
+            <span class="string">" "</span>,
             Point::zero(),
             MonoTextStyle::new(<span class="kw-2">&amp;</span>NOT_HIGH_ENOUGH, BinaryColor::On),
         )
         .draw(<span class="kw-2">&amp;mut </span>display)
         .unwrap();
 
-        display.assert_pattern(<span class="kw-2">&amp;</span>[<span class="string">&quot;# #&quot;</span>]);
+        display.assert_pattern(<span class="kw-2">&amp;</span>[<span class="string">"# #"</span>]);
     }
 }
 </code></pre></div></section></main></body></html>

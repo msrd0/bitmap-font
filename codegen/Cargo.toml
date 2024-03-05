@@ -11,7 +11,7 @@ edition = "2021"
 [dependencies]
 anyhow = "1.0"
 askama = { version = "0.12", default-features = false }
-base64 = "0.21"
+base64 = "0.22"
 bdf-reader = "0.1.1"
 bit-vec = "0.6"
 indexmap = "2.0"

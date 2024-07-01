@@ -13,7 +13,7 @@ anyhow = "1.0"
 askama = { version = "0.12", default-features = false }
 base64 = "0.22"
 bdf-reader = "0.1.1"
-bit-vec = "0.6"
+bit-vec = "0.7"
 indexmap = "2.0"
 log = "0.4"
 num-format = "0.4"
